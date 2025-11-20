@@ -5,26 +5,31 @@ import { generateOgImageUrl } from "$lib/seo/og-image";
  * Generate a simple meta description for an instructor
  */
 export function generateInstructorMetaDescription(instructor: FullInstructorInformation): string {
-  // Pre-calculate all values
+  // If AI-generated summary exists, use it for better SEO
+  if (instructor.summary) {
+    return instructor.summary;
+  }
+
+  // Fallback to existing stats-based description
   const position = instructor.position || "faculty member";
   const department = instructor.department || "UW-Madison";
-  
+
   // RMP data
   const rating = instructor.rmp_data?.average_rating?.toFixed(1);
   const numRatings = instructor.rmp_data?.num_ratings;
   const wouldTakeAgain = instructor.rmp_data?.would_take_again_percent;
-  
+
   // Courses taught
   const courseCount = instructor.courses_taught?.length || 0;
-  
+
   // Build base description
   const base = `${instructor.name} is a ${position} in ${department} at UW-Madison`;
-  
+
   // Add rating info
-  const ratingInfo = rating && numRatings 
+  const ratingInfo = rating && numRatings
     ? `. ${rating}/5.0 rating from ${numRatings} students`
     : '';
-  
+
   // Add would take again if high
   const takeAgainInfo = wouldTakeAgain && wouldTakeAgain > 80
     ? `. ${Math.round(wouldTakeAgain)}% would take again`
@@ -34,7 +39,7 @@ export function generateInstructorMetaDescription(instructor: FullInstructorInfo
   const coursesInfo = courseCount > 5
     ? `. Teaches ${courseCount} courses`
     : '';
-  
+
   // Single template string assembly
   return `${base}${ratingInfo}${takeAgainInfo}${coursesInfo}`;
 }

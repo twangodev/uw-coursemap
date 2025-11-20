@@ -13,6 +13,7 @@
     Star,
     University,
     Users,
+    Sparkles,
   } from "@lucide/svelte";
   import { Card, CardContent, CardHeader } from "$lib/components/ui/card";
   import { CardDescription, CardTitle } from "$lib/components/ui/card/index.js";
@@ -25,9 +26,51 @@
     calculateGradePointAverage,
   } from "$lib/types/madgrades.ts";
   import { InstructorDetails } from "$lib/components/instructor";
+  import { Button } from "$lib/components/ui/button";
+  import { onMount } from "svelte";
 
   let { data } = $props();
   let instructor = $derived(data.instructor);
+
+  let summary = $state<string | null>(instructor.summary || null);
+  let isLoadingSummary = $state(false);
+  let summaryError = $state<string | null>(null);
+
+  async function generateSummary() {
+    if (summary || isLoadingSummary) return;
+
+    isLoadingSummary = true;
+    summaryError = null;
+
+    try {
+      const response = await fetch('/api/instructor-summary', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(instructor),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to generate summary');
+      }
+
+      const data = await response.json();
+      summary = data.summary;
+    } catch (error) {
+      console.error('Error generating summary:', error);
+      summaryError = 'Failed to generate summary. Please try again.';
+    } finally {
+      isLoadingSummary = false;
+    }
+  }
+
+  // Auto-generate summary if not already present
+  onMount(() => {
+    if (!summary && (instructor.rmp_data || instructor.cumulative_grade_data)) {
+      generateSummary();
+    }
+  });
 
   let attendanceRequirement = $derived(
     getAttendanceRequirement(instructor?.rmp_data?.mandatory_attendance),
@@ -75,6 +118,35 @@
   <div class="grid grid-cols-1 gap-4 lg:grid-cols-12">
     <InstructorDetails {instructor} />
     <div class="mt-2 grid-cols-1 space-y-4 lg:col-span-9">
+      {#if summary || isLoadingSummary}
+        <Card>
+          <CardHeader class="pb-2 flex flex-row items-center justify-between">
+            <div class="flex items-center gap-2">
+              <Sparkles class="h-5 w-5 text-purple-500" />
+              <CardTitle class="text-lg font-bold">AI Summary</CardTitle>
+            </div>
+          </CardHeader>
+          <CardContent>
+            {#if isLoadingSummary}
+              <div class="flex items-center gap-2 text-sm text-muted-foreground">
+                <div class="h-4 w-4 animate-spin rounded-full border-2 border-purple-500 border-t-transparent"></div>
+                Generating summary...
+              </div>
+            {:else if summaryError}
+              <div class="space-y-2">
+                <p class="text-sm text-red-500">{summaryError}</p>
+                <Button variant="outline" size="sm" onclick={generateSummary}>
+                  Try Again
+                </Button>
+              </div>
+            {:else if summary}
+              <p class="text-sm text-muted-foreground">
+                {summary}
+              </p>
+            {/if}
+          </CardContent>
+        </Card>
+      {/if}
       <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader

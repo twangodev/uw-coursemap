@@ -178,6 +178,7 @@ class FullInstructor(JsonSerializable):
         official_name,
         courses_taught=None,
         cumulative_grade_data: GradeData | None = None,
+        summary: str | None = None,
     ):
         self.name = name
         self.email = email
@@ -188,6 +189,7 @@ class FullInstructor(JsonSerializable):
         self.official_name = official_name
         self.courses_taught = courses_taught
         self.cumulative_grade_data = cumulative_grade_data
+        self.summary = summary
 
     @classmethod
     def from_json(cls, json_data) -> "FullInstructor":
@@ -211,6 +213,7 @@ class FullInstructor(JsonSerializable):
             official_name=json_data["official_name"],
             courses_taught=courses_taught,
             cumulative_grade_data=cumulative_grade_data,
+            summary=json_data.get("summary", None),
         )
 
     def to_dict(self):
@@ -230,6 +233,7 @@ class FullInstructor(JsonSerializable):
             "cumulative_grade_data": self.cumulative_grade_data.to_dict()
             if self.cumulative_grade_data
             else None,
+            "summary": self.summary,
         }
 
 

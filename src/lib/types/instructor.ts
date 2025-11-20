@@ -94,6 +94,7 @@ export type FullInstructorInformation = {
   rmp_data: Instructor | null;
   courses_taught: string[];
   cumulative_grade_data: GradeData | null;
+  summary: string | null;
 };
 
 export async function getFullInstructorInformation(
@@ -126,6 +127,9 @@ export async function getFullInstructorInformation(
             official_name: null,
             position: null,
             rmp_data: null,
+            courses_taught: [],
+            cumulative_grade_data: null,
+            summary: null,
           };
     rawInstructors.push(data);
   }
