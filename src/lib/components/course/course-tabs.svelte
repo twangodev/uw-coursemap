@@ -63,7 +63,7 @@
     <TabsTrigger value="trends">{m["course.tabs.trends"]()}</TabsTrigger>
   </TabsList>
   <div class="grid gap-4 lg:grid-cols-12">
-    <CourseDetails {course} {selectedTerm} />
+    <CourseDetails {course} {selectedTerm} {instructors} />
     <TabsContent class="space-y-4 lg:col-span-9" value="overview">
       <CourseOverview
         {course}
