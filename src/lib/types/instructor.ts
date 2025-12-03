@@ -4,6 +4,19 @@ import { apiFetch } from "$lib/api.ts";
 import type { GradeData } from "$lib/types/madgrades.ts";
 import { env } from "$env/dynamic/public";
 import { error } from "@sveltejs/kit";
+import anyAscii from "any-ascii";
+
+/** Convert instructor name to uppercase URL-safe ID. e.g., "O'Brien Jr." → "OBRIEN_JR" */
+export function sanitizeInstructorId(name: string): string {
+  return anyAscii(name)
+    .replaceAll(" ", "_")
+    .replaceAll("/", "_")
+    .replaceAll("'", "")
+    .replaceAll(".", "")
+    .toUpperCase()
+    .replace(/_+/g, "_")
+    .replace(/^_|_$/g, "");
+}
 
 export type MandatoryAttendance = {
   neither: number;
@@ -107,7 +120,7 @@ export async function getFullInstructorInformation(
     getInstructorsWithEmail(course, selectedTerm ?? getLatestTermId(terms)),
   )) {
     const response = await fetch(
-      `${env.PUBLIC_API_URL}/instructors/${name.replaceAll(" ", "_").replaceAll("/", "_")}.json`,
+      `${env.PUBLIC_API_URL}/instructors/${sanitizeInstructorId(name)}.json`,
     );
     if (!response.ok) {
       console.error(

@@ -11,6 +11,7 @@ from tqdm.asyncio import tqdm
 from aio_cache import get_aio_cache
 from course import Course
 from enrollment_data import EnrollmentData, TermData
+from http_utils import get_default_headers
 
 terms_url = "https://public.enroll.wisc.edu/api/search/v1/aggregate"
 query_url = "https://public.enroll.wisc.edu/api/search/v1"
@@ -43,7 +44,7 @@ def sync_enrollment_terms(terms):
 
     logger.info("Fetching latest terms...")
 
-    response = requests.get(url=terms_url)
+    response = requests.get(url=terms_url, headers=get_default_headers())
     data = response.json()
 
     for term in data["terms"]:
@@ -76,7 +77,9 @@ async def build_from_mega_query(
         "pageSize": 1,
     }
 
-    async with CachedSession(cache=get_aio_cache()) as session:
+    async with CachedSession(
+        cache=get_aio_cache(), headers=get_default_headers()
+    ) as session:
         logger.debug(f"Building enrollment package for {term_name}...")
         async with session.post(url=query_url, json=post_data) as response:
             data = await response.json()

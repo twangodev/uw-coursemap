@@ -11,6 +11,7 @@ from aiohttp import DummyCookieJar
 from aiohttp_client_cache import CachedSession
 from bs4 import BeautifulSoup
 from diskcache import Cache
+from http_utils import get_default_headers, get_user_agent
 from tqdm.asyncio import tqdm
 
 from aio_cache import get_aio_cache
@@ -18,6 +19,7 @@ from course import Course
 from enrollment import build_from_mega_query
 from enrollment_data import GradeData
 from json_serializable import JsonSerializable
+from sanitization import sanitize_instructor_id
 from name_matcher import find_best_structured_match, find_best_name_match
 
 faculty_url = "https://guide.wisc.edu/faculty/"
@@ -242,9 +244,6 @@ def produce_query(instructor_name):
     }
 
 
-mock_user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
-
-
 async def get_rating(
     name: str,
     api_key: str,
@@ -253,7 +252,7 @@ async def get_rating(
     rate_limited_count: int = 0,
     disable_cache=False,
 ):
-    auth_header = {"Authorization": f"Basic {api_key}", "User-Agent": mock_user_agent}
+    auth_header = {"Authorization": f"Basic {api_key}", "User-Agent": get_user_agent()}
     payload = {"query": graph_ql_query, "variables": produce_query(name)}
 
     try:
@@ -320,9 +319,7 @@ async def get_rating(
 
 
 def scrape_rmp_api_key():
-    response = requests.get(
-        rmp_url, headers={"User-Agent": "Mozilla/5.0"}
-    )  # Some sites require a user-agent to avoid blocking
+    response = requests.get(rmp_url, headers=get_default_headers())
 
     match = re.search(r'"REACT_APP_GRAPHQL_AUTH"\s*:\s*"([^"]+)"', response.text)
     if match:
@@ -338,7 +335,7 @@ def scrape_rmp_api_key():
 
 
 def get_faculty():
-    response = requests.get(faculty_url)
+    response = requests.get(faculty_url, headers=get_default_headers())
 
     soup = BeautifulSoup(response.content, "html.parser")
     uw_people_lists = soup.find_all("ul", class_="uw-people")
@@ -586,11 +583,28 @@ async def get_ratings(
             unit="instructor",
         )
 
-        # collect your results
+        # collect results, keyed by sanitized ID
+        id_to_names = defaultdict(set)
         for name, inst, had_rating in results:
+            instructor_id = sanitize_instructor_id(name)
+            if instructor_id is None:
+                continue
+            id_to_names[instructor_id].add(name)
+
             if had_rating:
                 with_ratings += 1
-            instructor_data[name] = inst
+
+            existing = instructor_data.get(instructor_id)
+            if existing is None:
+                instructor_data[instructor_id] = inst
+            else:
+                # prefer the one with RMP data
+                if inst.rmp_data and not existing.rmp_data:
+                    instructor_data[instructor_id] = inst
+
+        for instructor_id, names in id_to_names.items():
+            if len(names) > 1:
+                logger.info(f"Merged instructor names {names} → {instructor_id}")
 
     logger.info(
         f"Found instructor_data for {with_ratings} out of {total} instructors ({with_ratings * 100 / total:.2f}%)."

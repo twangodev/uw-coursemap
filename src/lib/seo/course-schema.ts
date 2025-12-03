@@ -1,6 +1,6 @@
 import type { Course as CourseSchema, WithContext, CourseInstance, AggregateRating, Person, Organization, EducationalOccupationalProgram, Offer, Place } from "schema-dts";
 import type { Course } from "$lib/types/course.ts";
-import type { FullInstructorInformation } from "$lib/types/instructor.ts";
+import { type FullInstructorInformation, sanitizeInstructorId } from "$lib/types/instructor.ts";
 import type { Terms } from "$lib/types/terms.ts";
 import { courseReferenceToString } from "$lib/types/course.ts";
 import { calculateGradePointAverage, calculateCompletionRate } from "$lib/types/madgrades.ts";
@@ -266,7 +266,7 @@ function generateCourseInstances(
       "@type": "Person",
       "name": name,
       "email": email || undefined,
-      "url": instructorInfo ? `https://uwcourses.com/instructors/${name.replace(/\s+/g, '_')}` : undefined,
+      "url": instructorInfo ? `https://uwcourses.com/instructors/${sanitizeInstructorId(name)}` : undefined,
       "worksFor": university
     };
   });
