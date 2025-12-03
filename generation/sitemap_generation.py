@@ -116,8 +116,12 @@ def generate_sitemap(
             course_entries.append(entry)
 
     instr_entries = []
-    sanitized_instructors = [sid for inst in instructors if (sid := sanitize_instructor_id(inst))]
-    for inst_id in tqdm(sanitized_instructors, desc="Instructor Sitemap", unit="instructor"):
+    sanitized_instructors = [
+        sid for inst in instructors if (sid := sanitize_instructor_id(inst))
+    ]
+    for inst_id in tqdm(
+        sanitized_instructors, desc="Instructor Sitemap", unit="instructor"
+    ):
         entry = create_url_entry(base_url, "instructors", inst_id, priority=0.8)
         if entry:
             instr_entries.append(entry)

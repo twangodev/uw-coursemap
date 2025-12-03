@@ -28,11 +28,19 @@ def sanitize_instructor_id(name: str) -> Union[str, None]:
         return None
 
     result = anyascii(name)
-    result = result.replace("/", "_").replace(" ", "_").replace("'", "").replace(".", "").upper()
+    result = (
+        result.replace("/", "_")
+        .replace(" ", "_")
+        .replace("'", "")
+        .replace(".", "")
+        .upper()
+    )
     result = re.sub(r"_+", "_", result).strip("_")
 
     if not result:
-        logger.debug(f"Instructor name '{name}' resulted in empty string after sanitization.")
+        logger.debug(
+            f"Instructor name '{name}' resulted in empty string after sanitization."
+        )
         return None
 
     try:

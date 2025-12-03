@@ -142,7 +142,9 @@ def chunk_meetings_by_instructor(course_ref_to_meetings, data_dir):
         if meetings:
             all_meetings.extend(list(meetings))
 
-    logger.info(f"Processing {len(all_meetings)} total meetings for instructor chunking")
+    logger.info(
+        f"Processing {len(all_meetings)} total meetings for instructor chunking"
+    )
 
     for meeting in all_meetings:
         if not meeting.start_time or not meeting.instructors:
