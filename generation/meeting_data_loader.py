@@ -9,6 +9,8 @@ from typing import List, Dict, Optional
 import requests
 import requests_cache
 
+from http_utils import get_default_headers
+
 
 class MeetingDataLoader:
     """Handles loading meeting data from various sources."""
@@ -34,8 +36,7 @@ class MeetingDataLoader:
         """
 
         try:
-            headers = {"User-Agent": "UW-CourseMap/1.0 (https://uwcourses.com)"}
-            response = cls._session.get(url, headers=headers, timeout=30)
+            response = cls._session.get(url, headers=get_default_headers(), timeout=30)
             response.raise_for_status()
             return response.json()
         except requests.exceptions.HTTPError as e:

@@ -9,6 +9,7 @@ from tqdm.asyncio import tqdm
 from aio_cache import get_aio_cache
 from course import Course
 from enrollment_data import MadgradesData, TermData
+from http_utils import get_user_agent
 
 madgrades_api_endpoint = "https://api.madgrades.com/v1/"
 page_size = 100
@@ -18,8 +19,11 @@ logger = getLogger(__name__)
 
 def get_madgrades_terms(madgrades_api_key) -> dict[int, str]:
     logger.info("Fetching Madgrades terms...")
-    auth_header = {"Authorization": f"Token token={madgrades_api_key}"}
-    response = requests.get(url=madgrades_api_endpoint + "terms", headers=auth_header)
+    headers = {
+        "Authorization": f"Token token={madgrades_api_key}",
+        "User-Agent": get_user_agent(),
+    }
+    response = requests.get(url=madgrades_api_endpoint + "terms", headers=headers)
     return {
         int(term_code): term_name for term_code, term_name in response.json().items()
     }
@@ -64,7 +68,8 @@ async def process_course(
 
 async def fetch_and_process_page(session, url, course_ref_to_course, key, attempts=5):
     async with session.get(
-        url, headers={"Authorization": f"Token token={key}"}
+        url,
+        headers={"Authorization": f"Token token={key}", "User-Agent": get_user_agent()},
     ) as resp:
         try:
             data = await resp.json()
@@ -104,7 +109,11 @@ async def add_madgrades_data(course_ref_to_course, madgrades_api_key):
     async with CachedSession(cache=get_aio_cache(), connector=connector) as session:
         first_url = base + params
         async with session.get(
-            first_url, headers={"Authorization": f"Token token={madgrades_api_key}"}
+            first_url,
+            headers={
+                "Authorization": f"Token token={madgrades_api_key}",
+                "User-Agent": get_user_agent(),
+            },
         ) as resp:
             first = await resp.json()
         total = first["totalPages"]
