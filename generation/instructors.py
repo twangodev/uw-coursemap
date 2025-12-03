@@ -11,6 +11,7 @@ from aiohttp import DummyCookieJar
 from aiohttp_client_cache import CachedSession
 from bs4 import BeautifulSoup
 from diskcache import Cache
+from http_utils import get_default_headers, get_user_agent
 from tqdm.asyncio import tqdm
 
 from aio_cache import get_aio_cache
@@ -243,9 +244,6 @@ def produce_query(instructor_name):
     }
 
 
-mock_user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
-
-
 async def get_rating(
     name: str,
     api_key: str,
@@ -254,7 +252,7 @@ async def get_rating(
     rate_limited_count: int = 0,
     disable_cache=False,
 ):
-    auth_header = {"Authorization": f"Basic {api_key}", "User-Agent": mock_user_agent}
+    auth_header = {"Authorization": f"Basic {api_key}", "User-Agent": get_user_agent()}
     payload = {"query": graph_ql_query, "variables": produce_query(name)}
 
     try:
@@ -321,9 +319,7 @@ async def get_rating(
 
 
 def scrape_rmp_api_key():
-    response = requests.get(
-        rmp_url, headers={"User-Agent": "Mozilla/5.0"}
-    )  # Some sites require a user-agent to avoid blocking
+    response = requests.get(rmp_url, headers=get_default_headers())
 
     match = re.search(r'"REACT_APP_GRAPHQL_AUTH"\s*:\s*"([^"]+)"', response.text)
     if match:
@@ -339,7 +335,7 @@ def scrape_rmp_api_key():
 
 
 def get_faculty():
-    response = requests.get(faculty_url)
+    response = requests.get(faculty_url, headers=get_default_headers())
 
     soup = BeautifulSoup(response.content, "html.parser")
     uw_people_lists = soup.find_all("ul", class_="uw-people")
