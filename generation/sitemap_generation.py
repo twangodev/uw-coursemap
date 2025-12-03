@@ -4,24 +4,15 @@ from logging import getLogger
 from typing import List, Dict, Union
 from xml.etree.ElementTree import Element, SubElement, tostring
 from xml.dom.minidom import parseString
-from pathvalidate import validate_filename, ValidationError
 from tqdm import tqdm
+
+from sanitization import sanitize_entry, sanitize_instructor_id
 
 logger = getLogger(__name__)
 
 pages = ["", "explorer", "upload"]
 
 last_mod = datetime.now().date().isoformat()
-
-
-def sanitize_entry(entry: str) -> Union[str, None]:
-    result = entry.replace("/", "_").replace(" ", "_")
-    try:
-        validate_filename(result)
-    except ValidationError as e:
-        logger.debug(f"Invalid filename '{result}': {e}. Not writing file.")
-        return None
-    return result
 
 
 def create_url_entry(
@@ -125,7 +116,8 @@ def generate_sitemap(
             course_entries.append(entry)
 
     instr_entries = []
-    for inst in tqdm(instructors, desc="Instructor Sitemap", unit="instructor"):
+    sanitized_instructors = [sanitize_instructor_id(inst) for inst in instructors if sanitize_instructor_id(inst)]
+    for inst in tqdm(sanitized_instructors, desc="Instructor Sitemap", unit="instructor"):
         entry = create_url_entry(base_url, "instructors", inst, priority=0.8)
         if entry:
             instr_entries.append(entry)

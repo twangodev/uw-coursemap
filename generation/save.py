@@ -10,7 +10,8 @@ from tqdm import tqdm
 from instructors import FullInstructor
 from json_serializable import JsonSerializable
 from map import get_buildings
-from sitemap_generation import generate_sitemap, sanitize_entry
+from sanitization import sanitize_entry, sanitize_instructor_id
+from sitemap_generation import generate_sitemap
 
 logger = getLogger(__name__)
 
@@ -162,7 +163,10 @@ def chunk_meetings_by_instructor(course_ref_to_meetings, data_dir):
         desc="Writing meeting files by instructor",
         unit="instructor",
     ):
-        directory_tuple = ("instructors", instructor_name)
+        instructor_id = sanitize_instructor_id(instructor_name)
+        if instructor_id is None:
+            continue
+        directory_tuple = ("instructors", instructor_id)
         write_file(data_dir, directory_tuple, "meetings", meetings)
         total_files_written += 1
 
@@ -580,7 +584,10 @@ def write_data(
     ):
         if rating is None:
             continue
-        write_file(data_dir, ("instructors",), instructor, rating)
+        instructor_id = sanitize_instructor_id(instructor)
+        if instructor_id is None:
+            continue
+        write_file(data_dir, ("instructors",), instructor_id, rating)
 
     write_file(data_dir, tuple(), "terms", terms)
 
