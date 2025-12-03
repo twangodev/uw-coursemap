@@ -27,7 +27,13 @@ def sanitize_instructor_id(name: str) -> Union[str, None]:
         return None
 
     result = anyascii(name)
-    result = result.replace("/", "_").replace(" ", "_").replace("'", "").replace(".", "").upper()
+    result = (
+        result.replace("/", "_")
+        .replace(" ", "_")
+        .replace("'", "")
+        .replace(".", "")
+        .upper()
+    )
 
     try:
         validate_filename(result)
