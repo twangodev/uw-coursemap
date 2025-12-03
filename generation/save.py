@@ -132,46 +132,44 @@ def chunk_meetings_by_instructor(course_ref_to_meetings, data_dir):
     """
     Chunks meetings by instructor.
 
-    Directory structure: /instructors/{instructor_name}/meetings.json
+    Directory structure: /instructors/{instructor_id}/meetings.json
     """
-    # Group meetings by instructor
     instructor_meetings = defaultdict(list)
+    id_to_names = defaultdict(set)
 
-    # Flatten all meetings from all courses and group by instructor
     all_meetings = []
     for course_reference, meetings in course_ref_to_meetings.items():
         if meetings:
             all_meetings.extend(list(meetings))
 
-    logger.info(
-        f"Processing {len(all_meetings)} total meetings for instructor chunking"
-    )
+    logger.info(f"Processing {len(all_meetings)} total meetings for instructor chunking")
 
     for meeting in all_meetings:
-        # Skip meetings without start_time or instructors
         if not meeting.start_time or not meeting.instructors:
             continue
 
-        # Add meeting to each instructor's bucket (meetings can have multiple instructors)
         for instructor_name in meeting.instructors:
-            instructor_meetings[instructor_name].append(meeting)
+            instructor_id = sanitize_instructor_id(instructor_name)
+            if instructor_id is None:
+                continue
+            instructor_meetings[instructor_id].append(meeting)
+            id_to_names[instructor_id].add(instructor_name)
 
-    # Write meetings for each instructor to a single file
+    for instructor_id, names in id_to_names.items():
+        if len(names) > 1:
+            logger.info(f"Merged instructor names {names} → {instructor_id}")
+
     total_files_written = 0
-    for instructor_name, meetings in tqdm(
+    for instructor_id, meetings in tqdm(
         instructor_meetings.items(),
         desc="Writing meeting files by instructor",
         unit="instructor",
     ):
-        instructor_id = sanitize_instructor_id(instructor_name)
-        if instructor_id is None:
-            continue
         directory_tuple = ("instructors", instructor_id)
         write_file(data_dir, directory_tuple, "meetings", meetings)
         total_files_written += 1
 
     logger.info(f"Wrote {total_files_written} meeting files organized by instructor")
-    logger.info(f"Meetings organized across {len(instructor_meetings)} instructors")
 
 
 def chunk_meetings_by_subject(course_ref_to_meetings, data_dir):
@@ -579,13 +577,10 @@ def write_data(
     ):
         write_file(data_dir, ("styles",), subject, style)
 
-    for instructor, rating in tqdm(
+    for instructor_id, rating in tqdm(
         instructor_to_rating.items(), desc="Instructors", unit="instructor"
     ):
         if rating is None:
-            continue
-        instructor_id = sanitize_instructor_id(instructor)
-        if instructor_id is None:
             continue
         write_file(data_dir, ("instructors",), instructor_id, rating)
 
