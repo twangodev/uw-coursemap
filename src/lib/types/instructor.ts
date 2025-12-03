@@ -13,7 +13,9 @@ export function sanitizeInstructorId(name: string): string {
     .replaceAll("/", "_")
     .replaceAll("'", "")
     .replaceAll(".", "")
-    .toUpperCase();
+    .toUpperCase()
+    .replace(/_+/g, "_")
+    .replace(/^_|_$/g, "");
 }
 
 export type MandatoryAttendance = {
