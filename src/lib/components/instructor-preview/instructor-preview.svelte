@@ -1,7 +1,7 @@
 <script lang="ts">
   import { LucideMail } from "@lucide/svelte";
   import { Avatar, AvatarFallback } from "$lib/components/ui/avatar";
-  import type { FullInstructorInformation } from "$lib/types/instructor.ts";
+  import { type FullInstructorInformation, sanitizeInstructorId } from "$lib/types/instructor.ts";
   import ColoredNumberBox from "$lib/components/instructor-preview/colored-number-box.svelte";
   import { slide } from "svelte/transition";
   import { slideParams } from "$lib/transitions.ts";
@@ -32,7 +32,7 @@
   <a
     class="hover:bg-muted flex items-center justify-between rounded-lg p-2 transition-colors"
     target="_blank"
-    href={localizeHref(`/instructors/${name.replaceAll(' ', '_').replaceAll('/', '_')}`)}
+    href={localizeHref(`/instructors/${sanitizeInstructorId(name)}`)}
   >
     <div class="flex items-center overflow-hidden">
       {#if rank}
