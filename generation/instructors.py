@@ -18,6 +18,7 @@ from course import Course
 from enrollment import build_from_mega_query
 from enrollment_data import GradeData
 from json_serializable import JsonSerializable
+from sanitization import sanitize_instructor_id
 from name_matcher import find_best_structured_match, find_best_name_match
 
 faculty_url = "https://guide.wisc.edu/faculty/"
@@ -586,11 +587,28 @@ async def get_ratings(
             unit="instructor",
         )
 
-        # collect your results
+        # collect results, keyed by sanitized ID
+        id_to_names = defaultdict(set)
         for name, inst, had_rating in results:
+            instructor_id = sanitize_instructor_id(name)
+            if instructor_id is None:
+                continue
+            id_to_names[instructor_id].add(name)
+
             if had_rating:
                 with_ratings += 1
-            instructor_data[name] = inst
+
+            existing = instructor_data.get(instructor_id)
+            if existing is None:
+                instructor_data[instructor_id] = inst
+            else:
+                # prefer the one with RMP data
+                if inst.rmp_data and not existing.rmp_data:
+                    instructor_data[instructor_id] = inst
+
+        for instructor_id, names in id_to_names.items():
+            if len(names) > 1:
+                logger.info(f"Merged instructor names {names} → {instructor_id}")
 
     logger.info(
         f"Found instructor_data for {with_ratings} out of {total} instructors ({with_ratings * 100 / total:.2f}%)."
