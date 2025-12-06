@@ -23,7 +23,7 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           submodules: true
       - uses: actions/setup-python@v6
@@ -36,7 +36,7 @@ jobs:
       - name: Install Dependencies
         run: uv sync
       - name: Setup Cache Environment
-        run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+        run: echo "cache_id=$(date --utc '+%U')" >> $GITHUB_ENV
       - name: Cache Generation
         uses: actions/cache@v4
         with:
@@ -67,7 +67,7 @@ jobs:
       url: ${{ vars.DEPLOY_URL }}
     steps:
       - name: Checkout Deployment Repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           repository: twangodev/uw-coursemap-data
           token: ${{ secrets.PAT }}
@@ -103,7 +103,7 @@ jobs:
       pull-requests: write
       contents: write
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           submodules: true
       - name: Bump Submodule

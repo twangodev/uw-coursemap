@@ -11,8 +11,7 @@ from aiohttp import DummyCookieJar
 from aiohttp_client_cache import CachedSession
 from bs4 import BeautifulSoup
 from diskcache import Cache
-from nameparser import HumanName
-from rapidfuzz import fuzz
+from http_utils import get_default_headers, get_user_agent
 from tqdm.asyncio import tqdm
 
 from aio_cache import get_aio_cache
@@ -20,6 +19,8 @@ from course import Course
 from enrollment import build_from_mega_query
 from enrollment_data import GradeData
 from json_serializable import JsonSerializable
+from sanitization import sanitize_instructor_id
+from name_matcher import find_best_structured_match, find_best_name_match
 
 faculty_url = "https://guide.wisc.edu/faculty/"
 
@@ -198,7 +199,9 @@ class FullInstructor(JsonSerializable):
 
         courses_taught = json_data.get("courses_taught", None)
         if courses_taught:
-            courses_taught = set(courses_taught)
+            courses_taught = {
+                Course.Reference.from_json(course_ref) for course_ref in courses_taught
+            }
 
         return FullInstructor(
             name=json_data["name"],
@@ -221,7 +224,9 @@ class FullInstructor(JsonSerializable):
             "department": self.department,
             "credentials": self.credentials,
             "official_name": self.official_name,
-            "courses_taught": list(self.courses_taught)
+            "courses_taught": [
+                course_ref.to_dict() for course_ref in self.courses_taught
+            ]
             if self.courses_taught
             else None,
             "cumulative_grade_data": self.cumulative_grade_data.to_dict()
@@ -239,9 +244,6 @@ def produce_query(instructor_name):
     }
 
 
-mock_user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
-
-
 async def get_rating(
     name: str,
     api_key: str,
@@ -250,7 +252,7 @@ async def get_rating(
     rate_limited_count: int = 0,
     disable_cache=False,
 ):
-    auth_header = {"Authorization": f"Basic {api_key}", "User-Agent": mock_user_agent}
+    auth_header = {"Authorization": f"Basic {api_key}", "User-Agent": get_user_agent()}
     payload = {"query": graph_ql_query, "variables": produce_query(name)}
 
     try:
@@ -291,25 +293,33 @@ async def get_rating(
         logger.error(f"Failed to fetch or decode JSON response for {name}: {e}")
         return None
 
-    # Parse the results to find a matching teacher
-    results = data["data"]["newSearch"]["teachers"]["edges"]
-    for item in results:
-        result = item["node"]
-        # Simple matching: check if both first and last names appear in the name string
-        if (
-            result["firstName"].lower() in name.lower()
-            and result["lastName"].lower() in name.lower()
-        ):
-            return RMPData.from_rmp_data(result)
+    # Parse the results to find the best matching teacher
+    edges = data["data"]["newSearch"]["teachers"]["edges"]
+    candidates = [item["node"] for item in edges]
 
-    logger.debug(f"Failed to find rating for {name}")
+    # Use universal name matcher to find best match
+    match_result = find_best_structured_match(
+        query_name=name,
+        candidates=candidates,
+        first_name_key="firstName",
+        last_name_key="lastName",
+        threshold=80.0,
+        require_exact_last=True,
+    )
+
+    if match_result.is_match:
+        logger.debug(
+            f"Matched '{name}' to RMP profile '{match_result.matched_name}' "
+            f"(confidence: {match_result.confidence:.2f})"
+        )
+        return RMPData.from_rmp_data(match_result.matched_item)
+
+    logger.debug(f"No RMP match found for '{name}'")
     return None
 
 
 def scrape_rmp_api_key():
-    response = requests.get(
-        rmp_url, headers={"User-Agent": "Mozilla/5.0"}
-    )  # Some sites require a user-agent to avoid blocking
+    response = requests.get(rmp_url, headers=get_default_headers())
 
     match = re.search(r'"REACT_APP_GRAPHQL_AUTH"\s*:\s*"([^"]+)"', response.text)
     if match:
@@ -325,7 +335,7 @@ def scrape_rmp_api_key():
 
 
 def get_faculty():
-    response = requests.get(faculty_url)
+    response = requests.get(faculty_url, headers=get_default_headers())
 
     soup = BeautifulSoup(response.content, "html.parser")
     uw_people_lists = soup.find_all("ul", class_="uw-people")
@@ -376,38 +386,40 @@ null_sentinel = object()
 def match_name(
     student_name, official_names, cache_dir, query_cache_group, threshold=80
 ):
+    """
+    Match an instructor name against a list of official names.
+
+    Uses disk cache for performance and delegates to universal name matcher.
+
+    Args:
+        student_name: Name to match
+        official_names: Set or list of official names to match against
+        cache_dir: Directory for disk cache
+        query_cache_group: Cache group identifier (e.g., "rmp", "instructors")
+        threshold: Minimum confidence score (0-100) required for match
+
+    Returns:
+        Matched name string or None if no match found
+    """
     cache = get_match_cache(cache_dir)
     cache_key = f"{query_cache_group}:{student_name.strip().upper()}"
 
+    # Check cache first
     cache_entry = cache.get(cache_key, default=null_sentinel)
     if cache_entry is not null_sentinel:
         return cache_entry
 
-    # Parse and normalize the student name.
-    student_parsed = HumanName(student_name)
-    student_first = student_parsed.first.upper().strip()
-    student_last = student_parsed.last.upper().strip()
+    # Use universal name matcher
+    match_result = find_best_name_match(
+        query_name=student_name,
+        candidates=list(official_names),
+        threshold=threshold,
+        require_exact_last=True,
+    )
 
-    best_match = None
-    best_score = 0
+    result = match_result.matched_item if match_result.is_match else None
 
-    for candidate in official_names:
-        candidate_parsed = HumanName(candidate)
-        candidate_first = candidate_parsed.first.upper().strip()
-        candidate_last = candidate_parsed.last.upper().strip()
-
-        # Filter: if the last names don't match exactly, skip this candidate.
-        if student_last != candidate_last:
-            continue
-
-        # Use fuzzy matching on the first name.
-        score = fuzz.token_set_ratio(student_first, candidate_first)
-        if score > best_score:
-            best_score = score
-            best_match = candidate
-
-    result = best_match if best_score >= threshold else None
-
+    # Cache the result
     cache.set(cache_key, result)
     return result
 
@@ -571,11 +583,28 @@ async def get_ratings(
             unit="instructor",
         )
 
-        # collect your results
+        # collect results, keyed by sanitized ID
+        id_to_names = defaultdict(set)
         for name, inst, had_rating in results:
+            instructor_id = sanitize_instructor_id(name)
+            if instructor_id is None:
+                continue
+            id_to_names[instructor_id].add(name)
+
             if had_rating:
                 with_ratings += 1
-            instructor_data[name] = inst
+
+            existing = instructor_data.get(instructor_id)
+            if existing is None:
+                instructor_data[instructor_id] = inst
+            else:
+                # prefer the one with RMP data
+                if inst.rmp_data and not existing.rmp_data:
+                    instructor_data[instructor_id] = inst
+
+        for instructor_id, names in id_to_names.items():
+            if len(names) > 1:
+                logger.info(f"Merged instructor names {names} → {instructor_id}")
 
     logger.info(
         f"Found instructor_data for {with_ratings} out of {total} instructors ({with_ratings * 100 / total:.2f}%)."

@@ -9,6 +9,7 @@ from course import Course
 from embeddings import get_model, get_embedding, get_keyword_model, CachedKeyBERT
 from enrollment_data import GradeData
 from instructors import FullInstructor
+from sanitization import sanitize_instructor_id
 
 logger = getLogger(__name__)
 
@@ -308,12 +309,12 @@ def aggregate_courses(
 def most_rated_instructors(instructor_to_rating: dict[str, FullInstructor], top_n=100):
     instructor_ratings = [
         (
-            name,
+            instructor.name,
             instructor.rmp_data.num_ratings
             if instructor.rmp_data and instructor.email
             else 0,
         )
-        for name, instructor in instructor_to_rating.items()
+        for instructor in instructor_to_rating.values()
     ]
 
     sorted_instructors = sorted(instructor_ratings, key=lambda x: x[1], reverse=True)
@@ -334,10 +335,11 @@ def aggregate_instructors(
                 continue
 
             for instructor_name in term_data.grade_data.instructors:
-                if instructor_name not in instructor_to_rating:
+                instructor_id = sanitize_instructor_id(instructor_name)
+                if instructor_id not in instructor_to_rating:
                     continue
 
-                instructor = instructor_to_rating[instructor_name]
+                instructor = instructor_to_rating[instructor_id]
 
                 if not instructor.courses_taught:
                     instructor.courses_taught = set()
@@ -350,7 +352,7 @@ def aggregate_instructors(
                     term_data.grade_data
                 )
 
-                instructor.courses_taught.add(course_reference.get_identifier())
+                instructor.courses_taught.add(course_reference)
                 instructor.cumulative_grade_data = grade_data_summation
 
     instructor_statistics = {

@@ -5,9 +5,11 @@ description = "UW Course Map Data Generation Service"
 requires-python = "==3.12.*"
 dependencies = [
     "aiohttp-client-cache[sqlite]>=0.13.0",
+    "anyascii>=0.3.3",
     "beautifulsoup4>=4.13.4",
     "coloredlogs>=15.0.1",
     "diskcache>=5.6.3",
+    "fake-useragent>=2.2.0",
     "frozendict>=2.4.6",
     "geojson>=3.2.0",
     "geopandas>=1.1.1",
@@ -29,10 +31,6 @@ dependencies = [
     "torchvision>=0.22.1",
     "tqdm>=4.67.1",
 ]
-
-[[tool.uv.index]]
-name = "pytorch"
-url = "https://download.pytorch.org/whl/cpu"
 
 [dependency-groups]
 dev = [

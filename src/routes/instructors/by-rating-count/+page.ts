@@ -1,6 +1,6 @@
 import type { QuickStatistics } from "$lib/types/misc.ts";
 import { env } from "$env/dynamic/public";
-import type { FullInstructorInformation } from "$lib/types/instructor.ts";
+import { type FullInstructorInformation, sanitizeInstructorId } from "$lib/types/instructor.ts";
 
 const { PUBLIC_API_URL } = env;
 
@@ -17,9 +17,8 @@ export const load = async ({ fetch }) => {
   const instructorNames = quickStatistics.most_rated_instructors;
   const instructors: FullInstructorInformation[] = await Promise.all(
     instructorNames.map(async (name) => {
-      const sanitized = name.replaceAll(" ", "_").replaceAll("/", "_");
       const response = await fetch(
-        `${PUBLIC_API_URL}/instructors/${sanitized}.json`,
+        `${PUBLIC_API_URL}/instructors/${sanitizeInstructorId(name)}.json`,
       );
       if (!response.ok)
         throw new Error(`Failed to fetch instructor: ${response.statusText}`);

@@ -11,6 +11,7 @@ from tqdm.asyncio import tqdm
 
 from aio_cache import get_aio_cache
 from course import Course
+from http_utils import get_default_headers
 from timer import get_ms
 
 sitemap_url = "https://guide.wisc.edu/sitemap.xml"
@@ -58,7 +59,7 @@ def add_data(subjects, course_ref_course, full_subject, blocks):
 def get_course_urls() -> set[str]:
     logger.info("Fetching and parsing the course sitemap...")
 
-    response = requests.get(sitemap_url)
+    response = requests.get(sitemap_url, headers=get_default_headers())
 
     if response.status_code != 200:
         logger.error(f"Failed to fetch sitemap: {response.status_code}")
@@ -93,7 +94,10 @@ async def scrape_all(urls: set[str]):
     connector = aiohttp.TCPConnector(limit=10)
 
     async with CachedSession(
-        cache=get_aio_cache(), timeout=timeout, connector=connector
+        cache=get_aio_cache(),
+        timeout=timeout,
+        connector=connector,
+        headers=get_default_headers(),
     ) as session:
         tasks = [get_course_blocks(session, url) for url in urls]
         results = await tqdm.gather(
