@@ -3,8 +3,8 @@
  */
 
 const OG_IMAGE_BASE_URL = "https://img.ogis.dev/";
-const DEFAULT_LOGO = "https://docs.uwcourses.com/assets/uw-coursemap-light.png";
-const DEFAULT_TEMPLATE = "daybreak";
+const DEFAULT_LOGO = "https://docs.uwcourses.com/assets/uw-coursemap-dark.png";
+const DEFAULT_TEMPLATE = "gradient-garnet";
 
 export interface OgImageOptions {
   title: string;
