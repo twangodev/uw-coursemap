@@ -38,7 +38,7 @@ jobs:
       - name: Setup Cache Environment
         run: echo "cache_id=$(date --utc '+%U')" >> $GITHUB_ENV
       - name: Cache Generation
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: generation/.cache
           key: generation-${{ runner.os }}-${{ env.cache_id }}
@@ -49,7 +49,7 @@ jobs:
           SITEMAP_BASE: ${{ vars.BASE_URL }}
           MADGRADES_API_KEY: ${{ secrets.MADGRADES_API_KEY }}
       - name: Upload Data
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: uw-coursemap-data-snapshot-${{ github.run_id }}
           path: data/
@@ -74,7 +74,7 @@ jobs:
           path: deploy
 
       - name: Download Generated Snapshot
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: uw-coursemap-data-snapshot-${{ github.run_id }}
           path: snapshot
@@ -109,7 +109,7 @@ jobs:
       - name: Bump Submodule
         run: git submodule update --remote
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           title: "Bump Data Submodule from Snapshot #${{ github.run_id }}"
           base: main
