@@ -11,7 +11,6 @@
     CardTitle,
   } from "$lib/components/ui/card/index.js";
   import Cytoscape from "$lib/components/cytoscape/cytoscape.svelte";
-  import Graph from "$lib/components/cytoscape/graph.svelte";
   import { BookOpen } from "@lucide/svelte";
   import { Button } from "$lib/components/ui/button/index.js";
   import type { ElementDefinition } from "cytoscape";
@@ -60,7 +59,12 @@
   <CardContent class="flex-1">
     <div class="flex h-full w-full">
       {#key course}
-        <Graph ast={course.prerequisites} />
+        <Cytoscape
+          elementDefinitions={prerequisiteElementDefinitions}
+          styleEntries={prerequisiteStyleEntries}
+          filter={course}
+          allowFocusing={false}
+        />
       {/key}
     </div>
   </CardContent>
