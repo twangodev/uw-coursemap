@@ -1,7 +1,7 @@
 <script lang="ts">
   import {
     type Course,
-    sanitizeCourseToReferenceString,
+    CourseUtils,
   } from "$lib/types/course.js";
   import {
     Card,
@@ -11,6 +11,7 @@
     CardTitle,
   } from "$lib/components/ui/card/index.js";
   import Cytoscape from "$lib/components/cytoscape/cytoscape.svelte";
+  import Graph from "$lib/components/cytoscape/graph.svelte";
   import { BookOpen } from "@lucide/svelte";
   import { Button } from "$lib/components/ui/button/index.js";
   import type { ElementDefinition } from "cytoscape";
@@ -45,7 +46,7 @@
       <Button
         class="flex items-center gap-2"
         href="/explorer/{course.course_reference
-          .subjects[0]}?focus={sanitizeCourseToReferenceString(
+          .subjects[0]}?focus={CourseUtils.sanitizeCourseReferenceToString(
           course.course_reference,
         )}"
         size="sm"
@@ -59,12 +60,7 @@
   <CardContent class="flex-1">
     <div class="flex h-full w-full">
       {#key course}
-        <Cytoscape
-          elementDefinitions={prerequisiteElementDefinitions}
-          styleEntries={prerequisiteStyleEntries}
-          filter={course}
-          allowFocusing={false}
-        />
+        <Graph ast={course.prerequisites} />
       {/key}
     </div>
   </CardContent>

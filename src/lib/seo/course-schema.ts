@@ -2,7 +2,7 @@ import type { Course as CourseSchema, WithContext, CourseInstance, AggregateRati
 import type { Course } from "$lib/types/course.ts";
 import { type FullInstructorInformation, sanitizeInstructorId } from "$lib/types/instructor.ts";
 import type { Terms } from "$lib/types/terms.ts";
-import { courseReferenceToString } from "$lib/types/course.ts";
+import { CourseUtils } from "$lib/types/course.ts";
 import { calculateGradePointAverage, calculateCompletionRate } from "$lib/types/madgrades.ts";
 import { university } from "$lib/json-schemas.ts";
 
@@ -12,7 +12,7 @@ export function generateComprehensiveCourseJsonLd(
   terms: Terms,
   selectedTermId: string
 ): WithContext<CourseSchema> {
-  const courseCode = courseReferenceToString(course.course_reference);
+  const courseCode = CourseUtils.courseReferenceToString(course.course_reference);
   const courseUrl = `https://uwcourses.com/courses/${courseCode.replace(/[\s\/]/g, '_')}`;
   
   // Get term-specific data
@@ -161,7 +161,7 @@ function generatePrerequisitesList(course: Course): Array<string> {
   // Add course URLs as simple strings instead of Course objects to avoid validation errors
   const prereqCourses = course.optimized_prerequisites?.course_references || course.prerequisites?.course_references || [];
   prereqCourses.slice(0, 5).forEach(ref => {
-    const courseCode = courseReferenceToString(ref);
+    const courseCode = CourseUtils.courseReferenceToString(ref);
     prerequisites.push(`${courseCode} - https://uwcourses.com/courses/${courseCode.replace(/[\s\/]/g, '_')}`);
   });
   
@@ -308,7 +308,7 @@ function generateCourseKeywords(course: Course, enrollmentData?: any): string {
   const keywords: Set<string> = new Set();
   
   // Add course identifiers
-  keywords.add(courseReferenceToString(course.course_reference));
+  keywords.add(CourseUtils.courseReferenceToString(course.course_reference));
   course.course_reference.subjects.forEach(s => keywords.add(s));
   
   // Add level

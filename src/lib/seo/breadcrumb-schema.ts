@@ -1,9 +1,9 @@
 import type { BreadcrumbList, WithContext, ListItem } from "schema-dts";
 import type { Course } from "$lib/types/course.ts";
-import { courseReferenceToString } from "$lib/types/course.ts";
+import { CourseUtils } from "$lib/types/course.ts";
 
 export function generateCourseBreadcrumbSchema(course: Course): WithContext<BreadcrumbList> {
-  const courseCode = courseReferenceToString(course.course_reference);
+  const courseCode = CourseUtils.courseReferenceToString(course.course_reference);
   
   const breadcrumbItems: ListItem[] = [
     {

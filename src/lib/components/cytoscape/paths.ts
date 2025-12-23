@@ -5,7 +5,6 @@ export function getNonCompoundNodes(cy: cytoscape.Core | undefined) {
 }
 
 export function getPredecessorsNotTaken(
-  cy: cytoscape.Core | undefined,
   node: cytoscape.NodeSingular,
   takenCourses: (undefined | string)[],
 ): Array<string> {

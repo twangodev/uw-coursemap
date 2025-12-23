@@ -38,37 +38,31 @@ export type TermData = {
   grade_data: GradeData | null;
 };
 
-export async function courseReferenceStringToCourse(
-  sanatizedCourseReferenceString: string,
-): Promise<Course> {
-  let response = await apiFetch(
-    `/course/${sanatizedCourseReferenceString}.json`,
-  );
-  return await response.json();
-}
+export const CourseUtils = {
 
-export function courseReferenceToString(
-  courseReference: CourseReference,
-): string {
-  let subjects = [...courseReference.subjects].sort().join("/");
-  return `${subjects} ${courseReference.course_number}`;
-}
+  stringToCourse: async (sanatizedCourseReferenceString: string): Promise<Course> => {
+    let response = await apiFetch(
+      `/course/${sanatizedCourseReferenceString}.json`,
+    );
+    return await response.json();
+  },
 
-// This function is used to sanitize the course reference string for use in URLs
-export function sanitizeCourseToReferenceString(
-  courseReference: CourseReference,
-): string {
-  return courseReferenceToString(courseReference)
-    .replaceAll(" ", "_")
-    .replaceAll("/", "_");
-}
+  courseReferenceToString: (courseReference: CourseReference): string => {
+    let subjects = [...courseReference.subjects].sort().join("/");
+    return `${subjects} ${courseReference.course_number}`;
+  },
 
-export async function courseReferenceToCourse(
-  courseReference: CourseReference,
-): Promise<Course> {
-  let sanitizedCourseReferenceToString =
-    sanitizeCourseToReferenceString(courseReference);
-  return await courseReferenceStringToCourse(sanitizedCourseReferenceToString);
+  // This function is used to sanitize the course reference string for use in URLs
+  sanitizeCourseReferenceToString: (courseReference: CourseReference): string => {
+    return CourseUtils.courseReferenceToString(courseReference)
+      .replaceAll(" ", "_")
+      .replaceAll("/", "_");
+  },
+
+  courseReferenceToCourse: async (courseReference: CourseReference): Promise<Course> => {
+    let sanitizedCourseReferenceString = CourseUtils.sanitizeCourseReferenceToString(courseReference);
+    return await CourseUtils.stringToCourse(sanitizedCourseReferenceString);
+  },
 }
 
 /**
@@ -120,7 +114,7 @@ export function courseToJsonLd(course: Course): WithContext<CourseSchema> {
   return {
     "@context": "https://schema.org",
     "@type": "Course",
-    courseCode: courseReferenceToString(course.course_reference),
+    courseCode: CourseUtils.courseReferenceToString(course.course_reference),
     description: course.description,
     name: course.course_title,
     provider: university,
