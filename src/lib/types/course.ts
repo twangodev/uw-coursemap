@@ -59,7 +59,11 @@ export const CourseUtils = {
 
   courseReferenceToCourse: async (courseReference: CourseReference): Promise<Course> => {
     let sanitizedCourseReferenceString = CourseUtils.courseReferenceToSanitizedString(courseReference);
-    return (await CourseUtils.sanitizedStringToCourse(sanitizedCourseReferenceString))!;
+    const course = await CourseUtils.sanitizedStringToCourse(sanitizedCourseReferenceString);
+    if (!course) {
+      throw new Error(`Failed to fetch course: ${sanitizedCourseReferenceString}`);
+    }
+    return course;
   },
 
   /**
