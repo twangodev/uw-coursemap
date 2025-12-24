@@ -1,8 +1,7 @@
-// src/lib/stores/takenCoursesStore.ts
 import { writable, type Writable } from 'svelte/store';
 import { browser } from '$app/environment'; // Ensures localStorage is only accessed in the browser
-import { getData, setData } from '$lib/localStorage'; // Assuming these are your existing localStorage utils
-import { CourseUtils, type Course, type CourseReference } from './types/course';
+import { getData, setData } from '$lib/localStorage';
+import { CourseUtils, type CourseReference } from './types/course';
 
 export const takenCoursesStore: Writable<CourseReference[]> = writable([]);
 
@@ -21,11 +20,10 @@ takenCoursesStore.subscribe((courses) => {
 // Helper functions for common operations
 export function addCourse(course: CourseReference) {
   takenCoursesStore.update((courses) => {
-    // Prevent duplicates (based on your existing logic)
+    // Prevent duplicates
     const isDuplicate = courses.some(
       (taken) =>
-        taken.course_number === course.course_number &&
-        taken.subjects === course.subjects
+        CourseUtils.areEqual(taken, course)
     );
     if (!isDuplicate) {
       return [...courses, course];
