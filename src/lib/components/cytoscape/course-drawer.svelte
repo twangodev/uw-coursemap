@@ -91,7 +91,7 @@
 
     if (sheetOpen) {
       if (selectedCourse) {
-        let courseId = CourseUtils.sanitizeCourseReferenceToString(
+        let courseId = CourseUtils.courseReferenceToSanitizedString(
           selectedCourse.course_reference,
         );
         page.url.searchParams.set("focus", courseId);
@@ -167,7 +167,7 @@
     {#if selectedCourse}
       <DrawerFooter>
         <Button
-          href={localizeHref(`/courses/${CourseUtils.sanitizeCourseReferenceToString(
+          href={localizeHref(`/courses/${CourseUtils.courseReferenceToSanitizedString(
             selectedCourse.course_reference,
           )}`)}
           target="_blank"

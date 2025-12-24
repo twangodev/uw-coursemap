@@ -45,7 +45,7 @@
       <Button
         class="flex items-center gap-2"
         href="/explorer/{course.course_reference
-          .subjects[0]}?focus={CourseUtils.sanitizeCourseReferenceToString(
+          .subjects[0]}?focus={CourseUtils.courseReferenceToSanitizedString(
           course.course_reference,
         )}"
         size="sm"

@@ -22,7 +22,7 @@ export const load = async ({ fetch }) => {
   );
   const courses: Course[] = await Promise.all(
     courseReferences.map(async (reference) => {
-      const sanitized = CourseUtils.sanitizeCourseReferenceToString(reference);
+      const sanitized = CourseUtils.courseReferenceToSanitizedString(reference);
       const response = await fetch(
         `${PUBLIC_API_URL}/course/${sanitized}.json`,
       );

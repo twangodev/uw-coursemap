@@ -53,7 +53,7 @@
       <HoverCard>
         <HoverCardTrigger>
           <a
-            href={localizeHref(`/courses/${CourseUtils.sanitizeCourseReferenceToString(item)}`)}
+            href={localizeHref(`/courses/${CourseUtils.courseReferenceToSanitizedString(item)}`)}
             class="underline-offset-2 hover:underline focus-visible:outline-2"
           >
             {CourseUtils.courseReferenceToString(item)}

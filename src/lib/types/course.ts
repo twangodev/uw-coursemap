@@ -40,7 +40,7 @@ export type TermData = {
 
 export const CourseUtils = {
 
-  stringToCourse: async (sanitizedCourseReferenceString: string): Promise<Course> => {
+  sanitizedStringToCourse: async (sanitizedCourseReferenceString: string): Promise<Course> => {
     const response = await apiFetch(
       `/course/${sanitizedCourseReferenceString}.json`,
     );
@@ -53,15 +53,15 @@ export const CourseUtils = {
   },
 
   // This function is used to sanitize the course reference string for use in URLs
-  sanitizeCourseReferenceToString: (courseReference: CourseReference): string => {
+  courseReferenceToSanitizedString: (courseReference: CourseReference): string => {
     return CourseUtils.courseReferenceToString(courseReference)
       .replaceAll(" ", "_")
       .replaceAll("/", "_");
   },
 
   courseReferenceToCourse: async (courseReference: CourseReference): Promise<Course> => {
-    let sanitizedCourseReferenceString = CourseUtils.sanitizeCourseReferenceToString(courseReference);
-    return await CourseUtils.stringToCourse(sanitizedCourseReferenceString);
+    let sanitizedCourseReferenceString = CourseUtils.courseReferenceToSanitizedString(courseReference);
+    return await CourseUtils.sanitizedStringToCourse(sanitizedCourseReferenceString);
   },
 }
 

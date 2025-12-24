@@ -18,7 +18,7 @@
   let { course }: Props = $props();
 </script>
 
-<a href={localizeHref(`/courses/${CourseUtils.sanitizeCourseReferenceToString(course.course_reference)}`)}>
+<a href={localizeHref(`/courses/${CourseUtils.courseReferenceToSanitizedString(course.course_reference)}`)}>
   <Card class="w-full max-w-64 overflow-hidden">
     <CardHeader class="pb-0">
       <CardTitle class="truncate">{course.course_title}</CardTitle>

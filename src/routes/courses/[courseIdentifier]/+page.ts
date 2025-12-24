@@ -39,7 +39,7 @@ export const load = async ({ params, url, fetch }) => {
   let similarCoursesPromises = similarCourseReferences.map(
     async (courseReference) => {
       let courseResponse = await fetch(
-        `${PUBLIC_API_URL}/course/${CourseUtils.sanitizeCourseReferenceToString(courseReference)}.json`,
+        `${PUBLIC_API_URL}/course/${CourseUtils.courseReferenceToSanitizedString(courseReference)}.json`,
       );
       if (!courseResponse.ok)
         throw error(
@@ -59,7 +59,7 @@ export const load = async ({ params, url, fetch }) => {
   );
 
   const prerequisiteElementDefinitionsResponse = await fetch(
-    `${PUBLIC_API_URL}/graphs/course/${CourseUtils.sanitizeCourseReferenceToString(course.course_reference)}.json`,
+    `${PUBLIC_API_URL}/graphs/course/${CourseUtils.courseReferenceToSanitizedString(course.course_reference)}.json`,
   );
   if (!prerequisiteElementDefinitionsResponse.ok)
     throw error(
@@ -92,7 +92,7 @@ export const load = async ({ params, url, fetch }) => {
   let meetings = null;
   try {
     const meetingsResponse = await fetch(
-      `${PUBLIC_API_URL}/course/${CourseUtils.sanitizeCourseReferenceToString(course.course_reference)}/meetings.json`,
+      `${PUBLIC_API_URL}/course/${CourseUtils.courseReferenceToSanitizedString(course.course_reference)}/meetings.json`,
     );
     if (meetingsResponse.ok) {
       meetings = await meetingsResponse.json();

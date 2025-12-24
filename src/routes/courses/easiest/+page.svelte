@@ -35,7 +35,7 @@
   >
     {#each courses as course, index}
       <a
-        href="/courses/{CourseUtils.sanitizeCourseReferenceToString(
+        href="/courses/{CourseUtils.courseReferenceToSanitizedString(
           course.course_reference,
         )}"
         target="_blank"
