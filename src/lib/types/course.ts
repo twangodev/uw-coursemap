@@ -33,11 +33,15 @@ export type TermData = {
 };
 
 export const CourseUtils = {
+  areEqual: (a: CourseReference, b: CourseReference): boolean => {
+    return CourseUtils.courseReferenceToString(a) === CourseUtils.courseReferenceToString(b);
+  }, 
 
-  sanitizedStringToCourse: async (sanitizedCourseReferenceString: string): Promise<Course> => {
+  sanitizedStringToCourse: async (sanitizedCourseReferenceString: string): Promise<Course | null> => {
     const response = await apiFetch(
       `/course/${sanitizedCourseReferenceString}.json`,
     );
+    if (!response.ok) return null;
     return await response.json();
   },
 
@@ -55,7 +59,7 @@ export const CourseUtils = {
 
   courseReferenceToCourse: async (courseReference: CourseReference): Promise<Course> => {
     let sanitizedCourseReferenceString = CourseUtils.courseReferenceToSanitizedString(courseReference);
-    return await CourseUtils.sanitizedStringToCourse(sanitizedCourseReferenceString);
+    return (await CourseUtils.sanitizedStringToCourse(sanitizedCourseReferenceString))!;
   },
 
   /**
