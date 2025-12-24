@@ -40,9 +40,9 @@ export type TermData = {
 
 export const CourseUtils = {
 
-  stringToCourse: async (sanatizedCourseReferenceString: string): Promise<Course> => {
-    let response = await apiFetch(
-      `/course/${sanatizedCourseReferenceString}.json`,
+  stringToCourse: async (sanitizedCourseReferenceString: string): Promise<Course> => {
+    const response = await apiFetch(
+      `/course/${sanitizedCourseReferenceString}.json`,
     );
     return await response.json();
   },
