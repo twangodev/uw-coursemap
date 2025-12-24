@@ -57,49 +57,44 @@ export const CourseUtils = {
     let sanitizedCourseReferenceString = CourseUtils.courseReferenceToSanitizedString(courseReference);
     return await CourseUtils.sanitizedStringToCourse(sanitizedCourseReferenceString);
   },
-}
 
-/**
- * Get the latest term key from a course's term data
- * Returns null if no terms exist
- */
-export function getLatestTermKey(course: Course): string | null {
-  const termKeys = Object.keys(course.term_data).sort().reverse();
-  return termKeys.length > 0 ? termKeys[0] : null;
-}
-
-export function getInstructorsWithEmail(
-  course: Course | undefined,
-  term: string,
-): { [key: string]: string | null } {
-  if (!course) return {};
-
-  const termData = course.term_data[term];
-
-  if (!termData) return {};
-
-  const enrollmentData = termData.enrollment_data;
-  if (enrollmentData) {
-    return enrollmentData.instructors;
+  /**
+   * Get the latest term key from a course's term data
+   * Returns null if no terms exist
+   */
+  getLatestTermKey: (course: Course): string | null => {
+    const termKeys = Object.keys(course.term_data).sort().reverse();
+    return termKeys.length > 0 ? termKeys[0] : null;
   }
+};
 
-  const gradesData = termData.grade_data;
-  if (gradesData) {
-    const names = gradesData.instructors;
-    if (!names) return {};
-    const instructorWithEmail: { [key: string]: string | null } = {};
-    for (const name of names) {
-      instructorWithEmail[name] = null;
+export const InstructorUtils = {
+
+  getInstructorsWithEmail: (course: Course, term: string): { [key: string]: string | null } => {
+    const termData = course.term_data[term];
+    if (!termData) return {};
+    const enrollmentData = termData.enrollment_data;
+    if (enrollmentData) {
+      return enrollmentData.instructors;
     }
-    return instructorWithEmail;
+
+    const gradesData = termData.grade_data;
+    if (gradesData) {
+      const names = gradesData.instructors;
+      if (!names) return {};
+      const instructorWithEmail: { [key: string]: string | null } = {};
+      for (const name of names) {
+        instructorWithEmail[name] = null;
+      }
+      return instructorWithEmail;
+    }
+    return {};
+  },
+
+  getLatestInstructorNames: (course: Course): string[] => {
+    const latestTerm = CourseUtils.getLatestTermKey(course);
+    if (!latestTerm) return [];
+    const instructorsWithEmail = InstructorUtils.getInstructorsWithEmail(course, latestTerm);
+    return Object.keys(instructorsWithEmail);
   }
-
-  return {};
-}
-
-export function getLatestInstructorNames(course: Course) {
-  const latestTerm = getLatestTermKey(course);
-  if (!latestTerm) return [];
-  const instructorsWithEmail = getInstructorsWithEmail(course, latestTerm);
-  return Object.keys(instructorsWithEmail);
-}
+};

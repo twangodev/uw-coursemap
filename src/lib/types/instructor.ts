@@ -1,4 +1,4 @@
-import { type Course, getInstructorsWithEmail } from "$lib/types/course.ts";
+import { type Course, InstructorUtils } from "$lib/types/course.ts";
 import { getLatestTermId, type Terms } from "$lib/types/terms.ts";
 import { apiFetch } from "$lib/api.ts";
 import type { GradeData } from "$lib/types/madgrades.ts";
@@ -117,7 +117,7 @@ export async function getFullInstructorInformation(
 ): Promise<FullInstructorInformation[]> {
   let rawInstructors = [];
   for (const [name, email] of Object.entries(
-    getInstructorsWithEmail(course, selectedTerm ?? getLatestTermId(terms)),
+    InstructorUtils.getInstructorsWithEmail(course, selectedTerm ?? getLatestTermId(terms)),
   )) {
     const response = await fetch(
       `${env.PUBLIC_API_URL}/instructors/${sanitizeInstructorId(name)}.json`,

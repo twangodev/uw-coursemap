@@ -3,7 +3,7 @@
   import {
     type Course,
     CourseUtils,
-    getInstructorsWithEmail,
+    InstructorUtils
   } from "$lib/types/course.ts";
   import { Separator } from "$lib/components/ui/separator";
   import { Button } from "$lib/components/ui/button";
@@ -50,7 +50,7 @@
   let latestTerm = $derived(Object.keys(terms).sort().pop() ?? ""); // TODO Allow user to select term
 
   let instructors = $derived(
-    Object.entries(getInstructorsWithEmail(selectedCourse, latestTerm)),
+    selectedCourse == undefined ? [] : Object.entries(InstructorUtils.getInstructorsWithEmail(selectedCourse, latestTerm)),
   );
 
   onMount(async () => {

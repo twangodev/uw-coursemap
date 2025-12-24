@@ -3,8 +3,8 @@
   import {
     type Course,
     type CourseReference,
-    getLatestInstructorNames,
     CourseUtils,
+    InstructorUtils
   } from "$lib/types/course.ts";
   import { Users } from "@lucide/svelte";
   import { Skeleton } from "$lib/components/ui/skeleton";
@@ -34,7 +34,7 @@
       <div class="flex items-center pt-2">
         <Users class="mr-2 size-3" />
         <span class="text-muted-foreground line-clamp-1 text-xs"
-          >{getLatestInstructorNames(course).join(", ")}</span
+          >{InstructorUtils.getLatestInstructorNames(course).join(", ")}</span
         >
       </div>
     {:else}

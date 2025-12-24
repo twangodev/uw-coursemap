@@ -1,5 +1,5 @@
 import type { Course } from "$lib/types/course.ts";
-import { CourseUtils, getLatestTermKey } from "$lib/types/course.ts";
+import { CourseUtils } from "$lib/types/course.ts";
 import { calculateGradePointAverage, calculateARate } from "$lib/types/madgrades.ts";
 import { generateOgImageUrl } from "$lib/seo/og-image";
 
@@ -7,7 +7,7 @@ import { generateOgImageUrl } from "$lib/seo/og-image";
  * Generate a simple, informative meta description for a course
  */
 export function generateCourseMetaDescription(course: Course): string {
-  const latestTermKey = getLatestTermKey(course);
+  const latestTermKey = CourseUtils.getLatestTermKey(course);
   const enrollment = latestTermKey ? course.term_data[latestTermKey]?.enrollment_data : null;
   
   // Pre-calculate all values
@@ -41,7 +41,7 @@ export function generateCourseTitle(course: Course): string {
  */
 export function generateCourseOgImage(course: Course): string {
   const courseCode = CourseUtils.courseReferenceToString(course.course_reference);
-  const latestTermKey = getLatestTermKey(course);
+  const latestTermKey = CourseUtils.getLatestTermKey(course);
   const enrollment = latestTermKey ? course.term_data[latestTermKey]?.enrollment_data : null;
 
   // Build description with credits, GPA, A-rate, and badges
