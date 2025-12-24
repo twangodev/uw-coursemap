@@ -1,12 +1,6 @@
 import type { GradeData } from "$lib/types/madgrades.ts";
 import type { EnrollmentData } from "$lib/types/enrollment.ts";
 import { apiFetch } from "$lib/api.ts";
-import type {
-  Course as CourseSchema,
-  CourseInstance,
-  WithContext,
-} from "schema-dts";
-import { university } from "$lib/json-schemas.ts";
 
 export type CourseReference = {
   subjects: string[];
@@ -108,35 +102,4 @@ export function getLatestInstructorNames(course: Course) {
   if (!latestTerm) return [];
   const instructorsWithEmail = getInstructorsWithEmail(course, latestTerm);
   return Object.keys(instructorsWithEmail);
-}
-
-export function courseToJsonLd(course: Course): WithContext<CourseSchema> {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Course",
-    courseCode: CourseUtils.courseReferenceToString(course.course_reference),
-    description: course.description,
-    name: course.course_title,
-    provider: university,
-    offers: {
-      "@type": "Offer",
-      category: "Paid",
-    },
-    hasCourseInstance: [toCourseInstanceJsonLd()],
-  };
-}
-
-function toCourseInstanceJsonLd(): CourseInstance {
-  // TODO Update with more accurate data
-  return {
-    "@type": "CourseInstance",
-    courseMode: "Blended",
-    courseSchedule: {
-      "@type": "Schedule",
-      repeatCount: 5,
-      repeatFrequency: "Monthly",
-    },
-    courseWorkload: "PT22H",
-    location: "UW-Madison",
-  };
 }
