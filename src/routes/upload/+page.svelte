@@ -47,20 +47,16 @@
         //remove all whitespace
         let courseString = matches[0].replace(/\s/g, "");
         courseString = courseString.replace(/([A-Za-z]+)(\d+)/, '$1_$2')
-        console.log("Found course:", courseString);
 
         //if it has an X, it is a elective
         if (courseString.match(/X_\d\d/)) {
           continue;
         }
 
-        //get the course's datas
-        // let courseData = await getCourse(courseString);
+        // get the course's datas
         let courseData: Course | null = await CourseUtils.sanitizedStringToCourse(courseString);
         let courseReference;
         if (courseData == null) {
-          console.log("Course not found in main API, searching...");
-          console.log("courseString:", courseString);
           // TODO: This is kinda scuffed but will work for now
           const searchResponse = await search(courseString);
           const data: SearchResponse = await searchResponse.json();
@@ -69,14 +65,14 @@
             errorCourses.push(courseString);
             continue;
           }
-          console.log("data:",data);
+
           const rawCourses = data.courses;
           courseReference = {
             course_number: rawCourses[0].course_number,
             subjects: rawCourses[0].subjects,
           }
         } else {
-          courseReference = courseData!.course_reference;
+          courseReference = courseData.course_reference;
         }
 
         addCourse(courseReference);
