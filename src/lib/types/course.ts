@@ -65,10 +65,7 @@ export const CourseUtils = {
   getLatestTermKey: (course: Course): string | null => {
     const termKeys = Object.keys(course.term_data).sort().reverse();
     return termKeys.length > 0 ? termKeys[0] : null;
-  }
-};
-
-export const InstructorUtils = {
+  },
 
   getInstructorsWithEmail: (course: Course, term: string): { [key: string]: string | null } => {
     const termData = course.term_data[term];
@@ -94,7 +91,7 @@ export const InstructorUtils = {
   getLatestInstructorNames: (course: Course): string[] => {
     const latestTerm = CourseUtils.getLatestTermKey(course);
     if (!latestTerm) return [];
-    const instructorsWithEmail = InstructorUtils.getInstructorsWithEmail(course, latestTerm);
+    const instructorsWithEmail = CourseUtils.getInstructorsWithEmail(course, latestTerm);
     return Object.keys(instructorsWithEmail);
   }
 };
