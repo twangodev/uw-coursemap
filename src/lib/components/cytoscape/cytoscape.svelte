@@ -13,6 +13,7 @@
   import {
     CourseUtils,
     type Course,
+    type CourseReference,
   } from "$lib/types/course.ts";
   import { fetchCourse, fetchGraphData } from "./graph-data.ts";
   import { getStyleData, getStyles, type StyleEntry } from "./graph-styles.ts";
@@ -38,6 +39,7 @@
   import HelpControl from "./help-control.svelte";
   import { getData } from "$lib/localStorage.ts";
   import { m } from "$lib/paraglide/messages";
+    import { takenCoursesStore } from "$lib/takenCoursesStore.ts";
 
   interface Props {
     elementDefinitions: ElementDefinition[];
@@ -47,21 +49,15 @@
     filter?: Course;
     allowFocusing?: boolean;
   }
-
+  let takenCourses: string[] = $state([]);
   let cy: cytoscape.Core | undefined = $state();
-
-  let takenCourses: (undefined | string)[] = $state([]);
 
   let highlightedCourse = $state<cytoscape.NodeSingular | undefined>();
 
   onMount(() => {
     loadGraph();
-    takenCourses = getData("takenCourses").map((course: any) => {
-      if (course.course_reference === undefined) {
-        return;
-      }
-
-      return CourseUtils.courseReferenceToString(course.course_reference);
+    takenCourses = $takenCoursesStore.map((course: CourseReference) => {
+      return CourseUtils.courseReferenceToString(course);
     }) 
   });
 

@@ -1,55 +1,20 @@
 <script lang="ts">
   import ContentWrapper from "$lib/components/content/content-wrapper.svelte";
-  import { Input } from "$lib/components/ui/input/index.ts";
-  import { Label } from "$lib/components/ui/label/index.ts";
-  import { Button, buttonVariants } from "$lib/components/ui/button/index.js";
+  import { Button } from "$lib/components/ui/button/index.js";
   import { getDocument, type PDFDocumentProxy } from "pdfjs-dist";
   import "pdfjs-dist/build/pdf.worker.mjs"; // Ensure the worker is bundled
-  import { getCourse } from "$lib/api.ts";
-  import { getData, setData } from "$lib/localStorage.ts";
+  import { search } from "$lib/api.ts";
   import * as Table from "$lib/components/ui/table/index.ts";
   import * as AlertDialog from "$lib/components/ui/alert-dialog/index.js";
   import * as Dialog from "$lib/components/ui/dialog/index.js";
-  import { onMount } from "svelte";
   import XMark from "@lucide/svelte/icons/x";
   import CourseSearch from "$lib/components/course-search.svelte";
-  import { ChevronDown } from "@lucide/svelte";
+  import { takenCoursesStore, addCourse, removeCourse, clearCourses } from '$lib/takenCoursesStore';
+  import { CourseUtils, type Course } from "$lib/types/course";
+  import type { SearchResponse } from "$lib/types/search/searchApiResponse";
 
-  let takenCourses = $state(new Array<any>());
   let status = $state("");
   let browseInput: HTMLInputElement;
-  let infoDialogOpen = $state(false);
-
-  //load data
-  onMount(() => {
-    takenCourses = getData("takenCourses");
-  });
-
-  //save the taken courses
-  function saveData() {
-    setData("takenCourses", takenCourses);
-  }
-
-  //used by a button to clear the courses
-  function clearCourses(event: Event) {
-    //clear
-    takenCourses = new Array<any>();
-    saveData();
-
-    console.log("Cleared courses");
-  }
-
-  //used by a button to remove a course from the list
-  function removeCourse(courseToRemove: JSON) {
-    for (let i = 0; i < takenCourses.length; i++) {
-      if (takenCourses[i]["course_reference"] == courseToRemove) {
-        takenCourses.splice(i, 1);
-        takenCourses = takenCourses; //force update
-        saveData();
-        return;
-      }
-    }
-  }
 
   //for unofficial transcript
   async function parseTranscriptPDF(pdfData: ArrayBuffer) {
@@ -80,43 +45,37 @@
 
       while ((matches = regex.exec(text)) !== null) {
         //remove all whitespace
-        let courseInfo = matches[0].replace(/\s/g, "");
-        courseInfo = courseInfo.replace(/([A-Za-z]+)(\d+)/, '$1_$2')
-        console.log("Found course:", courseInfo);
+        let courseString = matches[0].replace(/\s/g, "");
+        courseString = courseString.replace(/([A-Za-z]+)(\d+)/, '$1_$2')
 
         //if it has an X, it is a elective
-        if (courseInfo.match(/X_\d\d/)) {
+        if (courseString.match(/X_\d\d/)) {
           continue;
         }
 
-        //get the course's datas
-        let courseData = await getCourse(courseInfo);
-
-        //couldnt get course data
+        // get the course's datas
+        let courseData: Course | null = await CourseUtils.sanitizedStringToCourse(courseString);
+        let courseReference;
         if (courseData == null) {
-          errorCourses.push(courseInfo);
-          continue;
-        }
-
-        //check if it is a duplicate
-        let duplicate = false;
-        for (let takenCourse of takenCourses) {
-          if (
-            takenCourse["course_reference"]["course_number"] ==
-              courseData["course_reference"]["course_number"] &&
-            takenCourse["course_title"] == courseData["course_title"]
-          ) {
-            console.log("Course is a duplicate:", courseData["course_title"]);
-            duplicate = true;
+          // TODO: This is kinda scuffed but will work for now
+          const searchResponse = await search(courseString);
+          const data: SearchResponse = await searchResponse.json();
+          //couldnt get course data
+          if (data == null) {
+            errorCourses.push(courseString);
+            continue;
           }
+
+          const rawCourses = data.courses;
+          courseReference = {
+            course_number: rawCourses[0].course_number,
+            subjects: rawCourses[0].subjects,
+          }
+        } else {
+          courseReference = courseData.course_reference;
         }
 
-        //add to courses (don't allow duplicates)
-        if (!duplicate) {
-          takenCourses.push(courseData);
-          takenCourses = takenCourses; //force update
-          saveData();
-        }
+        addCourse(courseReference);
       }
 
       //set status to succes (only if there wasnt an error)
@@ -252,11 +211,11 @@
     </div>
 
     <div style="width: 100%;">
-      <CourseSearch bind:takenCourses bind:status />
+      <CourseSearch bind:status />
     </div>
   </div>
 
-  {#if takenCourses.length == 0 && status == ""}
+  {#if $takenCoursesStore.length == 0 && status == ""}
     <div style="margin-bottom: 1rem;" class="text-muted-foreground text-base">
       Click the upload button to autofill courses, or use the course search to
       manually add courses.
@@ -275,25 +234,25 @@
         </Table.Row>
       </Table.Header>
       <Table.Body>
-        {#each takenCourses.slice().reverse() as courseData}
+        {#each $takenCoursesStore.slice().reverse() as courseReference}
           <Table.Row>
             <Table.Cell>
               <Button
                 variant="outline"
                 size="icon"
-                onclick={() => removeCourse(courseData["course_reference"])}
+                onclick={() => removeCourse(courseReference)}
               >
                 <XMark class="h-4 w-4" />
               </Button>
             </Table.Cell>
-            <Table.Cell>{courseData["course_title"]}</Table.Cell>
+            <Table.Cell>{CourseUtils.courseReferenceToString(courseReference)}</Table.Cell>
             <Table.Cell
-              >{courseData["course_reference"]["subjects"].join(
+              >{courseReference["subjects"].join(
                 ", ",
               )}</Table.Cell
             >
             <Table.Cell
-              >{courseData["course_reference"]["course_number"]}</Table.Cell
+              >{courseReference["course_number"]}</Table.Cell
             >
           </Table.Row>
         {/each}
