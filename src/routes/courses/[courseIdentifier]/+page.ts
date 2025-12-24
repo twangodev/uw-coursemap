@@ -2,8 +2,7 @@ import { getLatestTermId, type Terms } from "$lib/types/terms.ts";
 import { env } from "$env/dynamic/public";
 import {
   type Course,
-  courseReferenceToString,
-  sanitizeCourseToReferenceString,
+  CourseUtils
 } from "$lib/types/course.ts";
 import { getFullInstructorInformation } from "$lib/types/instructor.ts";
 import { error } from "@sveltejs/kit";
@@ -40,7 +39,7 @@ export const load = async ({ params, url, fetch }) => {
   let similarCoursesPromises = similarCourseReferences.map(
     async (courseReference) => {
       let courseResponse = await fetch(
-        `${PUBLIC_API_URL}/course/${sanitizeCourseToReferenceString(courseReference)}.json`,
+        `${PUBLIC_API_URL}/course/${CourseUtils.courseReferenceToSanitizedString(courseReference)}.json`,
       );
       if (!courseResponse.ok)
         throw error(
@@ -60,7 +59,7 @@ export const load = async ({ params, url, fetch }) => {
   );
 
   const prerequisiteElementDefinitionsResponse = await fetch(
-    `${PUBLIC_API_URL}/graphs/course/${sanitizeCourseToReferenceString(course.course_reference)}.json`,
+    `${PUBLIC_API_URL}/graphs/course/${CourseUtils.courseReferenceToSanitizedString(course.course_reference)}.json`,
   );
   if (!prerequisiteElementDefinitionsResponse.ok)
     throw error(
@@ -87,13 +86,13 @@ export const load = async ({ params, url, fetch }) => {
     );
   const prerequisiteStyleEntries = await styleEntriesResponse.json();
 
-  const courseCode = courseReferenceToString(course.course_reference);
+  const courseCode = CourseUtils.courseReferenceToString(course.course_reference);
   
   // Fetch meetings data
   let meetings = null;
   try {
     const meetingsResponse = await fetch(
-      `${PUBLIC_API_URL}/course/${sanitizeCourseToReferenceString(course.course_reference)}/meetings.json`,
+      `${PUBLIC_API_URL}/course/${CourseUtils.courseReferenceToSanitizedString(course.course_reference)}/meetings.json`,
     );
     if (meetingsResponse.ok) {
       meetings = await meetingsResponse.json();

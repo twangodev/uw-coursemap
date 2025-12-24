@@ -1,8 +1,7 @@
 <script lang="ts">
   import {
     type Course,
-    courseReferenceToString,
-    sanitizeCourseToReferenceString,
+    CourseUtils,
   } from "$lib/types/course.ts";
   import {
     HoverCard,
@@ -30,10 +29,10 @@
       <HoverCard>
         <HoverCardTrigger>
           <a
-            href={localizeHref(`/courses/${sanitizeCourseToReferenceString(item)}`)}
+            href={localizeHref(`/courses/${CourseUtils.courseReferenceToSanitizedString(item)}`)}
             class="underline-offset-2 hover:underline focus-visible:outline-2"
           >
-            {courseReferenceToString(item)}
+            {CourseUtils.courseReferenceToString(item)}
           </a>
         </HoverCardTrigger>
         <HoverLinkedRequisiteContent courseReference={item} />

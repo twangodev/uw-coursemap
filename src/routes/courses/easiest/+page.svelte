@@ -6,8 +6,7 @@
   } from "$lib/components/page-header";
   import ContentWrapper from "$lib/components/content/content-wrapper.svelte";
   import {
-    courseReferenceToString,
-    sanitizeCourseToReferenceString,
+    CourseUtils
   } from "$lib/types/course.ts";
   import {
     Card,
@@ -36,7 +35,7 @@
   >
     {#each courses as course, index}
       <a
-        href="/courses/{sanitizeCourseToReferenceString(
+        href="/courses/{CourseUtils.courseReferenceToSanitizedString(
           course.course_reference,
         )}"
         target="_blank"
@@ -53,7 +52,7 @@
               >
             </CardTitle>
             <CardDescription class="truncate font-bold"
-              >{courseReferenceToString(
+              >{CourseUtils.courseReferenceToString(
                 course.course_reference,
               )}</CardDescription
             >

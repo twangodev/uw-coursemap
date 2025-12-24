@@ -5,7 +5,7 @@
   import { Button } from '$lib/components/ui/button';
   import type { Course } from "$lib/types/course.ts";
   import type { CourseMeeting } from '$lib/utils/schedule/types';
-  import { courseReferenceToString } from '$lib/types/course';
+  import { CourseUtils } from '$lib/types/course';
   import { generateICS, downloadICS } from '$lib/utils/schedule/ics-generator';
   import {
     groupMeetingsBySection,
@@ -47,7 +47,7 @@
     const meetingsToExport = filterMeetingsBySelection(meetings, selectedSections);
     
     try {
-      const courseName = courseReferenceToString(course.course_reference);
+      const courseName = CourseUtils.courseReferenceToString(course.course_reference);
       const icsContent = await generateICS(meetingsToExport, courseName);
       const filename = `${courseName.replace(/[^a-z0-9]/gi, '_')}_schedule.ics`;
       downloadICS(icsContent, filename);
@@ -65,7 +65,7 @@
   <Sheet.Content side="right" class="w-full sm:max-w-md flex flex-col">
     <Sheet.Header>
       <Sheet.Title>{m["course.schedule.exportTitle"]({
-        course: courseReferenceToString(course.course_reference)
+        course: CourseUtils.courseReferenceToString(course.course_reference)
       })}</Sheet.Title>
       <Sheet.Description>
         {m["course.schedule.exportDescription"]()}

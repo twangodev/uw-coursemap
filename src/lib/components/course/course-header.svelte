@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { type Course, courseReferenceToString } from "$lib/types/course.js";
+  import { type Course, CourseUtils } from "$lib/types/course.js";
   import ContentH1 from "$lib/components/content/content-h1.svelte";
   import TermSelector from "$lib/components/term-selector.svelte";
   import type { Terms } from "$lib/types/terms.ts";
@@ -17,7 +17,7 @@
   <div>
     <ContentH1>{course.course_title}</ContentH1>
     <div class="my-2 text-xl font-bold">
-      {courseReferenceToString(course.course_reference)}
+      {CourseUtils.courseReferenceToString(course.course_reference)}
     </div>
   </div>
   <TermSelector {selectedTerm} {terms} />

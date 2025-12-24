@@ -2,9 +2,8 @@
   import { Skeleton } from "$lib/components/ui/skeleton";
   import {
     type Course,
-    courseReferenceToString,
-    getInstructorsWithEmail,
-    sanitizeCourseToReferenceString,
+    CourseUtils,
+    InstructorUtils
   } from "$lib/types/course.ts";
   import { Separator } from "$lib/components/ui/separator";
   import { Button } from "$lib/components/ui/button";
@@ -51,7 +50,7 @@
   let latestTerm = $derived(Object.keys(terms).sort().pop() ?? ""); // TODO Allow user to select term
 
   let instructors = $derived(
-    Object.entries(getInstructorsWithEmail(selectedCourse, latestTerm)),
+    selectedCourse == undefined ? [] : Object.entries(InstructorUtils.getInstructorsWithEmail(selectedCourse, latestTerm)),
   );
 
   onMount(async () => {
@@ -65,7 +64,7 @@
         let response = await apiFetch(`/course/${focus}.json`);
         let course = await response.json();
 
-        let id = courseReferenceToString(course.course_reference);
+        let id = CourseUtils.courseReferenceToString(course.course_reference);
         let node = cy.$id(id);
 
         cy.animate({
@@ -92,7 +91,7 @@
 
     if (sheetOpen) {
       if (selectedCourse) {
-        let courseId = sanitizeCourseToReferenceString(
+        let courseId = CourseUtils.courseReferenceToSanitizedString(
           selectedCourse.course_reference,
         );
         page.url.searchParams.set("focus", courseId);
@@ -112,7 +111,7 @@
     <DrawerHeader class="sticky">
       <DrawerTitle class="text-2xl">
         {#if selectedCourse}
-          {courseReferenceToString(selectedCourse.course_reference)}
+          {CourseUtils.courseReferenceToString(selectedCourse.course_reference)}
         {:else}
           <Skeleton class="h-6 w-9/12" />
         {/if}
@@ -168,7 +167,7 @@
     {#if selectedCourse}
       <DrawerFooter>
         <Button
-          href={localizeHref(`/courses/${sanitizeCourseToReferenceString(
+          href={localizeHref(`/courses/${CourseUtils.courseReferenceToSanitizedString(
             selectedCourse.course_reference,
           )}`)}
           target="_blank"

@@ -1,7 +1,7 @@
 <script lang="ts">
   import {
     type Course,
-    sanitizeCourseToReferenceString,
+    CourseUtils,
   } from "$lib/types/course.js";
   import {
     Card,
@@ -45,7 +45,7 @@
       <Button
         class="flex items-center gap-2"
         href="/explorer/{course.course_reference
-          .subjects[0]}?focus={sanitizeCourseToReferenceString(
+          .subjects[0]}?focus={CourseUtils.courseReferenceToSanitizedString(
           course.course_reference,
         )}"
         size="sm"

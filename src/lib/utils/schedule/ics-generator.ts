@@ -1,6 +1,6 @@
 import type { CourseMeeting } from './types';
 import { createEvents, type EventAttributes } from 'ics';
-import { courseReferenceToString } from '$lib/types/course';
+import { CourseUtils } from '$lib/types/course';
 
 /**
  * Convert timestamp to UTC date array [year, month, day, hour, minute]
@@ -57,7 +57,7 @@ export async function generateICS(
     }
 
     // Use course code + section as the title for better calendar visibility
-    const courseStr = courseReferenceToString(meeting.course_reference);
+    const courseStr = CourseUtils.courseReferenceToString(meeting.course_reference);
     const eventTitle = `${courseStr} ${sectionName}`;
 
     return {

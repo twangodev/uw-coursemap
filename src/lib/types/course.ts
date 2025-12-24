@@ -1,12 +1,6 @@
 import type { GradeData } from "$lib/types/madgrades.ts";
 import type { EnrollmentData } from "$lib/types/enrollment.ts";
 import { apiFetch } from "$lib/api.ts";
-import type {
-  Course as CourseSchema,
-  CourseInstance,
-  WithContext,
-} from "schema-dts";
-import { university } from "$lib/json-schemas.ts";
 
 export type CourseReference = {
   subjects: string[];
@@ -38,111 +32,69 @@ export type TermData = {
   grade_data: GradeData | null;
 };
 
-export async function courseReferenceStringToCourse(
-  sanatizedCourseReferenceString: string,
-): Promise<Course> {
-  let response = await apiFetch(
-    `/course/${sanatizedCourseReferenceString}.json`,
-  );
-  return await response.json();
-}
+export const CourseUtils = {
 
-export function courseReferenceToString(
-  courseReference: CourseReference,
-): string {
-  let subjects = [...courseReference.subjects].sort().join("/");
-  return `${subjects} ${courseReference.course_number}`;
-}
+  sanitizedStringToCourse: async (sanitizedCourseReferenceString: string): Promise<Course> => {
+    const response = await apiFetch(
+      `/course/${sanitizedCourseReferenceString}.json`,
+    );
+    return await response.json();
+  },
 
-// This function is used to sanitize the course reference string for use in URLs
-export function sanitizeCourseToReferenceString(
-  courseReference: CourseReference,
-): string {
-  return courseReferenceToString(courseReference)
-    .replaceAll(" ", "_")
-    .replaceAll("/", "_");
-}
+  courseReferenceToString: (courseReference: CourseReference): string => {
+    let subjects = [...courseReference.subjects].sort().join("/");
+    return `${subjects} ${courseReference.course_number}`;
+  },
 
-export async function courseReferenceToCourse(
-  courseReference: CourseReference,
-): Promise<Course> {
-  let sanitizedCourseReferenceToString =
-    sanitizeCourseToReferenceString(courseReference);
-  return await courseReferenceStringToCourse(sanitizedCourseReferenceToString);
-}
+  // This function is used to sanitize the course reference string for use in URLs
+  courseReferenceToSanitizedString: (courseReference: CourseReference): string => {
+    return CourseUtils.courseReferenceToString(courseReference)
+      .replaceAll(" ", "_")
+      .replaceAll("/", "_");
+  },
 
-/**
- * Get the latest term key from a course's term data
- * Returns null if no terms exist
- */
-export function getLatestTermKey(course: Course): string | null {
-  const termKeys = Object.keys(course.term_data).sort().reverse();
-  return termKeys.length > 0 ? termKeys[0] : null;
-}
+  courseReferenceToCourse: async (courseReference: CourseReference): Promise<Course> => {
+    let sanitizedCourseReferenceString = CourseUtils.courseReferenceToSanitizedString(courseReference);
+    return await CourseUtils.sanitizedStringToCourse(sanitizedCourseReferenceString);
+  },
 
-export function getInstructorsWithEmail(
-  course: Course | undefined,
-  term: string,
-): { [key: string]: string | null } {
-  if (!course) return {};
-
-  const termData = course.term_data[term];
-
-  if (!termData) return {};
-
-  const enrollmentData = termData.enrollment_data;
-  if (enrollmentData) {
-    return enrollmentData.instructors;
+  /**
+   * Get the latest term key from a course's term data
+   * Returns null if no terms exist
+   */
+  getLatestTermKey: (course: Course): string | null => {
+    const termKeys = Object.keys(course.term_data).sort().reverse();
+    return termKeys.length > 0 ? termKeys[0] : null;
   }
+};
 
-  const gradesData = termData.grade_data;
-  if (gradesData) {
-    const names = gradesData.instructors;
-    if (!names) return {};
-    const instructorWithEmail: { [key: string]: string | null } = {};
-    for (const name of names) {
-      instructorWithEmail[name] = null;
+export const InstructorUtils = {
+
+  getInstructorsWithEmail: (course: Course, term: string): { [key: string]: string | null } => {
+    const termData = course.term_data[term];
+    if (!termData) return {};
+    const enrollmentData = termData.enrollment_data;
+    if (enrollmentData) {
+      return enrollmentData.instructors;
     }
-    return instructorWithEmail;
+
+    const gradesData = termData.grade_data;
+    if (gradesData) {
+      const names = gradesData.instructors;
+      if (!names) return {};
+      const instructorWithEmail: { [key: string]: string | null } = {};
+      for (const name of names) {
+        instructorWithEmail[name] = null;
+      }
+      return instructorWithEmail;
+    }
+    return {};
+  },
+
+  getLatestInstructorNames: (course: Course): string[] => {
+    const latestTerm = CourseUtils.getLatestTermKey(course);
+    if (!latestTerm) return [];
+    const instructorsWithEmail = InstructorUtils.getInstructorsWithEmail(course, latestTerm);
+    return Object.keys(instructorsWithEmail);
   }
-
-  return {};
-}
-
-export function getLatestInstructorNames(course: Course) {
-  const latestTerm = getLatestTermKey(course);
-  if (!latestTerm) return [];
-  const instructorsWithEmail = getInstructorsWithEmail(course, latestTerm);
-  return Object.keys(instructorsWithEmail);
-}
-
-export function courseToJsonLd(course: Course): WithContext<CourseSchema> {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Course",
-    courseCode: courseReferenceToString(course.course_reference),
-    description: course.description,
-    name: course.course_title,
-    provider: university,
-    offers: {
-      "@type": "Offer",
-      category: "Paid",
-    },
-    hasCourseInstance: [toCourseInstanceJsonLd()],
-  };
-}
-
-function toCourseInstanceJsonLd(): CourseInstance {
-  // TODO Update with more accurate data
-  return {
-    "@type": "CourseInstance",
-    courseMode: "Blended",
-    courseSchedule: {
-      "@type": "Schedule",
-      repeatCount: 5,
-      repeatFrequency: "Monthly",
-    },
-    courseWorkload: "PT22H",
-    location: "UW-Madison",
-  };
-}
+};

@@ -3,9 +3,8 @@
   import {
     type Course,
     type CourseReference,
-    courseReferenceToCourse,
-    courseReferenceToString,
-    getLatestInstructorNames,
+    CourseUtils,
+    InstructorUtils
   } from "$lib/types/course.ts";
   import { Users } from "@lucide/svelte";
   import { Skeleton } from "$lib/components/ui/skeleton";
@@ -20,14 +19,14 @@
   let course = $state<Course | null>(null);
 
   onMount(async () => {
-    course = await courseReferenceToCourse(courseReference);
+    course = await CourseUtils.courseReferenceToCourse(courseReference);
   });
 </script>
 
 <HoverCardContent>
   <div>
     <h4 class="line-clamp-1 text-sm font-semibold">
-      {courseReferenceToString(courseReference)}
+      {CourseUtils.courseReferenceToString(courseReference)}
     </h4>
     {#if course}
       <h5 class="line-clamp-1 pt-0.5 text-xs">{course.course_title}</h5>
@@ -35,7 +34,7 @@
       <div class="flex items-center pt-2">
         <Users class="mr-2 size-3" />
         <span class="text-muted-foreground line-clamp-1 text-xs"
-          >{getLatestInstructorNames(course).join(", ")}</span
+          >{InstructorUtils.getLatestInstructorNames(course).join(", ")}</span
         >
       </div>
     {:else}

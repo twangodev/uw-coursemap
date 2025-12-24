@@ -2,7 +2,7 @@ import { env } from "$env/dynamic/public";
 import type { QuickStatistics } from "$lib/types/misc.ts";
 import {
   type Course,
-  sanitizeCourseToReferenceString,
+  CourseUtils,
 } from "$lib/types/course.ts";
 
 const { PUBLIC_API_URL } = env;
@@ -22,7 +22,7 @@ export const load = async ({ fetch }) => {
   );
   const courses: Course[] = await Promise.all(
     courseReferences.map(async (reference) => {
-      const sanitized = sanitizeCourseToReferenceString(reference);
+      const sanitized = CourseUtils.courseReferenceToSanitizedString(reference);
       const response = await fetch(
         `${PUBLIC_API_URL}/course/${sanitized}.json`,
       );

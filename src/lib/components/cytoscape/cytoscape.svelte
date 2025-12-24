@@ -11,8 +11,7 @@
   import { Progress } from "$lib/components/ui/progress";
   import { cn } from "$lib/utils.ts";
   import {
-    courseReferenceToString,
-    sanitizeCourseToReferenceString,
+    CourseUtils,
     type Course,
   } from "$lib/types/course.ts";
   import { fetchCourse, fetchGraphData } from "./graph-data.ts";
@@ -62,7 +61,7 @@
         return;
       }
 
-      return courseReferenceToString(course.course_reference);
+      return CourseUtils.courseReferenceToString(course.course_reference);
     }) 
   });
 
@@ -186,8 +185,7 @@
 
     if (filter !== undefined) {
       let keepData = getPredecessorsNotTaken(
-        cy,
-        cy.$id(`${courseReferenceToString(filter.course_reference)}`)[0],
+        cy.$id(`${CourseUtils.courseReferenceToString(filter.course_reference)}`)[0],
         takenCourses,
       );
       const nodesToRemove = cy

@@ -1,5 +1,5 @@
 import type { Course } from "$lib/types/course.ts";
-import { courseReferenceToString, getLatestTermKey } from "$lib/types/course.ts";
+import { CourseUtils } from "$lib/types/course.ts";
 import { calculateGradePointAverage, calculateARate } from "$lib/types/madgrades.ts";
 import { generateOgImageUrl } from "$lib/seo/og-image";
 
@@ -7,11 +7,11 @@ import { generateOgImageUrl } from "$lib/seo/og-image";
  * Generate a simple, informative meta description for a course
  */
 export function generateCourseMetaDescription(course: Course): string {
-  const latestTermKey = getLatestTermKey(course);
+  const latestTermKey = CourseUtils.getLatestTermKey(course);
   const enrollment = latestTermKey ? course.term_data[latestTermKey]?.enrollment_data : null;
   
   // Pre-calculate all values
-  const base = course.description || `${courseReferenceToString(course.course_reference)}: ${course.course_title}`;
+  const base = course.description || `${CourseUtils.courseReferenceToString(course.course_reference)}: ${course.course_title}`;
   
   const credits = enrollment?.credit_count
     ? enrollment.credit_count[0] === enrollment.credit_count[1]
@@ -32,7 +32,7 @@ export function generateCourseMetaDescription(course: Course): string {
  * Generate a structured title for the course page
  */
 export function generateCourseTitle(course: Course): string {
-  const courseCode = courseReferenceToString(course.course_reference);
+  const courseCode = CourseUtils.courseReferenceToString(course.course_reference);
   return `${courseCode}: ${course.course_title} - UW-Madison`;
 }
 
@@ -40,8 +40,8 @@ export function generateCourseTitle(course: Course): string {
  * Generate an Open Graph image URL for a course
  */
 export function generateCourseOgImage(course: Course): string {
-  const courseCode = courseReferenceToString(course.course_reference);
-  const latestTermKey = getLatestTermKey(course);
+  const courseCode = CourseUtils.courseReferenceToString(course.course_reference);
+  const latestTermKey = CourseUtils.getLatestTermKey(course);
   const enrollment = latestTermKey ? course.term_data[latestTermKey]?.enrollment_data : null;
 
   // Build description with credits, GPA, A-rate, and badges
