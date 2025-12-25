@@ -62,7 +62,7 @@
         <Cytoscape
           elementDefinitions={prerequisiteElementDefinitions}
           styleEntries={prerequisiteStyleEntries}
-          filter={course}
+          rootCourse={course}
           allowFocusing={false}
         />
       {/key}

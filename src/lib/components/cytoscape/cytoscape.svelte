@@ -46,10 +46,10 @@
     styleEntries: StyleEntry[];
     // dfs backwards from a specific course until it reaches courses that are taken
     // courses not reached by dfs are hidden
-    filter?: Course;
+    rootCourse?: Course;
     allowFocusing?: boolean;
   }
-  let takenCourses: string[] = $state([]);
+  let takenCourses: string[] = [];
   let cy: cytoscape.Core | undefined = $state();
 
   let highlightedCourse = $state<cytoscape.NodeSingular | undefined>();
@@ -64,7 +64,7 @@
   let {
     elementDefinitions,
     styleEntries,
-    filter = undefined,
+    rootCourse = undefined,
     allowFocusing = true,
   }: Props = $props();
 
@@ -179,9 +179,9 @@
       motionBlur: true,
     });
 
-    if (filter !== undefined) {
+    if (rootCourse !== undefined) {
       let keepData = getPredecessorsNotTaken(
-        cy.$id(`${CourseUtils.courseReferenceToString(filter.course_reference)}`)[0],
+        cy.$id(`${CourseUtils.courseReferenceToString(rootCourse.course_reference)}`)[0],
         takenCourses,
       );
       const nodesToRemove = cy
