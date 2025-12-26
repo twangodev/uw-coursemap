@@ -53,6 +53,7 @@
   let cy: cytoscape.Core | undefined = $state();
 
   let highlightedCourse = $state<cytoscape.NodeSingular | undefined>();
+  let courseDrawerRef: CourseDrawer | undefined;
 
   onMount(() => {
     loadGraph();
@@ -73,7 +74,6 @@
     getStyles(styleEntries, mode.current, showCodeLabels),
   );
 
-  let sheetOpen = $state(false);
   let progress = $state({
     text: m["cytoscape.progress.loadingGraph"](),
     number: 10,
@@ -85,11 +85,6 @@
 
   let layoutType: LayoutType = $state(LayoutType.LAYERED);
 
-  searchModalOpen.subscribe((isOpen) => {
-    if (isOpen) {
-      sheetOpen = false;
-    }
-  });
 
   let elementsAreDraggable = $state(false);
   let isDesktopValue = $state(false);
@@ -100,7 +95,6 @@
   
   const isDesktop = () => isDesktopValue;
 
-  let selectedCourse: Course | undefined = $state(undefined);
 
   // Add near your other state declarations
 
@@ -243,10 +237,11 @@
       }
 
       if (isDesktop()) {
-        selectedCourse = undefined;
+        let selectedCourse = undefined;
 
         selectedCourse = await fetchCourse(targetNode.id());
-        sheetOpen = true;
+        courseDrawerRef?.setSelectedCourse(selectedCourse);
+        courseDrawerRef?.openDrawer();
         return;
       }
 
@@ -279,9 +274,6 @@
   });
 
   $effect(() => {
-    if (!sheetOpen) {
-      focus = null;
-    }
 
     if (!cy) {
       return;
@@ -416,9 +408,8 @@
 </div>
 <CourseDrawer
   {cy}
-  bind:sheetOpen
-  {selectedCourse}
   {destroyTip}
   {allowFocusing}
+  bind:this={courseDrawerRef}
 />
 

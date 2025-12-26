@@ -27,22 +27,31 @@
   import ClampedParagraph from "../clamped-paragraph.svelte";
   import { localizeHref } from "$lib/paraglide/runtime";
   import { m } from "$lib/paraglide/messages";
+  import { searchModalOpen } from "$lib/searchModalStore.ts";
 
   interface Props {
     cy: cytoscape.Core | undefined;
-    sheetOpen: boolean;
-    selectedCourse: Course | undefined;
     destroyTip: () => void;
     allowFocusing: boolean;
   }
 
   let {
-    sheetOpen = $bindable<boolean>(),
-    selectedCourse,
     cy,
     destroyTip,
     allowFocusing = true,
   }: Props = $props();
+  let sheetOpen = $state(false);
+  let selectedCourse: Course | undefined = $state(undefined);
+
+  export const closeDrawer = function () {
+    sheetOpen = false;
+  }
+  export const openDrawer = function () {
+    sheetOpen = true;
+  }
+  export const setSelectedCourse = function (course: Course | undefined) {
+    selectedCourse = course;
+  }
   let focus = $derived(page.url.searchParams.get("focus"));
 
   let terms: Terms = $state({});
@@ -55,6 +64,12 @@
   onMount(async () => {
     let termsData = await apiFetch(`/terms.json`);
     terms = await termsData.json();
+  });
+
+  searchModalOpen.subscribe((isOpen) => {
+    if (isOpen) {
+      sheetOpen = false;
+    }
   });
 
   $effect(() => {
@@ -88,6 +103,10 @@
   $effect(() => {
     if (!cy || !allowFocusing) return;
 
+    if (!sheetOpen) {
+      focus = null;
+    }
+    
     if (sheetOpen) {
       if (selectedCourse) {
         let courseId = CourseUtils.courseReferenceToSanitizedString(
