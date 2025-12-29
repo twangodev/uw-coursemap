@@ -9,6 +9,8 @@ COPY package*.json .
 RUN npm ci
 COPY . .
 
+ENV NODE_OPTIONS="--max-old-space-size=4096"
+
 RUN npm run build
 RUN npm prune --production
 
