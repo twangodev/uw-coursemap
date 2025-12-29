@@ -2,7 +2,6 @@ FROM node:25-alpine AS builder
 
 WORKDIR /app
 
-# Install git for version generation
 RUN apk add --no-cache git
 
 COPY package*.json .
@@ -17,9 +16,10 @@ FROM node:25-alpine AS runtime
 
 WORKDIR /app
 
-# Create a non-root user to run the application
 RUN addgroup --system --gid 1001 svelte && \
-    adduser --system --uid 1001 svelte
+    adduser --system --uid 1001 --ingroup svelte svelte
+
+RUN apk add --no-cache curl
 
 COPY --from=builder --chown=svelte:svelte /app/build build/
 COPY --from=builder --chown=svelte:svelte /app/node_modules node_modules/
@@ -32,6 +32,6 @@ EXPOSE 3000
 ENV NODE_ENV=production
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s \
-  CMD wget --no-verbose --tries=1 --spider http://localhost:3000/ || exit 1
+  CMD curl --fail --silent http://localhost:3000/ || exit 1
 
 CMD [ "node", "build" ]
