@@ -14,7 +14,7 @@ class School(BaseModel):
 
     name: str
     abbreviation: str
-    url: str
+    url: str | None
 
     @classmethod
     def from_enrollment(cls, data: dict) -> School:
