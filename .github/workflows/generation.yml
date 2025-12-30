@@ -85,7 +85,7 @@ jobs:
       - name: Upload to S3
         run: uv run python main.py --step upload --no_build
         env:
-          DATA_DIR: "./data"
+          DATA_DIR: "../data"
           SITEMAP_BASE: ${{ vars.BASE_URL }}
           S3_ENDPOINT_URL: ${{ secrets.S3_ENDPOINT_URL }}
           S3_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
