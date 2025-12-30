@@ -256,3 +256,7 @@ class Course(_CourseBase):
     def to_dict(self) -> dict:
         """Convert to dict for JSON serialization."""
         return self.model_dump()
+
+
+# Rebuild model to ensure validators are properly inherited
+Course.model_rebuild()

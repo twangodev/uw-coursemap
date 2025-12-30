@@ -5,7 +5,7 @@ from __future__ import annotations
 import re
 from typing import Any
 
-from pydantic import BaseModel, ConfigDict, field_serializer, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_serializer, field_validator
 
 from schemas.grades import GradeData
 from schemas.enrollment import TermData
@@ -141,8 +141,26 @@ class Course(BaseModel):
     term_data: dict[str, TermData]
     similar_courses: list[CourseReference] = []
     keywords: list[str] = []
-    satisfies: list[CourseReference] = []
+    satisfies: set[CourseReference] = Field(default_factory=set)
     has_meetings: bool = False
+
+    @field_validator("satisfies", mode="before")
+    @classmethod
+    def convert_satisfies_to_set(cls, v):
+        """Convert list to set on input."""
+        if v is None:
+            return set()
+        if isinstance(v, set):
+            return v
+        return set(v)
+
+    @field_serializer("satisfies")
+    def serialize_satisfies(self, v: set[CourseReference]) -> list[dict]:
+        """Convert set to sorted list of dicts for JSON output."""
+        return sorted(
+            [ref.model_dump() for ref in v],
+            key=lambda x: (sorted(x["subjects"]), x["course_number"]),
+        )
 
     def get_identifier(self) -> str:
         """Get the course identifier string."""
