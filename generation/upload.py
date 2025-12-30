@@ -42,6 +42,57 @@ def get_content_type(file_path: Path) -> str:
     return content_type
 
 
+def delete_stale_objects(
+    client,
+    bucket: str,
+    uploaded_keys: set[str],
+    prefix: str = "",
+) -> int:
+    """
+    Delete objects from S3 that aren't in the uploaded set.
+
+    Args:
+        client: S3 client
+        bucket: S3 bucket name
+        uploaded_keys: Set of keys that were just uploaded
+        prefix: Optional prefix to scope deletion (only delete within this prefix)
+
+    Returns:
+        Number of deleted objects
+    """
+    deleted = 0
+    paginator = client.get_paginator("list_objects_v2")
+    paginate_kwargs = {"Bucket": bucket}
+    if prefix:
+        paginate_kwargs["Prefix"] = prefix
+
+    stale_keys = []
+    for page in paginator.paginate(**paginate_kwargs):
+        for obj in page.get("Contents", []):
+            key = obj["Key"]
+            if key not in uploaded_keys:
+                stale_keys.append(key)
+
+    if not stale_keys:
+        logger.info("No stale objects to delete")
+        return 0
+
+    logger.info(f"Found {len(stale_keys)} stale objects to delete")
+
+    # Delete in batches of 1000 (S3 limit)
+    for i in tqdm(range(0, len(stale_keys), 1000), desc="Deleting stale objects"):
+        batch = stale_keys[i : i + 1000]
+        delete_request = {"Objects": [{"Key": key} for key in batch], "Quiet": True}
+        try:
+            client.delete_objects(Bucket=bucket, Delete=delete_request)
+            deleted += len(batch)
+        except Exception as e:
+            logger.error(f"Failed to delete batch: {e}")
+
+    logger.info(f"Deleted {deleted} stale objects")
+    return deleted
+
+
 def upload_file(
     client,
     bucket: str,
@@ -110,6 +161,7 @@ def upload_directory(
 
     successful = 0
     failed = 0
+    uploaded_keys: set[str] = set()
 
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = {
@@ -125,6 +177,7 @@ def upload_directory(
                 try:
                     if future.result():
                         successful += 1
+                        uploaded_keys.add(key)
                     else:
                         failed += 1
                 except Exception as e:
@@ -133,4 +186,9 @@ def upload_directory(
                 pbar.update(1)
 
     logger.info(f"Upload complete: {successful} succeeded, {failed} failed")
+
+    # Clean up stale objects that are no longer in the dataset
+    if uploaded_keys:
+        delete_stale_objects(client, bucket, uploaded_keys, prefix)
+
     return successful, failed
