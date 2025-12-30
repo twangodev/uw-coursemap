@@ -7,8 +7,9 @@ from logging import getLogger
 
 from tqdm import tqdm
 
+from pydantic import BaseModel
+
 from instructors import FullInstructor
-from json_serializable import JsonSerializable
 from map import get_buildings
 from sanitization import sanitize_entry, sanitize_instructor_id
 from sitemap_generation import generate_sitemap
@@ -364,7 +365,7 @@ def recursive_sort_data(data):
     Recursively sorts only dictionary keys.
     - For dicts, returns a new dict with keys in sorted order and values recursively processed.
     - For lists, tuples or sets, preserves the original order/structure but recurses into elements.
-    - For JsonSerializable, converts to JSON and then sorts keys.
+    - For Pydantic BaseModel, converts via model_dump() and then sorts keys.
     """
     # If it's a dict, sort its keys
     if isinstance(data, dict):
@@ -380,9 +381,9 @@ def recursive_sort_data(data):
     if isinstance(data, set):
         return sorted([recursive_sort_data(item) for item in data], key=str)
 
-    # If it's JsonSerializable, convert to a dict and sort that
-    if isinstance(data, JsonSerializable):
-        return recursive_sort_data(data.to_dict())
+    # If it's a Pydantic BaseModel, convert via model_dump() and sort
+    if isinstance(data, BaseModel):
+        return recursive_sort_data(data.model_dump())
 
     # Anything else (int, str, etc.) just return as-is
     return data
@@ -413,9 +414,9 @@ def write_file(directory, directory_tuple: tuple[str, ...], filename: str, data)
         logger.warning(f"Data is empty for {filename}. Skipping writing to file.")
         return
 
-    if not isinstance(data, (dict, list, set, tuple, JsonSerializable)):
+    if not isinstance(data, (dict, list, set, tuple, BaseModel)):
         raise TypeError(
-            "Data must be a dictionary, list, set, tuple, or JsonSerializable object"
+            "Data must be a dictionary, list, set, tuple, or Pydantic BaseModel"
         )
 
     # Convert keys to strings
@@ -425,8 +426,8 @@ def write_file(directory, directory_tuple: tuple[str, ...], filename: str, data)
     # Convert data to a list if it is a set or tuple
     if isinstance(data, (set, tuple)):
         data = list(data)
-    elif isinstance(data, JsonSerializable):
-        data = data.to_dict()
+    elif isinstance(data, BaseModel):
+        data = data.model_dump()
 
     # Sort the data
     sorted_data = recursive_sort_data(data)
