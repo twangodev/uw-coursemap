@@ -8,7 +8,6 @@ from schemas.requirement_ast import (
     Leaf as _LeafBase,
     Node as _NodeBase,
     RequirementAbstractSyntaxTree as _RequirementASTBase,
-    _tree_repr,
 )
 
 token_specs = [

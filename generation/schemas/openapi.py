@@ -5,7 +5,6 @@ from __future__ import annotations
 import json
 from typing import Any
 
-from pydantic import TypeAdapter
 
 from schemas.grades import GradeData
 from schemas.course import CourseReference, CoursePrerequisites, Course
@@ -17,7 +16,6 @@ from schemas.enrollment import (
     TermData,
 )
 from schemas.instructor import RMPData, FullInstructor
-from schemas.requirement_ast import Leaf, Node, RequirementAbstractSyntaxTree
 
 
 def get_all_schemas() -> dict[str, Any]:

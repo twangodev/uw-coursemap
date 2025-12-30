@@ -17,7 +17,6 @@ from schemas.course import (
 from schemas.enrollment import TermData
 from schemas.grades import GradeData
 from requirement_ast import (
-    RequirementAbstractSyntaxTree,
     tokenize_requisites,
     RequirementParser,
 )
