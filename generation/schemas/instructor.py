@@ -41,11 +41,11 @@ class RMPData(BaseModel):
     """Rate My Professors data for an instructor."""
 
     id: str
-    legacy_id: str
+    legacy_id: int
     average_rating: float | None = None
     average_difficulty: float | None = None
     num_ratings: int = 0
-    would_take_again_percent: int | None = None
+    would_take_again_percent: float | None = None
     mandatory_attendance: MandatoryAttendance | dict | None = None
     ratings_distribution: RatingsDistribution | dict | None = None
     ratings: list[Rating | dict] = []
