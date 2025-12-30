@@ -368,7 +368,8 @@ async def process_hit(
                 building = meeting.get("building")
                 if building:
                     building_name = building["buildingName"]
-                    coordinates = (building.get("latitude"), building.get("longitude"))
+                    coords = (building.get("latitude"), building.get("longitude"))
+                    coordinates = coords if all(coords) else None
                     room = meeting.get("room", "No Assigned Room")
 
                     location = MeetingLocation.get_or_create_with_capacity(
