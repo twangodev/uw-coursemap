@@ -16,6 +16,7 @@ from schemas.enrollment import (
     TermData,
 )
 from schemas.instructor import RMPData, FullInstructor
+from schemas.requirement_ast import RequirementAbstractSyntaxTree, Leaf, Node
 
 
 def get_all_schemas() -> dict[str, Any]:
@@ -32,6 +33,9 @@ def get_all_schemas() -> dict[str, Any]:
         TermData,
         RMPData,
         FullInstructor,
+        RequirementAbstractSyntaxTree,
+        Leaf,
+        Node,
     ]
 
     schemas = {}
@@ -66,6 +70,9 @@ def generate_openapi_spec(
         TermData,
         RMPData,
         FullInstructor,
+        RequirementAbstractSyntaxTree,
+        Leaf,
+        Node,
     ]
 
     for model in models:
