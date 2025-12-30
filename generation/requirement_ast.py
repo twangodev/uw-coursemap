@@ -314,14 +314,14 @@ class RequirementParser:
 
     def parse(self) -> RequirementAbstractSyntaxTree:
         root = self.parse_or()
-        return RequirementAbstractSyntaxTree(root)
+        return RequirementAbstractSyntaxTree(root=root)
 
     def parse_or(self):
         children = [self.parse_and()]
         while self._peek_kind() == "OR":
             self.pos += 1
             children.append(self.parse_and())
-        return children[0] if len(children) == 1 else Node("OR", children)
+        return children[0] if len(children) == 1 else Node(operator="OR", children=children)
 
     def parse_and(self):
         children = [self.parse_primary()]
@@ -336,7 +336,7 @@ class RequirementParser:
             else:
                 break
 
-        return children[0] if len(children) == 1 else Node("AND", children)
+        return children[0] if len(children) == 1 else Node(operator="AND", children=children)
 
     def parse_primary(self):
         kind = self._peek_kind()
@@ -352,10 +352,10 @@ class RequirementParser:
         if kind in ("TEXT", "COURSE"):
             _, val = self.tokens[self.pos]
             self.pos += 1
-            return Leaf(val)
+            return Leaf(payload=val)
 
         if kind == "EOF":
-            return Leaf("")
+            return Leaf(payload="")
 
         raise SyntaxError(f"Unexpected token {kind!r}")
 
