@@ -261,7 +261,7 @@ async def process_hit(
     subjects = {
         subject["shortDescription"].replace(" ", "") for subject in enrollment_subjects
     }
-    course_ref = Course.Reference(subjects, course_code)
+    course_ref = Course.Reference(subjects=subjects, course_number=course_code)
 
     if course_ref not in course_ref_to_course:
         logger.debug(f"Skipping unknown course: {course_ref}")
@@ -400,7 +400,7 @@ async def process_hit(
         f"Added {len(course_instructors)} instructors to {course_ref.get_identifier()}"
     )
 
-    term_data = TermData(None, None)
+    term_data = TermData()
     if course.term_data.get(selected_term):
         term_data = course.term_data[selected_term]
 
