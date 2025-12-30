@@ -1,0 +1,136 @@
+"""Upload generated data to S3-compatible object storage."""
+
+from __future__ import annotations
+
+import mimetypes
+import os
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from logging import getLogger
+from pathlib import Path
+
+import boto3
+from botocore.config import Config
+from tqdm import tqdm
+
+logger = getLogger(__name__)
+
+
+def get_s3_client(
+    endpoint_url: str,
+    access_key_id: str,
+    secret_access_key: str,
+):
+    """Create an S3 client for S3-compatible object storage."""
+    return boto3.client(
+        "s3",
+        endpoint_url=endpoint_url,
+        aws_access_key_id=access_key_id,
+        aws_secret_access_key=secret_access_key,
+        config=Config(
+            retries={"max_attempts": 3, "mode": "adaptive"},
+        ),
+    )
+
+
+def get_content_type(file_path: Path) -> str:
+    """Determine the content type for a file."""
+    content_type, _ = mimetypes.guess_type(str(file_path))
+    if content_type is None:
+        if file_path.suffix == ".json":
+            return "application/json"
+        return "application/octet-stream"
+    return content_type
+
+
+def upload_file(
+    client,
+    bucket: str,
+    local_path: Path,
+    key: str,
+    cache_control: str = "public, max-age=604800",
+) -> bool:
+    """Upload a single file to S3-compatible storage."""
+    try:
+        content_type = get_content_type(local_path)
+
+        with open(local_path, "rb") as f:
+            client.put_object(
+                Bucket=bucket,
+                Key=key,
+                Body=f,
+                ContentType=content_type,
+                CacheControl=cache_control,
+            )
+        return True
+    except Exception as e:
+        logger.error(f"Failed to upload {key}: {e}")
+        return False
+
+
+def upload_directory(
+    data_dir: str,
+    endpoint_url: str,
+    access_key_id: str,
+    secret_access_key: str,
+    bucket: str,
+    prefix: str = "",
+    max_workers: int = 10,
+    cache_control: str = "public, max-age=604800",
+) -> tuple[int, int]:
+    """
+    Upload all files from a directory to S3-compatible storage.
+
+    Args:
+        data_dir: Local directory containing files to upload
+        endpoint_url: S3-compatible endpoint URL
+        access_key_id: S3 access key ID
+        secret_access_key: S3 secret access key
+        bucket: S3 bucket name
+        prefix: Optional prefix for all keys (e.g., "v1/")
+        max_workers: Number of concurrent upload threads
+        cache_control: Cache-Control header value
+
+    Returns:
+        Tuple of (successful_uploads, failed_uploads)
+    """
+    client = get_s3_client(endpoint_url, access_key_id, secret_access_key)
+    data_path = Path(data_dir)
+
+    # Collect all files to upload
+    files_to_upload = []
+    for root, _, files in os.walk(data_path):
+        for filename in files:
+            local_path = Path(root) / filename
+            relative_path = local_path.relative_to(data_path)
+            key = f"{prefix}{relative_path}" if prefix else str(relative_path)
+            key = key.removesuffix(".json")
+            files_to_upload.append((local_path, key))
+
+    logger.info(f"Found {len(files_to_upload)} files to upload")
+
+    successful = 0
+    failed = 0
+
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {
+            executor.submit(
+                upload_file, client, bucket, local_path, key, cache_control
+            ): key
+            for local_path, key in files_to_upload
+        }
+
+        with tqdm(total=len(files_to_upload), desc="Uploading to S3") as pbar:
+            for future in as_completed(futures):
+                key = futures[future]
+                try:
+                    if future.result():
+                        successful += 1
+                    else:
+                        failed += 1
+                except Exception as e:
+                    logger.error(f"Upload failed for {key}: {e}")
+                    failed += 1
+                pbar.update(1)
+
+    logger.info(f"Upload complete: {successful} succeeded, {failed} failed")
+    return successful, failed

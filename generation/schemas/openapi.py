@@ -5,8 +5,6 @@ from __future__ import annotations
 import json
 from typing import Any
 
-
-from schemas.grades import GradeData
 from schemas.course import CourseReference, CoursePrerequisites, Course
 from schemas.enrollment import (
     School,
@@ -15,8 +13,11 @@ from schemas.enrollment import (
     EnrollmentData,
     TermData,
 )
+from schemas.grades import GradeData
 from schemas.instructor import RMPData, FullInstructor
 from schemas.requirement_ast import RequirementAbstractSyntaxTree, Leaf, Node
+
+DEFAULT_BASE_URL = "https://api.uwcourses.com"
 
 
 def get_all_schemas() -> dict[str, Any]:
@@ -50,7 +51,7 @@ def generate_openapi_spec(
     title: str = "UW Course Map API",
     version: str = "1.0.0",
     description: str = "Static JSON API for UW-Madison course data",
-    base_url: str = "https://api.uwcoursemap.com",
+    base_url: str = DEFAULT_BASE_URL,
 ) -> dict[str, Any]:
     """Generate a complete OpenAPI 3.1.0 specification."""
 
@@ -509,7 +510,7 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--base-url",
-        default="https://api.uwcoursemap.com",
+        default=DEFAULT_BASE_URL,
         help="Base URL for the API",
     )
     parser.add_argument(

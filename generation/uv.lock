@@ -136,6 +136,34 @@ wheels = [
 ]
 
 [[package]]
+name = "boto3"
+version = "1.42.18"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "botocore" },
+    { name = "jmespath" },
+    { name = "s3transfer" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f0/f0/00b15a4ffe86d35bd83551b1b355d514c0229cf7b1fd46e36ba82bf29be9/boto3-1.42.18.tar.gz", hash = "sha256:6388d8908331f29e7fc7a464f24aaa49070fac70bda1284ba3b7996c32f55465", size = 112841, upload-time = "2025-12-29T20:26:22.319Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ab/11/77c54fd62e56cee3987648b1f9d14db6e513e4507ec1aa98dbcba7bfff21/boto3-1.42.18-py3-none-any.whl", hash = "sha256:3077ad8f2b5ecb65208c33e79ba08fa4d85d6554154872cfd0f7336a68a091fc", size = 140574, upload-time = "2025-12-29T20:26:19.851Z" },
+]
+
+[[package]]
+name = "botocore"
+version = "1.42.18"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "jmespath" },
+    { name = "python-dateutil" },
+    { name = "urllib3" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/04/e3/163d8c95de39b039b27fd50794456f226412c16ca048a981162589fd7e2c/botocore-1.42.18.tar.gz", hash = "sha256:49fe04e25ec90e516a1399aceee2a38ebf63e183d25e4823a8d8e01349589742", size = 14877964, upload-time = "2025-12-29T20:26:09.16Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/7f/fb/8cfada313ad0d078ee1db2ae743a10c58ba0eb0d80dbe7dc7865eb2031bd/botocore-1.42.18-py3-none-any.whl", hash = "sha256:b9fd2363f93e9550eca96189891b2f7687a76945715bbf282e59aae89e065c1c", size = 14549969, upload-time = "2025-12-29T20:26:04.472Z" },
+]
+
+[[package]]
 name = "cattrs"
 version = "25.1.1"
 source = { registry = "https://pypi.org/simple" }
@@ -372,6 +400,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz", hash = "sha256:0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d", size = 245115, upload-time = "2025-03-05T20:05:02.478Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/62/a1/3d680cbfd5f4b8f15abc1d571870c5fc3e594bb582bc3b64ea099db13e56/jinja2-3.1.6-py3-none-any.whl", hash = "sha256:85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67", size = 134899, upload-time = "2025-03-05T20:05:00.369Z" },
+]
+
+[[package]]
+name = "jmespath"
+version = "1.0.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/00/2a/e867e8531cf3e36b41201936b7fa7ba7b5702dbef42922193f05c8976cd6/jmespath-1.0.1.tar.gz", hash = "sha256:90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe", size = 25843, upload-time = "2022-06-17T18:00:12.224Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/31/b4/b9b800c45527aadd64d5b442f9b932b00648617eb5d63d2c7a6587b7cafc/jmespath-1.0.1-py3-none-any.whl", hash = "sha256:02e2e4cc71b5bcab88332eebf907519190dd9e6e82107fa7f83b1003a6252980", size = 20256, upload-time = "2022-06-17T18:00:10.251Z" },
 ]
 
 [[package]]
@@ -1041,6 +1078,18 @@ wheels = [
 ]
 
 [[package]]
+name = "s3transfer"
+version = "0.16.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "botocore" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/05/04/74127fc843314818edfa81b5540e26dd537353b123a4edc563109d8f17dd/s3transfer-0.16.0.tar.gz", hash = "sha256:8e990f13268025792229cd52fa10cb7163744bf56e719e0b9cb925ab79abf920", size = 153827, upload-time = "2025-12-01T02:30:59.114Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/fc/51/727abb13f44c1fcf6d145979e1535a35794db0f6e450a0cb46aa24732fe2/s3transfer-0.16.0-py3-none-any.whl", hash = "sha256:18e25d66fed509e3868dc1572b3f427ff947dd2c56f844a5bf09481ad3f3b2fe", size = 86830, upload-time = "2025-12-01T02:30:57.729Z" },
+]
+
+[[package]]
 name = "safetensors"
 version = "0.5.3"
 source = { registry = "https://pypi.org/simple" }
@@ -1380,6 +1429,7 @@ dependencies = [
     { name = "aiohttp-client-cache", extra = ["sqlite"] },
     { name = "anyascii" },
     { name = "beautifulsoup4" },
+    { name = "boto3" },
     { name = "coloredlogs" },
     { name = "diskcache" },
     { name = "fake-useragent" },
@@ -1416,6 +1466,7 @@ requires-dist = [
     { name = "aiohttp-client-cache", extras = ["sqlite"], specifier = ">=0.13.0" },
     { name = "anyascii", specifier = ">=0.3.3" },
     { name = "beautifulsoup4", specifier = ">=4.13.4" },
+    { name = "boto3", specifier = ">=1.42.18" },
     { name = "coloredlogs", specifier = ">=15.0.1" },
     { name = "diskcache", specifier = ">=5.6.3" },
     { name = "fake-useragent", specifier = ">=2.2.0" },

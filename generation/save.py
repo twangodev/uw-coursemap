@@ -631,6 +631,15 @@ def write_data(
 
     generate_sitemap(data_dir, base_url, subject_names, course_names, instructor_names)
 
+    # Generate manifest for API consumers
+    manifest = {
+        "subjects": subject_names,
+        "courses": course_names,
+        "instructors": instructor_names,
+        "updated_on": updated_on,
+    }
+    write_file(data_dir, tuple(), "manifest", manifest)
+
 
 def list_files(
     directory, directory_tuple: tuple[str, ...], extensions: tuple[str, ...]
