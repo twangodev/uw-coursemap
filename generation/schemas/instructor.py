@@ -6,6 +6,7 @@ from typing import Any
 
 from pydantic import BaseModel, ConfigDict, field_serializer
 
+from schemas.course import CourseReference
 from schemas.grades import GradeData
 
 
@@ -89,11 +90,11 @@ class FullInstructor(BaseModel):
     department: str | None = None
     credentials: str | None = None
     official_name: str | None = None
-    courses_taught: list[Any] | None = None  # list[CourseReference]
+    courses_taught: list[CourseReference] | None = None
     cumulative_grade_data: GradeData | None = None
 
     @field_serializer("courses_taught")
-    def serialize_courses_taught(self, courses: list[Any] | None) -> list[dict] | None:
+    def serialize_courses_taught(self, courses: list[CourseReference] | None) -> list[dict] | None:
         """Serialize course references to dicts."""
         if courses is None:
             return None
