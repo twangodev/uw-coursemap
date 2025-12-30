@@ -379,7 +379,9 @@ class MadgradesData:
 
             for section in sections:
                 for instructor in section["instructors"]:
-                    instructors.add(instructor["name"])
+                    name = instructor["name"]
+                    if name:
+                        instructors.add(name)
 
             # Update instructors on the grade data
             grade_data = GradeData(
