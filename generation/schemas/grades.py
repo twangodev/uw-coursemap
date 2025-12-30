@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, field_serializer, field_validator
 
 
 class GradeData(BaseModel):
@@ -10,8 +10,6 @@ class GradeData(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
-        # Allow set -> list conversion during serialization
-        ser_json_typing_mode="always",
     )
 
     total: int
@@ -31,7 +29,24 @@ class GradeData(BaseModel):
     no_work: int
     not_reported: int
     other: int
-    instructors: list[str] | None = None
+    instructors: set[str] | None = None
+
+    @field_validator("instructors", mode="before")
+    @classmethod
+    def convert_instructors_to_set(cls, v):
+        """Convert list to set on input."""
+        if v is None:
+            return None
+        if isinstance(v, set):
+            return v
+        return set(v)
+
+    @field_serializer("instructors")
+    def serialize_instructors(self, v: set[str] | None) -> list[str] | None:
+        """Convert set to sorted list for JSON output."""
+        if v is None:
+            return None
+        return sorted(v)
 
     @classmethod
     def empty(cls) -> GradeData:
@@ -62,9 +77,9 @@ class GradeData(BaseModel):
         if not other:
             return self
 
-        merged_instructors: list[str] | None = None
+        merged_instructors: set[str] | None = None
         if self.instructors is not None and other.instructors is not None:
-            merged_instructors = list(set(self.instructors) | set(other.instructors))
+            merged_instructors = self.instructors | other.instructors
         elif self.instructors is not None:
             merged_instructors = self.instructors
         elif other.instructors is not None:
