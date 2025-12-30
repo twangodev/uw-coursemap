@@ -5,6 +5,7 @@ from __future__ import annotations
 import asyncio
 from json import JSONDecodeError
 from logging import getLogger
+from typing import ClassVar
 
 from pydantic import ConfigDict
 
@@ -187,7 +188,7 @@ class MeetingLocation(_MeetingLocationBase):
     model_config = ConfigDict(frozen=False)  # Allow mutation for capacity updates
 
     # Class-level dict to track all unique meeting locations for O(1) lookup
-    _all_locations: dict[tuple, "MeetingLocation"] = {}
+    _all_locations: ClassVar[dict[tuple, "MeetingLocation"]] = {}
 
     @classmethod
     def get_or_create_with_capacity(
