@@ -10,7 +10,7 @@ from tqdm.asyncio import tqdm
 
 from aio_cache import get_aio_cache
 from course import Course
-from enrollment_data import EnrollmentData, TermData
+from enrollment_data import EnrollmentData, MeetingLocation, Meeting, TermData
 from http_utils import get_default_headers
 
 terms_url = "https://public.enroll.wisc.edu/api/search/v1/aggregate"
@@ -371,18 +371,16 @@ async def process_hit(
                     coordinates = (building.get("latitude"), building.get("longitude"))
                     room = meeting.get("room", "No Assigned Room")
 
-                    location = (
-                        EnrollmentData.MeetingLocation.get_or_create_with_capacity(
-                            building=building_name,
-                            room=room,
-                            coordinates=coordinates,
-                            class_capacity=capacity,
-                        )
+                    location = MeetingLocation.get_or_create_with_capacity(
+                        building=building_name,
+                        room=room,
+                        coordinates=coordinates,
+                        class_capacity=capacity,
                     )
 
                 for index, (start, end) in enumerate(all_meeting_occurrences, start=1):
                     name = f"{section_identifier} #{index}"
-                    course_meeting = EnrollmentData.Meeting(
+                    course_meeting = Meeting(
                         start_time=start,
                         end_time=end,
                         type=meeting_type,

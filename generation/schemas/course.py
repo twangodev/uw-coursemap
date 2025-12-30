@@ -116,7 +116,7 @@ class CoursePrerequisites(BaseModel):
         return [ref.model_dump() for ref in refs]
 
     @field_serializer("abstract_syntax_tree")
-    def serialize_ast(self, ast: Any) -> dict | None:
+    def serialize_ast(self, ast: Any) -> dict | str | None:
         """Serialize the AST if present."""
         if ast is None:
             return None
