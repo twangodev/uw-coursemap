@@ -8,7 +8,7 @@
 
   interface Props {
     styleEntries: StyleEntry[];
-    hiddenSubject: string | null;
+    hiddenSubject?: string | null;
   }
 
   let { styleEntries, hiddenSubject = $bindable(null) }: Props = $props();

@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { 
-    CircleHelp, 
-    Info, 
+  import {
+    CircleHelp,
+    Info,
     Palette,
     MousePointer,
     Settings2,
@@ -12,12 +12,8 @@
   import { Button } from "$lib/components/ui/button";
   import { LucideHash } from "@lucide/svelte";
   import { m } from "$lib/paraglide/messages";
+  import { isDesktop } from "$lib/mediaStore.ts";
 
-  interface Props {
-    isDesktop: boolean;
-  }
-
-  let { isDesktop }: Props = $props();
   let helpDialogOpen = $state(false);
 
   // Import mode to determine current theme
@@ -135,7 +131,7 @@
               <div class="flex gap-2">
                 <dt class="font-medium min-w-[50px]">{m["cytoscape.help.navigation.select"]()}</dt>
                 <dd class="text-muted-foreground">{m["cytoscape.help.navigation.selectDesc"]({
-                  action: isDesktop ? m["cytoscape.help.navigation.click"]() : m["cytoscape.help.navigation.tap"]()
+                  action: $isDesktop ? m["cytoscape.help.navigation.click"]() : m["cytoscape.help.navigation.tap"]()
                 })}</dd>
               </div>
               <div class="flex gap-2">
