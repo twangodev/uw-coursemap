@@ -40,20 +40,6 @@ export function setupCytoscapeHandlers(cy: cytoscape.Core) {
   // Styling state
   let showCodeLabels = true;
 
-  // Set up reactive subscription using $effect.root for mode changes
-  const cleanupModeEffect = $effect.root(() => {
-    $effect(() => {
-      // Track mode.current reactively
-      mode.current;
-      applyThemeAndLabelStyle();
-    });
-  });
-
-  // Subscribe to taken courses store
-  const unsubscribeTakenCourses = takenCoursesStore.subscribe(() => {
-    applyTakenCoursesStyle();
-  });
-
   // --- Internal helpers ---
 
   const destroyTip = () => {
@@ -129,6 +115,22 @@ export function setupCytoscapeHandlers(cy: cytoscape.Core) {
       ? cy.nodes(`[parent = "${subject}"]`).remove()
       : null;
   };
+
+  // --- Reactive subscriptions (must be after function definitions) ---
+
+  // Set up reactive subscription using $effect.root for mode changes
+  const cleanupModeEffect = $effect.root(() => {
+    $effect(() => {
+      // Track mode.current reactively
+      mode.current;
+      applyThemeAndLabelStyle();
+    });
+  });
+
+  // Subscribe to taken courses store
+  const unsubscribeTakenCourses = takenCoursesStore.subscribe(() => {
+    applyTakenCoursesStyle();
+  });
 
   // --- Event handlers ---
 
