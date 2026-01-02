@@ -443,8 +443,9 @@ def main():
                 course_ref_to_meetings=course_ref_to_meetings,
             )
 
-            # Generate OpenAPI spec
-            openapi_path = path.join(data_dir, "openapi.json")
+            # Generate OpenAPI spec to docs/public for VitePress and TypeScript type generation
+            project_root = path.dirname(path.dirname(path.abspath(__file__)))
+            openapi_path = path.join(project_root, "docs", "public", "openapi.json")
             export_openapi_spec(output_path=openapi_path)
 
         if filter_step(step, "upload"):
