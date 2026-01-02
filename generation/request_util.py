@@ -10,3 +10,4 @@ def get_global_retry_strategy():
             "GET"
         ],  # Methods to retry on (use allowed_methods instead of deprecated method_whitelist)
     )
+go

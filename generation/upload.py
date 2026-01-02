@@ -19,6 +19,7 @@ def get_s3_client(
     endpoint_url: str,
     access_key_id: str,
     secret_access_key: str,
+    max_pool_connections: int = 100,
 ):
     """Create an S3 client for S3-compatible object storage."""
     return boto3.client(
@@ -28,6 +29,7 @@ def get_s3_client(
         aws_secret_access_key=secret_access_key,
         config=Config(
             retries={"max_attempts": 3, "mode": "adaptive"},
+            max_pool_connections=max_pool_connections,
         ),
     )
 
@@ -144,7 +146,9 @@ def upload_directory(
     Returns:
         Tuple of (successful_uploads, failed_uploads)
     """
-    client = get_s3_client(endpoint_url, access_key_id, secret_access_key)
+    client = get_s3_client(
+        endpoint_url, access_key_id, secret_access_key, max_pool_connections=max_workers
+    )
     data_path = Path(data_dir)
 
     # Collect all files to upload
