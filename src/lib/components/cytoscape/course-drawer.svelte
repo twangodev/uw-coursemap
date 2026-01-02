@@ -9,8 +9,8 @@
   import InstructorPreview from "../instructor-preview/instructor-preview.svelte";
   import { ArrowUpRight } from "@lucide/svelte";
   import { apiFetch } from "$lib/api";
-  import { clearPath, highlightPath } from "./paths.ts";
   import { page } from "$app/state";
+  import type CytoscapeCore from "./cytoscape-core.svelte";
   import { pushState } from "$app/navigation";
   import type { Terms } from "$lib/types/terms.ts";
   import { onMount, tick } from "svelte";
@@ -27,22 +27,29 @@
   import ClampedParagraph from "../clamped-paragraph.svelte";
   import { localizeHref } from "$lib/paraglide/runtime";
   import { m } from "$lib/paraglide/messages";
+  import { searchModalOpen } from "$lib/searchModalStore.ts";
 
   interface Props {
-    cy: cytoscape.Core | undefined;
-    sheetOpen: boolean;
-    selectedCourse: Course | undefined;
-    destroyTip: () => void;
+    cytoscapeCoreRef: CytoscapeCore | undefined;
     allowFocusing: boolean;
   }
 
   let {
-    sheetOpen = $bindable<boolean>(),
-    selectedCourse,
-    cy,
-    destroyTip,
+    cytoscapeCoreRef,
     allowFocusing = true,
   }: Props = $props();
+  let sheetOpen = $state(false);
+  let selectedCourse: Course | undefined = $state(undefined);
+
+  export const closeDrawer = function () {
+    sheetOpen = false;
+  }
+  export const openDrawer = function () {
+    sheetOpen = true;
+  }
+  export const setSelectedCourse = function (course: Course | undefined) {
+    selectedCourse = course;
+  }
   let focus = $derived(page.url.searchParams.get("focus"));
 
   let terms: Terms = $state({});
@@ -58,26 +65,21 @@
   });
 
   $effect(() => {
+    if ($searchModalOpen) {
+      sheetOpen = false;
+    }
+  }); 
+
+  $effect(() => {
+    focus;
     (async () => {
-      if (cy && focus) {
+      if (cytoscapeCoreRef && focus) {
         let response = await apiFetch(`/course/${focus}.json`);
         let course = await response.json();
 
         let id = CourseUtils.courseReferenceToString(course.course_reference);
-        let node = cy.$id(id);
 
-        cy.animate({
-          zoom: 2,
-          center: {
-            eles: node,
-          },
-          duration: 1000,
-          easing: "ease-in-out",
-          queue: true,
-        });
-
-        clearPath(cy, destroyTip);
-        highlightPath(cy, node);
+        cytoscapeCoreRef.focusOnCourse(id);
 
         sheetOpen = true;
         selectedCourse = course;
@@ -86,8 +88,8 @@
   });
 
   $effect(() => {
-    if (!cy || !allowFocusing) return;
-
+    if (!cytoscapeCoreRef || !allowFocusing) return;
+    
     if (sheetOpen) {
       if (selectedCourse) {
         let courseId = CourseUtils.courseReferenceToSanitizedString(
