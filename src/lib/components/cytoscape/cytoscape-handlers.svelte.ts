@@ -183,12 +183,20 @@ export function setupCytoscapeHandlers(cy: cytoscape.Core) {
     const tip = targetNode.popper({
       content: () => {
         const div = document.createElement("div");
-        div.innerHTML = `
-          <div class="bg-black text-white p-2 rounded-lg">
-            <h1 class="text-lg font-semibold">${targetNode.id()}</h1>
-            <p class="text-sm">${targetNode.data("description")}</p>
-          </div>
-        `;
+        const container = document.createElement("div");
+        container.className = "bg-black text-white p-2 rounded-lg";
+        
+        const heading = document.createElement("h1");
+        heading.className = "text-lg font-semibold";
+        heading.textContent = targetNode.id();
+        
+        const para = document.createElement("p");
+        para.className = "text-sm";
+        para.textContent = targetNode.data("description");
+        
+        container.appendChild(heading);
+        container.appendChild(para);
+        div.appendChild(container);
         return div;
       },
     });
