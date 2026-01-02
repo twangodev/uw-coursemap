@@ -10,7 +10,7 @@
   import { onMount } from "svelte";
   import { isDesktop } from "$lib/mediaStore.ts";
   import { LayoutType } from "./graph-layout.ts";
-  import { computeLayout } from "./cytoscape-initialization.ts";
+  import { computeLayout } from "./cytoscape-init.ts";
 
   interface Props {
     elementDefinitions: ElementDefinition[];

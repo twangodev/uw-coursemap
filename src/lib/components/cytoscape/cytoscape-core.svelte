@@ -8,7 +8,7 @@
   import {
     initializeCytoscape,
     computeLayout,
-  } from "./cytoscape-initialization.ts";
+  } from "./cytoscape-init.ts";
   import { LayoutType } from "./graph-layout.ts";
   import { getStyles, type StyleEntry } from "./graph-styles.ts";
   import { setupCytoscapeHandlers } from "./cytoscape-handlers.svelte.ts";
