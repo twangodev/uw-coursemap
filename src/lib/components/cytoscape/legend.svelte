@@ -1,9 +1,4 @@
 <script lang="ts">
-  import * as Card from "$lib/components/ui/card/index.js";
-  import type { StylesheetStyle } from "cytoscape";
-  import { Badge } from "../ui/badge";
-  import { Button } from "../ui/button";
-  import ColorDot from "./color-dot.svelte";
   import type { StyleEntry } from "$lib/components/cytoscape/graph-styles.ts";
 
   interface Props {
@@ -17,14 +12,22 @@
 <div class="absolute bottom-4 left-4">
   {#each styleEntries as entry}
     {#each Object.entries(entry) as [subject, hex]}
-      <ColorDot
-        {hex}
-        onclick={() => {
-          hiddenSubject = hiddenSubject === subject ? null : subject;
-        }}
-        label={subject}
-        {hiddenSubject}
-      />
+      {@const enabled = subject !== hiddenSubject}
+      <div
+        class="my-1 flex flex-row items-center space-x-2 {enabled
+          ? 'opacity-100'
+          : 'opacity-50'}"
+      >
+        <button
+          class="h-4 w-4 cursor-pointer rounded-full"
+          aria-label="Show/Hide {subject}"
+          style="background-color: {hex}"
+          onclick={() => {
+            hiddenSubject = hiddenSubject === subject ? null : subject;
+          }}
+        ></button>
+        <span class="text-sm select-none">{subject}</span>
+      </div>
     {/each}
   {/each}
   <!--<Card.Root class="px-2 py-1">-->
