@@ -64,11 +64,11 @@
     terms = await termsData.json();
   });
 
-  searchModalOpen.subscribe((isOpen) => {
-    if (isOpen) {
+  $effect(() => {
+    if ($searchModalOpen) {
       sheetOpen = false;
     }
-  });
+  }); 
 
   $effect(() => {
     focus;
