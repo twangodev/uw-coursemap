@@ -89,10 +89,6 @@
 
   $effect(() => {
     if (!cytoscapeCoreRef || !allowFocusing) return;
-
-    if (!sheetOpen) {
-      focus = null;
-    }
     
     if (sheetOpen) {
       if (selectedCourse) {
