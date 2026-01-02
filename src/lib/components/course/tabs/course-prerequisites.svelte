@@ -32,9 +32,9 @@
     prerequisiteStyleEntries,
   }: Props = $props();
 
-  const takenCourses = $takenCoursesStore.map((course: CourseReference) => {
+  const takenCourses = $derived($takenCoursesStore.map((course: CourseReference) => {
       return CourseUtils.courseReferenceToString(course);
-  }) 
+  }));
 
   const eleDefs = $derived(filterElementsByRootCourse(
     prerequisiteElementDefinitions,
