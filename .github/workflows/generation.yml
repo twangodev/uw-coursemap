@@ -6,6 +6,11 @@ on:
     paths:
       - "generation/**"
   workflow_dispatch:
+    inputs:
+      cache_week_id:
+        description: 'Cache Week ID Override'
+        required: false
+        type: string
   schedule:
     - cron: "0 0 * * 0"
 
@@ -34,7 +39,12 @@ jobs:
       - name: Install Dependencies
         run: uv sync
       - name: Setup Cache Environment
-        run: echo "cache_id=$(date --utc '+%U')" >> $GITHUB_ENV
+        run: |
+          if [ -n "${{ inputs.cache_week_id }}" ]; then
+            echo "cache_id=${{ inputs.cache_week_id }}" >> $GITHUB_ENV
+          else
+            echo "cache_id=$(date --utc '+%U')" >> $GITHUB_ENV
+          fi
       - name: Cache Generation
         uses: actions/cache@v4
         with:
