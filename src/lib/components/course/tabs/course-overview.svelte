@@ -12,7 +12,7 @@
   import InstructorPreview from "$lib/components/instructor-preview/instructor-preview.svelte";
   import type { Course } from "$lib/types/course.ts";
   import type { Terms } from "$lib/types/terms.ts";
-  import { type FullInstructorInformation } from "$lib/types/instructor.ts";
+  import { type FullInstructor } from "$lib/types/instructor.ts";
   import {
     calculateARate,
     calculateCompletionRate,
@@ -31,7 +31,7 @@
     similarCourses: Course[];
     terms: Terms;
     selectedTerm: string | undefined;
-    instructors: FullInstructorInformation[];
+    instructors: FullInstructor[];
     goToInstructors: () => void;
   }
 

@@ -4,7 +4,7 @@ import type {
   ElementDefinition,
   NodeDefinition,
 } from "cytoscape";
-import { apiFetch } from "$lib/api.ts";
+import { api } from "$lib/api";
 
 export async function fetchGraphData(
   url: string,
@@ -22,11 +22,12 @@ export async function fetchGraphData(
 }
 
 export async function fetchCourse(courseId: string): Promise<Course> {
-  // TODO use course.ts with sanatization
-  let response = await apiFetch(
-    `/course/${courseId.replaceAll(" ", "_").replaceAll("/", "_")}.json`,
-  );
-  return response.json();
+  const sanitizedId = courseId.replaceAll(" ", "_").replaceAll("/", "_");
+  const { data } = await api.GET("/course/{courseId}", {
+    params: { path: { courseId: sanitizedId } },
+  });
+  if (!data) throw new Error(`Failed to fetch course: ${courseId}`);
+  return data;
 }
 
 export function getNodeData(courseData: ElementDefinition[]): NodeDefinition[] {

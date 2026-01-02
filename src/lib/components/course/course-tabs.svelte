@@ -8,8 +8,8 @@
   } from "$lib/components/ui/tabs/index.js";
   import type { Terms } from "$lib/types/terms.js";
   import {
-    type FullInstructorInformation,
-    getFullInstructorInformation,
+    type FullInstructor,
+    getFullInstructor,
   } from "$lib/types/instructor.ts";
   import CourseDetails from "./course-details.svelte";
   import { CourseOverview } from "$lib/components/course/tabs";
@@ -28,7 +28,7 @@
     similarCourses: Course[];
     terms: Terms;
     selectedTerm: string | undefined;
-    instructors: FullInstructorInformation[];
+    instructors: FullInstructor[];
     prerequisiteElementDefinitions: ElementDefinition[];
     prerequisiteStyleEntries: StyleEntry[];
     meetings?: any;

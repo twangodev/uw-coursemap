@@ -1,48 +1,22 @@
-import type { GradeData } from "$lib/types/madgrades.ts";
-import type { EnrollmentData } from "$lib/types/enrollment.ts";
-import { apiFetch } from "$lib/api.ts";
+import type { components } from "$lib/types/api";
+import { api } from "$lib/api";
 
-export type CourseReference = {
-  subjects: string[];
-  course_number: number;
-};
-
-type CoursePrerequisites = {
-  course_references: CourseReference[];
-  prerequisites_text: string;
-  linked_requisite_text: (string | CourseReference)[];
-};
-
-export type Course = {
-  course_reference: CourseReference;
-  course_title: string;
-  description: string;
-  prerequisites: CoursePrerequisites;
-  optimized_prerequisites: CoursePrerequisites;
-  cumulative_grade_data: GradeData | null;
-  term_data: {
-    [key: string]: TermData;
-  };
-  similar_courses: CourseReference[];
-  satisfies: CourseReference[];
-};
-
-export type TermData = {
-  enrollment_data: EnrollmentData | null;
-  grade_data: GradeData | null;
-};
+// Re-export types from generated API
+export type Course = components["schemas"]["Course"];
+export type CourseReference = components["schemas"]["CourseReference"];
+export type CoursePrerequisites = components["schemas"]["CoursePrerequisites"];
+export type TermData = components["schemas"]["TermData"];
 
 export const CourseUtils = {
   areEqual: (a: CourseReference, b: CourseReference): boolean => {
     return CourseUtils.courseReferenceToString(a) === CourseUtils.courseReferenceToString(b);
-  }, 
+  },
 
   sanitizedStringToCourse: async (sanitizedCourseReferenceString: string): Promise<Course | null> => {
-    const response = await apiFetch(
-      `/course/${sanitizedCourseReferenceString}.json`,
-    );
-    if (!response.ok) return null;
-    return await response.json();
+    const { data } = await api.GET("/course/{courseId}", {
+      params: { path: { courseId: sanitizedCourseReferenceString } },
+    });
+    return data ?? null;
   },
 
   courseReferenceToString: (courseReference: CourseReference): string => {
@@ -50,7 +24,6 @@ export const CourseUtils = {
     return `${subjects} ${courseReference.course_number}`;
   },
 
-  // This function is used to sanitize the course reference string for use in URLs
   courseReferenceToSanitizedString: (courseReference: CourseReference): string => {
     return CourseUtils.courseReferenceToString(courseReference)
       .replaceAll(" ", "_")
@@ -66,10 +39,6 @@ export const CourseUtils = {
     return course;
   },
 
-  /**
-   * Get the latest term key from a course's term data
-   * Returns null if no terms exist
-   */
   getLatestTermKey: (course: Course): string | null => {
     const termKeys = Object.keys(course.term_data).sort().reverse();
     return termKeys.length > 0 ? termKeys[0] : null;

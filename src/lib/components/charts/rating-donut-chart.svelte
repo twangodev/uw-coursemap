@@ -10,7 +10,7 @@
   import { getCarbonTheme } from "$lib/theme.ts";
 
   interface Props {
-    ratingData: RatingsDistribution | undefined;
+    ratingData: RatingsDistribution | null | undefined;
   }
 
   let { ratingData }: Props = $props();

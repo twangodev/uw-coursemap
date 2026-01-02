@@ -33,8 +33,8 @@
     getAttendanceRequirement(instructor?.rmp_data?.mandatory_attendance),
   );
 
-  const calculateRatingColor = (rating: number | undefined) => {
-    if (!rating) {
+  const calculateRatingColor = (rating: number | null | undefined) => {
+    if (rating == null) {
       return "";
     }
     if (rating >= 4) {
@@ -48,8 +48,8 @@
     }
   };
 
-  const calculateDifficultyColor = (difficulty: number | undefined) => {
-    if (!difficulty) {
+  const calculateDifficultyColor = (difficulty: number | null | undefined) => {
+    if (difficulty == null) {
       return "";
     }
     if (difficulty <= 1) {
@@ -154,7 +154,7 @@
                   instructor.rmp_data.average_rating,
                 )}"
               >
-                {instructor.rmp_data.average_rating.toFixed(1)}
+                {instructor.rmp_data.average_rating?.toFixed(1) ?? "N/A"}
               </div>
               <!--                            <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestTermGPA($course), getCumulativeGPA($course))} comparisonKeyword="Historical"/>-->
             </CardContent>
@@ -172,7 +172,7 @@
                   instructor.rmp_data.average_difficulty,
                 )}"
               >
-                {instructor.rmp_data.average_difficulty.toFixed(1)}
+                {instructor.rmp_data.average_difficulty?.toFixed(1) ?? "N/A"}
               </div>
               <!--                            <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestCompletionRate($course), getCumulativeCompletionRate($course))} comparisonKeyword="Historical"/>-->
             </CardContent>
@@ -187,7 +187,7 @@
             </CardHeader>
             <CardContent>
               <div class="text-2xl font-bold">
-                {instructor.rmp_data?.would_take_again_percent.toFixed(1)}%
+                {instructor.rmp_data?.would_take_again_percent?.toFixed(1) ?? "N/A"}%
               </div>
               <!--                            <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestARate($course), getCumulativeARate($course))} comparisonKeyword="Historical"/>-->
             </CardContent>

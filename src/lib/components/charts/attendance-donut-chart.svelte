@@ -10,7 +10,7 @@
   import { mode } from "mode-watcher";
 
   interface Props {
-    attendanceData: MandatoryAttendance | undefined;
+    attendanceData: MandatoryAttendance | null | undefined;
   }
 
   let { attendanceData }: Props = $props();
