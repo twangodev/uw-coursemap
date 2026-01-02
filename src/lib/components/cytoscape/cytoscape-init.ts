@@ -8,7 +8,7 @@ import {
   LayoutType,
 } from "./graph-layout.ts";
 import { getPredecessorsNotTaken } from "./paths.ts";
-import { CourseUtils, type Course } from "$lib/types/course.ts";
+import { CourseUtils, type Course, type CourseReference } from "$lib/types/course.ts";
 
 /**
  * Options for computing layout
@@ -130,7 +130,7 @@ export async function computeLayout(
  */
 export function filterElementsByRootCourse(
   elementDefinitions: ElementDefinition[],
-  rootCourse: Course,
+  rootCourse: CourseReference,
   takenCourses: string[],
 ): ElementDefinition[] {
   // Create a temporary headless Cytoscape instance for graph traversal
@@ -140,7 +140,7 @@ export function filterElementsByRootCourse(
   });
 
   const rootNodeId = CourseUtils.courseReferenceToString(
-    rootCourse.course_reference,
+    rootCourse
   );
   const rootNode = tempCy.$id(rootNodeId)[0];
 
