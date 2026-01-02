@@ -30,18 +30,20 @@
   let sideControlsRef: SideControls;
 
   // Initialize
-  onMount(() => {
-    // Register course click callback after cytoscape is ready
-    setTimeout(() => {
-      cytoscapeCoreRef?.onCourseClick((courseId) => {
+  $effect(() => {
+    if (cytoscapeCoreRef) {
+      // Register course click callback after cytoscape is ready
+      cytoscapeCoreRef.onCourseClick((courseId) => {
         if ($isDesktop) {
           fetchCourse(courseId).then((course) => {
             courseDrawerRef.setSelectedCourse(course);
             courseDrawerRef.openDrawer();
+          }).catch((error) => {
+            console.error("Failed to fetch course:", error);
           });
         }
       });
-    }, 100);
+    }
   });
 
   // Event handlers from SideControls
