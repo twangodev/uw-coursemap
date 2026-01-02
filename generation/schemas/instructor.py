@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from typing import Any
 
 from pydantic import BaseModel, ConfigDict, field_serializer
 
@@ -47,9 +46,9 @@ class RMPData(BaseModel):
     average_difficulty: float | None = None
     num_ratings: int = 0
     would_take_again_percent: float | None = None
-    mandatory_attendance: MandatoryAttendance | dict | None = None
-    ratings_distribution: RatingsDistribution | dict | None = None
-    ratings: list[Rating | dict] = []
+    mandatory_attendance: MandatoryAttendance | None = None
+    ratings_distribution: RatingsDistribution | None = None
+    ratings: list[Rating] = []
 
     @classmethod
     def from_rmp_data(cls, rmp_data: dict) -> RMPData:
@@ -58,11 +57,35 @@ class RMPData(BaseModel):
         for rating in rmp_data["ratings"]["edges"]:
             node = rating["node"]
             ratings.append(
-                {
-                    "comment": node["comment"],
-                    "quality_rating": node["qualityRating"],
-                    "difficulty_rating": node["difficultyRatingRounded"],
-                }
+                Rating(
+                    comment=node["comment"],
+                    quality_rating=node["qualityRating"],
+                    difficulty_rating=node["difficultyRatingRounded"],
+                )
+            )
+
+        # Convert mandatory_attendance dict to model if present
+        mandatory_attendance = None
+        if rmp_data.get("mandatoryAttendance"):
+            ma = rmp_data["mandatoryAttendance"]
+            mandatory_attendance = MandatoryAttendance(
+                yes=ma.get("yes", 0),
+                no=ma.get("no", 0),
+                neither=ma.get("neither", 0),
+                total=ma.get("total", 0),
+            )
+
+        # Convert ratings_distribution dict to model if present
+        ratings_distribution = None
+        if rmp_data.get("ratingsDistribution"):
+            rd = rmp_data["ratingsDistribution"]
+            ratings_distribution = RatingsDistribution(
+                r1=rd.get("r1", 0),
+                r2=rd.get("r2", 0),
+                r3=rd.get("r3", 0),
+                r4=rd.get("r4", 0),
+                r5=rd.get("r5", 0),
+                total=rd.get("total", 0),
             )
 
         return cls(
@@ -72,8 +95,8 @@ class RMPData(BaseModel):
             average_difficulty=rmp_data["avgDifficultyRounded"],
             num_ratings=rmp_data["numRatings"],
             would_take_again_percent=rmp_data["wouldTakeAgainPercentRounded"],
-            mandatory_attendance=rmp_data["mandatoryAttendance"],
-            ratings_distribution=rmp_data["ratingsDistribution"],
+            mandatory_attendance=mandatory_attendance,
+            ratings_distribution=ratings_distribution,
             ratings=ratings,
         )
 
@@ -94,7 +117,9 @@ class FullInstructor(BaseModel):
     cumulative_grade_data: GradeData | None = None
 
     @field_serializer("courses_taught")
-    def serialize_courses_taught(self, courses: list[CourseReference] | None) -> list[dict] | None:
+    def serialize_courses_taught(
+        self, courses: list[CourseReference] | None
+    ) -> list[dict] | None:
         """Serialize course references to dicts."""
         if courses is None:
             return None

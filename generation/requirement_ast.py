@@ -321,7 +321,11 @@ class RequirementParser:
         while self._peek_kind() == "OR":
             self.pos += 1
             children.append(self.parse_and())
-        return children[0] if len(children) == 1 else Node(operator="OR", children=children)
+        return (
+            children[0]
+            if len(children) == 1
+            else Node(operator="OR", children=children)
+        )
 
     def parse_and(self):
         children = [self.parse_primary()]
@@ -336,7 +340,11 @@ class RequirementParser:
             else:
                 break
 
-        return children[0] if len(children) == 1 else Node(operator="AND", children=children)
+        return (
+            children[0]
+            if len(children) == 1
+            else Node(operator="AND", children=children)
+        )
 
     def parse_primary(self):
         kind = self._peek_kind()

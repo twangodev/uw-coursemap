@@ -305,7 +305,7 @@ class EnrollmentData(_EnrollmentDataBase):
             typically_offered=data.get("typically_offered"),
             credit_count=(credit_count[0], credit_count[1]),
             general_education=data.get("general_education", False),
-            ethnics_studies=data.get("ethnics_studies", False),
+            ethnic_studies=data.get("ethnic_studies", False),
             instructors=data.get("instructors", {}),
         )
 
@@ -323,7 +323,7 @@ class EnrollmentData(_EnrollmentDataBase):
             typically_offered=data.get("typicallyOffered"),
             credit_count=(data["minimumCredits"], data["maximumCredits"]),
             general_education=data.get("generalEd") is not None,
-            ethnics_studies=data.get("ethnicStudies") is not None,
+            ethnic_studies=data.get("ethnicStudies") is not None,
             instructors={},
         )
 

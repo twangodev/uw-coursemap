@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from pydantic import BaseModel, ConfigDict, field_serializer, field_validator
+from pydantic import BaseModel, ConfigDict, field_serializer
 
 from schemas.grades import GradeData
 
@@ -108,7 +108,7 @@ class EnrollmentData(BaseModel):
     typically_offered: str | None = None
     credit_count: tuple[int, int] = (0, 0)
     general_education: bool = False
-    ethnics_studies: bool = False
+    ethnic_studies: bool = False
     instructors: dict[str, str | None] = {}
 
     @field_serializer("credit_count")
@@ -132,7 +132,7 @@ class EnrollmentData(BaseModel):
             typically_offered=data.get("typicallyOffered"),
             credit_count=(data["minimumCredits"], data["maximumCredits"]),
             general_education=data.get("generalEd") is not None,
-            ethnics_studies=data.get("ethnicStudies") is not None,
+            ethnic_studies=data.get("ethnicStudies") is not None,
             instructors={},
         )
 

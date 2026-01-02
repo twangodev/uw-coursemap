@@ -1,50 +1,69 @@
-"""OpenAPI schema generator for UW Course Map API."""
+"""OpenAPI schema generator for UW Course Map API.
+
+Generates OpenAPI spec from endpoint definitions in endpoints.py.
+"""
 
 from __future__ import annotations
 
 import json
 from typing import Any
 
-from schemas.course import CourseReference, CoursePrerequisites, Course
+from pydantic import BaseModel
+
+# Import endpoints to trigger registration
+import schemas.endpoints  # noqa: F401
+from schemas.endpoint import registry
+from schemas.course import CourseReference, CoursePrerequisites
 from schemas.enrollment import (
     School,
     MeetingLocation,
-    Meeting,
     EnrollmentData,
     TermData,
 )
 from schemas.grades import GradeData
-from schemas.instructor import RMPData, FullInstructor
+from schemas.instructor import RMPData
 from schemas.requirement_ast import RequirementAbstractSyntaxTree, Leaf, Node
 
 DEFAULT_BASE_URL = "https://api.uwcourses.com"
 
+# Additional Pydantic models to include in OpenAPI components
+# (models not directly referenced by endpoints but used in nested schemas)
+ADDITIONAL_MODELS: list[type[BaseModel]] = [
+    GradeData,
+    CourseReference,
+    CoursePrerequisites,
+    School,
+    MeetingLocation,
+    EnrollmentData,
+    TermData,
+    RMPData,
+    RequirementAbstractSyntaxTree,
+    Leaf,
+    Node,
+]
 
-def get_all_schemas() -> dict[str, Any]:
-    """Get JSON schemas for all models."""
-    models = [
-        GradeData,
-        CourseReference,
-        CoursePrerequisites,
-        Course,
-        School,
-        MeetingLocation,
-        Meeting,
-        EnrollmentData,
-        TermData,
-        RMPData,
-        FullInstructor,
-        RequirementAbstractSyntaxTree,
-        Leaf,
-        Node,
-    ]
 
-    schemas = {}
-    for model in models:
+def get_component_schemas() -> dict[str, Any]:
+    """Generate component schemas from Pydantic models."""
+    component_schemas: dict[str, Any] = {}
+
+    # Collect all models: from registry + additional models
+    all_models = registry.get_models() | set(ADDITIONAL_MODELS)
+
+    for model in all_models:
         schema = model.model_json_schema(ref_template="#/components/schemas/{model}")
-        schemas[model.__name__] = schema
+        # Extract $defs if present
+        if "$defs" in schema:
+            for def_name, def_schema in schema["$defs"].items():
+                if def_name not in component_schemas:
+                    component_schemas[def_name] = def_schema
+            del schema["$defs"]
+        # Skip self-referencing schemas (recursive types)
+        if schema.get("$ref") == f"#/components/schemas/{model.__name__}":
+            continue
+        component_schemas[model.__name__] = schema
 
-    return schemas
+    return component_schemas
 
 
 def generate_openapi_spec(
@@ -54,407 +73,10 @@ def generate_openapi_spec(
     base_url: str = DEFAULT_BASE_URL,
 ) -> dict[str, Any]:
     """Generate a complete OpenAPI 3.1.0 specification."""
+    endpoints = registry.get_endpoints()
+    paths = {ep.path: ep.to_openapi_path() for ep in endpoints}
 
-    # Get component schemas
-    component_schemas = {}
-
-    # Core models with their schemas
-    models = [
-        GradeData,
-        CourseReference,
-        CoursePrerequisites,
-        Course,
-        School,
-        MeetingLocation,
-        Meeting,
-        EnrollmentData,
-        TermData,
-        RMPData,
-        FullInstructor,
-        RequirementAbstractSyntaxTree,
-        Leaf,
-        Node,
-    ]
-
-    for model in models:
-        schema = model.model_json_schema(ref_template="#/components/schemas/{model}")
-        # Extract $defs if present and add to component schemas
-        if "$defs" in schema:
-            for def_name, def_schema in schema["$defs"].items():
-                if def_name not in component_schemas:
-                    component_schemas[def_name] = def_schema
-            del schema["$defs"]
-        component_schemas[model.__name__] = schema
-
-    # Define paths
-    paths = {
-        "/subjects.json": {
-            "get": {
-                "summary": "Get all subject codes and names",
-                "description": "Returns a mapping of subject codes to full subject names",
-                "operationId": "getSubjects",
-                "tags": ["Metadata"],
-                "responses": {
-                    "200": {
-                        "description": "Subject code to name mapping",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "additionalProperties": {"type": "string"},
-                                    "example": {
-                                        "COMPSCI": "Computer Sciences",
-                                        "MATH": "Mathematics",
-                                    },
-                                }
-                            }
-                        },
-                    }
-                },
-            }
-        },
-        "/terms.json": {
-            "get": {
-                "summary": "Get all term codes and names",
-                "description": "Returns a mapping of term codes to human-readable term names",
-                "operationId": "getTerms",
-                "tags": ["Metadata"],
-                "responses": {
-                    "200": {
-                        "description": "Term code to name mapping",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "additionalProperties": {"type": "string"},
-                                    "example": {
-                                        "1252": "Fall 2024",
-                                        "1254": "Spring 2025",
-                                    },
-                                }
-                            }
-                        },
-                    }
-                },
-            }
-        },
-        "/update.json": {
-            "get": {
-                "summary": "Get last update timestamp",
-                "description": "Returns when the data was last generated",
-                "operationId": "getUpdateTime",
-                "tags": ["Metadata"],
-                "responses": {
-                    "200": {
-                        "description": "Update timestamp",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "updated_on": {
-                                            "type": "string",
-                                            "format": "date-time",
-                                        }
-                                    },
-                                }
-                            }
-                        },
-                    }
-                },
-            }
-        },
-        "/quick_statistics.json": {
-            "get": {
-                "summary": "Get quick statistics",
-                "description": "Returns aggregate statistics about courses, instructors, and ratings",
-                "operationId": "getQuickStatistics",
-                "tags": ["Statistics"],
-                "responses": {
-                    "200": {
-                        "description": "Quick statistics",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "total_courses": {"type": "integer"},
-                                        "total_instructors": {"type": "integer"},
-                                        "total_ratings": {"type": "integer"},
-                                        "total_detected_requisites": {
-                                            "type": "integer"
-                                        },
-                                        "total_grades_given": {
-                                            "$ref": "#/components/schemas/GradeData"
-                                        },
-                                    },
-                                }
-                            }
-                        },
-                    }
-                },
-            }
-        },
-        "/course/{courseId}.json": {
-            "get": {
-                "summary": "Get course by ID",
-                "description": "Returns detailed information about a specific course",
-                "operationId": "getCourse",
-                "tags": ["Courses"],
-                "parameters": [
-                    {
-                        "name": "courseId",
-                        "in": "path",
-                        "required": True,
-                        "description": "Course identifier (e.g., COMPSCI_200, CS_ECE_252)",
-                        "schema": {"type": "string"},
-                        "example": "COMPSCI_200",
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Course details",
-                        "content": {
-                            "application/json": {
-                                "schema": {"$ref": "#/components/schemas/Course"}
-                            }
-                        },
-                    },
-                    "404": {"description": "Course not found"},
-                },
-            }
-        },
-        "/course/{courseId}/meetings.json": {
-            "get": {
-                "summary": "Get course meetings",
-                "description": "Returns all meetings/sections for a specific course",
-                "operationId": "getCourseMeetings",
-                "tags": ["Courses", "Meetings"],
-                "parameters": [
-                    {
-                        "name": "courseId",
-                        "in": "path",
-                        "required": True,
-                        "description": "Course identifier",
-                        "schema": {"type": "string"},
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "List of meetings",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {"$ref": "#/components/schemas/Meeting"},
-                                }
-                            }
-                        },
-                    }
-                },
-            }
-        },
-        "/instructors/{instructorId}.json": {
-            "get": {
-                "summary": "Get instructor by ID",
-                "description": "Returns detailed information about a specific instructor",
-                "operationId": "getInstructor",
-                "tags": ["Instructors"],
-                "parameters": [
-                    {
-                        "name": "instructorId",
-                        "in": "path",
-                        "required": True,
-                        "description": "Instructor identifier (sanitized name)",
-                        "schema": {"type": "string"},
-                        "example": "JOHN_DOE",
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Instructor details",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/FullInstructor"
-                                }
-                            }
-                        },
-                    },
-                    "404": {"description": "Instructor not found"},
-                },
-            }
-        },
-        "/graphs/{subject}.json": {
-            "get": {
-                "summary": "Get subject prerequisite graph",
-                "description": "Returns the prerequisite graph for a specific subject",
-                "operationId": "getSubjectGraph",
-                "tags": ["Graphs"],
-                "parameters": [
-                    {
-                        "name": "subject",
-                        "in": "path",
-                        "required": True,
-                        "description": "Subject code",
-                        "schema": {"type": "string"},
-                        "example": "COMPSCI",
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Cytoscape-compatible graph data",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "object",
-                                        "properties": {
-                                            "data": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "id": {"type": "string"},
-                                                    "source": {"type": "string"},
-                                                    "target": {"type": "string"},
-                                                    "parent": {"type": "string"},
-                                                    "title": {"type": "string"},
-                                                    "description": {"type": "string"},
-                                                },
-                                            }
-                                        },
-                                    },
-                                }
-                            }
-                        },
-                    }
-                },
-            }
-        },
-        "/global_graph.json": {
-            "get": {
-                "summary": "Get global prerequisite graph",
-                "description": "Returns the complete prerequisite graph for all courses",
-                "operationId": "getGlobalGraph",
-                "tags": ["Graphs"],
-                "responses": {
-                    "200": {
-                        "description": "Cytoscape-compatible graph data",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {"type": "object"},
-                                }
-                            }
-                        },
-                    }
-                },
-            }
-        },
-        "/stats/{subject}.json": {
-            "get": {
-                "summary": "Get subject statistics",
-                "description": "Returns aggregate statistics for a specific subject",
-                "operationId": "getSubjectStats",
-                "tags": ["Statistics"],
-                "parameters": [
-                    {
-                        "name": "subject",
-                        "in": "path",
-                        "required": True,
-                        "description": "Subject code",
-                        "schema": {"type": "string"},
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Subject statistics",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "total_courses": {"type": "integer"},
-                                        "total_detected_requisites": {
-                                            "type": "integer"
-                                        },
-                                        "total_grades_given": {
-                                            "$ref": "#/components/schemas/GradeData"
-                                        },
-                                    },
-                                }
-                            }
-                        },
-                    }
-                },
-            }
-        },
-        "/buildings/{buildingName}/meetings.json": {
-            "get": {
-                "summary": "Get meetings by building",
-                "description": "Returns all meetings at a specific building",
-                "operationId": "getBuildingMeetings",
-                "tags": ["Meetings", "Buildings"],
-                "parameters": [
-                    {
-                        "name": "buildingName",
-                        "in": "path",
-                        "required": True,
-                        "description": "Building name",
-                        "schema": {"type": "string"},
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "List of meetings",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {"$ref": "#/components/schemas/Meeting"},
-                                }
-                            }
-                        },
-                    }
-                },
-            }
-        },
-        "/meetings/{date}.json": {
-            "get": {
-                "summary": "Get meetings by date",
-                "description": "Returns all meetings for a specific date",
-                "operationId": "getMeetingsByDate",
-                "tags": ["Meetings"],
-                "parameters": [
-                    {
-                        "name": "date",
-                        "in": "path",
-                        "required": True,
-                        "description": "Date in MM-DD-YY format",
-                        "schema": {"type": "string"},
-                        "example": "01-15-25",
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "List of meetings",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {"$ref": "#/components/schemas/Meeting"},
-                                }
-                            }
-                        },
-                    }
-                },
-            }
-        },
-    }
-
-    # Build the OpenAPI spec
-    openapi_spec = {
+    return {
         "openapi": "3.1.0",
         "info": {
             "title": title,
@@ -473,16 +95,11 @@ def generate_openapi_spec(
             {"name": "Buildings", "description": "Campus building data"},
         ],
         "paths": paths,
-        "components": {"schemas": component_schemas},
+        "components": {"schemas": get_component_schemas()},
     }
 
-    return openapi_spec
 
-
-def export_openapi_spec(
-    output_path: str = "openapi.json",
-    **kwargs,
-) -> None:
+def export_openapi_spec(output_path: str = "openapi.json", **kwargs) -> None:
     """Export the OpenAPI spec to a JSON file."""
     spec = generate_openapi_spec(**kwargs)
     with open(output_path, "w") as f:
@@ -490,38 +107,15 @@ def export_openapi_spec(
     print(f"OpenAPI spec exported to {output_path}")
 
 
-def export_json_schemas(output_path: str = "schemas.json") -> None:
-    """Export all JSON schemas to a file."""
-    schemas = get_all_schemas()
-    with open(output_path, "w") as f:
-        json.dump(schemas, f, indent=2)
-    print(f"JSON schemas exported to {output_path}")
-
-
 if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description="Generate OpenAPI spec")
     parser.add_argument(
-        "--output",
-        "-o",
-        default="openapi.json",
-        help="Output file path",
+        "--output", "-o", default="openapi.json", help="Output file path"
     )
     parser.add_argument(
-        "--base-url",
-        default=DEFAULT_BASE_URL,
-        help="Base URL for the API",
+        "--base-url", default=DEFAULT_BASE_URL, help="Base URL for the API"
     )
-    parser.add_argument(
-        "--schemas-only",
-        action="store_true",
-        help="Export only JSON schemas without OpenAPI wrapper",
-    )
-
     args = parser.parse_args()
-
-    if args.schemas_only:
-        export_json_schemas(args.output)
-    else:
-        export_openapi_spec(args.output, base_url=args.base_url)
+    export_openapi_spec(args.output, base_url=args.base_url)

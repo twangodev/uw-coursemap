@@ -5,7 +5,7 @@ from logging import getLogger
 import numpy as np
 
 from course import Course
-from enrollment_data import EnrollmentData, Meeting
+from enrollment_data import Meeting
 from instructors import FullInstructor
 from save import write_file, format_file_size
 
