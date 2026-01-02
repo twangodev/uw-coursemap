@@ -279,6 +279,8 @@ async def process_hit(
 
     try:
         async with session.get(url=enrollment_package_url) as response:
+            if response.status != 200:
+                raise Exception(f"HTTP {response.status}")
             data = await response.json()
     except (JSONDecodeError, Exception) as e:
         logger.warning(
