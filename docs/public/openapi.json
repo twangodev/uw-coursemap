@@ -786,231 +786,6 @@
   },
   "components": {
     "schemas": {
-      "MandatoryAttendance": {
-        "description": "Mandatory attendance statistics from RMP.",
-        "properties": {
-          "yes": {
-            "default": 0,
-            "title": "Yes",
-            "type": "integer"
-          },
-          "no": {
-            "default": 0,
-            "title": "No",
-            "type": "integer"
-          },
-          "neither": {
-            "default": 0,
-            "title": "Neither",
-            "type": "integer"
-          },
-          "total": {
-            "default": 0,
-            "title": "Total",
-            "type": "integer"
-          }
-        },
-        "title": "MandatoryAttendance",
-        "type": "object"
-      },
-      "Rating": {
-        "description": "Individual rating from RMP.",
-        "properties": {
-          "comment": {
-            "title": "Comment",
-            "type": "string"
-          },
-          "quality_rating": {
-            "title": "Quality Rating",
-            "type": "number"
-          },
-          "difficulty_rating": {
-            "title": "Difficulty Rating",
-            "type": "number"
-          }
-        },
-        "required": [
-          "comment",
-          "quality_rating",
-          "difficulty_rating"
-        ],
-        "title": "Rating",
-        "type": "object"
-      },
-      "RatingsDistribution": {
-        "description": "Rating distribution from RMP.",
-        "properties": {
-          "r1": {
-            "default": 0,
-            "title": "R1",
-            "type": "integer"
-          },
-          "r2": {
-            "default": 0,
-            "title": "R2",
-            "type": "integer"
-          },
-          "r3": {
-            "default": 0,
-            "title": "R3",
-            "type": "integer"
-          },
-          "r4": {
-            "default": 0,
-            "title": "R4",
-            "type": "integer"
-          },
-          "r5": {
-            "default": 0,
-            "title": "R5",
-            "type": "integer"
-          },
-          "total": {
-            "default": 0,
-            "title": "Total",
-            "type": "integer"
-          }
-        },
-        "title": "RatingsDistribution",
-        "type": "object"
-      },
-      "RMPData": {
-        "description": "Rate My Professors data for an instructor.",
-        "properties": {
-          "id": {
-            "title": "Id",
-            "type": "string"
-          },
-          "legacy_id": {
-            "title": "Legacy Id",
-            "type": "integer"
-          },
-          "average_rating": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "default": null,
-            "title": "Average Rating"
-          },
-          "average_difficulty": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "default": null,
-            "title": "Average Difficulty"
-          },
-          "num_ratings": {
-            "default": 0,
-            "title": "Num Ratings",
-            "type": "integer"
-          },
-          "would_take_again_percent": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "default": null,
-            "title": "Would Take Again Percent"
-          },
-          "mandatory_attendance": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/MandatoryAttendance"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "default": null
-          },
-          "ratings_distribution": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/RatingsDistribution"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "default": null
-          },
-          "ratings": {
-            "default": [],
-            "items": {
-              "$ref": "#/components/schemas/Rating"
-            },
-            "title": "Ratings",
-            "type": "array"
-          }
-        },
-        "required": [
-          "id",
-          "legacy_id"
-        ],
-        "title": "RMPData",
-        "type": "object"
-      },
-      "CoursePrerequisites": {
-        "description": "Prerequisites information for a course.",
-        "properties": {
-          "prerequisites_text": {
-            "title": "Prerequisites Text",
-            "type": "string"
-          },
-          "linked_requisite_text": {
-            "items": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "$ref": "#/components/schemas/CourseReference"
-                }
-              ]
-            },
-            "title": "Linked Requisite Text",
-            "type": "array"
-          },
-          "course_references": {
-            "items": {
-              "$ref": "#/components/schemas/CourseReference"
-            },
-            "title": "Course References",
-            "type": "array"
-          },
-          "abstract_syntax_tree": {
-            "anyOf": [
-              {},
-              {
-                "type": "null"
-              }
-            ],
-            "default": null,
-            "title": "Abstract Syntax Tree"
-          }
-        },
-        "required": [
-          "prerequisites_text",
-          "linked_requisite_text",
-          "course_references"
-        ],
-        "title": "CoursePrerequisites",
-        "type": "object"
-      },
       "CourseReference": {
         "description": "Reference to a course by subject codes and number.",
         "properties": {
@@ -1032,91 +807,6 @@
           "course_number"
         ],
         "title": "CourseReference",
-        "type": "object"
-      },
-      "EnrollmentData": {
-        "description": "Enrollment information for a course in a specific term.",
-        "properties": {
-          "school": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/School"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "default": null
-          },
-          "last_taught_term": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "default": null,
-            "title": "Last Taught Term"
-          },
-          "typically_offered": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "default": null,
-            "title": "Typically Offered"
-          },
-          "credit_count": {
-            "default": [
-              0,
-              0
-            ],
-            "maxItems": 2,
-            "minItems": 2,
-            "prefixItems": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "integer"
-              }
-            ],
-            "title": "Credit Count",
-            "type": "array"
-          },
-          "general_education": {
-            "default": false,
-            "title": "General Education",
-            "type": "boolean"
-          },
-          "ethnic_studies": {
-            "default": false,
-            "title": "Ethnic Studies",
-            "type": "boolean"
-          },
-          "instructors": {
-            "additionalProperties": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "default": {},
-            "title": "Instructors",
-            "type": "object"
-          }
-        },
-        "title": "EnrollmentData",
         "type": "object"
       },
       "GradeData": {
@@ -1227,6 +917,427 @@
           "other"
         ],
         "title": "GradeData",
+        "type": "object"
+      },
+      "MandatoryAttendance": {
+        "description": "Mandatory attendance statistics from RMP.",
+        "properties": {
+          "yes": {
+            "default": 0,
+            "title": "Yes",
+            "type": "integer"
+          },
+          "no": {
+            "default": 0,
+            "title": "No",
+            "type": "integer"
+          },
+          "neither": {
+            "default": 0,
+            "title": "Neither",
+            "type": "integer"
+          },
+          "total": {
+            "default": 0,
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "title": "MandatoryAttendance",
+        "type": "object"
+      },
+      "RMPData": {
+        "description": "Rate My Professors data for an instructor.",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "legacy_id": {
+            "title": "Legacy Id",
+            "type": "integer"
+          },
+          "average_rating": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Average Rating"
+          },
+          "average_difficulty": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Average Difficulty"
+          },
+          "num_ratings": {
+            "default": 0,
+            "title": "Num Ratings",
+            "type": "integer"
+          },
+          "would_take_again_percent": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Would Take Again Percent"
+          },
+          "mandatory_attendance": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MandatoryAttendance"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "ratings_distribution": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RatingsDistribution"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "ratings": {
+            "default": [],
+            "items": {
+              "$ref": "#/components/schemas/Rating"
+            },
+            "title": "Ratings",
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "legacy_id"
+        ],
+        "title": "RMPData",
+        "type": "object"
+      },
+      "Rating": {
+        "description": "Individual rating from RMP.",
+        "properties": {
+          "comment": {
+            "title": "Comment",
+            "type": "string"
+          },
+          "quality_rating": {
+            "title": "Quality Rating",
+            "type": "number"
+          },
+          "difficulty_rating": {
+            "title": "Difficulty Rating",
+            "type": "number"
+          }
+        },
+        "required": [
+          "comment",
+          "quality_rating",
+          "difficulty_rating"
+        ],
+        "title": "Rating",
+        "type": "object"
+      },
+      "RatingsDistribution": {
+        "description": "Rating distribution from RMP.",
+        "properties": {
+          "r1": {
+            "default": 0,
+            "title": "R1",
+            "type": "integer"
+          },
+          "r2": {
+            "default": 0,
+            "title": "R2",
+            "type": "integer"
+          },
+          "r3": {
+            "default": 0,
+            "title": "R3",
+            "type": "integer"
+          },
+          "r4": {
+            "default": 0,
+            "title": "R4",
+            "type": "integer"
+          },
+          "r5": {
+            "default": 0,
+            "title": "R5",
+            "type": "integer"
+          },
+          "total": {
+            "default": 0,
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "title": "RatingsDistribution",
+        "type": "object"
+      },
+      "FullInstructor": {
+        "description": "Complete instructor information including RMP data.",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Email"
+          },
+          "rmp_data": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RMPData"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "position": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Position"
+          },
+          "department": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Department"
+          },
+          "credentials": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Credentials"
+          },
+          "official_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Official Name"
+          },
+          "courses_taught": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/CourseReference"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Courses Taught"
+          },
+          "cumulative_grade_data": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/GradeData"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "title": "FullInstructor",
+        "type": "object"
+      },
+      "CoursePrerequisites": {
+        "description": "Prerequisites information for a course.",
+        "properties": {
+          "prerequisites_text": {
+            "title": "Prerequisites Text",
+            "type": "string"
+          },
+          "linked_requisite_text": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "$ref": "#/components/schemas/CourseReference"
+                }
+              ]
+            },
+            "title": "Linked Requisite Text",
+            "type": "array"
+          },
+          "course_references": {
+            "items": {
+              "$ref": "#/components/schemas/CourseReference"
+            },
+            "title": "Course References",
+            "type": "array"
+          },
+          "abstract_syntax_tree": {
+            "anyOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Abstract Syntax Tree"
+          }
+        },
+        "required": [
+          "prerequisites_text",
+          "linked_requisite_text",
+          "course_references"
+        ],
+        "title": "CoursePrerequisites",
+        "type": "object"
+      },
+      "EnrollmentData": {
+        "description": "Enrollment information for a course in a specific term.",
+        "properties": {
+          "school": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/School"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "last_taught_term": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Last Taught Term"
+          },
+          "typically_offered": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Typically Offered"
+          },
+          "credit_count": {
+            "default": [
+              0,
+              0
+            ],
+            "maxItems": 2,
+            "minItems": 2,
+            "prefixItems": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "integer"
+              }
+            ],
+            "title": "Credit Count",
+            "type": "array"
+          },
+          "general_education": {
+            "default": false,
+            "title": "General Education",
+            "type": "boolean"
+          },
+          "ethnic_studies": {
+            "default": false,
+            "title": "Ethnic Studies",
+            "type": "boolean"
+          },
+          "instructors": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "default": {},
+            "title": "Instructors",
+            "type": "object"
+          }
+        },
+        "title": "EnrollmentData",
         "type": "object"
       },
       "School": {
@@ -1377,117 +1488,6 @@
           "term_data"
         ],
         "title": "Course",
-        "type": "object"
-      },
-      "FullInstructor": {
-        "description": "Complete instructor information including RMP data.",
-        "properties": {
-          "name": {
-            "title": "Name",
-            "type": "string"
-          },
-          "email": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "default": null,
-            "title": "Email"
-          },
-          "rmp_data": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/RMPData"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "default": null
-          },
-          "position": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "default": null,
-            "title": "Position"
-          },
-          "department": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "default": null,
-            "title": "Department"
-          },
-          "credentials": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "default": null,
-            "title": "Credentials"
-          },
-          "official_name": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "default": null,
-            "title": "Official Name"
-          },
-          "courses_taught": {
-            "anyOf": [
-              {
-                "items": {
-                  "$ref": "#/components/schemas/CourseReference"
-                },
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "default": null,
-            "title": "Courses Taught"
-          },
-          "cumulative_grade_data": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/GradeData"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "default": null
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "title": "FullInstructor",
         "type": "object"
       },
       "MeetingLocation": {
