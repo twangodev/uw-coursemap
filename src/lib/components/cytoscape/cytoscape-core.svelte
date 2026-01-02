@@ -48,7 +48,7 @@
     computeLayout({
       layoutType: LayoutType.LAYERED,
       elementDefinitions,
-      animate: true,
+      animate: false,
       showCodeLabels: true,
     }).then((layout) => {
       cy?.layout(layout).run();
