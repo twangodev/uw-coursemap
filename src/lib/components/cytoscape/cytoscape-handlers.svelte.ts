@@ -49,6 +49,11 @@ export function setupCytoscapeHandlers(cy: cytoscape.Core) {
     });
   });
 
+  // Subscribe to taken courses store
+  const unsubscribeTakenCourses = takenCoursesStore.subscribe(() => {
+    applyTakenCoursesStyle();
+  });
+
   // --- Internal helpers ---
 
   const destroyTip = () => {
@@ -211,9 +216,6 @@ export function setupCytoscapeHandlers(cy: cytoscape.Core) {
   cy.on("dbltap", dbltapHandler);
   cy.on("onetap", "node", onetapHandler);
 
-  // Apply taken courses style on init (store only changes when component is not loaded)
-  applyTakenCoursesStyle();
-
   // --- Public API ---
 
   return {
@@ -241,6 +243,7 @@ export function setupCytoscapeHandlers(cy: cytoscape.Core) {
       cy.off("onetap", "node", onetapHandler);
       destroyTip();
       cleanupModeEffect();
+      unsubscribeTakenCourses();
     },
   };
 }
