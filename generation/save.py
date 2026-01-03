@@ -559,7 +559,7 @@ def write_data(
     for identifier, course in tqdm(
         identifier_to_course.items(), desc="Courses", unit="course"
     ):
-        write_file(data_dir, ("course",), identifier, course)
+        write_file(data_dir, ("course", identifier), "index", course)
 
     write_file(data_dir, tuple(), "global_graph", global_graph)
 

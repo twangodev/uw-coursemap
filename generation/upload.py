@@ -159,6 +159,7 @@ def upload_directory(
             relative_path = local_path.relative_to(data_path)
             key = f"{prefix}{relative_path}" if prefix else str(relative_path)
             key = key.removesuffix(".json")
+            key = key.removesuffix("/index")
             files_to_upload.append((local_path, key))
 
     logger.info(f"Found {len(files_to_upload)} files to upload")
