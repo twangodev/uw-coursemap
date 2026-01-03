@@ -1,4 +1,4 @@
-import asyncio
+from asyncio import Semaphore
 from datetime import datetime, timedelta, timezone
 from json import JSONDecodeError
 from logging import getLogger
@@ -22,6 +22,9 @@ enrollment_package_base_url = (
 
 # API has a maximum page size limit of 500
 MAX_PAGE_SIZE = 500
+
+# Limit concurrent requests to avoid 403 rate limiting
+MAX_CONCURRENT_REQUESTS = 20
 
 logger = getLogger(__name__)
 
@@ -130,6 +133,9 @@ async def build_from_mega_query(
         all_instructors = {}
         all_meetings = {}
 
+        # Create semaphore to limit concurrent API requests
+        semaphore = Semaphore(MAX_CONCURRENT_REQUESTS)
+
         # Create tasks for each hit to concurrently fetch enrollment package data.
         tasks = [
             process_hit(
@@ -141,6 +147,7 @@ async def build_from_mega_query(
                 terms,
                 course_ref_to_course,
                 session,
+                semaphore,
             )
             for i, hit in enumerate(all_hits)
         ]
@@ -315,6 +322,7 @@ async def process_hit(
     terms,
     course_ref_to_course,
     session,
+    semaphore: Semaphore,
 ):
     course_code = int(hit["catalogNumber"])
     if len(hit["allCrossListedSubjects"]) > 1:
@@ -342,9 +350,11 @@ async def process_hit(
     )
 
     try:
-        data = await fetch_enrollment_package(
-            session, enrollment_package_url, course_ref.get_identifier()
-        )
+        # Use semaphore to limit concurrent API requests
+        async with semaphore:
+            data = await fetch_enrollment_package(
+                session, enrollment_package_url, course_ref.get_identifier()
+            )
     except (JSONDecodeError, EnrollmentFetchError, Exception) as e:
         logger.warning(
             f"Failed to fetch enrollment data for {course_ref.get_identifier()} after retries: {str(e)}"
