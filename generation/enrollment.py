@@ -20,6 +20,9 @@ enrollment_package_base_url = (
     "https://public.enroll.wisc.edu/api/search/v1/enrollmentPackages"
 )
 
+# API has a maximum page size limit of 500
+MAX_PAGE_SIZE = 500
+
 logger = getLogger(__name__)
 
 # Module-level constants to avoid repeated instantiation
@@ -82,22 +85,48 @@ async def build_from_mega_query(
         cache=get_aio_cache(), headers=get_default_headers()
     ) as session:
         logger.debug(f"Building enrollment package for {term_name}...")
-        async with session.post(url=query_url, json=post_data) as response:
-            data = await response.json()
+
+        # Get total course count with retry logic
+        try:
+            data = await fetch_course_listing_page(session, post_data, 1)
+        except EnrollmentFetchError as e:
+            logger.error(f"Failed to get course count for {term_name}: {e}")
+            return {}
+
         course_count = data["found"]
 
         if not course_count:
             logger.warning(f"No courses found in the {term_name} term")
             return {}
 
-        post_data["pageSize"] = course_count
-        logger.debug(
-            f"Discovered {course_count} courses in the {term_name} term. Syncing terms..."
+        # Calculate number of pages needed (API limits to MAX_PAGE_SIZE per page)
+        total_pages = (course_count + MAX_PAGE_SIZE - 1) // MAX_PAGE_SIZE
+        logger.info(
+            f"Discovered {course_count} courses in {term_name}. "
+            f"Fetching {total_pages} pages (max {MAX_PAGE_SIZE} per page)..."
         )
-        async with session.post(url=query_url, json=post_data) as response:
-            data = await response.json()
 
-        hits = data["hits"]
+        # Fetch all pages and combine hits
+        all_hits = []
+        for page_num in range(1, total_pages + 1):
+            page_post_data = {
+                "selectedTerm": selected_term,
+                "queryString": "",
+                "filters": [],
+                "page": page_num,
+                "pageSize": MAX_PAGE_SIZE,
+            }
+            try:
+                page_data = await fetch_course_listing_page(session, page_post_data, page_num)
+                page_hits = page_data.get("hits", [])
+                all_hits.extend(page_hits)
+                logger.debug(f"Fetched page {page_num}/{total_pages}: {len(page_hits)} courses")
+            except EnrollmentFetchError as e:
+                logger.error(f"Failed to fetch page {page_num} for {term_name}: {e}")
+                continue
+
+        logger.info(f"Fetched {len(all_hits)} total course listings for {term_name}")
+
         all_instructors = {}
         all_meetings = {}
 
@@ -106,14 +135,14 @@ async def build_from_mega_query(
             process_hit(
                 hit,
                 i,
-                course_count,
+                len(all_hits),
                 selected_term,
                 term_name,
                 terms,
                 course_ref_to_course,
                 session,
             )
-            for i, hit in enumerate(hits)
+            for i, hit in enumerate(all_hits)
         ]
         results = await tqdm.gather(
             *tasks, desc=f"Courses in {term_name}", unit="course"
@@ -245,6 +274,21 @@ def generate_recurring_meetings(
 class EnrollmentFetchError(Exception):
     """Raised when enrollment package fetch fails."""
     pass
+
+
+@retry(
+    stop=stop_after_attempt(10),
+    wait=wait_exponential_jitter(initial=1, max=60, jitter=5),
+    retry=retry_if_exception_type(EnrollmentFetchError),
+    reraise=True,
+)
+async def fetch_course_listing_page(session, post_data, page_num):
+    """Fetch a page of course listings with retry logic for 202 responses."""
+    async with session.post(url=query_url, json=post_data) as response:
+        if response.status != 200:
+            logger.warning(f"HTTP {response.status} for course listing page {page_num}, retrying...")
+            raise EnrollmentFetchError(f"HTTP {response.status}")
+        return await response.json()
 
 
 @retry(
