@@ -6,6 +6,7 @@ from zoneinfo import ZoneInfo
 
 import requests
 from aiohttp_client_cache import CachedSession
+from tenacity import retry, stop_after_attempt, wait_exponential_jitter, retry_if_exception_type
 from tqdm.asyncio import tqdm
 
 from aio_cache import get_aio_cache
@@ -241,6 +242,26 @@ def generate_recurring_meetings(
     return meetings
 
 
+class EnrollmentFetchError(Exception):
+    """Raised when enrollment package fetch fails."""
+    pass
+
+
+@retry(
+    stop=stop_after_attempt(10),
+    wait=wait_exponential_jitter(initial=1, max=60, jitter=5),
+    retry=retry_if_exception_type(EnrollmentFetchError),
+    reraise=True,
+)
+async def fetch_enrollment_package(session, url, course_identifier):
+    """Fetch enrollment package with tenacity retry logic."""
+    async with session.get(url=url) as response:
+        if response.status != 200:
+            logger.warning(f"HTTP {response.status} for {course_identifier}, retrying...")
+            raise EnrollmentFetchError(f"HTTP {response.status}")
+        return await response.json()
+
+
 async def process_hit(
     hit,
     i,
@@ -250,7 +271,6 @@ async def process_hit(
     terms,
     course_ref_to_course,
     session,
-    attempts=10,
 ):
     course_code = int(hit["catalogNumber"])
     if len(hit["allCrossListedSubjects"]) > 1:
@@ -278,28 +298,13 @@ async def process_hit(
     )
 
     try:
-        async with session.get(url=enrollment_package_url) as response:
-            if response.status != 200:
-                raise Exception(f"HTTP {response.status}")
-            data = await response.json()
-    except (JSONDecodeError, Exception) as e:
-        logger.warning(
-            f"Failed to fetch enrollment data for {course_ref.get_identifier()}: {str(e)}"
+        data = await fetch_enrollment_package(
+            session, enrollment_package_url, course_ref.get_identifier()
         )
-        if attempts > 0:
-            logger.info(f"Retrying {attempts} more times...")
-            await asyncio.sleep(1)
-            return await process_hit(
-                hit,
-                i,
-                course_count,
-                selected_term,
-                term_name,
-                terms,
-                course_ref_to_course,
-                session,
-                attempts - 1,
-            )
+    except (JSONDecodeError, EnrollmentFetchError, Exception) as e:
+        logger.warning(
+            f"Failed to fetch enrollment data for {course_ref.get_identifier()} after retries: {str(e)}"
+        )
         return None
 
     course_instructors = {}
