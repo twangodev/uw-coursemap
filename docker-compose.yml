@@ -16,8 +16,6 @@ services:
     env_file: ".env"
     ports:
       - "3001:8000"
-    volumes:
-      - ./data:/data
     depends_on:
       - elasticsearch
 

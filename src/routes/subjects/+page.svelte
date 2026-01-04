@@ -1,15 +1,15 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import ContentWrapper from "$lib/components/content/content-wrapper.svelte";
-  import { apiFetch } from "$lib/api.ts";
+  import { api } from "$lib/api";
 
   let entries: [string, string][] = $state([]);
 
   onMount(async () => {
-    const response = await apiFetch(`/subjects.json`);
-    let majors = await response.json();
-
-    entries = Object.entries(majors);
+    const { data } = await api.GET("/subjects");
+    if (data) {
+      entries = Object.entries(data);
+    }
   });
 </script>
 

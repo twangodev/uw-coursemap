@@ -1,23 +1,19 @@
-import { env } from "$env/dynamic/public";
+import { createApiClient } from "$lib/api";
 import { error } from "@sveltejs/kit";
-import type { FullInstructorInformation } from "$lib/types/instructor.ts";
 import type { ProfilePage, WithContext } from "schema-dts";
 import { generateInstructorMetaDescription, generateInstructorTitle, generateInstructorOgImage } from "$lib/seo/instructor-seo.ts";
 
-const PUBLIC_API_URL = env.PUBLIC_API_URL;
-
 export const load = async ({ params, fetch }) => {
+  const api = createApiClient(fetch);
   const instructorName = params.name;
 
-  const instructorResponse = await fetch(
-    `${PUBLIC_API_URL}/instructors/${instructorName}.json`,
-  );
-  if (!instructorResponse.ok)
-    throw error(
-      instructorResponse.status,
-      `Failed to fetch instructor: ${instructorResponse.statusText}`,
-    );
-  const instructor: FullInstructorInformation = await instructorResponse.json();
+  const { data, error: fetchError } = await api.GET("/instructors/{instructorId}", {
+    params: { path: { instructorId: instructorName } },
+  });
+  if (fetchError || !data)
+    throw error(404, `Failed to fetch instructor`);
+
+  const instructor = data;
 
   const description = generateInstructorMetaDescription(instructor);
   const pageTitle = generateInstructorTitle(instructor);

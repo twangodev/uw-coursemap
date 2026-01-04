@@ -1,4 +1,4 @@
-import asyncio
+from asyncio import Semaphore
 from datetime import datetime, timedelta, timezone
 from json import JSONDecodeError
 from logging import getLogger
@@ -6,11 +6,12 @@ from zoneinfo import ZoneInfo
 
 import requests
 from aiohttp_client_cache import CachedSession
+from tenacity import retry, stop_after_attempt, wait_exponential_jitter, retry_if_exception_type
 from tqdm.asyncio import tqdm
 
 from aio_cache import get_aio_cache
 from course import Course
-from enrollment_data import EnrollmentData, TermData
+from enrollment_data import EnrollmentData, MeetingLocation, Meeting, TermData
 from http_utils import get_default_headers
 
 terms_url = "https://public.enroll.wisc.edu/api/search/v1/aggregate"
@@ -18,6 +19,12 @@ query_url = "https://public.enroll.wisc.edu/api/search/v1"
 enrollment_package_base_url = (
     "https://public.enroll.wisc.edu/api/search/v1/enrollmentPackages"
 )
+
+# API has a maximum page size limit of 500
+MAX_PAGE_SIZE = 500
+
+# Limit concurrent requests to avoid rate limiting
+MAX_CONCURRENT_REQUESTS = 20
 
 logger = getLogger(__name__)
 
@@ -81,38 +88,68 @@ async def build_from_mega_query(
         cache=get_aio_cache(), headers=get_default_headers()
     ) as session:
         logger.debug(f"Building enrollment package for {term_name}...")
-        async with session.post(url=query_url, json=post_data) as response:
-            data = await response.json()
+
+        # Get total course count with retry logic
+        try:
+            data = await fetch_course_listing_page(session, post_data, 1)
+        except EnrollmentFetchError as e:
+            logger.error(f"Failed to get course count for {term_name}: {e}")
+            return {}
+
         course_count = data["found"]
 
         if not course_count:
             logger.warning(f"No courses found in the {term_name} term")
             return {}
 
-        post_data["pageSize"] = course_count
-        logger.debug(
-            f"Discovered {course_count} courses in the {term_name} term. Syncing terms..."
+        # Calculate number of pages needed (API limits to MAX_PAGE_SIZE per page)
+        total_pages = (course_count + MAX_PAGE_SIZE - 1) // MAX_PAGE_SIZE
+        logger.info(
+            f"Discovered {course_count} courses in {term_name}. "
+            f"Fetching {total_pages} pages (max {MAX_PAGE_SIZE} per page)..."
         )
-        async with session.post(url=query_url, json=post_data) as response:
-            data = await response.json()
 
-        hits = data["hits"]
+        # Fetch all pages and combine hits
+        all_hits = []
+        for page_num in range(1, total_pages + 1):
+            page_post_data = {
+                "selectedTerm": selected_term,
+                "queryString": "",
+                "filters": [],
+                "page": page_num,
+                "pageSize": MAX_PAGE_SIZE,
+            }
+            try:
+                page_data = await fetch_course_listing_page(session, page_post_data, page_num)
+                page_hits = page_data.get("hits", [])
+                all_hits.extend(page_hits)
+                logger.debug(f"Fetched page {page_num}/{total_pages}: {len(page_hits)} courses")
+            except EnrollmentFetchError as e:
+                logger.error(f"Failed to fetch page {page_num} for {term_name}: {e}")
+                continue
+
+        logger.info(f"Fetched {len(all_hits)} total course listings for {term_name}")
+
         all_instructors = {}
         all_meetings = {}
+
+        # Create semaphore to limit concurrent API requests
+        semaphore = Semaphore(MAX_CONCURRENT_REQUESTS)
 
         # Create tasks for each hit to concurrently fetch enrollment package data.
         tasks = [
             process_hit(
                 hit,
                 i,
-                course_count,
+                len(all_hits),
                 selected_term,
                 term_name,
                 terms,
                 course_ref_to_course,
                 session,
+                semaphore,
             )
-            for i, hit in enumerate(hits)
+            for i, hit in enumerate(all_hits)
         ]
         results = await tqdm.gather(
             *tasks, desc=f"Courses in {term_name}", unit="course"
@@ -241,6 +278,41 @@ def generate_recurring_meetings(
     return meetings
 
 
+class EnrollmentFetchError(Exception):
+    """Raised when enrollment package fetch fails."""
+    pass
+
+
+@retry(
+    stop=stop_after_attempt(10),
+    wait=wait_exponential_jitter(initial=1, max=60, jitter=5),
+    retry=retry_if_exception_type(EnrollmentFetchError),
+    reraise=True,
+)
+async def fetch_course_listing_page(session, post_data, page_num):
+    """Fetch a page of course listings with retry logic for 202 responses."""
+    async with session.post(url=query_url, json=post_data) as response:
+        if response.status != 200:
+            logger.warning(f"HTTP {response.status} for course listing page {page_num}, retrying...")
+            raise EnrollmentFetchError(f"HTTP {response.status}")
+        return await response.json()
+
+
+@retry(
+    stop=stop_after_attempt(10),
+    wait=wait_exponential_jitter(initial=1, max=60, jitter=5),
+    retry=retry_if_exception_type(EnrollmentFetchError),
+    reraise=True,
+)
+async def fetch_enrollment_package(session, url, course_identifier):
+    """Fetch enrollment package with tenacity retry logic."""
+    async with session.get(url=url) as response:
+        if response.status != 200:
+            logger.warning(f"HTTP {response.status} for {course_identifier}, retrying...")
+            raise EnrollmentFetchError(f"HTTP {response.status}")
+        return await response.json()
+
+
 async def process_hit(
     hit,
     i,
@@ -250,7 +322,7 @@ async def process_hit(
     terms,
     course_ref_to_course,
     session,
-    attempts=10,
+    semaphore: Semaphore,
 ):
     course_code = int(hit["catalogNumber"])
     if len(hit["allCrossListedSubjects"]) > 1:
@@ -261,7 +333,7 @@ async def process_hit(
     subjects = {
         subject["shortDescription"].replace(" ", "") for subject in enrollment_subjects
     }
-    course_ref = Course.Reference(subjects, course_code)
+    course_ref = Course.Reference(subjects=subjects, course_number=course_code)
 
     if course_ref not in course_ref_to_course:
         logger.debug(f"Skipping unknown course: {course_ref}")
@@ -278,26 +350,15 @@ async def process_hit(
     )
 
     try:
-        async with session.get(url=enrollment_package_url) as response:
-            data = await response.json()
-    except (JSONDecodeError, Exception) as e:
-        logger.warning(
-            f"Failed to fetch enrollment data for {course_ref.get_identifier()}: {str(e)}"
-        )
-        if attempts > 0:
-            logger.info(f"Retrying {attempts} more times...")
-            await asyncio.sleep(1)
-            return await process_hit(
-                hit,
-                i,
-                course_count,
-                selected_term,
-                term_name,
-                terms,
-                course_ref_to_course,
-                session,
-                attempts - 1,
+        # Use semaphore to limit concurrent API requests
+        async with semaphore:
+            data = await fetch_enrollment_package(
+                session, enrollment_package_url, course_ref.get_identifier()
             )
+    except (JSONDecodeError, EnrollmentFetchError, Exception) as e:
+        logger.warning(
+            f"Failed to fetch enrollment data for {course_ref.get_identifier()} after retries: {str(e)}"
+        )
         return None
 
     course_instructors = {}
@@ -368,21 +429,20 @@ async def process_hit(
                 building = meeting.get("building")
                 if building:
                     building_name = building["buildingName"]
-                    coordinates = (building.get("latitude"), building.get("longitude"))
+                    coords = (building.get("latitude"), building.get("longitude"))
+                    coordinates = coords if all(coords) else None
                     room = meeting.get("room", "No Assigned Room")
 
-                    location = (
-                        EnrollmentData.MeetingLocation.get_or_create_with_capacity(
-                            building=building_name,
-                            room=room,
-                            coordinates=coordinates,
-                            class_capacity=capacity,
-                        )
+                    location = MeetingLocation.get_or_create_with_capacity(
+                        building=building_name,
+                        room=room,
+                        coordinates=coordinates,
+                        class_capacity=capacity,
                     )
 
                 for index, (start, end) in enumerate(all_meeting_occurrences, start=1):
                     name = f"{section_identifier} #{index}"
-                    course_meeting = EnrollmentData.Meeting(
+                    course_meeting = Meeting(
                         start_time=start,
                         end_time=end,
                         type=meeting_type,
@@ -400,7 +460,7 @@ async def process_hit(
         f"Added {len(course_instructors)} instructors to {course_ref.get_identifier()}"
     )
 
-    term_data = TermData(None, None)
+    term_data = TermData()
     if course.term_data.get(selected_term):
         term_data = course.term_data[selected_term]
 

@@ -6,6 +6,11 @@ on:
     paths:
       - "generation/**"
   workflow_dispatch:
+    inputs:
+      cache_week_id:
+        description: 'Cache Week ID Override'
+        required: false
+        type: string
   schedule:
     - cron: "0 0 * * 0"
 
@@ -24,11 +29,9 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v6
-        with:
-          submodules: true
       - uses: actions/setup-python@v6
         with:
-          python-version: 3.12
+          python-version-file: generation/.python-version
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
@@ -36,7 +39,12 @@ jobs:
       - name: Install Dependencies
         run: uv sync
       - name: Setup Cache Environment
-        run: echo "cache_id=$(date --utc '+%U')" >> $GITHUB_ENV
+        run: |
+          if [ -n "${{ inputs.cache_week_id }}" ]; then
+            echo "cache_id=${{ inputs.cache_week_id }}" >> $GITHUB_ENV
+          else
+            echo "cache_id=$(date --utc '+%U')" >> $GITHUB_ENV
+          fi
       - name: Cache Generation
         uses: actions/cache@v4
         with:
@@ -55,66 +63,41 @@ jobs:
           path: data/
           include-hidden-files: "true"
 
-  deployment:
-    name: Deploy Data Snapshot
+  deploy:
+    name: Deploy to S3
     needs: generate
-    if: github.ref == 'refs/heads/main'
+    #if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
+    defaults:
+      run:
+        working-directory: ./generation
     environment:
-      name: static-data
-      url: ${{ vars.DEPLOY_URL }}
+      name: api
+      url: https://api.uwcourses.com
     steps:
-      - name: Checkout Deployment Repo
-        uses: actions/checkout@v6
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
         with:
-          repository: twangodev/uw-coursemap-data
-          token: ${{ secrets.PAT }}
-          path: deploy
-
+          python-version-file: generation/.python-version
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          version: "latest"
+      - name: Install Dependencies
+        run: uv sync
       - name: Download Generated Snapshot
         uses: actions/download-artifact@v6
         with:
           name: uw-coursemap-data-snapshot-${{ github.run_id }}
-          path: snapshot
-
-      - name: Replace with Snapshot
-        run: |
-          cd deploy
-          rsync -a --delete --exclude='.git' ../snapshot/ .
-          rm -rf ../snapshot
-
-      - name: Commit Snapshot
-        id: commit
-        uses: stefanzweifel/git-auto-commit-action@v7
-        with:
-          repository: "deploy"
-          disable_globbing: true
-          commit_message: "Deploy Snapshot #${{ github.run_id }}"
-          branch: main
-          push_options: "--force"
-
-  bump:
-    name: Bump Submodule
-    needs: deployment
-    runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-      contents: write
-    steps:
-      - uses: actions/checkout@v6
-        with:
-          submodules: true
-      - name: Bump Submodule
-        run: git submodule update --remote
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
-        with:
-          title: "Bump Data Submodule from Snapshot #${{ github.run_id }}"
-          base: main
-          branch: "github-actions/data-bump"
-          sign-commits: "true"
-          commit-message: "Bump Data Submodule from Snapshot #${{ github.run_id }}"
-          labels: submodules, cicd, generation
-          reviewers: ${{ github.repository_owner }}
+          path: data
+      - name: Upload to S3
+        run: uv run python main.py --step upload --no_build
+        env:
+          DATA_DIR: "../data"
+          SITEMAP_BASE: ${{ vars.BASE_URL }}
+          S3_ENDPOINT_URL: ${{ secrets.S3_ENDPOINT_URL }}
+          S3_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
+          S3_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
+          S3_BUCKET: ${{ secrets.S3_BUCKET }}

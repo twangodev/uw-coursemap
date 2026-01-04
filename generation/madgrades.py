@@ -40,7 +40,7 @@ async def process_course(
     course_number = madgrade_course["number"]
     subjects = madgrade_course["subjects"]
     subject_set = {subject["abbreviation"].replace(" ", "") for subject in subjects}
-    course_ref = Course.Reference(subject_set, course_number)
+    course_ref = Course.Reference(subjects=subject_set, course_number=course_number)
 
     if course_ref not in course_ref_to_course:
         logger.debug(f"Unknown course discovered from Madgrades: {course_ref}")
@@ -48,13 +48,13 @@ async def process_course(
 
     grades_url = madgrade_course["url"] + "/grades"
     madgrades_data = await MadgradesData.from_madgrades_async(
-        session, grades_url, madgrades_api_key, current_page, attempts=10
+        session, grades_url, madgrades_api_key, current_page, attempts=50
     )
     course = course_ref_to_course[course_ref]
     course.cumulative_grade_data = madgrades_data.cumulative
 
     for term, grade_data in madgrades_data.by_term.items():
-        term_data = TermData(None, None)
+        term_data = TermData()
         if course.term_data.get(term):
             term_data = course.term_data[term]
 

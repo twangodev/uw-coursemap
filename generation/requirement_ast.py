@@ -1,7 +1,14 @@
-import re
-from typing import Union
+"""Requirement Abstract Syntax Tree - parsing and models."""
 
-from json_serializable import JsonSerializable
+from __future__ import annotations
+
+import re
+
+from schemas.requirement_ast import (
+    Leaf as _LeafBase,
+    Node as _NodeBase,
+    RequirementAbstractSyntaxTree as _RequirementASTBase,
+)
 
 token_specs = [
     (r"\(", "LPAREN"),
@@ -240,153 +247,64 @@ def tokenize_requisites(linked_requisite_text):
     return tokens
 
 
-class Leaf(JsonSerializable):
-    def __init__(self, payload: JsonSerializable | str):
-        self.payload = payload
-
-    def to_tree_print(self):
-        return _tree_repr(self, is_root=True)
+class Leaf(_LeafBase):
+    """Extended Leaf with factory methods."""
 
     @classmethod
-    def from_json(cls, json_data) -> "Leaf":
+    def from_json(cls, json_data) -> Leaf:
+        """Create Leaf from JSON data."""
         from course import Course
 
         if isinstance(json_data, str):
-            return cls(json_data)
+            return cls(payload=json_data)
         elif isinstance(json_data, dict):
-            return cls(Course.Reference.from_json(json_data))
+            return cls(payload=Course.Reference.from_json(json_data))
         else:
             raise ValueError("Invalid JSON data for Leaf")
 
     def to_dict(self):
-        if isinstance(self.payload, JsonSerializable):
-            return self.payload.to_dict()
-        return str(self.payload)
+        """Convert to dict for JSON serialization."""
+        return self.model_dump()
 
 
-class Node(JsonSerializable):
-    def __init__(self, operator: str, children: list[Union["Node", Leaf]]):
-        self.operator = operator
-        self.children = children
+class Node(_NodeBase):
+    """Extended Node with factory methods."""
 
     @classmethod
-    def from_json(cls, json_data) -> "Union[Node, Leaf]":
+    def from_json(cls, json_data) -> Node | Leaf:
+        """Create Node or Leaf from JSON data."""
         if isinstance(json_data, dict):
             operator = json_data.get("operator")
             if operator is None:
                 return Leaf.from_json(json_data)
             children = [cls.from_json(child) for child in json_data.get("children", [])]
-            return cls(operator, children)
+            return cls(operator=operator, children=children)
         elif isinstance(json_data, str):
             return Leaf.from_json(json_data)
         else:
             raise ValueError("Invalid JSON data for Node")
 
     def to_dict(self):
-        return {
-            "operator": self.operator,
-            "children": [
-                child.to_dict() if isinstance(child, JsonSerializable) else str(child)
-                for child in self.children
-            ],
-        }
-
-    def to_tree_print(self):
-        return _tree_repr(self, is_root=True)
+        """Convert to dict for JSON serialization."""
+        return self.model_dump()
 
 
-def _tree_repr(
-    node: Union[Node, Leaf],
-    prefix: str = "",
-    is_last: bool = True,
-    is_root: bool = False,
-) -> str:
-    if is_root:
-        label = node.operator if isinstance(node, Node) else node.payload
-        line = label
-        children_prefix = ""
-    else:
-        connector = "└── " if is_last else "├── "
-        label = node.operator if isinstance(node, Node) else node.payload
-        line = f"{prefix}{connector}{label}"
-        children_prefix = prefix + ("    " if is_last else "│   ")
-
-    if isinstance(node, Node):
-        lines = [line]
-        for idx, child in enumerate(node.children):
-            last = idx == len(node.children) - 1
-            lines.append(_tree_repr(child, children_prefix, last))
-        return "\n".join(lines)
-    else:
-        return line
-
-
-class RequirementAbstractSyntaxTree(JsonSerializable):
-    def __init__(self, root: Union[Node, Leaf]):
-        self.root = root
+class RequirementAbstractSyntaxTree(_RequirementASTBase):
+    """Extended RequirementAbstractSyntaxTree with factory methods."""
 
     @classmethod
-    def from_json(cls, json_data):
+    def from_json(cls, json_data) -> RequirementAbstractSyntaxTree | None:
+        """Create RequirementAbstractSyntaxTree from JSON data."""
         if isinstance(json_data, dict):
-            return cls(Node.from_json(json_data))
+            return cls(root=Node.from_json(json_data))
         elif isinstance(json_data, str):
-            return cls(Leaf(json_data))
+            return cls(root=Leaf(payload=json_data))
         else:
             return None
 
     def to_dict(self):
-        return (
-            self.root.to_dict()
-            if isinstance(self.root, JsonSerializable)
-            else str(self.root)
-        )
-
-    def to_tree_print(self):
-        return _tree_repr(self.root, is_root=True)
-
-    def course_combinations(self):
-        def _recurse(node):
-            # Leaf case
-            if isinstance(node, Leaf):
-                if not isinstance(node.payload, str):
-                    # it's a Course.Reference
-                    return [[node.payload]]
-                else:
-                    # a TEXT leaf: contributes no courses
-                    return [[]]
-
-            # Node case
-            assert isinstance(node, Node)
-            if node.operator == "AND":
-                combos = [[]]  # start with an “empty” combo
-                for child in node.children:
-                    child_combos = _recurse(child)
-                    # Cartesian product: append every child-combo to every existing combo
-                    combos = [prev + curr for prev in combos for curr in child_combos]
-                return combos
-
-            elif node.operator == "OR":
-                # any one child’s combos will do
-                combos = []
-                for child in node.children:
-                    combos.extend(_recurse(child))
-                return combos
-
-            else:
-                raise ValueError(f"Unknown operator {node.operator!r}")
-
-        raw = _recurse(self.root)
-        # option 1: drop any empty combos (if you only want actual course sets)
-        nonempty = [combo for combo in raw if combo]
-        # option 2: dedupe (set of tuples) and preserve order
-        seen = set()
-        unique = []
-        for combo in nonempty:
-            key = tuple(sorted(combo, key=lambda cr: str(cr)))
-            if key not in seen:
-                seen.add(key)
-                unique.append(combo)
-        return unique
+        """Convert to dict for JSON serialization."""
+        return self.model_dump()
 
 
 class RequirementParser:
@@ -396,14 +314,18 @@ class RequirementParser:
 
     def parse(self) -> RequirementAbstractSyntaxTree:
         root = self.parse_or()
-        return RequirementAbstractSyntaxTree(root)
+        return RequirementAbstractSyntaxTree(root=root)
 
     def parse_or(self):
         children = [self.parse_and()]
         while self._peek_kind() == "OR":
             self.pos += 1
             children.append(self.parse_and())
-        return children[0] if len(children) == 1 else Node("OR", children)
+        return (
+            children[0]
+            if len(children) == 1
+            else Node(operator="OR", children=children)
+        )
 
     def parse_and(self):
         children = [self.parse_primary()]
@@ -418,7 +340,11 @@ class RequirementParser:
             else:
                 break
 
-        return children[0] if len(children) == 1 else Node("AND", children)
+        return (
+            children[0]
+            if len(children) == 1
+            else Node(operator="AND", children=children)
+        )
 
     def parse_primary(self):
         kind = self._peek_kind()
@@ -434,10 +360,10 @@ class RequirementParser:
         if kind in ("TEXT", "COURSE"):
             _, val = self.tokens[self.pos]
             self.pos += 1
-            return Leaf(val)
+            return Leaf(payload=val)
 
         if kind == "EOF":
-            return Leaf("")
+            return Leaf(payload="")
 
         raise SyntaxError(f"Unexpected token {kind!r}")
 

@@ -5,7 +5,7 @@ from logging import getLogger
 import numpy as np
 
 from course import Course
-from enrollment_data import EnrollmentData
+from enrollment_data import Meeting
 from instructors import FullInstructor
 from save import write_file, format_file_size
 
@@ -336,7 +336,7 @@ def read_course_ref_to_meetings_cache(cache_dir):
         return {}
     return {
         Course.Reference.from_string(key): [
-            EnrollmentData.Meeting.from_json(meeting) for meeting in value
+            Meeting.from_json(meeting) for meeting in value
         ]
         for key, value in course_to_meetings.items()
     }
