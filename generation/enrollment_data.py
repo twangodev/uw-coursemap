@@ -346,7 +346,7 @@ class MadgradesData:
         url: str,
         madgrades_api_key: str,
         current_page: int,
-        attempts: int = 3,
+        attempts: int = 10,
     ) -> MadgradesData:
         """Fetch grade data from Madgrades API."""
         auth_header = {"Authorization": f"Token token={madgrades_api_key}"}
