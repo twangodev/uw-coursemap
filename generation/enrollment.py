@@ -23,8 +23,8 @@ enrollment_package_base_url = (
 # API has a maximum page size limit of 500
 MAX_PAGE_SIZE = 500
 
-# Limit concurrent requests to avoid 403 rate limiting
-MAX_CONCURRENT_REQUESTS = 20
+# Limit concurrent requests to avoid WAF blocks
+MAX_CONCURRENT_REQUESTS = 5
 
 logger = getLogger(__name__)
 
