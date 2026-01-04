@@ -6,18 +6,18 @@
   } from "@carbon/charts-svelte";
   import { removeStopwords } from "stopword";
   import "@carbon/charts-svelte/styles.css";
-  import type { FullInstructorInformation } from "$lib/types/instructor.ts";
+  import type { FullInstructor } from "$lib/types/instructor.ts";
   import { getCarbonTheme } from "$lib/theme.ts";
   import { mode } from "mode-watcher";
 
   interface Props {
-    instructors: FullInstructorInformation[];
+    instructors: FullInstructor[];
   }
 
   let { instructors }: Props = $props();
 
   function commentsToChartTabularData(
-    instructors: FullInstructorInformation[],
+    instructors: FullInstructor[],
   ): ChartTabularData {
     const wordCounts = new Map();
 

@@ -1,6 +1,6 @@
 <script lang="ts">
   interface Props {
-    amount: number | undefined;
+    amount: number | null | undefined;
     description: string;
     scale?: number;
     invert?: boolean;

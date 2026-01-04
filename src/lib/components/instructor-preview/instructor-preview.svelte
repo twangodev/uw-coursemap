@@ -1,7 +1,7 @@
 <script lang="ts">
   import { LucideMail } from "@lucide/svelte";
   import { Avatar, AvatarFallback } from "$lib/components/ui/avatar";
-  import { type FullInstructorInformation, sanitizeInstructorId } from "$lib/types/instructor.ts";
+  import { type FullInstructor, sanitizeInstructorId } from "$lib/types/instructor.ts";
   import ColoredNumberBox from "$lib/components/instructor-preview/colored-number-box.svelte";
   import { slide } from "svelte/transition";
   import { slideParams } from "$lib/transitions.ts";
@@ -9,7 +9,7 @@
   import { localizeHref } from "$lib/paraglide/runtime";
 
   interface Props {
-    instructor: FullInstructorInformation;
+    instructor: FullInstructor;
     showRating?: boolean;
     showOtherDetails?: boolean;
     rank?: number;

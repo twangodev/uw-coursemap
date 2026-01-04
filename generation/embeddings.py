@@ -282,6 +282,13 @@ def prune_prerequisites(
         course.optimized_prerequisites = course.prerequisites.course_references
         return
 
+    if course.prerequisites.abstract_syntax_tree is None:
+        logger.debug(
+            f"Skipping optimization for {course.get_identifier()} as it has no AST"
+        )
+        course.optimized_prerequisites = course.prerequisites.course_references
+        return
+
     branches = course.prerequisites.abstract_syntax_tree.course_combinations()
     semantic_similarity_weight = 0.5
     popularity_weight = 0.5

@@ -1,10 +1,10 @@
-import type { FullInstructorInformation } from "$lib/types/instructor.ts";
+import type { FullInstructor } from "$lib/types/instructor.ts";
 import { generateOgImageUrl } from "$lib/seo/og-image";
 
 /**
  * Generate a simple meta description for an instructor
  */
-export function generateInstructorMetaDescription(instructor: FullInstructorInformation): string {
+export function generateInstructorMetaDescription(instructor: FullInstructor): string {
   // Pre-calculate all values
   const position = instructor.position || "faculty member";
   const department = instructor.department || "UW-Madison";
@@ -42,14 +42,14 @@ export function generateInstructorMetaDescription(instructor: FullInstructorInfo
 /**
  * Generate a structured title for the instructor page
  */
-export function generateInstructorTitle(instructor: FullInstructorInformation): string {
+export function generateInstructorTitle(instructor: FullInstructor): string {
   return `${instructor.name} - ${instructor.department || "UW-Madison"}`;
 }
 
 /**
  * Generate an Open Graph image URL for an instructor
  */
-export function generateInstructorOgImage(instructor: FullInstructorInformation): string {
+export function generateInstructorOgImage(instructor: FullInstructor): string {
   const position = instructor.position || "Faculty";
   const department = instructor.department || "UW-Madison";
 
@@ -64,7 +64,7 @@ export function generateInstructorOgImage(instructor: FullInstructorInformation)
     descriptionParts.push(`${rating.toFixed(1)}/5.0 from ${numRatings} reviews`);
   }
 
-  if (wouldTakeAgain !== undefined && wouldTakeAgain > 0) {
+  if (wouldTakeAgain != null && wouldTakeAgain > 0) {
     descriptionParts.push(`${Math.round(wouldTakeAgain)}% would take again`);
   }
 

@@ -5,6 +5,7 @@ _aio_cache_config = {
     "cache_name": None,
     "expire_after": NEVER_EXPIRE,
     "allowed_methods": ("GET", "POST"),
+    "allowed_codes": (200,),
 }
 
 

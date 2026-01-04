@@ -8,7 +8,7 @@ from elasticsearch import Elasticsearch
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-from data import get_instructors, get_courses, get_subjects
+from data_loader import DataLoader
 from es_util import (
     load_courses,
     search_courses,
@@ -17,7 +17,6 @@ from es_util import (
     load_subjects,
     search_subjects,
 )
-from data import get_random_courses as get_random_courses_data
 
 load_dotenv()
 
@@ -99,8 +98,7 @@ def search():
 @app.route("/random-courses", methods=["GET"])
 def get_random_courses():
     """Returns 5 random courses from the dataset."""
-    random_courses_data = get_random_courses_data(data_dir, num_courses=5)
-    # Retrieve the full course details
+    random_courses_data = data_loader.get_random_courses(num_courses=5)
     random_courses = [
         {"course_id": course_id, **random_courses_data[course_id]}
         for course_id in random_courses_data
@@ -122,9 +120,12 @@ if environ.get("WERKZEUG_RUN_MAIN") != "true":
     logging_level = logging.DEBUG if verbose else logging.INFO
     coloredlogs.install(level=logging_level, logger=logger)
 
-    subjects = get_subjects(data_dir, logger)
-    courses = get_courses(data_dir, subjects, logger)
-    instructors = get_instructors(data_dir, logger)
+    # Use DataLoader with R2 support and local fallback
+    data_loader = DataLoader(logger=logger, local_data_dir=data_dir)
+
+    subjects = data_loader.get_subjects()
+    courses = data_loader.get_courses(subjects)
+    instructors = data_loader.get_instructors()
     clear_elasticsearch()
 
     load_subjects(es, subjects)

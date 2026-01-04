@@ -9,11 +9,11 @@
   import InstructorPreview from "$lib/components/instructor-preview/instructor-preview.svelte";
   import InstructorWordCloud from "$lib/components/charts/instructor-word-cloud.svelte";
   import { ArrowUpRight } from "@lucide/svelte";
-  import type { FullInstructorInformation } from "$lib/types/instructor.ts";
+  import type { FullInstructor } from "$lib/types/instructor.ts";
   import { m } from "$lib/paraglide/messages";
 
   interface Props {
-    instructors: FullInstructorInformation[];
+    instructors: FullInstructor[];
   }
 
   let { instructors }: Props = $props();

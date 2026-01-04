@@ -1,15 +1,12 @@
-import { env } from "$env/dynamic/public";
+import { createApiClient } from "$lib/api";
 import { generateOgImageUrl } from "$lib/seo/og-image";
 
-const { PUBLIC_API_URL } = env;
-
 export const load = async ({ fetch }) => {
-  const subjectResponse = await fetch(`${PUBLIC_API_URL}/subjects.json`);
-  if (!subjectResponse.ok)
-    throw new Error(`Failed to fetch subjects: ${subjectResponse.statusText}`);
-  const subjects: [string, string][] = Object.entries(
-    await subjectResponse.json(),
-  );
+  const api = createApiClient(fetch);
+  const { data, error } = await api.GET("/subjects");
+  if (error || !data)
+    throw new Error(`Failed to fetch subjects`);
+  const subjects: [string, string][] = Object.entries(data);
 
   const ogImage = generateOgImageUrl({
     title: "Course Explorer",

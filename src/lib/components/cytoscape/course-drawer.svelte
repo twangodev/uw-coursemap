@@ -8,7 +8,7 @@
   import { Button } from "$lib/components/ui/button";
   import InstructorPreview from "../instructor-preview/instructor-preview.svelte";
   import { ArrowUpRight } from "@lucide/svelte";
-  import { apiFetch } from "$lib/api";
+  import { api } from "$lib/api";
   import { clearPath, highlightPath } from "./paths.ts";
   import { page } from "$app/state";
   import { pushState } from "$app/navigation";
@@ -53,15 +53,17 @@
   );
 
   onMount(async () => {
-    let termsData = await apiFetch(`/terms.json`);
-    terms = await termsData.json();
+    const { data } = await api.GET("/terms");
+    if (data) terms = data;
   });
 
   $effect(() => {
     (async () => {
       if (cy && focus) {
-        let response = await apiFetch(`/course/${focus}.json`);
-        let course = await response.json();
+        const { data: course } = await api.GET("/course/{courseId}", {
+          params: { path: { courseId: focus } },
+        });
+        if (!course) return;
 
         let id = CourseUtils.courseReferenceToString(course.course_reference);
         let node = cy.$id(id);

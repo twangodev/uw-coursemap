@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { FullInstructorInformation } from "$lib/types/instructor.ts";
+  import type { FullInstructor } from "$lib/types/instructor.ts";
   import {
     Card,
     CardContent,
@@ -15,7 +15,7 @@
   } from "@lucide/svelte";
 
   interface Props {
-    instructor: FullInstructorInformation;
+    instructor: FullInstructor;
   }
 
   let { instructor }: Props = $props();

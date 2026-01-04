@@ -1,14 +1,13 @@
 import type { Course as CourseSchema, WithContext, CourseInstance, AggregateRating, Person, Organization, EducationalOccupationalProgram, Offer, Place } from "schema-dts";
-import type { Course } from "$lib/types/course.ts";
-import { type FullInstructorInformation, sanitizeInstructorId } from "$lib/types/instructor.ts";
+import { type Course, type CourseReference, CourseUtils } from "$lib/types/course.ts";
+import { type FullInstructor, sanitizeInstructorId } from "$lib/types/instructor.ts";
 import type { Terms } from "$lib/types/terms.ts";
-import { CourseUtils } from "$lib/types/course.ts";
 import { calculateGradePointAverage, calculateCompletionRate } from "$lib/types/madgrades.ts";
 import { university } from "$lib/json-schemas.ts";
 
 export function generateComprehensiveCourseJsonLd(
   course: Course,
-  instructors: FullInstructorInformation[],
+  instructors: FullInstructor[],
   terms: Terms,
   selectedTermId: string
 ): WithContext<CourseSchema> {
@@ -101,7 +100,7 @@ export function generateComprehensiveCourseJsonLd(
     schema.isPartOf = {
       "@type": "CreativeWork",
       "name": `${enrollmentData.school.name} Programs`,
-      "url": enrollmentData.school.url
+      "url": enrollmentData.school.url ?? undefined
     };
   }
   
@@ -117,7 +116,7 @@ export function generateComprehensiveCourseJsonLd(
   return schema;
 }
 
-function generateAggregateRating(gradeData: any, instructors: FullInstructorInformation[]): AggregateRating | undefined {
+function generateAggregateRating(gradeData: any, instructors: FullInstructor[]): AggregateRating | undefined {
   // Only include ratings if we have meaningful data (at least 30 students)
   if (!gradeData?.total || gradeData.total < 30) return undefined;
   
@@ -129,9 +128,9 @@ function generateAggregateRating(gradeData: any, instructors: FullInstructorInfo
   
   // Get average instructor rating if available with sufficient data
   const instructorRatings = instructors
-    .filter(i => i.rmp_data?.average_rating && i.rmp_data?.num_ratings > 10)
-    .map(i => i.rmp_data!.average_rating);
-  
+    .filter(i => i.rmp_data?.average_rating != null && i.rmp_data?.num_ratings && i.rmp_data.num_ratings > 10)
+    .map(i => i.rmp_data!.average_rating!);
+
   const avgInstructorRating = instructorRatings.length > 0
     ? instructorRatings.reduce((a, b) => a + b, 0) / instructorRatings.length
     : null;
@@ -159,8 +158,8 @@ function generatePrerequisitesList(course: Course): Array<string> {
   }
   
   // Add course URLs as simple strings instead of Course objects to avoid validation errors
-  const prereqCourses = course.optimized_prerequisites?.course_references || course.prerequisites?.course_references || [];
-  prereqCourses.slice(0, 5).forEach(ref => {
+  const prereqCourses = course.optimized_prerequisites || course.prerequisites?.course_references || [];
+  prereqCourses.slice(0, 5).forEach((ref: CourseReference) => {
     const courseCode = CourseUtils.courseReferenceToString(ref);
     prerequisites.push(`${courseCode} - https://uwcourses.com/courses/${courseCode.replace(/[\s\/]/g, '_')}`);
   });
@@ -221,7 +220,7 @@ function getCourseLevel(courseNumber: number): string {
 
 function generateCourseInstances(
   course: Course,
-  instructors: FullInstructorInformation[],
+  instructors: FullInstructor[],
   terms: Terms,
   selectedTermId: string
 ): CourseInstance[] {

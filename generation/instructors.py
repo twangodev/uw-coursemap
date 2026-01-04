@@ -1,3 +1,7 @@
+"""Instructor data models and RMP integration."""
+
+from __future__ import annotations
+
 import asyncio
 import os
 import re
@@ -11,6 +15,8 @@ from aiohttp import DummyCookieJar
 from aiohttp_client_cache import CachedSession
 from bs4 import BeautifulSoup
 from diskcache import Cache
+from pydantic import ConfigDict
+
 from http_utils import get_default_headers, get_user_agent
 from tqdm.asyncio import tqdm
 
@@ -18,7 +24,10 @@ from aio_cache import get_aio_cache
 from course import Course
 from enrollment import build_from_mega_query
 from enrollment_data import GradeData
-from json_serializable import JsonSerializable
+from schemas.instructor import (
+    RMPData as _RMPDataBase,
+    FullInstructor as _FullInstructorBase,
+)
 from sanitization import sanitize_instructor_id
 from name_matcher import find_best_structured_match, find_best_name_match
 
@@ -80,57 +89,28 @@ query NewSearchTeachersQuery($query: TeacherSearchQuery!) {
 
 logger = getLogger(__name__)
 
+__all__ = [
+    "RMPData",
+    "FullInstructor",
+    "get_ratings",
+    "gather_instructor_emails",
+    "scrape_rmp_api_key",
+]
 
-class RMPData(JsonSerializable):
-    def __init__(
-        self,
-        id,
-        legacy_id,
-        average_rating,
-        average_difficulty,
-        num_ratings,
-        would_take_again_percent,
-        mandatory_attendance,
-        ratings_distribution,
-        ratings,
-    ):
-        self.id = id
-        self.legacy_id = legacy_id
-        self.average_rating = average_rating
-        self.average_difficulty = average_difficulty
-        self.num_ratings = num_ratings
-        self.would_take_again_percent = would_take_again_percent
-        self.mandatory_attendance = mandatory_attendance
-        self.ratings_distribution = ratings_distribution
-        self.ratings = ratings
+
+class RMPData(_RMPDataBase):
+    """Extended RMPData with factory methods."""
 
     @classmethod
-    def from_json(cls, json_data):
+    def from_json(cls, json_data: dict | None) -> RMPData | None:
+        """Create RMPData from JSON dict."""
         if not json_data:
             return None
-        return RMPData(
-            id=json_data["id"],
-            legacy_id=json_data["legacy_id"],
-            average_rating=json_data["average_rating"],
-            average_difficulty=json_data["average_difficulty"],
-            num_ratings=json_data["num_ratings"],
-            would_take_again_percent=json_data["would_take_again_percent"],
-            mandatory_attendance=json_data["mandatory_attendance"],
-            ratings_distribution=json_data["ratings_distribution"],
-            ratings=json_data["ratings"],
-        )
+        return cls.model_validate(json_data)
 
     @classmethod
-    def from_rmp_data(cls, rmp_data) -> "RMPData":
-        id = rmp_data["id"]
-        legacy_id = rmp_data["legacyId"]
-        average_rating = rmp_data["avgRatingRounded"]
-        average_difficulty = rmp_data["avgDifficultyRounded"]
-        num_ratings = rmp_data["numRatings"]
-        would_take_again_percent = rmp_data["wouldTakeAgainPercentRounded"]
-        mandatory_attendance = rmp_data["mandatoryAttendance"]
-        ratings_distribution = rmp_data["ratingsDistribution"]
-
+    def from_rmp_data(cls, rmp_data: dict) -> RMPData:
+        """Create RMPData from RMP GraphQL API response."""
         ratings = []
         for rating in rmp_data["ratings"]["edges"]:
             node = rating["node"]
@@ -142,97 +122,63 @@ class RMPData(JsonSerializable):
                 }
             )
 
-        return RMPData(
-            id=id,
-            legacy_id=legacy_id,
-            average_rating=average_rating,
-            average_difficulty=average_difficulty,
-            num_ratings=num_ratings,
-            would_take_again_percent=would_take_again_percent,
-            mandatory_attendance=mandatory_attendance,
-            ratings_distribution=ratings_distribution,
+        return cls(
+            id=rmp_data["id"],
+            legacy_id=rmp_data["legacyId"],
+            average_rating=rmp_data["avgRatingRounded"],
+            average_difficulty=rmp_data["avgDifficultyRounded"],
+            num_ratings=rmp_data["numRatings"],
+            would_take_again_percent=rmp_data["wouldTakeAgainPercentRounded"],
+            mandatory_attendance=rmp_data["mandatoryAttendance"],
+            ratings_distribution=rmp_data["ratingsDistribution"],
             ratings=ratings,
         )
 
-    def to_dict(self):
-        return {
-            "id": self.id,
-            "legacy_id": self.legacy_id,
-            "average_rating": self.average_rating,
-            "average_difficulty": self.average_difficulty,
-            "num_ratings": self.num_ratings,
-            "would_take_again_percent": self.would_take_again_percent,
-            "mandatory_attendance": self.mandatory_attendance,
-            "ratings_distribution": self.ratings_distribution,
-            "ratings": self.ratings,
-        }
+    def to_dict(self) -> dict:
+        """Convert to dict for JSON serialization."""
+        return self.model_dump()
 
 
-class FullInstructor(JsonSerializable):
-    def __init__(
-        self,
-        name,
-        email,
-        rmp_data: RMPData | None,
-        position,
-        department,
-        credentials,
-        official_name,
-        courses_taught=None,
-        cumulative_grade_data: GradeData | None = None,
-    ):
-        self.name = name
-        self.email = email
-        self.rmp_data = rmp_data
-        self.position = position
-        self.department = department
-        self.credentials = credentials
-        self.official_name = official_name
-        self.courses_taught = courses_taught
-        self.cumulative_grade_data = cumulative_grade_data
+class FullInstructor(_FullInstructorBase):
+    """Extended FullInstructor with factory methods."""
+
+    model_config = ConfigDict(arbitrary_types_allowed=True)
 
     @classmethod
-    def from_json(cls, json_data) -> "FullInstructor":
-        cumulative_grade_data = json_data.get("cumulative_grade_data", None)
-        if cumulative_grade_data:
-            cumulative_grade_data = GradeData.from_json(cumulative_grade_data)
+    def from_json(cls, json_data: dict) -> FullInstructor:
+        """Create FullInstructor from JSON dict."""
+        cumulative_grade_data = None
+        if json_data.get("cumulative_grade_data"):
+            cumulative_grade_data = GradeData.from_json(
+                json_data["cumulative_grade_data"]
+            )
 
-        courses_taught = json_data.get("courses_taught", None)
-        if courses_taught:
-            courses_taught = {
-                Course.Reference.from_json(course_ref) for course_ref in courses_taught
-            }
+        courses_taught = None
+        if json_data.get("courses_taught"):
+            courses_taught = [
+                Course.Reference.from_json(course_ref)
+                for course_ref in json_data["courses_taught"]
+            ]
 
-        return FullInstructor(
+        rmp_data = None
+        if json_data.get("rmp_data"):
+            rmp_data = RMPData.from_json(json_data["rmp_data"])
+
+        return cls(
             name=json_data["name"],
-            email=json_data["email"],
-            rmp_data=RMPData.from_json(json_data["rmp_data"]),
-            position=json_data["position"],
-            department=json_data["department"],
-            credentials=json_data["credentials"],
-            official_name=json_data["official_name"],
+            email=json_data.get("email"),
+            rmp_data=rmp_data,
+            position=json_data.get("position"),
+            department=json_data.get("department"),
+            credentials=json_data.get("credentials"),
+            official_name=json_data.get("official_name"),
             courses_taught=courses_taught,
             cumulative_grade_data=cumulative_grade_data,
         )
 
-    def to_dict(self):
-        return {
-            "name": self.name,
-            "email": self.email,
-            "rmp_data": self.rmp_data.to_dict() if self.rmp_data else None,
-            "position": self.position,
-            "department": self.department,
-            "credentials": self.credentials,
-            "official_name": self.official_name,
-            "courses_taught": [
-                course_ref.to_dict() for course_ref in self.courses_taught
-            ]
-            if self.courses_taught
-            else None,
-            "cumulative_grade_data": self.cumulative_grade_data.to_dict()
-            if self.cumulative_grade_data
-            else None,
-        }
+    def to_dict(self) -> dict:
+        """Convert to dict for JSON serialization."""
+        return self.model_dump()
 
 
 def produce_query(instructor_name):

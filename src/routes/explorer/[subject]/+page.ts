@@ -1,32 +1,23 @@
-import { env } from "$env/dynamic/public";
+import { createApiClient } from "$lib/api";
 import { error } from "@sveltejs/kit";
 import type { ElementDefinition } from "cytoscape";
 import { generateOgImageUrl } from "$lib/seo/og-image";
 
-const { PUBLIC_API_URL } = env;
-
 export const load = async ({ params, fetch }) => {
+  const api = createApiClient(fetch);
   let subject = params.subject.toUpperCase();
 
   // Fetch subjects to get full name
-  const subjectsResponse = await fetch(`${PUBLIC_API_URL}/subjects.json`);
-  let subjectFullName = subject;
-  if (subjectsResponse.ok) {
-    const subjects = await subjectsResponse.json();
-    subjectFullName = subjects[subject] || subject;
-  }
+  const { data: subjects } = await api.GET("/subjects");
+  let subjectFullName = subjects?.[subject] || subject;
 
-  const elementDefinitionsResponse = await fetch(
-    `${PUBLIC_API_URL}/graphs/${subject}.json`,
-  );
-  if (!elementDefinitionsResponse.ok)
-    throw error(
-      elementDefinitionsResponse.status,
-      `Failed to fetch graph data: ${elementDefinitionsResponse.statusText}`,
-    );
-  const elementDefinitions: ElementDefinition[] =
-    await elementDefinitionsResponse.json();
+  const { data: graphData, error: graphError } = await api.GET("/graphs/{subject}", {
+    params: { path: { subject } },
+  });
+  if (graphError || !graphData)
+    throw error(404, `Failed to fetch graph data`);
 
+  const elementDefinitions = graphData as unknown as ElementDefinition[];
   elementDefinitions.forEach((item: any) => {
     item["pannable"] = true;
     if (!Object.hasOwn(item.data, "title")) {
@@ -34,15 +25,11 @@ export const load = async ({ params, fetch }) => {
     }
   });
 
-  const styleEntriesResponse = await fetch(
-    `${PUBLIC_API_URL}/styles/${subject}.json`,
-  );
-  if (!styleEntriesResponse.ok)
-    throw error(
-      styleEntriesResponse.status,
-      `Failed to fetch style data: ${styleEntriesResponse.statusText}`,
-    );
-  const styleEntries = await styleEntriesResponse.json();
+  const { data: styleEntries, error: styleError } = await api.GET("/styles/{subject}", {
+    params: { path: { subject } },
+  });
+  if (styleError || !styleEntries)
+    throw error(404, `Failed to fetch style data`);
 
   const ogImage = generateOgImageUrl({
     title: subject,

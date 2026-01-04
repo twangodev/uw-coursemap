@@ -1,14 +1,12 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { env } from "$env/dynamic/public";
   import type { QuickStatistics } from "$lib/types/misc.ts";
   import { Marquee } from "$lib/components/ui/marquee/index.js";
   import { inView } from "$lib/actions/in-view";
   import { m } from "$lib/paraglide/messages";
+  import { api } from "$lib/api";
 
   let quickStatistics = $state<QuickStatistics | undefined>(undefined);
-
-  const PUBLIC_API_URL = env.PUBLIC_API_URL;
 
   let stats = $derived([
     {
@@ -54,13 +52,13 @@
   }
 
   onMount(async () => {
-    const response = await fetch(`${PUBLIC_API_URL}/quick_statistics.json`);
-    if (!response.ok) {
-      console.error("Failed to fetch quick statistics:", response.statusText);
+    const { data, error } = await api.GET("/quick_statistics");
+    if (error || !data) {
+      console.error("Failed to fetch quick statistics:", error);
       return;
     }
 
-    quickStatistics = await response.json();
+    quickStatistics = data as QuickStatistics;
   });
 </script>
 

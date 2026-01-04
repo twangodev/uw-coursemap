@@ -1,29 +1,22 @@
-import { env } from "$env/dynamic/public";
+import { createApiClient } from "$lib/api";
 import { formatTimeAgo } from "$lib/utils/timeago";
 
-const PUBLIC_API_URL = env.PUBLIC_API_URL;
-
 export const load = async ({ fetch }) => {
-  try {
-    const response = await fetch(`${PUBLIC_API_URL}/update.json`);
-    if (!response.ok) {
-      console.error(`Failed to fetch update info: ${response.statusText}`);
-      return {
-        lastSynced: "unknown"
-      };
-    }
+  const api = createApiClient(fetch);
 
-    const data = await response.json();
-    const updatedOn = new Date(data.updated_on);
-    const lastSynced = formatTimeAgo(updatedOn);
+  const { data, error } = await api.GET("/update");
 
-    return {
-      lastSynced
-    };
-  } catch (error) {
+  if (error || !data?.updated_on) {
     console.error("Failed to fetch update time:", error);
     return {
-      lastSynced: "unknown"
+      lastSynced: "unknown",
     };
   }
+
+  const updatedOn = new Date(data.updated_on);
+  const lastSynced = formatTimeAgo(updatedOn);
+
+  return {
+    lastSynced,
+  };
 };

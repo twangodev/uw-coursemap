@@ -1,0 +1,1715 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "UW Course Map API",
+    "version": "1.0.0",
+    "description": "Static JSON API for UW-Madison course data",
+    "contact": {
+      "name": "UW Course Map"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.uwcourses.com",
+      "description": "Production API"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Metadata",
+      "description": "API metadata and configuration"
+    },
+    {
+      "name": "Courses",
+      "description": "Course information"
+    },
+    {
+      "name": "Instructors",
+      "description": "Instructor information"
+    },
+    {
+      "name": "Meetings",
+      "description": "Class meetings and schedules"
+    },
+    {
+      "name": "Graphs",
+      "description": "Prerequisite graphs"
+    },
+    {
+      "name": "Statistics",
+      "description": "Aggregate statistics"
+    },
+    {
+      "name": "Buildings",
+      "description": "Campus building data"
+    }
+  ],
+  "paths": {
+    "/subjects": {
+      "get": {
+        "summary": "Get all subject codes and names",
+        "operationId": "getSubjects",
+        "tags": [
+          "Metadata"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get all subject codes and names",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/terms": {
+      "get": {
+        "summary": "Get all term codes and names",
+        "operationId": "getTerms",
+        "tags": [
+          "Metadata"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get all term codes and names",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/update": {
+      "get": {
+        "summary": "Get last update timestamp",
+        "operationId": "getUpdate",
+        "tags": [
+          "Metadata"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get last update timestamp",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "updated_on": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/manifest": {
+      "get": {
+        "summary": "Get API manifest",
+        "operationId": "getManifest",
+        "tags": [
+          "Metadata"
+        ],
+        "responses": {
+          "200": {
+            "description": "Lists all available resources for discovery",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "subjects": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "courses": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "instructors": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "updated_on": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/course/{courseId}": {
+      "get": {
+        "summary": "Get course by ID",
+        "operationId": "getCourseCourseid",
+        "tags": [
+          "Courses"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get course by ID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Course"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "required": true,
+            "description": "Course identifier (e.g., COMPSCI_200)",
+            "schema": {
+              "type": "string"
+            },
+            "example": "COMPSCI_200"
+          }
+        ]
+      }
+    },
+    "/course/{courseId}/meetings": {
+      "get": {
+        "summary": "Get course meetings",
+        "operationId": "getCourseCourseidMeetings",
+        "tags": [
+          "Courses",
+          "Meetings"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get course meetings",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Meeting"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "required": true,
+            "description": "Course identifier",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/instructors/{instructorId}": {
+      "get": {
+        "summary": "Get instructor by ID",
+        "operationId": "getInstructorsInstructorid",
+        "tags": [
+          "Instructors"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get instructor by ID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FullInstructor"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "instructorId",
+            "in": "path",
+            "required": true,
+            "description": "Instructor identifier (sanitized name)",
+            "schema": {
+              "type": "string"
+            },
+            "example": "JOHN_DOE"
+          }
+        ]
+      }
+    },
+    "/instructors/{instructorId}/meetings": {
+      "get": {
+        "summary": "Get instructor meetings",
+        "operationId": "getInstructorsInstructoridMeetings",
+        "tags": [
+          "Instructors",
+          "Meetings"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get instructor meetings",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Meeting"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "instructorId",
+            "in": "path",
+            "required": true,
+            "description": "Instructor identifier",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/global_graph": {
+      "get": {
+        "summary": "Get global prerequisite graph",
+        "operationId": "getGlobal_Graph",
+        "tags": [
+          "Graphs"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get global prerequisite graph",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/graphs/{subject}": {
+      "get": {
+        "summary": "Get subject prerequisite graph",
+        "operationId": "getGraphsSubject",
+        "tags": [
+          "Graphs"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get subject prerequisite graph",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          },
+                          "parent": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "subject",
+            "in": "path",
+            "required": true,
+            "description": "Subject code",
+            "schema": {
+              "type": "string"
+            },
+            "example": "COMPSCI"
+          }
+        ]
+      }
+    },
+    "/graphs/course/{courseId}": {
+      "get": {
+        "summary": "Get course prerequisite graph",
+        "operationId": "getGraphsCourseCourseid",
+        "tags": [
+          "Graphs"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get course prerequisite graph",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "required": true,
+            "description": "Course identifier",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/global_style": {
+      "get": {
+        "summary": "Get global graph style",
+        "operationId": "getGlobal_Style",
+        "tags": [
+          "Graphs"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get global graph style",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/styles/{subject}": {
+      "get": {
+        "summary": "Get subject graph style",
+        "operationId": "getStylesSubject",
+        "tags": [
+          "Graphs"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get subject graph style",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "subject",
+            "in": "path",
+            "required": true,
+            "description": "Subject code",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/quick_statistics": {
+      "get": {
+        "summary": "Get quick statistics",
+        "operationId": "getQuick_Statistics",
+        "tags": [
+          "Statistics"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get quick statistics",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total_courses": {
+                      "type": "integer"
+                    },
+                    "total_instructors": {
+                      "type": "integer"
+                    },
+                    "total_ratings": {
+                      "type": "integer"
+                    },
+                    "total_detected_requisites": {
+                      "type": "integer"
+                    },
+                    "total_grades_given": {
+                      "$ref": "#/components/schemas/GradeData"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats/{subject}": {
+      "get": {
+        "summary": "Get subject statistics",
+        "operationId": "getStatsSubject",
+        "tags": [
+          "Statistics"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get subject statistics",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total_courses": {
+                      "type": "integer"
+                    },
+                    "total_detected_requisites": {
+                      "type": "integer"
+                    },
+                    "total_grades_given": {
+                      "$ref": "#/components/schemas/GradeData"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "subject",
+            "in": "path",
+            "required": true,
+            "description": "Subject code",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/buildings/{buildingName}/meetings": {
+      "get": {
+        "summary": "Get meetings by building",
+        "operationId": "getBuildingsBuildingnameMeetings",
+        "tags": [
+          "Meetings",
+          "Buildings"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get meetings by building",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Meeting"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "buildingName",
+            "in": "path",
+            "required": true,
+            "description": "Building name",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/meetings/{date}": {
+      "get": {
+        "summary": "Get meetings by date",
+        "operationId": "getMeetingsDate",
+        "tags": [
+          "Meetings"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get meetings by date",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Meeting"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "date",
+            "in": "path",
+            "required": true,
+            "description": "Date in MM-DD-YY format",
+            "schema": {
+              "type": "string"
+            },
+            "example": "01-15-25"
+          }
+        ]
+      }
+    },
+    "/meetings/index": {
+      "get": {
+        "summary": "Get meetings index with date statistics",
+        "operationId": "getMeetingsIndex",
+        "tags": [
+          "Meetings"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get meetings index with date statistics",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "properties": {
+                      "total_buildings": {
+                        "type": "integer"
+                      },
+                      "total_meetings": {
+                        "type": "integer"
+                      },
+                      "total_instructors": {
+                        "type": "integer"
+                      },
+                      "total_students": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subjects/{subject}/meetings": {
+      "get": {
+        "summary": "Get meetings by subject",
+        "operationId": "getSubjectsSubjectMeetings",
+        "tags": [
+          "Meetings"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get meetings by subject",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Meeting"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "subject",
+            "in": "path",
+            "required": true,
+            "description": "Subject code",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/buildings/{buildingName}/{date}": {
+      "get": {
+        "summary": "Get building meetings for a specific date",
+        "operationId": "getBuildingsBuildingnameDate",
+        "tags": [
+          "Meetings",
+          "Buildings"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get building meetings for a specific date",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Meeting"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "buildingName",
+            "in": "path",
+            "required": true,
+            "description": "Building name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "date",
+            "in": "path",
+            "required": true,
+            "description": "Date in MM-DD-YY format",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CourseReference": {
+        "description": "Reference to a course by subject codes and number.",
+        "properties": {
+          "subjects": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Subjects",
+            "type": "array",
+            "uniqueItems": true
+          },
+          "course_number": {
+            "title": "Course Number",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "subjects",
+          "course_number"
+        ],
+        "title": "CourseReference",
+        "type": "object"
+      },
+      "GradeData": {
+        "description": "Grade distribution data for a course or instructor.",
+        "properties": {
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          },
+          "a": {
+            "title": "A",
+            "type": "integer"
+          },
+          "ab": {
+            "title": "Ab",
+            "type": "integer"
+          },
+          "b": {
+            "title": "B",
+            "type": "integer"
+          },
+          "bc": {
+            "title": "Bc",
+            "type": "integer"
+          },
+          "c": {
+            "title": "C",
+            "type": "integer"
+          },
+          "d": {
+            "title": "D",
+            "type": "integer"
+          },
+          "f": {
+            "title": "F",
+            "type": "integer"
+          },
+          "satisfactory": {
+            "title": "Satisfactory",
+            "type": "integer"
+          },
+          "unsatisfactory": {
+            "title": "Unsatisfactory",
+            "type": "integer"
+          },
+          "credit": {
+            "title": "Credit",
+            "type": "integer"
+          },
+          "no_credit": {
+            "title": "No Credit",
+            "type": "integer"
+          },
+          "passed": {
+            "title": "Passed",
+            "type": "integer"
+          },
+          "incomplete": {
+            "title": "Incomplete",
+            "type": "integer"
+          },
+          "no_work": {
+            "title": "No Work",
+            "type": "integer"
+          },
+          "not_reported": {
+            "title": "Not Reported",
+            "type": "integer"
+          },
+          "other": {
+            "title": "Other",
+            "type": "integer"
+          },
+          "instructors": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array",
+                "uniqueItems": true
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Instructors"
+          }
+        },
+        "required": [
+          "total",
+          "a",
+          "ab",
+          "b",
+          "bc",
+          "c",
+          "d",
+          "f",
+          "satisfactory",
+          "unsatisfactory",
+          "credit",
+          "no_credit",
+          "passed",
+          "incomplete",
+          "no_work",
+          "not_reported",
+          "other"
+        ],
+        "title": "GradeData",
+        "type": "object"
+      },
+      "MandatoryAttendance": {
+        "description": "Mandatory attendance statistics from RMP.",
+        "properties": {
+          "yes": {
+            "default": 0,
+            "title": "Yes",
+            "type": "integer"
+          },
+          "no": {
+            "default": 0,
+            "title": "No",
+            "type": "integer"
+          },
+          "neither": {
+            "default": 0,
+            "title": "Neither",
+            "type": "integer"
+          },
+          "total": {
+            "default": 0,
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "title": "MandatoryAttendance",
+        "type": "object"
+      },
+      "RMPData": {
+        "description": "Rate My Professors data for an instructor.",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "legacy_id": {
+            "title": "Legacy Id",
+            "type": "integer"
+          },
+          "average_rating": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Average Rating"
+          },
+          "average_difficulty": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Average Difficulty"
+          },
+          "num_ratings": {
+            "default": 0,
+            "title": "Num Ratings",
+            "type": "integer"
+          },
+          "would_take_again_percent": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Would Take Again Percent"
+          },
+          "mandatory_attendance": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MandatoryAttendance"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "ratings_distribution": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RatingsDistribution"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "ratings": {
+            "default": [],
+            "items": {
+              "$ref": "#/components/schemas/Rating"
+            },
+            "title": "Ratings",
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "legacy_id"
+        ],
+        "title": "RMPData",
+        "type": "object"
+      },
+      "Rating": {
+        "description": "Individual rating from RMP.",
+        "properties": {
+          "comment": {
+            "title": "Comment",
+            "type": "string"
+          },
+          "quality_rating": {
+            "title": "Quality Rating",
+            "type": "number"
+          },
+          "difficulty_rating": {
+            "title": "Difficulty Rating",
+            "type": "number"
+          }
+        },
+        "required": [
+          "comment",
+          "quality_rating",
+          "difficulty_rating"
+        ],
+        "title": "Rating",
+        "type": "object"
+      },
+      "RatingsDistribution": {
+        "description": "Rating distribution from RMP.",
+        "properties": {
+          "r1": {
+            "default": 0,
+            "title": "R1",
+            "type": "integer"
+          },
+          "r2": {
+            "default": 0,
+            "title": "R2",
+            "type": "integer"
+          },
+          "r3": {
+            "default": 0,
+            "title": "R3",
+            "type": "integer"
+          },
+          "r4": {
+            "default": 0,
+            "title": "R4",
+            "type": "integer"
+          },
+          "r5": {
+            "default": 0,
+            "title": "R5",
+            "type": "integer"
+          },
+          "total": {
+            "default": 0,
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "title": "RatingsDistribution",
+        "type": "object"
+      },
+      "FullInstructor": {
+        "description": "Complete instructor information including RMP data.",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Email"
+          },
+          "rmp_data": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RMPData"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "position": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Position"
+          },
+          "department": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Department"
+          },
+          "credentials": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Credentials"
+          },
+          "official_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Official Name"
+          },
+          "courses_taught": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/CourseReference"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Courses Taught"
+          },
+          "cumulative_grade_data": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/GradeData"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "title": "FullInstructor",
+        "type": "object"
+      },
+      "CoursePrerequisites": {
+        "description": "Prerequisites information for a course.",
+        "properties": {
+          "prerequisites_text": {
+            "title": "Prerequisites Text",
+            "type": "string"
+          },
+          "linked_requisite_text": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "$ref": "#/components/schemas/CourseReference"
+                }
+              ]
+            },
+            "title": "Linked Requisite Text",
+            "type": "array"
+          },
+          "course_references": {
+            "items": {
+              "$ref": "#/components/schemas/CourseReference"
+            },
+            "title": "Course References",
+            "type": "array"
+          },
+          "abstract_syntax_tree": {
+            "anyOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Abstract Syntax Tree"
+          }
+        },
+        "required": [
+          "prerequisites_text",
+          "linked_requisite_text",
+          "course_references"
+        ],
+        "title": "CoursePrerequisites",
+        "type": "object"
+      },
+      "EnrollmentData": {
+        "description": "Enrollment information for a course in a specific term.",
+        "properties": {
+          "school": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/School"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "last_taught_term": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Last Taught Term"
+          },
+          "typically_offered": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Typically Offered"
+          },
+          "credit_count": {
+            "default": [
+              0,
+              0
+            ],
+            "maxItems": 2,
+            "minItems": 2,
+            "prefixItems": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "integer"
+              }
+            ],
+            "title": "Credit Count",
+            "type": "array"
+          },
+          "general_education": {
+            "default": false,
+            "title": "General Education",
+            "type": "boolean"
+          },
+          "ethnic_studies": {
+            "default": false,
+            "title": "Ethnic Studies",
+            "type": "boolean"
+          },
+          "instructors": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "default": {},
+            "title": "Instructors",
+            "type": "object"
+          }
+        },
+        "title": "EnrollmentData",
+        "type": "object"
+      },
+      "School": {
+        "description": "School/college information.",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "abbreviation": {
+            "title": "Abbreviation",
+            "type": "string"
+          },
+          "url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Url"
+          }
+        },
+        "required": [
+          "name",
+          "abbreviation",
+          "url"
+        ],
+        "title": "School",
+        "type": "object"
+      },
+      "TermData": {
+        "description": "Data for a specific term including enrollment and grade information.",
+        "properties": {
+          "enrollment_data": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EnrollmentData"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "grade_data": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/GradeData"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "title": "TermData",
+        "type": "object"
+      },
+      "Course": {
+        "description": "Complete course information.",
+        "properties": {
+          "course_reference": {
+            "$ref": "#/components/schemas/CourseReference"
+          },
+          "course_title": {
+            "title": "Course Title",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "prerequisites": {
+            "$ref": "#/components/schemas/CoursePrerequisites"
+          },
+          "optimized_prerequisites": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/CourseReference"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Optimized Prerequisites"
+          },
+          "cumulative_grade_data": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/GradeData"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "term_data": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/TermData"
+            },
+            "title": "Term Data",
+            "type": "object"
+          },
+          "similar_courses": {
+            "default": [],
+            "items": {
+              "$ref": "#/components/schemas/CourseReference"
+            },
+            "title": "Similar Courses",
+            "type": "array"
+          },
+          "keywords": {
+            "default": [],
+            "items": {
+              "type": "string"
+            },
+            "title": "Keywords",
+            "type": "array"
+          },
+          "satisfies": {
+            "items": {
+              "$ref": "#/components/schemas/CourseReference"
+            },
+            "title": "Satisfies",
+            "type": "array",
+            "uniqueItems": true
+          },
+          "has_meetings": {
+            "default": false,
+            "title": "Has Meetings",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "course_reference",
+          "course_title",
+          "description",
+          "prerequisites",
+          "term_data"
+        ],
+        "title": "Course",
+        "type": "object"
+      },
+      "MeetingLocation": {
+        "description": "Physical location for a class meeting.",
+        "properties": {
+          "building": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Building"
+          },
+          "room": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Room"
+          },
+          "coordinates": {
+            "anyOf": [
+              {
+                "maxItems": 2,
+                "minItems": 2,
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Coordinates"
+          },
+          "capacity": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Capacity"
+          }
+        },
+        "required": [
+          "building",
+          "room"
+        ],
+        "title": "MeetingLocation",
+        "type": "object"
+      },
+      "Meeting": {
+        "description": "A class meeting/section.",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "type": {
+            "title": "Type",
+            "type": "string"
+          },
+          "start_time": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start Time"
+          },
+          "end_time": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "End Time"
+          },
+          "location": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MeetingLocation"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "current_enrollment": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Current Enrollment"
+          },
+          "instructors": {
+            "default": [],
+            "items": {
+              "type": "string"
+            },
+            "title": "Instructors",
+            "type": "array"
+          },
+          "course_reference": {
+            "anyOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Course Reference"
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "start_time",
+          "end_time"
+        ],
+        "title": "Meeting",
+        "type": "object"
+      },
+      "Leaf": {
+        "description": "A leaf node in the requirement AST - either text or a course reference.",
+        "properties": {
+          "payload": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {}
+            ],
+            "title": "Payload"
+          }
+        },
+        "required": [
+          "payload"
+        ],
+        "title": "Leaf",
+        "type": "object"
+      },
+      "Node": {
+        "description": "A node in the requirement AST with an operator and children.",
+        "properties": {
+          "operator": {
+            "title": "Operator",
+            "type": "string"
+          },
+          "children": {
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Node"
+                },
+                {
+                  "$ref": "#/components/schemas/Leaf"
+                }
+              ]
+            },
+            "title": "Children",
+            "type": "array"
+          }
+        },
+        "required": [
+          "operator",
+          "children"
+        ],
+        "title": "Node",
+        "type": "object"
+      },
+      "RequirementAbstractSyntaxTree": {
+        "description": "The root of a requirement AST.",
+        "properties": {
+          "root": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Node"
+              },
+              {
+                "$ref": "#/components/schemas/Leaf"
+              }
+            ],
+            "title": "Root"
+          }
+        },
+        "required": [
+          "root"
+        ],
+        "title": "RequirementAbstractSyntaxTree",
+        "type": "object"
+      }
+    }
+  }
+}

@@ -4,4 +4,4 @@ outline: false
 title: OpenAPI
 ---
 
-<OASpec spec-url="/static-openapi.yaml" />
+<OASpec spec-url="/openapi.json" />

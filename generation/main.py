@@ -46,6 +46,8 @@ from enrollment import sync_enrollment_terms
 from instructors import get_ratings, gather_instructor_emails, scrape_rmp_api_key
 from madgrades import add_madgrades_data
 from save import write_data
+from schemas.openapi import export_openapi_spec
+from upload import upload_directory
 from webscrape import get_course_urls, scrape_all, build_subject_to_courses
 
 load_dotenv()
@@ -77,6 +79,7 @@ def generate_parser():
             "aggregate",
             "optimize",
             "graph",
+            "upload",
         ],
         help="Strategy for generating course map data.",
         required=True,
@@ -102,9 +105,12 @@ def generate_parser():
     return parser
 
 
+OPT_IN_STEPS = {"upload"}
+
+
 def filter_step(step_name, allowed_step):
     if step_name == "all":
-        return True
+        return allowed_step not in OPT_IN_STEPS
     return step_name == allowed_step
 
 
@@ -436,6 +442,39 @@ def main():
                 explorer_stats=explorer_stats,
                 course_ref_to_meetings=course_ref_to_meetings,
             )
+
+            # Generate OpenAPI spec to docs/public for VitePress and TypeScript type generation
+            project_root = path.dirname(path.dirname(path.abspath(__file__)))
+            openapi_path = path.join(project_root, "docs", "public", "openapi.json")
+            export_openapi_spec(output_path=openapi_path)
+
+        if filter_step(step, "upload"):
+            s3_endpoint_url = environ.get("S3_ENDPOINT_URL")
+            s3_access_key_id = environ.get("S3_ACCESS_KEY_ID")
+            s3_secret_access_key = environ.get("S3_SECRET_ACCESS_KEY")
+            s3_bucket = environ.get("S3_BUCKET")
+
+            if not all(
+                [s3_endpoint_url, s3_access_key_id, s3_secret_access_key, s3_bucket]
+            ):
+                logger.warning(
+                    "S3 credentials not configured. Skipping upload. "
+                    "Set S3_ENDPOINT_URL, S3_ACCESS_KEY_ID, S3_SECRET_ACCESS_KEY, and S3_BUCKET to enable."
+                )
+            else:
+                logger.info("Uploading data to S3...")
+                successful, failed = upload_directory(
+                    data_dir=data_dir,
+                    endpoint_url=s3_endpoint_url,
+                    access_key_id=s3_access_key_id,
+                    secret_access_key=s3_secret_access_key,
+                    bucket=s3_bucket,
+                )
+
+                if failed > 0:
+                    logger.warning(f"Upload completed with {failed} failures")
+                else:
+                    logger.info(f"Upload completed successfully: {successful} files")
 
 
 if __name__ == "__main__":

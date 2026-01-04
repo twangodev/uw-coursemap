@@ -1,21 +1,15 @@
-import { env } from "$env/dynamic/public";
+import { createApiClient } from "$lib/api";
 import { error } from "@sveltejs/kit";
 import type { ElementDefinition } from "cytoscape";
 
-const { PUBLIC_API_URL } = env;
-
 export const load = async ({ fetch }) => {
-  const elementDefinitionsResponse = await fetch(
-    `${PUBLIC_API_URL}/global_graph.json`,
-  );
-  if (!elementDefinitionsResponse.ok)
-    throw error(
-      elementDefinitionsResponse.status,
-      `Failed to fetch graph data: ${elementDefinitionsResponse.statusText}`,
-    );
-  const elementDefinitions: ElementDefinition[] =
-    await elementDefinitionsResponse.json();
+  const api = createApiClient(fetch);
 
+  const { data: graphData, error: graphError } = await api.GET("/global_graph");
+  if (graphError || !graphData)
+    throw error(404, `Failed to fetch graph data`);
+
+  const elementDefinitions = graphData as unknown as ElementDefinition[];
   elementDefinitions.forEach((item: any) => {
     item["pannable"] = true;
     if (!Object.hasOwn(item.data, "title")) {
@@ -23,18 +17,12 @@ export const load = async ({ fetch }) => {
     }
   });
 
-  const styleEntriesResponse = await fetch(
-    `${PUBLIC_API_URL}/global_style.json`,
-  );
-  if (!styleEntriesResponse.ok)
-    throw error(
-      styleEntriesResponse.status,
-      `Failed to fetch style data: ${styleEntriesResponse.statusText}`,
-    );
-  const styleEntries = await styleEntriesResponse.json();
+  const { data: styleEntries, error: styleError } = await api.GET("/global_style");
+  if (styleError || !styleEntries)
+    throw error(404, `Failed to fetch style data`);
 
   return {
-    elementDefinitions: elementDefinitions,
-    styleEntries: styleEntries,
+    elementDefinitions,
+    styleEntries,
   };
 };
