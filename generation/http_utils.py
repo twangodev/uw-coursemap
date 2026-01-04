@@ -1,8 +1,8 @@
-from fake_headers import Headers
+from browserforge.headers import HeaderGenerator
 
-# Generate consistent browser headers for this process
-_header_generator = Headers(browser="chrome", os="mac", headers=True)
-_headers = _header_generator.generate()
+# Generate consistent modern browser headers for this process
+_header_generator = HeaderGenerator(browser="chrome")
+_headers = dict(_header_generator.generate())
 
 
 def get_user_agent() -> str:
@@ -12,4 +12,4 @@ def get_user_agent() -> str:
 
 def get_default_headers() -> dict[str, str]:
     """Returns default headers mimicking a real browser to avoid WAF blocks."""
-    return _headers
+    return _headers.copy()
