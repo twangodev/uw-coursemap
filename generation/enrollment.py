@@ -23,8 +23,8 @@ enrollment_package_base_url = (
 # API has a maximum page size limit of 500
 MAX_PAGE_SIZE = 500
 
-# Limit concurrent requests to avoid WAF blocks
-MAX_CONCURRENT_REQUESTS = 5
+# Limit concurrent requests to avoid rate limiting
+MAX_CONCURRENT_REQUESTS = 20
 
 logger = getLogger(__name__)
 
@@ -284,8 +284,8 @@ class EnrollmentFetchError(Exception):
 
 
 @retry(
-    stop=stop_after_attempt(20),
-    wait=wait_exponential_jitter(initial=2, max=120, jitter=5),
+    stop=stop_after_attempt(10),
+    wait=wait_exponential_jitter(initial=1, max=60, jitter=5),
     retry=retry_if_exception_type(EnrollmentFetchError),
     reraise=True,
 )
@@ -299,8 +299,8 @@ async def fetch_course_listing_page(session, post_data, page_num):
 
 
 @retry(
-    stop=stop_after_attempt(20),
-    wait=wait_exponential_jitter(initial=2, max=120, jitter=5),
+    stop=stop_after_attempt(10),
+    wait=wait_exponential_jitter(initial=1, max=60, jitter=5),
     retry=retry_if_exception_type(EnrollmentFetchError),
     reraise=True,
 )
