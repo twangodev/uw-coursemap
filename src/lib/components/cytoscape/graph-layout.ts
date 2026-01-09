@@ -23,20 +23,22 @@ export async function generateLayeredLayout(
     layoutOptions: {
       "elk.algorithm": "layered",
       "elk.randomSeed": `${Math.floor(Math.random() * 1000)}`,
+      "elk.spacing.nodeNode": "20",
+      "elk.layered.spacing.nodeNodeBetweenLayers": "50",
     },
     children: getNodeData(courseData).map((node: NodeDefinition) => {
       if (!node.data.id) {
         throw new Error("Node ID is undefined");
       }
-      // console.log(node.data.title.split(' ').reduce(
-      //             (acc: number, word: string) => acc = Math.max(acc, word.length),
-      //       0) * 15)
+
+      // Handle operator nodes (from astToElements) which use label instead of title
+      const label = node.data.label || node.data.title || node.data.id;
+      const displayText = labelIsCode ? node.data.id : label;
+
       return {
         id: node.data.id,
-        width: labelIsCode
-          ? node.data.id.length * 7.5
-          : node.data.title.length * 7.5,
-        height: labelIsCode ? 15 : 25,
+        width: displayText.length * 7.5 + 10, // Added padding
+        height: node.data.type === "operator" ? 20 : (labelIsCode ? 15 : 25),
       };
     }),
     edges: getEdgeData(courseData).map((edge: EdgeDefinition) => {

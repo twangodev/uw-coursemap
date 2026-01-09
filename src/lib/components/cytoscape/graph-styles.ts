@@ -24,7 +24,7 @@ export function getStyles(
         "text-halign": "center",
         "background-color": "#757575",
         "text-wrap": "wrap",
-        "text-max-width": "200px", // i have no clue what the unit is, maybe px
+        "text-max-width": "100", // Forces wrapping for long cross-listed course names
         "text-margin-y": 2,
         color: getTextColor(mode),
       },
