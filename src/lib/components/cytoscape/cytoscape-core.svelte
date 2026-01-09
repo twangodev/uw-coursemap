@@ -51,7 +51,13 @@
       animate: false,
       showCodeLabels: true,
     }).then((layout) => {
-      cy?.layout(layout).run();
+      const layoutInstance = cy?.layout(layout);
+      layoutInstance?.one("layoutstop", () => {
+        // Center the graph after layout completes
+        cy?.fit(undefined, 30);
+        cy?.center();
+      });
+      layoutInstance?.run();
     });
 
     return () => {
