@@ -7,10 +7,19 @@ export type CourseReference = {
   course_number: number;
 };
 
+// AST types for prerequisite trees
+export type ASTOperatorNode = {
+  children: ASTNode[];
+  operator: "AND" | "OR";
+};
+
+export type ASTNode = CourseReference | ASTOperatorNode | string;
+
 type CoursePrerequisites = {
   course_references: CourseReference[];
   prerequisites_text: string;
   linked_requisite_text: (string | CourseReference)[];
+  abstract_syntax_tree: ASTNode;
 };
 
 export type Course = {
