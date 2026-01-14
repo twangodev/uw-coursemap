@@ -136,10 +136,12 @@ export async function generateTreeLayout(
   const newLayout: ElkNode = {
     id: "root",
     layoutOptions: {
-      "elk.algorithm": "mrtree",
+      "elk.algorithm": "layered",
       "elk.direction": "RIGHT",
-      "elk.spacing.nodeNode": "20",
-      "elk.mrtree.weighting": "CONSTRAINT",
+      "elk.spacing.nodeNode": "5",
+      "elk.layered.spacing.nodeNodeBetweenLayers": "30",
+      "elk.edgeRouting": "ORTHOGONAL",
+      "elk.layered.nodePlacement.strategy": "NETWORK_SIMPLEX",
     },
     children,
     edges: getEdgeData(courseData).map((edge: EdgeDefinition) => {

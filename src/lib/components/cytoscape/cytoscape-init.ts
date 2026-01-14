@@ -292,7 +292,7 @@ export function astToElements(
         if (childIds.length > 1) {
           const andId = `and-${andCounter++}`;
           nodes.push({
-            data: { id: andId, label: "and", type: "operator" },
+            data: { id: andId, label: "all of", type: "operator" },
           });
 
           // Connect all children to the "and" node
