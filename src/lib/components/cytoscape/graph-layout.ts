@@ -142,6 +142,7 @@ export async function generateTreeLayout(
       "elk.layered.spacing.nodeNodeBetweenLayers": "30",
       "elk.edgeRouting": "ORTHOGONAL",
       "elk.layered.nodePlacement.strategy": "NETWORK_SIMPLEX",
+      "elk.layered.layering.strategy": "LONGEST_PATH",
     },
     children,
     edges: getEdgeData(courseData).map((edge: EdgeDefinition) => {
@@ -198,7 +199,7 @@ export async function generateTreeLayout(
   for (const child of nodePos.children!) {
     const dims = nodeDimensions.get(child.id!) || { width: 0, height: 0 };
     const x = child.x ?? 0;
-const y = child.y ?? 0;
+    const y = child.y ?? 0;
     const depth = nodeDepths.get(child.id!) ?? 0;
 
     if (!layerMap.has(depth)) {
@@ -219,13 +220,13 @@ const y = child.y ?? 0;
   const nodeXAdjustments = new Map<string, number>();
 
   for (const [, nodes] of layerMap) {
-// Find the max right edge in this layer
+    // Find the max right edge in this layer
     const maxRightEdge = Math.max(...nodes.map((n) => n.x + n.width));
 
-// Adjust each node's x so its right edge aligns with the max
+    // Adjust each node's x so its right edge aligns with the max
     // Non-operator nodes have a border, so shift them slightly right to align edge endpoints
     for (const node of nodes) {
-const isOperator = operatorNodeIds.has(node.id);
+      const isOperator = operatorNodeIds.has(node.id);
       const borderOffset = isOperator ? 0 : 1; // 1px border on course nodes
       const adjustedX = maxRightEdge - node.width + borderOffset;
       nodeXAdjustments.set(node.id, adjustedX);
@@ -287,6 +288,34 @@ const isOperator = operatorNodeIds.has(node.id);
     }
   }
 
+  // Center the root node vertically relative to its direct predecessors
+  // Find the nodes that directly connect to the root
+  const rootPredecessors = incomingEdges.get(rootId!) || [];
+
+  let yShift = 0;
+  if (rootPredecessors.length > 0) {
+    // Calculate the vertical center of the root's direct predecessors
+    let predMinY = Infinity;
+    let predMaxY = -Infinity;
+    for (const predId of rootPredecessors) {
+      const dims = nodeDimensions.get(predId) || { width: 0, height: 0 };
+      const adjustedY = nodeYAdjustments.get(predId) ?? 0;
+      predMinY = Math.min(predMinY, adjustedY);
+      predMaxY = Math.max(predMaxY, adjustedY + dims.height);
+    }
+    const predCenterY = (predMinY + predMaxY) / 2;
+
+    // Get the root node's current center Y
+    const rootDims = nodeDimensions.get(rootId!) || { width: 0, height: 0 };
+    const rootY = nodeYAdjustments.get(rootId!) ?? 0;
+    const rootCenterY = rootY + rootDims.height / 2;
+
+    // Shift root to align with its predecessors' center
+    yShift = predCenterY - rootCenterY;
+    nodeYAdjustments.set(rootId!, rootY + yShift);
+    yShift = 0; // Don't shift other nodes, just the root
+  }
+
   // ELK returns top-left positions, but Cytoscape expects center positions
   return {
     name: "preset",
@@ -294,11 +323,12 @@ const isOperator = operatorNodeIds.has(node.id);
       nodePos.children!.map((child) => {
         const dims = nodeDimensions.get(child.id!) || { width: 0, height: 0 };
         const adjustedX = nodeXAdjustments.get(child.id!) ?? (child.x ?? 0);
+        const adjustedY = nodeYAdjustments.get(child.id!) ?? (child.y ?? 0);
         return [
           child.id,
           {
             x: adjustedX + dims.width / 2,
-            y: (child.y ?? 0) + dims.height / 2,
+            y: adjustedY + dims.height / 2,
           },
         ];
       }),
