@@ -11,7 +11,50 @@ export type GraphType = "department" | "course";
 export const COURSE_GRAPH_FONT_SIZE = 8;
 export const COURSE_GRAPH_OPERATOR_FONT_SIZE = 8;
 export const COURSE_GRAPH_NODE_PADDING_X = 10;
-export const COURSE_GRAPH_NODE_PADDING_Y = 6;
+export const COURSE_GRAPH_NODE_PADDING_Y = 5;
+
+/**
+ * Common styles shared between department and course graphs
+ */
+function getCommonStyles(mode: "light" | "dark" | undefined): StylesheetStyle[] {
+  return [
+    {
+      selector: ".highlighted-nodes",
+      style: {
+        "border-width": 1,
+        "border-color": getTextColor(mode),
+        "border-style": "solid",
+      },
+    },
+    {
+      selector: ".highlighted-edges",
+      style: {
+        width: 2,
+      },
+    },
+    {
+      selector: ".faded",
+      style: {
+        opacity: 0.25,
+        "text-opacity": 0.25,
+      },
+    },
+    {
+      selector: "*",
+      style: {
+        "transition-property": "opacity",
+        "transition-duration": 0.2,
+      },
+    },
+    {
+      selector: ".no-overlay",
+      style: {
+        "overlay-padding": 0,
+        "overlay-opacity": 0,
+      },
+    },
+  ];
+}
 
 export async function getStyleData(styleUrl: string): Promise<StyleEntry[]> {
   const response = await fetch(styleUrl);
@@ -41,28 +84,6 @@ export function getStyles(
       },
     },
     {
-      selector: ".highlighted-nodes",
-      style: {
-        "border-width": 1,
-        "border-color": getTextColor(mode),
-        "border-style": "solid",
-      },
-    },
-    {
-      selector: ".faded",
-      style: {
-        opacity: 0.25,
-        "text-opacity": 0.25,
-      },
-    },
-    {
-      selector: "*",
-      style: {
-        "transition-property": "opacity",
-        "transition-duration": 0.2,
-      },
-    },
-    {
       selector: 'node[type="compound"]',
       style: {
         "text-valign": "top",
@@ -86,19 +107,6 @@ export function getStyles(
       },
     },
     {
-      selector: ".highlighted-edges",
-      style: {
-        width: 2,
-      },
-    },
-    {
-      selector: ".no-overlay",
-      style: {
-        "overlay-padding": 0,
-        "overlay-opacity": 0,
-      },
-    },
-    {
       selector: ".cy-expand-collapse-collapsed-node",
       style: {
         "overlay-opacity": 0,
@@ -112,6 +120,7 @@ export function getStyles(
         "overlay-color": "transparent",
       },
     },
+    ...getCommonStyles(mode),
   ];
 
   const styles = styleData.map((item) => {
@@ -128,9 +137,11 @@ export function getStyles(
 }
 
 /**
- * Get styles for course graphs (fixed colors, no theme dependency)
+ * Get styles for course graphs (theme-reactive for highlights)
  */
-export function getCourseGraphStyles(): StylesheetStyle[] {
+export function getCourseGraphStyles(
+  mode: "light" | "dark" | undefined,
+): StylesheetStyle[] {
   return [
     {
       selector: "node",
@@ -155,7 +166,7 @@ export function getCourseGraphStyles(): StylesheetStyle[] {
       style: {
         "background-opacity": 0,
         "text-margin-y": 0,
-        color: "#888888",
+        color: getTextColor(mode),
       },
     },
     {
@@ -183,47 +194,13 @@ export function getCourseGraphStyles(): StylesheetStyle[] {
       selector: "edge",
       style: {
         width: 1,
-        "line-color": "#888888",
+        "line-color": getTextColor(mode),
         "curve-style": "taxi",
         "taxi-direction": "horizontal",
         "taxi-turn": "80%",
         "target-arrow-shape": "none",
       },
     },
-    {
-      selector: ".faded",
-      style: {
-        opacity: 0.25,
-        "text-opacity": 0.25,
-      },
-    },
-    {
-      selector: "*",
-      style: {
-        "transition-property": "opacity",
-        "transition-duration": 0.2,
-      },
-    },
-    {
-      selector: ".highlighted-nodes",
-      style: {
-        "border-width": 1,
-        "border-color": "#333333",
-        "border-style": "solid",
-      },
-    },
-    {
-      selector: ".highlighted-edges",
-      style: {
-        width: 2,
-      },
-    },
-    {
-      selector: ".no-overlay",
-      style: {
-        "overlay-padding": 0,
-        "overlay-opacity": 0,
-      },
-    },
+    ...getCommonStyles(mode),
   ];
 }
