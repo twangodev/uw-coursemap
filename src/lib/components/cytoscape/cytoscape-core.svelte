@@ -70,12 +70,12 @@
       showCodeLabels: true,
     }).then((layout) => {
       const layoutInstance = cy?.layout(layout);
-      layoutInstance?.one("layoutstop", () => {
-        // Center the graph after layout completes
-        cy?.fit(undefined, 30);
-        cy?.center();
-      });
       layoutInstance?.run();
+
+      // Use requestAnimationFrame to ensure DOM has updated before fitting
+      requestAnimationFrame(() => {
+        cy?.fit(undefined, 30);
+      });
     });
 
     return () => {
