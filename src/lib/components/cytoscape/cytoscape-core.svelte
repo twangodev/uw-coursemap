@@ -10,7 +10,12 @@
     computeLayout,
   } from "./cytoscape-init.ts";
   import { LayoutType } from "./graph-layout.ts";
-  import { getStyles, type StyleEntry } from "./graph-styles.ts";
+  import {
+    getStyles,
+    getCourseGraphStyles,
+    type StyleEntry,
+    type GraphType,
+  } from "./graph-styles.ts";
   import { setupCytoscapeHandlers } from "./cytoscape-handlers.svelte.ts";
   import { clearPath, highlightPath } from "./paths.ts";
   import { cn } from "$lib/utils.ts";
@@ -19,9 +24,14 @@
   interface Props {
     elementDefinitions: ElementDefinition[];
     styleEntries: StyleEntry[];
+    graphType?: GraphType;
   }
 
-  let { elementDefinitions, styleEntries }: Props = $props();
+  let {
+    elementDefinitions,
+    styleEntries,
+    graphType = "department",
+  }: Props = $props();
 
   let cy: Core | undefined = $state();
   let handler: ReturnType<typeof setupCytoscapeHandlers> | undefined;
@@ -33,20 +43,28 @@
       return;
     }
 
-    // Create Cytoscape instance (plugins registered automatically)
-    const initialStyles = getStyles(styleEntries, mode.current, true);
+    // Create Cytoscape instance with appropriate styles based on graph type
+    const initialStyles =
+      graphType === "course"
+        ? getCourseGraphStyles()
+        : getStyles(styleEntries, mode.current, true);
+
     cy = initializeCytoscape({
       container,
       elementDefinitions,
       style: initialStyles,
     });
 
-    // Setup handlers
-    handler = setupCytoscapeHandlers(cy);
+    // Setup handlers with graph type
+    handler = setupCytoscapeHandlers(cy, graphType);
 
     // Run initial layout (async, but we don't need to await)
+    // Use tree layout for course graphs, layered for department
+    const layoutType =
+      graphType === "course" ? LayoutType.TREE : LayoutType.LAYERED;
+
     computeLayout({
-      layoutType: LayoutType.LAYERED,
+      layoutType,
       elementDefinitions,
       animate: false,
       showCodeLabels: true,

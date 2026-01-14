@@ -6,6 +6,7 @@ import { getTextColor, getTextOutlineColor } from "$lib/theme.ts";
 import { takenCoursesStore } from "$lib/takenCoursesStore.ts";
 import { CourseUtils } from "$lib/types/course.ts";
 import { isDesktop } from "$lib/mediaStore.ts";
+import type { GraphType } from "./graph-styles.ts";
 
 // Scratch namespace for storing app-specific state on cy instance
 const SCRATCH_NAMESPACE = "_courseGraph";
@@ -28,9 +29,13 @@ function getScratch(cy: cytoscape.Core): CourseGraphScratch {
  * Manages interactions, styling, and state internally via closures
  *
  * @param cy - Cytoscape core instance
+ * @param graphType - Type of graph ('department' or 'prereq')
  * @returns Object with control methods
  */
-export function setupCytoscapeHandlers(cy: cytoscape.Core) {
+export function setupCytoscapeHandlers(
+  cy: cytoscape.Core,
+  graphType: GraphType = "department",
+) {
   // Interaction state
   let elementsAreDraggable = false;
   let highlightedCourse: cytoscape.NodeSingular | undefined;

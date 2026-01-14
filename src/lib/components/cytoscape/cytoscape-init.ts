@@ -5,6 +5,7 @@ import tippy from "tippy.js";
 import {
   generateFcoseLayout,
   generateLayeredLayout,
+  generateTreeLayout,
   LayoutType,
 } from "./graph-layout.ts";
 import { getPredecessorsNotTaken } from "./paths.ts";
@@ -111,12 +112,14 @@ export async function computeLayout(
 ): Promise<cytoscape.LayoutOptions> {
   const { layoutType, elementDefinitions, animate, showCodeLabels } = options;
 
-  const layout =
-    layoutType === LayoutType.GROUPED
-      ? generateFcoseLayout(animate)
-      : await generateLayeredLayout(animate, elementDefinitions, showCodeLabels);
-
-  return layout;
+  switch (layoutType) {
+    case LayoutType.GROUPED:
+      return generateFcoseLayout(animate);
+    case LayoutType.LAYERED:
+      return await generateLayeredLayout(animate, elementDefinitions, showCodeLabels);
+    case LayoutType.TREE:
+      return await generateTreeLayout(animate, elementDefinitions, showCodeLabels);
+  }
 }
 
 /**

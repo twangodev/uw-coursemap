@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { ElementDefinition } from "cytoscape";
   import { fetchCourse } from "./graph-data.ts";
-  import type { StyleEntry } from "./graph-styles.ts";
+  import type { StyleEntry, GraphType } from "./graph-styles.ts";
   import SideControls from "./side-controls.svelte";
   import CourseDrawer from "./course-drawer.svelte";
   import CytoscapeCore from "./cytoscape-core.svelte";
@@ -16,12 +16,14 @@
     elementDefinitions: ElementDefinition[];
     styleEntries: StyleEntry[];
     allowFocusing?: boolean;
+    graphType?: GraphType;
   }
 
   let {
     elementDefinitions,
     styleEntries,
     allowFocusing = true,
+    graphType = "department",
   }: Props = $props();
 
   // Component refs
@@ -79,6 +81,7 @@
   <CytoscapeCore
     {elementDefinitions}
     {styleEntries}
+    {graphType}
     bind:this={cytoscapeCoreRef}
   />
 
