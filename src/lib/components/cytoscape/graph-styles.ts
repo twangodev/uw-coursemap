@@ -5,11 +5,22 @@ export type StyleEntry = {
   [parent: string]: string;
 };
 
+export type GraphType = "department" | "course";
+
+// Course graph layout constants
+export const COURSE_GRAPH_FONT_SIZE = 8;
+export const COURSE_GRAPH_OPERATOR_FONT_SIZE = 8;
+export const COURSE_GRAPH_NODE_PADDING_X = 10;
+export const COURSE_GRAPH_NODE_PADDING_Y = 6;
+
 export async function getStyleData(styleUrl: string): Promise<StyleEntry[]> {
   const response = await fetch(styleUrl);
   return await response.json();
 }
 
+/**
+ * Get styles for department graphs (theme-reactive, uses parent colors)
+ */
 export function getStyles(
   styleData: StyleEntry[],
   mode: "light" | "dark" | undefined,
@@ -114,4 +125,105 @@ export function getStyles(
   });
 
   return defaultStyles.concat(styles);
+}
+
+/**
+ * Get styles for course graphs (fixed colors, no theme dependency)
+ */
+export function getCourseGraphStyles(): StylesheetStyle[] {
+  return [
+    {
+      selector: "node",
+      style: {
+        label: "data(label)",
+        "text-valign": "center",
+        "text-halign": "center",
+        "background-color": "#757575",
+        "text-wrap": "wrap",
+        "text-max-width": "100",
+        "font-size": COURSE_GRAPH_FONT_SIZE,
+        "font-family": "Inter, system-ui, sans-serif",
+        "text-outline-width": 0,
+        shape: "round-rectangle",
+        width: "label",
+        height: "label",
+        padding: `${COURSE_GRAPH_NODE_PADDING_Y}px ${COURSE_GRAPH_NODE_PADDING_X}px`,
+      },
+    },
+    {
+      selector: 'node[type="operator"]',
+      style: {
+        "background-opacity": 0,
+        "text-margin-y": 0,
+        color: "#888888",
+      },
+    },
+    {
+      selector: 'node[type="prereq"]',
+      style: {
+        "background-color": "#f89057",
+        color: "#7f3004",
+      },
+    },
+    {
+      selector: 'node.taken-nodes[type="prereq"]',
+      style: {
+        "background-color": "#99cd98",
+        color: "#4a7d4a",
+      },
+    },
+    {
+      selector: 'node[type="target"]',
+      style: {
+        "background-color": "#f2777a",
+        color: "#8e0e10",
+      },
+    },
+    {
+      selector: "edge",
+      style: {
+        width: 1,
+        "line-color": "#888888",
+        "curve-style": "taxi",
+        "taxi-direction": "horizontal",
+        "taxi-turn": "80%",
+        "target-arrow-shape": "none",
+      },
+    },
+    {
+      selector: ".faded",
+      style: {
+        opacity: 0.25,
+        "text-opacity": 0.25,
+      },
+    },
+    {
+      selector: "*",
+      style: {
+        "transition-property": "opacity",
+        "transition-duration": 0.2,
+      },
+    },
+    {
+      selector: ".highlighted-nodes",
+      style: {
+        "border-width": 1,
+        "border-color": "#333333",
+        "border-style": "solid",
+      },
+    },
+    {
+      selector: ".highlighted-edges",
+      style: {
+        width: 2,
+      },
+    },
+    {
+      selector: ".no-overlay",
+      style: {
+        "overlay-padding": 0,
+        "overlay-opacity": 0,
+      },
+    },
+  ];
 }
