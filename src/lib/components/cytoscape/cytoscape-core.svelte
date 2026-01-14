@@ -46,7 +46,7 @@
     // Create Cytoscape instance with appropriate styles based on graph type
     const initialStyles =
       graphType === "course"
-        ? getCourseGraphStyles()
+        ? getCourseGraphStyles(mode.current)
         : getStyles(styleEntries, mode.current, true);
 
     cy = initializeCytoscape({
