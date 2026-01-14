@@ -79,8 +79,8 @@ export function highlightPath(
   const incomingNodes = node.predecessors("node").union(node);
   const incomingEdges = node.predecessors("edge");
 
-  const outgoingNodes = node.outgoers("node").union(node);
-  const outgoingEdges = node.outgoers("edge");
+  const outgoingNodes = node.successors("node").union(node);
+  const outgoingEdges = node.successors("edge");
 
   const highlightedNodes = incomingNodes.union(outgoingNodes);
   const highlightedEdges = incomingEdges.union(outgoingEdges);
