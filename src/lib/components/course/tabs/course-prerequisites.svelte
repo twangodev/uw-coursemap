@@ -17,7 +17,7 @@
   import type { ElementDefinition } from "cytoscape";
   import type { StyleEntry } from "$lib/components/cytoscape/graph-styles.ts";
   import { m } from "$lib/paraglide/messages";
-  import { filterElementsByRootCourse } from "$lib/components/cytoscape/cytoscape-init";
+  import { astToElements } from "$lib/components/cytoscape/cytoscape-init";
   import { takenCoursesStore } from "$lib/takenCoursesStore";
 
   interface Props {
@@ -36,10 +36,10 @@
       return CourseUtils.courseReferenceToString(course);
   }));
 
-  const eleDefs = $derived(filterElementsByRootCourse(
-    prerequisiteElementDefinitions,
-    course.course_reference,
-    takenCourses
+  
+  const elements = $derived(astToElements(
+    course.prerequisites.abstract_syntax_tree,
+    CourseUtils.courseReferenceToString(course.course_reference)
   ));
 
 </script>
@@ -74,7 +74,7 @@
     <div class="flex h-full w-full">
       {#key course}
         <Cytoscape
-          elementDefinitions={eleDefs}
+          elementDefinitions={elements}
           styleEntries={prerequisiteStyleEntries}
           allowFocusing={false}
         />

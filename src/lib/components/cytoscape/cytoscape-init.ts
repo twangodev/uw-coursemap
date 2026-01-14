@@ -8,7 +8,7 @@ import {
   LayoutType,
 } from "./graph-layout.ts";
 import { getPredecessorsNotTaken } from "./paths.ts";
-import { CourseUtils, type Course, type CourseReference } from "$lib/types/course.ts";
+import { CourseUtils, type CourseReference, type ASTNode, type ASTOperatorNode } from "$lib/types/course.ts";
 
 /**
  * Options for computing layout
@@ -168,4 +168,168 @@ export function filterElementsByRootCourse(
   tempCy.destroy();
 
   return filteredElements;
+}
+
+/**
+ * Converts a prerequisite AST to Cytoscape element definitions
+ * - Course references become nodes
+ * - OR operators become "one of" nodes with children branching off
+ * - AND operators connect all children directly to the parent
+ * - String nodes (like "graduate standing") are ignored
+ *
+ * @param ast - The abstract syntax tree node to convert
+ * @param targetCourseId - The ID of the course these are prerequisites for
+ * @returns Array of Cytoscape element definitions (nodes and edges)
+ */
+export function astToElements(
+  ast: ASTNode,
+  targetCourseId: string
+): ElementDefinition[] {
+  const nodes: ElementDefinition[] = [];
+  const edges: ElementDefinition[] = [];
+  let oneOfCounter = 0;
+  let andCounter = 0;
+
+  function isCourseReference(node: ASTNode): node is CourseReference {
+    return (
+      typeof node === "object" &&
+      "course_number" in node &&
+      "subjects" in node
+    );
+  }
+
+  function isOperatorNode(node: ASTNode): node is ASTOperatorNode {
+    return (
+      typeof node === "object" &&
+      "operator" in node &&
+      "children" in node
+    );
+  }
+
+  /**
+   * Recursively processes an AST node
+   * @returns The node ID that should connect to the parent, or null if none
+   */
+  function processNode(node: ASTNode, parentId: string): string | null {
+    // Skip string nodes (e.g., "graduate standing")
+    if (typeof node === "string") {
+      return null;
+    }
+
+    // Course reference node
+    if (isCourseReference(node)) {
+      const id = CourseUtils.courseReferenceToString(node);
+      // Use only first subject, truncated to 4 chars (e.g., "COMP 240" instead of "COMPSCI/MATH 240")
+      const firstSubject = [...node.subjects].sort()[0].slice(0, 4);
+      const label = `${firstSubject} ${node.course_number}`;
+
+      // Only add node if not already present
+      if (!nodes.some((n) => n.data.id === id)) {
+        nodes.push({
+          data: { id, label, type: "prereq" },
+        });
+      }
+
+      return id;
+    }
+
+    // Operator node
+    if (isOperatorNode(node)) {
+      if (node.operator === "OR") {
+        // First, collect all valid child IDs
+        const childIds: string[] = [];
+        for (const child of node.children) {
+          const childId = processNode(child, parentId);
+          if (childId) {
+            childIds.push(childId);
+          }
+        }
+
+        // If only one valid child, just return it directly (no "one of" needed)
+        if (childIds.length === 1) {
+          return childIds[0];
+        }
+
+        // If multiple valid children, create a "one of" node
+        if (childIds.length > 1) {
+          const oneOfId = `one-of-${oneOfCounter++}`;
+          nodes.push({
+            data: { id: oneOfId, label: "one of", type: "operator" },
+          });
+
+          // Connect all children to the "one of" node
+          for (const childId of childIds) {
+            edges.push({
+              data: { source: childId, target: oneOfId },
+            });
+          }
+
+          return oneOfId;
+        }
+
+        // No valid children
+        return null;
+      } else {
+        // AND operator - create an "and" node like OR creates "one of"
+        const childIds: string[] = [];
+
+        for (const child of node.children) {
+          const childId = processNode(child, parentId);
+          if (childId) {
+            childIds.push(childId);
+          }
+        }
+
+        // If only one valid child, just return it directly (no "and" needed)
+        if (childIds.length === 1) {
+          return childIds[0];
+        }
+
+        // If multiple valid children, create an "and" node
+        if (childIds.length > 1) {
+          const andId = `and-${andCounter++}`;
+          nodes.push({
+            data: { id: andId, label: "and", type: "operator" },
+          });
+
+          // Connect all children to the "and" node
+          for (const childId of childIds) {
+            edges.push({
+              data: { source: childId, target: andId },
+            });
+          }
+
+          return andId;
+        }
+
+        // No valid children
+        return null;
+      }
+    }
+
+    return null;
+  }
+
+  // Add the target course node
+  // Parse targetCourseId to get short label (e.g., "COMPSCI/MATH 240" -> "COMP 240")
+  const parts = targetCourseId.split(" ");
+  const subjects = parts[0].split("/").sort();
+  const courseNumber = parts[1];
+  const targetLabel = `${subjects[0].slice(0, 4)} ${courseNumber}`;
+
+  nodes.push({
+    data: { id: targetCourseId, label: targetLabel, type: "target" },
+  });
+
+  // Process the AST
+  const rootResult = processNode(ast, targetCourseId);
+
+  // If root returned an ID (e.g., single OR node), connect it to target
+  if (rootResult) {
+    edges.push({
+      data: { source: rootResult, target: targetCourseId },
+    });
+  }
+
+  return [...nodes, ...edges];
 }
