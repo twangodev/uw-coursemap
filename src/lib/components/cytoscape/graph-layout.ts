@@ -158,31 +158,76 @@ export async function generateTreeLayout(
 
   const nodePos = await elk.layout(newLayout);
 
-  // Group nodes by their layer (x position determines layer in horizontal layout)
-  // Then align all nodes in each layer to the right edge of that layer
-  const layerMap = new Map<number, { id: string; x: number; width: number }[]>();
+  // Build reverse edge map to traverse from target to sources
+  const incomingEdges = new Map<string, string[]>();
+  for (const edge of getEdgeData(courseData)) {
+    if (edge.data) {
+      const sources = incomingEdges.get(edge.data.target) || [];
+      sources.push(edge.data.source);
+      incomingEdges.set(edge.data.target, sources);
+    }
+  }
+
+  // Find the root node (the one with no outgoing edges to other nodes in the graph)
+  const allTargets = new Set(getEdgeData(courseData).map(e => e.data?.target).filter(Boolean));
+  const allSources = new Set(getEdgeData(courseData).map(e => e.data?.source).filter(Boolean));
+  const rootNodes = [...allTargets].filter(id => !allSources.has(id));
+  const rootId = rootNodes[0] || nodePos.children![nodePos.children!.length - 1]?.id;
+
+  // BFS to assign layer depths (root is layer 0, its predecessors are layer 1, etc.)
+  const nodeDepths = new Map<string, number>();
+  const queue: { id: string; depth: number }[] = [{ id: rootId!, depth: 0 }];
+
+  while (queue.length > 0) {
+    const { id, depth } = queue.shift()!;
+
+    if (nodeDepths.has(id)) continue;
+    nodeDepths.set(id, depth);
+
+    const sources = incomingEdges.get(id) || [];
+    for (const sourceId of sources) {
+      if (!nodeDepths.has(sourceId)) {
+        queue.push({ id: sourceId, depth: depth + 1 });
+      }
+    }
+  }
+
+  // Group nodes by their depth layer
+  const layerMap = new Map<number, { id: string; x: number; y: number; width: number; height: number }[]>();
 
   for (const child of nodePos.children!) {
     const dims = nodeDimensions.get(child.id!) || { width: 0, height: 0 };
     const x = child.x ?? 0;
+const y = child.y ?? 0;
+    const depth = nodeDepths.get(child.id!) ?? 0;
 
-    // Round x to group nodes in the same layer
-    const layerX = Math.round(x / 10) * 10;
-
-    if (!layerMap.has(layerX)) {
-      layerMap.set(layerX, []);
+    if (!layerMap.has(depth)) {
+      layerMap.set(depth, []);
     }
-    layerMap.get(layerX)!.push({ id: child.id!, x, width: dims.width });
+    layerMap.get(depth)!.push({ id: child.id!, x, y, width: dims.width, height: dims.height });
   }
 
-  // For each layer, find the max right edge and align all nodes to it
+  // Identify operator nodes for alignment adjustment
+  const operatorNodeIds = new Set<string>();
+  for (const node of getNodeData(courseData)) {
+    if (node.data.type === "operator") {
+      operatorNodeIds.add(node.data.id!);
+    }
+  }
+
+  // Right-align nodes within each layer so edges converge at the same x coordinate
   const nodeXAdjustments = new Map<string, number>();
 
   for (const [, nodes] of layerMap) {
+// Find the max right edge in this layer
     const maxRightEdge = Math.max(...nodes.map((n) => n.x + n.width));
 
+// Adjust each node's x so its right edge aligns with the max
+    // Non-operator nodes have a border, so shift them slightly right to align edge endpoints
     for (const node of nodes) {
-      const adjustedX = maxRightEdge - node.width;
+const isOperator = operatorNodeIds.has(node.id);
+      const borderOffset = isOperator ? 0 : 1; // 1px border on course nodes
+      const adjustedX = maxRightEdge - node.width + borderOffset;
       nodeXAdjustments.set(node.id, adjustedX);
     }
   }
