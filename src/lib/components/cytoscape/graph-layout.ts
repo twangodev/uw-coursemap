@@ -232,6 +232,61 @@ const isOperator = operatorNodeIds.has(node.id);
     }
   }
 
+  // Compress nodes on the same branch (nodes that share the same target) closer together
+  const nodeTargets = new Map<string, string>();
+  for (const edge of getEdgeData(courseData)) {
+    if (edge.data) {
+      nodeTargets.set(edge.data.source, edge.data.target);
+    }
+  }
+
+  // Group nodes by their target within each layer and compress vertically
+  const nodeYAdjustments = new Map<string, number>();
+  const BRANCH_SPACING = 3; // Spacing between nodes on the same branch
+
+  for (const [, nodes] of layerMap) {
+    // Group nodes by their target
+    const targetGroups = new Map<string, typeof nodes>();
+    for (const node of nodes) {
+      const target = nodeTargets.get(node.id) || "none";
+      if (!targetGroups.has(target)) {
+        targetGroups.set(target, []);
+      }
+      targetGroups.get(target)!.push(node);
+    }
+
+    // For each group, compress nodes vertically around their center
+    for (const [, groupNodes] of targetGroups) {
+      if (groupNodes.length <= 1) {
+        // Single node, keep original position
+        for (const node of groupNodes) {
+          nodeYAdjustments.set(node.id, node.y);
+        }
+        continue;
+      }
+
+      // Sort by y position
+      groupNodes.sort((a, b) => a.y - b.y);
+
+      // Calculate center y of the group
+      const centerY = (groupNodes[0].y + groupNodes[groupNodes.length - 1].y) / 2;
+
+      // Calculate total height needed with minimal spacing
+      let totalHeight = 0;
+      for (const node of groupNodes) {
+        totalHeight += node.height;
+      }
+      totalHeight += (groupNodes.length - 1) * BRANCH_SPACING;
+
+      // Position nodes starting from top, centered around centerY
+      let currentY = centerY - totalHeight / 2;
+      for (const node of groupNodes) {
+        nodeYAdjustments.set(node.id, currentY);
+        currentY += node.height + BRANCH_SPACING;
+      }
+    }
+  }
+
   // ELK returns top-left positions, but Cytoscape expects center positions
   return {
     name: "preset",
