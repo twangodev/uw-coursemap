@@ -6,10 +6,29 @@ import type {
 } from "cytoscape";
 import ELK, { type ElkNode } from "elkjs/lib/elk.bundled.js";
 import { getEdgeData, getNodeData } from "./graph-data.ts";
+import {
+  COURSE_GRAPH_FONT_SIZE,
+  COURSE_GRAPH_OPERATOR_FONT_SIZE,
+  COURSE_GRAPH_NODE_PADDING_X,
+  COURSE_GRAPH_NODE_PADDING_Y,
+} from "./graph-styles.ts";
 
 export enum LayoutType {
   GROUPED,
   LAYERED,
+  TREE,
+}
+
+/**
+ * Measures text width using canvas
+ */
+function measureTextWidth(text: string, fontSize: number): number {
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return text.length * fontSize * 0.6; // Fallback estimate
+
+  ctx.font = `${fontSize}px sans-serif`;
+  return ctx.measureText(text).width;
 }
 
 export async function generateLayeredLayout(
@@ -59,12 +78,12 @@ export async function generateLayeredLayout(
 
     positions: Object.fromEntries(
       nodePos.children!.map((child) => [
-        child.id,
-        {
-          x: child.x === undefined ? 0 : child.x,
-          y: child.y === undefined ? 0 : child.y,
-        },
-      ]),
+          child.id,
+          {
+            x: child.x === undefined ? 0 : child.x,
+            y: child.y === undefined ? 0 : child.y,
+          },
+        ]),
     ),
     animate: animate,
     animationDuration: 1000,
@@ -73,6 +92,122 @@ export async function generateLayeredLayout(
     pan: undefined, // the pan level to set (prob want fit = false if set)
     fit: true, // whether to fit to viewport
     padding: 30, // padding on fit
+  };
+}
+
+/**
+ * Tree layout using ELK's mrtree algorithm with increased spacing
+ * to prevent taxi edges from routing through nodes.
+ */
+export async function generateTreeLayout(
+  animate: boolean,
+  courseData: ElementDefinition[],
+  labelIsCode: boolean,
+): Promise<LayoutOptions> {
+  const elk = new ELK();
+
+  // Build node dimensions map
+  const nodeDimensions = new Map<string, { width: number; height: number }>();
+
+  const children = getNodeData(courseData).map((node: NodeDefinition) => {
+    if (!node.data.id) {
+      throw new Error("Node ID is undefined");
+    }
+
+    const label = node.data.label || node.data.title || node.data.id;
+    const displayText = labelIsCode ? label : (node.data.title || label);
+    const isOperator = node.data.type === "operator";
+
+    const fontSize = isOperator ? COURSE_GRAPH_OPERATOR_FONT_SIZE : COURSE_GRAPH_FONT_SIZE;
+    const textWidth = measureTextWidth(displayText, fontSize);
+
+    const width = textWidth + COURSE_GRAPH_NODE_PADDING_X * 2;
+    const height = fontSize + COURSE_GRAPH_NODE_PADDING_Y * 2;
+
+    nodeDimensions.set(node.data.id, { width, height });
+
+    return {
+      id: node.data.id,
+      width,
+      height,
+    };
+  });
+
+  const newLayout: ElkNode = {
+    id: "root",
+    layoutOptions: {
+      "elk.algorithm": "mrtree",
+      "elk.direction": "RIGHT",
+      "elk.spacing.nodeNode": "20",
+      "elk.mrtree.weighting": "CONSTRAINT",
+    },
+    children,
+    edges: getEdgeData(courseData).map((edge: EdgeDefinition) => {
+      if (!edge.data) {
+        throw new Error("Edge is undefined");
+      }
+      return {
+        id: edge.data.source + "-" + edge.data.target,
+        sources: [edge.data.source],
+        targets: [edge.data.target],
+      };
+    }),
+  };
+
+  const nodePos = await elk.layout(newLayout);
+
+  // Group nodes by their layer (x position determines layer in horizontal layout)
+  // Then align all nodes in each layer to the right edge of that layer
+  const layerMap = new Map<number, { id: string; x: number; width: number }[]>();
+
+  for (const child of nodePos.children!) {
+    const dims = nodeDimensions.get(child.id!) || { width: 0, height: 0 };
+    const x = child.x ?? 0;
+
+    // Round x to group nodes in the same layer
+    const layerX = Math.round(x / 10) * 10;
+
+    if (!layerMap.has(layerX)) {
+      layerMap.set(layerX, []);
+    }
+    layerMap.get(layerX)!.push({ id: child.id!, x, width: dims.width });
+  }
+
+  // For each layer, find the max right edge and align all nodes to it
+  const nodeXAdjustments = new Map<string, number>();
+
+  for (const [, nodes] of layerMap) {
+    const maxRightEdge = Math.max(...nodes.map((n) => n.x + n.width));
+
+    for (const node of nodes) {
+      const adjustedX = maxRightEdge - node.width;
+      nodeXAdjustments.set(node.id, adjustedX);
+    }
+  }
+
+  // ELK returns top-left positions, but Cytoscape expects center positions
+  return {
+    name: "preset",
+    positions: Object.fromEntries(
+      nodePos.children!.map((child) => {
+        const dims = nodeDimensions.get(child.id!) || { width: 0, height: 0 };
+        const adjustedX = nodeXAdjustments.get(child.id!) ?? (child.x ?? 0);
+        return [
+          child.id,
+          {
+            x: adjustedX + dims.width / 2,
+            y: (child.y ?? 0) + dims.height / 2,
+          },
+        ];
+      }),
+    ),
+    animate: animate,
+    animationDuration: 1000,
+    animationEasing: "ease-in-out",
+    zoom: undefined,
+    pan: undefined,
+    fit: true,
+    padding: 30,
   };
 }
 

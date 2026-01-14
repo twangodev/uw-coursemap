@@ -77,6 +77,7 @@
           elementDefinitions={elements}
           styleEntries={prerequisiteStyleEntries}
           allowFocusing={false}
+          graphType="course"
         />
       {/key}
     </div>
