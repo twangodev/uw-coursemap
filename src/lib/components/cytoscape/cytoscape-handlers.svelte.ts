@@ -52,6 +52,7 @@ export function setupCytoscapeHandlers(
     currentTip = undefined;
   };
 
+  // this function effect is only registered if the graph is department
   const applyThemeAndLabelStyle = () => {
     const currentMode = mode.current;
 
@@ -64,7 +65,7 @@ export function setupCytoscapeHandlers(
         "text-outline-width": 1,
         label: showCodeLabels ? "data(id)" : "data(title)",
       })
-      .selector(".highlighted-nodes")
+            .selector(".highlighted-nodes")
       .style({
         "border-color": getTextColor(currentMode),
       })
@@ -124,13 +125,17 @@ export function setupCytoscapeHandlers(
   // --- Reactive subscriptions (must be after function definitions) ---
 
   // Set up reactive subscription using $effect.root for mode changes
-  const cleanupModeEffect = $effect.root(() => {
-    $effect(() => {
-      // Track mode.current reactively
-      mode.current;
-      applyThemeAndLabelStyle();
+  // Only for department graphs - course graphs have fixed colors
+  let cleanupModeEffect: (() => void) | undefined;
+  if (graphType === "department") {
+    cleanupModeEffect = $effect.root(() => {
+      $effect(() => {
+        // Track mode.current reactively
+        mode.current;
+        applyThemeAndLabelStyle();
+      });
     });
-  });
+  }
 
   // Subscribe to taken courses store
   const unsubscribeTakenCourses = takenCoursesStore.subscribe(() => {
@@ -141,7 +146,8 @@ export function setupCytoscapeHandlers(
 
   const mouseoverHandler = (event: any) => {
     const targetNode = event.target;
-    if (targetNode?.data("type") === "compound") {
+    const nodeType = targetNode?.data("type");
+    if (nodeType === "compound" || nodeType === "operator") {
       return;
     }
 
@@ -169,11 +175,12 @@ export function setupCytoscapeHandlers(
 
   const dbltapHandler = (event: any) => {
     const targetNode = event.target;
+    const nodeType = targetNode?.data("type");
 
-    if (targetNode.isNode && targetNode.data("type") !== "compound") {
+    if (targetNode.isNode && nodeType !== "compound" && nodeType !== "operator") {
       highlightPath(cy, targetNode);
       highlightedCourse = targetNode;
-    } else if (!targetNode.isNode || targetNode.data("type") === "compound") {
+    } else if (!targetNode.isNode || nodeType === "compound" || nodeType === "operator") {
       clearPath(cy, () => {});
       highlightedCourse = undefined;
     }
@@ -181,7 +188,8 @@ export function setupCytoscapeHandlers(
 
   const onetapHandler = async (event: any) => {
     const targetNode = event.target;
-    if (targetNode?.data("type") === "compound") {
+    const nodeType = targetNode?.data("type");
+    if (nodeType === "compound" || nodeType === "operator") {
       return;
     }
 
@@ -249,7 +257,7 @@ export function setupCytoscapeHandlers(
       cy.off("dbltap", dbltapHandler);
       cy.off("onetap", "node", onetapHandler);
       destroyTip();
-      cleanupModeEffect();
+      cleanupModeEffect?.();
       unsubscribeTakenCourses();
     },
   };
