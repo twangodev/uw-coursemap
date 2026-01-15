@@ -94,25 +94,101 @@
   // Expand node hover handlers
   const expandNodeMouseoverHandler = (event: any) => {
     const targetNode = event.target;
-    if (targetNode?.data("type") === "expand") {
+    // Skip faded expand nodes
+    if (targetNode?.data("type") === "expand" && !targetNode?.hasClass("expand-faded")) {
       targetNode.addClass("highlighted-nodes");
     }
   };
 
   const expandNodeMouseoutHandler = (event: any) => {
     const targetNode = event.target;
-    if (targetNode?.data("type") === "expand") {
+    if (targetNode?.data("type") === "expand" && !targetNode?.hasClass("expand-faded")) {
       targetNode.removeClass("highlighted-nodes");
     }
   };
 
-  // Expand node click handler - toggle between "+" and "-"
+  /**
+   * Fade OR siblings when expanding a course that's part of a "one of" group
+   * Uses "expand-faded" class to avoid interference with path highlighting's "faded" class
+   */
+  function fadeOrSiblings(cy: Core, courseId: string): string[] {
+    const courseNode = cy.$id(courseId);
+    const parentOperatorId = courseNode.data("parentOperatorId");
+    const parentOperatorType = courseNode.data("parentOperatorType");
+
+    const fadedNodeIds: string[] = [];
+
+    // Only fade if parent is an OR operator
+    if (parentOperatorType === "OR" && parentOperatorId) {
+      const operatorNode = cy.$id(parentOperatorId);
+      // Get all siblings (nodes that also connect to this operator)
+      const siblings = operatorNode.incomers("node").filter((n: any) => n.id() !== courseId);
+
+      siblings.forEach((sibling: any) => {
+        sibling.addClass("expand-faded");
+        fadedNodeIds.push(sibling.id());
+
+        // Also fade the expand node if it exists
+        const siblingExpandNode = cy.$id(`expand-${sibling.id()}`);
+        if (siblingExpandNode.length > 0) {
+          siblingExpandNode.addClass("expand-faded");
+          fadedNodeIds.push(siblingExpandNode.id());
+        }
+
+        // Fade the expand edge too
+        const siblingExpandEdge = cy.$id(`expand-edge-${sibling.id()}`);
+        if (siblingExpandEdge.length > 0) {
+          siblingExpandEdge.addClass("expand-faded");
+          fadedNodeIds.push(siblingExpandEdge.id());
+        }
+      });
+    }
+
+    return fadedNodeIds;
+  }
+
+  /**
+   * Unfade OR siblings when collapsing
+   */
+  function unfadeOrSiblings(cy: Core, fadedNodeIds: string[]) {
+    for (const id of fadedNodeIds) {
+      const el = cy.$id(id);
+      if (el.length > 0) {
+        el.removeClass("expand-faded");
+      }
+    }
+  }
+
+  // Track faded nodes for each expanded course
+  const fadedNodesMap = new Map<string, string[]>();
+
+  // Expand node click handler - toggle and fade/unfade OR siblings
   const expandNodeClickHandler = (event: any) => {
     const targetNode = event.target;
-    if (targetNode?.data("type") === "expand") {
-      const currentLabel = targetNode.data("label");
-      const newLabel = currentLabel === "+" ? "-" : "+";
-      targetNode.data("label", newLabel);
+    // Skip if not an expand node or if it's faded
+    if (targetNode?.data("type") !== "expand" || targetNode?.hasClass("expand-faded")) return;
+
+    const cy = cytoscapeCoreRef?.getCyInstance?.();
+    if (!cy) return;
+
+    const courseId = targetNode.data("targetCourseId");
+    const currentLabel = targetNode.data("label");
+
+    if (currentLabel === "+") {
+      // Expanding - fade OR siblings
+      const fadedNodeIds = fadeOrSiblings(cy, courseId);
+      if (fadedNodeIds.length > 0) {
+        fadedNodesMap.set(courseId, fadedNodeIds);
+      }
+      targetNode.data("label", "-");
+    } else {
+      // Collapsing - unfade OR siblings
+      const fadedNodeIds = fadedNodesMap.get(courseId);
+      if (fadedNodeIds) {
+        unfadeOrSiblings(cy, fadedNodeIds);
+        fadedNodesMap.delete(courseId);
+      }
+      targetNode.data("label", "+");
     }
   };
 
