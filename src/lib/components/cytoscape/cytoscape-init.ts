@@ -229,7 +229,12 @@ export function astToElements(
       // Only add node if not already present
       if (!nodes.some((n) => n.data.id === id)) {
         nodes.push({
-          data: { id, label, type: "prereq" },
+          data: {
+            id,
+            label,
+            type: "prereq",
+          },
+          classes: "course",
         });
       }
 
@@ -322,6 +327,7 @@ export function astToElements(
 
   nodes.push({
     data: { id: targetCourseId, label: targetLabel, type: "target" },
+    classes: "course",
   });
 
   // Process the AST

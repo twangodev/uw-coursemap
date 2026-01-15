@@ -188,8 +188,9 @@ export function setupCytoscapeHandlers(
 
   const onetapHandler = async (event: any) => {
     const targetNode = event.target;
-    const nodeType = targetNode?.data("type");
-    if (nodeType === "compound" || nodeType === "operator") {
+
+    // Only handle nodes with the "course" class (department and prereq course nodes)
+    if (!targetNode?.hasClass("course")) {
       return;
     }
 
@@ -205,15 +206,15 @@ export function setupCytoscapeHandlers(
         const div = document.createElement("div");
         const container = document.createElement("div");
         container.className = "bg-black text-white p-2 rounded-lg";
-        
+
         const heading = document.createElement("h1");
         heading.className = "text-lg font-semibold";
         heading.textContent = targetNode.id();
-        
+
         const para = document.createElement("p");
         para.className = "text-sm";
         para.textContent = targetNode.data("description");
-        
+
         container.appendChild(heading);
         container.appendChild(para);
         div.appendChild(container);
