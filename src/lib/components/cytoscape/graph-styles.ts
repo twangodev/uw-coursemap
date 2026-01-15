@@ -40,6 +40,13 @@ function getCommonStyles(mode: "light" | "dark" | undefined): StylesheetStyle[] 
       },
     },
     {
+      selector: ".expand-faded",
+      style: {
+        opacity: 0.25,
+        "text-opacity": 0.25,
+      },
+    },
+    {
       selector: "*",
       style: {
         "transition-property": "opacity",
