@@ -191,6 +191,23 @@ export function getCourseGraphStyles(
       },
     },
     {
+      selector: 'node[type="expand"]',
+      style: {
+        label: "data(label)",
+        "background-color": "#e8a070",
+        color: "#7f3004", // Same as prereq text
+        width: 12,
+        height: 12,
+        "font-size": 9,
+        "font-weight": "bold",
+        shape: "ellipse",
+        "text-valign": "center",
+        "text-halign": "center",
+        padding: "0",
+        "border-width": 0,
+      },
+    },
+    {
       selector: "edge",
       style: {
         width: 1,
@@ -201,6 +218,16 @@ export function getCourseGraphStyles(
         "target-arrow-shape": "none",
         "source-endpoint": "outside-to-node",
         "target-endpoint": "outside-to-node",
+      },
+    },
+    {
+      selector: 'edge[type="expand-edge"]',
+      style: {
+        width: 1,
+        "line-color": getTextColor(mode),
+        "line-style": "dotted",
+        "curve-style": "straight",
+        "target-arrow-shape": "none",
       },
     },
     ...getCommonStyles(mode),
