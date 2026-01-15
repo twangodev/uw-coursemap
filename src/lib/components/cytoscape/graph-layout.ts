@@ -99,17 +99,42 @@ export async function generateLayeredLayout(
 const EXPAND_NODE_SPACE = 40;
 
 /**
- * Tree layout using ELK's mrtree algorithm with increased spacing
- * to prevent taxi edges from routing through nodes.
+ * Compute node dimensions based on label text
  */
-export async function generateTreeLayout(
-  animate: boolean,
+function computeNodeDimensions(
   courseData: ElementDefinition[],
-  labelIsCode: boolean,
-): Promise<LayoutOptions> {
-  const elk = new ELK();
+  labelIsCode: boolean
+): Map<string, { width: number; height: number }> {
+  const nodeDimensions = new Map<string, { width: number; height: number }>();
 
-  // Build a set of nodes that have incoming edges (not leaf nodes)
+  for (const node of getNodeData(courseData)) {
+    if (!node.data.id) continue;
+
+    const label = node.data.label || node.data.title || node.data.id;
+    const displayText = labelIsCode ? label : (node.data.title || label);
+    const isOperator = node.data.type === "operator";
+
+    const fontSize = isOperator ? COURSE_GRAPH_OPERATOR_FONT_SIZE : COURSE_GRAPH_FONT_SIZE;
+    const textWidth = measureTextWidth(displayText, fontSize);
+
+    const width = textWidth + COURSE_GRAPH_NODE_PADDING_X * 2;
+    const height = fontSize + COURSE_GRAPH_NODE_PADDING_Y * 2;
+
+    nodeDimensions.set(node.data.id, { width, height });
+  }
+
+  return nodeDimensions;
+}
+
+/**
+ * Add extra width to leaf prereq nodes for ELK layout.
+ * This reserves space for expand buttons without affecting visual alignment.
+ */
+function addExpandSpaceForElk(
+  nodeDimensions: Map<string, { width: number; height: number }>,
+  courseData: ElementDefinition[]
+): Map<string, { width: number; height: number }> {
+  // Find nodes with incoming edges (not leaf nodes)
   const nodesWithIncomingEdges = new Set<string>();
   for (const edge of getEdgeData(courseData)) {
     if (edge.data?.target) {
@@ -117,44 +142,47 @@ export async function generateTreeLayout(
     }
   }
 
-  // Build node dimensions map (visual width for alignment)
-  const nodeDimensions = new Map<string, { width: number; height: number }>();
-  // Track which nodes have expand space (for layout only, not alignment)
-  const nodeExpandSpace = new Map<string, number>();
+  const elkDimensions = new Map<string, { width: number; height: number }>();
+
+  for (const node of getNodeData(courseData)) {
+    if (!node.data.id) continue;
+
+    const dims = nodeDimensions.get(node.data.id)!;
+    const isPrereq = node.data.type === "prereq";
+    const isLeaf = !nodesWithIncomingEdges.has(node.data.id);
+
+    if (isPrereq && isLeaf) {
+      elkDimensions.set(node.data.id, {
+        width: dims.width + EXPAND_NODE_SPACE,
+        height: dims.height,
+      });
+    } else {
+      elkDimensions.set(node.data.id, dims);
+    }
+  }
+
+  return elkDimensions;
+}
+
+/**
+ * Run ELK layered layout and return raw positions (top-left)
+ */
+async function runElkLayout(
+  courseData: ElementDefinition[],
+  nodeDimensions: Map<string, { width: number; height: number }>
+): Promise<Map<string, { x: number; y: number }>> {
+  const elk = new ELK();
 
   const children = getNodeData(courseData).map((node: NodeDefinition) => {
-    if (!node.data.id) {
-      throw new Error("Node ID is undefined");
-    }
-
-    const label = node.data.label || node.data.title || node.data.id;
-    const displayText = labelIsCode ? label : (node.data.title || label);
-    const isOperator = node.data.type === "operator";
-    const isPrereq = node.data.type === "prereq";
-
-    const fontSize = isOperator ? COURSE_GRAPH_OPERATOR_FONT_SIZE : COURSE_GRAPH_FONT_SIZE;
-    const textWidth = measureTextWidth(displayText, fontSize);
-
-    // Calculate visual width (used for alignment)
-    const visualWidth = textWidth + COURSE_GRAPH_NODE_PADDING_X * 2;
-    const height = fontSize + COURSE_GRAPH_NODE_PADDING_Y * 2;
-
-    // Add extra width for leaf prereq nodes to reserve space for expand button (layout only)
-    const isLeafPrereq = isPrereq && !nodesWithIncomingEdges.has(node.data.id);
-    const expandSpace = isLeafPrereq ? EXPAND_NODE_SPACE : 0;
-    nodeExpandSpace.set(node.data.id, expandSpace);
-
-    // Store visual dimensions for alignment
-    nodeDimensions.set(node.data.id, { width: visualWidth, height });
-
+    const dims = nodeDimensions.get(node.data.id!);
     return {
-      id: node.data.id,
-      width: visualWidth + expandSpace, // Layout width includes expand space
-      height,
+      id: node.data.id!,
+      width: dims!.width,
+      height: dims!.height,
     };
   });
 
-  const newLayout: ElkNode = {
+  const elkLayout: ElkNode = {
     id: "root",
     layoutOptions: {
       "elk.algorithm": "layered",
@@ -166,21 +194,27 @@ export async function generateTreeLayout(
       "elk.layered.layering.strategy": "LONGEST_PATH",
     },
     children,
-    edges: getEdgeData(courseData).map((edge: EdgeDefinition) => {
-      if (!edge.data) {
-        throw new Error("Edge is undefined");
-      }
-      return {
-        id: edge.data.source + "-" + edge.data.target,
-        sources: [edge.data.source],
-        targets: [edge.data.target],
-      };
-    }),
+    edges: getEdgeData(courseData).map((edge: EdgeDefinition) => ({
+      id: edge.data!.source + "-" + edge.data!.target,
+      sources: [edge.data!.source],
+      targets: [edge.data!.target],
+    })),
   };
 
-  const nodePos = await elk.layout(newLayout);
+  const result = await elk.layout(elkLayout);
 
-  // Build reverse edge map to traverse from target to sources
+  const positions = new Map<string, { x: number; y: number }>();
+  for (const child of result.children || []) {
+    positions.set(child.id!, { x: child.x ?? 0, y: child.y ?? 0 });
+  }
+
+  return positions;
+}
+
+/**
+ * Build incoming edges map (target -> sources[])
+ */
+function buildIncomingEdgesMap(courseData: ElementDefinition[]): Map<string, string[]> {
   const incomingEdges = new Map<string, string[]>();
   for (const edge of getEdgeData(courseData)) {
     if (edge.data) {
@@ -189,20 +223,31 @@ export async function generateTreeLayout(
       incomingEdges.set(edge.data.target, sources);
     }
   }
+  return incomingEdges;
+}
 
-  // Find the root node (the one with no outgoing edges to other nodes in the graph)
+/**
+ * Find the root node (node with no outgoing edges)
+ */
+function findRootNode(courseData: ElementDefinition[]): string | undefined {
   const allTargets = new Set(getEdgeData(courseData).map(e => e.data?.target).filter(Boolean));
   const allSources = new Set(getEdgeData(courseData).map(e => e.data?.source).filter(Boolean));
   const rootNodes = [...allTargets].filter(id => !allSources.has(id));
-  const rootId = rootNodes[0] || nodePos.children![nodePos.children!.length - 1]?.id;
+  return rootNodes[0];
+}
 
-  // BFS to assign layer depths (root is layer 0, its predecessors are layer 1, etc.)
+/**
+ * Compute depth of each node via BFS from root
+ */
+function computeNodeDepths(
+  rootId: string,
+  incomingEdges: Map<string, string[]>
+): Map<string, number> {
   const nodeDepths = new Map<string, number>();
-  const queue: { id: string; depth: number }[] = [{ id: rootId!, depth: 0 }];
+  const queue: { id: string; depth: number }[] = [{ id: rootId, depth: 0 }];
 
   while (queue.length > 0) {
     const { id, depth } = queue.shift()!;
-
     if (nodeDepths.has(id)) continue;
     nodeDepths.set(id, depth);
 
@@ -214,22 +259,26 @@ export async function generateTreeLayout(
     }
   }
 
-  // Group nodes by their depth layer
-  const layerMap = new Map<number, { id: string; x: number; y: number; width: number; height: number }[]>();
+  return nodeDepths;
+}
 
-  for (const child of nodePos.children!) {
-    const dims = nodeDimensions.get(child.id!) || { width: 0, height: 0 };
-    const x = child.x ?? 0;
-    const y = child.y ?? 0;
-    const depth = nodeDepths.get(child.id!) ?? 0;
-
-    if (!layerMap.has(depth)) {
-      layerMap.set(depth, []);
-    }
-    layerMap.get(depth)!.push({ id: child.id!, x, y, width: dims.width, height: dims.height });
+/**
+ * Right-align nodes within each depth layer
+ */
+function rightAlignLayers(
+  positions: Map<string, { x: number; y: number }>,
+  nodeDimensions: Map<string, { width: number; height: number }>,
+  nodeDepths: Map<string, number>,
+  courseData: ElementDefinition[]
+): void {
+  // Group nodes by depth
+  const layerMap = new Map<number, string[]>();
+  for (const [nodeId, depth] of nodeDepths) {
+    if (!layerMap.has(depth)) layerMap.set(depth, []);
+    layerMap.get(depth)!.push(nodeId);
   }
 
-  // Identify operator nodes for alignment adjustment
+  // Identify operator nodes (no border adjustment needed)
   const operatorNodeIds = new Set<string>();
   for (const node of getNodeData(courseData)) {
     if (node.data.type === "operator") {
@@ -237,24 +286,38 @@ export async function generateTreeLayout(
     }
   }
 
-  // Right-align nodes within each layer so edges converge at the same x coordinate
-  const nodeXAdjustments = new Map<string, number>();
+  // Right-align each layer
+  for (const [, nodeIds] of layerMap) {
+    const maxRightEdge = Math.max(
+      ...nodeIds.map((id) => {
+        const pos = positions.get(id)!;
+        const dims = nodeDimensions.get(id) || { width: 0, height: 0 };
+        return pos.x + dims.width;
+      })
+    );
 
-  for (const [, nodes] of layerMap) {
-    // Find the max right edge in this layer
-    const maxRightEdge = Math.max(...nodes.map((n) => n.x + n.width));
-
-    // Adjust each node's x so its right edge aligns with the max
-    // Non-operator nodes have a border, so shift them slightly right to align edge endpoints
-    for (const node of nodes) {
-      const isOperator = operatorNodeIds.has(node.id);
-      const borderOffset = isOperator ? 0 : 1; // 1px border on course nodes
-      const adjustedX = maxRightEdge - node.width + borderOffset;
-      nodeXAdjustments.set(node.id, adjustedX);
+    for (const nodeId of nodeIds) {
+      const pos = positions.get(nodeId)!;
+      const dims = nodeDimensions.get(nodeId) || { width: 0, height: 0 };
+      const isOperator = operatorNodeIds.has(nodeId);
+      const borderOffset = isOperator ? 0 : 1;
+      pos.x = maxRightEdge - dims.width + borderOffset;
     }
   }
+}
 
-  // Compress nodes on the same branch (nodes that share the same target) closer together
+/**
+ * Compress nodes on the same branch vertically
+ */
+function compressBranches(
+  positions: Map<string, { x: number; y: number }>,
+  nodeDimensions: Map<string, { width: number; height: number }>,
+  nodeDepths: Map<string, number>,
+  courseData: ElementDefinition[]
+): void {
+  const BRANCH_SPACING = 3;
+
+  // Build source -> target map
   const nodeTargets = new Map<string, string>();
   for (const edge of getEdgeData(courseData)) {
     if (edge.data) {
@@ -262,105 +325,142 @@ export async function generateTreeLayout(
     }
   }
 
-  // Group nodes by their target within each layer and compress vertically
-  const nodeYAdjustments = new Map<string, number>();
-  const BRANCH_SPACING = 3; // Spacing between nodes on the same branch
+  // Group nodes by depth
+  const layerMap = new Map<number, string[]>();
+  for (const [nodeId, depth] of nodeDepths) {
+    if (!layerMap.has(depth)) layerMap.set(depth, []);
+    layerMap.get(depth)!.push(nodeId);
+  }
 
-  for (const [, nodes] of layerMap) {
-    // Group nodes by their target
-    const targetGroups = new Map<string, typeof nodes>();
-    for (const node of nodes) {
-      const target = nodeTargets.get(node.id) || "none";
-      if (!targetGroups.has(target)) {
-        targetGroups.set(target, []);
-      }
-      targetGroups.get(target)!.push(node);
+  for (const [, nodeIds] of layerMap) {
+    // Group by target
+    const targetGroups = new Map<string, string[]>();
+    for (const nodeId of nodeIds) {
+      const target = nodeTargets.get(nodeId) || "none";
+      if (!targetGroups.has(target)) targetGroups.set(target, []);
+      targetGroups.get(target)!.push(nodeId);
     }
 
-    // For each group, compress nodes vertically around their center
-    for (const [, groupNodes] of targetGroups) {
-      if (groupNodes.length <= 1) {
-        // Single node, keep original position
-        for (const node of groupNodes) {
-          nodeYAdjustments.set(node.id, node.y);
-        }
-        continue;
-      }
+    for (const [, groupNodeIds] of targetGroups) {
+      if (groupNodeIds.length <= 1) continue;
 
       // Sort by y position
-      groupNodes.sort((a, b) => a.y - b.y);
+      groupNodeIds.sort((a, b) => positions.get(a)!.y - positions.get(b)!.y);
 
-      // Calculate center y of the group
-      const centerY = (groupNodes[0].y + groupNodes[groupNodes.length - 1].y) / 2;
+      // Calculate center y
+      const firstY = positions.get(groupNodeIds[0])!.y;
+      const lastY = positions.get(groupNodeIds[groupNodeIds.length - 1])!.y;
+      const centerY = (firstY + lastY) / 2;
 
-      // Calculate total height needed with minimal spacing
+      // Calculate total height
       let totalHeight = 0;
-      for (const node of groupNodes) {
-        totalHeight += node.height;
+      for (const nodeId of groupNodeIds) {
+        totalHeight += nodeDimensions.get(nodeId)?.height || 0;
       }
-      totalHeight += (groupNodes.length - 1) * BRANCH_SPACING;
+      totalHeight += (groupNodeIds.length - 1) * BRANCH_SPACING;
 
-      // Position nodes starting from top, centered around centerY
+      // Position nodes centered around centerY
       let currentY = centerY - totalHeight / 2;
-      for (const node of groupNodes) {
-        nodeYAdjustments.set(node.id, currentY);
-        currentY += node.height + BRANCH_SPACING;
+      for (const nodeId of groupNodeIds) {
+        positions.get(nodeId)!.y = currentY;
+        currentY += (nodeDimensions.get(nodeId)?.height || 0) + BRANCH_SPACING;
       }
     }
   }
+}
 
-  // Center the root node vertically relative to its direct predecessors
-  // Find the nodes that directly connect to the root
-  const rootPredecessors = incomingEdges.get(rootId!) || [];
+/**
+ * Center root node relative to its predecessors
+ */
+function centerRootNode(
+  rootId: string,
+  positions: Map<string, { x: number; y: number }>,
+  nodeDimensions: Map<string, { width: number; height: number }>,
+  incomingEdges: Map<string, string[]>
+): void {
+  const rootPredecessors = incomingEdges.get(rootId) || [];
+  if (rootPredecessors.length === 0) return;
 
-  let yShift = 0;
-  if (rootPredecessors.length > 0) {
-    // Calculate the vertical center of the root's direct predecessors
-    let predMinY = Infinity;
-    let predMaxY = -Infinity;
-    for (const predId of rootPredecessors) {
-      const dims = nodeDimensions.get(predId) || { width: 0, height: 0 };
-      const adjustedY = nodeYAdjustments.get(predId) ?? 0;
-      predMinY = Math.min(predMinY, adjustedY);
-      predMaxY = Math.max(predMaxY, adjustedY + dims.height);
+  let predMinY = Infinity;
+  let predMaxY = -Infinity;
+  for (const predId of rootPredecessors) {
+    const dims = nodeDimensions.get(predId) || { width: 0, height: 0 };
+    const pos = positions.get(predId);
+    if (pos) {
+      predMinY = Math.min(predMinY, pos.y);
+      predMaxY = Math.max(predMaxY, pos.y + dims.height);
     }
-    const predCenterY = (predMinY + predMaxY) / 2;
+  }
+  const predCenterY = (predMinY + predMaxY) / 2;
 
-    // Get the root node's current center Y
-    const rootDims = nodeDimensions.get(rootId!) || { width: 0, height: 0 };
-    const rootY = nodeYAdjustments.get(rootId!) ?? 0;
-    const rootCenterY = rootY + rootDims.height / 2;
+  const rootDims = nodeDimensions.get(rootId) || { width: 0, height: 0 };
+  const rootPos = positions.get(rootId);
+  if (rootPos) {
+    const rootCenterY = rootPos.y + rootDims.height / 2;
+    rootPos.y += predCenterY - rootCenterY;
+  }
+}
 
-    // Shift root to align with its predecessors' center
-    yShift = predCenterY - rootCenterY;
-    nodeYAdjustments.set(rootId!, rootY + yShift);
-    yShift = 0; // Don't shift other nodes, just the root
+/**
+ * Convert top-left positions to center positions for Cytoscape
+ */
+function convertToCenterPositions(
+  positions: Map<string, { x: number; y: number }>,
+  nodeDimensions: Map<string, { width: number; height: number }>
+): Map<string, { x: number; y: number }> {
+  const centerPositions = new Map<string, { x: number; y: number }>();
+  for (const [nodeId, pos] of positions) {
+    const dims = nodeDimensions.get(nodeId) || { width: 0, height: 0 };
+    centerPositions.set(nodeId, {
+      x: pos.x + dims.width / 2,
+      y: pos.y + dims.height / 2,
+    });
+  }
+  return centerPositions;
+}
+
+/**
+ * Tree layout using ELK's layered algorithm.
+ * Modular design: computes dimensions, runs ELK, then applies adjustments.
+ */
+export async function generateTreeLayout(
+  animate: boolean,
+  courseData: ElementDefinition[],
+  labelIsCode: boolean,
+): Promise<LayoutOptions> {
+  // 1. Compute node dimensions (visual)
+  const nodeDimensions = computeNodeDimensions(courseData, labelIsCode);
+
+  // 2. Add expand space for leaf nodes (ELK only)
+  const elkDimensions = addExpandSpaceForElk(nodeDimensions, courseData);
+
+  // 3. Run ELK layout with expanded dimensions
+  const positions = await runElkLayout(courseData, elkDimensions);
+
+  // 4. Build graph structure info
+  const incomingEdges = buildIncomingEdgesMap(courseData);
+  const rootId = findRootNode(courseData);
+
+  if (!rootId) {
+    return { name: "preset", positions: {}, animate };
   }
 
-  // ELK returns top-left positions, but Cytoscape expects center positions
+  const nodeDepths = computeNodeDepths(rootId, incomingEdges);
+
+  // 5. Apply adjustments (using visual dimensions, not ELK dimensions)
+  rightAlignLayers(positions, nodeDimensions, nodeDepths, courseData);
+  compressBranches(positions, nodeDimensions, nodeDepths, courseData);
+  centerRootNode(rootId, positions, nodeDimensions, incomingEdges);
+
+  // 6. Convert to center positions
+  const centerPositions = convertToCenterPositions(positions, nodeDimensions);
+
   return {
     name: "preset",
-    positions: Object.fromEntries(
-      nodePos.children!.map((child) => {
-        const dims = nodeDimensions.get(child.id!) || { width: 0, height: 0 };
-        const expandSpace = nodeExpandSpace.get(child.id!) || 0;
-        const adjustedX = nodeXAdjustments.get(child.id!) ?? (child.x ?? 0);
-        const adjustedY = nodeYAdjustments.get(child.id!) ?? (child.y ?? 0);
-        return [
-          child.id,
-          {
-            // Shift node right by expand space so expand button fits on the left
-            x: adjustedX + dims.width / 2,
-            y: adjustedY + dims.height / 2,
-          },
-        ];
-      }),
-    ),
-    animate: animate,
+    positions: Object.fromEntries(centerPositions),
+    animate,
     animationDuration: 1000,
     animationEasing: "ease-in-out",
-    zoom: undefined,
-    pan: undefined,
     fit: true,
     padding: 30,
   };
