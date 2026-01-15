@@ -257,7 +257,7 @@ export function astToElements(
             parentOperatorId: parentContext.operatorId,
             parentOperatorType: parentContext.operatorType,
           },
-          classes: "course",
+          classes: "hoverable",
         });
       }
 
@@ -299,6 +299,7 @@ export function astToElements(
         if (childIds.length > 1) {
           nodes.push({
             data: { id: oneOfId, label: "one of", type: "operator" },
+            classes: "hoverable",
           });
 
           // Connect all children to the "one of" node
@@ -346,6 +347,7 @@ export function astToElements(
         if (childIds.length > 1) {
           nodes.push({
             data: { id: andId, label: "all of", type: "operator" },
+            classes: "hoverable",
           });
 
           // Connect all children to the "and" node
@@ -376,7 +378,7 @@ export function astToElements(
 
   nodes.push({
     data: { id: targetCourseId, label: targetLabel, type: "target" },
-    classes: "course",
+    classes: "hoverable",
   });
 
   // Process the AST

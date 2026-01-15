@@ -181,8 +181,8 @@ export function setupCytoscapeHandlers(
   const mouseoverHandler = (event: any) => {
     const targetNode = event.target;
 
-    // Only handle nodes with the "course" class
-    if (!targetNode?.hasClass("course")) {
+    // Only handle nodes with the "hoverable" class
+    if (!targetNode?.hasClass("hoverable")) {
       return;
     }
 
@@ -210,12 +210,11 @@ export function setupCytoscapeHandlers(
 
   const dbltapHandler = (event: any) => {
     const targetNode = event.target;
-    const nodeType = targetNode?.data("type");
 
-    if (targetNode.isNode && nodeType !== "compound" && nodeType !== "operator") {
+    if (targetNode?.hasClass("hoverable")) {
       highlightPath(cy, targetNode);
       highlightedCourse = targetNode;
-    } else if (!targetNode.isNode || nodeType === "compound" || nodeType === "operator") {
+    } else {
       clearPath(cy, () => {});
       highlightedCourse = undefined;
     }
