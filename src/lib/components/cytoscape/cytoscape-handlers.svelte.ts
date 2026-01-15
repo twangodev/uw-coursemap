@@ -223,7 +223,7 @@ export function setupCytoscapeHandlers(
   const onetapHandler = async (event: any) => {
     const targetNode = event.target;
 
-    // Only handle nodes with the "course" class (department and prereq course nodes)
+    // Only handle nodes with the "course" class
     if (!targetNode?.hasClass("course")) {
       return;
     }
