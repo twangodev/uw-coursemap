@@ -13,7 +13,8 @@ const EXPAND_OFFSET = 40;
 
 /** Info about an expanded course */
 interface ExpandedCourseInfo {
-  addedElementIds: string[];
+  /** Element IDs that this expansion "owns" (for tracking what to clean up) */
+  ownedElementIds: string[];
 }
 
 /**
@@ -28,8 +29,26 @@ export function createExpandState(initialAst: ASTNode, initialTargetCourseId: st
   /** Cytoscape instance */
   let cyInstance: Core | null = null;
 
-  /** Tracks expanded courses and their added elements */
+  /** Tracks expanded courses and their owned elements */
   const expandedCourses = new Map<string, ExpandedCourseInfo>();
+
+  /** Reference count for each element ID - how many expansions need this element */
+  const elementRefCount = new Map<string, number>();
+
+  /**
+   * Initialize reference counts for initial elements
+   */
+  function initRefCounts(): void {
+    for (const el of coreElements) {
+      const id = el.data.id as string;
+      if (id) {
+        elementRefCount.set(id, 1);
+      }
+    }
+  }
+
+  // Initialize ref counts for initial elements
+  initRefCounts();
 
   /**
    * Remove all expand nodes and their edges from cytoscape
@@ -101,6 +120,29 @@ export function createExpandState(initialAst: ASTNode, initialTargetCourseId: st
   }
 
   /**
+   * Get valid elements for layout (filter out edges pointing to non-existent nodes)
+   */
+  function getValidElementsForLayout(): ElementDefinition[] {
+    const nodeIds = new Set<string>();
+
+    // Collect all node IDs
+    for (const el of coreElements) {
+      if (!el.data.source && !el.data.target) {
+        nodeIds.add(el.data.id as string);
+      }
+    }
+
+    // Filter: keep all nodes, and only edges where both source and target exist
+    return coreElements.filter((el) => {
+      if (!el.data.source && !el.data.target) {
+        return true; // Keep all nodes
+      }
+      // It's an edge - check both endpoints exist
+      return nodeIds.has(el.data.source as string) && nodeIds.has(el.data.target as string);
+    });
+  }
+
+  /**
    * Run layout on core elements and add expand nodes after
    */
   async function runLayout(): Promise<void> {
@@ -109,7 +151,8 @@ export function createExpandState(initialAst: ASTNode, initialTargetCourseId: st
     // Remove expand nodes before layout (they'll be re-added after)
     removeExpandNodes();
 
-    const layoutOptions = await generateTreeLayout(true, coreElements, true);
+    const validElements = getValidElementsForLayout();
+    const layoutOptions = await generateTreeLayout(true, validElements, true);
 
     cyInstance.layout(layoutOptions).run();
 
@@ -157,24 +200,45 @@ export function createExpandState(initialAst: ASTNode, initialTargetCourseId: st
 
         // Convert AST to elements (edges point to courseId)
         const newElements = astToElements(ast, courseId);
-        const addedElementIds: string[] = [];
+        const ownedElementIds: string[] = [];
+        const elementsToAdd: ElementDefinition[] = [];
 
-        // Filter out the course itself and track added IDs
+        // Process each element - skip duplicate nodes but always add edges
         for (const el of newElements) {
           const id = el.data.id as string;
           if (id === courseId) continue;
-          addedElementIds.push(id);
+
+          const isEdge = el.data.source && el.data.target;
+
+          if (isEdge) {
+            // Edges are always unique per expansion - always add them
+            ownedElementIds.push(id);
+            elementsToAdd.push(el);
+            elementRefCount.set(id, 1);
+          } else {
+            // Node - check for duplicates
+            ownedElementIds.push(id);
+
+            const currentRefCount = elementRefCount.get(id) || 0;
+            if (currentRefCount === 0) {
+              // New node - add to graph
+              elementsToAdd.push(el);
+              elementRefCount.set(id, 1);
+            } else {
+              // Existing node - just increment ref count
+              elementRefCount.set(id, currentRefCount + 1);
+            }
+          }
         }
 
-        // Add to core elements (edges still point to courseId for ELK)
-        const elementsToAdd = newElements.filter((el) => el.data.id !== courseId);
-        coreElements = [...coreElements, ...elementsToAdd];
-
-        // Add elements to Cytoscape instance
-        cyInstance.add(elementsToAdd);
+        // Add new elements to core elements and Cytoscape
+        if (elementsToAdd.length > 0) {
+          coreElements = [...coreElements, ...elementsToAdd];
+          cyInstance.add(elementsToAdd);
+        }
 
         // Track expansion
-        expandedCourses.set(courseId, { addedElementIds });
+        expandedCourses.set(courseId, { ownedElementIds });
 
         // Update expand node label to "-"
         const expandNodeId = `expand-${courseId}`;
@@ -188,9 +252,9 @@ export function createExpandState(initialAst: ASTNode, initialTargetCourseId: st
         // After layout, redirect edges in cytoscape to point to expand node
         cyInstance.edges().forEach((edge) => {
           if (edge.data("target") === courseId) {
-            // Check if source is one of the newly added elements
+            // Check if source is one of the owned elements
             const sourceId = edge.data("source");
-            if (addedElementIds.includes(sourceId)) {
+            if (ownedElementIds.includes(sourceId)) {
               edge.move({ target: expandNodeId });
             }
           }
@@ -201,10 +265,84 @@ export function createExpandState(initialAst: ASTNode, initialTargetCourseId: st
     },
 
     /**
-     * Collapse a course: remove prerequisite subtree, run layout
+     * Collapse a course: remove prerequisite subtree and all nested expansions, run layout
      */
     async collapseCourse(courseId: string): Promise<void> {
-      // TODO: Remove elements added during expansion, run layout
+      if (!cyInstance) return;
+
+      const expandInfo = expandedCourses.get(courseId);
+      if (!expandInfo) return;
+
+      // Recursively find all nested expanded courses
+      function findAllNestedExpanded(rootCourseId: string): string[] {
+        const info = expandedCourses.get(rootCourseId);
+        if (!info) return [];
+
+        const nested: string[] = [];
+        const { ownedElementIds } = info;
+
+        // Find direct children that are expanded
+        expandedCourses.forEach((_, nestedCourseId) => {
+          if (nestedCourseId !== rootCourseId && ownedElementIds.includes(nestedCourseId)) {
+            nested.push(nestedCourseId);
+            // Recursively find their nested expansions
+            nested.push(...findAllNestedExpanded(nestedCourseId));
+          }
+        });
+
+        return nested;
+      }
+
+      /**
+       * Decrement ref counts and remove elements that reach zero
+       */
+      function releaseElements(elementIds: string[]): void {
+        const elementsToRemove: string[] = [];
+
+        for (const id of elementIds) {
+          const currentRefCount = elementRefCount.get(id) || 0;
+          if (currentRefCount <= 1) {
+            // Last reference - remove element
+            elementRefCount.delete(id);
+            elementsToRemove.push(id);
+          } else {
+            // Other expansions still need this element
+            elementRefCount.set(id, currentRefCount - 1);
+          }
+        }
+
+        // Remove elements from Cytoscape
+        for (const id of elementsToRemove) {
+          cyInstance!.$id(id).remove();
+        }
+
+        // Remove from coreElements
+        if (elementsToRemove.length > 0) {
+          const removeSet = new Set(elementsToRemove);
+          coreElements = coreElements.filter((el) => {
+            const id = el.data.id as string;
+            return !removeSet.has(id);
+          });
+        }
+      }
+
+      // Get all nested expanded courses (deepest first for proper removal order)
+      const allNested = findAllNestedExpanded(courseId).reverse();
+
+      // Remove all nested expansions
+      for (const nestedCourseId of allNested) {
+        const nestedInfo = expandedCourses.get(nestedCourseId);
+        if (nestedInfo) {
+          releaseElements(nestedInfo.ownedElementIds);
+          expandedCourses.delete(nestedCourseId);
+        }
+      }
+
+      // Now release the elements for this course
+      releaseElements(expandInfo.ownedElementIds);
+      expandedCourses.delete(courseId);
+
+      await runLayout();
     },
 
     /**
@@ -220,6 +358,7 @@ export function createExpandState(initialAst: ASTNode, initialTargetCourseId: st
     clear(): void {
       coreElements = [];
       expandedCourses.clear();
+      elementRefCount.clear();
       cyInstance = null;
     },
   };
