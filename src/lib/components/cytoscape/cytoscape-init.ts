@@ -192,6 +192,12 @@ export function astToElements(
   const edges: ElementDefinition[] = [];
   let oneOfCounter = 0;
   let andCounter = 0;
+  let edgeCounter = 0;
+
+  /** Generate a unique edge ID based on source, target, and context */
+  function createEdgeId(source: string, target: string): string {
+    return `edge-${targetCourseId}-${source}-${target}-${edgeCounter++}`;
+  }
 
   function isCourseReference(node: ASTNode): node is CourseReference {
     return (
@@ -298,7 +304,7 @@ export function astToElements(
           // Connect all children to the "one of" node
           for (const childId of childIds) {
             edges.push({
-              data: { source: childId, target: oneOfId },
+              data: { id: createEdgeId(childId, oneOfId), source: childId, target: oneOfId },
             });
           }
 
@@ -345,7 +351,7 @@ export function astToElements(
           // Connect all children to the "and" node
           for (const childId of childIds) {
             edges.push({
-              data: { source: childId, target: andId },
+              data: { id: createEdgeId(childId, andId), source: childId, target: andId },
             });
           }
 
@@ -379,7 +385,7 @@ export function astToElements(
   // If root returned an ID (e.g., single OR node), connect it to target
   if (rootResult) {
     edges.push({
-      data: { source: rootResult, target: targetCourseId },
+      data: { id: createEdgeId(rootResult, targetCourseId), source: rootResult, target: targetCourseId },
     });
   }
 
