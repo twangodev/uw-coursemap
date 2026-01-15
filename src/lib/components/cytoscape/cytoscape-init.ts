@@ -210,10 +210,25 @@ export function astToElements(
   }
 
   /**
+   * Parent context passed to child nodes during processing
+   */
+  interface ParentContext {
+    operatorId: string | null;
+    operatorType: "OR" | "AND" | null;
+  }
+
+  /**
    * Recursively processes an AST node
+   * @param node - The AST node to process
+   * @param parentId - The parent node ID (unused but kept for signature)
+   * @param parentContext - Info about the parent operator (for tracking OR/AND relationships)
    * @returns The node ID that should connect to the parent, or null if none
    */
-  function processNode(node: ASTNode, parentId: string): string | null {
+  function processNode(
+    node: ASTNode,
+    parentId: string,
+    parentContext: ParentContext = { operatorId: null, operatorType: null }
+  ): string | null {
     // Skip string nodes (e.g., "graduate standing")
     if (typeof node === "string") {
       return null;
@@ -233,6 +248,8 @@ export function astToElements(
             id,
             label,
             type: "prereq",
+            parentOperatorId: parentContext.operatorId,
+            parentOperatorType: parentContext.operatorType,
           },
           classes: "course",
         });
@@ -244,23 +261,36 @@ export function astToElements(
     // Operator node
     if (isOperatorNode(node)) {
       if (node.operator === "OR") {
-        // First, collect all valid child IDs
+        // Create the operator node first to get its ID for child context
+        const oneOfId = `one-of-${oneOfCounter++}`;
+
+        // Collect all valid child IDs, passing this operator as parent context
         const childIds: string[] = [];
         for (const child of node.children) {
-          const childId = processNode(child, parentId);
+          const childId = processNode(child, parentId, {
+            operatorId: oneOfId,
+            operatorType: "OR",
+          });
           if (childId) {
             childIds.push(childId);
           }
         }
 
         // If only one valid child, just return it directly (no "one of" needed)
+        // But we need to remove the parentOperatorId since the operator won't exist
         if (childIds.length === 1) {
+          // Update the child node to remove parent operator reference
+          const childNode = nodes.find((n) => n.data.id === childIds[0]);
+          if (childNode && childNode.data.parentOperatorId === oneOfId) {
+            childNode.data.parentOperatorId = parentContext.operatorId;
+            childNode.data.parentOperatorType = parentContext.operatorType;
+          }
+          oneOfCounter--; // Reclaim the unused ID
           return childIds[0];
         }
 
-        // If multiple valid children, create a "one of" node
+        // If multiple valid children, keep the "one of" node
         if (childIds.length > 1) {
-          const oneOfId = `one-of-${oneOfCounter++}`;
           nodes.push({
             data: { id: oneOfId, label: "one of", type: "operator" },
           });
@@ -276,13 +306,19 @@ export function astToElements(
         }
 
         // No valid children
+        oneOfCounter--; // Reclaim the unused ID
         return null;
       } else {
-        // AND operator - create an "and" node like OR creates "one of"
-        const childIds: string[] = [];
+        // AND operator - create an "all of" node
+        const andId = `and-${andCounter++}`;
 
+        // Collect all valid child IDs, passing this operator as parent context
+        const childIds: string[] = [];
         for (const child of node.children) {
-          const childId = processNode(child, parentId);
+          const childId = processNode(child, parentId, {
+            operatorId: andId,
+            operatorType: "AND",
+          });
           if (childId) {
             childIds.push(childId);
           }
@@ -290,12 +326,18 @@ export function astToElements(
 
         // If only one valid child, just return it directly (no "and" needed)
         if (childIds.length === 1) {
+          // Update the child node to remove parent operator reference
+          const childNode = nodes.find((n) => n.data.id === childIds[0]);
+          if (childNode && childNode.data.parentOperatorId === andId) {
+            childNode.data.parentOperatorId = parentContext.operatorId;
+            childNode.data.parentOperatorType = parentContext.operatorType;
+          }
+          andCounter--; // Reclaim the unused ID
           return childIds[0];
         }
 
-        // If multiple valid children, create an "and" node
+        // If multiple valid children, keep the "and" node
         if (childIds.length > 1) {
-          const andId = `and-${andCounter++}`;
           nodes.push({
             data: { id: andId, label: "all of", type: "operator" },
           });
@@ -311,6 +353,7 @@ export function astToElements(
         }
 
         // No valid children
+        andCounter--; // Reclaim the unused ID
         return null;
       }
     }
