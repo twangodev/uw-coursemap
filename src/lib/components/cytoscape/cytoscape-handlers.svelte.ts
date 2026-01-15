@@ -52,8 +52,18 @@ export function setupCytoscapeHandlers(
     currentTip = undefined;
   };
 
-  // this function effect is only registered if the graph is department
-  const applyThemeAndLabelStyle = () => {
+  // Apply label style (code vs title) - department graphs only
+  const applyLabelStyle = () => {
+    cy.style()
+      .selector("node")
+      .style({
+        label: showCodeLabels ? "data(id)" : "data(title)",
+      })
+      .update();
+  };
+
+  // Apply theme-dependent styles for department graphs
+  const applyDepartmentThemeStyle = () => {
     const currentMode = mode.current;
 
     cy.style()
@@ -63,9 +73,8 @@ export function setupCytoscapeHandlers(
         "text-outline-color": getTextOutlineColor(currentMode),
         "text-outline-opacity": 1,
         "text-outline-width": 1,
-        label: showCodeLabels ? "data(id)" : "data(title)",
       })
-            .selector(".highlighted-nodes")
+      .selector(".highlighted-nodes")
       .style({
         "border-color": getTextColor(currentMode),
       })
@@ -81,6 +90,30 @@ export function setupCytoscapeHandlers(
       .selector(".next-nodes")
       .style({
         color: currentMode === "dark" ? "#FFD700" : "#B38600",
+      })
+      .update();
+  };
+
+  // Apply theme-dependent styles for course graphs
+  const applyCourseThemeStyle = () => {
+    const currentMode = mode.current;
+
+    cy.style()
+      .selector('node[type="operator"]')
+      .style({
+        color: getTextColor(currentMode),
+      })
+      .selector("edge")
+      .style({
+        "line-color": getTextColor(currentMode),
+      })
+      .selector('edge[type="expand-edge"]')
+      .style({
+        "line-color": getTextColor(currentMode),
+      })
+      .selector(".highlighted-nodes")
+      .style({
+        "border-color": getTextColor(currentMode),
       })
       .update();
   };
@@ -125,17 +158,18 @@ export function setupCytoscapeHandlers(
   // --- Reactive subscriptions (must be after function definitions) ---
 
   // Set up reactive subscription using $effect.root for mode changes
-  // Only for department graphs - course graphs have fixed colors
   let cleanupModeEffect: (() => void) | undefined;
-  if (graphType === "department") {
-    cleanupModeEffect = $effect.root(() => {
-      $effect(() => {
-        // Track mode.current reactively
-        mode.current;
-        applyThemeAndLabelStyle();
-      });
+  cleanupModeEffect = $effect.root(() => {
+    $effect(() => {
+      // Track mode.current reactively
+      mode.current;
+      if (graphType === "department") {
+        applyDepartmentThemeStyle();
+      } else {
+        applyCourseThemeStyle();
+      }
     });
-  }
+  });
 
   // Subscribe to taken courses store
   const unsubscribeTakenCourses = takenCoursesStore.subscribe(() => {
@@ -247,7 +281,7 @@ export function setupCytoscapeHandlers(
 
     setShowCodeLabels(show: boolean) {
       showCodeLabels = show;
-      applyThemeAndLabelStyle();
+      applyLabelStyle();
     },
 
     setHiddenSubject,
