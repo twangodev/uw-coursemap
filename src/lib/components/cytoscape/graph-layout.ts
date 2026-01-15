@@ -95,6 +95,9 @@ export async function generateLayeredLayout(
   };
 }
 
+// Space reserved for expand button to the left of leaf nodes
+const EXPAND_NODE_SPACE = 40;
+
 /**
  * Tree layout using ELK's mrtree algorithm with increased spacing
  * to prevent taxi edges from routing through nodes.
@@ -106,8 +109,18 @@ export async function generateTreeLayout(
 ): Promise<LayoutOptions> {
   const elk = new ELK();
 
-  // Build node dimensions map
+  // Build a set of nodes that have incoming edges (not leaf nodes)
+  const nodesWithIncomingEdges = new Set<string>();
+  for (const edge of getEdgeData(courseData)) {
+    if (edge.data?.target) {
+      nodesWithIncomingEdges.add(edge.data.target);
+    }
+  }
+
+  // Build node dimensions map (visual width for alignment)
   const nodeDimensions = new Map<string, { width: number; height: number }>();
+  // Track which nodes have expand space (for layout only, not alignment)
+  const nodeExpandSpace = new Map<string, number>();
 
   const children = getNodeData(courseData).map((node: NodeDefinition) => {
     if (!node.data.id) {
@@ -117,18 +130,26 @@ export async function generateTreeLayout(
     const label = node.data.label || node.data.title || node.data.id;
     const displayText = labelIsCode ? label : (node.data.title || label);
     const isOperator = node.data.type === "operator";
+    const isPrereq = node.data.type === "prereq";
 
     const fontSize = isOperator ? COURSE_GRAPH_OPERATOR_FONT_SIZE : COURSE_GRAPH_FONT_SIZE;
     const textWidth = measureTextWidth(displayText, fontSize);
 
-    const width = textWidth + COURSE_GRAPH_NODE_PADDING_X * 2;
+    // Calculate visual width (used for alignment)
+    const visualWidth = textWidth + COURSE_GRAPH_NODE_PADDING_X * 2;
     const height = fontSize + COURSE_GRAPH_NODE_PADDING_Y * 2;
 
-    nodeDimensions.set(node.data.id, { width, height });
+    // Add extra width for leaf prereq nodes to reserve space for expand button (layout only)
+    const isLeafPrereq = isPrereq && !nodesWithIncomingEdges.has(node.data.id);
+    const expandSpace = isLeafPrereq ? EXPAND_NODE_SPACE : 0;
+    nodeExpandSpace.set(node.data.id, expandSpace);
+
+    // Store visual dimensions for alignment
+    nodeDimensions.set(node.data.id, { width: visualWidth, height });
 
     return {
       id: node.data.id,
-      width,
+      width: visualWidth + expandSpace, // Layout width includes expand space
       height,
     };
   });
@@ -322,11 +343,13 @@ export async function generateTreeLayout(
     positions: Object.fromEntries(
       nodePos.children!.map((child) => {
         const dims = nodeDimensions.get(child.id!) || { width: 0, height: 0 };
+        const expandSpace = nodeExpandSpace.get(child.id!) || 0;
         const adjustedX = nodeXAdjustments.get(child.id!) ?? (child.x ?? 0);
         const adjustedY = nodeYAdjustments.get(child.id!) ?? (child.y ?? 0);
         return [
           child.id,
           {
+            // Shift node right by expand space so expand button fits on the left
             x: adjustedX + dims.width / 2,
             y: adjustedY + dims.height / 2,
           },
