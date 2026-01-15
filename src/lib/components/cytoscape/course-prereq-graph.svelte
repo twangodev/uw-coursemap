@@ -106,6 +106,16 @@
     }
   };
 
+  // Expand node click handler - toggle between "+" and "-"
+  const expandNodeClickHandler = (event: any) => {
+    const targetNode = event.target;
+    if (targetNode?.data("type") === "expand") {
+      const currentLabel = targetNode.data("label");
+      const newLabel = currentLabel === "+" ? "-" : "+";
+      targetNode.data("label", newLabel);
+    }
+  };
+
   // Set up expand nodes when cytoscape instance is available
   $effect(() => {
     const cy = cytoscapeCoreRef?.getCyInstance?.();
@@ -115,6 +125,7 @@
       registeredCy.off("layoutstop");
       registeredCy.off("mouseover", 'node[type="expand"]', expandNodeMouseoverHandler);
       registeredCy.off("mouseout", 'node[type="expand"]', expandNodeMouseoutHandler);
+      registeredCy.off("tap", 'node[type="expand"]', expandNodeClickHandler);
       registeredCy = undefined;
     }
 
@@ -125,9 +136,10 @@
         addExpandNodesToGraph(cy);
       });
 
-      // Register expand node hover handlers
+      // Register expand node event handlers
       cy.on("mouseover", 'node[type="expand"]', expandNodeMouseoverHandler);
       cy.on("mouseout", 'node[type="expand"]', expandNodeMouseoutHandler);
+      cy.on("tap", 'node[type="expand"]', expandNodeClickHandler);
 
       registeredCy = cy;
     }
