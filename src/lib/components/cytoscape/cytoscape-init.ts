@@ -257,7 +257,7 @@ export function astToElements(
             parentOperatorId: parentContext.operatorId,
             parentOperatorType: parentContext.operatorType,
           },
-          classes: "hoverable",
+          classes: "hoverable course",
         });
       }
 
@@ -378,7 +378,7 @@ export function astToElements(
 
   nodes.push({
     data: { id: targetCourseId, label: targetLabel, type: "target" },
-    classes: "hoverable",
+    classes: "hoverable course",
   });
 
   // Process the AST
