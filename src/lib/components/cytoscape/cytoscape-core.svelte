@@ -84,7 +84,6 @@
     };
   });
 
-  
   // PUBLIC API - Methods parent can call via ref
 
   /**
@@ -92,6 +91,15 @@
    */
   export function onCourseClick(callback: (courseId: string) => void) {
     handler?.onCourseClick(callback);
+  }
+
+  /**
+   * Get the underlying Cytoscape instance for direct access.
+   * Use sparingly - prefer using the public API methods above.
+   * Only use this when extending functionality that doesn't belong in cytoscape-core.
+   */
+  export function getCyInstance(): Core | undefined {
+    return cy;
   }
 
   /**

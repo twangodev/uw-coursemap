@@ -180,8 +180,9 @@ export function setupCytoscapeHandlers(
 
   const mouseoverHandler = (event: any) => {
     const targetNode = event.target;
-    const nodeType = targetNode?.data("type");
-    if (nodeType === "compound" || nodeType === "operator") {
+
+    // Only handle nodes with the "course" class
+    if (!targetNode?.hasClass("course")) {
       return;
     }
 
