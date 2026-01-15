@@ -32,18 +32,44 @@ export function createExpandState(initialAst: ASTNode, initialTargetCourseId: st
   const expandedCourses = new Map<string, ExpandedCourseInfo>();
 
   /**
-   * Add expand nodes to leaf prereq nodes after layout
+   * Remove all expand nodes and their edges from cytoscape
+   */
+  function removeExpandNodes(): void {
+    if (!cyInstance) return;
+    cyInstance.remove('node[type="expand"]');
+    cyInstance.remove('edge[type="expand-edge"]');
+  }
+
+  /**
+   * Add expand nodes to leaf prereq nodes and expanded courses after layout
    */
   function addExpandNodes(): void {
     if (!cyInstance) return;
 
-    // Find leaf prereq nodes (no incoming edges)
+    // Find leaf prereq nodes (no incoming edges from non-expand edges)
     const leafNodes = cyInstance.nodes('[type="prereq"]').filter((node) => {
-      return node.incomers("edge").length === 0;
+      const nonExpandIncomers = node.incomers("edge").filter((edge) => {
+        return edge.data("type") !== "expand-edge";
+      });
+      return nonExpandIncomers.length === 0;
     });
 
+    // Collect all nodes that need expand buttons: leaves + expanded courses
+    const nodesNeedingExpand = new Set<string>();
+
     leafNodes.forEach((node) => {
-      const courseId = node.id();
+      nodesNeedingExpand.add(node.id());
+    });
+
+    // Also add expand nodes for already expanded courses (for collapse)
+    expandedCourses.forEach((_, courseId) => {
+      nodesNeedingExpand.add(courseId);
+    });
+
+    nodesNeedingExpand.forEach((courseId) => {
+      const node = cyInstance!.$id(courseId);
+      if (node.length === 0) return;
+
       const expandNodeId = `expand-${courseId}`;
 
       // Skip if already exists
@@ -80,6 +106,9 @@ export function createExpandState(initialAst: ASTNode, initialTargetCourseId: st
   async function runLayout(): Promise<void> {
     if (!cyInstance) return;
 
+    // Remove expand nodes before layout (they'll be re-added after)
+    removeExpandNodes();
+
     const layoutOptions = await generateTreeLayout(true, coreElements, true);
 
     cyInstance.layout(layoutOptions).run();
@@ -114,7 +143,61 @@ export function createExpandState(initialAst: ASTNode, initialTargetCourseId: st
      * Expand a course: fetch prerequisites, add to graph, run layout
      */
     async expandCourse(courseId: string): Promise<void> {
-   
+      if (!cyInstance) return;
+      if (expandedCourses.has(courseId)) return;
+
+      try {
+        const course = await fetchCourse(courseId);
+        const ast = course.prerequisites?.abstract_syntax_tree;
+
+        if (!ast) {
+          console.log(`No prerequisites for ${courseId}`);
+          return;
+        }
+
+        // Convert AST to elements (edges point to courseId)
+        const newElements = astToElements(ast, courseId);
+        const addedElementIds: string[] = [];
+
+        // Filter out the course itself and track added IDs
+        for (const el of newElements) {
+          const id = el.data.id as string;
+          if (id === courseId) continue;
+          addedElementIds.push(id);
+        }
+
+        // Add to core elements (edges still point to courseId for ELK)
+        const elementsToAdd = newElements.filter((el) => el.data.id !== courseId);
+        coreElements = [...coreElements, ...elementsToAdd];
+
+        // Add elements to Cytoscape instance
+        cyInstance.add(elementsToAdd);
+
+        // Track expansion
+        expandedCourses.set(courseId, { addedElementIds });
+
+        // Update expand node label to "-"
+        const expandNodeId = `expand-${courseId}`;
+        const expandNode = cyInstance.$id(expandNodeId);
+        if (expandNode.length > 0) {
+          expandNode.data("label", "-");
+        }
+
+        await runLayout();
+
+        // After layout, redirect edges in cytoscape to point to expand node
+        cyInstance.edges().forEach((edge) => {
+          if (edge.data("target") === courseId) {
+            // Check if source is one of the newly added elements
+            const sourceId = edge.data("source");
+            if (addedElementIds.includes(sourceId)) {
+              edge.move({ target: expandNodeId });
+            }
+          }
+        });
+      } catch (error) {
+        console.error(`Failed to expand ${courseId}:`, error);
+      }
     },
 
     /**
