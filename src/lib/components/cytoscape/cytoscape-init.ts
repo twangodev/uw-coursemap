@@ -268,7 +268,7 @@ export function astToElements(
     if (isOperatorNode(node)) {
       if (node.operator === "OR") {
         // Create the operator node first to get its ID for child context
-        const oneOfId = `one-of-${oneOfCounter++}`;
+        const oneOfId = `one-of-${targetCourseId}-${oneOfCounter++}`;
 
         // Collect all valid child IDs, passing this operator as parent context
         const childIds: string[] = [];
@@ -317,7 +317,7 @@ export function astToElements(
         return null;
       } else {
         // AND operator - create an "all of" node
-        const andId = `and-${andCounter++}`;
+        const andId = `and-${targetCourseId}-${andCounter++}`;
 
         // Collect all valid child IDs, passing this operator as parent context
         const childIds: string[] = [];
