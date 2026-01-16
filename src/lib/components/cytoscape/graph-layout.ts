@@ -187,11 +187,18 @@ async function runElkLayout(
     layoutOptions: {
       "elk.algorithm": "layered",
       "elk.direction": "RIGHT",
-      "elk.spacing.nodeNode": "5",
-      "elk.layered.spacing.nodeNodeBetweenLayers": "30",
+      "elk.spacing.nodeNode": "8",
+      "elk.layered.spacing.nodeNodeBetweenLayers": "40",
       "elk.edgeRouting": "ORTHOGONAL",
       "elk.layered.nodePlacement.strategy": "NETWORK_SIMPLEX",
       "elk.layered.layering.strategy": "LONGEST_PATH",
+      // Crossing minimization to reduce edge overlaps
+      "elk.layered.crossingMinimization.strategy": "LAYER_SWEEP",
+      // Better node ordering within layers
+      "elk.layered.crossingMinimization.semiInteractive": "true",
+      // Edge spacing to avoid collisions
+      "elk.layered.spacing.edgeNodeBetweenLayers": "15",
+      "elk.layered.spacing.edgeEdgeBetweenLayers": "10",
     },
     children,
     edges: getEdgeData(courseData).map((edge: EdgeDefinition) => ({
@@ -237,27 +244,45 @@ function findRootNode(courseData: ElementDefinition[]): string | undefined {
 }
 
 /**
- * Compute depth of each node via BFS from root
+ * Compute depth of each node as the longest path from the root.
+ * This ensures nodes that appear in multiple paths are placed at their
+ * farthest distance, aligning with ELK's LONGEST_PATH layering strategy.
+ *
+ * Handles cycles in the graph by ignoring back-edges during DFS traversal.
  */
 function computeNodeDepths(
   rootId: string,
   incomingEdges: Map<string, string[]>
 ): Map<string, number> {
   const nodeDepths = new Map<string, number>();
-  const queue: { id: string; depth: number }[] = [{ id: rootId, depth: 0 }];
+  const visiting = new Set<string>(); // Currently in DFS stack (for cycle detection)
 
-  while (queue.length > 0) {
-    const { id, depth } = queue.shift()!;
-    if (nodeDepths.has(id)) continue;
-    nodeDepths.set(id, depth);
-
-    const sources = incomingEdges.get(id) || [];
-    for (const sourceId of sources) {
-      if (!nodeDepths.has(sourceId)) {
-        queue.push({ id: sourceId, depth: depth + 1 });
-      }
+  // DFS to compute longest path, ignoring back-edges (cycles)
+  function dfs(nodeId: string, depth: number): void {
+    // Cycle detected - skip this edge
+    if (visiting.has(nodeId)) {
+      return;
     }
+
+    // Update depth if this path is longer
+    const existingDepth = nodeDepths.get(nodeId) ?? -1;
+    if (depth <= existingDepth) {
+      return; // Already found a longer or equal path
+    }
+
+    nodeDepths.set(nodeId, depth);
+    visiting.add(nodeId);
+
+    // Get predecessors (nodes that have edges pointing to this node)
+    const sources = incomingEdges.get(nodeId) || [];
+    for (const sourceId of sources) {
+      dfs(sourceId, depth + 1);
+    }
+
+    visiting.delete(nodeId);
   }
+
+  dfs(rootId, 0);
 
   return nodeDepths;
 }
