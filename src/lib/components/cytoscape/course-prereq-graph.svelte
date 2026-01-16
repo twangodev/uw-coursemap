@@ -4,6 +4,7 @@
   import type { ASTNode } from "$lib/types/course.ts";
   import CytoscapeCore from "./cytoscape-core.svelte";
   import CourseDrawer from "./course-drawer.svelte";
+  import SideControls from "./side-controls.svelte";
   import { fetchCourse } from "./graph-data.ts";
   import { isDesktop } from "$lib/mediaStore.ts";
   import { createExpandState } from "./expand-state.svelte.ts";
@@ -22,9 +23,23 @@
   // Component refs
   let cytoscapeCoreRef: CytoscapeCore | undefined = $state();
   let courseDrawerRef: CourseDrawer;
+  let sideControlsRef: SideControls;
 
   // Expand state manager - initialized with AST immediately
   const expandState = createExpandState(ast, targetCourseId);
+
+  // Side control handlers
+  function handleZoomIn(event: { delta: number }) {
+    cytoscapeCoreRef?.zoom(event.delta);
+  }
+
+  function handleZoomOut(event: { delta: number }) {
+    cytoscapeCoreRef?.zoom(event.delta);
+  }
+
+  function handleDraggableChange() {
+    cytoscapeCoreRef?.setElementsAreDraggable(sideControlsRef?.getElementsAreDraggable() ?? false);
+  }
 
   // Register course click callback after cytoscape is ready
   $effect(() => {
@@ -102,12 +117,18 @@
   });
 </script>
 
-<div class="relative h-full w-full">
+<div id="cy-container" class="relative h-full w-full">
   <CytoscapeCore
     elementDefinitions={expandState.elements}
     {styleEntries}
     graphType="course"
     bind:this={cytoscapeCoreRef}
+  />
+  <SideControls
+    bind:this={sideControlsRef}
+    onzoomin={handleZoomIn}
+    onzoomout={handleZoomOut}
+    ondraggablechange={handleDraggableChange}
   />
 </div>
 <CourseDrawer
