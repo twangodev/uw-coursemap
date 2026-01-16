@@ -15,6 +15,8 @@ const EXPAND_OFFSET = 40;
 interface ExpandedCourseInfo {
   /** Element IDs that this expansion "owns" (for tracking what to clean up) */
   ownedElementIds: string[];
+  /** Sibling elements that were removed when this course was expanded (for "one of" parents) */
+  removedSiblings: ElementDefinition[];
 }
 
 /**
@@ -34,6 +36,9 @@ export function createExpandState(initialAst: ASTNode, initialTargetCourseId: st
 
   /** Reference count for each element ID - how many expansions need this element */
   const elementRefCount = new Map<string, number>();
+
+  /** Set of removed sibling node IDs (don't count these as duplicates) */
+  const removedNodeIds = new Set<string>();
 
   /**
    * Initialize reference counts for initial elements
@@ -198,6 +203,32 @@ export function createExpandState(initialAst: ASTNode, initialTargetCourseId: st
           return;
         }
 
+        // Remove siblings if this course has a "one of" parent
+        const removedSiblings: ElementDefinition[] = [];
+        const courseNode = cyInstance.$id(courseId);
+        const parentOperatorId = courseNode.data("parentOperatorId");
+        const isOrParent = courseNode.data("parentOperatorType") === "OR" && parentOperatorId;
+
+        if (isOrParent) {
+          const siblings = cyInstance.$id(parentOperatorId).incomers("node").filter(
+            (node) => node.id() !== courseId
+          );
+
+          siblings.forEach((siblingNode) => {
+            removedSiblings.push(siblingNode.json() as ElementDefinition);
+            removedNodeIds.add(siblingNode.id());
+
+            siblingNode.connectedEdges().forEach((edge) => {
+              removedSiblings.push(edge.json() as ElementDefinition);
+            });
+
+            coreElements = coreElements.filter((el) => el.data.id !== siblingNode.id());
+          });
+
+          // edge removal happens implicitly when sibling nodes are removed
+          siblings.remove();
+        }
+
         // Convert AST to elements (edges point to courseId)
         const newElements = astToElements(ast, courseId);
         const ownedElementIds: string[] = [];
@@ -209,25 +240,14 @@ export function createExpandState(initialAst: ASTNode, initialTargetCourseId: st
           if (id === courseId) continue;
 
           const isEdge = el.data.source && el.data.target;
+          const currentRefCount = elementRefCount.get(id) || 0;
+          const shouldAddToGraph = isEdge || currentRefCount === 0 || removedNodeIds.has(id);
 
-          if (isEdge) {
-            // Edges are always unique per expansion - always add them
-            ownedElementIds.push(id);
+          ownedElementIds.push(id);
+          elementRefCount.set(id, currentRefCount + 1);
+
+          if (shouldAddToGraph) {
             elementsToAdd.push(el);
-            elementRefCount.set(id, 1);
-          } else {
-            // Node - check for duplicates
-            ownedElementIds.push(id);
-
-            const currentRefCount = elementRefCount.get(id) || 0;
-            if (currentRefCount === 0) {
-              // New node - add to graph
-              elementsToAdd.push(el);
-              elementRefCount.set(id, 1);
-            } else {
-              // Existing node - just increment ref count
-              elementRefCount.set(id, currentRefCount + 1);
-            }
           }
         }
 
@@ -238,7 +258,7 @@ export function createExpandState(initialAst: ASTNode, initialTargetCourseId: st
         }
 
         // Track expansion
-        expandedCourses.set(courseId, { ownedElementIds });
+        expandedCourses.set(courseId, { ownedElementIds, removedSiblings });
 
         // Update expand node label to "-"
         const expandNodeId = `expand-${courseId}`;
@@ -340,6 +360,30 @@ export function createExpandState(initialAst: ASTNode, initialTargetCourseId: st
 
       // Now release the elements for this course
       releaseElements(expandInfo.ownedElementIds);
+
+      // Restore siblings that were removed when this course was expanded
+      if (expandInfo.removedSiblings.length > 0) {
+        const isEdge = (el: ElementDefinition) => el.data.source && el.data.target;
+        const notInCy = (id: string) => cyInstance!.$id(id).length === 0;
+
+        const savedNodes = expandInfo.removedSiblings.filter((el) => !isEdge(el));
+        const savedEdges = expandInfo.removedSiblings.filter(isEdge);
+
+        // Restore nodes first
+        const nodesToRestore = savedNodes.filter((el) => notInCy(el.data.id as string));
+        savedNodes.forEach((el) => removedNodeIds.delete(el.data.id as string));
+        coreElements = [...coreElements, ...nodesToRestore];
+        cyInstance.add(nodesToRestore);
+
+        // Then restore edges (only if both endpoints exist)
+        const edgesToRestore = savedEdges.filter((el) =>
+          notInCy(el.data.id as string) &&
+          !notInCy(el.data.source as string) &&
+          !notInCy(el.data.target as string)
+        );
+        cyInstance.add(edgesToRestore);
+      }
+
       expandedCourses.delete(courseId);
 
       await runLayout();
@@ -359,6 +403,7 @@ export function createExpandState(initialAst: ASTNode, initialTargetCourseId: st
       coreElements = [];
       expandedCourses.clear();
       elementRefCount.clear();
+      removedNodeIds.clear();
       cyInstance = null;
     },
   };
