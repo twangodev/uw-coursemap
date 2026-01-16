@@ -19,7 +19,6 @@
     CourseTrends,
     CourseSchedule,
   } from "$lib/components/course/tabs/index.js";
-  import type { ElementDefinition } from "cytoscape";
   import type { StyleEntry } from "$lib/components/cytoscape/graph-styles.ts";
   import { m } from "$lib/paraglide/messages";
 
@@ -29,7 +28,6 @@
     terms: Terms;
     selectedTerm: string | undefined;
     instructors: FullInstructorInformation[];
-    prerequisiteElementDefinitions: ElementDefinition[];
     prerequisiteStyleEntries: StyleEntry[];
     meetings?: any;
   }
@@ -40,7 +38,6 @@
     terms,
     selectedTerm,
     instructors,
-    prerequisiteElementDefinitions,
     prerequisiteStyleEntries,
     meetings,
   }: Props = $props();
@@ -83,7 +80,6 @@
     <TabsContent class="space-y-4 lg:col-span-9" value="prerequisites">
       <CoursePrerequisites
         {course}
-        {prerequisiteElementDefinitions}
         {prerequisiteStyleEntries}
       />
     </TabsContent>
