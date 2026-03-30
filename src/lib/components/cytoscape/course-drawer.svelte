@@ -41,13 +41,13 @@
   let sheetOpen = $state(false);
   let selectedCourse: Course | undefined = $state(undefined);
 
-  export const closeDrawer = function () {
+  export function closeDrawer() {
     sheetOpen = false;
   }
-  export const openDrawer = function () {
+  export function openDrawer() {
     sheetOpen = true;
   }
-  export const setSelectedCourse = function (course: Course | undefined) {
+  export function setSelectedCourse(course: Course | undefined) {
     selectedCourse = course;
   }
   let focus = $derived(page.url.searchParams.get("focus"));

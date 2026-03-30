@@ -7,7 +7,6 @@
   import CytoscapeCore from "./cytoscape-core.svelte";
   import Legend from "./legend.svelte";
   import HelpControl from "./help-control.svelte";
-  import { onMount } from "svelte";
   import { isDesktop } from "$lib/mediaStore.ts";
   import { LayoutType } from "./graph-layout.ts";
   import { computeLayout } from "./cytoscape-init.ts";
@@ -29,7 +28,14 @@
   let courseDrawerRef: CourseDrawer;
   let sideControlsRef: SideControls;
 
-  // Initialize
+  // Legend state
+  let hiddenSubject: string | null = $state(null);
+
+  // Wire legend hiding to cytoscape core
+  $effect(() => {
+    cytoscapeCoreRef?.setHiddenSubject(hiddenSubject);
+  });
+
   $effect(() => {
     if (cytoscapeCoreRef) {
       // Register course click callback after cytoscape is ready
@@ -46,12 +52,7 @@
     }
   });
 
-  // Event handlers from SideControls
-  function handleZoomIn(event: { delta: number }) {
-    cytoscapeCoreRef?.zoom(event.delta);
-  }
-
-  function handleZoomOut(event: { delta: number }) {
+  function handleZoom(event: { delta: number }) {
     cytoscapeCoreRef?.zoom(event.delta);
   }
 
@@ -82,11 +83,11 @@
     bind:this={cytoscapeCoreRef}
   />
 
-  <Legend {styleEntries} />
+  <Legend {styleEntries} bind:hiddenSubject />
   <SideControls
     bind:this={sideControlsRef}
-    onzoomin={handleZoomIn}
-    onzoomout={handleZoomOut}
+    onzoomin={handleZoom}
+    onzoomout={handleZoom}
     onlayoutchange={handleLayoutChange}
     ondraggablechange={handleDraggableChange}
     onlabelchange={handleLabelChange}

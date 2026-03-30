@@ -25,18 +25,14 @@
 
   let cy: Core | undefined = $state();
   let handler: ReturnType<typeof setupCytoscapeHandlers> | undefined;
+  let containerEl: HTMLDivElement;
 
   onMount(() => {
-    const container = document.getElementById("cy");
-    if (!container) {
-      console.error("Cytoscape container not found");
-      return;
-    }
 
     // Create Cytoscape instance (plugins registered automatically)
     const initialStyles = getStyles(styleEntries, mode.current, true);
     cy = initializeCytoscape({
-      container,
+      container: containerEl,
       elementDefinitions,
       style: initialStyles,
     });
@@ -128,4 +124,4 @@
   }
 </script>
 
-<div id="cy" class={cn("h-full w-full transition-opacity")}></div>
+<div bind:this={containerEl} class={cn("h-full w-full transition-opacity")}></div>
