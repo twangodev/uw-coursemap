@@ -361,6 +361,19 @@ class GradeData(JsonSerializable):
             else self.instructors or other.instructors,
         )
 
+    def gpa(self) -> float | None:
+        if not self.total:
+            return None
+        total_points = (
+            self.a * 4
+            + self.ab * 3.5
+            + self.b * 3
+            + self.bc * 2.5
+            + self.c * 2
+            + self.d
+        )
+        return total_points / self.total
+
     @classmethod
     def from_madgrades(cls, json_data) -> "GradeData":
         return GradeData(
