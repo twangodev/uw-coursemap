@@ -5,7 +5,6 @@ export type SubjectCourseStat = {
   course_reference: CourseReference;
   course_title: string;
   grades_given: number;
-  gpa: number | null;
 };
 
 export type SubjectStats = {

@@ -2,6 +2,7 @@ import { env } from "$env/dynamic/public";
 import { error } from "@sveltejs/kit";
 import type { SubjectStats } from "$lib/types/subject-stats.ts";
 import type { Terms } from "$lib/types/terms.ts";
+import { getSubjectFullName } from "$lib/api.ts";
 import { generateOgImageUrl } from "$lib/seo/og-image";
 
 const { PUBLIC_API_URL } = env;
@@ -9,22 +10,23 @@ const { PUBLIC_API_URL } = env;
 export const load = async ({ params, fetch }) => {
   const subject = params.subject.toUpperCase();
 
-  const subjectsResponse = await fetch(`${PUBLIC_API_URL}/subjects.json`);
-  let subjectFullName = subject;
-  if (subjectsResponse.ok) {
-    const subjects = await subjectsResponse.json();
-    subjectFullName = subjects[subject] || subject;
-  }
+  const [subjectFullName, statsResponse, termsResponse] = await Promise.all([
+    getSubjectFullName(fetch, subject),
+    fetch(`${PUBLIC_API_URL}/stats/${subject}.json`),
+    fetch(`${PUBLIC_API_URL}/terms.json`),
+  ]);
 
-  const statsResponse = await fetch(`${PUBLIC_API_URL}/stats/${subject}.json`);
-  if (!statsResponse.ok)
+  // a subject can exist in subjects.json before its stats file is generated
+  let stats: SubjectStats | null = null;
+  if (statsResponse.ok) {
+    stats = await statsResponse.json();
+  } else if (statsResponse.status !== 404) {
     throw error(
       statsResponse.status,
       `Failed to fetch subject statistics: ${statsResponse.statusText}`,
     );
-  const stats: SubjectStats = await statsResponse.json();
+  }
 
-  const termsResponse = await fetch(`${PUBLIC_API_URL}/terms.json`);
   if (!termsResponse.ok)
     throw error(
       termsResponse.status,

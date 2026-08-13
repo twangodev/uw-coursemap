@@ -233,7 +233,6 @@ def aggregate_subject_stats(course_ref_to_course: dict[Course.Reference, Course]
                     "course_reference": course.course_reference,
                     "course_title": course.course_title,
                     "grades_given": cumulative.total if cumulative else 0,
-                    "gpa": cumulative.gpa() if cumulative else None,
                 }
             )
 

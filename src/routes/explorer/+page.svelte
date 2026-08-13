@@ -6,6 +6,7 @@
     PageHeaderHeading,
   } from "$lib/components/page-header";
   import Search from "$lib/components/search.svelte";
+  import SubjectCardGrid from "$lib/components/subject-card-grid.svelte";
   import {
     Card,
     CardDescription,
@@ -118,22 +119,7 @@
         {m["explorer.departmentalStatistics.description"]()}
       </p>
     </div>
-    <div
-      class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-    >
-      {#each subjects as [code, name]}
-        <a href={localizeHref(`/stats/${code}`)} class="flex h-full w-full">
-          <Card class="flex h-full w-full flex-col">
-            <CardHeader>
-              <CardTitle class="truncate">{name}</CardTitle>
-              <CardDescription class="truncate font-bold">
-                {code}
-              </CardDescription>
-            </CardHeader>
-          </Card>
-        </a>
-      {/each}
-    </div>
+    <SubjectCardGrid {subjects} />
   </section>
   <!--    <section class="text-sm my-8 text-center text-muted-foreground block">-->
   <!--        <span>-->

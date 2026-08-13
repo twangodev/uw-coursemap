@@ -18,30 +18,30 @@
 
   let { courses }: Props = $props();
 
-  function levelLabel(courseNumber: number): string {
-    return `${Math.floor(courseNumber / 100) * 100}-level`;
+  function levelLabel(level: number): string {
+    return level === 0 ? "Below 100" : `${level}-level`;
   }
 
   let data = $derived.by(() => {
-    const largest = [...courses]
+    const largest = courses
       .filter((course) => course.grades_given > 0)
-      .sort((a, b) => b.grades_given - a.grades_given)
       .slice(0, MAX_COURSES);
 
-    const byLevel = new Map<string, { name: string; value: number }[]>();
+    const byLevel = new Map<number, { name: string; value: number }[]>();
     for (const course of largest) {
-      const label = levelLabel(course.course_reference.course_number);
-      const children = byLevel.get(label) ?? [];
+      const level =
+        Math.floor(course.course_reference.course_number / 100) * 100;
+      const children = byLevel.get(level) ?? [];
       children.push({
         name: CourseUtils.courseReferenceToString(course.course_reference),
         value: course.grades_given,
       });
-      byLevel.set(label, children);
+      byLevel.set(level, children);
     }
 
     return [...byLevel.entries()]
-      .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
-      .map(([name, children]) => ({ name, children }));
+      .sort(([a], [b]) => a - b)
+      .map(([level, children]) => ({ name: levelLabel(level), children }));
   });
 
   let options: TreemapChartOptions = $derived({

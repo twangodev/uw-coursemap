@@ -35,9 +35,11 @@
 
   let { subject, subjectFullName, stats, terms } = $derived(data);
 
-  let gradesByTerm = $derived(stats.grades_by_term ?? {});
+  let gradesByTerm = $derived(stats?.grades_by_term ?? {});
   let hasTermData = $derived(Object.keys(gradesByTerm).length > 0);
-  let hasCourses = $derived((stats.courses?.length ?? 0) > 0);
+  let courses = $derived(stats?.courses ?? []);
+
+  let hasCourses = $derived(courses.some((course) => course.grades_given > 0));
 
   let latestGradeData = $derived.by(() => {
     const termCodes = Object.keys(gradesByTerm).sort(
@@ -57,19 +59,15 @@
   );
 
   let cumulativeGPA = $derived(
-    calculateGradePointAverage(stats.total_grades_given),
+    calculateGradePointAverage(stats?.total_grades_given),
   );
-  let termGPA = $derived(
-    calculateGradePointAverage(latestGradeData) ?? cumulativeGPA,
-  );
+  let termGPA = $derived(calculateGradePointAverage(latestGradeData));
   let cumulativeCompletionRate = $derived(
-    calculateCompletionRate(stats.total_grades_given),
+    calculateCompletionRate(stats?.total_grades_given),
   );
-  let termCompletionRate = $derived(
-    calculateCompletionRate(latestGradeData) ?? cumulativeCompletionRate,
-  );
-  let cumulativeARate = $derived(calculateARate(stats.total_grades_given));
-  let termARate = $derived(calculateARate(latestGradeData) ?? cumulativeARate);
+  let termCompletionRate = $derived(calculateCompletionRate(latestGradeData));
+  let cumulativeARate = $derived(calculateARate(stats?.total_grades_given));
+  let termARate = $derived(calculateARate(latestGradeData));
 </script>
 
 <ContentWrapper>
@@ -87,69 +85,77 @@
     </a>
   </PageHeader>
 
-  <section class="my-4 space-y-4">
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-      <GPADataCard {termGPA} {cumulativeGPA} />
-      <CompletionRateDataCard {termCompletionRate} {cumulativeCompletionRate} />
-      <ARateDataCard {termARate} {cumulativeARate} />
-      <Card>
-        <CardHeader
-          class="flex flex-row items-center justify-between space-y-0 pb-2"
-        >
-          <CardTitle class="text-sm font-medium">
-            {m["stats.subject.totalCourses"]()}
-          </CardTitle>
-          <BookOpen class="text-muted-foreground h-4 w-4" />
-        </CardHeader>
-        <CardContent>
-          <div class="text-2xl font-bold">
-            {stats.total_courses.toLocaleString()}
-          </div>
-          <p class="text-muted-foreground mt-0.5 text-xs">
-            {m["stats.subject.gradesGiven"]({
-              count: stats.total_grades_given.total.toLocaleString(),
-            })}
-          </p>
-        </CardContent>
-      </Card>
-    </div>
-
-    {#if hasTermData}
-      <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+  {#if !stats}
+    <p class="text-muted-foreground my-8 text-center">
+      {m["stats.subject.noData"]()}
+    </p>
+  {:else}
+    <section class="my-4 space-y-4">
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <GPADataCard {termGPA} {cumulativeGPA} />
+        <CompletionRateDataCard
+          {termCompletionRate}
+          {cumulativeCompletionRate}
+        />
+        <ARateDataCard {termARate} {cumulativeARate} />
         <Card>
-          <CardContent class="pt-6">
-            <EnrollmentOverTermsChart {gradesByTerm} {terms} />
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent class="pt-6">
-            <GradeDataHorizontalBarChart
-              cumulative={stats.total_grades_given}
-              termData={comboTermData}
-              {terms}
-            />
+          <CardHeader
+            class="flex flex-row items-center justify-between space-y-0 pb-2"
+          >
+            <CardTitle class="text-sm font-medium">
+              {m["stats.subject.totalCourses"]()}
+            </CardTitle>
+            <BookOpen class="text-muted-foreground h-4 w-4" />
+          </CardHeader>
+          <CardContent>
+            <div class="text-2xl font-bold">
+              {stats.total_courses.toLocaleString()}
+            </div>
+            <p class="text-muted-foreground mt-0.5 text-xs">
+              {m["stats.subject.gradesGiven"]({
+                count: stats.total_grades_given.total.toLocaleString(),
+              })}
+            </p>
           </CardContent>
         </Card>
       </div>
-      <Card>
-        <CardContent class="pt-6">
-          <ComboGradeDataStackedAreaChart term_data={comboTermData} {terms} />
-        </CardContent>
-      </Card>
-    {/if}
 
-    {#if hasCourses}
-      <Card>
-        <CardContent class="pt-6">
-          <CourseTreemapChart courses={stats.courses ?? []} />
-        </CardContent>
-      </Card>
-    {/if}
+      {#if hasTermData}
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+          <Card>
+            <CardContent class="pt-6">
+              <EnrollmentOverTermsChart {gradesByTerm} {terms} />
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent class="pt-6">
+              <GradeDataHorizontalBarChart
+                cumulative={stats.total_grades_given}
+                {terms}
+              />
+            </CardContent>
+          </Card>
+        </div>
+        <Card>
+          <CardContent class="pt-6">
+            <ComboGradeDataStackedAreaChart term_data={comboTermData} {terms} />
+          </CardContent>
+        </Card>
+      {/if}
 
-    {#if !hasTermData && !hasCourses}
-      <p class="text-muted-foreground my-8 text-center">
-        {m["stats.subject.noData"]()}
-      </p>
-    {/if}
-  </section>
+      {#if hasCourses}
+        <Card>
+          <CardContent class="pt-6">
+            <CourseTreemapChart {courses} />
+          </CardContent>
+        </Card>
+      {/if}
+
+      {#if !hasTermData && !hasCourses}
+        <p class="text-muted-foreground my-8 text-center">
+          {m["stats.subject.noData"]()}
+        </p>
+      {/if}
+    </section>
+  {/if}
 </ContentWrapper>

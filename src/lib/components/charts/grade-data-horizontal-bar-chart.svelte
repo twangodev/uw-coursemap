@@ -4,21 +4,22 @@
     type BarChartOptions,
     BarChartSimple,
     type ChartTabularData,
-    MeterChart, type MeterChartOptions,
+    MeterChart,
+    type MeterChartOptions,
     ScaleTypes,
   } from "@carbon/charts-svelte";
   import "@carbon/charts-svelte/styles.css";
   import { getCarbonTheme } from "$lib/theme.ts";
   import { mode } from "mode-watcher";
   import type { TermData } from "$lib/types/course.ts";
-  import type {Terms} from "$lib/types/terms.ts";
+  import type { Terms } from "$lib/types/terms.ts";
   interface Props {
     cumulative: GradeData;
-    termData: {
+    termData?: {
       [key: string]: TermData;
     };
     term?: string | null;
-    terms: Terms
+    terms: Terms;
   }
 
   let { cumulative, termData, term, terms }: Props = $props();
@@ -26,14 +27,16 @@
   let hasAvailableTermData = $derived.by(() => {
     if (!term || !termData) return false;
     return Object.keys(termData).length > 0 && termData[term] != null;
-  })
+  });
 
   let currentTermName = $derived(
     hasAvailableTermData ? terms[term!] : "Cumulative",
   );
 
   let gradeData: GradeData = $derived(
-    hasAvailableTermData ? termData[term!].grade_data ?? cumulative : cumulative,
+    hasAvailableTermData
+      ? (termData![term!].grade_data ?? cumulative)
+      : cumulative,
   );
 
   let data: ChartTabularData = $derived(
@@ -74,15 +77,15 @@
   );
 
   const colorScale = {
-    A:   "#2ECC71",
-    AB:  "#27AE60",
-    B:   "#F1C40F",
-    BC:  "#F39C12",
-    C:   "#E67E22",
-    D:   "#E74C3C",
-    F:   "#C0392B",
+    A: "#2ECC71",
+    AB: "#27AE60",
+    B: "#F1C40F",
+    BC: "#F39C12",
+    C: "#E67E22",
+    D: "#E74C3C",
+    F: "#C0392B",
     Other: "#6F6F6F",
-  }
+  };
 
   let options: BarChartOptions = $derived({
     title: "Grade Distribution",
@@ -103,19 +106,19 @@
     },
     theme: getCarbonTheme(mode.current),
     color: {
-     scale: colorScale
-    }
+      scale: colorScale,
+    },
   });
 
-  let meterData = $derived(data.toReversed())
+  let meterData = $derived(data.toReversed());
 
-  let meterOptions : MeterChartOptions = $derived({
-    height: '30px',
+  let meterOptions: MeterChartOptions = $derived({
+    height: "30px",
     meter: {
       proportional: {
         total: gradeData.total,
         totalFormatter: (value: number) => ``,
-      }
+      },
     },
     toolbar: {
       enabled: false,
@@ -125,20 +128,19 @@
       enabled: false,
     },
     color: {
-      scale: colorScale
+      scale: colorScale,
     },
     tooltip: {
-      valueFormatter: (value: number) => `${(value * 100 / gradeData.total).toFixed(2)}%`
-    }
-  })
-
-
+      valueFormatter: (value: number) =>
+        `${((value * 100) / gradeData.total).toFixed(2)}%`,
+    },
+  });
 </script>
 
 <div class="h-full">
   <BarChartSimple {data} {options} />
   <MeterChart data={meterData} options={meterOptions} />
-  <p class="text-xs text-muted-foreground text-center mt-4">
+  <p class="text-muted-foreground mt-4 text-center text-xs">
     {currentTermName} Grade Distribution
   </p>
 </div>
