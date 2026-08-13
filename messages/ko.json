@@ -131,19 +131,19 @@
       }
     },
     "departmentalStatistics": {
-      "title": "todo: departmentalStatistics.title",
-      "description": "todo: departmentalStatistics.description"
+      "title": "학과별 통계",
+      "description": "각 학과의 성적 추세, 수강 인원, 규모가 가장 큰 강의를 살펴보세요."
     }
   },
   "stats": {
-    "title": "todo: stats.title",
-    "description": "todo: stats.description",
+    "title": "학과별 통계",
+    "description": "UW-Madison 모든 학과의 성적 및 수강 인원 추세.",
     "subject": {
-      "description": "todo: stats.subject.description",
-      "viewCourseMap": "todo: stats.subject.viewCourseMap",
-      "totalCourses": "todo: stats.subject.totalCourses",
-      "gradesGiven": "todo: stats.subject.gradesGiven",
-      "noData": "todo: stats.subject.noData"
+      "description": "{name}의 성적 추세, 수강 인원, 규모가 가장 큰 강의.",
+      "viewCourseMap": "코스 맵 보기",
+      "totalCourses": "전체 강의",
+      "gradesGiven": "부여된 성적 {count}개",
+      "noData": "이 학과의 통계는 아직 생성되지 않았습니다. 곧 다시 확인해 주세요."
     }
   },
   "course": {
