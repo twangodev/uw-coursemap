@@ -6,7 +6,7 @@
   import { localizeHref } from "$lib/paraglide/runtime";
 </script>
 
-<div use:inView={{ threshold: 0.5 }} class="mx-auto my-16 max-w-2xl text-center">
+<div use:inView={{ threshold: 0.5, once: true }} class="mx-auto my-16 max-w-2xl text-center">
   <h2 class="text-4xl font-bold text-balance lg:text-5xl opacity-0 animate-scale-in [animation-fill-mode:forwards] [&.in-view]:opacity-100">
     {m["home.cta.title"]()}
   </h2>

@@ -51,10 +51,10 @@
   <RotatingTiltCard />
 
   <ContentWrapper>
-    <div use:inView={{ threshold: 0.3 }} class="opacity-0 translate-y-10 transition-all duration-800 [&.in-view]:opacity-100 [&.in-view]:translate-y-0">
+    <div use:inView={{ threshold: 0.3, once: true }} class="opacity-0 translate-y-10 transition-[opacity,transform] duration-800 [&.in-view]:opacity-100 [&.in-view]:translate-y-0">
       <QuickStatistics />
     </div>
-    <div use:inView={{ threshold: 0.5 }} class="opacity-0 scale-95 transition-all duration-600 [&.in-view]:opacity-100 [&.in-view]:scale-100">
+    <div use:inView={{ threshold: 0.5, once: true }} class="opacity-0 scale-95 transition-[opacity,transform] duration-600 [&.in-view]:opacity-100 [&.in-view]:scale-100">
       <CallToAction />
     </div>
   </ContentWrapper>
