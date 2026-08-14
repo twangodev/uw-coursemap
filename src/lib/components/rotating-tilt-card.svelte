@@ -38,34 +38,26 @@
 
 <div
   bind:this={cardElement}
-  class="mx-auto -mt-16 max-w-7xl overflow-hidden lg:pr-44"
+  class="mx-auto -mt-16 max-w-7xl overflow-hidden contain-paint lg:pr-44"
 >
   <div class="-mr-16 perspective-distant lg:-mr-56 lg:pl-32">
     <div class="[transform:rotateX(20deg);]">
       <div class="relative skew-x-[.25rad] lg:h-176">
         <div
           aria-hidden="true"
-          class="from-background to-background absolute -inset-16 z-1 bg-linear-to-b via-transparent sm:-inset-32"
+          class="absolute -inset-16 z-1 bg-[url(/hero-decor-light.svg)] bg-no-repeat [background-size:100%_100%] sm:-inset-32 dark:hidden"
         ></div>
         <div
           aria-hidden="true"
-          class="from-background to-background absolute -inset-16 z-1 bg-white/50 bg-linear-to-r via-transparent sm:-inset-32 dark:bg-transparent"
+          class="absolute -inset-16 z-1 hidden bg-[url(/hero-decor-dark.svg)] bg-no-repeat [background-size:100%_100%] sm:-inset-32 dark:block"
         ></div>
         <div
           aria-hidden="true"
-          class="absolute -inset-16 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:24px_24px] [--color-border:var(--color-black)] sm:-inset-32 dark:[--color-border:color-mix(in_oklab,var(--color-white)_50%,transparent)]"
+          class="absolute inset-0 z-11 bg-[url(/hero-overlay-light.svg)] bg-no-repeat [background-size:100%_100%] dark:hidden"
         ></div>
         <div
           aria-hidden="true"
-          class="from-background/20 dark:from-background/60 absolute inset-0 z-11 bg-gradient-to-l"
-        ></div>
-        <div
-          aria-hidden="true"
-          class="absolute inset-0 z-2 size-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,transparent_40%,var(--color-background)_100%)]"
-        ></div>
-        <div
-          aria-hidden="true"
-          class="absolute inset-0 z-2 size-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,transparent_40%,var(--color-background)_100%)]"
+          class="absolute inset-0 z-11 hidden bg-[url(/hero-overlay-dark.svg)] bg-no-repeat [background-size:100%_100%] dark:block"
         ></div>
         <div class="mt-8 mb-8 grid">
           {#each cardImages as image, index}
