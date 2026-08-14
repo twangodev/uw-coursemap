@@ -7,7 +7,7 @@
 
   const DISPLAY_DURATION = 5000;
 
-  const cardImages = ["/compsci-300.png", "/compsci-graph.png"];
+  const cardImages = ["/compsci-300.webp", "/compsci-graph.webp"];
 
   let i = $state(0);
 
@@ -22,9 +22,7 @@
   });
 
   function toDarkVariant(url: string): string {
-    return url.endsWith(".png")
-      ? url.slice(0, -4) + "-dark.png"
-      : url.replace(/\.\w+$/, "") + "-dark.png";
+    return url.replace(/\.\w+$/, "") + "-dark.webp";
   }
 
   const slideParams: SlideParams = {
@@ -72,15 +70,15 @@
                 class="relative z-1 rounded-(--radius) dark:hidden"
                 src={cardImages[i]}
                 alt="Preview"
-                width="3840"
-                height="2160"
+                width="1920"
+                height="1080"
               />
               <img
                 class="relative z-1 hidden rounded-(--radius) dark:block"
                 src={toDarkVariant(cardImages[i])}
                 alt="Preview"
-                width="3840"
-                height="2160"
+                width="1920"
+                height="1080"
               />
             </div>
           {/key}
