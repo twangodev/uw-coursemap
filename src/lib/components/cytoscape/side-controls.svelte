@@ -15,14 +15,26 @@
   import { LayoutType } from "$lib/components/cytoscape/graph-layout.ts";
   import { m } from "$lib/paraglide/messages";
 
-  let {
-    elementsAreDraggable = $bindable<boolean>(),
-    layoutType = $bindable<LayoutType>(),
-    layoutRecompute = () => void LayoutType,
-    showCodeLabels = $bindable<boolean>(),
-    cy,
-  } = $props();
+  interface Props {
+    onzoomin?: (event: { delta: number }) => void;
+    onzoomout?: (event: { delta: number }) => void;
+    onlayoutchange?: () => void;
+    ondraggablechange?: () => void;
+    onlabelchange?: () => void;
+  }
 
+  let {
+    onzoomin,
+    onzoomout,
+    onlayoutchange,
+    ondraggablechange,
+    onlabelchange,
+  }: Props = $props();
+
+  // Internal state
+  let elementsAreDraggable = $state(false);
+  let layoutType = $state<LayoutType>(LayoutType.LAYERED);
+  let showCodeLabels = $state(true);
   let isFullscreen = $state(false);
 
   const toggleFullscreen = () => {
@@ -36,15 +48,16 @@
   };
 
   const zoomIn = () => {
-    cy?.zoom(cy.zoom() + 0.1);
+    onzoomin?.({ delta: 0.1 });
   };
 
   const zoomOut = () => {
-    cy?.zoom(cy.zoom() - 0.1);
+    onzoomout?.({ delta: -0.1 });
   };
 
   const toggleDraggableElements = () => {
     elementsAreDraggable = !elementsAreDraggable;
+    ondraggablechange?.();
   };
 
   const toggleLayoutType = () => {
@@ -52,12 +65,26 @@
       layoutType === LayoutType.GROUPED
         ? LayoutType.LAYERED
         : LayoutType.GROUPED;
-    layoutRecompute(layoutType);
+    onlayoutchange?.();
   };
 
   const toggleShowCodeLabels = () => {
     showCodeLabels = !showCodeLabels;
+    onlabelchange?.();
   };
+
+  // Public API
+  export function getShowCodeLabels() {
+    return showCodeLabels;
+  }
+
+  export function getLayoutType() {
+    return layoutType;
+  }
+
+  export function getElementsAreDraggable() {
+    return elementsAreDraggable;
+  }
 </script>
 
 <div class="absolute right-4 bottom-4 flex flex-col space-y-2">

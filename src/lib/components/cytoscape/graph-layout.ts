@@ -13,7 +13,7 @@ export enum LayoutType {
 }
 
 export async function generateLayeredLayout(
-  focus: string | null,
+  animate: boolean,
   courseData: ElementDefinition[],
   labelIsCode: boolean,
 ): Promise<LayoutOptions> {
@@ -64,7 +64,7 @@ export async function generateLayeredLayout(
         },
       ]),
     ),
-    animate: !focus,
+    animate: animate,
     animationDuration: 1000,
     animationEasing: "ease-in-out",
     zoom: undefined, // the zoom level to set (prob want fit = false if set)
@@ -74,11 +74,11 @@ export async function generateLayeredLayout(
   };
 }
 
-export function generateFcoseLayout(focus: string | null) {
+export function generateFcoseLayout(animate: boolean) {
   return {
     name: "fcose",
     quality: "proof", // 'draft', 'default' or 'proof'
-    animate: !focus, // Whether to animate the layout
+    animate: animate, // Whether to animate the layout
     animationDuration: 1000, // Duration of the animation in milliseconds
     animationEasing: "ease-in-out", // Easing of the animation
     fit: true, // Whether to fit the viewport to the graph
