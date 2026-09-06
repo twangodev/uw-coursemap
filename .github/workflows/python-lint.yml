@@ -12,10 +12,16 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        directory: [generation, search]
+        include:
+          - name: generation
+            project: .
+            source: generation
+          - name: search
+            project: search
+            source: .
     defaults:
       run:
-        working-directory: ./${{ matrix.directory }}
+        working-directory: ${{ matrix.project }}
     steps:
       - uses: actions/checkout@v6
       
@@ -29,14 +35,14 @@ jobs:
           version: "latest"
       
       - name: Install Dependencies
-        run: uv sync --dev
+        run: uv sync --locked --dev
       
       - name: Run Ruff Format Check
-        run: uv run ruff format --check .
+        run: uv run ruff format --check ${{ matrix.source }}
       
       - name: Run Ruff Linter
-        run: uv run ruff check .
+        run: uv run ruff check ${{ matrix.source }}
 
       - name: Run pipeline regression tests
-        if: matrix.directory == 'generation'
-        run: uv run python -m unittest discover -s tests -v
+        if: matrix.name == 'generation'
+        run: uv run python -m unittest discover -s generation/tests -v

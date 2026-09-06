@@ -1,7 +1,7 @@
 # Local pipeline
 
-Run from `generation/` with Python 3.12 and `uv sync --locked`.
-The existing `uv run python main.py --step all` workflow remains available during migration.
+Run from the project root with Python 3.12 and `uv sync --locked`.
+The existing `uv run python generation/main.py --step all` workflow remains available during migration.
 
 ```sh
 export COURSEMAP_WORKSPACE=/path/to/persistent/coursemap
@@ -78,7 +78,7 @@ GitHub Actions scrape.
 ## Tests
 
 ```sh
-uv run python -m unittest discover -s tests -v
-uv run ruff check .
-uv run ruff format --check .
+uv run python -m unittest discover -s generation/tests -v
+uv run ruff check generation
+uv run ruff format --check generation
 ```

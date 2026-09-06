@@ -2,6 +2,7 @@
 name = "uw-coursemap-generation"
 version = "0.1.0"
 description = "UW Course Map Data Generation Service"
+readme = "generation/README.md"
 requires-python = "==3.12.*"
 dependencies = [
     "scrapy>=2.18,<3",
@@ -49,8 +50,9 @@ build-backend = "setuptools.build_meta"
 coursemap = "uw_coursemap.cli:main"
 
 [tool.setuptools]
+package-dir = {"" = "generation"}
 packages = ["uw_coursemap"]
 py-modules = ["aggregate", "aio_cache", "building_aggregator", "building_loader", "cache", "color", "course", "cytoscape", "embeddings", "enrollment", "enrollment_data", "http_utils", "instructors", "json_serializable", "madgrades", "main", "map", "meeting_data_loader", "meeting_processor", "name_matcher", "request_util", "requirement_ast", "safe_parse", "sanitization", "save", "sitemap_generation", "spatial_query", "timer", "webscrape"]
 
 [tool.setuptools.data-files]
-"share/uw-coursemap" = ["osm.geojson"]
+"share/uw-coursemap" = ["generation/osm.geojson"]

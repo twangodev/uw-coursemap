@@ -5,6 +5,9 @@ on:
       - main
     paths:
       - "generation/**"
+      - "pyproject.toml"
+      - "uv.lock"
+      - "MANIFEST.in"
   workflow_dispatch:
   schedule:
     - cron: "0 0 * * 0"
@@ -17,9 +20,6 @@ jobs:
   generate:
     name: Generate Data
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./generation
     permissions:
       contents: read
     steps:
@@ -34,7 +34,7 @@ jobs:
         with:
           version: "latest"
       - name: Install Dependencies
-        run: uv sync
+        run: uv sync --locked
       - name: Setup Cache Environment
         run: echo "cache_id=$(date --utc '+%U')" >> $GITHUB_ENV
       - name: Cache Generation
@@ -43,9 +43,9 @@ jobs:
           path: generation/.cache
           key: generation-${{ runner.os }}-${{ env.cache_id }}
       - name: Generate Data
-        run: uv run python main.py --step all
+        run: uv run --locked python generation/main.py --step all --cache_dir generation/.cache
         env:
-          DATA_DIR: "../data"
+          DATA_DIR: "./data"
           SITEMAP_BASE: ${{ vars.BASE_URL }}
           MADGRADES_API_KEY: ${{ secrets.MADGRADES_API_KEY }}
       - name: Upload Data
