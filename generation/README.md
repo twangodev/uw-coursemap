@@ -155,6 +155,11 @@ No Cloudflare deployment is activated here. Before merging, retire or reconfigur
 the legacy hosted GitHub Actions scrape; it cannot reach local inference servers.
 Older combined runs can still resume with their original checkout and configuration.
 
+Instructor reconciliation indexes parsed names by exact normalized surname, then
+uses up to 24 CPU processes in batches of 256. Set `COURSEMAP_NAME_WORKERS` to
+change the worker count. A single writer checkpoints results; cache keys include
+the candidate roster, and ties use stable candidate ordering.
+
 ## One-time backfill
 
 ```sh

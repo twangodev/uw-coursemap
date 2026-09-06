@@ -473,31 +473,37 @@ async def merge_instructors(
                 for instr in term_data.grade_data.instructors:
                     instructor_appearances[instr].append((course_ref, term))
 
-    tasks = [
-        asyncio.to_thread(
-            generate_instructor_merge_diff,
-            inst,
-            instructors,
-            instructor_appearances,
-            cache_dir,
-        )
-        for inst in additional_instructors
-    ]
+    from name_matcher import iter_name_matches
+    from uw_coursemap.models import digest
 
-    all_diffs = await tqdm.gather(
-        *tasks, desc="Generate Instructor Diff", unit="instructor"
-    )
-
-    for difflist in tqdm(all_diffs, desc="Merge Instructor Diff", unit="diff"):
-        for diff in difflist:
-            if diff["type"] == "add_instructor":
-                instructors[diff["instructor"]] = None
-            elif diff["type"] == "replace_in_course":
-                cr = diff["course_ref"]
-                term = diff["term"]
-                gd = course_ref_to_course[cr].term_data[term].grade_data
-                gd.instructors.remove(diff["old"])
-                gd.instructors.add(diff["new"])
+    # Stable ordering preserves reproducible tie-breaking. Candidate identity is
+    # part of the cache key so changed rosters cannot reuse stale matches.
+    candidates = sorted(instructors)
+    cache = get_match_cache(cache_dir)
+    prefix = "indexed-v1:" + digest(candidates) + ":"
+    matches, pending = {}, []
+    for name in sorted(additional_instructors):
+        value = cache.get(prefix + name, default=null_sentinel)
+        if value is null_sentinel:
+            pending.append(name)
+        else:
+            matches[name] = value
+    for name, match in tqdm(
+        iter_name_matches(pending, candidates),
+        total=len(pending),
+        desc="Match instructor names",
+        unit="instructor",
+    ):
+        matches[name] = match
+        cache.set(prefix + name, match)
+    for instructor, match in matches.items():
+        if match and match != instructor:
+            for course_ref, term in instructor_appearances.get(instructor, []):
+                grades = course_ref_to_course[course_ref].term_data[term].grade_data
+                grades.instructors.remove(instructor)
+                grades.instructors.add(match)
+        elif match is None:
+            instructors[instructor] = None
 
 
 async def sem_get_rating(sem: asyncio.Semaphore, name, api_key, session):

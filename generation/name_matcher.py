@@ -289,3 +289,76 @@ def find_best_structured_match(
     return MatchResult(
         matched_item=best_match, confidence=best_score, matched_name=matched_name
     )
+
+
+class NameIndex:
+    """Parse candidates once and index the existing exact-surname rule."""
+
+    def __init__(self, candidates):
+        self.by_last = {}
+        for candidate in candidates:
+            first, last = parse_name(candidate)
+            self.by_last.setdefault(last, []).append((candidate, first))
+
+    def match(self, query, threshold=80.0):
+        first, last = parse_name(query)
+        if not first or not last:
+            return MatchResult(None, 0.0)
+        best, score = None, 0.0
+        for candidate, candidate_first in self.by_last.get(last, ()):
+            value = calculate_name_match_score(first, last, candidate_first, last, True)
+            if value > score:
+                best, score = candidate, value
+        if best is None or score < threshold:
+            return MatchResult(None, score)
+        return MatchResult(best, score, best)
+
+
+_worker_name_index = None
+
+
+def _initialize_name_worker(candidates):
+    global _worker_name_index
+    _worker_name_index = NameIndex(candidates)
+
+
+def _match_name_batch(queries):
+    return [(query, _worker_name_index.match(query).matched_item) for query in queries]
+
+
+def iter_name_matches(queries, candidates, workers=None):
+    """Bound CPU processes; return results to a single checkpoint writer."""
+    import multiprocessing
+    import os
+    from concurrent.futures import ProcessPoolExecutor
+
+    queries = list(queries)
+    available = (
+        len(os.sched_getaffinity(0))
+        if hasattr(os, "sched_getaffinity")
+        else (os.cpu_count() or 1)
+    )
+    workers = (
+        workers
+        if workers is not None
+        else int(os.environ.get("COURSEMAP_NAME_WORKERS", min(24, available)))
+    )
+    if not 1 <= workers <= available:
+        raise ValueError(f"Name workers must be between 1 and {available}")
+    if not queries:
+        return
+    batches = [queries[offset : offset + 256] for offset in range(0, len(queries), 256)]
+    workers = min(workers, len(batches))
+    if workers == 1:
+        index = NameIndex(candidates)
+        for query in queries:
+            yield query, index.match(query).matched_item
+        return
+    with ProcessPoolExecutor(
+        max_workers=workers,
+        mp_context=multiprocessing.get_context("spawn"),
+        initializer=_initialize_name_worker,
+        initargs=(candidates,),
+    ) as pool:
+        for results in pool.map(_match_name_batch, batches):
+            yield from results
