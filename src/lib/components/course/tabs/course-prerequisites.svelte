@@ -1,6 +1,7 @@
 <script lang="ts">
   import {
     type Course,
+    type CourseReference,
     CourseUtils,
   } from "$lib/types/course.js";
   import {
@@ -16,6 +17,8 @@
   import type { ElementDefinition } from "cytoscape";
   import type { StyleEntry } from "$lib/components/cytoscape/graph-styles.ts";
   import { m } from "$lib/paraglide/messages";
+  import { filterElementsByRootCourse } from "$lib/components/cytoscape/cytoscape-init";
+  import { takenCoursesStore } from "$lib/takenCoursesStore";
 
   interface Props {
     course: Course;
@@ -28,6 +31,17 @@
     prerequisiteElementDefinitions,
     prerequisiteStyleEntries,
   }: Props = $props();
+
+  const takenCourses = $derived($takenCoursesStore.map((course: CourseReference) => {
+      return CourseUtils.courseReferenceToString(course);
+  }));
+
+  const eleDefs = $derived(filterElementsByRootCourse(
+    prerequisiteElementDefinitions,
+    course.course_reference,
+    takenCourses
+  ));
+
 </script>
 
 <Card class="flex h-[600px] flex-col">
@@ -60,9 +74,8 @@
     <div class="flex h-full w-full">
       {#key course}
         <Cytoscape
-          elementDefinitions={prerequisiteElementDefinitions}
+          elementDefinitions={eleDefs}
           styleEntries={prerequisiteStyleEntries}
-          filter={course}
           allowFocusing={false}
         />
       {/key}
