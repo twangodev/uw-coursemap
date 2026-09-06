@@ -118,11 +118,13 @@ def get_model(cache_dir):
         logger.info("Loading model...")
         model = SentenceTransformer(
             model_name_or_path="avsolatorio/GIST-large-Embedding-v0",
+            revision=environ.get("COURSEMAP_EMBEDDING_REVISION"),
             cache_folder=model_cache_dir,
             trust_remote_code=True,
             device=device,
         )
 
+        model.pipeline_revision = environ.get("COURSEMAP_EMBEDDING_REVISION")
         initialized_model = model
         return model
 
@@ -155,10 +157,12 @@ def get_keyword_model(cache_dir):
         logger.info("Loading keyword extraction model...")
         model = SentenceTransformer(
             model_name_or_path="all-MiniLM-L6-v2",
+            revision=environ.get("COURSEMAP_KEYWORD_REVISION"),
             cache_folder=model_cache_dir,
             device=device,
         )
 
+        model.pipeline_revision = environ.get("COURSEMAP_KEYWORD_REVISION")
         return model
 
 

@@ -457,6 +457,11 @@ class MadgradesData:
                 )
             logger.error(f"Failed to fetch Madgrades data from {url}: {e}")
 
+        return cls.from_response(data)
+
+    @classmethod
+    def from_response(cls, data):
+        """Parse an archived or freshly fetched Madgrades response."""
         cumulative = GradeData.from_madgrades(data["cumulative"])
         course_offerings = data["courseOfferings"]
 

@@ -42,3 +42,10 @@ src/paraglide/
 
 # Paraglide
 src/lib/paraglide
+
+# Local scraping runs and packaging
+.coursemap/
+generation/.venv/
+generation/*.egg-info/
+generation/build/
+generation/dist/

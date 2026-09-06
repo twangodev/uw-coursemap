@@ -329,7 +329,7 @@ def scrape_rmp_api_key():
         logger.debug(response.text)
         raise RuntimeError("Failed to scrape the RMP API key from the response.")
 
-    logger.info(f"Scraped RMP API key: {graphql_auth}")
+    logger.info("Loaded RMP API authentication")
 
     return graphql_auth
 
@@ -337,7 +337,12 @@ def scrape_rmp_api_key():
 def get_faculty():
     response = requests.get(faculty_url, headers=get_default_headers())
 
-    soup = BeautifulSoup(response.content, "html.parser")
+    return parse_faculty(response.content)
+
+
+def parse_faculty(content):
+    """Parse faculty records without performing a request."""
+    soup = BeautifulSoup(content, "html.parser")
     uw_people_lists = soup.find_all("ul", class_="uw-people")
 
     faculty = {}

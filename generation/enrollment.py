@@ -268,9 +268,6 @@ async def process_hit(
         return None
 
     logger.debug(f"Processing course: {course_ref} ({i + 1}/{course_count})")
-    course = course_ref_to_course[course_ref]
-    enrollment_data = EnrollmentData.from_enrollment(hit, terms)
-
     subject_code = hit["subject"]["subjectCode"]
     course_id = hit["courseId"]
     enrollment_package_url = build_enrollment_package_base_url(
@@ -299,6 +296,29 @@ async def process_hit(
                 attempts - 1,
             )
         return None
+
+    return apply_enrollment(hit, data, selected_term, terms, course_ref_to_course)
+
+
+def apply_enrollment(hit, data, selected_term, terms, course_ref_to_course):
+    """Parse an already fetched enrollment package without network access."""
+    course_code = int(hit["catalogNumber"])
+    if len(hit["allCrossListedSubjects"]) > 1:
+        enrollment_subjects = hit["allCrossListedSubjects"]
+    else:
+        enrollment_subjects = [hit["subject"]]
+
+    subjects = {
+        subject["shortDescription"].replace(" ", "") for subject in enrollment_subjects
+    }
+    course_ref = Course.Reference(subjects, course_code)
+
+    if course_ref not in course_ref_to_course:
+        logger.debug(f"Skipping unknown course: {course_ref}")
+        return None
+
+    course = course_ref_to_course[course_ref]
+    enrollment_data = EnrollmentData.from_enrollment(hit, terms)
 
     course_instructors = {}
     course_meetings = set()

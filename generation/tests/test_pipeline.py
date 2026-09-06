@@ -1,0 +1,498 @@
+import gzip
+import hashlib
+import json
+from pathlib import Path
+import sqlite3
+import tempfile
+import unittest
+from types import SimpleNamespace
+
+import pyarrow.parquet as pq
+from scrapy.http import Request, Response
+
+from uw_coursemap.models import canonical
+from uw_coursemap.store import SOURCES, Store
+from uw_coursemap.spiders import (
+    CatalogSpider,
+    EnrollmentSpider,
+    MadgradesSpider,
+    InstructorSpider,
+)
+from uw_coursemap.release import (
+    validate,
+    write_database,
+    write_parquet,
+    verify_release,
+    publish,
+)
+from uw_coursemap.derive import reconcile, encode_state
+
+FIXTURES = Path(__file__).parent / "fixtures"
+
+
+def response(url, body):
+    if isinstance(body, (dict, list)):
+        body = json.dumps(body).encode()
+    if isinstance(body, str):
+        body = body.encode()
+    return Response(url, body=body, request=Request(url))
+
+
+def grade_response():
+    cumulative = {
+        key: 0
+        for key in [
+            "total",
+            "aCount",
+            "abCount",
+            "bCount",
+            "bcCount",
+            "cCount",
+            "dCount",
+            "fCount",
+            "sCount",
+            "uCount",
+            "crCount",
+            "nCount",
+            "pCount",
+            "iCount",
+            "nwCount",
+            "nrCount",
+            "otherCount",
+        ]
+    }
+    cumulative.update(total=5, aCount=5)
+    return {
+        "cumulative": cumulative,
+        "courseOfferings": [
+            {
+                "termCode": 1272,
+                "cumulative": cumulative,
+                "sections": [{"instructors": [{"name": "Jane Example"}]}],
+            }
+        ],
+    }
+
+
+def enrollment_hit():
+    subject = {
+        "shortDescription": "COMP SCI",
+        "subjectCode": "266",
+        "schoolCollege": {
+            "shortDescription": "Letters and Science",
+            "academicOrgCode": "L&S",
+            "schoolCollegeURI": "https://ls.wisc.edu",
+        },
+    }
+    return {
+        "catalogNumber": "300",
+        "courseId": "123",
+        "subject": subject,
+        "allCrossListedSubjects": [subject],
+        "lastTaught": "1272",
+        "typicallyOffered": "Fall",
+        "minimumCredits": 3,
+        "maximumCredits": 3,
+        "generalEd": None,
+        "ethnicStudies": None,
+    }
+
+
+def enrollment_sections():
+    return [
+        {
+            "sections": [
+                {
+                    "type": "LEC",
+                    "sectionNumber": "001",
+                    "startDate": 1788238800000,
+                    "endDate": 1788238800000,
+                    "instructors": [
+                        {
+                            "name": {"first": "Jane", "last": "Example"},
+                            "email": "jane@example.edu",
+                        }
+                    ],
+                    "enrollmentStatus": {"currentlyEnrolled": 10, "capacity": 20},
+                    "classMeetings": [
+                        {
+                            "meetingDaysList": ["TUESDAY"],
+                            "meetingType": "CLASS",
+                            "meetingTimeStart": 54000000,
+                            "meetingTimeEnd": 57600000,
+                            "building": None,
+                        }
+                    ],
+                }
+            ]
+        }
+    ]
+
+
+class PipelineTests(unittest.TestCase):
+    def setUp(self):
+        self.directory = tempfile.TemporaryDirectory()
+        self.store = Store(self.directory.name)
+        self.run = self.store.new_run(
+            "1272", {"code_hash": "test", "sitemap_base": "https://uwcourses.com"}
+        )
+
+    def tearDown(self):
+        self.store.close()
+        self.directory.cleanup()
+
+    def seed(self, run=None):
+        run = run or self.run
+        spider = CatalogSpider(store=self.store, run=run)
+        for row in spider.department(
+            response(
+                "https://guide.wisc.edu/courses/comp_sci/",
+                (FIXTURES / "catalog.html").read_bytes(),
+            )
+        ):
+            self.store.put(run, "catalog", row)
+        for source in ("madgrades", "enrollment"):
+            self.store.put(
+                run,
+                source,
+                {
+                    "kind": "terms",
+                    "key": "1272",
+                    "payload": {"name": "Fall 2026"},
+                    "source_url": "https://example.org/terms",
+                },
+            )
+        spider = MadgradesSpider(store=self.store, run=run)
+        for row in spider.grades(
+            response("https://api.madgrades.com/v1/courses/1/grades", grade_response()),
+            {"subjects": ["COMPSCI"], "course_number": 300},
+            "1",
+        ):
+            self.store.put(run, "madgrades", row)
+        spider = EnrollmentSpider(store=self.store, run=run)
+        for row in spider.package(
+            response("https://public.enroll.wisc.edu/packages", enrollment_sections()),
+            enrollment_hit(),
+            {"subjects": ["COMPSCI"], "course_number": 300},
+        ):
+            self.store.put(run, "enrollment", row)
+        spider = InstructorSpider(store=self.store, run=run)
+        for row in spider.faculty(
+            response(
+                "https://guide.wisc.edu/faculty/",
+                (FIXTURES / "faculty.html").read_bytes(),
+            )
+        ):
+            self.store.put(run, "instructors", row)
+        self.store.put(
+            run,
+            "instructors",
+            {
+                "kind": "ratings",
+                "key": "Jane Example",
+                "payload": {"name": "Jane Example", "candidates": []},
+                "source_url": "https://www.ratemyprofessors.com/graphql",
+            },
+        )
+        for source in SOURCES:
+            self.store.stage(run, source, "complete")
+        state = encode_state(*reconcile(self.store, run))
+        self.store.artifact(run, "graph", state, self.store.input_hash(run), {})
+        self.store.stage(run, "derive", "complete")
+        return state
+
+    def test_history_and_current_view_ignore_incomplete_run(self):
+        self.seed()
+        self.store.finish(self.run)
+        later = self.store.new_run("1274", {})
+        self.seed(later)
+        self.store.db.execute(
+            "UPDATE observations SET payload_json=json_set(payload_json,'$.course_title','CHANGED') WHERE run_id=? AND kind='courses'",
+            (later,),
+        )
+        self.store.db.commit()
+        self.assertEqual(
+            self.store.db.execute("SELECT title FROM current_courses").fetchone()[0],
+            "PROGRAMMING II",
+        )
+        self.store.finish(later)
+        self.assertEqual(
+            self.store.db.execute("SELECT title FROM current_courses").fetchone()[0],
+            "CHANGED",
+        )
+        self.assertEqual(
+            self.store.db.execute("SELECT count(*) FROM courses").fetchone()[0], 2
+        )
+
+    def test_duplicate_replay_is_idempotent(self):
+        self.seed()
+        before = self.store.input_hash(self.run)
+        self.seed()
+        self.assertEqual(before, self.store.input_hash(self.run))
+        self.assertEqual(len(self.store.records(self.run, "courses")), 1)
+
+    def test_invalid_item_does_not_modify_database(self):
+        with self.assertRaises(ValueError):
+            self.store.put(
+                self.run,
+                "catalog",
+                {
+                    "kind": "courses",
+                    "key": "bad",
+                    "payload": {},
+                    "source_url": "https://example.org",
+                },
+            )
+        self.assertEqual(self.store.records(self.run, "courses"), {})
+
+    def test_malformed_source_pages_fail(self):
+        catalog = CatalogSpider(store=self.store, run=self.run)
+        with self.assertRaises(ValueError):
+            list(
+                catalog.department(
+                    response("https://guide.wisc.edu", "<h1>Unavailable</h1>")
+                )
+            )
+        with self.assertRaises(ValueError):
+            list(
+                catalog.sitemap(
+                    response("https://guide.wisc.edu/sitemap.xml", "<urlset/>")
+                )
+            )
+        enrollment = EnrollmentSpider(store=self.store, run=self.run)
+        with self.assertRaises(ValueError):
+            list(
+                enrollment.hits(
+                    response(
+                        "https://public.enroll.wisc.edu", {"found": 3, "hits": []}
+                    ),
+                    1,
+                )
+            )
+
+    def test_missing_source_or_reference_blocks_release(self):
+        self.seed()
+        validate(self.store, self.run)
+        self.store.stage(self.run, "instructors", "failed")
+        with self.assertRaisesRegex(ValueError, "incomplete"):
+            validate(self.store, self.run)
+        self.store.stage(self.run, "instructors", "complete")
+        self.store.db.execute("DELETE FROM observations WHERE kind='subjects'")
+        self.store.db.commit()
+        with self.assertRaisesRegex(ValueError, "missing subject"):
+            validate(self.store, self.run)
+
+    def test_reconciliation_and_relational_export(self):
+        state = self.seed()
+        self.assertEqual(
+            state["courses"]["COMPSCI 300"]["term_data"]["1272"]["grade_data"]["total"],
+            5,
+        )
+        self.assertEqual(len(state["instructors"]), 1)
+        self.assertTrue(state["meetings"]["COMPSCI 300"])
+        validate(self.store, self.run, derived=True)
+        db_path = Path(self.directory.name) / "public.sqlite"
+        write_database(self.store, self.run, db_path)
+        counts = write_parquet(db_path, Path(self.directory.name) / "tables")
+        db = sqlite3.connect(db_path)
+        self.assertEqual(db.execute("PRAGMA foreign_key_check").fetchall(), [])
+        self.assertEqual(
+            db.execute("SELECT name FROM current_instructors").fetchone()[0],
+            "Jane Example",
+        )
+        self.assertNotIn("responses", counts)
+        self.assertNotIn("stages", counts)
+        for table, count in counts.items():
+            data = pq.read_table(
+                Path(self.directory.name) / "tables" / f"{table}.parquet"
+            )
+            self.assertEqual(data.num_rows, count)
+            columns = data.column_names
+            expected = [
+                dict(zip(columns, row))
+                for row in db.execute(f"SELECT * FROM {table} ORDER BY rowid")
+            ]
+            self.assertEqual(data.to_pylist(), expected)
+        db.close()
+
+    def release(self, files=1):
+        self.store.finish(self.run)
+        root = self.store.root / "releases" / self.run
+        root.mkdir(parents=True)
+        metadata = {}
+        for i in range(files):
+            content = str(i).encode()
+            name = f"{i}.json"
+            (root / name).write_bytes(content)
+            metadata[name] = {
+                "bytes": len(content),
+                "sha256": hashlib.sha256(content).hexdigest(),
+            }
+        (root / "manifest.json").write_text(
+            canonical(
+                {
+                    "files": metadata,
+                    "input_hash": self.store.input_hash(self.run),
+                    "run_id": self.run,
+                }
+            )
+        )
+        return root
+
+    def test_corruption_blocks_publication_before_network(self):
+        root = self.release()
+        (root / "0.json").write_text("corrupt")
+        with self.assertRaisesRegex(ValueError, "checksum"):
+            verify_release(root)
+
+    def test_failed_upload_does_not_activate_and_resumes(self):
+        root = self.release(110)
+        api = FakeHub(root)
+        api.fail_on_commit = 2
+        with self.assertRaisesRegex(RuntimeError, "interrupted"):
+            publish(self.store, self.run, "owner/data", api, api.download)
+        self.assertFalse(api.tags)
+        self.assertNotIn("latest.json", api.files["main"])
+        self.assertEqual(len(api.files["runs/" + self.run]), 100)
+        api.fail_on_commit = None
+        result = publish(self.store, self.run, "owner/data", api, api.download)
+        self.assertIn(result["tag"], api.tags)
+        self.assertIn("latest.json", api.files["main"])
+        self.assertEqual(api.added_counts, [100, 11, 1])
+        self.assertEqual(
+            result, publish(self.store, self.run, "owner/data", api, api.download)
+        )
+
+    def test_concurrent_publication_does_not_replace_latest(self):
+        root = self.release()
+        api = FakeHub(root)
+        api.change_main = True
+        with self.assertRaisesRegex(ValueError, "main changed"):
+            publish(self.store, self.run, "owner/data", api, api.download)
+        self.assertNotIn("latest.json", api.files["main"])
+
+    def test_real_scrapy_offline_resume(self):
+        from scrapy.settings import Settings
+        from uw_coursemap.crawl import ArchiveMiddleware
+        from uw_coursemap.cli import execute_source
+
+        crawler = SimpleNamespace(
+            pipeline_store=self.store,
+            settings=Settings({"PIPELINE_RUN": self.run, "PIPELINE_SOURCE": "catalog"}),
+            signals=SimpleNamespace(connect=lambda *a, **kw: None),
+        )
+        archive = ArchiveMiddleware(crawler)
+        for url, content in {
+            "https://guide.wisc.edu/robots.txt": "User-agent: *\nAllow: /\n",
+            "https://guide.wisc.edu/sitemap.xml": "<urlset><url><loc>https://guide.wisc.edu/courses/comp_sci/</loc></url></urlset>",
+            "https://guide.wisc.edu/courses/comp_sci/": (
+                FIXTURES / "catalog.html"
+            ).read_text(),
+        }.items():
+            request = Request(url)
+            archive.process_response(
+                request, Response(url, body=content.encode(), request=request)
+            )
+        execute_source(self.store, self.run, "catalog", offline=True)
+        first = self.store.input_hash(self.run)
+        execute_source(self.store, self.run, "catalog", offline=True)
+        self.assertEqual(self.store.input_hash(self.run), first)
+        self.assertEqual(len(self.store.records(self.run, "courses")), 1)
+
+    def test_completed_run_is_immutable(self):
+        self.seed()
+        self.store.finish(self.run)
+        with self.assertRaisesRegex(ValueError, "immutable"):
+            self.store.reset_source(self.run, "catalog")
+
+    def test_archive_reuses_body_without_request_credentials(self):
+        from scrapy.settings import Settings
+        from uw_coursemap.crawl import ArchiveMiddleware
+
+        crawler = SimpleNamespace(
+            pipeline_store=self.store,
+            settings=Settings({"PIPELINE_RUN": self.run, "PIPELINE_SOURCE": "catalog"}),
+            signals=SimpleNamespace(connect=lambda *a, **kw: None),
+        )
+        middleware = ArchiveMiddleware(crawler)
+        request = Request(
+            "https://example.org/course", headers={"Authorization": "secret"}
+        )
+        fetched = Response(
+            request.url,
+            body=b"course data",
+            headers={"Content-Type": "text/html"},
+            request=request,
+        )
+        middleware.process_response(request, fetched)
+        cached = middleware.process_request(request)
+        self.assertEqual(cached.body, b"course data")
+        row = self.store.db.execute("SELECT * FROM responses").fetchone()
+        self.assertNotIn("secret", str(tuple(row)))
+        self.assertEqual(
+            gzip.decompress((self.store.root / "raw" / row["body_hash"]).read_bytes()),
+            b"course data",
+        )
+        middleware.failed(None, fetched, None)
+        self.assertIsNone(middleware.process_request(request))
+
+
+class FakeHub:
+    def __init__(self, root):
+        self.root = root
+        self.files = {"main": {}}
+        self.heads = {"main": "base"}
+        self.tags = {}
+        self.commits = 0
+        self.added_counts = []
+        self.fail_on_commit = None
+        self.change_main = False
+
+    def create_repo(self, **kw):
+        pass
+
+    def create_branch(self, branch, **kw):
+        self.files.setdefault(branch, dict(self.files["main"]))
+        self.heads.setdefault(branch, "base")
+
+    def repo_info(self, revision, **kw):
+        return SimpleNamespace(sha=self.heads[revision])
+
+    def branch_for(self, revision):
+        return (
+            revision
+            if revision in self.files
+            else next(k for k, v in self.heads.items() if v == revision)
+        )
+
+    def list_repo_files(self, revision, **kw):
+        return list(self.files[self.branch_for(revision)])
+
+    def create_commit(self, revision, parent_commit, operations, **kw):
+        self.commits += 1
+        if self.commits == self.fail_on_commit:
+            raise RuntimeError("interrupted upload")
+        assert parent_commit == self.heads[revision]
+        for op in operations:
+            content = op.path_or_fileobj
+            self.files[revision][op.path_in_repo] = (
+                content if isinstance(content, bytes) else Path(content).read_bytes()
+            )
+        self.added_counts.append(len(operations))
+        self.heads[revision] = f"commit{self.commits}"
+        if self.change_main and revision != "main":
+            self.heads["main"] = "concurrent"
+        return SimpleNamespace(oid=self.heads[revision])
+
+    def create_tag(self, tag, revision, **kw):
+        self.tags[tag] = revision
+
+    def download(self, repo, path, revision, **kw):
+        content = self.files[self.branch_for(revision)][path]
+        output = self.root.parent / "download"
+        output.write_bytes(content)
+        return output
+
+
+if __name__ == "__main__":
+    unittest.main()

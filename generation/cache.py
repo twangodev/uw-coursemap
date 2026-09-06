@@ -247,6 +247,10 @@ def get_model_name_for_cache(model):
     if not model_name:
         model_name = "unknown_model"
 
+    revision = getattr(model, "pipeline_revision", None)
+    if revision:
+        model_name = f"{model_name}@{revision}"
+
     # Sanitize the model name for use in file paths
     sanitized_name = (
         model_name.replace("/", "_")

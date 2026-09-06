@@ -1,0 +1,160 @@
+"""Scrapy integration. Successful responses survive process interruption."""
+
+import gzip
+import hashlib
+import uuid
+
+from scrapy import signals
+from scrapy.crawler import CrawlerProcess
+from scrapy.http import Response
+from scrapy.utils.request import fingerprint
+
+from .store import Store, now
+
+
+class ArchiveMiddleware:
+    def __init__(self, crawler):
+        self.crawler = crawler
+        self.store = crawler.pipeline_store
+        self.run = crawler.settings.get("PIPELINE_RUN")
+        self.source = crawler.settings.get("PIPELINE_SOURCE")
+        self.directory = self.store.root / "raw"
+        self.directory.mkdir(exist_ok=True)
+        crawler.signals.connect(self.failed, signal=signals.spider_error)
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        return cls(crawler)
+
+    def process_request(self, request):
+        row = self.store.db.execute(
+            "SELECT * FROM responses WHERE run_id=? AND source=? AND fingerprint=?",
+            (self.run, self.source, fingerprint(request).hex()),
+        ).fetchone()
+        if row:
+            body = gzip.decompress((self.directory / row["body_hash"]).read_bytes())
+            if hashlib.sha256(body).hexdigest() != row["body_hash"]:
+                raise ValueError("Archived response checksum mismatch")
+            return Response(
+                row["url"],
+                status=row["status"],
+                body=body,
+                headers={"Content-Type": row["content_type"]},
+                request=request,
+                flags=["archived"],
+            )
+        if self.crawler.settings.getbool("PIPELINE_OFFLINE"):
+            raise RuntimeError(f"No saved response for {request.url}")
+        return None
+
+    def process_response(self, request, response):
+        if response.status == 200 and "archived" not in response.flags:
+            body_hash = hashlib.sha256(response.body).hexdigest()
+            path = self.directory / body_hash
+            if not path.exists():
+                temporary = path.with_suffix(".tmp")
+                temporary.write_bytes(gzip.compress(response.body, mtime=0))
+                temporary.replace(path)
+            with self.store.db:
+                self.store.db.execute(
+                    "INSERT OR REPLACE INTO responses VALUES(?,?,?,?,?,?,?,?)",
+                    (
+                        self.run,
+                        self.source,
+                        fingerprint(request).hex(),
+                        response.url,
+                        response.status,
+                        response.headers.get(
+                            "Content-Type", b"application/octet-stream"
+                        ).decode(),
+                        body_hash,
+                        now(),
+                    ),
+                )
+        return response
+
+    def failed(self, failure, response, spider):
+        # A parse failure may be an application-level error returned with HTTP 200.
+        # Retry it from the origin on resume instead of permanently replaying it.
+        with self.store.db:
+            self.store.db.execute(
+                "DELETE FROM responses WHERE run_id=? AND source=? AND fingerprint=?",
+                (self.run, self.source, fingerprint(response.request).hex()),
+            )
+
+
+class DatabasePipeline:
+    @classmethod
+    def from_crawler(cls, crawler):
+        instance = cls()
+        instance.store = crawler.pipeline_store
+        instance.run = crawler.settings.get("PIPELINE_RUN")
+        instance.source = crawler.settings.get("PIPELINE_SOURCE")
+        return instance
+
+    def process_item(self, item):
+        try:
+            self.store.put(self.run, self.source, item)
+        except Exception:
+            with self.store.db:
+                self.store.db.execute(
+                    "DELETE FROM responses WHERE run_id=? AND source=? AND url=?",
+                    (self.run, self.source, item.get("source_url")),
+                )
+            raise
+        return item
+
+
+def crawl(root, run, source, offline=False):
+    from .spiders import SPIDERS
+
+    store = Store(root)
+    store.reset_source(run, source)
+    from http_utils import get_user_agent
+
+    settings = {
+        "USER_AGENT": get_user_agent(),
+        "ROBOTSTXT_OBEY": True,
+        "CONCURRENT_REQUESTS": 8,
+        "CONCURRENT_REQUESTS_PER_DOMAIN": 4,
+        "DOWNLOAD_TIMEOUT": 60,
+        "DOWNLOAD_DELAY": 0.25,
+        "AUTOTHROTTLE_ENABLED": True,
+        "AUTOTHROTTLE_TARGET_CONCURRENCY": 2,
+        "AUTOTHROTTLE_MAX_DELAY": 60,
+        "RETRY_TIMES": 4,
+        "RETRY_HTTP_CODES": [408, 429, 500, 502, 503, 504],
+        "TELNETCONSOLE_ENABLED": False,
+        "COOKIES_ENABLED": False,
+        "LOG_LEVEL": "INFO",
+        "JOBDIR": str(store.root / "runs" / run / source / uuid.uuid4().hex),
+        "PIPELINE_ROOT": str(store.root),
+        "PIPELINE_RUN": run,
+        "PIPELINE_SOURCE": source,
+        "PIPELINE_OFFLINE": offline,
+        "DOWNLOADER_MIDDLEWARES": {"uw_coursemap.crawl.ArchiveMiddleware": 950},
+        "ITEM_PIPELINES": {"uw_coursemap.crawl.DatabasePipeline": 100},
+    }
+    process = CrawlerProcess(settings)
+    crawler = process.create_crawler(SPIDERS[source])
+    crawler.pipeline_store = store
+    failures = []
+    crawler.signals.connect(
+        lambda **kwargs: failures.append("item validation failed"),
+        signal=signals.item_error,
+        weak=False,
+    )
+    deferred = process.crawl(crawler, store=store, run=run)
+    deferred.addErrback(lambda failure: failures.append(str(failure.value)))
+    process.start()
+    stats = crawler.stats.get_stats()
+    if (
+        failures
+        or stats.get("spider_exceptions/count", 0)
+        or stats.get("log_count/ERROR", 0)
+        or getattr(crawler.spider, "failures", 0)
+    ):
+        raise RuntimeError(f"{source} crawl failed; inspect its log and resume")
+    if stats.get("finish_reason") != "finished" or not stats.get("item_scraped_count"):
+        raise RuntimeError(f"{source} crawl did not finish with records")
+    store.close()
