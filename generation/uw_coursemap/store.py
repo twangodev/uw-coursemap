@@ -43,9 +43,21 @@ class Store:
 
     def migrate(self):
         version = self.db.execute("PRAGMA user_version").fetchone()[0]
-        if version > 1:
+        if version > 2:
             raise ValueError("Database schema is newer than this pipeline")
+        if version == 2:
+            return
         if version == 1:
+            self.db.executescript("""
+            BEGIN;
+            ALTER TABLE runs ADD COLUMN observed_at TEXT;
+            ALTER TABLE runs ADD COLUMN origin TEXT NOT NULL DEFAULT 'scrape';
+            ALTER TABLE runs ADD COLUMN source_revision TEXT;
+            UPDATE runs SET observed_at=started_at;
+            DROP VIEW IF EXISTS current_observations;
+            PRAGMA user_version=2;
+            COMMIT;
+            """)
             return
         self.db.executescript("""
         BEGIN;
@@ -82,8 +94,14 @@ class Store:
         PRAGMA user_version=1;
         COMMIT;
         """)
+        self.migrate()
 
     def create_views(self):
+        latest = "SELECT run_id FROM runs WHERE status='complete' ORDER BY observed_at DESC, (origin='scrape') DESC, run_id DESC LIMIT 1"
+        self.db.execute("DROP VIEW IF EXISTS current_observations")
+        self.db.execute(
+            f"CREATE VIEW current_observations AS SELECT * FROM observations WHERE run_id=({latest})"
+        )
         # Relational read interfaces over immutable, source-owned observations.
         projections = {
             "courses": "entity_id AS course_id, json_extract(payload_json,'$.course_reference.course_number') AS course_number, json_extract(payload_json,'$.course_title') AS title, json_extract(payload_json,'$.description') AS description, json_extract(payload_json,'$.prerequisites') AS prerequisites_json",
@@ -97,8 +115,9 @@ class Store:
             self.db.execute(
                 f"CREATE VIEW IF NOT EXISTS {kind} AS SELECT run_id,source,source_url,observed_at,{projection} FROM observations WHERE kind='{kind}'"
             )
+            self.db.execute(f"DROP VIEW IF EXISTS current_{kind}")
             self.db.execute(
-                f"CREATE VIEW IF NOT EXISTS current_{kind} AS SELECT * FROM {kind} WHERE run_id=(SELECT run_id FROM runs WHERE status='complete' ORDER BY completed_at DESC,run_id DESC LIMIT 1)"
+                f"CREATE VIEW current_{kind} AS SELECT * FROM {kind} WHERE run_id=({latest})"
             )
         self.db.execute(
             "CREATE VIEW IF NOT EXISTS course_subjects AS SELECT o.run_id,o.entity_id AS course_id,j.value AS subject_id FROM observations o,json_each(o.payload_json,'$.course_reference.subjects') j WHERE o.kind='courses'"
@@ -113,8 +132,8 @@ class Store:
         )
         with self.db:
             self.db.execute(
-                "INSERT INTO runs VALUES(?,?,?,NULL,'pending',?,NULL)",
-                (run, semester, now(), canonical(config)),
+                "INSERT INTO runs(run_id,semester,started_at,status,config_json,observed_at) VALUES(?,?,?,'pending',?,?)",
+                (run, semester, now(), canonical(config), now()),
             )
             self.db.executemany(
                 "INSERT INTO stages VALUES(?,?,'pending',NULL,?)",

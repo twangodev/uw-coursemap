@@ -1,15 +1,10 @@
 import asyncio
 import hashlib
-import os
 import re
 from threading import RLock
 from logging import getLogger
-from os import environ
 
 import numpy as np
-import requests_cache
-from sentence_transformers import SentenceTransformer
-from torch import cuda
 from tqdm.asyncio import tqdm
 
 from cache import read_embedding_cache, write_embedding_cache
@@ -29,8 +24,14 @@ class CachedKeyBERT:
         self.cache_dir = cache_dir
         self.model = model
         self._encode_lock = RLock()
-        # Create KeyBERT with our custom model
-        self.keybert = KeyBERT(model=model)
+        from keybert.backend import BaseEmbedder
+
+        class Backend(BaseEmbedder):
+            def embed(self, documents, verbose=False):
+                return model.encode(documents)
+
+        # An explicit backend prevents KeyBERT from loading a fallback model.
+        self.keybert = KeyBERT(model=Backend())
 
     def extract_keywords(self, docs, **kwargs):
         # KeyBERT temporarily replaces a shared model method. Keep parallel
@@ -54,25 +55,27 @@ class CachedKeyBERT:
             else:
                 single_input = False
 
-            # Get cached embeddings for each sentence
-            embeddings = []
-            for sentence in sentences:
-                sha256 = hashlib.sha256(sentence.encode()).hexdigest()
-
-                # Check if the embedding already exists (with model-specific caching)
-                embedding = read_embedding_cache(self.cache_dir, sha256, self.model)
-
-                if embedding is None:
-                    # Use original encode method to avoid recursion
-                    embedding = original_encode(sentence, show_progress_bar=False)
-                    logger.debug(
-                        f"Embedding for '{sentence}' not found in cache. Caching it now."
+            unique = dict.fromkeys(sentences)
+            cached = {
+                text: read_embedding_cache(
+                    self.cache_dir,
+                    hashlib.sha256(text.encode()).hexdigest(),
+                    self.model,
+                )
+                for text in unique
+            }
+            missing = [text for text, value in cached.items() if value is None]
+            if missing:
+                vectors = original_encode(missing, show_progress_bar=False)
+                for text, vector in zip(missing, vectors, strict=True):
+                    cached[text] = vector
+                    write_embedding_cache(
+                        self.cache_dir,
+                        hashlib.sha256(text.encode()).hexdigest(),
+                        vector,
+                        self.model,
                     )
-                    write_embedding_cache(self.cache_dir, sha256, embedding, self.model)
-
-                embeddings.append(embedding)
-
-            embeddings = np.array(embeddings)
+            embeddings = np.asarray([cached[text] for text in sentences])
 
             # Return single embedding if input was single string
             if single_input:
@@ -92,91 +95,19 @@ class CachedKeyBERT:
         return result
 
 
-initialized_model = None
-
-
 def get_model(cache_dir):
-    global initialized_model
+    from uw_coursemap.inference import configured_model
 
-    if initialized_model and getattr(
-        initialized_model, "pipeline_revision", None
-    ) == environ.get("COURSEMAP_EMBEDDING_REVISION"):
-        logger.info("Model already loaded. Reusing the existing model.")
-        return initialized_model
-
-    # Disable HTTP request caching to ensure the model is fetched or initialized correctly.
-    with requests_cache.disabled():
-        model_cache_dir = os.path.join(cache_dir, "model")
-
-        device = "cpu"
-
-        if cuda.is_available():
-            logger.info("CUDA is available. Using GPU for model inference.")
-            cuda_device = 0
-
-            selected_cuda_device = environ.get("CUDA_DEVICE", None)
-            if selected_cuda_device:
-                cuda_device = selected_cuda_device
-                logger.info(f"CUDA device selected: {selected_cuda_device}")
-            else:
-                logger.info(
-                    f"No specific CUDA device selected. Using default device {cuda_device}."
-                )
-
-            device = f"cuda:{cuda_device}"
-
-        logger.info("Loading model...")
-        model = SentenceTransformer(
-            model_name_or_path="avsolatorio/GIST-large-Embedding-v0",
-            revision=environ.get("COURSEMAP_EMBEDDING_REVISION"),
-            cache_folder=model_cache_dir,
-            trust_remote_code=True,
-            device=device,
-        )
-
-        model.pipeline_revision = environ.get("COURSEMAP_EMBEDDING_REVISION")
-        initialized_model = model
-        return model
+    return configured_model("embedding")
 
 
 def get_keyword_model(cache_dir):
-    """
-    Load the all-MiniLM-L6-v2 model for keyword extraction with custom caching.
-    """
-    # Disable HTTP request caching to ensure the model is fetched or initialized correctly.
-    with requests_cache.disabled():
-        model_cache_dir = os.path.join(cache_dir, "model")
+    from uw_coursemap.inference import configured_model
 
-        device = "cpu"
-
-        if cuda.is_available():
-            logger.info("CUDA is available. Using GPU for keyword model inference.")
-            cuda_device = 0
-
-            selected_cuda_device = environ.get("CUDA_DEVICE", None)
-            if selected_cuda_device:
-                cuda_device = selected_cuda_device
-                logger.info(f"CUDA device selected: {selected_cuda_device}")
-            else:
-                logger.info(
-                    f"No specific CUDA device selected. Using default device {cuda_device}."
-                )
-
-            device = f"cuda:{cuda_device}"
-
-        logger.info("Loading keyword extraction model...")
-        model = SentenceTransformer(
-            model_name_or_path="all-MiniLM-L6-v2",
-            revision=environ.get("COURSEMAP_KEYWORD_REVISION"),
-            cache_folder=model_cache_dir,
-            device=device,
-        )
-
-        model.pipeline_revision = environ.get("COURSEMAP_KEYWORD_REVISION")
-        return model
+    return configured_model("keyword")
 
 
-def get_embedding(cache_dir, model: SentenceTransformer, text):
+def get_embedding(cache_dir, model, text):
     sha256 = hashlib.sha256(text.encode()).hexdigest()
 
     # Check if the embedding already exists (with model-specific caching)
@@ -344,7 +275,7 @@ def prune_prerequisites(
 def optimize_prerequisite(
     cache_dir,
     course,
-    model: SentenceTransformer,
+    model,
     course_ref_to_course,
     max_enrollment,
     max_prerequisites,
@@ -381,7 +312,7 @@ def optimize_prerequisite(
 
 async def optimize_prerequisites(
     cache_dir: str,
-    model: SentenceTransformer,
+    model,
     course_ref_to_course: dict[Course.Reference, Course],
     max_prerequisites: int | float,
     max_retries: int,

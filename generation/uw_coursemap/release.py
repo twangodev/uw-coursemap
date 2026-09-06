@@ -18,6 +18,18 @@ def checksum(path):
 
 def validate(store, run, derived=False):
     info = store.run(run)
+    if info["origin"] == "legacy":
+        from .legacy import legacy_state
+
+        state = legacy_state(store, run)
+        if not state["courses"] or not state["instructors"]:
+            raise ValueError("Legacy snapshot is missing core records")
+        return dict(
+            store.db.execute(
+                "SELECT kind,count(*) FROM observations WHERE run_id=? GROUP BY kind",
+                (run,),
+            )
+        )
     errors = []
     for source in SOURCES:
         if store.stage_status(run, source) != "complete":
@@ -48,8 +60,8 @@ def validate(store, run, derived=False):
     if info["semester"] not in store.records(run, "terms", "enrollment"):
         errors.append("Target semester is missing")
     previous = store.db.execute(
-        "SELECT run_id FROM runs WHERE status='complete' AND run_id!=? ORDER BY completed_at DESC LIMIT 1",
-        (run,),
+        "SELECT run_id FROM runs WHERE status='complete' AND origin='scrape' AND run_id!=? AND observed_at<=? ORDER BY observed_at DESC LIMIT 1",
+        (run, info["observed_at"]),
     ).fetchone()
     if previous:
         old = dict(
@@ -82,7 +94,7 @@ def validate(store, run, derived=False):
 
 PUBLIC_SCHEMA = """
 PRAGMA foreign_keys=ON;
-CREATE TABLE runs(run_id TEXT PRIMARY KEY,semester TEXT NOT NULL,observed_at TEXT NOT NULL);
+CREATE TABLE runs(run_id TEXT PRIMARY KEY,semester TEXT NOT NULL,observed_at TEXT NOT NULL,origin TEXT NOT NULL,source_revision TEXT);
 CREATE TABLE observations(run_id TEXT REFERENCES runs,source TEXT,kind TEXT,entity_id TEXT,source_url TEXT,observed_at TEXT,content_hash TEXT,payload_json TEXT,PRIMARY KEY(run_id,source,kind,entity_id));
 CREATE TABLE subjects(run_id TEXT REFERENCES runs,subject_id TEXT,name TEXT NOT NULL,PRIMARY KEY(run_id,subject_id));
 CREATE TABLE courses(run_id TEXT REFERENCES runs,course_id TEXT,course_number INTEGER NOT NULL,title TEXT NOT NULL,description TEXT NOT NULL,prerequisites_json TEXT,PRIMARY KEY(run_id,course_id));
@@ -104,7 +116,7 @@ def write_database(store, run, path):
     history = [
         row[0]
         for row in store.db.execute(
-            "SELECT run_id FROM runs WHERE status='complete' OR run_id=? ORDER BY started_at,run_id",
+            "SELECT run_id FROM runs WHERE status='complete' OR run_id=? ORDER BY observed_at,run_id",
             (run,),
         )
     ]
@@ -112,8 +124,14 @@ def write_database(store, run, path):
         for identifier in history:
             info = store.run(identifier)
             public.execute(
-                "INSERT INTO runs VALUES(?,?,?)",
-                (identifier, info["semester"], info["started_at"]),
+                "INSERT INTO runs VALUES(?,?,?,?,?)",
+                (
+                    identifier,
+                    info["semester"],
+                    info["observed_at"],
+                    info["origin"],
+                    info["source_revision"],
+                ),
             )
             public.executemany(
                 "INSERT INTO observations VALUES(?,?,?,?,?,?,?,?)",
@@ -156,7 +174,12 @@ def write_database(store, run, path):
                     for k, v in store.records(identifier, "terms").items()
                 ],
             )
-            state = store.get_artifact(identifier, "graph")
+            if info["origin"] == "legacy":
+                from .legacy import legacy_state
+
+                state = legacy_state(store, identifier)
+            else:
+                state = store.get_artifact(identifier, "graph")
             for key, value in state["instructors"].items():
                 public.execute(
                     "INSERT INTO instructors VALUES(?,?,?,?,?,?,?,?)",
@@ -326,6 +349,10 @@ def write_parquet(database, directory):
 
 
 def export(store, run):
+    if store.run(run)["origin"] == "legacy":
+        raise ValueError(
+            "Legacy history is included in fresh scrape releases; it cannot produce a standalone website release"
+        )
     validate(store, run, derived=True)
     target = store.root / "releases" / run
     if target.exists():
@@ -367,7 +394,7 @@ def export(store, run):
         "schema_version": SCHEMA_VERSION,
         "run_id": run,
         "semester": store.run(run)["semester"],
-        "observed_at": store.run(run)["started_at"],
+        "observed_at": store.run(run)["observed_at"],
         "input_hash": store.input_hash(run),
         "tables": counts,
         "files": {

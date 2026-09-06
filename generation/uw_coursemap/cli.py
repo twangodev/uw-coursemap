@@ -158,6 +158,9 @@ def main(argv=None):
                         "semester": info["semester"],
                         "status": info["status"],
                         "revision": info["revision"],
+                        "observed_at": info["observed_at"],
+                        "origin": info["origin"],
+                        "source_revision": info["source_revision"],
                         "stages": [
                             dict(r)
                             for r in store.db.execute(
@@ -193,6 +196,9 @@ def main(argv=None):
                     "max_prerequisites": args.max_prerequisites,
                     "embedding_model": "avsolatorio/GIST-large-Embedding-v0",
                     "keyword_model": "sentence-transformers/all-MiniLM-L6-v2",
+                    "inference_backend": "vllm",
+                    "inference_version": "0.28.0",
+                    "embedding_contract": "mean-normalized-v1",
                 }
                 config["embedding_revision"] = api.model_info(
                     config["embedding_model"]

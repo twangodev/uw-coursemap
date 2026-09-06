@@ -304,5 +304,5 @@ def write_compatibility(store, run, directory):
             key: sorted(values, key=lambda m: canonical(plain(m)))
             for key, values in meetings.items()
         },
-        updated_on=store.run(run)["started_at"],
+        updated_on=store.run(run)["observed_at"],
     )
