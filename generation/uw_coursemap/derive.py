@@ -51,20 +51,30 @@ def reconcile(store, run):
                 raise ValueError(f"Ambiguous course alias: {key}")
             aliases[key] = ref
 
-    def resolve(data):
-        candidates = {
+    def candidates_for(data):
+        return {
             aliases[(s, data["course_number"])]
             for s in data["subjects"]
             if (s, data["course_number"]) in aliases
         }
+
+    def resolve(data):
+        candidates = candidates_for(data)
         if len(candidates) > 1:
             raise ValueError(f"Ambiguous source course: {data}")
         return next(iter(candidates), None)
 
     terms = {code: data["name"] for code, data in store.records(run, "terms").items()}
-    unmatched = {"grades": [], "offerings": []}
+    unmatched = {"grades": [], "offerings": [], "ambiguous_grades": {}}
     for key, data in store.records(run, "grades").items():
-        ref = resolve(data["course_reference"])
+        candidates = candidates_for(data["course_reference"])
+        if len(candidates) > 1:
+            # Historical cross-listings can map to several distinct current
+            # courses. Preserve raw grades without choosing an arbitrary owner.
+            unmatched["grades"].append(key)
+            unmatched["ambiguous_grades"][key] = sorted(str(ref) for ref in candidates)
+            continue
+        ref = next(iter(candidates), None)
         if ref is None:
             unmatched["grades"].append(key)
             continue

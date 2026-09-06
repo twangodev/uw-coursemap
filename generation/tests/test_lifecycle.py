@@ -349,6 +349,41 @@ class LifecycleTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 http_settings({"http": limits})
 
+    def test_historical_crosslisting_ambiguity_preserves_raw_grades(self):
+        from uw_coursemap.derive import reconcile, encode_state
+
+        course = self.store.records(self.run, "courses")["COMPSCI 300"]
+        course["course_reference"]["subjects"] = ["MUSIC"]
+        self.store.put(
+            self.run,
+            "catalog",
+            {
+                "kind": "courses",
+                "key": "MUSIC 300",
+                "payload": course,
+                "source_url": "https://example.org/catalog",
+            },
+        )
+        key, grades = next(iter(self.store.records(self.run, "grades").items()))
+        grades["course_reference"]["subjects"] = ["COMPSCI", "MUSIC"]
+        self.store.put(
+            self.run,
+            "madgrades",
+            {
+                "kind": "grades",
+                "key": key,
+                "payload": grades,
+                "source_url": "https://example.org/grades",
+            },
+        )
+        state = encode_state(*reconcile(self.store, self.run))
+        self.assertIn(key, state["unmatched"]["grades"])
+        self.assertEqual(
+            state["unmatched"]["ambiguous_grades"][key], ["COMPSCI 300", "MUSIC 300"]
+        )
+        self.assertEqual(self.store.records(self.run, "grades")[key], grades)
+        self.assertIsNone(state["courses"]["COMPSCI 300"]["cumulative_grade_data"])
+
     def test_profiles_lock_shared_by_client_and_server(self):
         path = self.root / "models.toml"
         path.write_text(
