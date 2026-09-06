@@ -321,6 +321,34 @@ class LifecycleTests(unittest.TestCase):
         finally:
             jobs.close()
 
+    def test_http_limits_are_configurable_and_keep_backoff(self):
+        from uw_coursemap.crawl import http_settings
+
+        settings = http_settings({})
+        self.assertEqual(settings["CONCURRENT_REQUESTS"], 32)
+        self.assertEqual(settings["CONCURRENT_REQUESTS_PER_DOMAIN"], 16)
+        self.assertTrue(settings["AUTOTHROTTLE_ENABLED"])
+        self.assertEqual(settings["AUTOTHROTTLE_MAX_DELAY"], 60)
+        custom = http_settings(
+            {
+                "http": {
+                    "concurrency": 12,
+                    "per_domain": 6,
+                    "target_concurrency": 3,
+                    "download_delay": 0.2,
+                }
+            }
+        )
+        self.assertEqual(custom["CONCURRENT_REQUESTS_PER_DOMAIN"], 6)
+        self.assertEqual(custom["DOWNLOAD_DELAY"], 0.2)
+        for limits in [
+            {"concurrency": 8, "per_domain": 16},
+            {"target_concurrency": 0},
+            {"download_delay": -1},
+        ]:
+            with self.assertRaises(ValueError):
+                http_settings({"http": limits})
+
     def test_profiles_lock_shared_by_client_and_server(self):
         path = self.root / "models.toml"
         path.write_text(

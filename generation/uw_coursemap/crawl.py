@@ -106,6 +106,29 @@ class DatabasePipeline:
         return item
 
 
+def http_settings(config):
+    limits = config.get("http", {})
+    concurrent = limits.get("concurrency", 32)
+    per_domain = limits.get("per_domain", 16)
+    target = limits.get("target_concurrency", 8)
+    delay = limits.get("download_delay", 0.1)
+    if not (
+        1 <= per_domain <= concurrent <= 128
+        and 0 < target <= per_domain
+        and 0 <= delay <= 60
+    ):
+        raise ValueError("Invalid HTTP concurrency or delay limits")
+    return {
+        "CONCURRENT_REQUESTS": concurrent,
+        "CONCURRENT_REQUESTS_PER_DOMAIN": per_domain,
+        "DOWNLOAD_DELAY": delay,
+        "AUTOTHROTTLE_ENABLED": True,
+        "AUTOTHROTTLE_START_DELAY": max(delay, 0.1),
+        "AUTOTHROTTLE_TARGET_CONCURRENCY": target,
+        "AUTOTHROTTLE_MAX_DELAY": 60,
+    }
+
+
 def crawl(root, run, source, offline=False):
     from .spiders import SPIDERS
 
@@ -113,17 +136,13 @@ def crawl(root, run, source, offline=False):
     store.reset_source(run, source)
     from http_utils import get_user_agent
 
+    config = json.loads(store.run(run)["config_json"])
     settings = {
+        **http_settings(config),
         "USER_AGENT": json.loads(store.run(run)["config_json"]).get("user_agent")
         or get_user_agent(),
         "ROBOTSTXT_OBEY": True,
-        "CONCURRENT_REQUESTS": 8,
-        "CONCURRENT_REQUESTS_PER_DOMAIN": 4,
         "DOWNLOAD_TIMEOUT": 60,
-        "DOWNLOAD_DELAY": 0.25,
-        "AUTOTHROTTLE_ENABLED": True,
-        "AUTOTHROTTLE_TARGET_CONCURRENCY": 2,
-        "AUTOTHROTTLE_MAX_DELAY": 60,
         "RETRY_TIMES": 4,
         "RETRY_HTTP_CODES": [408, 429, 500, 502, 503, 504],
         "TELNETCONSOLE_ENABLED": False,

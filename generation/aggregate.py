@@ -82,7 +82,7 @@ async def course_embedding_analysis(
 ):
     model = get_model(cache_dir)
 
-    semaphore = asyncio.Semaphore(4)
+    semaphore = asyncio.Semaphore(getattr(model, "concurrency", 16))
     entries = list(course_ref_to_course.items())
 
     async def embed_batch(batch):

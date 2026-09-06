@@ -32,6 +32,10 @@ def parser():
     run.add_argument(
         "--semester", required=True, help="UW numeric term code, e.g. 1272"
     )
+    run.add_argument("--concurrency", type=int, default=32)
+    run.add_argument("--per-domain", type=int, default=16)
+    run.add_argument("--target-concurrency", type=float, default=8)
+    run.add_argument("--download-delay", type=float, default=0.1)
     run.add_argument("--sitemap-base", default="https://uwcourses.com")
     run.add_argument("--max-prerequisites", type=int, default=1)
     run.add_argument(
@@ -312,6 +316,12 @@ def main(argv=None):
                 from http_utils import get_user_agent
 
                 config = {
+                    "http": {
+                        "concurrency": args.concurrency,
+                        "per_domain": args.per_domain,
+                        "target_concurrency": args.target_concurrency,
+                        "download_delay": args.download_delay,
+                    },
                     "workflow": "snapshot-v1",
                     "sources": list(
                         SOURCES if args.include_instructors else SOURCES[:3]
@@ -321,6 +331,9 @@ def main(argv=None):
                     "sitemap_base": args.sitemap_base,
                     "max_prerequisites": args.max_prerequisites,
                 }
+                from .crawl import http_settings
+
+                http_settings(config)
                 run = store.new_run(args.semester, config)
                 print(f"Created run {run}", flush=True)
                 result = execute(store, run)

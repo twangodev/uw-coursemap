@@ -100,6 +100,7 @@ def configured_model(kind):
         }
         client.model_name = "profile-" + digest(contract)
         client.prefix = profile.get("document_prefix", "")
+        client.concurrency = profile["concurrency"]
         return client
     if kind == "embedding":
         model = "avsolatorio/GIST-large-Embedding-v0"

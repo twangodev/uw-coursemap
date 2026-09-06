@@ -24,7 +24,10 @@ and grades are retained without that option.
 The command prints its ID before starting. Logs live in `runs/RUN_ID/`. A fixed
 browser-style user agent is reused on resume. Successful sources are skipped;
 interrupted sources reuse archived successful responses and retry failures.
-Independent sources continue when another source fails. Failed runs never advance
+Independent sources continue when another source fails. Defaults allow 32 requests
+in flight, 16 per domain, with adaptive throttling targeting 8 per domain and a
+0.1-second download delay. Override with `--concurrency`, `--per-domain`,
+`--target-concurrency`, and `--download-delay`; limits are recorded in the snapshot. Failed runs never advance
 `current_*` views. Keep at least 10 GiB free, plus room for history and exports.
 
 Changed parser code requires a new snapshot. To reuse archived responses:
@@ -72,6 +75,10 @@ The default generation candidate is Qwen3.6-35B-A3B-FP8. Select
 `enrichment-nvfp4` for NVIDIA's Qwen3.6-35B-A3B-NVFP4, or `enrichment-bf16` as a
 reference. Lock that profile and use the same name in the server and enrichment
 commands. These are configurable candidates, not task-quality benchmark results.
+Generation concurrency defaults to 16 for FP8, 32 for NVFP4, and 8 for BF16;
+embedding profiles permit 16 concurrent batches of up to 32 texts per request.
+These are initial throughput settings; lower concurrency if memory pressure or
+latency warrants it. Lock profiles again to adopt changed defaults.
 Run one generation profile at a time; BF16's larger memory allocation requires
 stopping the embedding servers first.
 
