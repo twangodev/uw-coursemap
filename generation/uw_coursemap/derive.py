@@ -193,7 +193,11 @@ def derive(store, run):
     os.environ["COURSEMAP_EMBEDDING_REVISION"] = config["embedding_revision"]
     os.environ["COURSEMAP_KEYWORD_REVISION"] = config["keyword_revision"]
     # Model identity includes immutable revisions, while input-text hashes allow reuse.
-    cache = str(store.root / "models")
+    if config.get("model_profiles"):
+        os.environ["COURSEMAP_MODEL_PROFILES"] = canonical(config["model_profiles"])
+    else:
+        os.environ.pop("COURSEMAP_MODEL_PROFILES", None)
+    cache = str(getattr(store, "cache_root", store.root / "models"))
     stages = ("reconcile", "aggregate", "optimize", "graph")
     state = None
     for stage in stages:

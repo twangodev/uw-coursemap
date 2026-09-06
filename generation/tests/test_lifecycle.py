@@ -1,0 +1,335 @@
+"""Recovery and isolation guarantees for source snapshots and enrichment."""
+
+import json
+import sqlite3
+import unittest
+from unittest.mock import patch
+from types import SimpleNamespace
+
+import test_pipeline
+from uw_coursemap.cli import code_hash
+from uw_coursemap.jobs import Jobs, generate
+from uw_coursemap.lifecycle import scrape, release, build
+from uw_coursemap.models import canonical
+from uw_coursemap.profiles import ModelProfile, load_profile, lock_profiles
+from uw_coursemap.release import verify_release, publish
+from uw_coursemap.store import Store, SOURCES
+
+
+class LifecycleTests(unittest.TestCase):
+    def setUp(self):
+        self.fixture = test_pipeline.PipelineTests()
+        self.fixture.setUp()
+        self.store = self.fixture.store
+        self.run = self.fixture.run
+        self.root = self.store.root
+        self.fixture.seed()
+        self.profile = ModelProfile(
+            model="test/model", revision="a" * 40, base_url="http://127.0.0.1:8003/v1"
+        )
+        self.task = self.root / "task.json"
+        self.task.write_text(
+            canonical(
+                {
+                    "name": "test",
+                    "version": 1,
+                    "prompt": "Ground in source",
+                    "schema": {
+                        "type": "object",
+                        "required": ["summary"],
+                        "properties": {"summary": {"type": "string"}},
+                        "additionalProperties": False,
+                    },
+                }
+            )
+        )
+
+    def tearDown(self):
+        self.fixture.tearDown()
+
+    def core(self):
+        with self.store.db:
+            self.store.db.execute("DELETE FROM observations WHERE source='instructors'")
+            self.store.db.execute("DELETE FROM artifacts")
+            self.store.db.execute(
+                "UPDATE stages SET status='pending' WHERE stage IN ('instructors','derive','export')"
+            )
+            self.store.db.execute(
+                "UPDATE runs SET config_json=? WHERE run_id=?",
+                (
+                    canonical(
+                        {
+                            "workflow": "snapshot-v1",
+                            "code_hash": code_hash(),
+                            "sources": list(SOURCES[:3]),
+                        }
+                    ),
+                    self.run,
+                ),
+            )
+        return scrape(self.store, self.run)
+
+    def create_job(self, jobs, run=None):
+        with patch("uw_coursemap.jobs.load_profile", return_value=self.profile):
+            return jobs.create(
+                run or self.run, "unused", "enrichment", self.task, limit=0
+            )
+
+    def test_source_only_release_and_publish_during_scrape_lock(self):
+        with patch(
+            "huggingface_hub.HfApi",
+            side_effect=AssertionError("No model metadata needed"),
+        ):
+            self.core()
+            before = self.store.input_hash(self.run)
+            with self.store.lock():
+                readonly = Store(self.root, readonly=True)
+                try:
+                    target = release(readonly, self.run)
+                    manifest = verify_release(target)
+                    self.assertFalse(manifest["website_included"])
+                    self.assertEqual(manifest["tables"]["courses"], 1)
+                    self.assertGreater(manifest["tables"]["meetings"], 0)
+                    self.assertEqual(release(readonly, self.run), target)
+                    hub = test_pipeline.FakeHub(self.root)
+                    result = publish(
+                        readonly, target.name, "owner/data", hub, hub.download
+                    )
+                    self.assertIn("revision", result)
+                    with self.assertRaises(sqlite3.OperationalError):
+                        readonly.db.execute("DELETE FROM runs")
+                finally:
+                    readonly.close()
+        self.assertEqual(self.store.input_hash(self.run), before)
+        self.assertIsNone(self.store.run(self.run)["revision"])
+        self.assertEqual(self.store.stage_status(self.run, "derive"), "pending")
+
+    def test_failed_source_does_not_block_other_sources_and_resumes(self):
+        with self.store.db:
+            self.store.db.execute("UPDATE stages SET status='pending'")
+            self.store.db.execute(
+                "UPDATE runs SET config_json=?",
+                (
+                    canonical(
+                        {
+                            "workflow": "snapshot-v1",
+                            "code_hash": code_hash(),
+                            "sources": list(SOURCES[:3]),
+                        }
+                    ),
+                ),
+            )
+        called = []
+
+        def worker(store, run, source):
+            called.append(source)
+            if source == "madgrades":
+                raise RuntimeError("unavailable")
+            store.stage(run, source, "complete")
+
+        with patch("uw_coursemap.cli.execute_source", side_effect=worker):
+            with self.assertRaisesRegex(RuntimeError, "madgrades"):
+                scrape(self.store, self.run)
+        self.assertEqual(called, list(SOURCES[:3]))
+        called.clear()
+
+        def resume(store, run, source):
+            called.append(source)
+            store.stage(run, source, "complete")
+
+        with patch("uw_coursemap.cli.execute_source", side_effect=resume):
+            scrape(self.store, self.run)
+        self.assertEqual(called, ["madgrades"])
+
+    def test_enrichment_failure_resume_cache_and_explicit_selection(self):
+        self.core()
+        jobs = Jobs(self.root)
+        try:
+            job = self.create_job(jobs)
+            with self.assertRaises(RuntimeError):
+                jobs.run(
+                    job,
+                    worker=lambda *args: (_ for _ in ()).throw(
+                        ValueError("bad output")
+                    ),
+                )
+            with self.assertRaisesRegex(ValueError, "completed enrichment"):
+                release(self.store, self.run, enrichment_ids=[job])
+            calls = []
+
+            def worker(*args):
+                calls.append(args)
+                return {"summary": "Grounded summary"}, {"completion_tokens": 3}
+
+            self.assertEqual(jobs.run(job, worker)["status"], "complete")
+            jobs.run(job, worker)
+            self.assertEqual(len(calls), 1)
+            path = release(self.store, self.run, enrichment_ids=[job])
+            manifest = verify_release(path)
+            self.assertEqual(manifest["tables"]["course_enrichments"], 1)
+            with sqlite3.connect(path / "coursemap.sqlite") as db:
+                spec = db.execute("SELECT spec_json FROM enrichment_jobs").fetchone()[0]
+                self.assertNotIn("127.0.0.1", spec)
+                self.assertFalse(db.execute("PRAGMA foreign_key_check").fetchall())
+            other = self.store.new_run("1272", {})
+            self.fixture.seed(other)
+            self.store.finish(other)
+            reused = self.create_job(jobs, other)
+            jobs.run(reused, worker)
+            self.assertEqual(
+                len(calls),
+                1,
+                "unchanged courses reuse validated outputs across snapshots",
+            )
+            task = json.loads(self.task.read_text())
+            task["version"] = 2
+            self.task.write_text(canonical(task))
+            changed = self.create_job(jobs, other)
+            jobs.run(changed, worker)
+            self.assertEqual(len(calls), 2, "task changes invalidate cached outputs")
+        finally:
+            jobs.close()
+
+    def test_partial_resume_only_retries_failed_courses(self):
+        original = self.store.records(self.run, "courses")["COMPSCI 300"]
+        copied = json.loads(canonical(original))
+        copied["course_reference"]["course_number"] = 301
+        self.store.put(
+            self.run,
+            "catalog",
+            {
+                "kind": "courses",
+                "key": "COMPSCI 301",
+                "payload": copied,
+                "source_url": "https://example.org",
+            },
+        )
+        self.core()
+        jobs = Jobs(self.root)
+        try:
+            job = self.create_job(jobs)
+            calls = []
+
+            def worker(profile, task, payload):
+                number = payload["course_reference"]["course_number"]
+                calls.append(number)
+                if number == 301:
+                    raise ValueError("failed")
+                return {"summary": "OK"}, {}
+
+            with self.assertRaises(RuntimeError):
+                jobs.run(job, worker)
+
+            def retry(profile, task, payload):
+                calls.append(payload["course_reference"]["course_number"])
+                return {"summary": "OK"}, {}
+
+            jobs.run(job, retry)
+            self.assertEqual(calls.count(300), 1)
+            self.assertEqual(calls.count(301), 2)
+        finally:
+            jobs.close()
+
+    def test_build_failure_recovers_copied_snapshot_without_mutating_source(self):
+        self.core()
+        before = self.store.input_hash(self.run)
+        profile = self.profile.model_copy(update={"runner": "pooling"})
+        with (
+            patch("uw_coursemap.profiles.load_profile", return_value=profile),
+            patch("uw_coursemap.derive.derive", side_effect=RuntimeError("offline")),
+        ):
+            with self.assertRaises(RuntimeError):
+                build(self.root, self.run, "unused")
+        directory = next((self.root / "builds").glob("build-*"))
+        state = self.store.get_artifact(self.run, "source_state")
+
+        def complete(store, run):
+            store.artifact(run, "graph", state, store.input_hash(run), {})
+
+        with (
+            self.store.lock(),
+            patch("uw_coursemap.derive.derive", side_effect=complete),
+        ):
+            meta = build(self.root, self.run, build_id=directory.name)
+        self.assertEqual(meta["run_id"], directory.name)
+        self.assertEqual(self.store.input_hash(self.run), before)
+        with patch(
+            "uw_coursemap.derive.derive",
+            side_effect=AssertionError("reran completed build"),
+        ):
+            build(self.root, self.run, build_id=directory.name)
+        # Recover interruption between the database commit and metadata rename.
+        (directory / "build.json").unlink()
+        with patch("uw_coursemap.profiles.load_profile", return_value=profile):
+            self.assertEqual(build(self.root, self.run, "unused"), meta)
+        with sqlite3.connect(directory / "pipeline.sqlite") as db:
+            self.assertEqual(db.execute("SELECT count(*) FROM runs").fetchone()[0], 1)
+
+    def test_generation_rejects_truncation_schema_and_false_evidence(self):
+        task = json.loads(self.task.read_text())
+        task["schema"] = {"type": "object"}
+        task["evidence_fields"] = ["topics"]
+        for finish, content in [
+            ("length", "{}"),
+            ("stop", "not json"),
+            ("stop", '{"topics":[{"evidence":"invented"}]}'),
+        ]:
+            with self.subTest(finish=finish, content=content):
+                result = {
+                    "model": self.profile.served_model,
+                    "choices": [
+                        {"finish_reason": finish, "message": {"content": content}}
+                    ],
+                }
+                response = SimpleNamespace(
+                    raise_for_status=lambda: None, json=lambda: result
+                )
+                with (
+                    patch(
+                        "uw_coursemap.jobs.requests.post", return_value=response
+                    ) as request,
+                    patch("uw_coursemap.jobs.time.sleep"),
+                ):
+                    with self.assertRaises((ValueError, KeyError)):
+                        generate(
+                            self.profile.model_dump(),
+                            task,
+                            {"description": "Actual source"},
+                        )
+                    self.assertEqual(request.call_count, 3)
+
+    def test_offline_model_fails_before_scheduling_courses(self):
+        import requests
+
+        self.core()
+        jobs = Jobs(self.root)
+        try:
+            job = self.create_job(jobs)
+            with (
+                patch(
+                    "uw_coursemap.jobs.requests.get",
+                    side_effect=requests.ConnectionError,
+                ),
+                patch("uw_coursemap.jobs.requests.post") as inference,
+            ):
+                with self.assertRaisesRegex(
+                    RuntimeError, "Inference server unavailable"
+                ):
+                    jobs.run(job)
+                inference.assert_not_called()
+            self.assertEqual(jobs.status(job)["counts"], {"pending": 1})
+        finally:
+            jobs.close()
+
+    def test_profiles_lock_shared_by_client_and_server(self):
+        path = self.root / "models.toml"
+        path.write_text(
+            '[profiles.test]\nmodel="test/model"\nbase_url="http://127.0.0.1:8003/v1"\n'
+        )
+        output = self.root / "locked.json"
+        with patch("huggingface_hub.HfApi") as hub:
+            hub.return_value.model_info.return_value.sha = "b" * 40
+            lock_profiles(path, ["test"], output)
+        profile = load_profile(output, "test", resolve=False)
+        self.assertEqual(profile.revision, "b" * 40)
+        self.assertEqual(profile.served_model, "test/model@" + "b" * 40)

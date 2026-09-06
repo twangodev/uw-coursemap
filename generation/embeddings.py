@@ -1,7 +1,6 @@
 import asyncio
 import hashlib
 import re
-from threading import RLock
 from logging import getLogger
 
 import numpy as np
@@ -23,76 +22,34 @@ class CachedKeyBERT:
 
         self.cache_dir = cache_dir
         self.model = model
-        self._encode_lock = RLock()
         from keybert.backend import BaseEmbedder
 
         class Backend(BaseEmbedder):
             def embed(self, documents, verbose=False):
-                return model.encode(documents)
+                return get_embeddings(cache_dir, model, documents)
 
-        # An explicit backend prevents KeyBERT from loading a fallback model.
         self.keybert = KeyBERT(model=Backend())
 
     def extract_keywords(self, docs, **kwargs):
-        # KeyBERT temporarily replaces a shared model method. Keep parallel
-        # keyword tasks from restoring each other's method or recursing.
-        with self._encode_lock:
-            return self._extract_keywords(docs, **kwargs)
+        return self.keybert.extract_keywords(docs, **kwargs)
 
-    def _extract_keywords(self, docs, **kwargs):
-        """
-        Extract keywords using KeyBERT but with cached embeddings.
-        This method intercepts KeyBERT's internal embedding calls.
-        """
-        # Store original encode method
-        original_encode = self.model.encode
 
-        def cached_encode(sentences, **encode_kwargs):
-            # If it's a single string, convert to list
-            if isinstance(sentences, str):
-                sentences = [sentences]
-                single_input = True
-            else:
-                single_input = False
-
-            unique = dict.fromkeys(sentences)
-            cached = {
-                text: read_embedding_cache(
-                    self.cache_dir,
-                    hashlib.sha256(text.encode()).hexdigest(),
-                    self.model,
-                )
-                for text in unique
-            }
-            missing = [text for text, value in cached.items() if value is None]
-            if missing:
-                vectors = original_encode(missing, show_progress_bar=False)
-                for text, vector in zip(missing, vectors, strict=True):
-                    cached[text] = vector
-                    write_embedding_cache(
-                        self.cache_dir,
-                        hashlib.sha256(text.encode()).hexdigest(),
-                        vector,
-                        self.model,
-                    )
-            embeddings = np.asarray([cached[text] for text in sentences])
-
-            # Return single embedding if input was single string
-            if single_input:
-                return embeddings[0]
-            return embeddings
-
-        # Temporarily replace the model's encode method
-        self.model.encode = cached_encode
-
-        try:
-            # Call KeyBERT with our cached encoding
-            result = self.keybert.extract_keywords(docs, **kwargs)
-        finally:
-            # Restore original encode method
-            self.model.encode = original_encode
-
-        return result
+def get_embeddings(cache_dir, model, texts):
+    texts = list(texts)
+    cached = {
+        text: read_embedding_cache(
+            cache_dir, hashlib.sha256(text.encode()).hexdigest(), model
+        )
+        for text in dict.fromkeys(texts)
+    }
+    missing = [text for text, value in cached.items() if value is None]
+    if missing:
+        for text, vector in zip(missing, model.encode(missing), strict=True):
+            cached[text] = vector
+            write_embedding_cache(
+                cache_dir, hashlib.sha256(text.encode()).hexdigest(), vector, model
+            )
+    return np.asarray([cached[text] for text in texts])
 
 
 def get_model(cache_dir):
@@ -200,11 +157,11 @@ def score_branch(
     # Calculate the cosine similarity between the course and the branch
     similarity = cosine_similarity(course_embedding, branch_embedding)
 
-    enrollment_count = 0
-    if course.cumulative_grade_data:
-        enrollment_count = course.cumulative_grade_data.total
-
-    enrollment_score = enrollment_count / max_enrollment
+    enrollment_count = sum(
+        c.cumulative_grade_data.total if c.cumulative_grade_data else 0
+        for c in branch_as_courses
+    ) / len(branch_as_courses)
+    enrollment_score = enrollment_count / max_enrollment if max_enrollment else 0
 
     score = (
         semantic_similarity_weight * similarity + popularity_weight * enrollment_score

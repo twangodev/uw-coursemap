@@ -6,7 +6,7 @@ from logging import getLogger
 from tqdm.asyncio import tqdm
 
 from course import Course
-from embeddings import get_model, get_embedding, get_keyword_model, CachedKeyBERT
+from embeddings import get_model, get_embeddings, get_keyword_model, CachedKeyBERT
 from enrollment_data import GradeData
 from instructors import FullInstructor
 from sanitization import sanitize_instructor_id
@@ -82,24 +82,25 @@ async def course_embedding_analysis(
 ):
     model = get_model(cache_dir)
 
-    async def embed_course(course_ref, course):
-        summary = course.get_short_summary()
-        # Wrap the synchronous get_embedding call in asyncio.to_thread if necessary.
-        embedding = await asyncio.to_thread(get_embedding, cache_dir, model, summary)
+    semaphore = asyncio.Semaphore(4)
+    entries = list(course_ref_to_course.items())
 
-        # Update progress safely using the lock.
-        return course_ref, embedding
+    async def embed_batch(batch):
+        async with semaphore:
+            vectors = await asyncio.to_thread(
+                get_embeddings,
+                cache_dir,
+                model,
+                [course.get_short_summary() for _, course in batch],
+            )
+        return list(zip([ref for ref, _ in batch], vectors, strict=True))
 
-    # Create tasks for all courses.
-    tasks = [
-        embed_course(course_ref, course)
-        for course_ref, course in course_ref_to_course.items()
-    ]
-
-    # Await tasks concurrently.
-    results = await tqdm.gather(
-        *tasks, position=0, desc="Course Similarity Embedding Analysis", unit="course"
+    batches = await tqdm.gather(
+        *(embed_batch(entries[i : i + 64]) for i in range(0, len(entries), 64)),
+        desc="Course embeddings",
+        unit="batch",
     )
+    results = [row for batch in batches for row in batch]
 
     # Build the dictionary mapping course references to their embeddings.
     course_embeddings = {course_ref: embedding for course_ref, embedding in results}

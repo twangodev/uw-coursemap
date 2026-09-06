@@ -31,7 +31,8 @@ def validate(store, run, derived=False):
             )
         )
     errors = []
-    for source in SOURCES:
+    required_sources = json.loads(info["config_json"]).get("sources", list(SOURCES))
+    for source in required_sources:
         if store.stage_status(run, source) != "complete":
             errors.append(f"Source {source} is incomplete")
     counts = dict(
@@ -40,15 +41,10 @@ def validate(store, run, derived=False):
             (run,),
         )
     )
-    for required in (
-        "courses",
-        "subjects",
-        "terms",
-        "grades",
-        "offerings",
-        "faculty",
-        "ratings",
-    ):
+    required_kinds = ["courses", "subjects", "terms", "grades", "offerings"]
+    if "instructors" in required_sources:
+        required_kinds.extend(["faculty", "ratings"])
+    for required in required_kinds:
         if not counts.get(required):
             errors.append(f"No {required} records")
     courses = store.records(run, "courses")
@@ -71,7 +67,7 @@ def validate(store, run, derived=False):
             )
         )
         for kind in ("courses", "subjects", "grades", "faculty"):
-            if counts.get(kind, 0) < old.get(kind, 0) * 0.9:
+            if kind in required_kinds and counts.get(kind, 0) < old.get(kind, 0) * 0.9:
                 errors.append(
                     f"{kind} count fell by more than 10% ({old[kind]} -> {counts.get(kind, 0)})"
                 )
@@ -110,7 +106,21 @@ CREATE TABLE derived_artifacts(run_id TEXT REFERENCES runs,name TEXT,input_hash 
 """
 
 
-def write_database(store, run, path):
+def snapshot_state(store, run):
+    if store.run(run)["origin"] == "legacy":
+        from .legacy import legacy_state
+
+        return legacy_state(store, run)
+    for name in ("graph", "source_state"):
+        row = store.db.execute(
+            "SELECT payload_json FROM artifacts WHERE run_id=? AND name=?", (run, name)
+        ).fetchone()
+        if row:
+            return json.loads(row[0])
+    raise ValueError("Snapshot has no reconciled source state")
+
+
+def write_database(store, run, path, state_override=None):
     public = sqlite3.connect(path)
     public.executescript(PUBLIC_SCHEMA)
     history = [
@@ -174,12 +184,14 @@ def write_database(store, run, path):
                     for k, v in store.records(identifier, "terms").items()
                 ],
             )
-            if info["origin"] == "legacy":
+            if identifier == run and state_override is not None:
+                state = state_override
+            elif info["origin"] == "legacy":
                 from .legacy import legacy_state
 
                 state = legacy_state(store, identifier)
             else:
-                state = store.get_artifact(identifier, "graph")
+                state = snapshot_state(store, identifier)
             for key, value in state["instructors"].items():
                 public.execute(
                     "INSERT INTO instructors VALUES(?,?,?,?,?,?,?,?)",
@@ -441,9 +453,10 @@ def publish(store, run, repo_id, api=None, download=None):
 
     directory = store.root / "releases" / run
     manifest = verify_release(directory)
-    if store.run(run)["status"] != "complete" or manifest[
+    source_run = manifest.get("source_run", run)
+    if store.run(source_run)["status"] != "complete" or manifest[
         "input_hash"
-    ] != store.input_hash(run):
+    ] != store.input_hash(source_run):
         raise ValueError("Only a completed, unchanged run can be published")
     api = api or HfApi()
     download = download or hf_hub_download
@@ -569,8 +582,11 @@ def publish(store, run, repo_id, api=None, download=None):
             operations=[CommitOperationAdd("latest.json", pointer)],
             commit_message=f"Activate validated release {run}",
         )
-    with store.db:
-        store.db.execute("UPDATE runs SET revision=? WHERE run_id=?", (revision, run))
+    if "source_run" not in manifest:
+        with store.db:
+            store.db.execute(
+                "UPDATE runs SET revision=? WHERE run_id=?", (revision, source_run)
+            )
     checkpoint["complete"] = True
     save_checkpoint()
     return {"repo_id": repo_id, "revision": revision, "tag": tag}

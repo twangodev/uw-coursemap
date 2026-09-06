@@ -659,6 +659,8 @@ class FixtureModel:
     pipeline_revision = "v1"
 
     def encode(self, text, **kwargs):
+        if isinstance(text, list):
+            return np.asarray([self.encode(item, **kwargs) for item in text])
         values = np.frombuffer(
             hashlib.sha256(text.encode()).digest(), dtype=np.uint8
         ).astype(float)

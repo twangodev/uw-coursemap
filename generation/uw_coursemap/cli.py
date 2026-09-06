@@ -23,14 +23,42 @@ def parser():
     commands = root.add_subparsers(
         dest="command",
         required=True,
-        metavar="{run,resume,status,validate,export,publish,replay}",
     )
-    run = commands.add_parser("run", help="Create and execute a fresh semester scrape")
+    run = commands.add_parser(
+        "scrape",
+        aliases=["run"],
+        help="Create an immutable source snapshot; no model inference",
+    )
     run.add_argument(
         "--semester", required=True, help="UW numeric term code, e.g. 1272"
     )
     run.add_argument("--sitemap-base", default="https://uwcourses.com")
     run.add_argument("--max-prerequisites", type=int, default=1)
+    run.add_argument(
+        "--include-instructors",
+        action="store_true",
+        help="Also require faculty and ratings",
+    )
+    for name in ("derive", "enrich", "release"):
+        command = commands.add_parser(name)
+        command.add_argument("run_id")
+        if name in ("derive", "enrich"):
+            command.add_argument("--models-config", type=Path, required=True)
+        if name == "enrich":
+            command.add_argument("--prepare-only", action="store_true")
+            command.add_argument("--profile", default="enrichment")
+            command.add_argument("--task", type=Path, required=True)
+            command.add_argument(
+                "--limit",
+                type=int,
+                default=100,
+                help="Stable sample size; 0 processes all courses",
+            )
+        if name == "release":
+            command.add_argument("--build")
+            command.add_argument("--enrichment", action="append", default=[])
+    for name in ("enrich-resume", "job-status", "derive-resume"):
+        commands.add_parser(name).add_argument("job_id")
     descriptions = {
         "resume": "Continue an interrupted run",
         "status": "Show source and stage completion",
@@ -46,6 +74,10 @@ def parser():
             command.add_argument("--repo", required=True, help="HF dataset owner/name")
         if name == "replay":
             command.add_argument("--source", choices=SOURCES, required=True)
+    models = commands.add_parser("models-lock")
+    models.add_argument("--models-config", type=Path, required=True)
+    models.add_argument("--profile", action="append", required=True)
+    models.add_argument("--output", type=Path, required=True)
     crawl = commands.add_parser("_crawl")
     crawl.add_argument("run_id")
     crawl.add_argument("source", choices=SOURCES)
@@ -105,6 +137,10 @@ def execute_run(store, run):
     from .derive import derive
     from .release import export, validate
 
+    if json.loads(store.run(run)["config_json"]).get("workflow") == "snapshot-v1":
+        from .lifecycle import scrape
+
+        return scrape(store, run)
     info = store.run(run)
     if info["status"] == "complete":
         return {"run_id": run, "status": "complete"}
@@ -141,14 +177,103 @@ def execute_run(store, run):
 
 def main(argv=None):
     args = parser().parse_args(argv)
+    for name in ("run_id", "job_id", "build"):
+        value = getattr(args, name, None)
+        if value and not re.fullmatch(r"[A-Za-z0-9_-]+", value):
+            raise ValueError(f"Invalid {name}")
+    if args.command == "models-lock":
+        from .profiles import lock_profiles
+
+        print(canonical(lock_profiles(args.models_config, args.profile, args.output)))
+        return
+    if args.command == "publish" and args.run_id.startswith("release-"):
+        from .release import publish
+        from .jobs import file_lock
+
+        store = Store(args.workspace, readonly=True)
+        try:
+            with file_lock(
+                args.workspace / "releases" / (args.run_id + ".publish.lock")
+            ):
+                print(canonical(publish(store, args.run_id, args.repo)))
+        finally:
+            store.close()
+        return
     # Explicit environment configuration; never load arbitrary repository .env files.
     if args.command == "_crawl":
         from .crawl import crawl
 
         crawl(args.workspace, args.run_id, args.source, args.offline)
         return
-    store = Store(args.workspace)
+    if args.command in {
+        "derive",
+        "derive-resume",
+        "enrich",
+        "enrich-resume",
+        "job-status",
+    }:
+        from .lifecycle import build
+        from .jobs import Jobs
+
+        if args.command == "derive":
+            result = build(args.workspace, args.run_id, args.models_config)
+        elif args.command == "derive-resume":
+            meta = json.loads(
+                (args.workspace / "builds" / args.job_id / "build.json").read_text()
+            )
+            result = build(args.workspace, meta["source_run"], build_id=args.job_id)
+        else:
+            jobs = Jobs(args.workspace)
+            try:
+                if args.command == "enrich":
+                    if args.limit < 0:
+                        raise ValueError("limit must be nonnegative")
+                    job = jobs.create(
+                        args.run_id,
+                        args.models_config,
+                        args.profile,
+                        args.task,
+                        args.limit,
+                    )
+                    print(f"Created enrichment job {job}", flush=True)
+                    result = jobs.status(job) if args.prepare_only else jobs.run(job)
+                elif args.command == "enrich-resume":
+                    result = jobs.run(args.job_id)
+                else:
+                    result = jobs.status(args.job_id)
+            finally:
+                jobs.close()
+        print(canonical(result))
+        return
+    readonly = args.command in {"status", "validate", "release"}
+    store = Store(args.workspace, readonly=readonly)
     try:
+        if args.command == "release":
+            from .lifecycle import release
+
+            print(
+                canonical(
+                    {
+                        "release": str(
+                            release(store, args.run_id, args.build, args.enrichment)
+                        )
+                    }
+                )
+            )
+            return
+        if args.command == "validate":
+            from .release import validate
+
+            print(
+                canonical(
+                    validate(
+                        store,
+                        args.run_id,
+                        derived=store.stage_status(args.run_id, "derive") == "complete",
+                    )
+                )
+            )
+            return
         if args.command == "status":
             info = store.run(args.run_id)
             print(
@@ -173,7 +298,7 @@ def main(argv=None):
             )
             return
         with store.lock():
-            if args.command == "run":
+            if args.command in {"run", "scrape"}:
                 if not re.fullmatch(r"\d{4}", args.semester):
                     raise ValueError("Use the four-digit UW term code")
                 if args.max_prerequisites < 1:
@@ -184,43 +309,35 @@ def main(argv=None):
                     raise ValueError(
                         "At least 10 GiB free is required for a new run; model downloads may require more"
                     )
-                from huggingface_hub import HfApi
-
-                api = HfApi()
                 from http_utils import get_user_agent
 
                 config = {
+                    "workflow": "snapshot-v1",
+                    "sources": list(
+                        SOURCES if args.include_instructors else SOURCES[:3]
+                    ),
                     "user_agent": get_user_agent(),
                     "code_hash": code_hash(),
                     "sitemap_base": args.sitemap_base,
                     "max_prerequisites": args.max_prerequisites,
-                    "embedding_model": "avsolatorio/GIST-large-Embedding-v0",
-                    "keyword_model": "sentence-transformers/all-MiniLM-L6-v2",
-                    "inference_backend": "vllm",
-                    "inference_version": "0.28.0",
-                    "embedding_contract": "mean-normalized-v1",
                 }
-                config["embedding_revision"] = api.model_info(
-                    config["embedding_model"]
-                ).sha
-                config["keyword_revision"] = api.model_info(config["keyword_model"]).sha
                 run = store.new_run(args.semester, config)
                 print(f"Created run {run}", flush=True)
                 result = execute(store, run)
             elif args.command == "resume":
                 result = execute(store, args.run_id)
-            elif args.command == "validate":
-                from .release import validate
-
-                result = validate(
-                    store,
-                    args.run_id,
-                    derived=store.stage_status(args.run_id, "derive") == "complete",
-                )
             elif args.command == "export":
                 from .release import export
 
-                result = {"release": str(export(store, args.run_id))}
+                if (
+                    json.loads(store.run(args.run_id)["config_json"]).get("workflow")
+                    == "snapshot-v1"
+                ):
+                    from .lifecycle import release
+
+                    result = {"release": str(release(store, args.run_id))}
+                else:
+                    result = {"release": str(export(store, args.run_id))}
             elif args.command == "publish":
                 from .release import publish
 

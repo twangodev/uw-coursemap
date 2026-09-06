@@ -1,130 +1,171 @@
 # Local pipeline
 
-Run from the project root with Python 3.12 and `uv sync --locked`.
-The legacy `generation/main.py` entrypoint remains during migration; its model stages
-also require local inference servers and explicit `COURSEMAP_EMBEDDING_REVISION` /
-`COURSEMAP_KEYWORD_REVISION` values.
+Run from the project root with Python 3.12 and `uv sync --locked`. Scraping,
+processing, and publication are independent commands with persistent checkpoints.
 
 ```sh
 export COURSEMAP_WORKSPACE=/path/to/persistent/coursemap
 export MADGRADES_API_KEY=...
-uv run coursemap run --semester 1272
+uv run coursemap scrape --semester 1272
 uv run coursemap status RUN_ID
 uv run coursemap resume RUN_ID
-uv run coursemap validate RUN_ID
-uv run coursemap export RUN_ID
+uv run coursemap release RUN_ID
 export HF_TOKEN=...
-uv run coursemap publish RUN_ID --repo OWNER/DATASET
+uv run coursemap publish RELEASE_ID --repo OWNER/DATASET
 ```
 
-Use the UW enrollment API's four-digit term code. The command prints its run ID
-before scraping; source logs are in `runs/RUN_ID/`. The browser-style user agent is fixed for each run and reused on resume.
-New runs refresh all HTTP
-sources and fetch enrollment for the selected semester. Historical grades remain
-included. All model inference runs through local vLLM servers; model revisions are pinned
-at run creation. The scraper never loads model weights itself. Allow at least 10 GiB free, plus room
-for growing history, models, and generated meeting exports.
+Use UW's four-digit enrollment term code. Scraping collects the catalog, Madgrades
+history, and enrollment for that semester, then validates and freezes a source
+snapshot. It does **not** require inference servers or download model weights.
+Faculty-directory and ratings scraping is opt-in with `--include-instructors`;
+when requested, those sources must also finish. Instructors reported by enrollment
+and grades are retained without that option.
 
-`resume` skips completed sources, replays saved successful responses for an
-interrupted source, and retries failed requests. Code changes require a new run.
-To test changed parsers against saved responses:
+The command prints its ID before starting. Logs live in `runs/RUN_ID/`. A fixed
+browser-style user agent is reused on resume. Successful sources are skipped;
+interrupted sources reuse archived successful responses and retry failures.
+Independent sources continue when another source fails. Failed runs never advance
+`current_*` views. Keep at least 10 GiB free, plus room for history and exports.
+
+Changed parser code requires a new snapshot. To reuse archived responses:
 
 ```sh
 uv run coursemap replay OLD_RUN_ID --source catalog
 uv run coursemap resume NEW_RUN_ID
 ```
 
-Replay creates a new run without changing the original. Sources up to the selected
-source run offline; missing saved responses cause failure. Resume then completes
-the remaining stages, reusing archived responses where available. Only one
-mutating CLI command can use a workspace at a time.
+Replay runs sources up through the selected source offline; missing archived
+responses fail explicitly. Resume collects the remaining sources normally. Keep
+an active scraper on its original checkout and uv environment until it finishes.
 
-## Storage
+## Optional processing
 
-`pipeline.sqlite` contains versioned observations, SQL views for courses, subjects,
-terms, instructors, offerings and grades, and private run/checkpoint state.
-`current_*` views select the latest completed run. Raw responses are compressed,
-content-addressed local files; request headers are not archived. Keep this
-workspace private: source bodies and Scrapy request queues can contain source
-authentication details. None of these execution files are exported.
+Model profiles live in `inference/models.toml`. Pin the selected profiles once;
+both clients and server launchers use the resulting JSON file:
 
-`releases/RUN_ID/` contains a public SQLite database with relational tables and
-foreign keys, matching typed Parquet tables, a manifest with file hashes, and
-website JSON/GeoJSON compatibility exports. Nested prerequisites, grade details,
-and source-specific fields remain JSON columns. SQLite `current_*` views select
-the release; history is retained by `run_id`. The generated dataset card describes
-its tables and source provenance.
+```sh
+uv run coursemap models-lock --models-config inference/models.toml \
+  --profile embedding --profile keyword --profile enrichment \
+  --output "$COURSEMAP_WORKSPACE/models.lock.json"
+```
 
-Required sources must complete. Missing subjects, absent target terms, empty
-required datasets, unexplained count losses above 10%, and excessive unmatched
-enrollment records block a release. Validation also requires reconciled instructors
-and target-semester meetings. Failures never advance the local current view.
+In separate terminals, start only the servers needed for the chosen job:
 
-## Publication
+```sh
+uv run python scripts/serve_inference.py --workspace "$COURSEMAP_WORKSPACE" \
+  --models-config "$COURSEMAP_WORKSPACE/models.lock.json" --profile embedding
+uv run python scripts/serve_inference.py --workspace "$COURSEMAP_WORKSPACE" \
+  --models-config "$COURSEMAP_WORKSPACE/models.lock.json" --profile keyword
+uv run python scripts/serve_inference.py --workspace "$COURSEMAP_WORKSPACE" \
+  --models-config "$COURSEMAP_WORKSPACE/models.lock.json" --profile enrichment
+```
 
-HF publication is explicit and independent of scraping. Uploads use batches of at
-most 100 files on `runs/RUN_ID`, with local checkpoints. Retrying `publish` resumes
-an interrupted upload. A completed upload gets a `release-RUN_ID` tag, then a single
-commit updates `latest.json` on the dataset's main branch. Concurrent changes to
-main block promotion rather than overwriting another release.
+The separate `inference/` uv project locks vLLM and its GPU dependencies. Servers
+bind to loopback; `--dry-run` prints a launch command without downloading weights.
+Profiles control model/revision, token limits, dimensions, document prefix,
+concurrency, pooling, and server arguments. Alternative vLLM/SGLang servers can
+use the same HTTP boundary; serve the identity `HF_MODEL_ID@COMMIT_SHA` and record
+the actual engine/version in the profile. Optional authentication uses
+`COURSEMAP_INFERENCE_API_KEY`. No client loads model weights directly.
 
-Consumers read `latest.json`, then use its immutable `revision` for **all** files.
-The dataset tables and Dataset Viewer configuration are on that revision/tag;
-main holds the publication pointer. To roll back, consumers can pin a previous
-release tag. Website logical paths map to
+The default generation candidate is Qwen3.6-35B-A3B-FP8. Select
+`enrichment-nvfp4` for NVIDIA's Qwen3.6-35B-A3B-NVFP4, or `enrichment-bf16` as a
+reference. Lock that profile and use the same name in the server and enrichment
+commands. These are configurable candidates, not task-quality benchmark results.
+Run one generation profile at a time; BF16's larger memory allocation requires
+stopping the embedding servers first.
+
+Build existing similarity, keywords, prerequisite display graphs, and website
+compatibility files with the embedding and keyword servers:
+
+```sh
+uv run coursemap derive RUN_ID --models-config "$COURSEMAP_WORKSPACE/models.lock.json"
+uv run coursemap derive-resume BUILD_ID
+```
+
+Builds copy one immutable snapshot into `builds/BUILD_ID/`, checkpoint each stage,
+and leave source data unchanged. Embeddings use bounded batches and disk caching.
+Cache identities include model and processing settings. Original prerequisite
+text/structure remains in source tables; optimized graph choices are derivatives.
+
+For generative enrichment, start with a stable sample of 100 courses:
+
+```sh
+uv run coursemap enrich RUN_ID --models-config "$COURSEMAP_WORKSPACE/models.lock.json" \
+  --task inference/tasks/course_profiles.json --limit 100
+uv run coursemap job-status ENRICHMENT_ID
+uv run coursemap enrich-resume ENRICHMENT_ID
+```
+
+`--prepare-only` creates a job without contacting inference; `--limit 0` selects
+all courses. The task file defines source inputs, prompt, JSON Schema, and task
+version. The initial task produces summaries, topics, skills, and search phrases;
+topic/skill evidence must quote the description. It does not estimate workload,
+grades, or instructor quality. Schema and exact-quote checks reject malformed
+outputs, but human review is still needed to assess semantic quality.
+
+`processing.sqlite` records per-course inputs, outputs, usage, failures, and
+immutable task/model provenance. A single writer commits bounded concurrent HTTP
+results. Resume retries unfinished courses; unchanged inputs reuse validated
+outputs across snapshots. Prompt, schema, model, and generation settings change
+the cache identity. Completed jobs cannot be silently overwritten.
+
+Explicitly select optional outputs for a release:
+
+```sh
+uv run coursemap release RUN_ID --build BUILD_ID --enrichment ENRICHMENT_ID
+uv run coursemap publish RELEASE_ID --repo OWNER/DATASET
+```
+
+Repeat `--enrichment` to attach multiple completed jobs. Partial or failed jobs
+cannot be released; completed samples include their coverage counts. A source-only
+release remains available even when an optional model job fails. Scraping,
+derivation, enrichment, and publication have separate locks; different processing
+jobs can run alongside a scrape. Each build/job permits only one active worker.
+
+## Storage and Hugging Face
+
+`pipeline.sqlite` stores versioned observations and source checkpoints. Compressed,
+content-addressed raw responses remain local. Keep the workspace private: raw
+bodies and Scrapy queues may contain authentication details. They are not exported.
+
+`releases/RELEASE_ID/` contains a public relational SQLite database, equivalent
+Parquet tables, a dataset card, and a checksummed manifest. Nested source structures
+remain JSON columns. History joins by `run_id`; `current_*` views select the chosen
+snapshot. Releases record source history, exporter identity, selected build/model
+provenance, and enrichment coverage. Website files are included only with `--build`.
+Missing required data, reference errors, and unexplained count drops block source
+completion. SQLite foreign keys and file hashes are checked before publication.
+
+HF uploads are explicit, batched, resumable, and tagged by immutable revision.
+Only a completed upload promotes `latest.json` on the dataset's main branch;
+concurrent pointer changes block promotion. Consumers read that pointer and use
+its exact `revision` for every file. SQLite/Parquet and Dataset Viewer configuration
+live on the release revision. Website paths map to
 `web/<sha256(logical_path)[:2]>/<logical_path>` to avoid oversized HF directories.
 
-This branch does not activate a Cloudflare deployment. Before merging, retire or
-reconfigure the legacy GitHub Actions scrape: hosted runners cannot reach the
-workstation inference servers.
+No Cloudflare deployment is activated here. Before merging, retire or reconfigure
+the legacy hosted GitHub Actions scrape; it cannot reach local inference servers.
+Older combined runs can still resume with their original checkout and configuration.
 
-## Local inference
-
-The independent `inference/` uv project locks vLLM and its GPU runtime. Once a
-scrape prints its run ID, start these in separate terminals before derivation:
+## One-time backfill
 
 ```sh
-uv run python scripts/serve_inference.py --workspace "$COURSEMAP_WORKSPACE" --run RUN_ID --kind embedding
-uv run python scripts/serve_inference.py --workspace "$COURSEMAP_WORKSPACE" --run RUN_ID --kind keyword
+uv run python scripts/backfill_legacy.py --repository /path/to/uw-coursemap/data \
+  --workspace "$COURSEMAP_WORKSPACE" --all
 ```
 
-The servers bind to loopback ports 8001 and 8002 and use the run's exact model
-revisions, mean pooling, and normalized embeddings. Set
-`COURSEMAP_EMBEDDING_BASE_URL` / `COURSEMAP_KEYWORD_BASE_URL` to override their
-`http://127.0.0.1:PORT/v1` URLs; optional authentication uses
-`COURSEMAP_INFERENCE_API_KEY`. Model names served by alternative endpoints must
-be `HF_MODEL_ID@COMMIT_SHA`. The client validates identity, response ordering,
-vector dimensions, and finite values, and retries transient failures. Cached
-vectors are separated from the previous direct-inference backend. Generative
-LLM enrichment is not implemented yet; it should use the same server boundary.
+Without `--all`, imports HEAD only. Each Git commit imports atomically and is safe
+to rerun. Observation timestamps prevent old backfills replacing newer snapshots.
+Legacy course/instructor JSON and available meetings are retained; unavailable raw
+responses and model provenance are not invented. Historical grade totals are
+snapshots: **do not sum them across runs**. Legacy snapshots can be released or
+used for generative enrichment, but lack raw inputs for rebuilding website graphs.
 
-## One-time legacy backfill
-
-Read the initialized data submodule directly, without checking out historical trees:
-
-```sh
-uv run python scripts/backfill_legacy.py --repository /path/to/uw-coursemap/data --workspace "$COURSEMAP_WORKSPACE"
-uv run python scripts/backfill_legacy.py --repository /path/to/uw-coursemap/data --workspace "$COURSEMAP_WORKSPACE" --all
-```
-
-The first command imports HEAD; `--all` imports all reachable commits. Each commit
-is atomic and safe to rerun. Snapshots retain `update.json` timestamps and Git
-commit provenance. Current views select the newest observation, so backfilling
-older data cannot replace a newer scrape. Historical grade totals are separate
-snapshots: do not sum them across runs.
-
-The importer preserves course and instructor JSON, including legacy enrichment,
-and per-course meetings when available. Raw responses and model provenance are
-unavailable. The scrape semester is inferred from enrollment terms and marked as
-inferred. Legacy snapshots join the next fresh release's SQLite and Parquet
-history; they cannot produce standalone website releases. No LLMs run during
-backfill. Generated graphs and redundant website exports remain recoverable from
-Git rather than being imported into the database.
-
-## Tests
+## Checks
 
 ```sh
 uv run python -m unittest discover -s generation/tests -v
-uv run ruff check generation
-uv run ruff format --check generation
+uv run ruff check generation scripts/serve_inference.py
+uv run ruff format --check generation scripts/serve_inference.py
 ```

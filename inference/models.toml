@@ -1,0 +1,47 @@
+# Revisions are resolved to immutable commits when an enrichment run is created.
+[profiles.enrichment]
+model = "Qwen/Qwen3.6-35B-A3B-FP8"
+base_url = "http://127.0.0.1:8003/v1"
+runner = "generate"
+context_length = 8192
+max_output_tokens = 2048
+concurrency = 2
+temperature = 0.2
+thinking = false
+server_args = ["--kv-cache-dtype", "fp8", "--reasoning-parser", "qwen3", "--gpu-memory-utilization", "0.65", "--max-num-seqs", "2", "--enforce-eager", "--language-model-only"]
+
+[profiles.embedding]
+model = "avsolatorio/GIST-large-Embedding-v0"
+base_url = "http://127.0.0.1:8001/v1"
+runner = "pooling"
+context_length = 512
+dimensions = 1024
+server_args = ["--pooler-config", '{"pooling_type":"MEAN","use_activation":true}', "--gpu-memory-utilization", "0.15", "--enforce-eager"]
+
+[profiles.keyword]
+model = "sentence-transformers/all-MiniLM-L6-v2"
+base_url = "http://127.0.0.1:8002/v1"
+runner = "pooling"
+context_length = 256
+dimensions = 384
+server_args = ["--pooler-config", '{"pooling_type":"MEAN","use_activation":true}', "--gpu-memory-utilization", "0.15", "--enforce-eager"]
+
+[profiles.enrichment-nvfp4]
+model = "nvidia/Qwen3.6-35B-A3B-NVFP4"
+base_url = "http://127.0.0.1:8003/v1"
+runner = "generate"
+context_length = 8192
+max_output_tokens = 2048
+concurrency = 4
+temperature = 0.2
+thinking = false
+server_args = ["--quantization", "modelopt_fp4", "--kv-cache-dtype", "fp8", "--reasoning-parser", "qwen3", "--gpu-memory-utilization", "0.65", "--max-num-seqs", "4", "--enforce-eager", "--language-model-only"]
+
+[profiles.enrichment-bf16]
+model = "Qwen/Qwen3.6-35B-A3B"
+base_url = "http://127.0.0.1:8003/v1"
+runner = "generate"
+context_length = 8192
+max_output_tokens = 2048
+concurrency = 2
+server_args = ["--dtype", "bfloat16", "--reasoning-parser", "qwen3", "--gpu-memory-utilization", "0.90", "--max-num-seqs", "2", "--enforce-eager", "--language-model-only"]

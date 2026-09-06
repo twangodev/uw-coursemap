@@ -1,6 +1,7 @@
 """Inference client for a separately managed local vLLM pooling server."""
 
 import os
+import json
 import re
 
 import numpy as np
@@ -27,6 +28,7 @@ class EmbeddingClient:
         texts = [sentences] if single else list(sentences)
         if not texts:
             raise ValueError("Embedding input must not be empty")
+        texts = [getattr(self, "prefix", "") + text for text in texts]
         output = []
         with requests.Session() as session:
             retry = Retry(
@@ -81,6 +83,24 @@ class EmbeddingClient:
 
 
 def configured_model(kind):
+    profiles = json.loads(os.environ.get("COURSEMAP_MODEL_PROFILES", "{}"))
+    if kind in profiles:
+        from .models import digest
+
+        profile = profiles[kind]
+        client = EmbeddingClient(
+            profile["model"],
+            profile["revision"],
+            profile["base_url"],
+            max_tokens=profile["context_length"],
+            dimensions=profile.get("dimensions"),
+        )
+        contract = {
+            k: v for k, v in profile.items() if k not in {"base_url", "concurrency"}
+        }
+        client.model_name = "profile-" + digest(contract)
+        client.prefix = profile.get("document_prefix", "")
+        return client
     if kind == "embedding":
         model = "avsolatorio/GIST-large-Embedding-v0"
         port = 8001
