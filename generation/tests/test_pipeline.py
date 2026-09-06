@@ -252,6 +252,24 @@ class PipelineTests(unittest.TestCase):
             )
         self.assertEqual(self.store.records(self.run, "courses"), {})
 
+    def test_explicitly_empty_department_is_valid(self):
+        catalog = CatalogSpider(store=self.store, run=self.run)
+        title = '<h1 class="page-title">Otolaryngology (OTOLARYN)</h1>'
+        notice = '<div id="textcontainer">The subject OTOLARYN does not have any active courses at time of Guide publication.</div>'
+        items = list(
+            catalog.department(
+                response("https://guide.wisc.edu/courses/otolaryn/", title + notice)
+            )
+        )
+        self.assertEqual([item["kind"] for item in items], ["subjects"])
+        self.assertEqual(items[0]["key"], "OTOLARYN")
+        with self.assertRaisesRegex(ValueError, "no course blocks"):
+            list(
+                catalog.department(
+                    response("https://guide.wisc.edu/courses/otolaryn/", title)
+                )
+            )
+
     def test_malformed_source_pages_fail(self):
         catalog = CatalogSpider(store=self.store, run=self.run)
         with self.assertRaises(ValueError):

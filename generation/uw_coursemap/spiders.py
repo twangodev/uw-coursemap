@@ -71,6 +71,10 @@ class CatalogSpider(SourceSpider):
         yield item("subjects", abbreviation, {"name": match[1].strip()}, response)
         blocks = soup.select("div.courseblock")
         if not blocks:
+            content = soup.select_one("#textcontainer")
+            empty_notice = f"The subject {abbreviation} does not have any active courses at time of Guide publication."
+            if content and content.get_text(" ", strip=True) == empty_notice:
+                return
             raise ValueError("Department contains no course blocks")
         for block in blocks:
             course = Course.from_block(block, self.logger)

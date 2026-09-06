@@ -148,9 +148,10 @@ class Store:
         return dict(row)
 
     def stage_status(self, run, stage):
-        return self.db.execute(
+        row = self.db.execute(
             "SELECT status FROM stages WHERE run_id=? AND stage=?", (run, stage)
-        ).fetchone()[0]
+        ).fetchone()
+        return row[0] if row else None
 
     def stage(self, run, stage, status, error=None):
         with self.db:

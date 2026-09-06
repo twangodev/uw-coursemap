@@ -6,7 +6,7 @@ import tempfile
 import unittest
 
 from uw_coursemap.legacy import import_revision
-from uw_coursemap.release import write_database
+from uw_coursemap.release import validate, write_database
 from uw_coursemap.store import Store
 
 
@@ -73,6 +73,8 @@ class LegacyTests(unittest.TestCase):
             store = Store(root / "workspace")
             try:
                 new = import_revision(store, repository, newer)["run_id"]
+                self.assertIsNone(store.stage_status(new, "derive"))
+                self.assertEqual(validate(store, new)["courses"], 1)
                 import_revision(store, repository, older)
                 self.assertEqual(
                     store.db.execute("SELECT run_id FROM current_courses").fetchone()[
