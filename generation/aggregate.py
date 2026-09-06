@@ -204,6 +204,8 @@ def aggregate_subject_stats(course_ref_to_course: dict[Course.Reference, Course]
                     "total_courses": 0,
                     "total_grades_given": GradeData.empty(),
                     "total_detected_requisites": 0,
+                    "grades_by_term": {},
+                    "courses": [],
                 }
 
             stats = subject_stats[subject]
@@ -217,8 +219,36 @@ def aggregate_subject_stats(course_ref_to_course: dict[Course.Reference, Course]
                     course.prerequisites.course_references
                 )
 
+            for term, term_data in course.term_data.items():
+                if not term_data.grade_data:
+                    continue
+                existing = stats["grades_by_term"].get(term, GradeData.empty())
+                stats["grades_by_term"][term] = existing.merge_with(
+                    term_data.grade_data
+                )
+
+            cumulative = course.cumulative_grade_data
+            stats["courses"].append(
+                {
+                    "course_reference": course.course_reference,
+                    "course_title": course.course_title,
+                    "grades_given": cumulative.total if cumulative else 0,
+                }
+            )
+
+    for stats in subject_stats.values():
+        for grade_data in stats["grades_by_term"].values():
+            grade_data.instructors = None
+        stats["courses"].sort(key=lambda entry: entry["grades_given"], reverse=True)
+
     for subject, stats in subject_stats.items():
-        logger.info("Subject: %s, Stats: %s", subject, stats)
+        logger.info(
+            "Subject: %s, courses: %d, grades given: %d, terms: %d",
+            subject,
+            stats["total_courses"],
+            stats["total_grades_given"].total,
+            len(stats["grades_by_term"]),
+        )
 
     return subject_stats
 

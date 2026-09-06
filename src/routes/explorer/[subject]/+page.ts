@@ -1,5 +1,6 @@
 import { env } from "$env/dynamic/public";
 import { error } from "@sveltejs/kit";
+import { getSubjectFullName } from "$lib/api.ts";
 import { generateOgImageUrl } from "$lib/seo/og-image";
 import { processGraphData } from "$lib/components/cytoscape/graph-data";
 
@@ -8,13 +9,7 @@ const { PUBLIC_API_URL } = env;
 export const load = async ({ params, fetch }) => {
   let subject = params.subject.toUpperCase();
 
-  // Fetch subjects to get full name
-  const subjectsResponse = await fetch(`${PUBLIC_API_URL}/subjects.json`);
-  let subjectFullName = subject;
-  if (subjectsResponse.ok) {
-    const subjects = await subjectsResponse.json();
-    subjectFullName = subjects[subject] || subject;
-  }
+  const subjectFullName = await getSubjectFullName(fetch, subject);
 
   const elementDefinitionsResponse = await fetch(
     `${PUBLIC_API_URL}/graphs/${subject}.json`,

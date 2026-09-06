@@ -64,7 +64,7 @@
   });
 </script>
 
-<div use:inView={{ threshold: 0.4 }} class="mx-auto w-full max-w-6xl px-3 py-20">
+<div use:inView={{ threshold: 0.4, once: true }} class="mx-auto w-full max-w-6xl px-3 py-20">
   <span
     class="z-10 block w-fit rounded-lg border border-rose-200/20 bg-rose-50/50 px-3 py-1.5 leading-4 font-semibold tracking-tighter uppercase sm:text-sm dark:border-rose-800/30 dark:bg-rose-900/20 opacity-0 animate-fade-up [animation-fill-mode:forwards] [&.in-view]:opacity-100"
   >
@@ -82,7 +82,10 @@
   <p class="mt-6 max-w-3xl text-lg leading-7 text-gray-600 dark:text-gray-400 opacity-0 animate-fade-up [animation-delay:200ms] [animation-fill-mode:forwards] [&.in-view]:opacity-100">
     {m["home.statistics.description"]()}
   </p>
-  <dl class="mt-12 border-y border-gray-200 py-14 dark:border-gray-800">
+  <dl
+    use:inView={{ threshold: 0 }}
+    class="mt-12 border-y border-gray-200 py-14 dark:border-gray-800 [&:not(.in-view)_.animate-marquee]:[animation-play-state:paused]"
+  >
     <Marquee pauseOnHover class="[--duration:30s]">
       <div class="flex">
         {#each shuffledStats as stat}

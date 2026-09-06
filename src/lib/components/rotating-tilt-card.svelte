@@ -1,17 +1,27 @@
 <script lang="ts">
-  import { slide, type SlideParams } from "svelte/transition";
-  import { quadInOut } from "svelte/easing";
   import { Code, Database, Waypoints, Upload } from "@lucide/svelte";
   import { inView } from "$lib/actions/in-view";
   import { m } from "$lib/paraglide/messages";
 
   const DISPLAY_DURATION = 5000;
 
-  const cardImages = ["/compsci-300.png", "/compsci-graph.png"];
+  const cardImages = ["/compsci-300.webp", "/compsci-graph.webp"];
 
   let i = $state(0);
+  let cardVisible = $state(false);
+  let cardElement = $state<HTMLElement | undefined>(undefined);
 
   $effect(() => {
+    if (!cardElement) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      cardVisible = entry.isIntersecting;
+    });
+    observer.observe(cardElement);
+    return () => observer.disconnect();
+  });
+
+  $effect(() => {
+    if (!cardVisible) return;
     const interval = setInterval(() => {
       i = (i + 1) % cardImages.length;
     }, DISPLAY_DURATION);
@@ -22,68 +32,59 @@
   });
 
   function toDarkVariant(url: string): string {
-    return url.endsWith(".png")
-      ? url.slice(0, -4) + "-dark.png"
-      : url.replace(/\.\w+$/, "") + "-dark.png";
+    return url.replace(/\.\w+$/, "") + "-dark.webp";
   }
-
-  const slideParams: SlideParams = {
-    duration: 750,
-    easing: quadInOut,
-    axis: "y",
-  };
 </script>
 
-<div class="mx-auto -mt-16 max-w-7xl overflow-hidden lg:pr-44">
+<div
+  bind:this={cardElement}
+  class="mx-auto -mt-16 max-w-7xl overflow-hidden contain-paint lg:pr-44"
+>
   <div class="-mr-16 perspective-distant lg:-mr-56 lg:pl-32">
     <div class="[transform:rotateX(20deg);]">
       <div class="relative skew-x-[.25rad] lg:h-176">
         <div
           aria-hidden="true"
-          class="from-background to-background absolute -inset-16 z-1 bg-linear-to-b via-transparent sm:-inset-32"
+          class="absolute -inset-16 z-1 bg-[url(/hero-decor-light.svg)] bg-no-repeat [background-size:100%_100%] sm:-inset-32 dark:hidden"
         ></div>
         <div
           aria-hidden="true"
-          class="from-background to-background absolute -inset-16 z-1 bg-white/50 bg-linear-to-r via-transparent sm:-inset-32 dark:bg-transparent"
+          class="absolute -inset-16 z-1 hidden bg-[url(/hero-decor-dark.svg)] bg-no-repeat [background-size:100%_100%] sm:-inset-32 dark:block"
         ></div>
         <div
           aria-hidden="true"
-          class="absolute -inset-16 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:24px_24px] [--color-border:var(--color-black)] sm:-inset-32 dark:[--color-border:color-mix(in_oklab,var(--color-white)_50%,transparent)]"
+          class="absolute inset-0 z-11 bg-[url(/hero-overlay-light.svg)] bg-no-repeat [background-size:100%_100%] dark:hidden"
         ></div>
         <div
           aria-hidden="true"
-          class="from-background/20 dark:from-background/60 absolute inset-0 z-11 bg-gradient-to-l"
+          class="absolute inset-0 z-11 hidden bg-[url(/hero-overlay-dark.svg)] bg-no-repeat [background-size:100%_100%] dark:block"
         ></div>
-        <div
-          aria-hidden="true"
-          class="absolute inset-0 z-2 size-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,transparent_40%,var(--color-background)_100%)]"
-        ></div>
-        <div
-          aria-hidden="true"
-          class="absolute inset-0 z-2 size-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,transparent_40%,var(--color-background)_100%)]"
-        ></div>
-        <div class="mt-8 mb-8">
-          {#key cardImages[i]}
+        <div class="mt-8 mb-8 grid">
+          {#each cardImages as image, index}
             <div
-              class="relative z-1 mx-auto rounded-(--radius) border-3 dark:border"
-              transition:slide={slideParams}
+              class="z-1 col-start-1 row-start-1 mx-auto rounded-(--radius) border-3 transition-opacity duration-700 ease-in-out dark:border {index ===
+              i
+                ? 'opacity-100'
+                : 'opacity-0'}"
             >
               <img
-                class="relative z-1 rounded-(--radius) dark:hidden"
-                src={cardImages[i]}
+                class="rounded-(--radius) dark:hidden"
+                src={image}
                 alt="Preview"
-                width="3840"
-                height="2160"
+                width="1920"
+                height="1080"
+                decoding="async"
               />
               <img
-                class="relative z-1 hidden rounded-(--radius) dark:block"
-                src={toDarkVariant(cardImages[i])}
+                class="hidden rounded-(--radius) dark:block"
+                src={toDarkVariant(image)}
                 alt="Preview"
-                width="3840"
-                height="2160"
+                width="1920"
+                height="1080"
+                decoding="async"
               />
             </div>
-          {/key}
+          {/each}
         </div>
       </div>
     </div>
@@ -93,7 +94,7 @@
   <div
     class="relative mx-auto grid grid-cols-2 gap-x-3 gap-y-6 sm:gap-8 lg:grid-cols-4"
   >
-    <div use:inView={{ threshold: 0.3 }} class="space-y-3 opacity-0 scale-95 transition-all duration-500 [&.in-view]:opacity-100 [&.in-view]:scale-100">
+    <div use:inView={{ threshold: 0.3, once: true }} class="space-y-3 opacity-0 scale-95 transition-[opacity,transform] duration-500 [&.in-view]:opacity-100 [&.in-view]:scale-100">
       <div class="flex items-center gap-2">
         <Upload class="size-4" />
         <h3 class="text-sm font-medium">{m["home.features.upload.title"]()}</h3>
@@ -102,7 +103,7 @@
         {m["home.features.upload.description"]()}
       </p>
     </div>
-    <div use:inView={{ threshold: 0.3 }} class="space-y-2 opacity-0 scale-95 transition-all duration-500 delay-100 [&.in-view]:opacity-100 [&.in-view]:scale-100">
+    <div use:inView={{ threshold: 0.3, once: true }} class="space-y-2 opacity-0 scale-95 transition-[opacity,transform] duration-500 delay-100 [&.in-view]:opacity-100 [&.in-view]:scale-100">
       <div class="flex items-center gap-2">
         <Waypoints class="size-4" />
         <h3 class="text-sm font-medium">{m["home.features.visualFirst.title"]()}</h3>
@@ -111,7 +112,7 @@
         {m["home.features.visualFirst.description"]()}
       </p>
     </div>
-    <div use:inView={{ threshold: 0.3 }} class="space-y-2 opacity-0 scale-95 transition-all duration-500 delay-200 [&.in-view]:opacity-100 [&.in-view]:scale-100">
+    <div use:inView={{ threshold: 0.3, once: true }} class="space-y-2 opacity-0 scale-95 transition-[opacity,transform] duration-500 delay-200 [&.in-view]:opacity-100 [&.in-view]:scale-100">
       <div class="flex items-center gap-2">
         <Code class="size-4" />
         <h3 class="text-sm font-medium">{m["home.features.openSource.title"]()}</h3>
@@ -120,7 +121,7 @@
         {m["home.features.openSource.description"]()}
       </p>
     </div>
-    <div use:inView={{ threshold: 0.3 }} class="space-y-2 opacity-0 scale-95 transition-all duration-500 delay-300 [&.in-view]:opacity-100 [&.in-view]:scale-100">
+    <div use:inView={{ threshold: 0.3, once: true }} class="space-y-2 opacity-0 scale-95 transition-[opacity,transform] duration-500 delay-300 [&.in-view]:opacity-100 [&.in-view]:scale-100">
       <div class="flex items-center gap-2">
         <Database class="size-4" />
         <h3 class="text-sm font-medium">{m["home.features.dataFriendly.title"]()}</h3>
@@ -131,3 +132,4 @@
     </div>
   </div>
 </div>
+
