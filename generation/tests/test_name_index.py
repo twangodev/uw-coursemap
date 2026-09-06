@@ -42,3 +42,14 @@ class NameIndexTests(unittest.TestCase):
         self.assertEqual(
             dict(iter_name_matches(queries, candidates, workers=2)), expected
         )
+
+    def test_malformed_historical_name_has_stable_safe_identifier(self):
+        from pathvalidate import validate_filename
+        from sanitization import sanitize_instructor_id
+
+        first = sanitize_instructor_id("ADELA OLIVA CH?VEZ")
+        validate_filename(first)
+        self.assertEqual(first, sanitize_instructor_id("ADELA OLIVA CH?VEZ"))
+        self.assertNotEqual(first, sanitize_instructor_id("ADELA OLIVA CH*VEZ"))
+        self.assertEqual(sanitize_instructor_id("Jane Example"), "JANE_EXAMPLE")
+        self.assertIsNone(sanitize_instructor_id(""))

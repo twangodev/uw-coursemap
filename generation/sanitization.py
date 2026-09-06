@@ -2,6 +2,7 @@
 Sanitization utilities for generating safe filenames and identifiers.
 """
 
+import hashlib
 import re
 from typing import Union
 from logging import getLogger
@@ -37,16 +38,16 @@ def sanitize_instructor_id(name: str) -> Union[str, None]:
     )
     result = re.sub(r"_+", "_", result).strip("_")
 
+    fallback = (
+        "INSTRUCTOR_" + hashlib.sha256(name.encode("utf-8")).hexdigest()[:32].upper()
+    )
     if not result:
-        logger.debug(
-            f"Instructor name '{name}' resulted in empty string after sanitization."
-        )
-        return None
+        return fallback
 
     try:
         validate_filename(result)
     except ValidationError as e:
-        logger.debug(f"Invalid instructor ID '{result}': {e}. Skipping.")
-        return None
+        logger.debug(f"Invalid instructor ID '{result}': {e}. Using stable fallback.")
+        return fallback
 
     return result
