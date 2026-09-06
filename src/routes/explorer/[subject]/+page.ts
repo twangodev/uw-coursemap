@@ -1,8 +1,8 @@
 import { env } from "$env/dynamic/public";
 import { error } from "@sveltejs/kit";
-import type { ElementDefinition } from "cytoscape";
 import { getSubjectFullName } from "$lib/api.ts";
 import { generateOgImageUrl } from "$lib/seo/og-image";
+import { processGraphData } from "$lib/components/cytoscape/graph-data";
 
 const { PUBLIC_API_URL } = env;
 
@@ -19,15 +19,9 @@ export const load = async ({ params, fetch }) => {
       elementDefinitionsResponse.status,
       `Failed to fetch graph data: ${elementDefinitionsResponse.statusText}`,
     );
-  const elementDefinitions: ElementDefinition[] =
-    await elementDefinitionsResponse.json();
-
-  elementDefinitions.forEach((item: any) => {
-    item["pannable"] = true;
-    if (!Object.hasOwn(item.data, "title")) {
-      item.data["title"] = "";
-    }
-  });
+  const elementDefinitions = processGraphData(
+    await elementDefinitionsResponse.json()
+  );
 
   const styleEntriesResponse = await fetch(
     `${PUBLIC_API_URL}/styles/${subject}.json`,

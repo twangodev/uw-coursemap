@@ -5,11 +5,72 @@ export type StyleEntry = {
   [parent: string]: string;
 };
 
+export type GraphType = "department" | "course";
+
+// Course graph layout constants
+export const COURSE_GRAPH_FONT_SIZE = 8;
+export const COURSE_GRAPH_OPERATOR_FONT_SIZE = 8;
+export const COURSE_GRAPH_NODE_PADDING_X = 10;
+export const COURSE_GRAPH_NODE_PADDING_Y = 5;
+
+/**
+ * Common styles shared between department and course graphs
+ */
+function getCommonStyles(mode: "light" | "dark" | undefined): StylesheetStyle[] {
+  return [
+    {
+      selector: ".highlighted-nodes",
+      style: {
+        "border-width": 1,
+        "border-color": getTextColor(mode),
+        "border-style": "solid",
+      },
+    },
+    {
+      selector: ".highlighted-edges",
+      style: {
+        width: 2,
+      },
+    },
+    {
+      selector: ".faded",
+      style: {
+        opacity: 0.25,
+        "text-opacity": 0.25,
+      },
+    },
+    {
+      selector: ".expand-faded",
+      style: {
+        opacity: 0.25,
+        "text-opacity": 0.25,
+      },
+    },
+    {
+      selector: "*",
+      style: {
+        "transition-property": "opacity",
+        "transition-duration": 0.2,
+      },
+    },
+    {
+      selector: ".no-overlay",
+      style: {
+        "overlay-padding": 0,
+        "overlay-opacity": 0,
+      },
+    },
+  ];
+}
+
 export async function getStyleData(styleUrl: string): Promise<StyleEntry[]> {
   const response = await fetch(styleUrl);
   return await response.json();
 }
 
+/**
+ * Get styles for department graphs (theme-reactive, uses parent colors)
+ */
 export function getStyles(
   styleData: StyleEntry[],
   mode: "light" | "dark" | undefined,
@@ -24,31 +85,9 @@ export function getStyles(
         "text-halign": "center",
         "background-color": "#757575",
         "text-wrap": "wrap",
-        "text-max-width": "200px", // i have no clue what the unit is, maybe px
+        "text-max-width": "100", // Forces wrapping for long cross-listed course names
         "text-margin-y": 2,
         color: getTextColor(mode),
-      },
-    },
-    {
-      selector: ".highlighted-nodes",
-      style: {
-        "border-width": 1,
-        "border-color": getTextColor(mode),
-        "border-style": "solid",
-      },
-    },
-    {
-      selector: ".faded",
-      style: {
-        opacity: 0.25,
-        "text-opacity": 0.25,
-      },
-    },
-    {
-      selector: "*",
-      style: {
-        "transition-property": "opacity",
-        "transition-duration": 0.2,
       },
     },
     {
@@ -75,19 +114,6 @@ export function getStyles(
       },
     },
     {
-      selector: ".highlighted-edges",
-      style: {
-        width: 2,
-      },
-    },
-    {
-      selector: ".no-overlay",
-      style: {
-        "overlay-padding": 0,
-        "overlay-opacity": 0,
-      },
-    },
-    {
       selector: ".cy-expand-collapse-collapsed-node",
       style: {
         "overlay-opacity": 0,
@@ -101,6 +127,7 @@ export function getStyles(
         "overlay-color": "transparent",
       },
     },
+    ...getCommonStyles(mode),
   ];
 
   const styles = styleData.map((item) => {
@@ -114,4 +141,104 @@ export function getStyles(
   });
 
   return defaultStyles.concat(styles);
+}
+
+/**
+ * Get styles for course graphs (theme-reactive for highlights)
+ */
+export function getCourseGraphStyles(
+  mode: "light" | "dark" | undefined,
+): StylesheetStyle[] {
+  return [
+    {
+      selector: "node",
+      style: {
+        label: "data(label)",
+        "text-valign": "center",
+        "text-halign": "center",
+        "background-color": "#757575",
+        "text-wrap": "wrap",
+        "text-max-width": "100",
+        "font-size": COURSE_GRAPH_FONT_SIZE,
+        "font-family": "Inter, system-ui, sans-serif",
+        "text-outline-width": 0,
+        shape: "round-rectangle",
+        width: "label",
+        height: "label",
+        padding: `${COURSE_GRAPH_NODE_PADDING_Y}px ${COURSE_GRAPH_NODE_PADDING_X}px`,
+      },
+    },
+    {
+      selector: 'node[type="operator"]',
+      style: {
+        "background-opacity": 0,
+        "text-margin-y": 0,
+        color: getTextColor(mode),
+      },
+    },
+    {
+      selector: 'node[type="prereq"]',
+      style: {
+        "background-color": "#f89057",
+        color: "#7f3004",
+      },
+    },
+    {
+      selector: 'node.taken-nodes[type="prereq"]',
+      style: {
+        "background-color": "#99cd98",
+        color: "#4a7d4a",
+      },
+    },
+    {
+      selector: 'node[type="target"]',
+      style: {
+        "background-color": "#f2777a",
+        color: "#8e0e10",
+      },
+    },
+    {
+      selector: 'node[type="expand"]',
+      style: {
+        label: "data(label)",
+        "background-color": "#e8a070",
+        color: "#7f3004", // Same as prereq text
+        width: 12,
+        height: 12,
+        "font-size": 9,
+        "font-weight": "bold",
+        shape: "ellipse",
+        "text-valign": "center",
+        "text-halign": "center",
+        padding: "0",
+        "border-width": 0,
+      },
+    },
+    {
+      selector: "edge",
+      style: {
+        width: 1,
+        "line-color": getTextColor(mode),
+        "curve-style": "taxi",
+        "taxi-direction": "horizontal",
+        "taxi-turn": "50%",
+        "target-arrow-shape": "triangle",
+        "target-arrow-color": getTextColor(mode),
+        "arrow-scale": 0.8,
+        "source-endpoint": "outside-to-node",
+        "target-endpoint": "outside-to-node",
+      },
+    },
+    {
+      selector: 'edge[type="expand-edge"]',
+      style: {
+        width: 1,
+        "line-color": getTextColor(mode),
+        "line-style": "dotted",
+        "curve-style": "straight",
+        "target-arrow-shape": "none",
+      },
+    },
+    ...getCommonStyles(mode),
+  ];
 }

@@ -10,7 +10,12 @@
     computeLayout,
   } from "./cytoscape-init.ts";
   import { LayoutType } from "./graph-layout.ts";
-  import { getStyles, type StyleEntry } from "./graph-styles.ts";
+  import {
+    getStyles,
+    getCourseGraphStyles,
+    type StyleEntry,
+    type GraphType,
+  } from "./graph-styles.ts";
   import { setupCytoscapeHandlers } from "./cytoscape-handlers.svelte.ts";
   import { clearPath, highlightPath } from "./paths.ts";
   import { cn } from "$lib/utils.ts";
@@ -19,9 +24,14 @@
   interface Props {
     elementDefinitions: ElementDefinition[];
     styleEntries: StyleEntry[];
+    graphType?: GraphType;
   }
 
-  let { elementDefinitions, styleEntries }: Props = $props();
+  let {
+    elementDefinitions,
+    styleEntries,
+    graphType = "department",
+  }: Props = $props();
 
   let cy: Core | undefined = $state();
   let handler: ReturnType<typeof setupCytoscapeHandlers> | undefined;
@@ -29,25 +39,39 @@
 
   onMount(() => {
 
-    // Create Cytoscape instance (plugins registered automatically)
-    const initialStyles = getStyles(styleEntries, mode.current, true);
+    // Create Cytoscape instance with appropriate styles based on graph type
+    const initialStyles =
+      graphType === "course"
+        ? getCourseGraphStyles(mode.current)
+        : getStyles(styleEntries, mode.current, true);
+
     cy = initializeCytoscape({
       container: containerEl,
       elementDefinitions,
       style: initialStyles,
     });
 
-    // Setup handlers
-    handler = setupCytoscapeHandlers(cy);
+    // Setup handlers with graph type
+    handler = setupCytoscapeHandlers(cy, graphType);
 
     // Run initial layout (async, but we don't need to await)
+    // Use tree layout for course graphs, layered for department
+    const layoutType =
+      graphType === "course" ? LayoutType.TREE : LayoutType.LAYERED;
+
     computeLayout({
-      layoutType: LayoutType.LAYERED,
+      layoutType,
       elementDefinitions,
       animate: false,
       showCodeLabels: true,
     }).then((layout) => {
-      cy?.layout(layout).run();
+      const layoutInstance = cy?.layout(layout);
+      layoutInstance?.run();
+
+      // Use requestAnimationFrame to ensure DOM has updated before fitting
+      requestAnimationFrame(() => {
+        cy?.fit(undefined, 30);
+      });
     });
 
     return () => {
@@ -56,7 +80,6 @@
     };
   });
 
-  
   // PUBLIC API - Methods parent can call via ref
 
   /**
@@ -64,6 +87,15 @@
    */
   export function onCourseClick(callback: (courseId: string) => void) {
     handler?.onCourseClick(callback);
+  }
+
+  /**
+   * Get the underlying Cytoscape instance for direct access.
+   * Use sparingly - prefer using the public API methods above.
+   * Only use this when extending functionality that doesn't belong in cytoscape-core.
+   */
+  export function getCyInstance(): Core | undefined {
+    return cy;
   }
 
   /**

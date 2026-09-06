@@ -6,6 +6,7 @@ import { getTextColor, getTextOutlineColor } from "$lib/theme.ts";
 import { takenCoursesStore } from "$lib/takenCoursesStore.ts";
 import { CourseUtils } from "$lib/types/course.ts";
 import { isDesktop } from "$lib/mediaStore.ts";
+import type { GraphType } from "./graph-styles.ts";
 
 // Scratch namespace for storing app-specific state on cy instance
 const SCRATCH_NAMESPACE = "_courseGraph";
@@ -28,9 +29,13 @@ function getScratch(cy: cytoscape.Core): CourseGraphScratch {
  * Manages interactions, styling, and state internally via closures
  *
  * @param cy - Cytoscape core instance
+ * @param graphType - Type of graph ('department' or 'prereq')
  * @returns Object with control methods
  */
-export function setupCytoscapeHandlers(cy: cytoscape.Core) {
+export function setupCytoscapeHandlers(
+  cy: cytoscape.Core,
+  graphType: GraphType = "department",
+) {
   // Interaction state
   let elementsAreDraggable = false;
   let highlightedCourse: cytoscape.NodeSingular | undefined;
@@ -47,7 +52,18 @@ export function setupCytoscapeHandlers(cy: cytoscape.Core) {
     currentTip = undefined;
   };
 
-  const applyThemeAndLabelStyle = () => {
+  // Apply label style (code vs title) - department graphs only
+  const applyLabelStyle = () => {
+    cy.style()
+      .selector("node")
+      .style({
+        label: showCodeLabels ? "data(id)" : "data(title)",
+      })
+      .update();
+  };
+
+  // Apply theme-dependent styles for department graphs
+  const applyDepartmentThemeStyle = () => {
     const currentMode = mode.current;
 
     cy.style()
@@ -57,7 +73,6 @@ export function setupCytoscapeHandlers(cy: cytoscape.Core) {
         "text-outline-color": getTextOutlineColor(currentMode),
         "text-outline-opacity": 1,
         "text-outline-width": 1,
-        label: showCodeLabels ? "data(id)" : "data(title)",
       })
       .selector(".highlighted-nodes")
       .style({
@@ -75,6 +90,30 @@ export function setupCytoscapeHandlers(cy: cytoscape.Core) {
       .selector(".next-nodes")
       .style({
         color: currentMode === "dark" ? "#FFD700" : "#B38600",
+      })
+      .update();
+  };
+
+  // Apply theme-dependent styles for course graphs
+  const applyCourseThemeStyle = () => {
+    const currentMode = mode.current;
+
+    cy.style()
+      .selector('node[type="operator"]')
+      .style({
+        color: getTextColor(currentMode),
+      })
+      .selector("edge")
+      .style({
+        "line-color": getTextColor(currentMode),
+      })
+      .selector('edge[type="expand-edge"]')
+      .style({
+        "line-color": getTextColor(currentMode),
+      })
+      .selector(".highlighted-nodes")
+      .style({
+        "border-color": getTextColor(currentMode),
       })
       .update();
   };
@@ -119,11 +158,16 @@ export function setupCytoscapeHandlers(cy: cytoscape.Core) {
   // --- Reactive subscriptions (must be after function definitions) ---
 
   // Set up reactive subscription using $effect.root for mode changes
-  const cleanupModeEffect = $effect.root(() => {
+  let cleanupModeEffect: (() => void) | undefined;
+  cleanupModeEffect = $effect.root(() => {
     $effect(() => {
       // Track mode.current reactively
       mode.current;
-      applyThemeAndLabelStyle();
+      if (graphType === "department") {
+        applyDepartmentThemeStyle();
+      } else {
+        applyCourseThemeStyle();
+      }
     });
   });
 
@@ -136,7 +180,9 @@ export function setupCytoscapeHandlers(cy: cytoscape.Core) {
 
   const mouseoverHandler = (event: any) => {
     const targetNode = event.target;
-    if (targetNode?.data("type") === "compound") {
+
+    // Only handle nodes with the "hoverable" class
+    if (!targetNode?.hasClass("hoverable")) {
       return;
     }
 
@@ -165,10 +211,10 @@ export function setupCytoscapeHandlers(cy: cytoscape.Core) {
   const dbltapHandler = (event: any) => {
     const targetNode = event.target;
 
-    if (targetNode.isNode && targetNode.data("type") !== "compound") {
+    if (targetNode?.hasClass("hoverable")) {
       highlightPath(cy, targetNode);
       highlightedCourse = targetNode;
-    } else if (!targetNode.isNode || targetNode.data("type") === "compound") {
+    } else {
       clearPath(cy, () => {});
       highlightedCourse = undefined;
     }
@@ -176,7 +222,9 @@ export function setupCytoscapeHandlers(cy: cytoscape.Core) {
 
   const onetapHandler = async (event: any) => {
     const targetNode = event.target;
-    if (targetNode?.data("type") === "compound") {
+
+    // Only handle nodes with the "course" class
+    if (!targetNode?.hasClass("course")) {
       return;
     }
 
@@ -192,15 +240,15 @@ export function setupCytoscapeHandlers(cy: cytoscape.Core) {
         const div = document.createElement("div");
         const container = document.createElement("div");
         container.className = "bg-black text-white p-2 rounded-lg";
-        
+
         const heading = document.createElement("h1");
         heading.className = "text-lg font-semibold";
         heading.textContent = targetNode.id();
-        
+
         const para = document.createElement("p");
         para.className = "text-sm";
         para.textContent = targetNode.data("description");
-        
+
         container.appendChild(heading);
         container.appendChild(para);
         div.appendChild(container);
@@ -233,7 +281,7 @@ export function setupCytoscapeHandlers(cy: cytoscape.Core) {
 
     setShowCodeLabels(show: boolean) {
       showCodeLabels = show;
-      applyThemeAndLabelStyle();
+      applyLabelStyle();
     },
 
     setHiddenSubject,
@@ -244,7 +292,7 @@ export function setupCytoscapeHandlers(cy: cytoscape.Core) {
       cy.off("dbltap", dbltapHandler);
       cy.off("onetap", "node", onetapHandler);
       destroyTip();
-      cleanupModeEffect();
+      cleanupModeEffect?.();
       unsubscribeTakenCourses();
     },
   };

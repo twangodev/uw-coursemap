@@ -1,9 +1,5 @@
 <script lang="ts">
-  import {
-    type Course,
-    type CourseReference,
-    CourseUtils,
-  } from "$lib/types/course.js";
+  import { type Course, CourseUtils } from "$lib/types/course.js";
   import {
     Card,
     CardContent,
@@ -11,37 +7,18 @@
     CardHeader,
     CardTitle,
   } from "$lib/components/ui/card/index.js";
-  import Cytoscape from "$lib/components/cytoscape/cytoscape.svelte";
+  import CoursePrereqGraph from "$lib/components/cytoscape/course-prereq-graph.svelte";
   import { BookOpen } from "@lucide/svelte";
   import { Button } from "$lib/components/ui/button/index.js";
-  import type { ElementDefinition } from "cytoscape";
   import type { StyleEntry } from "$lib/components/cytoscape/graph-styles.ts";
   import { m } from "$lib/paraglide/messages";
-  import { filterElementsByRootCourse } from "$lib/components/cytoscape/cytoscape-init";
-  import { takenCoursesStore } from "$lib/takenCoursesStore";
 
   interface Props {
     course: Course;
-    prerequisiteElementDefinitions: ElementDefinition[];
     prerequisiteStyleEntries: StyleEntry[];
   }
 
-  let {
-    course,
-    prerequisiteElementDefinitions,
-    prerequisiteStyleEntries,
-  }: Props = $props();
-
-  const takenCourses = $derived($takenCoursesStore.map((course: CourseReference) => {
-      return CourseUtils.courseReferenceToString(course);
-  }));
-
-  const eleDefs = $derived(filterElementsByRootCourse(
-    prerequisiteElementDefinitions,
-    course.course_reference,
-    takenCourses
-  ));
-
+  let { course, prerequisiteStyleEntries }: Props = $props();
 </script>
 
 <Card class="flex h-[600px] flex-col">
@@ -73,10 +50,10 @@
   <CardContent class="flex-1">
     <div class="flex h-full w-full">
       {#key course}
-        <Cytoscape
-          elementDefinitions={eleDefs}
+        <CoursePrereqGraph
+          ast={course.prerequisites.abstract_syntax_tree}
+          targetCourseId={CourseUtils.courseReferenceToString(course.course_reference)}
           styleEntries={prerequisiteStyleEntries}
-          allowFocusing={false}
         />
       {/key}
     </div>
