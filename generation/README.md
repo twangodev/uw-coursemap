@@ -130,6 +130,25 @@ release remains available even when an optional model job fails. Scraping,
 derivation, enrichment, and publication have separate locks; different processing
 jobs can run alongside a scrape. Each build/job permits only one active worker.
 
+## Qwen requirements parsing
+
+Lock the `requirements` profile and launch it using the same model-server command.
+It uses Qwen3.6-35B-A3B-NVFP4 with a 16K context and 4K output budget:
+
+```sh
+uv run coursemap enrich RUN_ID --models-config "$COURSEMAP_WORKSPACE/qwen-models.lock.json" \
+  --profile requirements --task inference/tasks/requirements.json --limit 100
+```
+
+The task receives raw requirements text and linked course references, excluding
+existing parser output. Results contain an AND/OR/NOT tree, course timing and grade
+qualifiers, verbatim non-course conditions, evidence quotes, and review notes.
+Structural validation rejects cycles, missing nodes, invented course references,
+and quotes absent from the source. Ambiguous rules are marked `needs_review`.
+These checks cannot prove semantic equivalence; review the pilot before using the
+results for eligibility or replacing existing graphs. Parsed requirements remain
+separate enrichment records, with the original wording preserved.
+
 ## Storage and Hugging Face
 
 `pipeline.sqlite` stores versioned observations and source checkpoints. Compressed,

@@ -384,6 +384,28 @@ class LifecycleTests(unittest.TestCase):
         self.assertEqual(self.store.records(self.run, "grades")[key], grades)
         self.assertIsNone(state["courses"]["COMPSCI 300"]["cumulative_grade_data"])
 
+    def test_task_projections_exclude_existing_parser_output(self):
+        self.core()
+        task = json.loads(self.task.read_text())
+        task["input_fields"] = {
+            "requirements_text": "prerequisites.prerequisites_text",
+            "linked_courses": "prerequisites.course_references",
+        }
+        self.task.write_text(canonical(task))
+        jobs = Jobs(self.root)
+        try:
+            job = self.create_job(jobs)
+            payload = json.loads(
+                jobs.db.execute(
+                    "SELECT input_json FROM results WHERE job_id=?", (job,)
+                ).fetchone()[0]
+            )
+            self.assertEqual(set(payload), {"requirements_text", "linked_courses"})
+            self.assertIsInstance(payload["requirements_text"], str)
+            self.assertIsInstance(payload["linked_courses"], list)
+        finally:
+            jobs.close()
+
     def test_profiles_lock_shared_by_client_and_server(self):
         path = self.root / "models.toml"
         path.write_text(

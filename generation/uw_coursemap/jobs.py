@@ -97,6 +97,10 @@ def generate(profile, task, payload):
                         raise ValueError(
                             "Evidence quote is absent from the source description"
                         )
+            if task.get("validator") == "requirements_graph_v1":
+                from .requirements import validate_graph
+
+                validate_graph(value, payload)
             return value, data.get("usage", {})
         except requests.HTTPError as exc:
             if response.status_code not in {429, 500, 502, 503, 504} or attempt == 2:
@@ -154,6 +158,8 @@ class Jobs:
         if not task.get("name") or not task.get("prompt") or not task.get("version"):
             raise ValueError("Task must have a name, version, prompt, and JSON schema")
         jsonschema.Draft202012Validator.check_schema(task["schema"])
+        if task.get("validator") not in {None, "requirements_graph_v1"}:
+            raise ValueError("Unknown task validator")
         fields = task.get(
             "input_fields",
             ["course_reference", "course_title", "description", "prerequisites"],
@@ -190,7 +196,17 @@ class Jobs:
                     (job, source_run, canonical(spec), now()),
                 )
                 for key in selected:
-                    payload = {field: courses[key].get(field) for field in fields}
+                    if isinstance(fields, dict):
+                        payload = {}
+                        for field, path in fields.items():
+                            value = courses[key]
+                            for part in path.split("."):
+                                value = (
+                                    value.get(part) if isinstance(value, dict) else None
+                                )
+                            payload[field] = value
+                    else:
+                        payload = {field: courses[key].get(field) for field in fields}
                     cache_profile = profile.model_dump(
                         exclude={"base_url", "concurrency"}
                     )
