@@ -73,6 +73,11 @@ def main():
             "Server arguments must not override profile identity or endpoint"
         )
     env = dict(os.environ)
+    # FlashInfer JIT kernels need the toolkit compiler, not just the driver.
+    toolkit = Path(env.get("CUDA_HOME", "/usr/local/cuda"))
+    if (toolkit / "bin" / "nvcc").is_file():
+        env["CUDA_HOME"] = str(toolkit)
+        env["PATH"] = str(toolkit / "bin") + os.pathsep + env.get("PATH", "")
     # Keep vLLM's dependency graph independent of the scraper's environment.
     env.pop("UV_PROJECT_ENVIRONMENT", None)
     env.pop("VIRTUAL_ENV", None)

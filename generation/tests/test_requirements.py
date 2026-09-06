@@ -98,3 +98,22 @@ class RequirementsTests(unittest.TestCase):
             validate_graph(value, self.payload)
         value.update(status="needs_review", notes=["Grouping is ambiguous"])
         validate_graph(value, self.payload)
+
+    def test_generation_grammar_keeps_full_validation_contract(self):
+        from uw_coursemap.jobs import generation_schema
+
+        original = {
+            "type": "object",
+            "properties": {
+                "values": {
+                    "type": "array",
+                    "uniqueItems": True,
+                    "items": {"type": "string"},
+                }
+            },
+        }
+        grammar = generation_schema(original)
+        self.assertNotIn("uniqueItems", grammar["properties"]["values"])
+        self.assertTrue(original["properties"]["values"]["uniqueItems"])
+        with self.assertRaises(jsonschema.ValidationError):
+            jsonschema.validate({"values": ["duplicate", "duplicate"]}, original)

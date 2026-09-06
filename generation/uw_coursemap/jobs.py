@@ -16,6 +16,46 @@ from .profiles import load_profile
 from .store import Store, now
 
 
+WORKER_VERSION = 2
+
+
+def generation_schema(schema):
+    """Keep full post-validation while adapting unsupported grammar keywords."""
+    import copy
+
+    result = copy.deepcopy(schema)
+
+    def visit(node):
+        if not isinstance(node, dict):
+            return
+        node.pop("uniqueItems", None)
+        for key in (
+            "properties",
+            "$defs",
+            "definitions",
+            "patternProperties",
+            "dependentSchemas",
+        ):
+            for child in node.get(key, {}).values():
+                visit(child)
+        for key in (
+            "items",
+            "additionalProperties",
+            "contains",
+            "not",
+            "if",
+            "then",
+            "else",
+        ):
+            visit(node.get(key))
+        for key in ("allOf", "anyOf", "oneOf", "prefixItems"):
+            for child in node.get(key, []):
+                visit(child)
+
+    visit(result)
+    return result
+
+
 @contextmanager
 def file_lock(path):
     import fcntl
@@ -76,7 +116,7 @@ def generate(profile, task, payload):
                         "json_schema": {
                             "name": task["name"],
                             "strict": True,
-                            "schema": task["schema"],
+                            "schema": generation_schema(task["schema"]),
                         },
                     },
                 },
@@ -182,7 +222,7 @@ class Jobs:
                 "source_hash": source.input_hash(source_run),
                 "total_courses": len(courses),
                 "selected_courses": len(selected),
-                "worker_version": 1,
+                "worker_version": WORKER_VERSION,
             }
             job = (
                 "enrich-"
@@ -215,7 +255,7 @@ class Jobs:
                             "input": payload,
                             "task": task,
                             "profile": cache_profile,
-                            "worker_version": 1,
+                            "worker_version": WORKER_VERSION,
                         }
                     )
                     self.db.execute(
@@ -232,6 +272,10 @@ class Jobs:
             if status["status"] == "complete":
                 return status
             spec = json.loads(status["spec_json"])
+            if spec["worker_version"] != WORKER_VERSION:
+                raise ValueError(
+                    "Enrichment worker changed; create a new job with current provenance"
+                )
             if worker is generate:
                 check_server(spec["profile"])
             source = Store(self.root, readonly=True)
