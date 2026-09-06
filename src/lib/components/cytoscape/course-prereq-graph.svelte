@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onDestroy } from "svelte";
   import type { Core } from "cytoscape";
   import type { StyleEntry } from "./graph-styles.ts";
   import type { ASTNode } from "$lib/types/course.ts";
@@ -27,6 +28,7 @@
 
   // Expand state manager - initialized with AST immediately
   const expandState = createExpandState(ast, targetCourseId);
+  onDestroy(() => expandState.clear());
 
   // Side control handlers
   function handleZoomIn(event: { delta: number }) {

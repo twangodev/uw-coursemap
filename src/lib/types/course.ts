@@ -13,7 +13,7 @@ export type ASTOperatorNode = {
   operator: "AND" | "OR";
 };
 
-export type ASTNode = CourseReference | ASTOperatorNode | string;
+export type ASTNode = CourseReference | ASTOperatorNode | string | null;
 
 type CoursePrerequisites = {
   course_references: CourseReference[];

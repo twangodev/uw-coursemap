@@ -1,8 +1,4 @@
-/**
- * State management for expandable course prerequisite graph.
- * Handles expansion, collapsing, fetching prerequisites, and layout computation.
- */
-
+/** State and layout for expandable prerequisite graphs. */
 import type { Core, ElementDefinition } from "cytoscape";
 import type { ASTNode } from "$lib/types/course.ts";
 import { astToElements } from "./cytoscape-init.ts";
@@ -10,401 +6,252 @@ import { fetchCourse } from "./graph-data.ts";
 import { generateTreeLayout } from "./graph-layout.ts";
 
 const EXPAND_OFFSET = 40;
+// Cytoscape mutates data objects when edges move; never give it canonical data.
+const copyElement = (element: ElementDefinition): ElementDefinition => ({
+  ...element,
+  data: { ...element.data },
+});
+const isEdge = (element: ElementDefinition) =>
+  !!element.data.source && !!element.data.target;
 
-/** Info about an expanded course */
-interface ExpandedCourseInfo {
-  /** Element IDs that this expansion "owns" (for tracking what to clean up) */
-  ownedElementIds: string[];
-  /** Sibling elements that were removed when this course was expanded (for "one of" parents) */
-  removedSiblings: ElementDefinition[];
-}
-
-/**
- * Creates expand state management for the course graph.
- * @param initialAst - The initial prerequisite AST
- * @param initialTargetCourseId - The initial target course ID
- */
-export function createExpandState(initialAst: ASTNode, initialTargetCourseId: string) {
-  /** Core elements - reactive state that course-prereq-graph reads */
-  let coreElements = $state<ElementDefinition[]>(astToElements(initialAst, initialTargetCourseId));
-
-  /** Cytoscape instance */
+export function createExpandState(initialAst: ASTNode, targetCourseId: string) {
+  const initialElements = astToElements(initialAst, targetCourseId);
+  let coreElements = $state<ElementDefinition[]>(initialElements);
+  const expandedCourses = new Map<string, ElementDefinition[]>();
   let cyInstance: Core | null = null;
+  let busy = false;
+  let generation = 0;
+  let cancelLayout: (() => void) | undefined;
+  let detachInitialLayout: (() => void) | undefined;
 
-  /** Tracks expanded courses and their owned elements */
-  const expandedCourses = new Map<string, ExpandedCourseInfo>();
-
-  /** Reference count for each element ID - how many expansions need this element */
-  const elementRefCount = new Map<string, number>();
-
-  /** Set of removed sibling node IDs (don't count these as duplicates) */
-  const removedNodeIds = new Set<string>();
-
-  /**
-   * Initialize reference counts for initial elements
-   */
-  function initRefCounts(): void {
-    for (const el of coreElements) {
-      const id = el.data.id as string;
-      if (id) {
-        elementRefCount.set(id, 1);
+  // Keep canonical edges pointed at courses. Expand controls are only a visual
+  // presentation; hiding an OR alternative must not delete a shared course.
+  function visibleElements(): ElementDefinition[] {
+    const elements = new Map<string, ElementDefinition>();
+    for (const element of initialElements)
+      elements.set(element.data.id!, element);
+    for (const [courseId, expansion] of expandedCourses) {
+      for (const element of expansion) {
+        if (element.data.id !== courseId && !elements.has(element.data.id!)) {
+          elements.set(element.data.id!, element);
+        }
       }
     }
+
+    const edges = [...elements.values()].filter(isEdge);
+    const selectedOperators = new Set<string>();
+    for (const { data } of edges) {
+      if (
+        elements.get(data.target!)?.data.operator === "OR" &&
+        expandedCourses.has(data.source!)
+      ) {
+        selectedOperators.add(data.target!);
+      }
+    }
+    const incoming = new Map<string, ElementDefinition[]>();
+    for (const edge of edges) {
+      const { source, target } = edge.data;
+      if (!elements.has(source!) || !elements.has(target!)) continue;
+      if (selectedOperators.has(target!) && !expandedCourses.has(source!))
+        continue;
+      const list = incoming.get(target!) ?? [];
+      list.push(edge);
+      incoming.set(target!, list);
+    }
+
+    const visible = new Set<string>();
+    const visit = (id: string) => {
+      if (visible.has(id)) return;
+      visible.add(id);
+      for (const edge of incoming.get(id) ?? []) {
+        visible.add(edge.data.id!);
+        visit(edge.data.source!);
+      }
+    };
+    visit(targetCourseId);
+    return [...elements.values()].filter((element) =>
+      visible.has(element.data.id!),
+    );
   }
 
-  // Initialize ref counts for initial elements
-  initRefCounts();
-
-  /**
-   * Remove all expand nodes and their edges from cytoscape
-   */
-  function removeExpandNodes(): void {
-    if (!cyInstance) return;
-    cyInstance.remove('node[type="expand"]');
-    cyInstance.remove('edge[type="expand-edge"]');
+  function rebuildElements() {
+    coreElements = visibleElements();
+    // A collapsed branch releases only expansions that have no remaining path
+    // to the target. Shared descendants keep their expansion state.
+    const visible = new Set(
+      coreElements
+        .filter((element) => !isEdge(element))
+        .map((element) => element.data.id),
+    );
+    let removed = false;
+    for (const courseId of expandedCourses.keys()) {
+      if (!visible.has(courseId)) {
+        expandedCourses.delete(courseId);
+        removed = true;
+      }
+    }
+    if (removed) coreElements = visibleElements();
   }
 
-  /**
-   * Add expand nodes to leaf prereq nodes and expanded courses after layout
-   */
-  function addExpandNodes(): void {
-    if (!cyInstance) return;
-
-    // Find leaf prereq nodes (no incoming edges from non-expand edges)
-    const leafNodes = cyInstance.nodes('[type="prereq"]').filter((node) => {
-      const nonExpandIncomers = node.incomers("edge").filter((edge) => {
-        return edge.data("type") !== "expand-edge";
-      });
-      return nonExpandIncomers.length === 0;
+  function syncElements(cy: Core) {
+    const ids = new Set(coreElements.map((element) => element.data.id));
+    cy.batch(() => {
+      cy.remove('node[type="expand"]');
+      cy.remove(cy.elements().filter((element) => !ids.has(element.id())));
+      // Removing controls also removes edges visually redirected to them.
+      // Restore all missing canonical edges after adding their endpoints.
+      for (const edges of [false, true]) {
+        for (const element of coreElements) {
+          if (isEdge(element) === edges && cy.$id(element.data.id!).empty())
+            cy.add(copyElement(element));
+        }
+      }
     });
+  }
 
-    // Collect all nodes that need expand buttons: leaves + expanded courses
-    const nodesNeedingExpand = new Set<string>();
-
-    leafNodes.forEach((node) => {
-      nodesNeedingExpand.add(node.id());
+  function addExpandNodes(cy: Core) {
+    const courseIds = new Set(expandedCourses.keys());
+    cy.nodes('[type="prereq"]').forEach((node) => {
+      if (node.incomers('edge[type!="expand-edge"]').empty())
+        courseIds.add(node.id());
     });
-
-    // Also add expand nodes for already expanded courses (for collapse)
-    expandedCourses.forEach((_, courseId) => {
-      nodesNeedingExpand.add(courseId);
-    });
-
-    nodesNeedingExpand.forEach((courseId) => {
-      const node = cyInstance!.$id(courseId);
-      if (node.length === 0) return;
-
-      const expandNodeId = `expand-${courseId}`;
-
-      // Skip if already exists
-      if (cyInstance!.$id(expandNodeId).length > 0) return;
-
-      const pos = node.position();
-      const isExpanded = expandedCourses.has(courseId);
-
-      cyInstance!.add([
+    for (const courseId of courseIds) {
+      const node = cy.$id(courseId);
+      if (node.empty() || !cy.$id(`expand-${courseId}`).empty()) continue;
+      cy.add([
         {
           data: {
-            id: expandNodeId,
-            label: isExpanded ? "-" : "+",
+            id: `expand-${courseId}`,
+            label: expandedCourses.has(courseId) ? "-" : "+",
             type: "expand",
             targetCourseId: courseId,
           },
-          position: { x: pos.x - EXPAND_OFFSET, y: pos.y },
+          position: {
+            x: node.position().x - EXPAND_OFFSET,
+            y: node.position().y,
+          },
         },
         {
           data: {
             id: `expand-edge-${courseId}`,
-            source: expandNodeId,
+            source: `expand-${courseId}`,
             target: courseId,
             type: "expand-edge",
           },
         },
       ]);
-    });
-  }
-
-  /**
-   * Get valid elements for layout (filter out edges pointing to non-existent nodes)
-   */
-  function getValidElementsForLayout(): ElementDefinition[] {
-    const nodeIds = new Set<string>();
-
-    // Collect all node IDs
-    for (const el of coreElements) {
-      if (!el.data.source && !el.data.target) {
-        nodeIds.add(el.data.id as string);
+    }
+    for (const [courseId, expansion] of expandedCourses) {
+      if (cy.$id(`expand-${courseId}`).empty()) continue;
+      for (const element of expansion) {
+        if (isEdge(element) && element.data.target === courseId) {
+          cy.$id(element.data.id!).move({ target: `expand-${courseId}` });
+        }
       }
     }
-
-    // Filter: keep all nodes, and only edges where both source and target exist
-    return coreElements.filter((el) => {
-      if (!el.data.source && !el.data.target) {
-        return true; // Keep all nodes
-      }
-      // It's an edge - check both endpoints exist
-      return nodeIds.has(el.data.source as string) && nodeIds.has(el.data.target as string);
-    });
   }
 
-  /**
-   * Run layout on core elements and add expand nodes after
-   */
-  async function runLayout(): Promise<void> {
-    if (!cyInstance) return;
-
-    // Remove expand nodes before layout (they'll be re-added after)
-    removeExpandNodes();
-
-    const validElements = getValidElementsForLayout();
-    const layoutOptions = await generateTreeLayout(true, validElements, true);
-
-    cyInstance.layout(layoutOptions).run();
-
-    cyInstance.one("layoutstop", () => {
-      addExpandNodes();
+  async function runLayout(cy: Core) {
+    syncElements(cy);
+    const options = await generateTreeLayout(true, coreElements, true);
+    if (cy !== cyInstance || cy.destroyed()) return;
+    const layout = cy.layout(options);
+    await new Promise<void>((resolve, reject) => {
+      const cleanup = () => {
+        layout.off("layoutstop", finish);
+        cy.off("destroy", finish);
+        if (cancelLayout === finish) cancelLayout = undefined;
+      };
+      const finish = () => {
+        cleanup();
+        resolve();
+      };
+      cancelLayout = finish;
+      layout.one("layoutstop", finish);
+      cy.one("destroy", finish);
+      try {
+        layout.run();
+      } catch (error) {
+        cleanup();
+        reject(error);
+      }
     });
+    if (cy === cyInstance && !cy.destroyed()) addExpandNodes(cy);
+  }
+
+  // Serialize graph mutations through fetch and animation, including clicks on
+  // different courses. A second operation cannot remove an active layout's nodes.
+  async function update(courseId: string, expand: boolean) {
+    const cy = cyInstance;
+    if (!cy || cy.destroyed() || busy || cy.$id(courseId).empty()) return;
+    if (expandedCourses.has(courseId) === expand) return;
+    busy = true;
+    const currentGeneration = generation;
+    const previous = new Map(expandedCourses);
+    try {
+      if (expand) {
+        const course = await fetchCourse(courseId);
+        if (
+          currentGeneration !== generation ||
+          cy !== cyInstance ||
+          cy.destroyed()
+        )
+          return;
+        const ast = course.prerequisites?.abstract_syntax_tree;
+        if (!ast) return;
+        expandedCourses.set(courseId, astToElements(ast, courseId));
+      } else {
+        expandedCourses.delete(courseId);
+      }
+      rebuildElements();
+      await runLayout(cy);
+    } catch (error) {
+      if (
+        currentGeneration === generation &&
+        cy === cyInstance &&
+        !cy.destroyed()
+      ) {
+        expandedCourses.clear();
+        for (const [id, elements] of previous)
+          expandedCourses.set(id, elements);
+        rebuildElements();
+        syncElements(cy);
+        addExpandNodes(cy);
+      }
+      console.error(
+        `Failed to ${expand ? "expand" : "collapse"} ${courseId}:`,
+        error,
+      );
+    } finally {
+      if (currentGeneration === generation) busy = false;
+    }
   }
 
   return {
-    /**
-     * Get core elements (reactive)
-     */
-    get elements(): ElementDefinition[] {
-      return coreElements;
+    get elements() {
+      return coreElements.map(copyElement);
     },
-
-    /**
-     * Set the cytoscape instance (call after cy is ready)
-     * Automatically adds expand nodes after initial layout completes
-     */
-    setCytoscape(cy: Core): void {
+    setCytoscape(cy: Core) {
+      detachInitialLayout?.();
       cyInstance = cy;
-
-      // Add expand nodes after initial layout completes
-      cy.one("layoutstop", () => {
-        addExpandNodes();
-      });
+      const ready = () => {
+        if (cy === cyInstance && !cy.destroyed()) addExpandNodes(cy);
+      };
+      cy.one("layoutstop", ready);
+      detachInitialLayout = () => cy.off("layoutstop", ready);
     },
-
-    /**
-     * Expand a course: fetch prerequisites, add to graph, run layout
-     */
-    async expandCourse(courseId: string): Promise<void> {
-      if (!cyInstance) return;
-      if (expandedCourses.has(courseId)) return;
-
-      try {
-        const course = await fetchCourse(courseId);
-        const ast = course.prerequisites?.abstract_syntax_tree;
-
-        if (!ast) {
-          console.log(`No prerequisites for ${courseId}`);
-          return;
-        }
-
-        // Remove siblings if this course has a "one of" parent
-        const removedSiblings: ElementDefinition[] = [];
-        const courseNode = cyInstance.$id(courseId);
-        const parentOperatorId = courseNode.data("parentOperatorId");
-        const isOrParent = courseNode.data("parentOperatorType") === "OR" && parentOperatorId;
-
-        if (isOrParent) {
-          const siblings = cyInstance.$id(parentOperatorId).incomers("node").filter(
-            (node) => node.id() !== courseId
-          );
-
-          siblings.forEach((siblingNode) => {
-            removedSiblings.push(siblingNode.json() as ElementDefinition);
-            removedNodeIds.add(siblingNode.id());
-
-            siblingNode.connectedEdges().forEach((edge) => {
-              removedSiblings.push(edge.json() as ElementDefinition);
-            });
-
-            coreElements = coreElements.filter((el) => el.data.id !== siblingNode.id());
-          });
-
-          // edge removal happens implicitly when sibling nodes are removed
-          siblings.remove();
-        }
-
-        // Convert AST to elements (edges point to courseId)
-        const newElements = astToElements(ast, courseId);
-        const ownedElementIds: string[] = [];
-        const elementsToAdd: ElementDefinition[] = [];
-
-        // Process each element - skip duplicate nodes but always add edges
-        for (const el of newElements) {
-          const id = el.data.id as string;
-          if (id === courseId) continue;
-
-          const isEdge = el.data.source && el.data.target;
-          const currentRefCount = elementRefCount.get(id) || 0;
-          const shouldAddToGraph = isEdge || currentRefCount === 0 || removedNodeIds.has(id);
-
-          ownedElementIds.push(id);
-          elementRefCount.set(id, currentRefCount + 1);
-
-          if (shouldAddToGraph) {
-            elementsToAdd.push(el);
-          }
-        }
-
-        // Add new elements to core elements and Cytoscape
-        if (elementsToAdd.length > 0) {
-          coreElements = [...coreElements, ...elementsToAdd];
-          cyInstance.add(elementsToAdd);
-        }
-
-        // Track expansion
-        expandedCourses.set(courseId, { ownedElementIds, removedSiblings });
-
-        // Update expand node label to "-"
-        const expandNodeId = `expand-${courseId}`;
-        const expandNode = cyInstance.$id(expandNodeId);
-        if (expandNode.length > 0) {
-          expandNode.data("label", "-");
-        }
-
-        await runLayout();
-
-        // After layout, redirect edges in cytoscape to point to expand node
-        cyInstance.edges().forEach((edge) => {
-          if (edge.data("target") === courseId) {
-            // Check if source is one of the owned elements
-            const sourceId = edge.data("source");
-            if (ownedElementIds.includes(sourceId)) {
-              edge.move({ target: expandNodeId });
-            }
-          }
-        });
-      } catch (error) {
-        console.error(`Failed to expand ${courseId}:`, error);
-      }
-    },
-
-    /**
-     * Collapse a course: remove prerequisite subtree and all nested expansions, run layout
-     */
-    async collapseCourse(courseId: string): Promise<void> {
-      if (!cyInstance) return;
-
-      const expandInfo = expandedCourses.get(courseId);
-      if (!expandInfo) return;
-
-      // Recursively find all nested expanded courses
-      function findAllNestedExpanded(rootCourseId: string): string[] {
-        const info = expandedCourses.get(rootCourseId);
-        if (!info) return [];
-
-        const nested: string[] = [];
-        const { ownedElementIds } = info;
-
-        // Find direct children that are expanded
-        expandedCourses.forEach((_, nestedCourseId) => {
-          if (nestedCourseId !== rootCourseId && ownedElementIds.includes(nestedCourseId)) {
-            nested.push(nestedCourseId);
-            // Recursively find their nested expansions
-            nested.push(...findAllNestedExpanded(nestedCourseId));
-          }
-        });
-
-        return nested;
-      }
-
-      /**
-       * Decrement ref counts and remove elements that reach zero
-       */
-      function releaseElements(elementIds: string[]): void {
-        const elementsToRemove: string[] = [];
-
-        for (const id of elementIds) {
-          const currentRefCount = elementRefCount.get(id) || 0;
-          if (currentRefCount <= 1) {
-            // Last reference - remove element
-            elementRefCount.delete(id);
-            elementsToRemove.push(id);
-          } else {
-            // Other expansions still need this element
-            elementRefCount.set(id, currentRefCount - 1);
-          }
-        }
-
-        // Remove elements from Cytoscape
-        for (const id of elementsToRemove) {
-          cyInstance!.$id(id).remove();
-        }
-
-        // Remove from coreElements
-        if (elementsToRemove.length > 0) {
-          const removeSet = new Set(elementsToRemove);
-          coreElements = coreElements.filter((el) => {
-            const id = el.data.id as string;
-            return !removeSet.has(id);
-          });
-        }
-      }
-
-      // Get all nested expanded courses (deepest first for proper removal order)
-      const allNested = findAllNestedExpanded(courseId).reverse();
-
-      // Remove all nested expansions
-      for (const nestedCourseId of allNested) {
-        const nestedInfo = expandedCourses.get(nestedCourseId);
-        if (nestedInfo) {
-          releaseElements(nestedInfo.ownedElementIds);
-          expandedCourses.delete(nestedCourseId);
-        }
-      }
-
-      // Now release the elements for this course
-      releaseElements(expandInfo.ownedElementIds);
-
-      // Restore siblings that were removed when this course was expanded
-      if (expandInfo.removedSiblings.length > 0) {
-        const isEdge = (el: ElementDefinition) => el.data.source && el.data.target;
-        const notInCy = (id: string) => cyInstance!.$id(id).length === 0;
-
-        const savedNodes = expandInfo.removedSiblings.filter((el) => !isEdge(el));
-        const savedEdges = expandInfo.removedSiblings.filter(isEdge);
-
-        // Restore nodes first
-        const nodesToRestore = savedNodes.filter((el) => notInCy(el.data.id as string));
-        savedNodes.forEach((el) => removedNodeIds.delete(el.data.id as string));
-        coreElements = [...coreElements, ...nodesToRestore];
-        cyInstance.add(nodesToRestore);
-
-        // Then restore edges (only if both endpoints exist)
-        const edgesToRestore = savedEdges.filter((el) =>
-          notInCy(el.data.id as string) &&
-          !notInCy(el.data.source as string) &&
-          !notInCy(el.data.target as string)
-        );
-        cyInstance.add(edgesToRestore);
-      }
-
-      expandedCourses.delete(courseId);
-
-      await runLayout();
-    },
-
-    /**
-     * Check if a course is expanded
-     */
-    isExpanded(courseId: string): boolean {
-      return expandedCourses.has(courseId);
-    },
-
-    /**
-     * Clear all state
-     */
-    clear(): void {
+    expandCourse: (courseId: string) => update(courseId, true),
+    collapseCourse: (courseId: string) => update(courseId, false),
+    isExpanded: (courseId: string) => expandedCourses.has(courseId),
+    clear() {
+      generation++;
+      detachInitialLayout?.();
+      cancelLayout?.();
+      detachInitialLayout = undefined;
+      cyInstance = null;
+      busy = false;
       coreElements = [];
       expandedCourses.clear();
-      elementRefCount.clear();
-      removedNodeIds.clear();
-      cyInstance = null;
     },
   };
 }

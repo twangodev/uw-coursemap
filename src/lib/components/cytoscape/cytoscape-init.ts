@@ -201,7 +201,7 @@ export function astToElements(
 
   function isCourseReference(node: ASTNode): node is CourseReference {
     return (
-      typeof node === "object" &&
+      node !== null && typeof node === "object" &&
       "course_number" in node &&
       "subjects" in node
     );
@@ -209,7 +209,7 @@ export function astToElements(
 
   function isOperatorNode(node: ASTNode): node is ASTOperatorNode {
     return (
-      typeof node === "object" &&
+      node !== null && typeof node === "object" &&
       "operator" in node &&
       "children" in node
     );
@@ -236,7 +236,7 @@ export function astToElements(
     parentContext: ParentContext = { operatorId: null, operatorType: null }
   ): string | null {
     // Skip string nodes (e.g., "graduate standing")
-    if (typeof node === "string") {
+    if (node == null || typeof node === "string") {
       return null;
     }
 
@@ -298,7 +298,7 @@ export function astToElements(
         // If multiple valid children, keep the "one of" node
         if (childIds.length > 1) {
           nodes.push({
-            data: { id: oneOfId, label: "one of", type: "operator" },
+            data: { id: oneOfId, label: "one of", type: "operator", operator: "OR" },
             classes: "hoverable",
           });
 
@@ -346,7 +346,7 @@ export function astToElements(
         // If multiple valid children, keep the "and" node
         if (childIds.length > 1) {
           nodes.push({
-            data: { id: andId, label: "all of", type: "operator" },
+            data: { id: andId, label: "all of", type: "operator", operator: "AND" },
             classes: "hoverable",
           });
 
