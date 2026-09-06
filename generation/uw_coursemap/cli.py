@@ -20,21 +20,33 @@ def parser():
         type=Path,
         default=Path(os.environ.get("COURSEMAP_WORKSPACE", "./.coursemap")),
     )
-    commands = root.add_subparsers(dest="command", required=True)
+    commands = root.add_subparsers(
+        dest="command",
+        required=True,
+        metavar="{run,resume,status,validate,export,publish,replay}",
+    )
     run = commands.add_parser("run", help="Create and execute a fresh semester scrape")
     run.add_argument(
         "--semester", required=True, help="UW numeric term code, e.g. 1272"
     )
     run.add_argument("--sitemap-base", default="https://uwcourses.com")
     run.add_argument("--max-prerequisites", type=int, default=1)
-    for name in ("resume", "status", "validate", "export", "publish", "replay"):
-        command = commands.add_parser(name)
+    descriptions = {
+        "resume": "Continue an interrupted run",
+        "status": "Show source and stage completion",
+        "validate": "Check source completeness and relationships",
+        "export": "Build or verify a local release",
+        "publish": "Upload a completed release to Hugging Face",
+        "replay": "Create a new run from archived source responses",
+    }
+    for name, description in descriptions.items():
+        command = commands.add_parser(name, help=description)
         command.add_argument("run_id")
         if name == "publish":
             command.add_argument("--repo", required=True, help="HF dataset owner/name")
         if name == "replay":
             command.add_argument("--source", choices=SOURCES, required=True)
-    crawl = commands.add_parser("_crawl", help=argparse.SUPPRESS)
+    crawl = commands.add_parser("_crawl")
     crawl.add_argument("run_id")
     crawl.add_argument("source", choices=SOURCES)
     crawl.add_argument("--offline", action="store_true")
@@ -172,7 +184,10 @@ def main(argv=None):
                 from huggingface_hub import HfApi
 
                 api = HfApi()
+                from http_utils import get_user_agent
+
                 config = {
+                    "user_agent": get_user_agent(),
                     "code_hash": code_hash(),
                     "sitemap_base": args.sitemap_base,
                     "max_prerequisites": args.max_prerequisites,

@@ -2,6 +2,7 @@
 
 import gzip
 import hashlib
+import json
 import uuid
 
 from scrapy import signals
@@ -113,7 +114,8 @@ def crawl(root, run, source, offline=False):
     from http_utils import get_user_agent
 
     settings = {
-        "USER_AGENT": get_user_agent(),
+        "USER_AGENT": json.loads(store.run(run)["config_json"]).get("user_agent")
+        or get_user_agent(),
         "ROBOTSTXT_OBEY": True,
         "CONCURRENT_REQUESTS": 8,
         "CONCURRENT_REQUESTS_PER_DOMAIN": 4,
@@ -132,7 +134,7 @@ def crawl(root, run, source, offline=False):
         "PIPELINE_RUN": run,
         "PIPELINE_SOURCE": source,
         "PIPELINE_OFFLINE": offline,
-        "DOWNLOADER_MIDDLEWARES": {"uw_coursemap.crawl.ArchiveMiddleware": 950},
+        "DOWNLOADER_MIDDLEWARES": {"uw_coursemap.crawl.ArchiveMiddleware": 560},
         "ITEM_PIPELINES": {"uw_coursemap.crawl.DatabasePipeline": 100},
     }
     process = CrawlerProcess(settings)

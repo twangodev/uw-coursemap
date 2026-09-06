@@ -89,7 +89,10 @@ class MadgradesSpider(SourceSpider):
     base = "https://api.madgrades.com/v1/"
 
     def request(self, url, callback, **kwargs):
-        if urlparse(url).hostname != "api.madgrades.com":
+        if (
+            urlparse(url).hostname != "api.madgrades.com"
+            or urlparse(url).scheme != "https"
+        ):
             raise ValueError("Unexpected Madgrades URL")
         key = os.environ.get("MADGRADES_API_KEY")
         if not key:

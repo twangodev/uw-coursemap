@@ -2,7 +2,7 @@ import random
 import colorsys
 
 
-def generate_accessible_color():
+def generate_accessible_color(rng=None):
     """
     Generate an accessible random hex color that meets WCAG contrast ratios for both
     black and white text. The function uses Material 3's tonal idea by adjusting the
@@ -23,10 +23,12 @@ def generate_accessible_color():
         B_lin = to_linear(b)
         return 0.2126 * R_lin + 0.7152 * G_lin + 0.0722 * B_lin
 
+    rng = rng or random
+
     # Choose a random hue in [0, 1)
-    h = random.random()
+    h = rng.random()
     # Restrict saturation to avoid near-gray colors; pick from [0.5, 1.0] for vibrant colors.
-    s = random.uniform(0.5, 1.0)
+    s = rng.uniform(0.5, 1.0)
 
     # Use binary search to find a suitable lightness value that provides good contrast.
     # We aim for a relative luminance of about 0.18.

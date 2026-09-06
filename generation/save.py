@@ -550,6 +550,7 @@ def write_data(
     quick_statistics,
     explorer_stats,
     course_ref_to_meetings,
+    updated_on=None,
 ):
     wipe_data(data_dir)
 
@@ -615,7 +616,7 @@ def write_data(
     # Chunk meetings purely by date
     chunk_meetings_by_date_only(course_ref_to_meetings, data_dir)
 
-    updated_on = datetime.now(timezone.utc).isoformat()
+    updated_on = updated_on or datetime.now(timezone.utc).isoformat()
     updated_json = {
         "updated_on": updated_on,
     }
@@ -628,7 +629,14 @@ def write_data(
         key for key, value in instructor_to_rating.items() if value is not None
     ]
 
-    generate_sitemap(data_dir, base_url, subject_names, course_names, instructor_names)
+    generate_sitemap(
+        data_dir,
+        base_url,
+        subject_names,
+        course_names,
+        instructor_names,
+        lastmod=updated_on[:10],
+    )
 
 
 def list_files(

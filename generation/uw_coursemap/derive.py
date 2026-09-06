@@ -3,6 +3,7 @@
 import asyncio
 import json
 import os
+import random
 
 from .models import canonical, digest
 
@@ -11,7 +12,17 @@ def plain(value):
     if hasattr(value, "to_dict"):
         return plain(value.to_dict())
     if isinstance(value, dict):
-        return {str(key): plain(v) for key, v in value.items()}
+        result = {str(key): plain(v) for key, v in value.items()}
+        for key in (
+            "subjects",
+            "course_references",
+            "satisfies",
+            "instructors",
+            "courses_taught",
+        ):
+            if isinstance(result.get(key), list):
+                result[key] = sorted(result[key], key=canonical)
+        return result
     if isinstance(value, set):
         return sorted((plain(v) for v in value), key=canonical)
     if isinstance(value, (tuple, list)):
@@ -22,11 +33,12 @@ def plain(value):
 def reconcile(store, run):
     from course import Course
     from enrollment import apply_enrollment
-    from enrollment_data import MadgradesData, TermData
+    from enrollment_data import EnrollmentData, MadgradesData, TermData
     from instructors import FullInstructor, RMPData, merge_instructors
     from name_matcher import find_best_name_match, find_best_structured_match
     from sanitization import sanitize_instructor_id
 
+    EnrollmentData.MeetingLocation._all_locations.clear()
     courses = {
         Course.Reference.from_json(data["course_reference"]): Course.from_json(data)
         for data in store.records(run, "courses").values()
@@ -215,7 +227,8 @@ def derive(store, run):
                         get_model(cache),
                         courses,
                         config["max_prerequisites"],
-                        max_retries=50,
+                        max_retries=3,
+                        strict=True,
                     )
                 )
                 payload = {
@@ -235,7 +248,17 @@ def derive(store, run):
                     courses, build_subject_to_courses(courses)
                 )
                 cleanup_graphs(global_graph, subjects, per_course)
-                colors = {}
+                from color import generate_accessible_color
+
+                parents = {
+                    node["data"]["id"]
+                    for node in global_graph
+                    if node["data"].get("type") == "compound"
+                }
+                colors = {
+                    parent: generate_accessible_color(random.Random(digest(parent)))
+                    for parent in sorted(parents)
+                }
                 subject_styles = generate_styles(subjects, colors)
                 payload = {
                     **state,
@@ -267,18 +290,19 @@ def write_compatibility(store, run, directory):
         str(directory),
         config["sitemap_base"],
         {k: v["name"] for k, v in store.records(run, "subjects").items()},
-        {c.get_identifier(): c for c in courses.values()},
+        {c.get_identifier(): plain(c) for c in courses.values()},
         graphs["global"],
         graphs["subjects"],
         graphs["courses"],
         graphs["global_style"],
         graphs["subject_styles"],
-        instructors,
+        plain(instructors),
         terms,
         state["statistics"],
         state["explorer"],
-        meetings,
-    )
-    (directory / "update.json").write_text(
-        canonical({"updated_on": store.run(run)["started_at"]})
+        {
+            key: sorted(values, key=lambda m: canonical(plain(m)))
+            for key, values in meetings.items()
+        },
+        updated_on=store.run(run)["started_at"],
     )

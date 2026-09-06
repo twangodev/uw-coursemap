@@ -2,6 +2,7 @@ import asyncio
 import hashlib
 import os
 import re
+from threading import RLock
 from logging import getLogger
 from os import environ
 
@@ -27,10 +28,17 @@ class CachedKeyBERT:
 
         self.cache_dir = cache_dir
         self.model = model
+        self._encode_lock = RLock()
         # Create KeyBERT with our custom model
         self.keybert = KeyBERT(model=model)
 
     def extract_keywords(self, docs, **kwargs):
+        # KeyBERT temporarily replaces a shared model method. Keep parallel
+        # keyword tasks from restoring each other's method or recursing.
+        with self._encode_lock:
+            return self._extract_keywords(docs, **kwargs)
+
+    def _extract_keywords(self, docs, **kwargs):
         """
         Extract keywords using KeyBERT but with cached embeddings.
         This method intercepts KeyBERT's internal embedding calls.
@@ -90,7 +98,9 @@ initialized_model = None
 def get_model(cache_dir):
     global initialized_model
 
-    if initialized_model:
+    if initialized_model and getattr(
+        initialized_model, "pipeline_revision", None
+    ) == environ.get("COURSEMAP_EMBEDDING_REVISION"):
         logger.info("Model already loaded. Reusing the existing model.")
         return initialized_model
 
@@ -286,7 +296,8 @@ def prune_prerequisites(
         course.optimized_prerequisites = course.prerequisites.course_references
         return
 
-    branches = course.prerequisites.abstract_syntax_tree.course_combinations()
+    tree = course.prerequisites.abstract_syntax_tree
+    branches = tree.course_combinations() if tree else []
     semantic_similarity_weight = 0.5
     popularity_weight = 0.5
     best_score = -1
@@ -338,6 +349,7 @@ def optimize_prerequisite(
     max_enrollment,
     max_prerequisites,
     max_retries,
+    strict=False,
 ):
     retries = 0
     while retries < max_retries:
@@ -360,6 +372,10 @@ def optimize_prerequisite(
                 logger.error(
                     f"Optimization for course {course.get_identifier()} failed completely."
                 )
+                if strict:
+                    raise RuntimeError(
+                        f"Prerequisite optimization failed for {course.get_identifier()}"
+                    ) from e
                 return
 
 
@@ -369,6 +385,7 @@ async def optimize_prerequisites(
     course_ref_to_course: dict[Course.Reference, Course],
     max_prerequisites: int | float,
     max_retries: int,
+    strict=False,
 ):
     total_courses = len(course_ref_to_course)
     logger.info(f"Optimizing prerequisites for {total_courses} courses...")
@@ -390,6 +407,7 @@ async def optimize_prerequisites(
             max_enrollment,
             max_prerequisites,
             max_retries,
+            strict,
         )
         for course in course_ref_to_course.values()
     ]

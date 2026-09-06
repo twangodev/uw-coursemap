@@ -30,7 +30,7 @@ def now():
 class Store:
     def __init__(self, root):
         self.root = Path(root).resolve()
-        self.root.mkdir(parents=True, exist_ok=True)
+        self.root.mkdir(parents=True, exist_ok=True, mode=0o700)
         self.db = sqlite3.connect(self.root / "pipeline.sqlite")
         self.db.row_factory = sqlite3.Row
         self.db.execute("PRAGMA foreign_keys=ON")

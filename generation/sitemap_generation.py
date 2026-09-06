@@ -92,26 +92,31 @@ def generate_sitemap(
     subjects: List[str],
     courses: List[str],
     instructors: List[str],
+    lastmod: str = last_mod,
 ):
     pages_entries = [
         {
             "loc": f"{base_url}/{p}",
             "changefreq": "monthly",
             "priority": 1.0,
-            "lastmod": last_mod,
+            "lastmod": lastmod,
         }
         for p in pages
     ]
 
     subj_entries = []
     for subj in tqdm(subjects, desc="Explorer Sitemap", unit="subject"):
-        entry = create_url_entry(base_url, "explorer", subj, priority=0.9)
+        entry = create_url_entry(
+            base_url, "explorer", subj, priority=0.9, lastmod=lastmod
+        )
         if entry:
             subj_entries.append(entry)
 
     course_entries = []
     for crs in tqdm(courses, desc="Course Sitemap", unit="course"):
-        entry = create_url_entry(base_url, "courses", crs, priority=1.0)
+        entry = create_url_entry(
+            base_url, "courses", crs, priority=1.0, lastmod=lastmod
+        )
         if entry:
             course_entries.append(entry)
 
@@ -122,7 +127,9 @@ def generate_sitemap(
     for inst_id in tqdm(
         sanitized_instructors, desc="Instructor Sitemap", unit="instructor"
     ):
-        entry = create_url_entry(base_url, "instructors", inst_id, priority=0.8)
+        entry = create_url_entry(
+            base_url, "instructors", inst_id, priority=0.8, lastmod=lastmod
+        )
         if entry:
             instr_entries.append(entry)
 

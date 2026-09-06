@@ -1,5 +1,6 @@
 import json
 import os
+import tempfile
 from logging import getLogger
 
 import numpy as np
@@ -167,7 +168,18 @@ def write_embedding(
     file_path = os.path.join(directory_path, f"{sanitized_filename}.npy")
 
     # Save the embedding using numpy's binary format.
-    np.save(file_path, embedding)
+    # Readers must never observe an incompletely written array.
+    with tempfile.NamedTemporaryFile(
+        dir=directory_path, suffix=".npy", delete=False
+    ) as stream:
+        temporary = stream.name
+        try:
+            np.save(stream, embedding)
+            stream.flush()
+            os.replace(temporary, file_path)
+        finally:
+            if os.path.exists(temporary):
+                os.unlink(temporary)
 
     # Calculate file size and log it.
     file_size = os.path.getsize(file_path)

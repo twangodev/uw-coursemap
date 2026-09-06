@@ -16,7 +16,8 @@ uv run coursemap publish RUN_ID --repo OWNER/DATASET
 ```
 
 Use the UW enrollment API's four-digit term code. The command prints its run ID
-before scraping; source logs are in `runs/RUN_ID/`. New runs refresh all HTTP
+before scraping; source logs are in `runs/RUN_ID/`. The browser-style user agent is fixed for each run and reused on resume.
+New runs refresh all HTTP
 sources and fetch enrollment for the selected semester. Historical grades remain
 included. Embedding models run locally on CUDA when available, otherwise CPU;
 model revisions are pinned at run creation. Allow at least 10 GiB free, plus room

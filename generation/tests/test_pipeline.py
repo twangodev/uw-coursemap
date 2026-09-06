@@ -1,10 +1,17 @@
 import gzip
 import hashlib
 import json
+import subprocess
+import sys
+import threading
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import sqlite3
+import shutil
 import tempfile
 import unittest
+from unittest.mock import patch
+import numpy as np
 from types import SimpleNamespace
 
 import pyarrow.parquet as pq
@@ -371,6 +378,198 @@ class PipelineTests(unittest.TestCase):
             publish(self.store, self.run, "owner/data", api, api.download)
         self.assertNotIn("latest.json", api.files["main"])
 
+    def test_full_derived_pipeline_and_compatibility_export(self):
+        from uw_coursemap.derive import derive
+        from uw_coursemap.release import export
+
+        self.seed()
+        # Six courses exercise the existing top-five similarity algorithm.
+        original = self.store.records(self.run, "courses")["COMPSCI 300"]
+        for number in (200, 201, 202, 203, 204):
+            course = json.loads(json.dumps(original))
+            course["course_reference"]["course_number"] = number
+            course["prerequisites"] = {
+                "prerequisites_text": "",
+                "linked_requisite_text": [],
+                "course_references": [],
+                "abstract_syntax_tree": None,
+            }
+            self.store.put(
+                self.run,
+                "catalog",
+                {
+                    "kind": "courses",
+                    "key": f"COMPSCI {number}",
+                    "payload": course,
+                    "source_url": "https://guide.wisc.edu/courses/comp_sci/",
+                },
+            )
+        config = {
+            "embedding_revision": "fixture-v1",
+            "keyword_revision": "fixture-v1",
+            "max_prerequisites": 1,
+            "sitemap_base": "https://uwcourses.com",
+        }
+        self.store.db.execute(
+            "UPDATE runs SET config_json=? WHERE run_id=?",
+            (canonical(config), self.run),
+        )
+        self.store.db.execute("DELETE FROM artifacts WHERE run_id=?", (self.run,))
+        self.store.db.commit()
+        model = FixtureModel()
+        with (
+            patch("aggregate.get_model", return_value=model),
+            patch("aggregate.get_keyword_model", return_value=model),
+            patch(
+                "aggregate.CachedKeyBERT",
+                return_value=SimpleNamespace(
+                    extract_keywords=lambda *a, **kw: [("programming", 1.0)]
+                ),
+            ),
+            patch("embeddings.get_model", return_value=model),
+        ):
+            state = derive(self.store, self.run)
+        self.assertEqual(len(state["courses"]), 6)
+        self.assertEqual(state["courses"]["COMPSCI 300"]["keywords"], ["programming"])
+        with patch(
+            "aggregate.aggregate_courses",
+            side_effect=AssertionError("completed stage reran"),
+        ):
+            self.assertEqual(derive(self.store, self.run), state)
+        self.store.stage(self.run, "derive", "complete")
+        target = export(self.store, self.run)
+        manifest = verify_release(target)
+        logical = "course/COMPSCI_300.json"
+        payload = json.loads(
+            (
+                target
+                / "web"
+                / hashlib.sha256(logical.encode()).hexdigest()[:2]
+                / logical
+            ).read_text()
+        )
+        self.assertEqual(payload["course_title"], "PROGRAMMING II")
+        self.assertEqual(payload["term_data"]["1272"]["grade_data"]["total"], 5)
+        self.assertEqual(
+            payload["prerequisites"], state["courses"]["COMPSCI 300"]["prerequisites"]
+        )
+        update = "update.json"
+        self.assertIn(
+            "updated_on",
+            json.loads(
+                (
+                    target
+                    / "web"
+                    / hashlib.sha256(update.encode()).hexdigest()[:2]
+                    / update
+                ).read_text()
+            ),
+        )
+        self.assertEqual(manifest["tables"]["courses"], 6)
+        shutil.rmtree(target)
+        rebuilt = export(self.store, self.run)
+        self.assertEqual(verify_release(rebuilt)["files"], manifest["files"])
+
+    def test_failed_optimization_cannot_silently_complete(self):
+        from embeddings import optimize_prerequisite
+
+        course = SimpleNamespace(get_identifier=lambda: "COMPSCI 300")
+        with patch(
+            "embeddings.prune_prerequisites", side_effect=ValueError("invalid input")
+        ) as prune:
+            with self.assertRaisesRegex(RuntimeError, "optimization failed"):
+                optimize_prerequisite("unused", course, None, {}, 1, 1, 2, strict=True)
+            self.assertEqual(prune.call_count, 2)
+
+    def test_embedding_cache_is_revision_specific(self):
+        from cache import write_embedding_cache, read_embedding_cache
+
+        first = SimpleNamespace(model_name="same/model", pipeline_revision="first")
+        second = SimpleNamespace(model_name="same/model", pipeline_revision="second")
+        vector = np.array([1.0, 2.0])
+        write_embedding_cache(self.directory.name, "input", vector, first)
+        self.assertTrue(
+            np.array_equal(
+                read_embedding_cache(self.directory.name, "input", first), vector
+            )
+        )
+        self.assertIsNone(read_embedding_cache(self.directory.name, "input", second))
+
+    def test_http_retries_browser_headers_and_compressed_replay(self):
+        body = (FIXTURES / "catalog.html").read_bytes()
+        observed = []
+
+        class Handler(BaseHTTPRequestHandler):
+            def do_GET(handler):
+                if handler.path == "/robots.txt":
+                    handler.send_response(200)
+                    handler.end_headers()
+                    handler.wfile.write(b"User-agent: *\nAllow: /\n")
+                    return
+                observed.append(handler.headers.get("User-Agent"))
+                handler.send_response(503 if len(observed) < 3 else 200)
+                handler.send_header("Content-Type", "text/html")
+                handler.send_header("Content-Encoding", "gzip")
+                handler.end_headers()
+                handler.wfile.write(gzip.compress(body))
+
+            def log_message(handler, *args):
+                pass
+
+        server = ThreadingHTTPServer(("127.0.0.1", 0), Handler)
+        thread = threading.Thread(target=server.serve_forever, daemon=True)
+        thread.start()
+        url = f"http://127.0.0.1:{server.server_port}/courses/comp_sci/"
+        code = """
+import sys
+from uw_coursemap.spiders import CatalogSpider, SPIDERS
+from uw_coursemap.crawl import crawl
+class FixtureSpider(CatalogSpider):
+    allowed_domains = ["127.0.0.1"]
+    custom_settings = {"AUTOTHROTTLE_ENABLED": False, "DOWNLOAD_DELAY": 0}
+    async def start(self):
+        yield self.request(sys.argv[3], self.department)
+SPIDERS["catalog"] = FixtureSpider
+crawl(sys.argv[1], sys.argv[2], "catalog", offline=len(sys.argv) > 4)
+"""
+        command = [sys.executable, "-c", code, str(self.store.root), self.run, url]
+        try:
+            first = subprocess.run(command, capture_output=True, text=True, timeout=30)
+            self.assertEqual(first.returncode, 0, first.stderr)
+            self.assertEqual(len(observed), 3)
+            self.assertTrue(all(ua.startswith("Mozilla/") for ua in observed))
+            second = subprocess.run(
+                command + ["offline"], capture_output=True, text=True, timeout=30
+            )
+            self.assertEqual(second.returncode, 0, second.stderr)
+            self.assertEqual(len(observed), 3)
+        finally:
+            server.shutdown()
+            server.server_close()
+            thread.join()
+
+    def test_large_count_drop_blocks_publication(self):
+        self.seed()
+        row = self.store.records(self.run, "courses")["COMPSCI 300"]
+        for number in range(400, 410):
+            course = json.loads(json.dumps(row))
+            course["course_reference"]["course_number"] = number
+            self.store.put(
+                self.run,
+                "catalog",
+                {
+                    "kind": "courses",
+                    "key": f"COMPSCI {number}",
+                    "payload": course,
+                    "source_url": "https://guide.wisc.edu/courses/comp_sci/",
+                },
+            )
+        self.store.finish(self.run)
+        next_run = self.store.new_run("1272", {})
+        self.seed(next_run)
+        with self.assertRaisesRegex(ValueError, "fell by more than 10%"):
+            validate(self.store, next_run)
+
     def test_real_scrapy_offline_resume(self):
         from scrapy.settings import Settings
         from uw_coursemap.crawl import ArchiveMiddleware
@@ -437,6 +636,17 @@ class PipelineTests(unittest.TestCase):
         self.assertIsNone(middleware.process_request(request))
 
 
+class FixtureModel:
+    model_name = "fixture"
+    pipeline_revision = "v1"
+
+    def encode(self, text, **kwargs):
+        values = np.frombuffer(
+            hashlib.sha256(text.encode()).digest(), dtype=np.uint8
+        ).astype(float)
+        return values / np.linalg.norm(values)
+
+
 class FakeHub:
     def __init__(self, root):
         self.root = root
@@ -456,7 +666,9 @@ class FakeHub:
         self.heads.setdefault(branch, "base")
 
     def repo_info(self, revision, **kw):
-        return SimpleNamespace(sha=self.heads[revision])
+        return SimpleNamespace(
+            sha=self.tags[revision] if revision in self.tags else self.heads[revision]
+        )
 
     def branch_for(self, revision):
         return (

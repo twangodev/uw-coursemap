@@ -90,8 +90,9 @@ CREATE TABLE course_subjects(run_id TEXT,course_id TEXT,subject_id TEXT,PRIMARY 
 CREATE TABLE terms(run_id TEXT REFERENCES runs,term_id TEXT,name TEXT NOT NULL,PRIMARY KEY(run_id,term_id));
 CREATE TABLE instructors(run_id TEXT REFERENCES runs,instructor_id TEXT,name TEXT,email TEXT,official_name TEXT,department TEXT,position TEXT,details_json TEXT,PRIMARY KEY(run_id,instructor_id));
 CREATE TABLE grades(run_id TEXT,course_id TEXT,term_id TEXT,distribution_json TEXT NOT NULL,PRIMARY KEY(run_id,course_id,term_id),FOREIGN KEY(run_id,course_id) REFERENCES courses,FOREIGN KEY(run_id,term_id) REFERENCES terms);
-CREATE TABLE offerings(run_id TEXT REFERENCES runs,offering_id TEXT,term_id TEXT,source_course_id TEXT,source_subject_id TEXT,course_reference_json TEXT,details_json TEXT,PRIMARY KEY(run_id,offering_id),FOREIGN KEY(run_id,term_id) REFERENCES terms);
+CREATE TABLE offerings(run_id TEXT REFERENCES runs,offering_id TEXT,term_id TEXT,course_id TEXT,source_course_id TEXT,source_subject_id TEXT,course_reference_json TEXT,details_json TEXT,PRIMARY KEY(run_id,offering_id),FOREIGN KEY(run_id,term_id) REFERENCES terms,FOREIGN KEY(run_id,course_id) REFERENCES courses);
 CREATE TABLE sections(run_id TEXT,offering_id TEXT,section_id TEXT,section_type TEXT,section_number TEXT,details_json TEXT,PRIMARY KEY(run_id,offering_id,section_id),FOREIGN KEY(run_id,offering_id) REFERENCES offerings);
+CREATE TABLE section_instructors(run_id TEXT,offering_id TEXT,section_id TEXT,instructor_name TEXT,instructor_id TEXT,PRIMARY KEY(run_id,offering_id,section_id,instructor_name),FOREIGN KEY(run_id,offering_id,section_id) REFERENCES sections,FOREIGN KEY(run_id,instructor_id) REFERENCES instructors);
 CREATE TABLE meetings(run_id TEXT,course_id TEXT,meeting_id TEXT,start_time INTEGER,end_time INTEGER,details_json TEXT,PRIMARY KEY(run_id,course_id,meeting_id),FOREIGN KEY(run_id,course_id) REFERENCES courses);
 CREATE TABLE derived_artifacts(run_id TEXT REFERENCES runs,name TEXT,input_hash TEXT,config_json TEXT,payload_json TEXT,PRIMARY KEY(run_id,name));
 """
@@ -177,14 +178,33 @@ def write_database(store, run, path):
                             "INSERT INTO grades VALUES(?,?,?,?)",
                             (identifier, key, term, canonical(term_data["grade_data"])),
                         )
+            aliases = {
+                (subject, value["course_reference"]["course_number"]): key
+                for key, value in state["courses"].items()
+                for subject in value["course_reference"]["subjects"]
+            }
             for key, value in store.records(identifier, "offerings").items():
                 hit = value["hit"]
                 public.execute(
-                    "INSERT INTO offerings VALUES(?,?,?,?,?,?,?)",
+                    "INSERT INTO offerings VALUES(?,?,?,?,?,?,?,?)",
                     (
                         identifier,
                         key,
                         value["term"],
+                        next(
+                            (
+                                aliases[
+                                    (
+                                        subject,
+                                        value["course_reference"]["course_number"],
+                                    )
+                                ]
+                                for subject in value["course_reference"]["subjects"]
+                                if (subject, value["course_reference"]["course_number"])
+                                in aliases
+                            ),
+                            None,
+                        ),
                         str(hit["courseId"]),
                         str(hit["subject"]["subjectCode"]),
                         canonical(value["course_reference"]),
@@ -205,6 +225,17 @@ def write_database(store, run, path):
                                 canonical(section),
                             ),
                         )
+                        from sanitization import sanitize_instructor_id
+
+                        for instructor in section.get("instructors", []):
+                            name = f"{instructor['name']['first']} {instructor['name']['last']}"
+                            instructor_id = sanitize_instructor_id(name)
+                            if instructor_id not in state["instructors"]:
+                                instructor_id = None
+                            public.execute(
+                                "INSERT OR IGNORE INTO section_instructors VALUES(?,?,?,?,?)",
+                                (identifier, key, sid, name, instructor_id),
+                            )
             for key, meetings in state["meetings"].items():
                 for meeting in meetings:
                     encoded = canonical(meeting)
@@ -239,6 +270,7 @@ def write_database(store, run, path):
             "grades",
             "offerings",
             "sections",
+            "section_instructors",
             "meetings",
             "observations",
             "derived_artifacts",
@@ -250,6 +282,7 @@ def write_database(store, run, path):
         raise ValueError("Public snapshot contains broken references")
     if public.execute("PRAGMA integrity_check").fetchone()[0] != "ok":
         raise ValueError("Public snapshot failed integrity check")
+    public.execute(f"PRAGMA user_version={SCHEMA_VERSION}")
     public.close()
 
 
@@ -296,7 +329,9 @@ def export(store, run):
     validate(store, run, derived=True)
     target = store.root / "releases" / run
     if target.exists():
-        verify_release(target)
+        manifest = verify_release(target)
+        if manifest["run_id"] != run or manifest["input_hash"] != store.input_hash(run):
+            raise ValueError("Existing release does not match this run's observations")
         return target
     staging = target.with_name(run + ".partial")
     if staging.exists():
@@ -469,6 +504,11 @@ def publish(store, run, repo_id, api=None, download=None):
     api.create_tag(
         repo_id=repo_id, repo_type="dataset", tag=tag, revision=revision, exist_ok=True
     )
+    if (
+        api.repo_info(repo_id=repo_id, repo_type="dataset", revision=tag).sha
+        != revision
+    ):
+        raise ValueError("Release tag already points to a different revision")
     # A single pointer commit activates only a complete immutable snapshot. An
     # intervening publication causes a conflict instead of silently replacing it.
     pointer = canonical(
