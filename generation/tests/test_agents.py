@@ -59,6 +59,24 @@ class AgentTests(unittest.TestCase):
             **kwargs,
         )
 
+    def test_valid_saved_candidate_is_revalidated_without_inference(self):
+        f = self.fixture
+        self.previous["sections"]["requirements"]["candidate"] = f.requirements
+
+        def model(*args):
+            self.fail("A valid saved candidate should not require another model call")
+
+        output, usage = generate_repair(
+            f.profile, self.task, self.seed, f.context, FunctionModel(model)
+        )
+        self.assertEqual(output["sections"]["requirements"]["status"], "valid")
+        self.assertTrue(output["provenance"]["validation_only"])
+        self.assertEqual(
+            output["provenance"]["revalidated_candidates"], ["requirements"]
+        )
+        self.assertEqual(usage["requests"], 0)
+        self.assertEqual(output["provenance"]["conversation"], [])
+
     def test_native_repair_uses_model_retry_and_locks_accepted_sections(self):
         f = self.fixture
         calls = []

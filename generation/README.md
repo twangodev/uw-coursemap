@@ -352,7 +352,7 @@ engine. `profiles.enrichment-unified` enables the Qwen XML tool parser and uses 
 32K context, 16K output budget, and the measured 192-sequence/256-client throughput
 settings. Hardware power limits are managed separately.
 
-New jobs use worker version 17. Resume older jobs from their original checkout;
+New jobs use worker version 18. Resume older jobs from their original checkout;
 the worker-version check prevents mixing implementations. The exact PydanticAI
 version is included in job identity, cache keys and output provenance. Native
 message histories (including tool returns and retry feedback) are saved in
@@ -393,3 +393,8 @@ serving payloads and include rejected and unselected experiments for auditing.
 Long repair runs can resume with `enrich-resume JOB_ID --concurrency 256
 --request-timeout-seconds 1800`. Execution overrides are recorded on new results;
 they do not change model sampling, job identity, or completed checkpoints.
+
+Repair jobs revalidate saved candidates before spending inference tokens. Safe
+source-only normalization and its field changes are recorded; outputs accepted
+without a new model call have `provenance.validation_only=true` and retain the
+original trace and parent-output hash.

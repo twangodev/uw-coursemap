@@ -231,6 +231,11 @@ def validate_section(name, candidate, task, root, lookup):
             "linked_courses": linked,
         }
         restore_quotes(value, payload)
+        repairs.extend(
+            {"original": before, "resolved": copy.deepcopy(after)}
+            for before, after in zip(candidate["nodes"], value["nodes"])
+            if before != after
+        )
         diagnostics = graph_diagnostics(value, payload)
         if diagnostics:
             raise ValueError("\n".join(diagnostics))

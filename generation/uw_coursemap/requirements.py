@@ -11,6 +11,11 @@ def restore_quotes(value, payload):
             quote = node[field]
             if not quote or quote in text:
                 continue
+            # A model-added terminal period is formatting, not evidence.
+            # Only remove it when the complete remaining quote exists literally.
+            if quote.endswith(".") and quote[:-1] and quote[:-1] in text:
+                node[field] = quote[:-1]
+                continue
             parts = re.split(r"(\s+)", quote)
             pattern = "".join(
                 r"\s+" if part.isspace() else re.escape(part) for part in parts
@@ -18,6 +23,13 @@ def restore_quotes(value, payload):
             match = re.search(pattern, text)
             if match:
                 node[field] = match.group()
+        if (
+            node["kind"] == "condition"
+            and node["condition"] is None
+            and node["evidence"] == text
+            and text.strip()
+        ):
+            node["condition"] = text
 
 
 def validate_graph(value, payload):

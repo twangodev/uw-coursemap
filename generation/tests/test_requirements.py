@@ -58,6 +58,36 @@ class RequirementsTests(unittest.TestCase):
             ],
         }
 
+    def test_whole_source_condition_is_restored_without_inventing_text(self):
+        payload = {
+            "requirements_text": "Graduate/professional standing",
+            "linked_courses": [],
+        }
+        value = {
+            "status": "parsed",
+            "root": "n",
+            "notes": [],
+            "nodes": [
+                {
+                    "id": "n",
+                    "kind": "condition",
+                    "children": [],
+                    "course": None,
+                    "condition": None,
+                    "evidence": "Graduate/professional standing.",
+                }
+            ],
+        }
+        restore_quotes(value, payload)
+        validate_graph(value, payload)
+        self.assertEqual(value["nodes"][0]["condition"], payload["requirements_text"])
+        for quote in ["Graduate", "Undergraduate standing"]:
+            value["nodes"][0].update(condition=None, evidence=quote)
+            restore_quotes(value, payload)
+            self.assertIsNone(value["nodes"][0]["condition"])
+            with self.assertRaises(ValueError):
+                validate_graph(value, payload)
+
     def test_unlinked_numeric_alternative_cannot_be_silently_dropped(self):
         self.payload["requirements_text"] += " or 171"
         with self.assertRaisesRegex(ValueError, "missing from leaf conditions: 171"):

@@ -99,6 +99,22 @@ async def _conversation(profile, task, payload, context, model=None):
             if call.get("tool") == "get_course":
                 lookup.get_course(call["course_id"], call["from_course"])
     attempts, repaired = [], set()
+    revalidated_candidates = []
+    if previous:
+        for name, section in list(sections.items()):
+            if section["status"] != "invalid" or section.get("candidate") is None:
+                continue
+            try:
+                accepted = validate_section(
+                    name, section["candidate"], task, root, lookup
+                )
+                if name == "requirements":
+                    compare_parsers(accepted, root["original_requirements"])
+            except (ValueError, KeyError, TypeError, jsonschema.ValidationError):
+                continue
+            sections[name] = accepted
+            repaired.add(name)
+            revalidated_candidates.append(name)
     ast_attempts = 0
     turns = task.get("repair_turns", 3) if seed else 3
     if not 1 <= turns <= 4:
@@ -121,8 +137,16 @@ async def _conversation(profile, task, payload, context, model=None):
         },
     }
     feedback = {
-        "sections_needed": [name for name in SECTIONS if name not in locked],
-        "locked_sections": locked,
+        "sections_needed": [
+            name
+            for name in SECTIONS
+            if sections.get(name, {}).get("status", "invalid") == "invalid"
+        ],
+        "locked_sections": [
+            name
+            for name in SECTIONS
+            if sections.get(name, {}).get("status", "invalid") != "invalid"
+        ],
         "validation_errors": {
             name: s.get("error")
             for name, s in sections.items()
@@ -426,7 +450,15 @@ async def _conversation(profile, task, payload, context, model=None):
                     break
         return serialize_messages(all_messages)
 
-    if model is not None:
+    validation_only = bool(
+        previous
+        and all(
+            sections.get(n, {}).get("status", "invalid") != "invalid" for n in SECTIONS
+        )
+    )
+    if validation_only:
+        messages = copy.deepcopy(previous.get("provenance", {}).get("conversation", []))
+    elif model is not None:
         messages = await run(model)
     else:
         async with AsyncOpenAI(
@@ -456,6 +488,8 @@ async def _conversation(profile, task, payload, context, model=None):
             }
     provenance = {
         "worker_version": WORKER_VERSION,
+        "validation_only": validation_only,
+        "revalidated_candidates": revalidated_candidates,
         "orchestrator": ORCHESTRATOR,
         "input_hash": digest(root),
         "task_hash": digest(task),
