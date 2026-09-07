@@ -319,7 +319,7 @@ def write_database(store, run, path, state_override=None):
 
 def write_parquet(database, directory):
     import pyarrow as pa
-    import pyarrow.parquet as pq
+    from .public_data import write_rows
 
     directory.mkdir()
     db = sqlite3.connect(database)
@@ -339,19 +339,14 @@ def write_parquet(database, directory):
             ]
         )
         cursor = db.execute(f"SELECT * FROM {name} ORDER BY rowid")
-        counts[name] = 0
-        with pq.ParquetWriter(
-            directory / f"{name}.parquet", schema, compression="zstd"
-        ) as writer:
-            while rows := cursor.fetchmany(1000):
-                writer.write_table(
-                    pa.Table.from_pylist(
-                        [dict(zip(schema.names, row)) for row in rows], schema=schema
-                    )
-                )
-                counts[name] += len(rows)
-        if pq.read_metadata(directory / f"{name}.parquet").num_rows != counts[name]:
-            raise ValueError(f"Parquet row count mismatch: {name}")
+        # Historical graph artifacts and model traces can each be very large.
+        # Bound text bytes as well as rows; retain oversized single rows intact.
+        counts[name] = write_rows(
+            directory / f"{name}.parquet",
+            schema,
+            (dict(zip(schema.names, row)) for row in cursor),
+            max_text_bytes=16 * 1024 * 1024,
+        )
     db.close()
     return counts
 

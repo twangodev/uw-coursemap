@@ -22,7 +22,7 @@ from uw_coursemap.public_data import (
     write_rows,
     selected_enrichments,
 )
-from uw_coursemap.release import PUBLIC_SCHEMA
+from uw_coursemap.release import PUBLIC_SCHEMA, write_parquet
 
 
 class PublicDataTests(unittest.TestCase):
@@ -346,6 +346,21 @@ class PublicDataTests(unittest.TestCase):
             self.assertNotIn("output_json", value)
             self.assertIn("llm_search_status", value)
             self.assertEqual(value["llm_job_id"], "selected")
+
+    def test_archive_export_byte_batches_large_artifacts_losslessly(self):
+        database = self.root / "large-archive.sqlite"
+        payloads = ["é" * (5 * 1024 * 1024)] * 2 + ["x" * (18 * 1024 * 1024), None]
+        with sqlite3.connect(database) as db:
+            db.execute("CREATE TABLE artifacts(id INTEGER, payload TEXT)")
+            db.executemany("INSERT INTO artifacts VALUES(?,?)", enumerate(payloads))
+        directory = self.root / "large-archive-tables"
+        self.assertEqual(write_parquet(database, directory), {"artifacts": 4})
+        path = directory / "artifacts.parquet"
+        self.assertEqual(pq.read_metadata(path).num_row_groups, 4)
+        self.assertEqual(
+            pq.read_table(path).to_pylist(),
+            [{"id": i, "payload": value} for i, value in enumerate(payloads)],
+        )
 
     def test_empty_tables_keep_schema_and_card_has_one_default(self):
         self.db.execute("DELETE FROM grades")
