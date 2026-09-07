@@ -344,3 +344,24 @@ section origins, full repair conversation, and each attempted validation. A job
 can complete with unresolved sections after its bounded retry budget; those stay
 invalid or review-required. Missing review evidence is not repairable by inference.
 Use `enrich-resume` with the new job ID after interruption.
+
+PydanticAI owns generation, native `get_course` tool calls, and validator-driven
+`ModelRetry` conversations. Install through the root `uv.lock`; only its slim
+OpenAI-compatible client extra is required. vLLM remains the local inference
+engine. `profiles.enrichment-unified` enables the Qwen XML tool parser and uses a
+32K context, 8K output budget, and the measured 256-sequence/384-client throughput
+settings. Hardware power limits are managed separately.
+
+New jobs use worker version 12. Resume older jobs from their original checkout;
+the worker-version check prevents mixing implementations. The exact PydanticAI
+version is included in job identity, cache keys and output provenance. Native
+message histories (including tool returns and retry feedback) are saved in
+`provenance.conversation`, without the private inference URL. Chained repairs can
+reload these histories with `ModelMessagesTypeAdapter`. Completed course results
+remain the durable checkpoint boundary; an interrupted in-flight course restarts
+from its saved input/parent conversation. SQLite still owns job state and source
+history; public Parquet and serving contracts are unchanged.
+
+Course agents use PydanticAI tool-output mode (`submit_sections`) alongside
+`get_course`; the live Qwen/vLLM check showed native-JSON mode can suppress tool
+calls. Generic extraction tasks without tools use native structured JSON.

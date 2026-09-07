@@ -199,46 +199,29 @@ class RequirementsTests(unittest.TestCase):
         )
 
     def test_retry_explains_error_and_sends_schema_to_model(self):
-        from types import SimpleNamespace
-        from unittest.mock import patch
-        from uw_coursemap.jobs import generate
-
         broken = copy.deepcopy(self.value)
         broken["root"] = "missing"
 
-        def response(value):
-            return SimpleNamespace(
-                raise_for_status=lambda: None,
-                json=lambda: {
-                    "model": "test@revision",
-                    "choices": [
-                        {
-                            "finish_reason": "stop",
-                            "message": {"content": json.dumps(value)},
-                        }
-                    ],
-                },
+        from pydantic_ai.messages import ModelResponse, TextPart
+        from pydantic_ai.models.function import FunctionModel
+        from pydantic_ai import ModelMessagesTypeAdapter
+        from uw_coursemap.agents import generate_generic
+
+        calls = []
+
+        def model(messages, info):
+            calls.append(ModelMessagesTypeAdapter.dump_json(messages).decode())
+            return ModelResponse(
+                parts=[TextPart(json.dumps(broken if len(calls) == 1 else self.value))]
             )
 
-        profile = {
-            "model": "test",
-            "revision": "revision",
-            "base_url": "http://localhost:8003/v1",
-            "max_output_tokens": 4096,
-            "temperature": 0,
-            "thinking": False,
-        }
-        with (
-            patch(
-                "uw_coursemap.jobs.requests.post",
-                side_effect=[response(broken), response(self.value)],
-            ) as request,
-            patch("uw_coursemap.jobs.time.sleep"),
-        ):
-            value, _ = generate(profile, self.task, self.payload)
+        value, _ = generate_generic(
+            {"model": "test", "revision": "revision", "max_output_tokens": 4096},
+            self.task,
+            self.payload,
+            FunctionModel(model),
+        )
+        value.pop("provenance")
         self.assertEqual(value, self.value)
-        first = request.call_args_list[0].kwargs["json"]["messages"]
-        retry = request.call_args_list[1].kwargs["json"]["messages"]
-        self.assertIn("Output JSON schema:", first[0]["content"])
-        self.assertEqual(len(first), 2)
-        self.assertIn("Missing requirement root", retry[-1]["content"])
+        self.assertEqual(len(calls), 2)
+        self.assertIn("Missing requirement root", calls[1])

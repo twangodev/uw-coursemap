@@ -6,7 +6,6 @@ import json
 import os
 from pathlib import Path
 import sqlite3
-import time
 
 import jsonschema
 import requests
@@ -16,7 +15,7 @@ from .profiles import load_profile
 from .store import Store, now
 
 
-WORKER_VERSION = 10
+WORKER_VERSION = 12
 
 
 def generation_schema(schema):
@@ -94,92 +93,9 @@ def check_server(profile):
 
 
 def generate(profile, task, payload):
-    headers = {}
-    if os.environ.get("COURSEMAP_INFERENCE_API_KEY"):
-        headers["Authorization"] = "Bearer " + os.environ["COURSEMAP_INFERENCE_API_KEY"]
-    messages = [
-        {
-            "role": "system",
-            "content": task["prompt"]
-            + "\nOutput JSON schema:\n"
-            + json.dumps(task["schema"], ensure_ascii=False),
-        },
-        {"role": "user", "content": json.dumps(payload, ensure_ascii=False)},
-    ]
-    for attempt in range(3):
-        content = None
-        try:
-            response = requests.post(
-                profile["base_url"].rstrip("/") + "/chat/completions",
-                headers=headers,
-                json={
-                    "model": f"{profile['model']}@{profile['revision']}",
-                    "messages": list(messages),
-                    "max_tokens": profile["max_output_tokens"],
-                    "temperature": profile["temperature"],
-                    "chat_template_kwargs": {"enable_thinking": profile["thinking"]},
-                    "response_format": {
-                        "type": "json_schema",
-                        "json_schema": {
-                            "name": task["name"],
-                            "strict": True,
-                            "schema": generation_schema(task["schema"]),
-                        },
-                    },
-                },
-                timeout=(10, 180),
-            )
-            response.raise_for_status()
-            data = response.json()
-            if data.get("model") != f"{profile['model']}@{profile['revision']}":
-                raise ValueError("Server returned a different model identity")
-            choice = data["choices"][0]
-            if choice["finish_reason"] != "stop":
-                raise ValueError("Model output was truncated or incomplete")
-            content = choice["message"]["content"]
-            value = json.loads(content)
-            jsonschema.Draft202012Validator(task["schema"]).validate(value)
-            for field in task.get("evidence_fields", []):
-                for item in value[field]:
-                    if item["evidence"] not in (payload.get("description") or ""):
-                        raise ValueError(
-                            "Evidence quote is absent from the source description"
-                        )
-            if task.get("validator") == "requirements_graph_v1":
-                from .requirements import restore_quotes, validate_graph
+    from .agents import generate_generic
 
-                restore_quotes(value, payload)
-                validate_graph(value, payload)
-            return value, data.get("usage", {})
-        except requests.HTTPError as exc:
-            if response.status_code not in {429, 500, 502, 503, 504} or attempt == 2:
-                raise ValueError(f"Inference HTTP {response.status_code}") from exc
-        except (
-            requests.RequestException,
-            ValueError,
-            KeyError,
-            IndexError,
-            jsonschema.ValidationError,
-        ) as exc:
-            if attempt == 2:
-                raise
-            if content is not None:
-                # Keep one correction turn so retries fit the original context.
-                reason = (
-                    exc.message
-                    if isinstance(exc, jsonschema.ValidationError)
-                    else str(exc)
-                )
-                messages[2:] = [
-                    {"role": "assistant", "content": content},
-                    {
-                        "role": "user",
-                        "content": "Validation failed: "
-                        + reason[:600]
-                        + ". Return a corrected complete JSON object using only the original source. Do not invent missing evidence.",
-                    },
-                ]
-        time.sleep(2**attempt)
+    return generate_generic(profile, task, payload)
 
 
 class Jobs:
@@ -261,6 +177,8 @@ class Jobs:
                     raise ValueError(
                         "Selected course is missing or ambiguous in the snapshot"
                     )
+            from .agents import ORCHESTRATOR
+
             spec = {
                 "task": task,
                 "profile": profile.model_dump(),
@@ -268,6 +186,7 @@ class Jobs:
                 "total_courses": len(courses),
                 "selected_courses": len(selected),
                 "worker_version": WORKER_VERSION,
+                "orchestrator": ORCHESTRATOR,
             }
             job = (
                 "enrich-"
@@ -303,6 +222,7 @@ class Jobs:
                             "task": task,
                             "profile": cache_profile,
                             "worker_version": WORKER_VERSION,
+                            "orchestrator": ORCHESTRATOR,
                         }
                     )
                     self.db.execute(
@@ -386,11 +306,11 @@ class Jobs:
                     ]
                     selected_worker = worker
                     if context is not None and worker is generate:
-                        from .unified import generate_unified
+                        from .agents import generate_unified
 
                         selected_worker = generate_unified
                         if spec["task"].get("repair_mode") == "conversation_v1":
-                            from .repair import generate_repair
+                            from .agents import generate_repair
 
                             selected_worker = generate_repair
                         args.append(context)

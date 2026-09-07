@@ -1,16 +1,11 @@
 """Checkpointed repair jobs using native assistant/validator conversation turns."""
 
-import copy
 import json
 
-import jsonschema
-import requests
-
-from .course_context import CourseLookup
 from .models import canonical, digest
 from .profiles import load_profile
 from .store import now
-from .unified import SECTIONS, compare_parsers, request, validate_section
+from .agents import ORCHESTRATOR, native_prompt
 
 
 def create_repair(
@@ -58,11 +53,13 @@ def create_repair(
     if not rows:
         raise ValueError("No rejected course sections selected")
     task = {**original["task"], "repair_mode": "conversation_v1", "repair_turns": turns}
+    task["prompt"] = native_prompt(task)
     spec = {
         **original,
         "task": task,
         "profile": profile.model_dump(),
         "worker_version": WORKER_VERSION,
+        "orchestrator": ORCHESTRATOR,
         "selected_courses": len(rows),
         "repair_parent": parent_id,
         "repair_parent_results_hash": digest(
@@ -88,6 +85,7 @@ def create_repair(
                     "task": task,
                     "profile": profile.model_dump(exclude={"base_url", "concurrency"}),
                     "worker_version": WORKER_VERSION,
+                    "orchestrator": ORCHESTRATOR,
                 }
             )
             jobs.db.execute(
@@ -95,151 +93,3 @@ def create_repair(
                 (job, row["course_id"], cache_key, canonical(payload)),
             )
     return job
-
-
-def generate_repair(profile, task, payload, context, transport=request):
-    seed = payload["repair_seed"]
-    previous = seed["output"]
-    root = {key: value for key, value in payload.items() if key != "repair_seed"}
-    if context.fingerprint(root["course_id"]) != digest(root):
-        raise ValueError("Repair source context changed")
-    lookup = CourseLookup(context, root["course_id"], **task.get("tool_limits", {}))
-    for key, stamp in previous.get("provenance", {}).get("dependencies", {}).items():
-        if context.fingerprint(key) != stamp:
-            raise ValueError("Repair dependency changed")
-    # Replay only previously permitted local lookups, against the same snapshot.
-    for call in previous.get("provenance", {}).get("tool_calls", []):
-        if call.get("tool") == "get_course":
-            lookup.get_course(call["course_id"], call["from_course"])
-    sections = copy.deepcopy(previous["sections"])
-    targets = [name for name in SECTIONS if sections[name]["status"] == "invalid"]
-    locked = [name for name in SECTIONS if name not in targets]
-    initial = {
-        name: sections[name].get("candidate") if name in targets else None
-        for name in SECTIONS
-    }
-    initial["lookups"] = []
-    messages = [
-        {
-            "role": "system",
-            "content": task["prompt"]
-            + "\nRepair rejected sections only. Preserve all source conditions, including exclusions. Return null for locked sections and lookups []. Treat prior answers as candidates, not facts.\nSection schemas:\n"
-            + canonical(task["schema"]),
-        },
-        {
-            "role": "user",
-            "content": canonical(
-                {
-                    "course": {
-                        k: v
-                        for k, v in root.items()
-                        if k not in {"original_requirements", "history"}
-                    },
-                    "lookup_evidence": {
-                        k: v
-                        for k, v in lookup.evidence.items()
-                        if k != root["course_id"]
-                    },
-                    "locked_sections": locked,
-                }
-            ),
-        },
-        {"role": "assistant", "content": canonical(initial)},
-    ]
-    usage = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
-    attempts = []
-    repaired = set()
-    transport_error = None
-    for turn in range(task["repair_turns"]):
-        needed = [name for name in targets if sections[name]["status"] == "invalid"]
-        if not needed:
-            break
-        feedback = {
-            "sections_needed": needed,
-            "locked_sections": [name for name in SECTIONS if name not in needed],
-            "validation_errors": {name: sections[name].get("error") for name in needed},
-            "instruction": "Correct the previous assistant answer using the source. Return only sections_needed; other sections must be null. Use lookups [].",
-        }
-        if transport_error:
-            feedback["previous_request_error"] = transport_error
-        messages.append({"role": "user", "content": canonical(feedback)})
-        try:
-            response, tokens = transport(
-                {**profile, "thinking": True}, task, messages, False
-            )
-            for key in usage:
-                usage[key] += tokens.get(key, 0)
-            if not isinstance(response, dict):
-                raise ValueError("Expected an object")
-        except (ValueError, requests.RequestException, KeyError, IndexError) as exc:
-            transport_error = (
-                str(exc)[:1000]
-                if isinstance(exc, ValueError)
-                else "Inference request failed"
-            )
-            attempts.append({"turn": turn, "thinking": True, "error": transport_error})
-            # No assistant answer arrived; keep a single feedback turn for retry.
-            messages.pop()
-            continue
-        transport_error = None
-        messages.append({"role": "assistant", "content": canonical(response)})
-        errors = {}
-        for name in needed:
-            candidate = response.get(name)
-            if candidate is None:
-                errors[name] = "Required repair section was omitted"
-                sections[name]["error"] = errors[name]
-                continue
-            try:
-                sections[name] = validate_section(name, candidate, task, root, lookup)
-                if name == "requirements":
-                    compare_parsers(sections[name], root["original_requirements"])
-                repaired.add(name)
-            except (ValueError, KeyError, TypeError, jsonschema.ValidationError) as exc:
-                reason = (
-                    exc.message
-                    if isinstance(exc, jsonschema.ValidationError)
-                    else str(exc)
-                )
-                errors[name] = reason[:6000]
-                sections[name] = {
-                    "status": "invalid",
-                    "value": None,
-                    "candidate": candidate,
-                    "error": errors[name],
-                }
-        attempts.append({"turn": turn, "thinking": True, "errors": errors})
-    result = copy.deepcopy(previous)
-    result["sections"] = sections
-    result["provenance"] = {
-        "worker_version": previous["provenance"]["worker_version"],
-        "repair_version": 1,
-        "repair_parent_job": seed["job_id"],
-        "repair_parent_output_hash": digest(previous),
-        "retained_sections": locked,
-        "repaired_sections": sorted(repaired),
-        "section_origins": {
-            name: {"job_id": seed["job_id"], "output_hash": digest(previous)}
-            for name in locked
-        },
-        "generation_settings": {
-            k: profile[k]
-            for k in (
-                "temperature",
-                "max_output_tokens",
-                "context_length",
-                "engine",
-                "engine_version",
-            )
-            if k in profile
-        }
-        | {"thinking": True},
-        "input_hash": digest(root),
-        "task_hash": digest(task),
-        "dependencies": lookup.dependencies,
-        "tool_calls": lookup.trace,
-        "attempts": attempts,
-        "repair_conversation": messages,
-        "review_coverage": previous.get("provenance", {}).get("review_coverage", {}),
-    }
-    return result, usage

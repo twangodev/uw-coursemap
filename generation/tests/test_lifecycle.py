@@ -4,11 +4,10 @@ import json
 import sqlite3
 import unittest
 from unittest.mock import patch
-from types import SimpleNamespace
 
 import test_pipeline
 from uw_coursemap.cli import code_hash
-from uw_coursemap.jobs import Jobs, generate
+from uw_coursemap.jobs import Jobs
 from uw_coursemap.lifecycle import scrape, release, build
 from uw_coursemap.models import canonical
 from uw_coursemap.profiles import ModelProfile, load_profile, lock_profiles
@@ -397,39 +396,6 @@ class LifecycleTests(unittest.TestCase):
         with sqlite3.connect(directory / "pipeline.sqlite") as db:
             self.assertEqual(db.execute("SELECT count(*) FROM runs").fetchone()[0], 1)
 
-    def test_generation_rejects_truncation_schema_and_false_evidence(self):
-        task = json.loads(self.task.read_text())
-        task["schema"] = {"type": "object"}
-        task["evidence_fields"] = ["topics"]
-        for finish, content in [
-            ("length", "{}"),
-            ("stop", "not json"),
-            ("stop", '{"topics":[{"evidence":"invented"}]}'),
-        ]:
-            with self.subTest(finish=finish, content=content):
-                result = {
-                    "model": self.profile.served_model,
-                    "choices": [
-                        {"finish_reason": finish, "message": {"content": content}}
-                    ],
-                }
-                response = SimpleNamespace(
-                    raise_for_status=lambda: None, json=lambda: result
-                )
-                with (
-                    patch(
-                        "uw_coursemap.jobs.requests.post", return_value=response
-                    ) as request,
-                    patch("uw_coursemap.jobs.time.sleep"),
-                ):
-                    with self.assertRaises((ValueError, KeyError)):
-                        generate(
-                            self.profile.model_dump(),
-                            task,
-                            {"description": "Actual source"},
-                        )
-                    self.assertEqual(request.call_count, 3)
-
     def test_offline_model_fails_before_scheduling_courses(self):
         import requests
 
@@ -442,7 +408,7 @@ class LifecycleTests(unittest.TestCase):
                     "uw_coursemap.jobs.requests.get",
                     side_effect=requests.ConnectionError,
                 ),
-                patch("uw_coursemap.jobs.requests.post") as inference,
+                patch("uw_coursemap.agents.generate_generic") as inference,
             ):
                 with self.assertRaisesRegex(
                     RuntimeError, "Inference server unavailable"
