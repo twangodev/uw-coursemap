@@ -67,9 +67,9 @@ class CourseContext:
                         "grade_counts": offering.get("cumulative", {}),
                     }
                 )
-        # Old RMP records lack course/date attribution. Never attach a professor's
-        # general comments to all of their classes. Only explicitly attributed rows
-        # are eligible if a source adapter later supplies this normalized shape.
+        # Reviews must retain explicit course/date attribution. General professor
+        # comments remain in the archive rather than becoming facts about every class.
+        seen_reviews = set()
         for record in store.records(run, "ratings").values():
             for review in record.get("course_reviews", []):
                 required = (
@@ -85,7 +85,28 @@ class CourseContext:
                     continue
                 key = self.resolve(review["course_id"])
                 if key:
+                    source_id = review.get("source_review_id")
+                    identity = (
+                        (review["instructor_id"], source_id)
+                        if source_id
+                        else digest(review)
+                    )
+                    if identity in seen_reviews:
+                        continue
+                    seen_reviews.add(identity)
                     item = {k: review[k] for k in required}
+                    item.update(
+                        {
+                            k: review[k]
+                            for k in (
+                                "source_review_id",
+                                "instructor_name",
+                                "quality_rating",
+                                "difficulty_rating",
+                            )
+                            if k in review
+                        }
+                    )
                     item["course_id"] = key
                     item["id"] = digest(item)[:24]
                     self.reviews.setdefault(key, []).append(item)

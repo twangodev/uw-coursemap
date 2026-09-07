@@ -131,7 +131,12 @@ def reconcile(store, run):
             require_exact_last=True,
         )
         details = faculty.get(official.matched_item, {}) if official.is_match else {}
-        candidates = ratings.get(name, {}).get("candidates", [])
+        rating_record = ratings.get(name, {})
+        candidates = rating_record.get("candidates", [])
+        if "matched_teacher_id" in rating_record:
+            candidates = [
+                c for c in candidates if c["id"] == rating_record["matched_teacher_id"]
+            ]
         match = find_best_structured_match(
             query_name=name,
             candidates=candidates,
@@ -151,7 +156,8 @@ def reconcile(store, run):
             details.get("position"),
             details.get("department"),
             details.get("credentials"),
-            details.get("name"),
+            details.get("name")
+            or (official.matched_item if official.is_match else None),
         )
         if identifier not in instructors or (
             rating and not instructors[identifier].rmp_data

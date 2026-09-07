@@ -356,3 +356,43 @@ def _release(store, run, build_id, enrichment_ids):
         finally:
             if build_store:
                 build_store.close()
+
+
+def prepare_instructor_refresh(store, source_run, source_workspace=None):
+    """Reuse frozen core observations, preserving timestamps, in a new snapshot."""
+    from .cli import code_hash
+
+    source = Store(source_workspace or store.root, readonly=True)
+    try:
+        require_snapshot(source, source_run)
+        info = source.run(source_run)
+        if info["origin"] != "scrape":
+            raise ValueError("Instructor refresh requires a native source snapshot")
+        config = json.loads(info["config_json"])
+        config.update(
+            workflow="snapshot-v1",
+            sources=list(SOURCES),
+            ratings_contract=1,
+            code_hash=code_hash(),
+            reused_sources={name: source_run for name in SOURCES[:3]},
+            reused_source_input_hash=source.input_hash(source_run),
+        )
+        run = store.new_run(info["semester"], config)
+        for stage in SOURCES[:3]:
+            if source.stage_status(source_run, stage) != "complete":
+                raise ValueError(f"Cannot reuse incomplete source: {stage}")
+            with store.db:
+                store.db.executemany(
+                    "INSERT INTO observations VALUES(?,?,?,?,?,?,?,?)",
+                    (
+                        (run, *tuple(row)[1:])
+                        for row in source.db.execute(
+                            "SELECT * FROM observations WHERE run_id=? AND source=?",
+                            (source_run, stage),
+                        )
+                    ),
+                )
+            store.stage(run, stage, "complete")
+        return run
+    finally:
+        source.close()

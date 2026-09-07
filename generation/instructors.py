@@ -137,6 +137,9 @@ class RMPData(JsonSerializable):
             ratings.append(
                 {
                     "comment": node["comment"],
+                    "id": node.get("id"),
+                    "course": node.get("class"),
+                    "date": node.get("date"),
                     "quality_rating": node["qualityRating"],
                     "difficulty_rating": node["difficultyRatingRounded"],
                 }

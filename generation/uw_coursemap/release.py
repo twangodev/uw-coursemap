@@ -45,6 +45,19 @@ def validate(store, run, derived=False):
     required_kinds = ["courses", "subjects", "terms", "grades", "offerings"]
     if "instructors" in required_sources:
         required_kinds.extend(["faculty", "ratings"])
+    if json.loads(info["config_json"]).get("ratings_contract") == 1:
+        from .ratings import instructor_names
+
+        ratings = store.records(run, "ratings", "instructors")
+        missing = [
+            name
+            for name in instructor_names(store, run)
+            if not ratings.get(name, {}).get("collection_complete")
+        ]
+        if missing:
+            errors.append(
+                f"RMP collection incomplete for {len(missing)} instructor queries"
+            )
     for required in required_kinds:
         if not counts.get(required):
             errors.append(f"No {required} records")

@@ -20,9 +20,23 @@ uv run coursemap publish RELEASE_ID --repo OWNER/DATASET
 Use UW's four-digit enrollment term code. Scraping collects the catalog, Madgrades
 history, and enrollment for that semester, then validates and freezes a source
 snapshot. It does **not** require inference servers or download model weights.
-Faculty-directory and ratings scraping is opt-in with `--include-instructors`;
-when requested, those sources must also finish. Instructors reported by enrollment
-and grades are retained without that option.
+Faculty-directory and RMP collection are required. Every instructor lookup must
+finish, including all teacher-search and review pages; a successful lookup with
+no matching profile is distinct from a failed request. Raw candidates, comments,
+ratings, course labels, and dates are retained. Unambiguous profile matches with
+explicit course/date attribution feed the LLM student-experience input.
+
+To fill instructor data for an existing snapshot without re-scraping its catalog,
+grades, or enrollment, create a new snapshot:
+
+```sh
+uv run coursemap refresh-instructors RUN_ID
+```
+
+`--source-workspace PATH` can read an existing snapshot into a separate destination
+workspace. Reused observations keep their original timestamps and source-run
+provenance; the old snapshot and its LLM jobs remain immutable. Run enrichment
+against the new snapshot to include the collected reviews.
 
 The command prints its ID before starting. Logs live in `runs/RUN_ID/`. A fixed
 browser-style user agent is reused on resume. Successful sources are skipped;

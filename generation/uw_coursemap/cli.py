@@ -41,7 +41,7 @@ def parser():
     run.add_argument(
         "--include-instructors",
         action="store_true",
-        help="Also require faculty and ratings",
+        help=argparse.SUPPRESS,
     )
     for name in ("derive", "enrich", "release"):
         command = commands.add_parser(name)
@@ -98,6 +98,16 @@ def parser():
             command.add_argument("--repo", required=True, help="HF dataset owner/name")
         if name == "replay":
             command.add_argument("--source", choices=SOURCES, required=True)
+    refresh = commands.add_parser(
+        "refresh-instructors",
+        help="Collect required faculty/RMP data using an existing frozen catalog and grades",
+    )
+    refresh.add_argument("run_id")
+    refresh.add_argument(
+        "--source-workspace",
+        type=Path,
+        help="Optional separate source workspace; the new run is written to --workspace",
+    )
     commands.add_parser(
         "public-export",
         help="Build public tables and serving files from a verified archive",
@@ -379,9 +389,8 @@ def main(argv=None):
                         "download_delay": args.download_delay,
                     },
                     "workflow": "snapshot-v1",
-                    "sources": list(
-                        SOURCES if args.include_instructors else SOURCES[:3]
-                    ),
+                    "sources": list(SOURCES),
+                    "ratings_contract": 1,
                     "user_agent": get_user_agent(),
                     "code_hash": code_hash(),
                     "sitemap_base": args.sitemap_base,
@@ -392,6 +401,14 @@ def main(argv=None):
                 http_settings(config)
                 run = store.new_run(args.semester, config)
                 print(f"Created run {run}", flush=True)
+                result = execute(store, run)
+            elif args.command == "refresh-instructors":
+                from .lifecycle import prepare_instructor_refresh
+
+                run = prepare_instructor_refresh(
+                    store, args.run_id, args.source_workspace
+                )
+                print(f"Created instructor refresh run {run}", flush=True)
                 result = execute(store, run)
             elif args.command == "resume":
                 result = execute(store, args.run_id)
@@ -414,7 +431,12 @@ def main(argv=None):
             elif args.command == "replay":
                 info = store.run(args.run_id)
                 config = json.loads(info["config_json"])
-                config.update(code_hash=code_hash(), replay_from=args.run_id)
+                config.update(
+                    code_hash=code_hash(),
+                    replay_from=args.run_id,
+                    sources=list(SOURCES),
+                    ratings_contract=1,
+                )
                 run = store.new_run(info["semester"], config)
                 with store.db:
                     store.db.execute(
