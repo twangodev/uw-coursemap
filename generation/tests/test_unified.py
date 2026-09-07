@@ -227,6 +227,34 @@ class UnifiedTests(unittest.TestCase):
         )
         self.assertEqual(result["status"], "valid")
 
+    def test_sentiment_can_cite_the_full_thirty_review_sample(self):
+        self.root["reviews"] = [
+            {
+                "id": str(i),
+                "course_id": "COMPSCI 300",
+                "comment": "Useful projects.",
+                "date": "2017-01-01",
+                "instructor_id": "rmp:1",
+                "instructor_name": "Jane Doe",
+            }
+            for i in range(30)
+        ]
+        value = {
+            "status": "supported",
+            "themes": [
+                {
+                    "aspect": "projects",
+                    "sentiment": "positive",
+                    "summary": "Reviews of Jane Doe (2017) describe useful projects.",
+                    "review_ids": [str(i) for i in range(30)],
+                }
+            ],
+        }
+        result = validate_section(
+            "student_experience", value, self.task, self.root, self.lookup
+        )
+        self.assertEqual(result["value"]["themes"][0]["evidence_count"], 30)
+
     def test_display_normalization_preserves_original_input(self):
         raw = r"COMP\xa0SCI\xa0300"
         self.assertEqual(text_view(raw), "COMP SCI 300")

@@ -1,6 +1,6 @@
 {
   "name": "course_enrichment",
-  "version": 7,
+  "version": 8,
   "workflow": "unified_v1",
   "tool_limits": {
     "max_calls": 6,
@@ -419,7 +419,7 @@
                 },
                 "review_ids": {
                   "type": "array",
-                  "maxItems": 20,
+                  "maxItems": 30,
                   "items": {
                     "type": "string",
                     "minLength": 1,
