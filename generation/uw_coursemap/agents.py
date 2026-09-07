@@ -36,7 +36,7 @@ from pydantic_ai.usage import RunUsage, UsageLimits
 
 from .course_context import CourseLookup
 from .models import canonical, digest
-from .unified import SECTIONS, compare_parsers, validate_section
+from .unified import SECTIONS, compare_parsers, validate_section, review_handles
 
 ORCHESTRATOR = {"name": "pydantic-ai", "version": version("pydantic-ai-slim")}
 
@@ -52,6 +52,13 @@ def evidence_view(root, needed):
     if "student_experience" in needed:
         keys.update({"reviews", "review_selection"})
     result = {k: v for k, v in root.items() if k in keys}
+    if "student_experience" in needed and "reviews" in root:
+        result["reviews"] = [
+            {**review, "citation_id": handle}
+            for (handle, _), review in zip(
+                review_handles(root).items(), root["reviews"], strict=True
+            )
+        ]
     if "requirements" in needed:
         from .requirements import shared_subject_references
 
@@ -71,9 +78,7 @@ def output_budget(profile, messages, task, schema, repair=False):
     remaining = profile.get("context_length", 32768) - estimated_input
     return max(
         256,
-        min(
-            profile.get("max_output_tokens", 6144), 4096 if repair else 8192, remaining
-        ),
+        min(profile.get("max_output_tokens", 6144), 8192, remaining),
     )
 
 
@@ -103,6 +108,9 @@ def native_prompt(task):
         "Connect every node to the root; global exclusions belong under the root all node. "
         "Call submit_sections with the three JSON sections. On validation feedback, return null for accepted or deferred sections and correct only sections_needed.\n"
         + prompt
+        + "\nFor student-experience citations, use the supplied short citation_id (for example review:1) in review_ids. "
+        "These handles refer only to this course's supplied review sample. Runtime resolves them to the original review IDs. "
+        "Never recreate, abbreviate or guess review hashes."
     )
 
 
@@ -134,25 +142,7 @@ async def _conversation(profile, task, payload, context, model=None):
         raise ValueError("Source context changed")
     lookup = CourseLookup(context, root["course_id"], **task.get("tool_limits", {}))
     sections = copy.deepcopy(previous["sections"]) if previous else {}
-    from .requirements import ambiguous_semicolons
-
     deterministic_sections = []
-    if sections.get("requirements", {}).get(
-        "status", "invalid"
-    ) == "invalid" and ambiguous_semicolons(root["requirements_text"]):
-        sections["requirements"] = validate_section(
-            "requirements",
-            {
-                "status": "needs_review",
-                "root": None,
-                "nodes": [],
-                "notes": ["Ambiguous eligibility punctuation"],
-            },
-            task,
-            root,
-            lookup,
-        )
-        deterministic_sections.append("requirements")
     locked = [
         name
         for name in SECTIONS

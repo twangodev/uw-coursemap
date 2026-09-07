@@ -456,9 +456,7 @@ class AgentTests(unittest.TestCase):
         }
 
         def accept(messages, info):
-            self.assertLess(
-                len(messages), len(previous["provenance"]["conversation"])
-            )
+            self.assertLess(len(messages), len(previous["provenance"]["conversation"]))
             self.assertIn(
                 "unresolved", ModelMessagesTypeAdapter.dump_json(messages).decode()
             )

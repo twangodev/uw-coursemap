@@ -130,6 +130,10 @@ def excluded_background(course, root):
     return False
 
 
+def review_handles(root):
+    return {f"review:{i}": r["id"] for i, r in enumerate(root["reviews"], 1)}
+
+
 def validate_section(name, candidate, task, root, lookup):
     jsonschema.Draft202012Validator(task["schema"]["properties"][name]).validate(
         candidate
@@ -218,20 +222,10 @@ def validate_section(name, candidate, task, root, lookup):
         )
     elif name == "requirements":
         if ambiguous_semicolons(root["requirements_text"]):
-            # Keep ambiguous eligibility prose, not a guessed executable Boolean tree.
-            return {
-                "status": "needs_review",
-                "value": {
-                    "status": "needs_review",
-                    "root": None,
-                    "nodes": [],
-                    "notes": [
-                        "Top-level semicolons leave eligibility alternatives ambiguous; consult the preserved requirements_text. No Boolean grouping is asserted."
-                    ],
-                },
-                "error": None,
-                "citation_repairs": [],
-            }
+            value["status"] = "needs_review"
+            note = "Best-effort Boolean grouping inferred from ambiguous punctuation; consult the original requirements text."
+            if note not in value["notes"]:
+                value["notes"].append(note)
         linked = list(root["linked_courses"])
         compact = re.sub(r"[^A-Z0-9]", "", root["requirements_text"].upper())
         for key, course in lookup.evidence.items():
@@ -275,15 +269,32 @@ def validate_section(name, candidate, task, root, lookup):
                     "Supported sentiment requires attributable reviews and themes"
                 )
             for theme in value["themes"]:
-                ids = theme["review_ids"]
+                original_ids = theme["review_ids"]
+                handles = review_handles(root)
+                ids = [
+                    key if key in reviews else handles.get(key, key)
+                    for key in original_ids
+                ]
                 if (
                     not ids
                     or len(set(ids)) != len(ids)
                     or any(key not in reviews for key in ids)
                 ):
                     raise ValueError(
-                        "Sentiment cites unavailable or duplicate review evidence"
+                        "Sentiment cites unavailable or duplicate review evidence. "
+                        f"Unknown IDs: {[key for key in ids if key not in reviews]}. "
+                        f"Use distinct citation_id handles from the course reviews: {list(handles)}. "
+                        "Copy the handle exactly; do not shorten or reconstruct a hash."
                     )
+                if ids != original_ids:
+                    repairs.append(
+                        {
+                            "field": "review_ids",
+                            "original": original_ids,
+                            "resolved": ids,
+                        }
+                    )
+                theme["review_ids"] = ids
                 theme["evidence_count"] = len(ids)
                 theme["evidence"] = [reviews[key] for key in ids]
                 evidence = theme["evidence"]

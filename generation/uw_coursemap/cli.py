@@ -84,6 +84,9 @@ def parser():
     repair.add_argument("--course", action="append")
     repair.add_argument("--turns", type=int, default=3)
     repair.add_argument("--prepare-only", action="store_true")
+    repair.add_argument(
+        "--task", type=Path, help="Updated repair prompt with the same output schema"
+    )
     descriptions = {
         "resume": "Continue an interrupted run",
         "status": "Show source and stage completion",
@@ -97,6 +100,11 @@ def parser():
         command.add_argument("run_id")
         if name == "publish":
             command.add_argument("--repo", required=True, help="HF dataset owner/name")
+            command.add_argument(
+                "--parquet-only",
+                action="store_true",
+                help="Publish tables, card and sync metadata without SQLite or serving files",
+            )
         if name == "replay":
             command.add_argument("--source", choices=SOURCES, required=True)
     refresh = commands.add_parser(
@@ -227,6 +235,9 @@ def main(argv=None):
         return
     if args.command == "publish" and args.run_id.startswith("release-"):
         from .release import publish
+
+        if args.parquet_only:
+            from .publication import publish_parquet as publish
         from .jobs import file_lock
 
         store = Store(args.workspace, readonly=True)
@@ -295,6 +306,7 @@ def main(argv=None):
                         args.limit,
                         args.course,
                         args.turns,
+                        task_path=args.task,
                     )
                     print(f"Created repair job {job}", flush=True)
                     result = jobs.status(job) if args.prepare_only else jobs.run(job)
@@ -428,6 +440,9 @@ def main(argv=None):
                     result = {"release": str(export(store, args.run_id))}
             elif args.command == "publish":
                 from .release import publish
+
+                if args.parquet_only:
+                    from .publication import publish_parquet as publish
 
                 result = publish(store, args.run_id, args.repo)
             elif args.command == "replay":

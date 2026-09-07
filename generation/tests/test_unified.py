@@ -444,3 +444,42 @@ class UnifiedTests(unittest.TestCase):
             validate_section(
                 "search_profile", self.search, self.task, self.root, self.lookup
             )
+
+    def test_review_handles_resolve_exactly_and_retain_original_ids(self):
+        from uw_coursemap.agents import evidence_view
+
+        self.root["reviews"] = [
+            {
+                "id": "abcdef1234567890",
+                "date": "2020-01-01",
+                "comment": "Clear explanations.",
+                "instructor_id": "rmp:1",
+            }
+        ]
+        view = evidence_view(self.root, {"student_experience"})
+        self.assertEqual(view["reviews"][0]["citation_id"], "review:1")
+        self.assertNotIn("citation_id", self.root["reviews"][0])
+        value = {
+            "status": "supported",
+            "themes": [
+                {
+                    "aspect": "teaching_clarity",
+                    "sentiment": "positive",
+                    "summary": "A review describes clear explanations.",
+                    "review_ids": ["review:1"],
+                }
+            ],
+        }
+        result = validate_section(
+            "student_experience", value, self.task, self.root, self.lookup
+        )
+        self.assertEqual(
+            result["value"]["themes"][0]["review_ids"], ["abcdef1234567890"]
+        )
+        self.assertEqual(result["citation_repairs"][0]["original"], ["review:1"])
+        for invalid in [["abcdef123"], ["review:2"], ["review:1", "abcdef1234567890"]]:
+            value["themes"][0]["review_ids"] = invalid
+            with self.assertRaisesRegex(ValueError, "Use distinct citation_id"):
+                validate_section(
+                    "student_experience", value, self.task, self.root, self.lookup
+                )

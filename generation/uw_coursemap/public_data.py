@@ -78,7 +78,7 @@ SCHEMAS = {
             ("llm_output_id", TEXT),
             ("llm_model", TEXT),
             ("llm_model_revision", TEXT),
-            ("llm_task_version", pa.int64()),
+            ("llm_task_version", TEXT),
             ("llm_search_status", TEXT),
             ("llm_summary", TEXT),
             ("llm_topics", STRINGS),
@@ -250,7 +250,9 @@ def enrich_fields(row):
         llm_output_id=row["output_id"],
         llm_model=row["model"],
         llm_model_revision=row["model_revision"],
-        llm_task_version=output.get("task_version"),
+        llm_task_version=str(output["task_version"])
+        if output.get("task_version") is not None
+        else None,
     )
     sections = output.get("sections", {})
     for name, field in [
@@ -643,9 +645,9 @@ def dataset_card(
                 badge("last scan", "$.last_scan_utc"),
                 badge("courses", "$.courses"),
                 "",
-                "UW–Madison courses, grades, instructors, offerings, history, and LLM metadata in Parquet.",
+                "UW–Madison courses, grades, instructors, student reviews, offerings, history, and LLM metadata in Parquet.",
                 "",
-                "Sources: [UW Guide](https://guide.wisc.edu/), [enrollment](https://public.enroll.wisc.edu/), [Madgrades](https://madgrades.com/).",
+                "Sources: [UW Guide](https://guide.wisc.edu/), [enrollment](https://public.enroll.wisc.edu/), [Madgrades](https://madgrades.com/), [Rate My Professors](https://www.ratemyprofessors.com/).",
                 "",
                 "```python",
                 "from datasets import load_dataset",

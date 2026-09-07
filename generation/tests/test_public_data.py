@@ -493,3 +493,22 @@ class PublicDataTests(unittest.TestCase):
                 for r in sections
             )
         )
+
+    def test_task_version_labels_survive_public_export(self):
+        self.add_job("selected", 1)
+        raw = self.db.execute(
+            "SELECT output_json FROM enrichment_outputs WHERE output_id=?",
+            ("selected",),
+        ).fetchone()[0]
+        value = json.loads(raw)
+        value["task_version"] = "10-best-effort-1"
+        self.db.execute(
+            "UPDATE enrichment_outputs SET output_json=? WHERE output_id=?",
+            (canonical(value), "selected"),
+        )
+        self.db.commit()
+        output, _ = self.export()
+        current = pq.read_table(output / "public/courses_current.parquet").to_pylist()[
+            0
+        ]
+        self.assertEqual(current["llm_task_version"], "10-best-effort-1")

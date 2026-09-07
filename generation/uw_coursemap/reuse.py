@@ -88,6 +88,11 @@ class ReuseIndex:
                     or section.get("value") is None
                 ):
                     continue
+                if name == "requirements" and ambiguous_semicolons(
+                    root["requirements_text"]
+                ):
+                    # Reinterpret old fallbacks and potentially guessed AND trees.
+                    continue
                 try:
                     sections[name] = validate_section(
                         name, section["value"], self.task, root, lookup
@@ -110,26 +115,6 @@ class ReuseIndex:
                 }
         except (ValueError, KeyError):
             return None
-        if (
-            ambiguous_semicolons(root["requirements_text"])
-            and "requirements" not in sections
-        ):
-            sections["requirements"] = validate_section(
-                "requirements",
-                {
-                    "status": "needs_review",
-                    "root": None,
-                    "nodes": [],
-                    "notes": ["Ambiguous eligibility punctuation"],
-                },
-                self.task,
-                root,
-                lookup,
-            )
-            origins["requirements"] = {
-                "kind": "deterministic_ambiguous_eligibility",
-                "input_hash": digest(facts(root)),
-            }
         if not sections:
             return None
         for name in ("search_profile", "requirements", "student_experience"):

@@ -122,7 +122,7 @@ class ReuseTests(unittest.TestCase):
             {},
             repair=True,
         )
-        self.assertLessEqual(small, 4096)
+        self.assertLessEqual(small, 8192)
 
     def test_shorthand_preserves_source_and_does_not_invent_subjects(self):
         payload = {
@@ -148,7 +148,7 @@ class ReuseTests(unittest.TestCase):
         restore_quotes(value, payload)
         self.assertEqual(value["nodes"][0]["condition"], "MATH 302")
 
-    def test_ambiguous_semicolons_do_not_become_executable_and(self):
+    def test_ambiguous_semicolons_preserve_best_effort_tree(self):
         self.f.root["requirements_text"] = (
             "COMP SCI 200; graduate standing; declared in certificate."
         )
@@ -171,5 +171,6 @@ class ReuseTests(unittest.TestCase):
             "requirements", value, self.f.task, self.f.root, self.f.lookup
         )
         self.assertEqual(result["status"], "needs_review")
-        self.assertIsNone(result["value"]["root"])
-        self.assertEqual(result["value"]["nodes"], [])
+        self.assertEqual(result["value"]["root"], "n")
+        self.assertEqual(len(result["value"]["nodes"]), 1)
+        self.assertTrue(result["value"]["notes"])

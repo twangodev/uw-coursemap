@@ -9,7 +9,14 @@ from .agents import ORCHESTRATOR, native_prompt
 
 
 def create_repair(
-    jobs, parent_id, profiles, profile_name, limit=20, course_ids=None, turns=3
+    jobs,
+    parent_id,
+    profiles,
+    profile_name,
+    limit=20,
+    course_ids=None,
+    turns=3,
+    task_path=None,
 ):
     from .jobs import WORKER_VERSION
 
@@ -52,7 +59,21 @@ def create_repair(
         rows = rows[:limit]
     if not rows:
         raise ValueError("No rejected course sections selected")
-    task = {**original["task"], "repair_mode": "conversation_v1", "repair_turns": turns}
+    source_task = original["task"]
+    if task_path is not None:
+        from pathlib import Path
+
+        source_task = json.loads(Path(task_path).read_text())
+        if (
+            source_task.get("workflow") != "unified_v1"
+            or source_task.get("schema") != original["task"]["schema"]
+        ):
+            raise ValueError(
+                "Repair task must retain the parent output schema and workflow"
+            )
+        if not source_task.get("version") or not source_task.get("prompt"):
+            raise ValueError("Repair task requires a version and prompt")
+    task = {**source_task, "repair_mode": "conversation_v1", "repair_turns": turns}
     task["prompt"] = native_prompt(task)
     spec = {
         **original,
