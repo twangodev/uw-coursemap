@@ -25,7 +25,7 @@ from .dataset_shape import (
     write_shape,
 )
 
-PUBLIC_VERSION = 4
+PUBLIC_VERSION = 5
 GRADE_FIELDS = (
     "a ab b bc c d f satisfactory unsatisfactory credit no_credit passed "
     "incomplete no_work not_reported other total"
@@ -263,6 +263,10 @@ def enrich_fields(row):
         section = sections.get(name, {})
         result[f"llm_{field}_status"] = section.get("status", "not_generated")
         value = section.get("value")
+        if name == "requirements":
+            if section.get("status") in {"valid", "needs_review"} and value:
+                result["llm_requirements_ast_json"] = canonical(value)
+            continue
         if section.get("status") != "valid" or value is None:
             continue
         if name == "search_profile":
@@ -280,11 +284,43 @@ def enrich_fields(row):
                     for item in value.get(source, [])
                 ]
             result["llm_search_phrases"] = value.get("search_phrases", [])
-        elif name == "requirements":
-            result["llm_requirements_ast_json"] = canonical(value)
         else:
             result["llm_experience_json"] = canonical(value)
     return result
+
+
+def display_requirements_ast(course):
+    """Always provide a renderable root, retaining uncertainty in status and notes."""
+    raw = course.get("llm_requirements_ast_json")
+    value = json.loads(raw) if raw else None
+    if (
+        value
+        and value.get("nodes")
+        and value.get("root") in {node.get("id") for node in value["nodes"]}
+    ):
+        return canonical(value)
+    text = course.get("requirements_text") or ""
+    return canonical(
+        {
+            "status": "needs_review" if text.strip() else "none",
+            "root": "source_requirements",
+            "nodes": [
+                {
+                    "id": "source_requirements",
+                    "kind": "condition",
+                    "condition": text if text.strip() else "No prerequisites listed",
+                    "evidence": text,
+                    "course": None,
+                    "children": [],
+                }
+            ],
+            "notes": [
+                "Display fallback using original requirements text; not an LLM-parsed rule."
+                if text.strip()
+                else "Display placeholder; the source lists no requirements."
+            ],
+        }
+    )
 
 
 def write_public(database, destination, release_id, source_run, registry_path=None):
@@ -386,6 +422,7 @@ def write_public(database, destination, release_id, source_run, registry_path=No
                 **enrichment.get(key, enrich_fields(None)),
             )
         for course in current.values():
+            course["llm_requirements_ast_json"] = display_requirements_ast(course)
             for field in SCHEMAS["courses_current"].names:
                 course.setdefault(field, None)
         counts["courses_current"] = write_rows(

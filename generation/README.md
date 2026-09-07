@@ -449,3 +449,5 @@ For targeted repairs with corrected instructions, `enrich-repair --task PATH`
 accepts a versioned task with the same output schema. Accepted sections remain
 locked. Review citation handles are resolved exactly to the original IDs; raw
 comments and model conversations remain in the dataset.
+
+Public prerequisite ASTs are best-effort display trees and always have a root node. Trees marked `needs_review` remain available. Failed, missing, or empty parses fall back to one original-text condition node (or “No prerequisites listed” when empty). The original LLM status and archived outputs remain unchanged; these display trees are not eligibility decisions.

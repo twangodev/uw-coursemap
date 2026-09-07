@@ -227,11 +227,45 @@ class PublicDataTests(unittest.TestCase):
         row = pq.read_table(output / "public/courses_current.parquet").to_pylist()[0]
         self.assertEqual(row["llm_search_status"], "invalid")
         self.assertIsNone(row["llm_summary"])
-        self.assertIsNone(row["llm_requirements_ast_json"])
+        ast = json.loads(row["llm_requirements_ast_json"])
+        self.assertEqual(len(ast["nodes"]), 1)
+        self.assertEqual(ast["nodes"][0]["condition"], row["requirements_text"])
+        self.assertEqual(ast["root"], ast["nodes"][0]["id"])
         index = json.loads((output / "serving/search.json").read_text())
         self.assertEqual(search_ids(index, "unicorn"), [])
         self.assertEqual(search_ids(index, "java"), [])
         self.assertEqual(search_ids(index, "classes"), ["COMPSCI 300"])
+
+    def test_uncertain_requirement_tree_is_available_for_display(self):
+        self.add_job("selected", 1, status="needs_review")
+        output, _ = self.export()
+        row = pq.read_table(output / "public/courses_current.parquet").to_pylist()[0]
+        ast = json.loads(row["llm_requirements_ast_json"])
+        self.assertEqual(row["llm_requirements_status"], "needs_review")
+        self.assertEqual(ast["root"], "exclude")
+        self.assertEqual(len(ast["nodes"]), 2)
+        self.assertIsNone(row["llm_summary"])
+        serving = json.loads((output / "serving/requirements.json").read_text())
+        self.assertEqual(serving["courses"]["COMPSCI 300"]["ast"], ast)
+
+    def test_empty_and_missing_trees_always_have_a_display_node(self):
+        from uw_coursemap.public_data import display_requirements_ast
+
+        for raw in (None, canonical({"status": "none", "nodes": [], "root": None})):
+            for text in ("", "Instructor consent"):
+                with self.subTest(raw=raw, text=text):
+                    ast = json.loads(
+                        display_requirements_ast(
+                            {
+                                "requirements_text": text,
+                                "llm_requirements_ast_json": raw,
+                            }
+                        )
+                    )
+                    self.assertEqual(len(ast["nodes"]), 1)
+                    self.assertEqual(ast["root"], ast["nodes"][0]["id"])
+                    self.assertEqual(ast["nodes"][0]["evidence"], text)
+                    self.assertTrue(ast["nodes"][0]["condition"])
 
     def test_slim_release_is_verified_repeatable_and_references_archive(self):
         from uw_coursemap.release import checksum, verify_release
