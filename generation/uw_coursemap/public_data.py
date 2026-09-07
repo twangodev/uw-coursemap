@@ -25,7 +25,7 @@ from .dataset_shape import (
     write_shape,
 )
 
-PUBLIC_VERSION = 5
+PUBLIC_VERSION = 6
 GRADE_FIELDS = (
     "a ab b bc c d f satisfactory unsatisfactory credit no_credit passed "
     "incomplete no_work not_reported other total"
@@ -87,6 +87,8 @@ SCHEMAS = {
             ("llm_search_phrases", STRINGS),
             ("llm_requirements_status", TEXT),
             ("llm_requirements_ast_json", TEXT),
+            ("llm_student_summary_status", TEXT),
+            ("llm_student_summary_json", TEXT),
             ("llm_experience_status", TEXT),
             ("llm_experience_json", TEXT),
         ]
@@ -255,6 +257,10 @@ def enrich_fields(row):
         else None,
     )
     sections = output.get("sections", {})
+    student = sections.get("student_summary", {})
+    result["llm_student_summary_status"] = student.get("status", "not_generated")
+    if student.get("status") == "valid" and student.get("value"):
+        result["llm_student_summary_json"] = canonical(student["value"])
     for name, field in [
         ("search_profile", "search"),
         ("requirements", "requirements"),

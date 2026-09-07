@@ -719,6 +719,10 @@ async def _generic(profile, task, payload, model=None):
                             raise ValueError(
                                 "Evidence quote is absent from the source description"
                             )
+                if task.get("validator") == "student_claims_v1":
+                    from .student_summary import validate_claims
+
+                    validate_claims(value, payload)
                 if task.get("validator") == "requirements_graph_v1":
                     restore_quotes(value, payload)
                     validate_graph(value, payload)

@@ -1,0 +1,334 @@
+"""Independent instructor summaries, composed into a cited student course preview."""
+
+import copy
+import json
+import re
+
+from .models import digest
+from .student_context import grade_sentence
+from .course_context import sample_reviews
+
+
+def summary_seeds(jobs, ids, run):
+    seeds = {}
+    for job in sorted(
+        (jobs.status(i) for i in ids), key=lambda j: (j["created_at"], j["job_id"])
+    ):
+        if job["status"] != "complete" or job["source_run"] != run:
+            raise ValueError(
+                "Student summary reuse requires completed jobs from the same snapshot"
+            )
+        for row in jobs.db.execute(
+            "SELECT course_id,output_json FROM results WHERE job_id=? AND status=?",
+            (job["job_id"], "complete"),
+        ):
+            seeds[row["course_id"]] = {
+                "job_id": job["job_id"],
+                "output": {
+                    k: v
+                    for k, v in json.loads(row["output_json"]).items()
+                    if k in {"sections", "model", "model_revision", "task_version"}
+                },
+            }
+    return seeds
+
+
+def validate_claims(value, payload):
+    reviews = {r["citation_id"]: r for r in payload["reviews"]}
+    for field, claims in value.items():
+        if field not in {
+            "summary",
+            "quick_take",
+            "difficulty_workload",
+            "student_experience",
+        }:
+            continue
+        for claim in claims:
+            ids = claim["review_ids"]
+            if (
+                not ids
+                or len(set(ids)) != len(ids)
+                or any(i not in reviews for i in ids)
+            ):
+                raise ValueError(
+                    "Cite distinct supplied citation_id handles for each claim"
+                )
+            years = set(re.findall(r"\b(?:19|20)\d{2}\b", claim["text"]))
+            cited_years = {reviews[i].get("date", "")[:4] for i in ids}
+            if not years <= cited_years:
+                raise ValueError(
+                    "A calendar year in a claim must come from its cited review dates"
+                )
+            if re.search(r"\bGPA\b|\bA\s*/\s*AB\b", claim["text"], re.I):
+                raise ValueError(
+                    "Do not generate grade statistics; runtime inserts computed grade sentences"
+                )
+    mode = payload["mode"]
+    if mode == "overview":
+        if value["summary"] or not value["quick_take"]:
+            raise ValueError("Overview requires quick_take claims, with summary empty")
+    else:
+        if not value["summary"] or any(
+            value[k]
+            for k in ("quick_take", "difficulty_workload", "student_experience")
+        ):
+            raise ValueError(
+                "Return this scope in summary only; leave other arrays empty"
+            )
+    if mode == "professor" and payload["instructor_name"] not in " ".join(
+        c["text"] for c in value["summary"]
+    ):
+        raise ValueError("Name the supplied current instructor exactly in the summary")
+
+
+def generate_student(profile, task, payload, generate=None):
+    from .agents import generate_generic, ORCHESTRATOR, serialize_messages
+    from .jobs import WORKER_VERSION
+    from pydantic_ai import capture_run_messages
+
+    generate = generate or generate_generic
+    source = payload["student_context"]
+    prior = (
+        payload["summary_seed"]["output"]
+        .get("sections", {})
+        .get("student_summary", {})
+        .get("value")
+        or {}
+    )
+    if prior.get("context_hash") != digest(source) or prior.get("task_hash") != digest(
+        task
+    ):
+        prior = {}
+    reused_scopes = []
+    traces, conversations, errors = [], [], []
+    usage = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
+
+    def run(mode, reviews, person=None):
+        if not reviews:
+            return None
+        failed = any(
+            e["mode"] == mode
+            and e.get("instructor_uid")
+            == (person["instructor_uid"] if person else None)
+            for e in prior.get("errors", [])
+        )
+        if prior and not failed:
+            empty = {
+                k: []
+                for k in (
+                    "summary",
+                    "quick_take",
+                    "difficulty_workload",
+                    "student_experience",
+                )
+            }
+            if mode == "professor":
+                previous = next(
+                    (
+                        p
+                        for p in prior["current_instructors"]
+                        if p["instructor_uid"] == person["instructor_uid"]
+                        and p["review_status"] == "supported"
+                    ),
+                    None,
+                )
+                if previous:
+                    empty["summary"] = [
+                        copy.deepcopy(c)
+                        for c in previous["summary"]
+                        if c["citations"][0]["type"] == "review"
+                    ]
+                else:
+                    empty = None
+            elif mode == "history":
+                empty["summary"] = copy.deepcopy(prior["historical_context"])
+            else:
+                for k in ("quick_take", "difficulty_workload", "student_experience"):
+                    empty[k] = [
+                        copy.deepcopy(c)
+                        for c in prior[k]
+                        if c["citations"][0]["type"] == "review"
+                    ]
+            if empty is not None:
+                reused_scopes.append(
+                    {
+                        "mode": mode,
+                        "instructor_uid": person["instructor_uid"] if person else None,
+                    }
+                )
+                return empty
+        shown = [{**r, "citation_id": f"review:{i + 1}"} for i, r in enumerate(reviews)]
+        evidence = {r["citation_id"]: r for r in shown}
+        request = {
+            "course_id": source["course_id"],
+            "mode": mode,
+            "term_id": source["term_id"],
+            "instructor_name": person["name"] if person else None,
+            "reviews": shown,
+        }
+        local_profile = {
+            **profile,
+            "max_output_tokens": min(profile["max_output_tokens"], 4096),
+        }
+        try:
+            with capture_run_messages() as messages:
+                result, cost = generate(local_profile, task, request)
+            validate_claims(result, request)
+            traces.append(
+                {
+                    "mode": mode,
+                    "instructor_uid": person["instructor_uid"] if person else None,
+                    "output": copy.deepcopy(result),
+                }
+            )
+            conversations.extend(result.get("provenance", {}).get("conversation", []))
+            for k in usage:
+                usage[k] += cost.get(k, 0)
+            for field in (
+                "summary",
+                "quick_take",
+                "difficulty_workload",
+                "student_experience",
+            ):
+                for claim in result[field]:
+                    handles = claim.pop("review_ids")
+                    claim["citations"] = [
+                        {
+                            "type": "review",
+                            "run_id": payload["source_run"],
+                            "review_id": evidence[i]["id"],
+                            "source_review_id": evidence[i]["source_review_id"],
+                            "source_instructor_id": evidence[i]["instructor_id"],
+                            "instructor_name": evidence[i].get("instructor_name"),
+                            "review_date": evidence[i]["date"],
+                            "source_url": evidence[i]["source_url"],
+                        }
+                        for i in handles
+                    ]
+                    if mode == "history" or all(
+                        evidence[i].get("instructor_scope") == "historical"
+                        for i in handles
+                    ):
+                        names = ", ".join(
+                            sorted(
+                                {
+                                    evidence[i]["instructor_name"]
+                                    for i in handles
+                                    if evidence[i].get("instructor_name")
+                                }
+                            )
+                        )
+                        claim["text"] = (
+                            f"Historical reviews of {names}: " + claim["text"]
+                        )
+            return {
+                k: result[k]
+                for k in (
+                    "summary",
+                    "quick_take",
+                    "difficulty_workload",
+                    "student_experience",
+                )
+            }
+        except Exception as exc:
+            trace = serialize_messages(messages)
+            conversations.extend(trace)
+            error = {
+                "mode": mode,
+                "instructor_uid": person["instructor_uid"] if person else None,
+                "error": f"{type(exc).__name__}: {exc}",
+            }
+            traces.append({**error, "conversation": trace})
+            errors.append(error)
+            return None
+
+    current = []
+    current_reviews = []
+    for person in source["current_instructors"]:
+        result = run("professor", person["reviews"], person)
+        grade = grade_sentence(person["grade_records"])
+        claims = result["summary"] if result else []
+        current.append(
+            {
+                "instructor_uid": person["instructor_uid"],
+                "name": person["name"],
+                "rmp_instructor_id": person["rmp_instructor_id"],
+                "review_status": "supported"
+                if result
+                else "generation_failed"
+                if person["reviews"]
+                else "no_course_reviews",
+                "message": None
+                if result
+                else "Summary generation failed"
+                if person["reviews"]
+                else "No course-specific reviews available",
+                "summary": claims + ([grade] if grade else []),
+            }
+        )
+        current_reviews.extend(
+            {**r, "instructor_scope": "current"} for r in person["reviews"]
+        )
+    historical_reviews = [
+        {**r, "instructor_scope": "historical"} for r in source["historical_reviews"]
+    ]
+    history = run("history", historical_reviews)
+    overview_reviews = (
+        sample_reviews(current_reviews, 30) if current_reviews else historical_reviews
+    )
+    overview = run("overview", overview_reviews)
+    grade = grade_sentence(source["grade_records"])
+    overview = overview or {
+        "quick_take": [],
+        "difficulty_workload": [],
+        "student_experience": [],
+    }
+    value = {
+        "version": 2,
+        "context_hash": digest(source),
+        "task_hash": digest(task),
+        "course_id": source["course_id"],
+        "term_id": source["term_id"],
+        "term_name": source["term_name"],
+        "offered": source["offered"],
+        "quick_take": overview["quick_take"] + ([grade] if grade else []),
+        "difficulty_workload": overview["difficulty_workload"],
+        "student_experience": overview["student_experience"],
+        "current_instructors": current,
+        "historical_context": history["summary"] if history else [],
+        "message": None if overview_reviews else "No course-specific reviews available",
+        "errors": errors,
+    }
+    seed = payload["summary_seed"]
+    previous = seed["output"]
+    sections = copy.deepcopy(previous["sections"])
+    sections["student_summary"] = {
+        "status": "invalid" if errors else "valid",
+        "value": value,
+        "error": json.dumps(errors) if errors else None,
+    }
+    return {
+        "model": profile["model"],
+        "model_revision": profile["revision"],
+        "task_version": task["version"],
+        "sections": sections,
+        "provenance": {
+            "worker_version": WORKER_VERSION,
+            "orchestrator": ORCHESTRATOR,
+            "input_hash": digest(payload),
+            "task_hash": digest(task),
+            "section_origins": {
+                k: {
+                    "job_id": seed["job_id"],
+                    "model": previous.get("model"),
+                    "model_revision": previous.get("model_revision"),
+                    "task_version": previous.get("task_version"),
+                    "section_hash": digest(v),
+                }
+                for k, v in previous["sections"].items()
+            },
+            "subtasks": traces,
+            "reused_scopes": reused_scopes,
+            "conversation": conversations,
+        },
+    }, usage

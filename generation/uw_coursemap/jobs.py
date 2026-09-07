@@ -16,7 +16,7 @@ from .tasks import load_task
 from .store import Store, now
 
 
-WORKER_VERSION = 29
+WORKER_VERSION = 30
 
 
 def generation_schema(schema):
@@ -96,6 +96,10 @@ def check_server(profile):
 def generate(profile, task, payload):
     from .agents import generate_generic
 
+    if task.get("workflow") == "student_summary_v1":
+        from .student_summary import generate_student
+
+        return generate_student(profile, task, payload)
     return generate_generic(profile, task, payload)
 
 
@@ -149,9 +153,13 @@ class Jobs:
         if not task.get("name") or not task.get("prompt") or not task.get("version"):
             raise ValueError("Task must have a name, version, prompt, and JSON schema")
         jsonschema.Draft202012Validator.check_schema(task["schema"])
-        if task.get("validator") not in {None, "requirements_graph_v1"}:
+        if task.get("validator") not in {
+            None,
+            "requirements_graph_v1",
+            "student_claims_v1",
+        }:
             raise ValueError("Unknown task validator")
-        if task.get("workflow") not in {None, "unified_v1"}:
+        if task.get("workflow") not in {None, "unified_v1", "student_summary_v1"}:
             raise ValueError("Unknown enrichment workflow")
         fields = task.get(
             "input_fields",
@@ -167,7 +175,8 @@ class Jobs:
 
             context = (
                 CourseContext(source, source_run)
-                if task.get("workflow") == "unified_v1" or course_ids
+                if task.get("workflow") in {"unified_v1", "student_summary_v1"}
+                or course_ids
                 else None
             )
             if not courses:
@@ -188,9 +197,20 @@ class Jobs:
             from .agents import ORCHESTRATOR
             from .reuse import ReuseIndex
 
+            student = task.get("workflow") == "student_summary_v1"
+            if student:
+                from .student_context import StudentContext
+                from .student_summary import summary_seeds
+
+                student_context = StudentContext(source, source_run, context)
+                seeds = summary_seeds(self, reuse_job_ids or [], source_run)
+                if any(key not in seeds for key in selected):
+                    raise ValueError(
+                        "Student summaries require --reuse-job coverage for every selected course"
+                    )
             reuse = (
                 ReuseIndex(self, reuse_job_ids, context, task, profile)
-                if reuse_job_ids
+                if reuse_job_ids and not student
                 else None
             )
 
@@ -216,7 +236,13 @@ class Jobs:
                     (job, source_run, canonical(spec), now()),
                 )
                 for key in selected:
-                    if task.get("workflow") == "unified_v1":
+                    if student:
+                        payload = {
+                            "source_run": source_run,
+                            "student_context": student_context.get(key),
+                            "summary_seed": seeds[key],
+                        }
+                    elif task.get("workflow") == "unified_v1":
                         payload = context.get(key)
                     elif isinstance(fields, dict):
                         payload = {}
