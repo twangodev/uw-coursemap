@@ -233,7 +233,7 @@ class Jobs:
         finally:
             source.close()
 
-    def run(self, job, worker=generate, concurrency=None):
+    def run(self, job, worker=generate, concurrency=None, request_timeout=None):
         with file_lock(self.root / "jobs" / f"{job}.lock"):
             status = self.status(job)
             if status["status"] == "complete":
@@ -246,6 +246,13 @@ class Jobs:
             )
             if not 1 <= concurrency <= 512:
                 raise ValueError("Concurrency must be between 1 and 512")
+            profile = dict(spec["profile"])
+            if request_timeout is not None:
+                if not 1 <= request_timeout <= 1800:
+                    raise ValueError(
+                        "Request timeout must be between 1 and 1800 seconds"
+                    )
+                profile["request_timeout_seconds"] = request_timeout
             if spec["worker_version"] != WORKER_VERSION:
                 raise ValueError(
                     "Enrichment worker changed; create a new job with current provenance"
@@ -300,7 +307,7 @@ class Jobs:
                             )
                         continue
                     args = [
-                        spec["profile"],
+                        profile,
                         spec["task"],
                         json.loads(row["input_json"]),
                     ]
@@ -332,6 +339,9 @@ class Jobs:
                                 ] = status["source_run"]
                             value.setdefault("provenance", {})["client_concurrency"] = (
                                 concurrency
+                            )
+                            value["provenance"]["request_timeout_seconds"] = (
+                                profile.get("request_timeout_seconds", 180)
                             )
                             encoded, tokens = canonical(value), canonical(usage)
                             with self.db:

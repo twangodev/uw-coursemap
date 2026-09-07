@@ -116,13 +116,21 @@ class LifecycleTests(unittest.TestCase):
             original = jobs.status(job)["spec_json"]
             with self.assertRaisesRegex(ValueError, "Concurrency"):
                 jobs.run(job, worker=lambda *args: ({}, {}), concurrency=0)
+            with self.assertRaisesRegex(ValueError, "Request timeout"):
+                jobs.run(job, worker=lambda *args: ({}, {}), request_timeout=0)
+
+            def worker(profile, *args):
+                self.assertEqual(profile["request_timeout_seconds"], 1800)
+                return {"summary": "Programming"}, {}
+
             with patch(
                 "uw_coursemap.jobs.ThreadPoolExecutor", wraps=ThreadPoolExecutor
             ) as pool:
                 jobs.run(
                     job,
-                    worker=lambda *args: ({"summary": "Programming"}, {}),
+                    worker=worker,
                     concurrency=384,
+                    request_timeout=1800,
                 )
                 pool.assert_called_once_with(max_workers=384)
             self.assertEqual(jobs.status(job)["spec_json"], original)
@@ -132,6 +140,7 @@ class LifecycleTests(unittest.TestCase):
                 ).fetchone()[0]
             )
             self.assertEqual(output["provenance"]["client_concurrency"], 384)
+            self.assertEqual(output["provenance"]["request_timeout_seconds"], 1800)
         finally:
             jobs.close()
 

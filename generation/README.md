@@ -349,7 +349,7 @@ PydanticAI owns generation, native `get_course` tool calls, and validator-driven
 `ModelRetry` conversations. Install through the root `uv.lock`; only its slim
 OpenAI-compatible client extra is required. vLLM remains the local inference
 engine. `profiles.enrichment-unified` enables the Qwen XML tool parser and uses a
-32K context, 16K output budget, and the measured 256-sequence/384-client throughput
+32K context, 16K output budget, and the measured 192-sequence/256-client throughput
 settings. Hardware power limits are managed separately.
 
 New jobs use worker version 17. Resume older jobs from their original checkout;
@@ -389,3 +389,7 @@ and its task/model settings, including recorded Qwen thinking, tool calls,
 validator feedback, and truncation recovery conversations. `has_conversation`
 distinguishes older outputs without recorded histories. Traces are separate from
 serving payloads and include rejected and unselected experiments for auditing.
+
+Long repair runs can resume with `enrich-resume JOB_ID --concurrency 256
+--request-timeout-seconds 1800`. Execution overrides are recorded on new results;
+they do not change model sampling, job identity, or completed checkpoints.

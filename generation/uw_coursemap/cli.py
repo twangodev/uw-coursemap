@@ -71,6 +71,7 @@ def parser():
         command.add_argument("job_id")
         if name == "enrich-resume":
             command.add_argument("--concurrency", type=int)
+            command.add_argument("--request-timeout-seconds", type=int)
     repair = commands.add_parser(
         "enrich-repair",
         help="Repair saved rejected sections through validator conversation turns",
@@ -286,7 +287,11 @@ def main(argv=None):
                     print(f"Created repair job {job}", flush=True)
                     result = jobs.status(job) if args.prepare_only else jobs.run(job)
                 elif args.command == "enrich-resume":
-                    result = jobs.run(args.job_id, concurrency=args.concurrency)
+                    result = jobs.run(
+                        args.job_id,
+                        concurrency=args.concurrency,
+                        request_timeout=args.request_timeout_seconds,
+                    )
                 else:
                     result = jobs.status(args.job_id)
             finally:
