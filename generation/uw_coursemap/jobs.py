@@ -16,7 +16,7 @@ from .profiles import load_profile
 from .store import Store, now
 
 
-WORKER_VERSION = 9
+WORKER_VERSION = 10
 
 
 def generation_schema(schema):

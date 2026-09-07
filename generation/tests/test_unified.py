@@ -459,3 +459,39 @@ class UnifiedTests(unittest.TestCase):
         self.assertEqual(result["sections"]["requirements"]["candidate"], bad)
         self.assertEqual(result["sections"]["requirements"]["status"], "invalid")
         self.assertEqual(result["provenance"]["ast_repair_attempts"], 0)
+
+    def test_mislabeled_requirement_citation_is_resolved_without_allowing_taught_content(
+        self,
+    ):
+        self.root["requirements_text"] = "Graduate standing"
+        self.search["assumed_background"] = [
+            {
+                "text": "Graduate standing",
+                "evidence": [
+                    {
+                        "course_id": "COMPSCI 300",
+                        "field": "description",
+                        "quote": "Graduate standing",
+                    }
+                ],
+            }
+        ]
+        result = validate_section(
+            "search_profile", self.search, self.task, self.root, self.lookup
+        )
+        self.assertEqual(
+            result["value"]["assumed_background"][0]["evidence"][0]["field"],
+            "requirements_text",
+        )
+        self.search["summary"]["evidence"] = self.search["assumed_background"][0][
+            "evidence"
+        ]
+        with self.assertRaisesRegex(ValueError, "Taught content"):
+            validate_section(
+                "search_profile", self.search, self.task, self.root, self.lookup
+            )
+        self.root["title"] = "Graduate standing"
+        with self.assertRaisesRegex(ValueError, "Invalid evidence"):
+            validate_section(
+                "search_profile", self.search, self.task, self.root, self.lookup
+            )

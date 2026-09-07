@@ -162,10 +162,15 @@ def validate_section(name, candidate, task, root, lookup):
                     if course
                     else None
                 )
-                if not quote and course and citation["field"] == "description":
-                    quote = source_quote(citation["quote"], course.get("title", ""))
-                    if quote:
-                        citation["field"] = "title"
+                if not quote and course:
+                    matches = [
+                        (field, source_quote(citation["quote"], course.get(field, "")))
+                        for field in ("title", "description", "requirements_text")
+                        if field != citation["field"]
+                    ]
+                    matches = [(field, span) for field, span in matches if span]
+                    if len(matches) == 1:
+                        citation["field"], quote = matches[0]
                 if not quote:
                     raise ValueError(
                         f"Invalid evidence for {citation['course_id']}.{citation['field']}: {citation['quote']!r}. Copy a short exact substring from supplied text; do not paraphrase or invent omitted text."
