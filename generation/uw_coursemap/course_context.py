@@ -18,6 +18,39 @@ def text_view(text):
     return " ".join((text or "").split())
 
 
+def sample_reviews(reviews, limit=30):
+    """Deterministic coverage across instructors and each instructor's timeline."""
+    if limit <= 0:
+        return []
+    ordered = sorted(reviews, key=lambda r: (r["date"], r["id"]))
+    if len(ordered) <= limit:
+        return ordered
+
+    def spread(values, count):
+        if count == 1:
+            return values[-1:]
+        return [values[i * (len(values) - 1) // (count - 1)] for i in range(count)]
+
+    groups = {}
+    for review in ordered:
+        groups.setdefault(review["instructor_id"], []).append(review)
+    people = sorted(groups, key=lambda p: (groups[p][-1]["date"], p))
+    people = spread(people, min(limit, len(people)))
+    quotas = {person: 0 for person in people}
+    remaining = limit
+    while remaining:
+        for person in reversed(people):
+            if quotas[person] < len(groups[person]):
+                quotas[person] += 1
+                remaining -= 1
+                if not remaining:
+                    break
+    selected = [
+        review for person in people for review in spread(groups[person], quotas[person])
+    ]
+    return sorted(selected, key=lambda r: (r["date"], r["id"]))
+
+
 class CourseContext:
     def __init__(self, store, run):
         self.courses = store.records(run, "courses")
@@ -143,9 +176,12 @@ class CourseContext:
             "requirements_text": text_view(req.get("prerequisites_text", "")),
             "linked_courses": req.get("course_references", []),
             "history": {"observations": len(history), "recent_offerings": history[-8:]},
-            "reviews": sorted(
-                self.reviews.get(key, []), key=lambda x: (x["date"], x["id"])
-            )[-30:],
+            "reviews": sample_reviews(self.reviews.get(key, [])),
+            "review_selection": {
+                "available": len(self.reviews.get(key, [])),
+                "limit": 30,
+                "policy": "instructor_time_stratified_v1",
+            },
             "original_requirements": {
                 "text": req.get("prerequisites_text", ""),
                 "ast": req.get("abstract_syntax_tree"),

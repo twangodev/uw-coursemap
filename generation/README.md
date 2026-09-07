@@ -36,7 +36,9 @@ uv run coursemap refresh-instructors RUN_ID
 `--source-workspace PATH` can read an existing snapshot into a separate destination
 workspace. Reused observations keep their original timestamps and source-run
 provenance; the old snapshot and its LLM jobs remain immutable. Run enrichment
-against the new snapshot to include the collected reviews.
+against the new snapshot to include the collected reviews. The LLM input samples
+up to 30 reviews across instructors and time periods, without an age cutoff;
+all collected reviews remain in the source archive.
 
 The command prints its ID before starting. Logs live in `runs/RUN_ID/`. A fixed
 browser-style user agent is reused on resume. Successful sources are skipped;
