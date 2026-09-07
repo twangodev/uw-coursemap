@@ -16,7 +16,7 @@ from .profiles import load_profile
 from .store import Store, now
 
 
-WORKER_VERSION = 3
+WORKER_VERSION = 4
 
 
 def generation_schema(schema):
@@ -364,10 +364,20 @@ class Jobs:
                                     (encoded, tokens, job, row["course_id"]),
                                 )
                         except Exception as exc:
+                            error = type(exc).__name__
+                            if isinstance(
+                                exc, (ValueError, jsonschema.ValidationError)
+                            ):
+                                reason = (
+                                    exc.message
+                                    if isinstance(exc, jsonschema.ValidationError)
+                                    else str(exc)
+                                )
+                                error += ": " + reason[:600]
                             with self.db:
                                 self.db.execute(
                                     "UPDATE results SET status='failed',error=?,attempts=attempts+1 WHERE job_id=? AND course_id=?",
-                                    (type(exc).__name__, job, row["course_id"]),
+                                    (error, job, row["course_id"]),
                                 )
                         submit_next(pool)
             remaining = self.db.execute(

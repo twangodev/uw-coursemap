@@ -133,6 +133,40 @@ class RequirementsTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_graph(self.value, payload)
 
+    def test_standalone_exclusion_cannot_apply_to_only_one_alternative(self):
+        clause = "Not open to students with credit for MATH 222"
+        payload = copy.deepcopy(self.payload)
+        payload["requirements_text"] += ". " + clause + "."
+        payload["linked_courses"].append({"subjects": ["MATH"], "course_number": 222})
+        course = copy.deepcopy(self.value["nodes"][1])
+        course.update(id="excluded", evidence="MATH 222")
+        course["course"]["course_number"] = 222
+        group = {
+            "id": "global",
+            "kind": "all",
+            "children": ["r", "exclusion"],
+            "course": None,
+            "condition": None,
+            "evidence": payload["requirements_text"],
+        }
+        negative = {
+            "id": "exclusion",
+            "kind": "not",
+            "children": ["excluded"],
+            "course": None,
+            "condition": None,
+            "evidence": clause,
+        }
+        self.value["nodes"].extend([course, group, negative])
+        self.value["root"] = "global"
+        validate_graph(self.value, payload)
+        # Incorrectly exempt the course-based path from the global exclusion.
+        self.value["root"] = "r"
+        self.value["nodes"][0]["children"] = ["a", "global"]
+        group["children"] = ["b", "exclusion"]
+        with self.assertRaisesRegex(ValueError, "every eligibility alternative"):
+            validate_graph(self.value, payload)
+
     def test_evaluation_detects_grouping_timing_grade_and_status_errors(self):
         case = {
             "expected_status": "parsed",

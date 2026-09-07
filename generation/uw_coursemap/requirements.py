@@ -96,3 +96,29 @@ def validate_graph(value, payload):
     visit(value["root"])
     if visited != set(by_id):
         raise ValueError("Requirement graph has unreachable nodes")
+    if value["status"] == "parsed":
+        # A separate exclusion sentence constrains all eligibility alternatives.
+        # This deliberately covers one explicit catalog form, not arbitrary prose.
+        clauses = re.findall(
+            r"(?:^|[.!?]\s+)(Not open to students with credit for[^.!?]+)",
+            text,
+            flags=re.IGNORECASE,
+        )
+        unconditional = []
+
+        def exclusions(key):
+            node = by_id[key]
+            if node["kind"] == "not":
+                unconditional.append(node["evidence"].rstrip(". "))
+            elif node["kind"] == "all":
+                for child in node["children"]:
+                    exclusions(child)
+
+        exclusions(value["root"])
+        for clause in clauses:
+            if not any(clause in evidence for evidence in unconditional):
+                raise ValueError(
+                    "Standalone credit exclusion must apply to every eligibility alternative: "
+                    "use an unconditional not node under the root all (or root not), "
+                    "quoting the entire exclusion sentence as its evidence"
+                )

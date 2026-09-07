@@ -153,6 +153,12 @@ class LifecycleTests(unittest.TestCase):
                         ValueError("bad output")
                     ),
                 )
+            self.assertEqual(
+                jobs.db.execute(
+                    "SELECT error FROM results WHERE job_id=?", (job,)
+                ).fetchone()[0],
+                "ValueError: bad output",
+            )
             with self.assertRaisesRegex(ValueError, "completed enrichment"):
                 release(self.store, self.run, enrichment_ids=[job])
             calls = []

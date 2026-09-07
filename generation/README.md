@@ -148,6 +148,9 @@ and quotes absent from the source. Ambiguous rules are marked `needs_review`.
 Whitespace-equivalent evidence is restored to its literal source substring before
 validation; other quote differences are rejected. Retries receive validation
 feedback. The model sees the schema as well as the constrained output grammar.
+A separate `Not open to students with credit for ...` sentence must constrain all
+eligibility alternatives in a parsed result. Review notes are bounded, and failed
+rows retain a short validation reason for diagnosis.
 These checks cannot prove semantic equivalence; review the pilot before using the
 results for eligibility or replacing existing graphs. Parsed requirements remain
 separate enrichment records, with the original wording preserved.
