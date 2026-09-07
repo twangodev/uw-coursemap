@@ -1,6 +1,7 @@
 """PydanticAI owns tools, retries and message history; validators own acceptance."""
 
 import copy
+import json
 import unittest
 
 from pydantic_ai import ModelMessagesTypeAdapter
@@ -270,6 +271,26 @@ class AgentTests(unittest.TestCase):
             f.profile, self.task, self.seed, f.context, FunctionModel(model)
         )
         self.assertEqual(output["sections"]["requirements"]["status"], "valid")
+
+    def test_plain_json_submission_still_gets_domain_validation_and_retry(self):
+        f = self.fixture
+        calls = []
+
+        def model(*args):
+            calls.append(1)
+            value = {
+                "requirements": {**f.requirements, "status": "parsed"}
+                if len(calls) == 1
+                else f.requirements
+            }
+            return ModelResponse(parts=[TextPart(json.dumps(value))])
+
+        output, _ = generate_repair(
+            f.profile, self.task, self.seed, f.context, FunctionModel(model)
+        )
+        self.assertEqual(len(calls), 2)
+        self.assertEqual(output["sections"]["requirements"]["status"], "valid")
+        self.assertEqual(len(output["provenance"]["attempts"]), 2)
 
     def test_thinking_truncation_recovery_is_bounded(self):
         f = self.fixture

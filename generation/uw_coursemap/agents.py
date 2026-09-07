@@ -16,6 +16,7 @@ from pydantic_ai import (
     RunContext,
     StructuredDict,
     ToolOutput,
+    TextOutput,
     capture_run_messages,
 )
 from pydantic_ai.exceptions import (
@@ -23,7 +24,13 @@ from pydantic_ai.exceptions import (
     UnexpectedModelBehavior,
     UsageLimitExceeded,
 )
-from pydantic_ai.messages import ModelRequest, ModelResponse, TextPart, UserPromptPart
+from pydantic_ai.messages import (
+    ModelRequest,
+    ModelResponse,
+    SystemPromptPart,
+    TextPart,
+    UserPromptPart,
+)
 from pydantic_ai.models.openai import OpenAIChatModel
 from pydantic_ai.providers.vllm import VLLMProvider
 from pydantic_ai.usage import RunUsage, UsageLimits
@@ -160,6 +167,10 @@ async def _conversation(profile, task, payload, context, model=None):
             == "pydantic-ai"
         ):
             history = ModelMessagesTypeAdapter.validate_python(saved)
+            for message in history:
+                for part in message.parts:
+                    if isinstance(part, SystemPromptPart):
+                        part.content = native_prompt(task)
         initial = canonical(feedback)
     usage = RunUsage()
     request_failure = None
@@ -206,13 +217,27 @@ async def _conversation(profile, task, payload, context, model=None):
         return result
 
     async def run(selected_model):
+        def parse_text_submission(text: str) -> dict:
+            try:
+                value = json.loads(text)
+                if not isinstance(value, dict) or set(value) - set(SECTIONS):
+                    raise ValueError(
+                        "Return only the three course sections as a JSON object"
+                    )
+                return value
+            except (ValueError, TypeError) as exc:
+                raise ModelRetry(str(exc)) from exc
+
         agent = Agent(
             selected_model,
-            output_type=ToolOutput(
-                StructuredDict(schema, name="CourseSections"),
-                name="submit_sections",
-                strict=True,
-            ),
+            output_type=[
+                ToolOutput(
+                    StructuredDict(schema, name="CourseSections"),
+                    name="submit_sections",
+                    strict=True,
+                ),
+                TextOutput(parse_text_submission),
+            ],
             system_prompt=native_prompt(task),
             model_settings=settings,
             retries={"output": turns - 1, "tools": 1},
