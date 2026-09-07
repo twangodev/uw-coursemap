@@ -266,4 +266,24 @@ def validate_section(name, candidate, task, root, lookup):
                     )
                 theme["evidence_count"] = len(ids)
                 theme["evidence"] = [reviews[key] for key in ids]
+                evidence = theme["evidence"]
+                years = sorted(
+                    {r["date"][:4] for r in evidence if re.match(r"\d{4}", r["date"])}
+                )
+                summary = text_view(theme["summary"]).casefold()
+                if years and any(year not in summary for year in (years[0], years[-1])):
+                    raise ValueError(
+                        f"Historical sentiment summary must state its cited review years: {years[0]} to {years[-1]}"
+                    )
+                people = {r["instructor_id"] for r in evidence}
+                names = {r.get("instructor_name") for r in evidence} - {None, ""}
+                if (
+                    len(people) == 1
+                    and names
+                    and not any(text_view(name).casefold() in summary for name in names)
+                ):
+                    raise ValueError(
+                        "Sentiment from one instructor's reviews must name that instructor in the summary: "
+                        + ", ".join(sorted(names))
+                    )
     return {"status": state, "value": value, "error": None, "citation_repairs": repairs}

@@ -11,6 +11,12 @@ import sqlite3
 import pyarrow as pa
 import pyarrow.parquet as pq
 
+from .review_data import (
+    SCHEMA as REVIEW_SCHEMA,
+    DESCRIPTION as REVIEW_DESCRIPTION,
+    review_rows,
+)
+
 from .models import canonical, digest
 from .identities import catalog_identities
 from .dataset_shape import (
@@ -19,7 +25,7 @@ from .dataset_shape import (
     write_shape,
 )
 
-PUBLIC_VERSION = 3
+PUBLIC_VERSION = 4
 GRADE_FIELDS = (
     "a ab b bc c d f satisfactory unsatisfactory credit no_credit passed "
     "incomplete no_work not_reported other total"
@@ -121,6 +127,9 @@ DESCRIPTIONS = {
     "offerings_current": "One row per enrollment offering in the selected source snapshot. Unmatched course_id stays null. This is a schedule snapshot, not live enrollment availability.",
 }
 
+
+SCHEMAS["rmp_reviews"] = REVIEW_SCHEMA
+DESCRIPTIONS["rmp_reviews"] = REVIEW_DESCRIPTION
 SCHEMAS.update(SHAPE_SCHEMAS)
 DESCRIPTIONS.update(SHAPE_DESCRIPTIONS)
 
@@ -446,6 +455,11 @@ def write_public(database, destination, release_id, source_run, registry_path=No
             max_text_bytes=16 * 1024 * 1024,
         )
         counts.update(write_shape(db, directory, runs, source_run, identities))
+        counts["rmp_reviews"] = write_rows(
+            directory / "rmp_reviews.parquet",
+            REVIEW_SCHEMA,
+            review_rows(db, identities),
+        )
         write_serving(
             destination / "serving",
             release_id,

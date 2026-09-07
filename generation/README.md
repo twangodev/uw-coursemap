@@ -429,3 +429,5 @@ original trace and parent-output hash.
 Context-window errors allow one compact repair continuation with current source
 evidence, lookup results, rejected candidates, and validator errors. The discarded
 conversation remains in `recovery_events`; request and tool budgets remain shared.
+
+`public/rmp_reviews.parquet` retains all comments on matched RMP profiles, including historical instructors. Rows retain source review/profile IDs, dates, scores, and original course labels; unresolved course links remain null. LLM sentiment uses a bounded historical sample and cites its review evidence.
