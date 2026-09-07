@@ -75,6 +75,32 @@ class UnifiedTests(unittest.TestCase):
         self.requirements = {"status": "none", "root": None, "nodes": [], "notes": []}
         self.experience = {"status": "insufficient_evidence", "themes": []}
 
+    def test_wrong_course_citation_provides_exact_source_feedback(self):
+        self.root["requirements_text"] = "COMPSCI 200 or graduate standing"
+        self.search["assumed_background"] = [
+            {
+                "text": "Prior programming",
+                "evidence": [
+                    {
+                        "course_id": "COMPSCI 200",
+                        "field": "requirements_text",
+                        "quote": "COMPSCI 200",
+                    }
+                ],
+            }
+        ]
+        with self.assertRaisesRegex(
+            ValueError, "course containing the quote"
+        ) as caught:
+            validate_section(
+                "search_profile", self.search, self.task, self.root, self.lookup
+            )
+        self.assertIn("COMPSCI 300", str(caught.exception))
+        self.assertEqual(
+            self.search["assumed_background"][0]["evidence"][0]["course_id"],
+            "COMPSCI 200",
+        )
+
     def test_lookup_depth_cycles_missing_and_budget(self):
         self.lookup.get_course("COMPSCI 200", "COMPSCI 300")
         self.assertTrue(

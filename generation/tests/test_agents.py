@@ -65,6 +65,7 @@ class AgentTests(unittest.TestCase):
 
         def model(messages, info):
             calls.append(copy.deepcopy(messages))
+            self.assertEqual(info.model_settings["tool_choice"], ["submit_sections"])
             if len(calls) > 1:
                 self.assertTrue(
                     any(
