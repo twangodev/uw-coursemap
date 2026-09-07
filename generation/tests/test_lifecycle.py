@@ -88,7 +88,7 @@ class LifecycleTests(unittest.TestCase):
                     target = release(readonly, self.run)
                     manifest = verify_release(target)
                     self.assertFalse(manifest["website_included"])
-                    self.assertEqual(manifest["tables"]["courses"], 1)
+                    self.assertEqual(manifest["tables"]["course_snapshots"], 1)
                     self.assertGreater(manifest["tables"]["meetings"], 0)
                     self.assertEqual(release(readonly, self.run), target)
                     hub = test_pipeline.FakeHub(self.root)
@@ -172,7 +172,7 @@ class LifecycleTests(unittest.TestCase):
             self.assertEqual(len(calls), 1)
             path = release(self.store, self.run, enrichment_ids=[job])
             manifest = verify_release(path)
-            self.assertEqual(manifest["tables"]["course_enrichments"], 1)
+            self.assertEqual(manifest["tables"]["course_enrichment_runs"], 1)
             with sqlite3.connect(path / "coursemap.sqlite") as db:
                 spec = db.execute("SELECT spec_json FROM enrichment_jobs").fetchone()[0]
                 self.assertNotIn("127.0.0.1", spec)
@@ -273,11 +273,12 @@ class LifecycleTests(unittest.TestCase):
             self.assertEqual(value["provenance"]["generated_from_snapshot"], runs[1])
             path = release(self.store, run, enrichment_ids=[job])
             manifest = verify_release(path)
-            self.assertEqual(manifest["tables"]["enrichment_sections"], 2)
+            self.assertEqual(manifest["tables"]["enrichment_output_sections"], 4)
+            self.assertEqual(manifest["tables"]["course_enrichment_runs"], 3)
             self.assertIn(self.profile.served_model, (path / "README.md").read_text())
             with sqlite3.connect(path / "coursemap.sqlite") as db:
                 rows = db.execute(
-                    "SELECT section,status,model,model_revision,value_json,candidate_json FROM enrichment_sections ORDER BY section"
+                    "SELECT section,status,model,model_revision,value_json,candidate_json FROM current_enrichment_sections ORDER BY section"
                 ).fetchall()
             self.assertEqual(
                 rows[0][:4],
@@ -517,3 +518,127 @@ class LifecycleTests(unittest.TestCase):
         profile = load_profile(output, "test", resolve=False)
         self.assertEqual(profile.revision, "b" * 40)
         self.assertEqual(profile.served_model, "test/model@" + "b" * 40)
+
+    def test_versioned_course_and_enrichment_history_survives_new_semesters(self):
+        import pyarrow.parquet as pq
+
+        self.core()
+        original = self.store.records(self.run, "courses")["COMPSCI 300"]
+        jobs = Jobs(self.root)
+        calls = []
+        runs, identifiers = [self.run], []
+
+        def worker(profile, task, payload):
+            calls.append(payload["description"])
+            return {"summary": payload["description"]}, {"completion_tokens": 1}
+
+        try:
+            identifiers.append(self.create_job(jobs))
+            jobs.run(identifiers[-1], worker)
+            for semester in ["1274", "1282"]:
+                run = self.store.new_run(semester, {})
+                self.fixture.seed(run)
+                self.store.put(
+                    run,
+                    "enrollment",
+                    {
+                        "kind": "terms",
+                        "key": semester,
+                        "payload": {"name": semester},
+                        "source_url": "https://example.test/terms",
+                    },
+                )
+                changed = {
+                    **original,
+                    "description": "Updated programming description.",
+                }
+                self.store.put(
+                    run,
+                    "catalog",
+                    {
+                        "kind": "courses",
+                        "key": "COMPSCI 300",
+                        "payload": changed,
+                        "source_url": "https://example.test/course",
+                    },
+                )
+                self.store.finish(run)
+                runs.append(run)
+                identifiers.append(self.create_job(jobs, run))
+                jobs.run(identifiers[-1], worker)
+            self.assertEqual(len(calls), 2)
+            task = json.loads(self.task.read_text())
+            task["version"] = 2
+            self.task.write_text(canonical(task))
+            pending = self.create_job(jobs, runs[-1])
+            first = release(self.store, runs[-1], enrichment_ids=[identifiers[-1]])
+            manifest = verify_release(first)
+            self.assertEqual(len(manifest["enrichment_history"]), 3)
+            self.assertEqual(manifest["tables"]["course_versions"], 2)
+            self.assertEqual(manifest["tables"]["course_snapshots"], 3)
+            self.assertEqual(manifest["tables"]["enrichment_outputs"], 2)
+            self.assertEqual(manifest["tables"]["course_enrichment_runs"], 3)
+            with sqlite3.connect(first / "coursemap.sqlite") as db:
+                self.assertFalse(db.execute("PRAGMA foreign_key_check").fetchall())
+                descriptions = dict(
+                    db.execute("SELECT run_id,description FROM course_history")
+                )
+                self.assertEqual(descriptions[runs[0]], original["description"])
+                self.assertEqual(
+                    descriptions[runs[1]], "Updated programming description."
+                )
+                self.assertEqual(
+                    db.execute(
+                        "SELECT count(*) FROM course_enrichment_history"
+                    ).fetchone()[0],
+                    3,
+                )
+                self.assertEqual(
+                    db.execute(
+                        "SELECT job_id FROM current_course_enrichments"
+                    ).fetchall(),
+                    [(identifiers[-1],)],
+                )
+                self.assertIsNone(
+                    db.execute(
+                        "SELECT 1 FROM enrichment_jobs WHERE job_id=?", (pending,)
+                    ).fetchone()
+                )
+            self.assertEqual(
+                pq.read_table(first / "tables/course_versions.parquet").num_rows, 2
+            )
+            self.assertEqual(
+                pq.read_table(first / "tables/course_enrichment_runs.parquet").num_rows,
+                3,
+            )
+            jobs.run(pending, worker)
+            second = release(self.store, runs[-1], enrichment_ids=[identifiers[-1]])
+            self.assertNotEqual(
+                first, second, "New completed history must change release identity"
+            )
+            self.assertEqual(len(verify_release(second)["enrichment_history"]), 4)
+            self.assertEqual(len(verify_release(first)["enrichment_history"]), 3)
+        finally:
+            jobs.close()
+
+    def test_release_rejects_enrichment_mutated_after_history_selection(self):
+        from uw_coursemap.history import select_enrichments
+        from uw_coursemap.release import write_database
+
+        self.core()
+        jobs = Jobs(self.root)
+        try:
+            job = self.create_job(jobs)
+            jobs.run(job, lambda *args: ({"summary": "original"}, {}))
+            history = select_enrichments(self.root, [self.run], [job], self.run)
+            target = self.root / "frozen-history.sqlite"
+            write_database(self.store, self.run, target)
+            with jobs.db:
+                jobs.db.execute(
+                    "UPDATE results SET output_json=? WHERE job_id=?",
+                    (canonical({"summary": "changed"}), job),
+                )
+            with self.assertRaisesRegex(ValueError, "changed after release history"):
+                Jobs.append_release(self.root, target, self.run, [job], history)
+        finally:
+            jobs.close()

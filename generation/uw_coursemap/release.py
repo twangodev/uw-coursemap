@@ -93,15 +93,19 @@ PRAGMA foreign_keys=ON;
 CREATE TABLE runs(run_id TEXT PRIMARY KEY,semester TEXT NOT NULL,observed_at TEXT NOT NULL,origin TEXT NOT NULL,source_revision TEXT);
 CREATE TABLE observations(run_id TEXT REFERENCES runs,source TEXT,kind TEXT,entity_id TEXT,source_url TEXT,observed_at TEXT,content_hash TEXT,payload_json TEXT,PRIMARY KEY(run_id,source,kind,entity_id));
 CREATE TABLE subjects(run_id TEXT REFERENCES runs,subject_id TEXT,name TEXT NOT NULL,PRIMARY KEY(run_id,subject_id));
-CREATE TABLE courses(run_id TEXT REFERENCES runs,course_id TEXT,course_number INTEGER NOT NULL,title TEXT NOT NULL,description TEXT NOT NULL,prerequisites_json TEXT,PRIMARY KEY(run_id,course_id));
-CREATE TABLE course_subjects(run_id TEXT,course_id TEXT,subject_id TEXT,PRIMARY KEY(run_id,course_id,subject_id),FOREIGN KEY(run_id,course_id) REFERENCES courses,FOREIGN KEY(run_id,subject_id) REFERENCES subjects);
+CREATE TABLE course_versions(version_id TEXT PRIMARY KEY,course_number INTEGER NOT NULL,title TEXT NOT NULL,description TEXT NOT NULL,prerequisites_json TEXT,record_json TEXT NOT NULL);
+CREATE TABLE course_snapshots(run_id TEXT REFERENCES runs,course_id TEXT,version_id TEXT NOT NULL REFERENCES course_versions,PRIMARY KEY(run_id,course_id));
+CREATE INDEX course_snapshots_course ON course_snapshots(course_id,run_id);
+CREATE VIEW courses AS SELECT s.run_id,s.course_id,v.course_number,v.title,v.description,v.prerequisites_json FROM course_snapshots s JOIN course_versions v USING(version_id);
+CREATE VIEW course_history AS SELECT s.run_id,s.course_id,s.version_id,r.semester,r.observed_at,r.origin,r.source_revision,v.course_number,v.title,v.description,v.prerequisites_json,v.record_json FROM course_snapshots s JOIN course_versions v USING(version_id) JOIN runs r USING(run_id);
+CREATE TABLE course_subjects(run_id TEXT,course_id TEXT,subject_id TEXT,PRIMARY KEY(run_id,course_id,subject_id),FOREIGN KEY(run_id,course_id) REFERENCES course_snapshots,FOREIGN KEY(run_id,subject_id) REFERENCES subjects);
 CREATE TABLE terms(run_id TEXT REFERENCES runs,term_id TEXT,name TEXT NOT NULL,PRIMARY KEY(run_id,term_id));
 CREATE TABLE instructors(run_id TEXT REFERENCES runs,instructor_id TEXT,name TEXT,email TEXT,official_name TEXT,department TEXT,position TEXT,details_json TEXT,PRIMARY KEY(run_id,instructor_id));
-CREATE TABLE grades(run_id TEXT,course_id TEXT,term_id TEXT,distribution_json TEXT NOT NULL,PRIMARY KEY(run_id,course_id,term_id),FOREIGN KEY(run_id,course_id) REFERENCES courses,FOREIGN KEY(run_id,term_id) REFERENCES terms);
-CREATE TABLE offerings(run_id TEXT REFERENCES runs,offering_id TEXT,term_id TEXT,course_id TEXT,source_course_id TEXT,source_subject_id TEXT,course_reference_json TEXT,details_json TEXT,PRIMARY KEY(run_id,offering_id),FOREIGN KEY(run_id,term_id) REFERENCES terms,FOREIGN KEY(run_id,course_id) REFERENCES courses);
+CREATE TABLE grades(run_id TEXT,course_id TEXT,term_id TEXT,distribution_json TEXT NOT NULL,PRIMARY KEY(run_id,course_id,term_id),FOREIGN KEY(run_id,course_id) REFERENCES course_snapshots,FOREIGN KEY(run_id,term_id) REFERENCES terms);
+CREATE TABLE offerings(run_id TEXT REFERENCES runs,offering_id TEXT,term_id TEXT,course_id TEXT,source_course_id TEXT,source_subject_id TEXT,course_reference_json TEXT,details_json TEXT,PRIMARY KEY(run_id,offering_id),FOREIGN KEY(run_id,term_id) REFERENCES terms,FOREIGN KEY(run_id,course_id) REFERENCES course_snapshots);
 CREATE TABLE sections(run_id TEXT,offering_id TEXT,section_id TEXT,section_type TEXT,section_number TEXT,details_json TEXT,PRIMARY KEY(run_id,offering_id,section_id),FOREIGN KEY(run_id,offering_id) REFERENCES offerings);
 CREATE TABLE section_instructors(run_id TEXT,offering_id TEXT,section_id TEXT,instructor_name TEXT,instructor_id TEXT,PRIMARY KEY(run_id,offering_id,section_id,instructor_name),FOREIGN KEY(run_id,offering_id,section_id) REFERENCES sections,FOREIGN KEY(run_id,instructor_id) REFERENCES instructors);
-CREATE TABLE meetings(run_id TEXT,course_id TEXT,meeting_id TEXT,start_time INTEGER,end_time INTEGER,details_json TEXT,PRIMARY KEY(run_id,course_id,meeting_id),FOREIGN KEY(run_id,course_id) REFERENCES courses);
+CREATE TABLE meetings(run_id TEXT,course_id TEXT,meeting_id TEXT,start_time INTEGER,end_time INTEGER,details_json TEXT,PRIMARY KEY(run_id,course_id,meeting_id),FOREIGN KEY(run_id,course_id) REFERENCES course_snapshots);
 CREATE TABLE derived_artifacts(run_id TEXT REFERENCES runs,name TEXT,input_hash TEXT,config_json TEXT,payload_json TEXT,PRIMARY KEY(run_id,name));
 """
 
@@ -159,17 +163,9 @@ def write_database(store, run, path, state_override=None):
                 [(identifier, k, v["name"]) for k, v in subjects.items()],
             )
             for key, value in store.records(identifier, "courses").items():
-                public.execute(
-                    "INSERT INTO courses VALUES(?,?,?,?,?,?)",
-                    (
-                        identifier,
-                        key,
-                        value["course_reference"]["course_number"],
-                        value["course_title"],
-                        value["description"],
-                        canonical(value["prerequisites"]),
-                    ),
-                )
+                from .history import write_course
+
+                write_course(public, identifier, key, value)
                 public.executemany(
                     "INSERT INTO course_subjects VALUES(?,?,?)",
                     [

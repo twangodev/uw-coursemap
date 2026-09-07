@@ -218,6 +218,32 @@ Parquet tables, a dataset card, and a checksummed manifest. Nested source struct
 remain JSON columns. History joins by `run_id`; `current_*` views select the chosen
 snapshot. Releases record source history, exporter identity, selected build/model
 provenance, and enrichment coverage. Website files are included only with `--build`.
+Schema v4 stores complete distinct course records in `course_versions` and their
+presence in each run in `course_snapshots`. A changed description or other source
+field creates a new version; unchanged courses reuse the version. `courses` and
+`course_history` remain convenient SQLite views. Parquet consumers join the two
+base tables with `runs`; the old `courses.parquet` is replaced by these tables.
+Course IDs retain source identity; renumberings are not silently merged.
+
+All completed enrichment jobs for included snapshots are exported automatically.
+`enrichment_outputs` deduplicates cached outputs; `course_enrichment_runs` connects
+them to course snapshots and jobs. `enrichment_output_sections` retains section
+statuses and rejected candidates. SQLite `course_enrichments` and
+`enrichment_sections` provide the expanded view, while `course_enrichment_history`
+adds course-version and semester context. `--enrichment` selects jobs for the
+`current_*` enrichment views; archived experiments are never implicitly selected.
+Unfinished jobs are excluded. Completed-job content hashes are part of release
+identity, so later enrichment creates a new immutable release. Source observations,
+grades, offerings, and meetings retain their per-snapshot history.
+
+To inspect description changes:
+
+```sql
+SELECT semester, observed_at, version_id, description
+FROM course_history WHERE course_id = 'COMPSCI 300'
+ORDER BY observed_at, run_id;
+```
+
 Missing required data, reference errors, and unexplained count drops block source
 completion. SQLite foreign keys and file hashes are checked before publication.
 

@@ -210,8 +210,14 @@ def _release(store, run, build_id, enrichment_ids):
                 "SELECT run_id FROM runs WHERE status='complete' ORDER BY run_id"
             )
         ]
+        from .history import select_enrichments
+
+        enrichment_history = select_enrichments(
+            store.root, [key for key, _ in history], enrichment_ids, run
+        )
         selection = {
             "source_run": run,
+            "enrichment_history": enrichment_history,
             "history": history,
             "build_id": build_id,
             "enrichment_ids": sorted(set(enrichment_ids)),
@@ -268,7 +274,11 @@ def _release(store, run, build_id, enrichment_ids):
                             ),
                         )
             Jobs.append_release(
-                store.root, staging / "coursemap.sqlite", run, enrichment_ids
+                store.root,
+                staging / "coursemap.sqlite",
+                run,
+                enrichment_ids,
+                enrichment_history,
             )
             counts = write_parquet(staging / "coursemap.sqlite", staging / "tables")
             if build_store:
@@ -314,7 +324,7 @@ def _release(store, run, build_id, enrichment_ids):
                     if model_ids
                     else ""
                 )
-                + "`enrichment_sections` contains independently validated sections, exact model/revision fields, and rejected candidates. Filter by section status; completed jobs can contain invalid or review-required sections. Full settings, local lookup traces, dependency hashes, and original requirement trees are retained in `enrichment_jobs` and `course_enrichments`.\n"
+                + "`enrichment_sections` is a SQLite compatibility view over versioned outputs and snapshot/job bindings. All completed enrichment jobs for included snapshots are preserved, including earlier models and task versions; unfinished jobs are excluded. `current_course_enrichments` includes only explicitly selected jobs for the current snapshot. `course_versions` stores each distinct course record once and `course_snapshots` records presence in every observed run; join them with `runs` for semester history. `courses` and `course_history` are SQLite views; Parquet exports the normalized base tables. No absence is inferred between observed snapshots. `enrichment_output_sections` contains independently validated sections, exact model/revision fields, and rejected candidates. Filter by section status; completed jobs can contain invalid or review-required sections. Full settings, local lookup traces, dependency hashes, and original requirement trees are retained in `enrichment_jobs` and `course_enrichments`.\n"
             )
             manifest = {
                 **selection,

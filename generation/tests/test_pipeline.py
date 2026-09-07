@@ -483,7 +483,7 @@ class PipelineTests(unittest.TestCase):
                 ).read_text()
             ),
         )
-        self.assertEqual(manifest["tables"]["courses"], 6)
+        self.assertEqual(manifest["tables"]["course_snapshots"], 6)
         shutil.rmtree(target)
         rebuilt = export(self.store, self.run)
         self.assertEqual(verify_release(rebuilt)["files"], manifest["files"])
