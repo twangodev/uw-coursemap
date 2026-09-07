@@ -1,5 +1,24 @@
 """Validate model-produced prerequisite graphs without changing source rules."""
 
+import re
+
+
+def restore_quotes(value, payload):
+    """Resolve whitespace-equivalent quotes back to literal source substrings."""
+    text = payload.get("requirements_text") or ""
+    for node in value["nodes"]:
+        for field in ("evidence", "condition"):
+            quote = node[field]
+            if not quote or quote in text:
+                continue
+            parts = re.split(r"(\s+)", quote)
+            pattern = "".join(
+                r"\s+" if part.isspace() else re.escape(part) for part in parts
+            )
+            match = re.search(pattern, text)
+            if match:
+                node[field] = match.group()
+
 
 def validate_graph(value, payload):
     text = payload.get("requirements_text") or ""

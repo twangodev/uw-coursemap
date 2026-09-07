@@ -5,7 +5,8 @@ import unittest
 
 import jsonschema
 
-from uw_coursemap.requirements import validate_graph
+from uw_coursemap.requirements import restore_quotes, validate_graph
+from uw_coursemap.requirements_eval import expression, matches, normalize
 
 
 class RequirementsTests(unittest.TestCase):
@@ -117,3 +118,93 @@ class RequirementsTests(unittest.TestCase):
         self.assertTrue(original["properties"]["values"]["uniqueItems"])
         with self.assertRaises(jsonschema.ValidationError):
             jsonschema.validate({"values": ["duplicate", "duplicate"]}, original)
+
+    def test_whitespace_quotes_restore_source_without_changing_words(self):
+        payload = {
+            **self.payload,
+            "requirements_text": "MATH\u00a0221 or consent\t of instructor",
+        }
+        restore_quotes(self.value, payload)
+        validate_graph(self.value, payload)
+        self.assertEqual(self.value["nodes"][1]["evidence"], "MATH\u00a0221")
+        self.assertEqual(self.value["nodes"][2]["condition"], "consent\t of instructor")
+        self.value["nodes"][1]["evidence"] = "MATH 222"
+        restore_quotes(self.value, payload)
+        with self.assertRaises(ValueError):
+            validate_graph(self.value, payload)
+
+    def test_evaluation_detects_grouping_timing_grade_and_status_errors(self):
+        case = {
+            "expected_status": "parsed",
+            "expected_expression": expression(self.value),
+        }
+        self.assertTrue(matches(case, self.value))
+        self.value["nodes"][0]["children"].reverse()
+        self.assertTrue(matches(case, self.value))
+        for field, replacement in [
+            ("timing", "prior_or_concurrent"),
+            ("minimum_grade", "C"),
+        ]:
+            changed = copy.deepcopy(self.value)
+            changed["nodes"][1]["course"][field] = replacement
+            self.assertFalse(matches(case, changed))
+        changed = copy.deepcopy(self.value)
+        changed["nodes"][0]["kind"] = "all"
+        self.assertFalse(matches(case, changed))
+        changed["status"] = "needs_review"
+        self.assertFalse(matches(case, changed))
+
+    def test_evaluation_flattens_associative_groups_but_preserves_negation(self):
+        a, b, c = ({"condition": name} for name in ("a", "b", "c"))
+        self.assertEqual(
+            normalize({"all": [a, {"all": [c, b]}]}), normalize({"all": [c, b, a]})
+        )
+        self.assertNotEqual(
+            normalize({"not": [{"any": [a, b]}]}),
+            normalize({"any": [{"not": [a]}, {"not": [b]}]}),
+        )
+
+    def test_retry_explains_error_and_sends_schema_to_model(self):
+        from types import SimpleNamespace
+        from unittest.mock import patch
+        from uw_coursemap.jobs import generate
+
+        broken = copy.deepcopy(self.value)
+        broken["root"] = "missing"
+
+        def response(value):
+            return SimpleNamespace(
+                raise_for_status=lambda: None,
+                json=lambda: {
+                    "model": "test@revision",
+                    "choices": [
+                        {
+                            "finish_reason": "stop",
+                            "message": {"content": json.dumps(value)},
+                        }
+                    ],
+                },
+            )
+
+        profile = {
+            "model": "test",
+            "revision": "revision",
+            "base_url": "http://localhost:8003/v1",
+            "max_output_tokens": 4096,
+            "temperature": 0,
+            "thinking": False,
+        }
+        with (
+            patch(
+                "uw_coursemap.jobs.requests.post",
+                side_effect=[response(broken), response(self.value)],
+            ) as request,
+            patch("uw_coursemap.jobs.time.sleep"),
+        ):
+            value, _ = generate(profile, self.task, self.payload)
+        self.assertEqual(value, self.value)
+        first = request.call_args_list[0].kwargs["json"]["messages"]
+        retry = request.call_args_list[1].kwargs["json"]["messages"]
+        self.assertIn("Output JSON schema:", first[0]["content"])
+        self.assertEqual(len(first), 2)
+        self.assertIn("Missing requirement root", retry[-1]["content"])

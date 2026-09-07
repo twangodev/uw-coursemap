@@ -1,0 +1,451 @@
+{
+  "version": 1,
+  "description": "Manually specified requirement expressions. Catalog cases are regression/development examples; synthetic cases test individual logical features. Not an unbiased catalog accuracy estimate.",
+  "cases": [
+    {
+      "id": "none",
+      "origin": "catalog",
+      "payload": {
+        "requirements_text": "None",
+        "linked_courses": []
+      },
+      "expected_status": "none",
+      "expected_expression": null
+    },
+    {
+      "id": "program-name",
+      "origin": "catalog",
+      "payload": {
+        "requirements_text": "Declared in Curriculum and Instruction: Secondary Science Education MS",
+        "linked_courses": []
+      },
+      "expected_status": "parsed",
+      "expected_expression": {
+        "condition": "Declared in Curriculum and Instruction: Secondary Science Education MS"
+      }
+    },
+    {
+      "id": "standing-or-program",
+      "origin": "catalog",
+      "payload": {
+        "requirements_text": "Sophomore standing or declared in undergraduate Business Exchange program",
+        "linked_courses": []
+      },
+      "expected_status": "parsed",
+      "expected_expression": {
+        "any": [
+          {
+            "condition": "Sophomore standing"
+          },
+          {
+            "condition": "declared in undergraduate Business Exchange program"
+          }
+        ]
+      }
+    },
+    {
+      "id": "aae722",
+      "origin": "catalog",
+      "payload": {
+        "requirements_text": "A A E 636orECON 704",
+        "linked_courses": [
+          {
+            "subjects": [
+              "AAE"
+            ],
+            "course_number": 636
+          },
+          {
+            "subjects": [
+              "ECON"
+            ],
+            "course_number": 704
+          }
+        ]
+      },
+      "expected_status": "parsed",
+      "expected_expression": {
+        "any": [
+          {
+            "course": {
+              "subjects": [
+                "AAE"
+              ],
+              "course_number": 636,
+              "timing": "prior",
+              "minimum_grade": null
+            }
+          },
+          {
+            "course": {
+              "subjects": [
+                "ECON"
+              ],
+              "course_number": 704,
+              "timing": "prior",
+              "minimum_grade": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "math320",
+      "origin": "catalog",
+      "payload": {
+        "requirements_text": "MATH 222or graduate/professional standing. Not open to students with credit forMATH 319,340,341,345, or375.",
+        "linked_courses": [
+          {
+            "subjects": [
+              "MATH"
+            ],
+            "course_number": 222
+          },
+          {
+            "subjects": [
+              "MATH"
+            ],
+            "course_number": 319
+          },
+          {
+            "subjects": [
+              "MATH"
+            ],
+            "course_number": 340
+          },
+          {
+            "subjects": [
+              "MATH"
+            ],
+            "course_number": 341
+          },
+          {
+            "subjects": [
+              "MATH"
+            ],
+            "course_number": 345
+          },
+          {
+            "subjects": [
+              "MATH"
+            ],
+            "course_number": 375
+          }
+        ]
+      },
+      "expected_status": "parsed",
+      "expected_expression": {
+        "all": [
+          {
+            "any": [
+              {
+                "course": {
+                  "subjects": [
+                    "MATH"
+                  ],
+                  "course_number": 222,
+                  "timing": "prior",
+                  "minimum_grade": null
+                }
+              },
+              {
+                "condition": "graduate/professional standing"
+              }
+            ]
+          },
+          {
+            "not": [
+              {
+                "any": [
+                  {
+                    "course": {
+                      "subjects": [
+                        "MATH"
+                      ],
+                      "course_number": 319,
+                      "timing": "prior",
+                      "minimum_grade": null
+                    }
+                  },
+                  {
+                    "course": {
+                      "subjects": [
+                        "MATH"
+                      ],
+                      "course_number": 340,
+                      "timing": "prior",
+                      "minimum_grade": null
+                    }
+                  },
+                  {
+                    "course": {
+                      "subjects": [
+                        "MATH"
+                      ],
+                      "course_number": 341,
+                      "timing": "prior",
+                      "minimum_grade": null
+                    }
+                  },
+                  {
+                    "course": {
+                      "subjects": [
+                        "MATH"
+                      ],
+                      "course_number": 345,
+                      "timing": "prior",
+                      "minimum_grade": null
+                    }
+                  },
+                  {
+                    "course": {
+                      "subjects": [
+                        "MATH"
+                      ],
+                      "course_number": 375,
+                      "timing": "prior",
+                      "minimum_grade": null
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "mixed-grouping",
+      "origin": "synthetic",
+      "payload": {
+        "requirements_text": "MATH 221 and (COMP SCI 200 or consent of instructor)",
+        "linked_courses": [
+          {
+            "subjects": [
+              "MATH"
+            ],
+            "course_number": 221
+          },
+          {
+            "subjects": [
+              "COMPSCI"
+            ],
+            "course_number": 200
+          }
+        ]
+      },
+      "expected_status": "parsed",
+      "expected_expression": {
+        "all": [
+          {
+            "course": {
+              "subjects": [
+                "MATH"
+              ],
+              "course_number": 221,
+              "timing": "prior",
+              "minimum_grade": null
+            }
+          },
+          {
+            "any": [
+              {
+                "course": {
+                  "subjects": [
+                    "COMPSCI"
+                  ],
+                  "course_number": 200,
+                  "timing": "prior",
+                  "minimum_grade": null
+                }
+              },
+              {
+                "condition": "consent of instructor"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "concurrency",
+      "origin": "synthetic",
+      "payload": {
+        "requirements_text": "MATH 221 or concurrent enrollment in MATH 221",
+        "linked_courses": [
+          {
+            "subjects": [
+              "MATH"
+            ],
+            "course_number": 221
+          }
+        ]
+      },
+      "expected_status": "parsed",
+      "expected_expression": {
+        "course": {
+          "subjects": [
+            "MATH"
+          ],
+          "course_number": 221,
+          "timing": "prior_or_concurrent",
+          "minimum_grade": null
+        }
+      }
+    },
+    {
+      "id": "strict-concurrency",
+      "origin": "synthetic",
+      "payload": {
+        "requirements_text": "Concurrent enrollment in CHEM 104",
+        "linked_courses": [
+          {
+            "subjects": [
+              "CHEM"
+            ],
+            "course_number": 104
+          }
+        ]
+      },
+      "expected_status": "parsed",
+      "expected_expression": {
+        "course": {
+          "subjects": [
+            "CHEM"
+          ],
+          "course_number": 104,
+          "timing": "concurrent",
+          "minimum_grade": null
+        }
+      }
+    },
+    {
+      "id": "minimum-grade",
+      "origin": "synthetic",
+      "payload": {
+        "requirements_text": "MATH 221 with a grade of C or better",
+        "linked_courses": [
+          {
+            "subjects": [
+              "MATH"
+            ],
+            "course_number": 221
+          }
+        ]
+      },
+      "expected_status": "parsed",
+      "expected_expression": {
+        "course": {
+          "subjects": [
+            "MATH"
+          ],
+          "course_number": 221,
+          "timing": "prior",
+          "minimum_grade": "C"
+        }
+      }
+    },
+    {
+      "id": "credit-exclusion",
+      "origin": "synthetic",
+      "payload": {
+        "requirements_text": "Not open to students with credit for PHYSICS 201 or PHYSICS 207",
+        "linked_courses": [
+          {
+            "subjects": [
+              "PHYSICS"
+            ],
+            "course_number": 201
+          },
+          {
+            "subjects": [
+              "PHYSICS"
+            ],
+            "course_number": 207
+          }
+        ]
+      },
+      "expected_status": "parsed",
+      "expected_expression": {
+        "not": [
+          {
+            "any": [
+              {
+                "course": {
+                  "subjects": [
+                    "PHYSICS"
+                  ],
+                  "course_number": 201,
+                  "timing": "prior",
+                  "minimum_grade": null
+                }
+              },
+              {
+                "course": {
+                  "subjects": [
+                    "PHYSICS"
+                  ],
+                  "course_number": 207,
+                  "timing": "prior",
+                  "minimum_grade": null
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "unlinked-course",
+      "origin": "synthetic",
+      "payload": {
+        "requirements_text": "MATH 217 or MATH 221",
+        "linked_courses": [
+          {
+            "subjects": [
+              "MATH"
+            ],
+            "course_number": 221
+          }
+        ]
+      },
+      "expected_status": "needs_review",
+      "expected_expression": {
+        "any": [
+          {
+            "condition": "MATH 217"
+          },
+          {
+            "course": {
+              "subjects": [
+                "MATH"
+              ],
+              "course_number": 221,
+              "timing": "prior",
+              "minimum_grade": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "consent-and-standing",
+      "origin": "synthetic",
+      "payload": {
+        "requirements_text": "Consent of instructor and junior standing",
+        "linked_courses": []
+      },
+      "expected_status": "parsed",
+      "expected_expression": {
+        "all": [
+          {
+            "condition": "Consent of instructor"
+          },
+          {
+            "condition": "junior standing"
+          }
+        ]
+      }
+    }
+  ]
+}

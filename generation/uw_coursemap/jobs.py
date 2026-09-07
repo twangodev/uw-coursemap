@@ -16,7 +16,7 @@ from .profiles import load_profile
 from .store import Store, now
 
 
-WORKER_VERSION = 2
+WORKER_VERSION = 3
 
 
 def generation_schema(schema):
@@ -97,17 +97,24 @@ def generate(profile, task, payload):
     headers = {}
     if os.environ.get("COURSEMAP_INFERENCE_API_KEY"):
         headers["Authorization"] = "Bearer " + os.environ["COURSEMAP_INFERENCE_API_KEY"]
+    messages = [
+        {
+            "role": "system",
+            "content": task["prompt"]
+            + "\nOutput JSON schema:\n"
+            + json.dumps(task["schema"], ensure_ascii=False),
+        },
+        {"role": "user", "content": json.dumps(payload, ensure_ascii=False)},
+    ]
     for attempt in range(3):
+        content = None
         try:
             response = requests.post(
                 profile["base_url"].rstrip("/") + "/chat/completions",
                 headers=headers,
                 json={
                     "model": f"{profile['model']}@{profile['revision']}",
-                    "messages": [
-                        {"role": "system", "content": task["prompt"]},
-                        {"role": "user", "content": canonical(payload)},
-                    ],
+                    "messages": list(messages),
                     "max_tokens": profile["max_output_tokens"],
                     "temperature": profile["temperature"],
                     "chat_template_kwargs": {"enable_thinking": profile["thinking"]},
@@ -129,7 +136,8 @@ def generate(profile, task, payload):
             choice = data["choices"][0]
             if choice["finish_reason"] != "stop":
                 raise ValueError("Model output was truncated or incomplete")
-            value = json.loads(choice["message"]["content"])
+            content = choice["message"]["content"]
+            value = json.loads(content)
             jsonschema.Draft202012Validator(task["schema"]).validate(value)
             for field in task.get("evidence_fields", []):
                 for item in value[field]:
@@ -138,8 +146,9 @@ def generate(profile, task, payload):
                             "Evidence quote is absent from the source description"
                         )
             if task.get("validator") == "requirements_graph_v1":
-                from .requirements import validate_graph
+                from .requirements import restore_quotes, validate_graph
 
+                restore_quotes(value, payload)
                 validate_graph(value, payload)
             return value, data.get("usage", {})
         except requests.HTTPError as exc:
@@ -151,9 +160,25 @@ def generate(profile, task, payload):
             KeyError,
             IndexError,
             jsonschema.ValidationError,
-        ):
+        ) as exc:
             if attempt == 2:
                 raise
+            if content is not None:
+                # Keep one correction turn so retries fit the original context.
+                reason = (
+                    exc.message
+                    if isinstance(exc, jsonschema.ValidationError)
+                    else str(exc)
+                )
+                messages[2:] = [
+                    {"role": "assistant", "content": content},
+                    {
+                        "role": "user",
+                        "content": "Validation failed: "
+                        + reason[:600]
+                        + ". Return a corrected complete JSON object using only the original source. Do not invent missing evidence.",
+                    },
+                ]
         time.sleep(2**attempt)
 
 

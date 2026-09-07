@@ -145,9 +145,23 @@ existing parser output. Results contain an AND/OR/NOT tree, course timing and gr
 qualifiers, verbatim non-course conditions, evidence quotes, and review notes.
 Structural validation rejects cycles, missing nodes, invented course references,
 and quotes absent from the source. Ambiguous rules are marked `needs_review`.
+Whitespace-equivalent evidence is restored to its literal source substring before
+validation; other quote differences are rejected. Retries receive validation
+feedback. The model sees the schema as well as the constrained output grammar.
 These checks cannot prove semantic equivalence; review the pilot before using the
 results for eligibility or replacing existing graphs. Parsed requirements remain
 separate enrichment records, with the original wording preserved.
+
+Run the small manually checked regression benchmark before changing the task or
+model, then inspect a fresh catalog sample. The benchmark checks Boolean grouping,
+exclusions, grades, concurrency, and review status; it is a development suite,
+not an estimate of catalog-wide accuracy.
+
+```sh
+uv run python scripts/evaluate_requirements.py \
+  --models-config "$COURSEMAP_WORKSPACE/qwen-models.lock.json" \
+  --output "$COURSEMAP_WORKSPACE/audits/requirements-eval.json"
+```
 
 ## Storage and Hugging Face
 
