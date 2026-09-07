@@ -383,3 +383,9 @@ Use `coursemap --workspace PATH job-report JOB_ID` for a read-only snapshot of
 completion counts, section quality, failure categories, truncation recoveries,
 recorded usage, and verification that retained sections were unchanged. A
 completed job can still contain rejected or review-required sections.
+
+The public `llm_traces` Parquet config preserves each archived job/course output
+and its task/model settings, including recorded Qwen thinking, tool calls,
+validator feedback, and truncation recovery conversations. `has_conversation`
+distinguishes older outputs without recorded histories. Traces are separate from
+serving payloads and include rejected and unselected experiments for auditing.

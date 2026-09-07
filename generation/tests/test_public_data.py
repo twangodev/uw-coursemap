@@ -136,7 +136,7 @@ class PublicDataTests(unittest.TestCase):
         }
         self.db.execute(
             "INSERT INTO enrichment_jobs VALUES(?,?,?,?,?,?,?)",
-            (job, "new", "unified", "{}", 1, 1, job),
+            (job, "new", "unified", "{}", 1, 1, "2026-09-01T00:00:00+00:00"),
         )
         self.db.execute("INSERT INTO release_enrichments VALUES(?,?)", (job, selected))
         self.db.execute(
@@ -269,6 +269,63 @@ class PublicDataTests(unittest.TestCase):
         (target / "serving/search.json").write_text("corrupted")
         with self.assertRaisesRegex(ValueError, "checksum"):
             export_public(self.root, "archive-test")
+
+    def test_trace_export_preserves_thinking_tools_retries_and_unselected_outputs(self):
+        self.add_job("1-selected", 1)
+        self.add_job("2-experiment", 0, status="invalid")
+        value = json.loads(
+            self.db.execute(
+                "SELECT output_json FROM enrichment_outputs WHERE output_id='2-experiment'"
+            ).fetchone()[0]
+        )
+        value["provenance"] = {
+            "conversation": [
+                {
+                    "kind": "response",
+                    "parts": [
+                        {"part_kind": "thinking", "content": "Recorded Qwen reasoning"},
+                        {
+                            "part_kind": "tool-call",
+                            "tool_name": "get_course",
+                            "args": {"course_id": "COMPSCI 200"},
+                        },
+                    ],
+                }
+            ],
+            "recovery_events": [
+                {
+                    "conversation": [
+                        {
+                            "kind": "request",
+                            "parts": [
+                                {
+                                    "part_kind": "retry-prompt",
+                                    "content": "Missing exclusion",
+                                }
+                            ],
+                        }
+                    ]
+                }
+            ],
+            "worker_version": 17,
+        }
+        self.db.execute(
+            "UPDATE enrichment_outputs SET output_json=?,usage_json=? WHERE output_id='2-experiment'",
+            (canonical(value), '{"completion_tokens":123}'),
+        )
+        self.db.commit()
+        output, counts = self.export()
+        rows = pq.read_table(output / "public/llm_traces.parquet").to_pylist()
+        self.assertEqual(counts["llm_traces"], 2)
+        self.assertFalse(rows[0]["has_conversation"])
+        self.assertFalse(rows[1]["selected_for_release"])
+        self.assertTrue(rows[1]["has_conversation"])
+        self.assertEqual(json.loads(rows[1]["output_json"]), value)
+        self.assertEqual(rows[1]["model_revision"], "a" * 40)
+        self.assertEqual(json.loads(rows[1]["usage_json"])["completion_tokens"], 123)
+        self.assertNotIn(
+            "Recorded Qwen reasoning", (output / "serving/search.json").read_text()
+        )
 
     def test_empty_tables_keep_schema_and_card_has_one_default(self):
         self.db.execute("DELETE FROM grades")

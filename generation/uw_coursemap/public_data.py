@@ -13,7 +13,7 @@ import pyarrow.parquet as pq
 
 from .models import canonical, digest
 
-PUBLIC_VERSION = 1
+PUBLIC_VERSION = 2
 GRADE_FIELDS = (
     "a ab b bc c d f satisfactory unsatisfactory credit no_credit passed "
     "incomplete no_work not_reported other total"
@@ -32,6 +32,22 @@ CATALOG_FIELDS = [
 ]
 OBSERVATION_FIELDS = [("run_id", TEXT), ("semester", TEXT), ("observed_at", TIME)]
 SCHEMAS = {
+    "llm_traces": pa.schema(
+        [
+            ("job_id", TEXT),
+            ("run_id", TEXT),
+            ("course_id", TEXT),
+            ("output_id", TEXT),
+            ("model", TEXT),
+            ("model_revision", TEXT),
+            ("created_at", TIME),
+            ("selected_for_release", pa.bool_()),
+            ("has_conversation", pa.bool_()),
+            ("job_spec_json", TEXT),
+            ("output_json", TEXT),
+            ("usage_json", TEXT),
+        ]
+    ),
     "catalog_versions": pa.schema(CATALOG_FIELDS),
     "courses_history": pa.schema(
         OBSERVATION_FIELDS + [("record_version_id", TEXT)] + CATALOG_FIELDS
@@ -87,6 +103,7 @@ SCHEMAS = {
     ),
 }
 DESCRIPTIONS = {
+    "llm_traces": "One row per archived job/course output, including unselected experiments. output_json preserves recorded model thinking, native conversations, tools, validator feedback, truncation recovery traces, rejected candidates and final sections. job_spec_json records task and inference settings. Older jobs may lack a conversation; missing traces are not reconstructed. Join courses through run_id/course_id and current outputs through llm_output_id. These are model-generated traces, not authoritative course facts.",
     "courses_current": "One row per course in the selected source snapshot. Credits come from matched current enrollment offerings; null means unavailable. LLM fields use the newest explicitly selected output per course (created_at, job_id); invalid sections never become search text or usable ASTs.",
     "courses_history": "One row per observed course per source run, with directly readable catalog fields. This is observation history, not inferred validity intervals or one row per semester. record_version_id links to the complete archival record.",
     "catalog_versions": "Distinct catalog projections: course identity, subjects, number, title, description, and source requirement text. Parsed trees, grades, similar courses and term activity do not change this ID. Original full records remain in the archive.",
@@ -361,6 +378,30 @@ def write_public(database, destination, release_id, source_run):
         counts["grades_latest"] = write_rows(
             directory / "grades_latest.parquet", SCHEMAS["grades_latest"], grades()
         )
+
+        def traces():
+            for row in db.execute("""
+                SELECT b.job_id,b.run_id,b.course_id,b.output_id,o.model,o.model_revision,
+                       j.created_at,j.spec_json,o.output_json,o.usage_json,r.is_selected AS selected
+                FROM course_enrichment_runs b
+                JOIN enrichment_outputs o USING(output_id)
+                JOIN enrichment_jobs j USING(job_id)
+                JOIN release_enrichments r USING(job_id)
+                ORDER BY b.job_id,b.course_id
+            """):
+                value = dict(row)
+                provenance = json.loads(value["output_json"]).get("provenance", {})
+                value.update(
+                    created_at=timestamp(value["created_at"]),
+                    selected_for_release=bool(value.pop("selected")),
+                    has_conversation=bool(provenance.get("conversation")),
+                    job_spec_json=value.pop("spec_json"),
+                )
+                yield value
+
+        counts["llm_traces"] = write_rows(
+            directory / "llm_traces.parquet", SCHEMAS["llm_traces"], traces()
+        )
         write_serving(
             destination / "serving",
             release_id,
@@ -521,7 +562,7 @@ def dataset_card(source_run, public_counts, archive_counts=None):
             "",
             descriptions,
             "",
-            "LLM-generated fields are prefixed `llm_` and are not official catalog facts. Only validated sections are projected; missing, invalid, review-required and insufficient-evidence statuses remain explicit. Model, revision, job and output IDs identify provenance. Flexible requirement ASTs remain JSON strings; full citations, rejected candidates and settings remain in the archive.",
+            "LLM-generated fields are prefixed `llm_` and are not official catalog facts. Only validated sections are projected; missing, invalid, review-required and insufficient-evidence statuses remain explicit. Model, revision, job and output IDs identify provenance. Flexible requirement ASTs remain JSON strings; full recorded conversations, thinking, citations, rejected candidates and settings are available in `llm_traces` and the archive.",
             "",
             "See `public/schema.json` for every column. The `manifest.json` on the pinned release revision provides checksums and archive provenance. History covers observed snapshots only; course renumberings are not inferred.",
             "",
