@@ -401,6 +401,45 @@ async def _conversation(profile, task, payload, context, model=None):
                     all_messages = list(messages)
                     if (
                         recovery == 0
+                        and isinstance(exc, ModelAPIError)
+                        and getattr(exc, "status_code", None) == 400
+                        and "maximum context length" in str(exc)
+                    ):
+                        recovery_events.append(
+                            {
+                                "reason": str(exc),
+                                "conversation": serialize_messages(messages),
+                                "thinking": False,
+                                "context_compacted": True,
+                            }
+                        )
+                        direct_recovery = True
+                        current_history = None
+                        prompt = canonical(
+                            {
+                                "course": source_view,
+                                "lookup_evidence": {
+                                    k: v
+                                    for k, v in lookup.evidence.items()
+                                    if k != root["course_id"]
+                                },
+                                "instruction": "The previous conversation exceeded the context window. Correct the latest candidates using this source evidence. Accepted sections must be null.",
+                                "sections_needed": [
+                                    n
+                                    for n in SECTIONS
+                                    if sections.get(n, {}).get("status", "invalid")
+                                    == "invalid"
+                                ],
+                                "rejected_sections": {
+                                    n: s
+                                    for n, s in sections.items()
+                                    if s["status"] == "invalid"
+                                },
+                            }
+                        )
+                        continue
+                    if (
+                        recovery == 0
                         and isinstance(exc, UnexpectedModelBehavior)
                         and "exceeded before any response was generated" in str(exc)
                         and "Model token limit" in str(exc)

@@ -272,6 +272,55 @@ class AgentTests(unittest.TestCase):
             self.previous["sections"]["search_profile"],
         )
 
+    def test_context_overflow_compacts_history_and_preserves_trace(self):
+        from pydantic_ai.exceptions import ModelHTTPError
+        from uw_coursemap.agents import serialize_messages
+
+        f = self.fixture
+        calls = []
+
+        def model(messages, info):
+            calls.append(messages)
+            if len(calls) == 1:
+                raise ModelHTTPError(
+                    status_code=400,
+                    model_name="test",
+                    body={
+                        "message": "This model's maximum context length is 32768 tokens"
+                    },
+                )
+            text = ModelMessagesTypeAdapter.dump_json(messages).decode()
+            self.assertIn("rejected_sections", text)
+            self.assertIn(f.root["course_id"], text)
+            self.assertFalse(
+                info.model_settings["extra_body"]["chat_template_kwargs"][
+                    "enable_thinking"
+                ]
+            )
+            return self.response(
+                {
+                    "requirements": f.requirements,
+                    "search_profile": None,
+                    "student_experience": None,
+                }
+            )
+
+        output, _ = generate_repair(
+            f.profile, self.task, self.seed, f.context, FunctionModel(model)
+        )
+        self.assertEqual(len(calls), 2)
+        self.assertEqual(output["sections"]["requirements"]["status"], "valid")
+        event = output["provenance"]["recovery_events"][0]
+        self.assertTrue(event["context_compacted"])
+        self.assertEqual(
+            event["conversation"],
+            serialize_messages(calls[0]),
+        )
+        self.assertEqual(
+            output["sections"]["search_profile"],
+            self.previous["sections"]["search_profile"],
+        )
+
     def test_chained_repair_retains_previous_direct_recovery_mode(self):
         f = self.fixture
         self.previous["provenance"]["recovery_events"] = [{"thinking": False}]

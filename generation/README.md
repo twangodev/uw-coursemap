@@ -398,3 +398,7 @@ Repair jobs revalidate saved candidates before spending inference tokens. Safe
 source-only normalization and its field changes are recorded; outputs accepted
 without a new model call have `provenance.validation_only=true` and retain the
 original trace and parent-output hash.
+
+Context-window errors allow one compact repair continuation with current source
+evidence, lookup results, rejected candidates, and validator errors. The discarded
+conversation remains in `recovery_events`; request and tool budgets remain shared.
