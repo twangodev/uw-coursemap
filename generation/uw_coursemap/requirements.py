@@ -4,25 +4,25 @@ import re
 
 
 def restore_quotes(value, payload):
-    """Resolve whitespace-equivalent quotes back to literal source substrings."""
+    """Resolve case and whitespace differences back to literal source substrings."""
     text = payload.get("requirements_text") or ""
     for node in value["nodes"]:
         for field in ("evidence", "condition"):
             quote = node[field]
             if not quote or quote in text:
                 continue
-            # A model-added terminal period is formatting, not evidence.
-            # Only remove it when the complete remaining quote exists literally.
-            if quote.endswith(".") and quote[:-1] and quote[:-1] in text:
-                node[field] = quote[:-1]
-                continue
-            parts = re.split(r"(\s+)", quote)
-            pattern = "".join(
-                r"\s+" if part.isspace() else re.escape(part) for part in parts
-            )
-            match = re.search(pattern, text)
-            if match:
-                node[field] = match.group()
+            candidates = [quote]
+            if quote.endswith(".") and quote[:-1]:
+                candidates.append(quote[:-1])
+            for candidate in candidates:
+                parts = re.split(r"(\s+)", candidate)
+                pattern = "".join(
+                    r"\s+" if part.isspace() else re.escape(part) for part in parts
+                )
+                match = re.search(pattern, text, flags=re.IGNORECASE)
+                if match:
+                    node[field] = match.group()
+                    break
         if (
             node["kind"] == "condition"
             and node["condition"] is None
@@ -165,6 +165,29 @@ def graph_diagnostics(value, payload):
         if not node["evidence"] or node["evidence"] not in text:
             errors.append(
                 f"Node {key}: evidence {node['evidence']!r} must quote an exact source substring."
+            )
+        if node["kind"] == "course":
+            course = node["course"]
+            allowed = payload.get("linked_courses", [])
+            if course is None or not any(
+                set(course["subjects"]) == set(ref["subjects"])
+                and course["course_number"] == ref["course_number"]
+                for ref in allowed
+            ):
+                errors.append(
+                    f"Node {key}: course {course!r} is absent from the source links (linked_courses). "
+                    "Standing, declared programs, and subject credit counts are condition nodes, not courses. "
+                    "Never invent course 0. For a source reference absent from linked_courses, use kind=condition, "
+                    "course=null, condition=<verbatim source clause>, children=[], and needs_review with an explanatory note. "
+                    f"Allowed course references: {allowed!r}."
+                )
+        if node["kind"] == "condition" and (
+            not node["condition"] or node["condition"] not in text
+        ):
+            errors.append(
+                f"Node {key}: condition {node['condition']!r} must be a nonempty literal source substring. "
+                f"Its evidence is {node['evidence']!r}; copy the relevant source clause into condition, "
+                "without adding or removing a negation or standing qualifier."
             )
         if key in node["children"]:
             errors.append(f"Node {key} references itself; remove the self-reference.")

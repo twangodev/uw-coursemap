@@ -5,7 +5,7 @@ import unittest
 
 import jsonschema
 
-from uw_coursemap.requirements import restore_quotes, validate_graph
+from uw_coursemap.requirements import restore_quotes, validate_graph, graph_diagnostics
 from uw_coursemap.requirements_eval import expression, matches, normalize
 
 
@@ -181,6 +181,28 @@ class RequirementsTests(unittest.TestCase):
         restore_quotes(self.value, payload)
         with self.assertRaises(ValueError):
             validate_graph(self.value, payload)
+
+    def test_case_and_terminal_period_resolve_to_literal_source(self):
+        self.value["nodes"][2]["evidence"] = "Consent of instructor."
+        self.value["nodes"][2]["condition"] = "Consent of instructor."
+        restore_quotes(self.value, self.payload)
+        validate_graph(self.value, self.payload)
+        self.assertEqual(self.value["nodes"][2]["condition"], "consent of instructor")
+        self.value["nodes"][2]["condition"] = "no consent of instructor"
+        restore_quotes(self.value, self.payload)
+        with self.assertRaises(ValueError):
+            validate_graph(self.value, self.payload)
+
+    def test_feedback_identifies_invented_course_and_missing_condition(self):
+        self.value["nodes"][1]["course"]["course_number"] = 0
+        self.value["nodes"][2]["condition"] = None
+        errors = "\n".join(graph_diagnostics(self.value, self.payload))
+        self.assertIn("Never invent course 0", errors)
+        self.assertIn("Allowed course references", errors)
+        self.assertIn("condition None", errors)
+        self.assertIn("consent of instructor", errors)
+        with self.assertRaises(ValueError):
+            validate_graph(self.value, self.payload)
 
     def test_standalone_exclusion_cannot_apply_to_only_one_alternative(self):
         clause = "Not open to students with credit for MATH 222"
