@@ -349,7 +349,7 @@ PydanticAI owns generation, native `get_course` tool calls, and validator-driven
 `ModelRetry` conversations. Install through the root `uv.lock`; only its slim
 OpenAI-compatible client extra is required. vLLM remains the local inference
 engine. `profiles.enrichment-unified` enables the Qwen XML tool parser and uses a
-32K context, 8K output budget, and the measured 256-sequence/384-client throughput
+32K context, 16K output budget, and the measured 256-sequence/384-client throughput
 settings. Hardware power limits are managed separately.
 
 New jobs use worker version 12. Resume older jobs from their original checkout;
