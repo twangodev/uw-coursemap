@@ -17,7 +17,7 @@ class ModelProfile(BaseModel):
     runner: str = "generate"
     context_length: int = Field(default=8192, ge=256)
     max_output_tokens: int = Field(default=2048, ge=1)
-    concurrency: int = Field(default=2, ge=1, le=32)
+    concurrency: int = Field(default=2, ge=1, le=512)
     temperature: float = Field(default=0.2, ge=0, le=2)
     thinking: bool = False
     request_timeout_seconds: int = Field(default=180, ge=1, le=1800)

@@ -284,3 +284,47 @@ uv run python -m unittest discover -s generation/tests -v
 uv run ruff check generation scripts/serve_inference.py
 uv run ruff format --check generation scripts/serve_inference.py
 ```
+
+Public datasets and serving exports
+----------------------------------
+
+`release` also writes typed `public/*.parquet` tables: `courses_current` (the HF
+Viewer default), `courses_history`, `catalog_versions`, `grades_latest`, and
+`offerings_current`. Lists are native Parquet lists, grade counts are integers,
+credits are nullable numbers, and observation times are UTC timestamps. Flexible
+requirement ASTs remain JSON. `public/schema.json` describes each row and column.
+The archive remains available under `archive_*` HF configurations.
+
+Catalog IDs hash identity, title, description and original requirement text;
+changes to grades, term activity or parser output do not create catalog versions.
+Full-record IDs still link to the complete archive. `grades_latest` selects one
+latest observation per course and grading term across included snapshots; it does
+not sum repeated scrapes. Credits come from current enrollment offerings and are
+null when unavailable. Only explicitly selected LLM jobs populate public courses;
+the newest selected job per course wins. Invalid/review-required sections retain
+status but do not enter search text or the usable requirement trees.
+
+To build a small public release from an existing verified archive without copying
+its SQLite/history tables or running inference:
+
+```bash
+uv run coursemap --workspace "$COURSEMAP_WORKSPACE" public-export RELEASE_ID
+```
+
+This writes a separate checksummed release with the archive ID and manifest hash.
+`serving/` contains hash-sharded course JSON (with grades and offerings), a keyword
+inverted search index, and requirement trees preserving AND/OR/NOT logic. The
+reference tokenizer/query lives in `uw_coursemap.public_data.search_ids`.
+Consumers pin one HF revision for all files; cache keys must include that revision.
+Publishing also atomically updates the friendly Parquet tables and dataset card
+on HF `main` with `latest.json`, so default browsing works. No Worker is deployed.
+
+Resume inference with a scheduling override (1–512 concurrent client workers):
+
+```bash
+uv run coursemap --workspace "$COURSEMAP_WORKSPACE" enrich-resume JOB_ID --concurrency 384
+```
+
+This preserves the job's model/task configuration and completed checkpoints;
+fresh outputs record `provenance.client_concurrency`. The vLLM server's
+`--max-num-seqs` and `--max-num-batched-tokens` must be configured separately.

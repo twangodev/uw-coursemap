@@ -313,12 +313,19 @@ class Jobs:
         finally:
             source.close()
 
-    def run(self, job, worker=generate):
+    def run(self, job, worker=generate, concurrency=None):
         with file_lock(self.root / "jobs" / f"{job}.lock"):
             status = self.status(job)
             if status["status"] == "complete":
                 return status
             spec = json.loads(status["spec_json"])
+            concurrency = (
+                concurrency
+                if concurrency is not None
+                else spec["profile"]["concurrency"]
+            )
+            if not 1 <= concurrency <= 512:
+                raise ValueError("Concurrency must be between 1 and 512")
             if spec["worker_version"] != WORKER_VERSION:
                 raise ValueError(
                     "Enrichment worker changed; create a new job with current provenance"
@@ -386,8 +393,8 @@ class Jobs:
                     pending[pool.submit(selected_worker, *args)] = row
                     return
 
-            with ThreadPoolExecutor(max_workers=spec["profile"]["concurrency"]) as pool:
-                for _ in range(spec["profile"]["concurrency"]):
+            with ThreadPoolExecutor(max_workers=concurrency) as pool:
+                for _ in range(concurrency):
                     submit_next(pool)
                 while pending:
                     done, _ = wait(pending, return_when=FIRST_COMPLETED)
@@ -399,6 +406,9 @@ class Jobs:
                                 value.setdefault("provenance", {})[
                                     "generated_from_snapshot"
                                 ] = status["source_run"]
+                            value.setdefault("provenance", {})["client_concurrency"] = (
+                                concurrency
+                            )
                             encoded, tokens = canonical(value), canonical(usage)
                             with self.db:
                                 self.db.execute(

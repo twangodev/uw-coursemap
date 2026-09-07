@@ -570,12 +570,48 @@ def publish(store, run, repo_id, api=None, download=None):
                 "Another release advanced HF main; latest was not replaced"
             )
     else:
+        operations = [CommitOperationAdd("latest.json", pointer)]
+        # Put the friendly tables on main as well, so the default HF viewer works.
+        # The serving pointer still pins the complete immutable release revision.
+        if "public_tables" in manifest:
+            from .public_data import dataset_card
+
+            operations.append(
+                CommitOperationAdd(
+                    "README.md",
+                    dataset_card(source_run, manifest["public_tables"]).encode(),
+                )
+            )
+            operations.extend(
+                CommitOperationAdd(name, str(directory / name))
+                for name in expected
+                if name.startswith("public/")
+            )
+        main_files = set(
+            api.list_repo_files(repo_id=repo_id, repo_type="dataset", revision=latest)
+        )
+        public_files = (
+            {name for name in expected if name.startswith("public/")}
+            if "public_tables" in manifest
+            else set()
+        )
+        operations.extend(
+            CommitOperationDelete(name)
+            for name in sorted(main_files)
+            if name.startswith("public/") and name not in public_files
+        )
+        if (
+            "public_tables" not in manifest
+            and "public/courses_current.parquet" in main_files
+            and "README.md" in main_files
+        ):
+            operations.append(CommitOperationDelete("README.md"))
         api.create_commit(
             repo_id=repo_id,
             repo_type="dataset",
             revision="main",
             parent_commit=checkpoint["base"],
-            operations=[CommitOperationAdd("latest.json", pointer)],
+            operations=operations,
             commit_message=f"Activate validated release {run}",
         )
     if "source_run" not in manifest:

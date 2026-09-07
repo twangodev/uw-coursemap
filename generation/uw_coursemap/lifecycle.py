@@ -281,6 +281,11 @@ def _release(store, run, build_id, enrichment_ids):
                 enrichment_history,
             )
             counts = write_parquet(staging / "coursemap.sqlite", staging / "tables")
+            from .public_data import write_public, dataset_card
+
+            public_counts = write_public(
+                staging / "coursemap.sqlite", staging, release_id, run
+            )
             if build_store:
                 from .derive import write_compatibility
 
@@ -299,10 +304,6 @@ def _release(store, run, build_id, enrichment_ids):
                         destination.parent.mkdir(parents=True, exist_ok=True)
                         path.replace(destination)
                 shutil.rmtree(staging / "site")
-            configs = "\n".join(
-                f"- config_name: {name}\n  data_files: tables/{name}.parquet"
-                for name in counts
-            )
             with sqlite3.connect(staging / "coursemap.sqlite") as public:
                 model_profiles = [
                     json.loads(row[0])["profile"]
@@ -318,13 +319,14 @@ def _release(store, run, build_id, enrichment_ids):
             )
             model_citations = "\n".join(f"- `{identity}`" for identity in model_ids)
             (staging / "README.md").write_text(
-                f"---\nconfigs:\n{configs}\n---\n\n# UW Course Map\n\nSource snapshot `{run}`. SQLite and Parquet contain equivalent tables.\nJoin observations by run_id; never sum cumulative grade snapshots across runs.\nGenerated course enrichments are separate, model-produced data, not official catalog facts.\nSee manifest.json for selected build, enrichment coverage, and provenance.\n"
+                dataset_card(run, public_counts, counts)
                 + (
-                    f"\nGeneration models (pinned revisions):\n\n{model_citations}\n\n"
+                    "\nGeneration models (pinned revisions):\n\n"
+                    + model_citations
+                    + "\n"
                     if model_ids
                     else ""
                 )
-                + "`enrichment_sections` is a SQLite compatibility view over versioned outputs and snapshot/job bindings. All completed enrichment jobs for included snapshots are preserved, including earlier models and task versions; unfinished jobs are excluded. `current_course_enrichments` includes only explicitly selected jobs for the current snapshot. `course_versions` stores each distinct course record once and `course_snapshots` records presence in every observed run; join them with `runs` for semester history. `courses` and `course_history` are SQLite views; Parquet exports the normalized base tables. No absence is inferred between observed snapshots. `enrichment_output_sections` contains independently validated sections, exact model/revision fields, and rejected candidates. Filter by section status; completed jobs can contain invalid or review-required sections. Full settings, local lookup traces, dependency hashes, and original requirement trees are retained in `enrichment_jobs` and `course_enrichments`.\n"
             )
             manifest = {
                 **selection,
@@ -332,6 +334,7 @@ def _release(store, run, build_id, enrichment_ids):
                 "input_hash": store.input_hash(run),
                 "observed_at": store.run(run)["observed_at"],
                 "tables": counts,
+                "public_tables": public_counts,
                 "website_included": bool(build_id),
                 "files": {
                     p.relative_to(staging).as_posix(): {

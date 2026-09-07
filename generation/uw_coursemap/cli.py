@@ -67,7 +67,10 @@ def parser():
             command.add_argument("--build")
             command.add_argument("--enrichment", action="append", default=[])
     for name in ("enrich-resume", "job-status", "derive-resume"):
-        commands.add_parser(name).add_argument("job_id")
+        command = commands.add_parser(name)
+        command.add_argument("job_id")
+        if name == "enrich-resume":
+            command.add_argument("--concurrency", type=int)
     descriptions = {
         "resume": "Continue an interrupted run",
         "status": "Show source and stage completion",
@@ -83,6 +86,10 @@ def parser():
             command.add_argument("--repo", required=True, help="HF dataset owner/name")
         if name == "replay":
             command.add_argument("--source", choices=SOURCES, required=True)
+    commands.add_parser(
+        "public-export",
+        help="Build public tables and serving files from a verified archive",
+    ).add_argument("release_id")
     models = commands.add_parser("models-lock")
     models.add_argument("--models-config", type=Path, required=True)
     models.add_argument("--profile", action="append", required=True)
@@ -248,12 +255,19 @@ def main(argv=None):
                     print(f"Created enrichment job {job}", flush=True)
                     result = jobs.status(job) if args.prepare_only else jobs.run(job)
                 elif args.command == "enrich-resume":
-                    result = jobs.run(args.job_id)
+                    result = jobs.run(args.job_id, concurrency=args.concurrency)
                 else:
                     result = jobs.status(args.job_id)
             finally:
                 jobs.close()
         print(canonical(result))
+        return
+    if args.command == "public-export":
+        from .public_data import export_public
+
+        print(
+            canonical({"release": str(export_public(args.workspace, args.release_id))})
+        )
         return
     readonly = args.command in {"status", "validate", "release"}
     store = Store(args.workspace, readonly=readonly)

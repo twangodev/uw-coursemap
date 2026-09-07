@@ -96,6 +96,9 @@ class LifecycleTests(unittest.TestCase):
                         readonly, target.name, "owner/data", hub, hub.download
                     )
                     self.assertIn("revision", result)
+                    self.assertIn("public/courses_current.parquet", hub.files["main"])
+                    self.assertIn(b"default: true", hub.files["main"]["README.md"])
+                    self.assertNotIn(b"archive_grades", hub.files["main"]["README.md"])
                     with self.assertRaises(sqlite3.OperationalError):
                         readonly.db.execute("DELETE FROM runs")
                 finally:
@@ -103,6 +106,35 @@ class LifecycleTests(unittest.TestCase):
         self.assertEqual(self.store.input_hash(self.run), before)
         self.assertIsNone(self.store.run(self.run)["revision"])
         self.assertEqual(self.store.stage_status(self.run, "derive"), "pending")
+
+    def test_resume_concurrency_override_preserves_job_spec_and_records_execution(self):
+        from concurrent.futures import ThreadPoolExecutor
+
+        self.core()
+        jobs = Jobs(self.root)
+        try:
+            job = self.create_job(jobs)
+            original = jobs.status(job)["spec_json"]
+            with self.assertRaisesRegex(ValueError, "Concurrency"):
+                jobs.run(job, worker=lambda *args: ({}, {}), concurrency=0)
+            with patch(
+                "uw_coursemap.jobs.ThreadPoolExecutor", wraps=ThreadPoolExecutor
+            ) as pool:
+                jobs.run(
+                    job,
+                    worker=lambda *args: ({"summary": "Programming"}, {}),
+                    concurrency=384,
+                )
+                pool.assert_called_once_with(max_workers=384)
+            self.assertEqual(jobs.status(job)["spec_json"], original)
+            output = json.loads(
+                jobs.db.execute(
+                    "SELECT output_json FROM results WHERE job_id=?", (job,)
+                ).fetchone()[0]
+            )
+            self.assertEqual(output["provenance"]["client_concurrency"], 384)
+        finally:
+            jobs.close()
 
     def test_failed_source_does_not_block_other_sources_and_resumes(self):
         with self.store.db:

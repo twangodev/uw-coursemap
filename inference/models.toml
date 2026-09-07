@@ -60,6 +60,7 @@ temperature = 0.0
 thinking = false
 server_args = ["--quantization", "modelopt_fp4", "--kv-cache-dtype", "fp8", "--reasoning-parser", "qwen3", "--gpu-memory-utilization", "0.65", "--max-num-seqs", "32", "--enforce-eager", "--language-model-only"]
 
+# Throughput profile measured on the 96 GB RTX PRO 6000 at a 300 W cap.
 [profiles.enrichment-unified]
 model = "nvidia/Qwen3.6-35B-A3B-NVFP4"
 base_url = "http://127.0.0.1:8003/v1"
@@ -67,7 +68,7 @@ runner = "generate"
 context_length = 16384
 max_output_tokens = 6144
 request_timeout_seconds = 360
-concurrency = 32
+concurrency = 384
 temperature = 0.0
 thinking = false
-server_args = ["--quantization", "modelopt_fp4", "--kv-cache-dtype", "fp8", "--reasoning-parser", "qwen3", "--gpu-memory-utilization", "0.65", "--max-num-seqs", "32", "--enforce-eager", "--language-model-only"]
+server_args = ["--quantization", "modelopt_fp4", "--kv-cache-dtype", "fp8", "--reasoning-parser", "qwen3", "--gpu-memory-utilization", "0.65", "--max-num-seqs", "256", "--max-num-batched-tokens", "16384", "--enforce-eager", "--language-model-only"]

@@ -1,0 +1,592 @@
+"""Typed public datasets and small, immutable serving artifacts."""
+
+from collections import defaultdict
+from datetime import datetime, timezone
+import hashlib
+import json
+from pathlib import Path
+import re
+import sqlite3
+
+import pyarrow as pa
+import pyarrow.parquet as pq
+
+from .models import canonical, digest
+
+PUBLIC_VERSION = 1
+GRADE_FIELDS = (
+    "a ab b bc c d f satisfactory unsatisfactory credit no_credit passed "
+    "incomplete no_work not_reported other total"
+).split()
+TEXT = pa.string()
+STRINGS = pa.list_(TEXT)
+TIME = pa.timestamp("us", tz="UTC")
+CATALOG_FIELDS = [
+    ("course_id", TEXT),
+    ("catalog_version_id", TEXT),
+    ("course_number", pa.int64()),
+    ("subjects", STRINGS),
+    ("title", TEXT),
+    ("description", TEXT),
+    ("requirements_text", TEXT),
+]
+OBSERVATION_FIELDS = [("run_id", TEXT), ("semester", TEXT), ("observed_at", TIME)]
+SCHEMAS = {
+    "catalog_versions": pa.schema(CATALOG_FIELDS),
+    "courses_history": pa.schema(
+        OBSERVATION_FIELDS + [("record_version_id", TEXT)] + CATALOG_FIELDS
+    ),
+    "courses_current": pa.schema(
+        OBSERVATION_FIELDS
+        + [("record_version_id", TEXT)]
+        + CATALOG_FIELDS
+        + [
+            ("credits_min", pa.float64()),
+            ("credits_max", pa.float64()),
+            ("credit_offering_ids", STRINGS),
+            ("llm_job_id", TEXT),
+            ("llm_output_id", TEXT),
+            ("llm_model", TEXT),
+            ("llm_model_revision", TEXT),
+            ("llm_task_version", pa.int64()),
+            ("llm_search_status", TEXT),
+            ("llm_summary", TEXT),
+            ("llm_topics", STRINGS),
+            ("llm_skills", STRINGS),
+            ("llm_assumed_background", STRINGS),
+            ("llm_search_phrases", STRINGS),
+            ("llm_requirements_status", TEXT),
+            ("llm_requirements_ast_json", TEXT),
+            ("llm_experience_status", TEXT),
+            ("llm_experience_json", TEXT),
+        ]
+    ),
+    "grades_latest": pa.schema(
+        OBSERVATION_FIELDS
+        + [
+            ("course_id", TEXT),
+            ("term_id", TEXT),
+            ("term_name", TEXT),
+            ("instructors", STRINGS),
+        ]
+        + [(name, pa.int64()) for name in GRADE_FIELDS]
+    ),
+    "offerings_current": pa.schema(
+        OBSERVATION_FIELDS
+        + [
+            ("offering_id", TEXT),
+            ("course_id", TEXT),
+            ("term_id", TEXT),
+            ("source_course_id", TEXT),
+            ("source_subject_id", TEXT),
+            ("title", TEXT),
+            ("credits_min", pa.float64()),
+            ("credits_max", pa.float64()),
+            ("typically_offered", TEXT),
+        ]
+    ),
+}
+DESCRIPTIONS = {
+    "courses_current": "One row per course in the selected source snapshot. Credits come from matched current enrollment offerings; null means unavailable. LLM fields use the newest explicitly selected output per course (created_at, job_id); invalid sections never become search text or usable ASTs.",
+    "courses_history": "One row per observed course per source run, with directly readable catalog fields. This is observation history, not inferred validity intervals or one row per semester. record_version_id links to the complete archival record.",
+    "catalog_versions": "Distinct catalog projections: course identity, subjects, number, title, description, and source requirement text. Parsed trees, grades, similar courses and term activity do not change this ID. Original full records remain in the archive.",
+    "grades_latest": "One row per course and grading term, choosing the latest observed distribution across included snapshots (observed_at, run_id). semester is the observation semester; term_id is the grading semester. Counts are not duplicated for repeated scrapes. Cross-listed course aliases may still overlap; do not interpret a sum across courses as distinct students. Missing counts remain null.",
+    "offerings_current": "One row per enrollment offering in the selected source snapshot. Unmatched course_id stays null. This is a schedule snapshot, not live enrollment availability.",
+}
+
+
+def timestamp(value):
+    return datetime.fromisoformat(value).astimezone(timezone.utc)
+
+
+def json_value(value):
+    if isinstance(value, datetime):
+        return value.isoformat()
+    raise TypeError(type(value).__name__)
+
+
+def write_json(path, value):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(
+            value,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+            default=json_value,
+        )
+    )
+
+
+def catalog_record(course_id, record):
+    prerequisites = record.get("prerequisites") or {}
+    text = (
+        prerequisites.get("prerequisites_text")
+        if isinstance(prerequisites, dict)
+        else None
+    )
+    fields = {
+        "course_id": course_id,
+        "course_number": record["course_reference"]["course_number"],
+        "subjects": sorted(record["course_reference"]["subjects"]),
+        "title": record["course_title"],
+        "description": record["description"],
+        "requirements_text": text,
+    }
+    return {**fields, "catalog_version_id": digest(fields)}
+
+
+def write_rows(path, schema, rows):
+    count, batch = 0, []
+    with pq.ParquetWriter(
+        path, schema, compression="zstd", write_page_index=True
+    ) as writer:
+        for row in rows:
+            batch.append(row)
+            if len(batch) == 4096:
+                writer.write_table(pa.Table.from_pylist(batch, schema=schema))
+                count += len(batch)
+                batch = []
+        if batch:
+            writer.write_table(pa.Table.from_pylist(batch, schema=schema))
+            count += len(batch)
+    if pq.read_metadata(path).num_rows != count:
+        raise ValueError(f"Public row count mismatch: {path.name}")
+    return count
+
+
+def selected_enrichments(db):
+    if not db.execute(
+        "SELECT 1 FROM sqlite_master WHERE name='current_course_enrichments'"
+    ).fetchone():
+        return {}
+    # Deliberate selection wins; within it, the newest job wins as a whole.
+    return {
+        row["course_id"]: dict(row)
+        for row in db.execute("""SELECT e.*,j.created_at,o.output_id,o.model,o.model_revision
+            FROM current_course_enrichments e JOIN enrichment_jobs j USING(job_id)
+            JOIN course_enrichment_runs b USING(job_id,run_id,course_id)
+            JOIN enrichment_outputs o USING(output_id) ORDER BY j.created_at,j.job_id""")
+    }
+
+
+def enrich_fields(row):
+    result = {
+        "llm_search_status": "not_generated",
+        "llm_requirements_status": "not_generated",
+        "llm_experience_status": "not_generated",
+        **{
+            key: []
+            for key in (
+                "llm_topics",
+                "llm_skills",
+                "llm_assumed_background",
+                "llm_search_phrases",
+            )
+        },
+    }
+    if row is None:
+        return result
+    output = json.loads(row["output_json"])
+    result.update(
+        llm_job_id=row["job_id"],
+        llm_output_id=row["output_id"],
+        llm_model=row["model"],
+        llm_model_revision=row["model_revision"],
+        llm_task_version=output.get("task_version"),
+    )
+    sections = output.get("sections", {})
+    for name, field in [
+        ("search_profile", "search"),
+        ("requirements", "requirements"),
+        ("student_experience", "experience"),
+    ]:
+        section = sections.get(name, {})
+        result[f"llm_{field}_status"] = section.get("status", "not_generated")
+        value = section.get("value")
+        if section.get("status") != "valid" or value is None:
+            continue
+        if name == "search_profile":
+            summary = value.get("summary")
+            result["llm_summary"] = (
+                summary.get("text") if isinstance(summary, dict) else summary
+            )
+            for source, target in [
+                ("topics", "topics"),
+                ("skills_taught", "skills"),
+                ("assumed_background", "assumed_background"),
+            ]:
+                result["llm_" + target] = [
+                    item["text"] if isinstance(item, dict) else item
+                    for item in value.get(source, [])
+                ]
+            result["llm_search_phrases"] = value.get("search_phrases", [])
+        elif name == "requirements":
+            result["llm_requirements_ast_json"] = canonical(value)
+        else:
+            result["llm_experience_json"] = canonical(value)
+    return result
+
+
+def write_public(database, destination, release_id, source_run):
+    """Read an immutable archive; write only the public/ and serving/ subtrees."""
+    destination = Path(destination)
+    directory = destination / "public"
+    directory.mkdir(parents=True)
+    db = sqlite3.connect(Path(database).resolve().as_uri() + "?mode=ro", uri=True)
+    db.row_factory = sqlite3.Row
+    try:
+        runs = {row["run_id"]: dict(row) for row in db.execute("SELECT * FROM runs")}
+        if source_run not in runs:
+            raise ValueError("Selected source snapshot is missing")
+
+        def observation(run):
+            return {
+                "run_id": run,
+                "semester": runs[run]["semester"],
+                "observed_at": timestamp(runs[run]["observed_at"]),
+            }
+
+        counts, versions, current = {}, {}, {}
+
+        def history():
+            for row in db.execute("""SELECT s.*,v.record_json FROM course_snapshots s
+                    JOIN course_versions v USING(version_id) ORDER BY s.course_id,s.run_id"""):
+                catalog = catalog_record(
+                    row["course_id"], json.loads(row["record_json"])
+                )
+                versions.setdefault(catalog["catalog_version_id"], catalog)
+                value = {
+                    **observation(row["run_id"]),
+                    "record_version_id": row["version_id"],
+                    **catalog,
+                }
+                if row["run_id"] == source_run:
+                    current[row["course_id"]] = value
+                yield value
+
+        counts["courses_history"] = write_rows(
+            directory / "courses_history.parquet", SCHEMAS["courses_history"], history()
+        )
+        counts["catalog_versions"] = write_rows(
+            directory / "catalog_versions.parquet",
+            SCHEMAS["catalog_versions"],
+            (versions[k] for k in sorted(versions)),
+        )
+        offers = []
+        by_course = defaultdict(list)
+        for row in db.execute(
+            "SELECT * FROM offerings WHERE run_id=? ORDER BY offering_id", (source_run,)
+        ):
+            detail = json.loads(row["details_json"])
+            value = {
+                **observation(source_run),
+                **{
+                    k: row[k]
+                    for k in (
+                        "offering_id",
+                        "course_id",
+                        "term_id",
+                        "source_course_id",
+                        "source_subject_id",
+                    )
+                },
+                "title": detail.get("title"),
+                "credits_min": detail.get("minimumCredits"),
+                "credits_max": detail.get("maximumCredits"),
+                "typically_offered": detail.get("typicallyOffered"),
+            }
+            offers.append(value)
+            if row["course_id"] is not None:
+                by_course[row["course_id"]].append(value)
+        counts["offerings_current"] = write_rows(
+            directory / "offerings_current.parquet",
+            SCHEMAS["offerings_current"],
+            offers,
+        )
+        enrichment = selected_enrichments(db)
+        for key, course in current.items():
+            related = by_course[key]
+            minima = [o["credits_min"] for o in related if o["credits_min"] is not None]
+            maxima = [o["credits_max"] for o in related if o["credits_max"] is not None]
+            course.update(
+                credits_min=min(minima) if minima else None,
+                credits_max=max(maxima) if maxima else None,
+                credit_offering_ids=[
+                    o["offering_id"]
+                    for o in related
+                    if o["credits_min"] is not None or o["credits_max"] is not None
+                ],
+                **enrich_fields(enrichment.get(key)),
+            )
+        for course in current.values():
+            for field in SCHEMAS["courses_current"].names:
+                course.setdefault(field, None)
+        counts["courses_current"] = write_rows(
+            directory / "courses_current.parquet",
+            SCHEMAS["courses_current"],
+            (current[k] for k in sorted(current)),
+        )
+        grade_courses = defaultdict(list)
+
+        def grades():
+            seen = set()
+            for run in sorted(
+                runs, key=lambda r: (timestamp(runs[r]["observed_at"]), r), reverse=True
+            ):
+                term_names = dict(
+                    db.execute("SELECT term_id,name FROM terms WHERE run_id=?", (run,))
+                )
+                for row in db.execute(
+                    "SELECT * FROM grades WHERE run_id=? ORDER BY course_id,term_id",
+                    (run,),
+                ):
+                    key = (row["course_id"], row["term_id"])
+                    if key in seen:
+                        continue
+                    seen.add(key)
+                    distribution = json.loads(row["distribution_json"])
+                    value = {
+                        **observation(run),
+                        "course_id": key[0],
+                        "term_id": key[1],
+                        "term_name": term_names.get(key[1]),
+                        "instructors": distribution.get("instructors", []),
+                        **{field: distribution.get(field) for field in GRADE_FIELDS},
+                    }
+                    if key[0] in current:
+                        grade_courses[key[0]].append(value)
+                    yield value
+
+        counts["grades_latest"] = write_rows(
+            directory / "grades_latest.parquet", SCHEMAS["grades_latest"], grades()
+        )
+        write_serving(
+            destination / "serving",
+            release_id,
+            source_run,
+            current,
+            by_course,
+            grade_courses,
+        )
+        write_json(
+            directory / "schema.json",
+            {
+                "version": PUBLIC_VERSION,
+                "tables": {
+                    name: {
+                        "rows": counts[name],
+                        "description": DESCRIPTIONS[name],
+                        "columns": {f.name: str(f.type) for f in schema},
+                    }
+                    for name, schema in SCHEMAS.items()
+                },
+            },
+        )
+        return counts
+    finally:
+        db.close()
+
+
+def search_tokens(text):
+    return sorted(set(re.findall(r"[^\W_]+", text.casefold())))
+
+
+def search_ids(index, query, limit=20):
+    """Reference exact-token AND search for the portable inverted index."""
+    terms = search_tokens(query)
+    if not terms:
+        return []
+    hits = set(index["postings"].get(terms[0], []))
+    for token in terms[1:]:
+        hits.intersection_update(index["postings"].get(token, []))
+    return [index["documents"][i]["course_id"] for i in sorted(hits)[:limit]]
+
+
+def write_serving(directory, release_id, source_run, courses, offerings, grades):
+    directory.mkdir()
+    shards, documents, postings, requirements = (
+        defaultdict(dict),
+        [],
+        defaultdict(list),
+        {},
+    )
+    identity = {
+        "release_id": release_id,
+        "source_run": source_run,
+        "schema_version": PUBLIC_VERSION,
+    }
+    for key in sorted(courses):
+        course = courses[key]
+        shard = hashlib.sha256(key.encode()).hexdigest()[:2]
+        shards[shard][key] = {
+            **course,
+            "grades": grades[key],
+            "offerings": offerings[key],
+        }
+        index = len(documents)
+        documents.append(
+            {
+                k: course.get(k)
+                for k in ("course_id", "title", "subjects", "llm_summary")
+            }
+        )
+        aliases = [
+            f"{s} {course['course_number']} {s}{course['course_number']}"
+            for s in course["subjects"]
+        ]
+        text = " ".join(
+            [
+                key,
+                course["title"],
+                course["description"],
+                *aliases,
+                course.get("llm_summary") or "",
+                *course["llm_topics"],
+                *course["llm_skills"],
+                *course["llm_search_phrases"],
+            ]
+        )
+        for token in search_tokens(text):
+            postings[token].append(index)
+        requirements[key] = {
+            "status": course["llm_requirements_status"],
+            "ast": json.loads(course["llm_requirements_ast_json"])
+            if course.get("llm_requirements_ast_json")
+            else None,
+            "job_id": course.get("llm_job_id"),
+            "output_id": course.get("llm_output_id"),
+            "model": course.get("llm_model"),
+            "model_revision": course.get("llm_model_revision"),
+        }
+    for shard, records in sorted(shards.items()):
+        write_json(
+            directory / "courses" / f"{shard}.json", {**identity, "courses": records}
+        )
+    write_json(
+        directory / "search.json",
+        {
+            **identity,
+            "tokenizer": "unicode-alphanumeric-casefold-v1",
+            "documents": documents,
+            "postings": postings,
+        },
+    )
+    write_json(directory / "requirements.json", {**identity, "courses": requirements})
+    write_json(
+        directory / "manifest.json",
+        {
+            **identity,
+            "course_count": len(courses),
+            "course_shards": sorted(shards),
+            "course_path": "courses/<sha256(UTF-8 canonical course_id)[:2]>.json",
+            "search": "search.json",
+            "requirements": "requirements.json",
+        },
+    )
+
+
+def dataset_card(source_run, public_counts, archive_counts=None):
+    configs = []
+    for name in [
+        "courses_current",
+        "courses_history",
+        "catalog_versions",
+        "grades_latest",
+        "offerings_current",
+    ]:
+        configs.append(
+            f"- config_name: {name}\n"
+            + ("  default: true\n" if name == "courses_current" else "")
+            + f"  data_files: public/{name}.parquet"
+        )
+    for name in archive_counts or {}:
+        configs.append(
+            f"- config_name: archive_{name}\n  data_files: tables/{name}.parquet"
+        )
+    descriptions = "\n".join(
+        f"- `{name}` ({public_counts[name]:,} rows): {DESCRIPTIONS[name]}"
+        for name in SCHEMAS
+    )
+    return "\n".join(
+        [
+            "---",
+            "configs:",
+            *configs,
+            "---",
+            "",
+            "# UW Course Map",
+            "",
+            f"Source snapshot `{source_run}`. Start with `courses_current`; structured fields use native Parquet lists and numeric types. Dates are UTC timestamps.",
+            "",
+            descriptions,
+            "",
+            "LLM-generated fields are prefixed `llm_` and are not official catalog facts. Only validated sections are projected; missing, invalid, review-required and insufficient-evidence statuses remain explicit. Model, revision, job and output IDs identify provenance. Flexible requirement ASTs remain JSON strings; full citations, rejected candidates and settings remain in the archive.",
+            "",
+            "See `public/schema.json` for every column. The `manifest.json` on the pinned release revision provides checksums and archive provenance. History covers observed snapshots only; course renumberings are not inferred.",
+            "",
+            "Serving: resolve the published `latest.json` once and pin its exact HF revision for all requests. Fetch `serving/manifest.json`, then the course shard, search index or requirement trees from that same revision. Cache by revision plus path; promote a new revision only after fetching and verifying its artifacts. `serving/search.json` is a portable keyword inverted index (Unicode alphanumeric casefold tokens, AND intersection); it is not semantic/vector search. Requirement trees retain logical operators; do not flatten exclusions into prerequisite edges. No Worker is deployed by this export.",
+            "",
+            "The relational archive retains complete records and repeated observations. Never sum its repeated grade snapshots. Sources include UW Guide, UW public enrollment and Madgrades; schedules and source data may contain errors.",
+            "",
+        ]
+    )
+
+
+def export_public(root, archive_id):
+    """Build a slim release from a verified archive without copying its large files."""
+    from .cli import code_hash
+    from .jobs import file_lock
+    from .release import checksum, verify_release
+    import shutil
+
+    root = Path(root)
+    if Path(archive_id).name != archive_id:
+        raise ValueError("Expected a release ID, not a path")
+    archive = root / "releases" / archive_id
+    manifest = verify_release(archive)
+    if not (archive / "coursemap.sqlite").is_file():
+        raise ValueError("Public export requires a complete SQLite archive")
+    source_run = manifest.get("source_run", manifest["run_id"])
+    selection = {
+        "source_run": source_run,
+        "input_hash": manifest["input_hash"],
+        "archive_release": archive_id,
+        "archive_manifest_sha256": checksum(archive / "manifest.json"),
+        "public_schema_version": PUBLIC_VERSION,
+        "exporter_hash": code_hash(),
+    }
+    release_id = "public-" + digest(selection)[:24]
+    target = root / "releases" / release_id
+    with file_lock(root / "releases.lock"):
+        if target.exists():
+            verify_release(target)
+            return target
+        staging = target.with_name(target.name + ".partial")
+        if staging.exists():
+            shutil.rmtree(staging)
+        staging.mkdir()
+        counts = write_public(
+            archive / "coursemap.sqlite", staging, release_id, source_run
+        )
+        (staging / "README.md").write_text(dataset_card(source_run, counts))
+        write_json(
+            staging / "manifest.json",
+            {
+                **selection,
+                "run_id": release_id,
+                "schema_version": manifest["schema_version"],
+                "public_tables": counts,
+                "files": {
+                    p.relative_to(staging).as_posix(): {
+                        "sha256": checksum(p),
+                        "bytes": p.stat().st_size,
+                    }
+                    for p in sorted(staging.rglob("*"))
+                    if p.is_file()
+                },
+            },
+        )
+        verify_release(staging)
+        staging.replace(target)
+        return target
