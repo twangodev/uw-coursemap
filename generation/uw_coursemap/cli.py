@@ -53,6 +53,11 @@ def parser():
             command.add_argument("--profile", default="enrichment")
             command.add_argument("--task", type=Path, required=True)
             command.add_argument(
+                "--course",
+                action="append",
+                help="Explicit course ID or alias; repeat for a targeted test",
+            )
+            command.add_argument(
                 "--limit",
                 type=int,
                 default=100,
@@ -238,6 +243,7 @@ def main(argv=None):
                         args.profile,
                         args.task,
                         args.limit,
+                        course_ids=args.course,
                     )
                     print(f"Created enrichment job {job}", flush=True)
                     result = jobs.status(job) if args.prepare_only else jobs.run(job)

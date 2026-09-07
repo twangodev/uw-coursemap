@@ -16,7 +16,7 @@ from .profiles import load_profile
 from .store import Store, now
 
 
-WORKER_VERSION = 4
+WORKER_VERSION = 6
 
 
 def generation_schema(schema):
@@ -213,7 +213,9 @@ class Jobs:
             ),
         }
 
-    def create(self, source_run, profiles, profile_name, task_path, limit=100):
+    def create(
+        self, source_run, profiles, profile_name, task_path, limit=100, course_ids=None
+    ):
         if limit < 0:
             raise ValueError("limit must be nonnegative")
         profile = load_profile(profiles, profile_name)
@@ -225,6 +227,8 @@ class Jobs:
         jsonschema.Draft202012Validator.check_schema(task["schema"])
         if task.get("validator") not in {None, "requirements_graph_v1"}:
             raise ValueError("Unknown task validator")
+        if task.get("workflow") not in {None, "unified_v1"}:
+            raise ValueError("Unknown enrichment workflow")
         fields = task.get(
             "input_fields",
             ["course_reference", "course_title", "description", "prerequisites"],
@@ -235,12 +239,28 @@ class Jobs:
 
             require_snapshot(source, source_run)
             courses = source.records(source_run, "courses")
+            from .course_context import CourseContext
+
+            context = (
+                CourseContext(source, source_run)
+                if task.get("workflow") == "unified_v1" or course_ids
+                else None
+            )
             if not courses:
                 raise ValueError("Snapshot has no courses")
             # Stable hash sampling avoids an alphabetically biased pilot.
             selected = sorted(courses, key=lambda key: digest(key))
             if limit:
                 selected = selected[:limit]
+            if course_ids:
+                selected = sorted(
+                    {context.resolve(key) for key in course_ids},
+                    key=lambda key: key or "",
+                )
+                if None in selected:
+                    raise ValueError(
+                        "Selected course is missing or ambiguous in the snapshot"
+                    )
             spec = {
                 "task": task,
                 "profile": profile.model_dump(),
@@ -261,7 +281,9 @@ class Jobs:
                     (job, source_run, canonical(spec), now()),
                 )
                 for key in selected:
-                    if isinstance(fields, dict):
+                    if task.get("workflow") == "unified_v1":
+                        payload = context.get(key)
+                    elif isinstance(fields, dict):
                         payload = {}
                         for field, path in fields.items():
                             value = courses[key]
@@ -304,9 +326,14 @@ class Jobs:
             if worker is generate:
                 check_server(spec["profile"])
             source = Store(self.root, readonly=True)
+            context = None
             try:
                 if source.input_hash(status["source_run"]) != spec["source_hash"]:
                     raise ValueError("Source snapshot changed")
+                if spec["task"].get("workflow") == "unified_v1":
+                    from .course_context import CourseContext
+
+                    context = CourseContext(source, status["source_run"])
             finally:
                 source.close()
             with self.db:
@@ -327,6 +354,17 @@ class Jobs:
                         "SELECT output_json,usage_json FROM output_cache WHERE cache_key=?",
                         (row["cache_key"],),
                     ).fetchone()
+                    if cached and context is not None:
+                        dependencies = (
+                            json.loads(cached[0])
+                            .get("provenance", {})
+                            .get("dependencies", {})
+                        )
+                        if any(
+                            context.fingerprint(key) != stamp
+                            for key, stamp in dependencies.items()
+                        ):
+                            cached = None
                     if cached:
                         with self.db:
                             self.db.execute(
@@ -334,14 +372,18 @@ class Jobs:
                                 (*tuple(cached), job, row["course_id"]),
                             )
                         continue
-                    pending[
-                        pool.submit(
-                            worker,
-                            spec["profile"],
-                            spec["task"],
-                            json.loads(row["input_json"]),
-                        )
-                    ] = row
+                    args = [
+                        spec["profile"],
+                        spec["task"],
+                        json.loads(row["input_json"]),
+                    ]
+                    selected_worker = worker
+                    if context is not None and worker is generate:
+                        from .unified import generate_unified
+
+                        selected_worker = generate_unified
+                        args.append(context)
+                    pending[pool.submit(selected_worker, *args)] = row
                     return
 
             with ThreadPoolExecutor(max_workers=spec["profile"]["concurrency"]) as pool:
@@ -353,10 +395,14 @@ class Jobs:
                         row = pending.pop(future)
                         try:
                             value, usage = future.result()
+                            if context is not None:
+                                value.setdefault("provenance", {})[
+                                    "generated_from_snapshot"
+                                ] = status["source_run"]
                             encoded, tokens = canonical(value), canonical(usage)
                             with self.db:
                                 self.db.execute(
-                                    "INSERT OR IGNORE INTO output_cache VALUES(?,?,?)",
+                                    "INSERT OR REPLACE INTO output_cache VALUES(?,?,?)",
                                     (row["cache_key"], encoded, tokens),
                                 )
                                 self.db.execute(
@@ -402,6 +448,7 @@ class Jobs:
             output.executescript("""
             CREATE TABLE enrichment_jobs(job_id TEXT PRIMARY KEY,run_id TEXT REFERENCES runs,task TEXT,spec_json TEXT,selected_courses INTEGER,total_courses INTEGER);
             CREATE TABLE course_enrichments(job_id TEXT REFERENCES enrichment_jobs,run_id TEXT,course_id TEXT,output_json TEXT,usage_json TEXT,PRIMARY KEY(job_id,course_id),FOREIGN KEY(run_id,course_id) REFERENCES courses);
+            CREATE TABLE enrichment_sections(job_id TEXT,course_id TEXT,section TEXT,status TEXT,model TEXT,model_revision TEXT,value_json TEXT,candidate_json TEXT,error TEXT,PRIMARY KEY(job_id,course_id,section),FOREIGN KEY(job_id,course_id) REFERENCES course_enrichments(job_id,course_id));
             """)
             if not ids:
                 return
@@ -459,6 +506,30 @@ class Jobs:
                             )
                         ),
                     )
+                    for result in jobs.execute(
+                        "SELECT course_id,output_json FROM results WHERE job_id=? AND status='complete'",
+                        (job,),
+                    ):
+                        value = json.loads(result["output_json"])
+                        for name, section in value.get("sections", {}).items():
+                            output.execute(
+                                "INSERT INTO enrichment_sections VALUES(?,?,?,?,?,?,?,?,?)",
+                                (
+                                    job,
+                                    result["course_id"],
+                                    name,
+                                    section["status"],
+                                    spec["profile"]["model"],
+                                    spec["profile"]["revision"],
+                                    canonical(section["value"])
+                                    if section.get("value") is not None
+                                    else None,
+                                    canonical(section["candidate"])
+                                    if section.get("candidate") is not None
+                                    else None,
+                                    section.get("error"),
+                                ),
+                            )
             finally:
                 jobs.close()
             if output.execute("PRAGMA foreign_key_check").fetchall():

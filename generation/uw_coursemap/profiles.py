@@ -20,6 +20,7 @@ class ModelProfile(BaseModel):
     concurrency: int = Field(default=2, ge=1, le=32)
     temperature: float = Field(default=0.2, ge=0, le=2)
     thinking: bool = False
+    request_timeout_seconds: int = Field(default=180, ge=1, le=1800)
     document_prefix: str = ""
     engine: str = "vllm"
     engine_version: str = "0.28.0"

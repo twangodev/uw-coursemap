@@ -293,8 +293,28 @@ def _release(store, run, build_id, enrichment_ids):
                 f"- config_name: {name}\n  data_files: tables/{name}.parquet"
                 for name in counts
             )
+            with sqlite3.connect(staging / "coursemap.sqlite") as public:
+                model_profiles = [
+                    json.loads(row[0])["profile"]
+                    for row in public.execute(
+                        "SELECT spec_json FROM enrichment_jobs ORDER BY job_id"
+                    )
+                ]
+            model_ids = sorted(
+                {
+                    f"{profile['model']}@{profile['revision']}"
+                    for profile in model_profiles
+                }
+            )
+            model_citations = "\n".join(f"- `{identity}`" for identity in model_ids)
             (staging / "README.md").write_text(
                 f"---\nconfigs:\n{configs}\n---\n\n# UW Course Map\n\nSource snapshot `{run}`. SQLite and Parquet contain equivalent tables.\nJoin observations by run_id; never sum cumulative grade snapshots across runs.\nGenerated course enrichments are separate, model-produced data, not official catalog facts.\nSee manifest.json for selected build, enrichment coverage, and provenance.\n"
+                + (
+                    f"\nGeneration models (pinned revisions):\n\n{model_citations}\n\n"
+                    if model_ids
+                    else ""
+                )
+                + "`enrichment_sections` contains independently validated sections, exact model/revision fields, and rejected candidates. Filter by section status; completed jobs can contain invalid or review-required sections. Full settings, local lookup traces, dependency hashes, and original requirement trees are retained in `enrichment_jobs` and `course_enrichments`.\n"
             )
             manifest = {
                 **selection,

@@ -132,6 +132,36 @@ jobs can run alongside a scrape. Each build/job permits only one active worker.
 
 ## Qwen requirements parsing
 
+For combined search metadata, requirements, and evidence-backed student experience,
+use `inference/tasks/course_enrichment.json` with the `enrichment-unified` profile:
+
+```sh
+uv run coursemap models-lock --models-config inference/models.toml \
+  --profile enrichment-unified --output "$COURSEMAP_WORKSPACE/unified-models.lock.json"
+uv run coursemap enrich RUN_ID --models-config "$COURSEMAP_WORKSPACE/unified-models.lock.json" \
+  --profile enrichment-unified --task inference/tasks/course_enrichment.json \
+  --course "CS 300" --course "CS/ECE 759"
+```
+
+One conversation plans local `get_course` lookups, generates all sections, and can
+repair rejected sections without overwriting accepted ones. Lookups use the same
+snapshot, at most six calls and depth two; no browsing or code execution occurs.
+Consulted-record hashes (including missing lookups) invalidate cached results when
+their evidence changes. Original requirement text/AST and normalized display text
+remain distinct. Related descriptions inform background, never formal eligibility.
+
+Each section has its own status: `valid`, `needs_review`, `invalid`, or
+`insufficient_evidence`. Job completion means processing finished, not that every
+section passed. Instructor-wide RMP comments lacking course/date attribution cannot
+support course sentiment. The current collector does not supply attributable
+course reviews; those sections explicitly report insufficient evidence.
+
+Dataset exports include all sections and rejected candidates in
+`enrichment_sections`, with the model name and immutable revision. Full results
+retain settings, task/worker versions, lookup traces, dependencies, history, and
+source requirements. The dataset card lists the exact generation model strings.
+To select these outputs, use `coursemap release RUN_ID --enrichment JOB_ID`.
+
 Lock the `requirements` profile and launch it using the same model-server command.
 It uses Qwen3.6-35B-A3B-NVFP4 with a 16K context and 4K output budget:
 

@@ -196,6 +196,99 @@ class LifecycleTests(unittest.TestCase):
         finally:
             jobs.close()
 
+    def test_unified_dependency_cache_and_dataset_sections(self):
+        from pathlib import Path
+        from uw_coursemap.course_context import CourseContext
+
+        task = (
+            Path(__file__).resolve().parents[2]
+            / "inference/tasks/course_enrichment.json"
+        )
+        jobs = Jobs(self.root)
+        calls = []
+        runs = []
+        try:
+            for description in [
+                "First prerequisite description",
+                "Changed prerequisite description",
+                "Changed prerequisite description",
+            ]:
+                run = self.store.new_run("1272", {})
+                self.fixture.seed(run)
+                dependency = self.store.records(run, "courses")["COMPSCI 300"].copy()
+                dependency["course_reference"] = {
+                    "subjects": ["COMPSCI"],
+                    "course_number": 200,
+                }
+                dependency["description"] = description
+                self.store.put(
+                    run,
+                    "catalog",
+                    {
+                        "kind": "courses",
+                        "key": "COMPSCI 200",
+                        "source_url": "https://guide.wisc.edu/courses/comp_sci/",
+                        "payload": dependency,
+                    },
+                )
+                self.store.finish(run)
+                context = CourseContext(self.store, run)
+                with patch("uw_coursemap.jobs.load_profile", return_value=self.profile):
+                    job = jobs.create(
+                        run, "unused", "unified", task, course_ids=["CS 300"]
+                    )
+
+                def worker(*args):
+                    calls.append(run)
+                    return {
+                        "model": self.profile.model,
+                        "model_revision": self.profile.revision,
+                        "sections": {
+                            "search_profile": {
+                                "status": "valid",
+                                "value": {"summary": "fixture"},
+                            },
+                            "requirements": {
+                                "status": "invalid",
+                                "value": None,
+                                "candidate": {"root": "missing"},
+                                "error": "Missing root",
+                            },
+                        },
+                        "provenance": {
+                            "dependencies": {
+                                "COMPSCI 200": context.fingerprint("COMPSCI 200")
+                            }
+                        },
+                    }, {}
+
+                self.assertEqual(jobs.run(job, worker)["status"], "complete")
+                runs.append(run)
+            self.assertEqual(calls, runs[:2])
+            value = json.loads(
+                jobs.db.execute(
+                    "SELECT output_json FROM results WHERE job_id=?", (job,)
+                ).fetchone()[0]
+            )
+            self.assertEqual(value["provenance"]["generated_from_snapshot"], runs[1])
+            path = release(self.store, run, enrichment_ids=[job])
+            manifest = verify_release(path)
+            self.assertEqual(manifest["tables"]["enrichment_sections"], 2)
+            self.assertIn(self.profile.served_model, (path / "README.md").read_text())
+            with sqlite3.connect(path / "coursemap.sqlite") as db:
+                rows = db.execute(
+                    "SELECT section,status,model,model_revision,value_json,candidate_json FROM enrichment_sections ORDER BY section"
+                ).fetchall()
+            self.assertEqual(
+                rows[0][:4],
+                ("requirements", "invalid", self.profile.model, self.profile.revision),
+            )
+            self.assertIsNone(rows[0][4])
+            self.assertEqual(json.loads(rows[0][5]), {"root": "missing"})
+            self.assertEqual(rows[1][1], "valid")
+        finally:
+            jobs.close()
+
     def test_partial_resume_only_retries_failed_courses(self):
         original = self.store.records(self.run, "courses")["COMPSCI 300"]
         copied = json.loads(canonical(original))
