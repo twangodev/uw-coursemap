@@ -8,7 +8,7 @@ on:
 
 jobs:
   ruff:
-    name: Ruff Linting
+    name: Ruff Linting (${{ matrix.name }})
     runs-on: ubuntu-latest
     strategy:
       matrix:
