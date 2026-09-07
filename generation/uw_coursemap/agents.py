@@ -164,7 +164,13 @@ async def _conversation(profile, task, payload, context, model=None):
     usage = RunUsage()
     request_failure = None
     recovery_events = []
-    direct_recovery = False
+    direct_recovery = bool(
+        previous
+        and (
+            previous.get("provenance", {}).get("recovery_events")
+            or previous.get("provenance", {}).get("direct_recovery")
+        )
+    )
     request_thinking = bool(seed or profile.get("thinking"))
 
     def settings(ctx: RunContext):
@@ -432,6 +438,7 @@ async def _conversation(profile, task, payload, context, model=None):
         "tool_calls": lookup.trace,
         "attempts": attempts,
         "recovery_events": recovery_events,
+        "direct_recovery": direct_recovery,
         "conversation": messages,
         "request_error": request_failure,
         "generation_settings": {

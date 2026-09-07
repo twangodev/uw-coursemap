@@ -253,6 +253,24 @@ class AgentTests(unittest.TestCase):
             self.previous["sections"]["search_profile"],
         )
 
+    def test_chained_repair_retains_previous_direct_recovery_mode(self):
+        f = self.fixture
+        self.previous["provenance"]["recovery_events"] = [{"thinking": False}]
+
+        def model(messages, info):
+            self.assertFalse(
+                info.model_settings["extra_body"]["chat_template_kwargs"][
+                    "enable_thinking"
+                ]
+            )
+            self.assertEqual(info.model_settings["tool_choice"], ["submit_sections"])
+            return self.response({"requirements": f.requirements})
+
+        output, _ = generate_repair(
+            f.profile, self.task, self.seed, f.context, FunctionModel(model)
+        )
+        self.assertEqual(output["sections"]["requirements"]["status"], "valid")
+
     def test_thinking_truncation_recovery_is_bounded(self):
         f = self.fixture
         calls = []
