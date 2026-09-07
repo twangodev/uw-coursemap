@@ -19,6 +19,9 @@ class ModelProfile(BaseModel):
     max_output_tokens: int = Field(default=2048, ge=1)
     concurrency: int = Field(default=2, ge=1, le=512)
     temperature: float = Field(default=0.2, ge=0, le=2)
+    top_p: float = Field(default=0.95, gt=0, le=1)
+    top_k: int = Field(default=20, ge=0)
+    presence_penalty: float = Field(default=0, ge=-2, le=2)
     thinking: bool = False
     request_timeout_seconds: int = Field(default=180, ge=1, le=1800)
     document_prefix: str = ""

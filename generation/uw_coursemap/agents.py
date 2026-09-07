@@ -160,11 +160,13 @@ async def _conversation(profile, task, payload, context, model=None):
         initial = canonical(feedback)
     usage = RunUsage()
     request_failure = None
+    recovery_events = []
+    direct_recovery = False
     request_thinking = bool(seed or profile.get("thinking"))
 
     def settings(ctx: RunContext):
         nonlocal request_thinking
-        thinking = bool(
+        thinking = not direct_recovery and bool(
             seed
             or profile.get("thinking")
             or repair_limit
@@ -172,10 +174,15 @@ async def _conversation(profile, task, payload, context, model=None):
         )
         request_thinking = thinking
         return {
-            "temperature": profile.get("temperature", 0),
+            "temperature": profile.get("temperature", 0.6),
+            "top_p": profile.get("top_p", 0.95),
+            "presence_penalty": profile.get("presence_penalty", 0),
             "max_tokens": profile.get("max_output_tokens", 6144),
             "parallel_tool_calls": False,
-            "extra_body": {"chat_template_kwargs": {"enable_thinking": thinking}},
+            "extra_body": {
+                "top_k": profile.get("top_k", 20),
+                "chat_template_kwargs": {"enable_thinking": thinking},
+            },
         }
 
     async def run(selected_model):
@@ -300,21 +307,79 @@ async def _conversation(profile, task, payload, context, model=None):
                 )
             return value
 
-        with capture_run_messages() as messages:
-            try:
-                await agent.run(
-                    initial,
-                    message_history=history,
-                    usage=usage,
-                    usage_limits=UsageLimits(
-                        request_limit=turns + lookup.max_calls,
-                        tool_calls_limit=lookup.max_calls + 1,
-                    ),
-                )
-            except (UnexpectedModelBehavior, UsageLimitExceeded, ModelAPIError) as exc:
-                nonlocal request_failure
-                request_failure = str(exc)[:1500]
-            return serialize_messages(messages)
+        nonlocal request_failure, direct_recovery
+        current_history, prompt = history, initial
+        all_messages = []
+        for recovery in range(2):
+            with capture_run_messages() as messages:
+                try:
+                    await agent.run(
+                        prompt,
+                        message_history=current_history,
+                        usage=usage,
+                        usage_limits=UsageLimits(
+                            request_limit=turns + lookup.max_calls + 1,
+                            tool_calls_limit=lookup.max_calls + 1,
+                        ),
+                    )
+                    all_messages = list(messages)
+                    break
+                except (
+                    UnexpectedModelBehavior,
+                    UsageLimitExceeded,
+                    ModelAPIError,
+                ) as exc:
+                    all_messages = list(messages)
+                    if (
+                        recovery == 0
+                        and isinstance(exc, UnexpectedModelBehavior)
+                        and "exceeded before any response was generated" in str(exc)
+                        and "Model token limit" in str(exc)
+                    ):
+                        recovery_events.append(
+                            {
+                                "reason": str(exc),
+                                "conversation": serialize_messages(messages),
+                                "thinking": False,
+                            }
+                        )
+                        direct_recovery = True
+                        # Keep the native exchange, but don't feed thousands of
+                        # unfinished reasoning tokens back into the context.
+                        current_history = copy.deepcopy(messages)
+                        for message in current_history:
+                            if isinstance(message, ModelResponse):
+                                message.parts = [
+                                    p
+                                    for p in message.parts
+                                    if p.part_kind != "thinking"
+                                ]
+                                if not message.parts:
+                                    message.parts = [
+                                        TextPart(
+                                            "[Reasoning truncated before an answer was submitted.]"
+                                        )
+                                    ]
+                        prompt = canonical(
+                            {
+                                "instruction": "Your previous reasoning exhausted the token budget. Submit a concise corrected answer now using submit_sections. Do not continue the analysis. Accepted sections must be null.",
+                                "sections_needed": [
+                                    n
+                                    for n in SECTIONS
+                                    if sections.get(n, {}).get("status", "invalid")
+                                    == "invalid"
+                                ],
+                                "validation_errors": {
+                                    n: s.get("error")
+                                    for n, s in sections.items()
+                                    if s["status"] == "invalid"
+                                },
+                            }
+                        )
+                        continue
+                    request_failure = str(exc)[:1500]
+                    break
+        return serialize_messages(all_messages)
 
     if model is not None:
         messages = await run(model)
@@ -352,12 +417,16 @@ async def _conversation(profile, task, payload, context, model=None):
         "dependencies": lookup.dependencies,
         "tool_calls": lookup.trace,
         "attempts": attempts,
+        "recovery_events": recovery_events,
         "conversation": messages,
         "request_error": request_failure,
         "generation_settings": {
             k: profile[k]
             for k in (
                 "temperature",
+                "top_p",
+                "top_k",
+                "presence_penalty",
                 "thinking",
                 "max_output_tokens",
                 "context_length",

@@ -8,6 +8,7 @@ from pydantic_ai.messages import (
     ModelResponse,
     RetryPromptPart,
     TextPart,
+    ThinkingPart,
     ToolCallPart,
     ToolReturnPart,
 )
@@ -207,6 +208,66 @@ class AgentTests(unittest.TestCase):
             f.context.fingerprint("COMPSCI 200"),
         )
         self.assertEqual(output["sections"]["search_profile"]["status"], "valid")
+
+    def test_thinking_only_truncation_recovers_without_thinking(self):
+        f = self.fixture
+        calls = []
+
+        def model(messages, info):
+            calls.append(info.model_settings)
+            if len(calls) == 1:
+                return ModelResponse(
+                    parts=[ThinkingPart("repeated analysis " * 20)],
+                    finish_reason="length",
+                )
+            self.assertFalse(
+                info.model_settings["extra_body"]["chat_template_kwargs"][
+                    "enable_thinking"
+                ]
+            )
+            self.assertFalse(
+                any(isinstance(p, ThinkingPart) for m in messages for p in m.parts)
+            )
+            self.assertIn(
+                "exhausted the token budget",
+                ModelMessagesTypeAdapter.dump_json(messages).decode(),
+            )
+            return self.response(
+                {
+                    "requirements": f.requirements,
+                    "search_profile": None,
+                    "student_experience": None,
+                }
+            )
+
+        output, _ = generate_repair(
+            f.profile, self.task, self.seed, f.context, FunctionModel(model)
+        )
+        self.assertEqual(len(calls), 2)
+        self.assertEqual(output["sections"]["requirements"]["status"], "valid")
+        self.assertIsNone(output["provenance"]["request_error"])
+        self.assertEqual(len(output["provenance"]["recovery_events"]), 1)
+        self.assertEqual(
+            output["sections"]["search_profile"],
+            self.previous["sections"]["search_profile"],
+        )
+
+    def test_thinking_truncation_recovery_is_bounded(self):
+        f = self.fixture
+        calls = []
+
+        def model(*args):
+            calls.append(1)
+            return ModelResponse(
+                parts=[ThinkingPart("unfinished")], finish_reason="length"
+            )
+
+        output, _ = generate_repair(
+            f.profile, self.task, self.seed, f.context, FunctionModel(model)
+        )
+        self.assertEqual(len(calls), 2)
+        self.assertEqual(output["sections"]["requirements"]["status"], "invalid")
+        self.assertIn("Model token limit", output["provenance"]["request_error"])
 
     def test_truncated_balanced_json_is_not_accepted(self):
         f = self.fixture

@@ -352,7 +352,7 @@ engine. `profiles.enrichment-unified` enables the Qwen XML tool parser and uses 
 32K context, 16K output budget, and the measured 256-sequence/384-client throughput
 settings. Hardware power limits are managed separately.
 
-New jobs use worker version 12. Resume older jobs from their original checkout;
+New jobs use worker version 13. Resume older jobs from their original checkout;
 the worker-version check prevents mixing implementations. The exact PydanticAI
 version is included in job identity, cache keys and output provenance. Native
 message histories (including tool returns and retry feedback) are saved in
@@ -365,3 +365,9 @@ history; public Parquet and serving contracts are unchanged.
 Course agents use PydanticAI tool-output mode (`submit_sections`) alongside
 `get_course`; the live Qwen/vLLM check showed native-JSON mode can suppress tool
 calls. Generic extraction tasks without tools use native structured JSON.
+
+The unified profile uses temperature 0.6, top-p 0.95, and top-k 20. A thinking-only
+token-limit failure gets one recovery continuation with thinking disabled. Its
+original trace is retained in `provenance.recovery_events`; the continuation
+omits unfinished thinking to avoid repeating it and overflowing the context.
+Accepted sections remain locked, and the shared request/tool budgets still apply.
