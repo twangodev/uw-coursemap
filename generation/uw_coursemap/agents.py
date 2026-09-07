@@ -41,7 +41,12 @@ from .unified import SECTIONS, compare_parsers, validate_section, review_handles
 ORCHESTRATOR = {"name": "pydantic-ai", "version": version("pydantic-ai-slim")}
 
 
-def evidence_view(root, needed):
+def evidence_view(root, needed, related=False):
+    if related:
+        keys = {"course_id", "course_reference", "title"}
+        if "search_profile" in needed:
+            keys.update({"description", "source_url"})
+        return {k: v for k, v in root.items() if k in keys}
     keys = {"course_id", "course_reference", "title"}
     if "search_profile" in needed:
         keys.update(
@@ -217,12 +222,18 @@ async def _conversation(profile, task, payload, context, model=None):
         for name in SECTIONS
         if sections.get(name, {}).get("status", "invalid") == "invalid"
     }
+    if "requirements" in needed:
+        feedback["target_course_id"] = root["course_id"]
+        feedback["direct_requirements_text"] = root["requirements_text"]
+        feedback["requirement_scope"] = (
+            "Parse only this target course's direct requirements. Never substitute a prerequisite course's requirements."
+        )
     source_view = evidence_view(root, needed)
     initial = canonical(
         {
             "course": source_view,
             "lookup_evidence": {
-                k: evidence_view(v, needed)
+                k: evidence_view(v, needed, related=True)
                 for k, v in lookup.evidence.items()
                 if k != root["course_id"]
             },
@@ -328,7 +339,7 @@ async def _conversation(profile, task, payload, context, model=None):
             """Read a related course from this frozen snapshot; from_course must already be provided."""
             found = lookup.get_course(course_id, from_course)
             return (
-                evidence_view(found, needed)
+                evidence_view(found, needed, related=True)
                 if found and "course_id" in found
                 else found
             )
@@ -476,7 +487,7 @@ async def _conversation(profile, task, payload, context, model=None):
                             {
                                 "course": source_view,
                                 "lookup_evidence": {
-                                    k: evidence_view(v, needed)
+                                    k: evidence_view(v, needed, related=True)
                                     for k, v in lookup.evidence.items()
                                     if k != root["course_id"]
                                 },

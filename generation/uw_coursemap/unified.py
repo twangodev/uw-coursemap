@@ -96,6 +96,8 @@ def literal_span(quote, source):
 
 
 def source_quote(quote, source):
+    if text_view(quote).casefold() == text_view(source).casefold():
+        return source
     if quote in source:
         return quote
     quote = text_view(quote)

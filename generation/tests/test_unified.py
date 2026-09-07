@@ -483,3 +483,9 @@ class UnifiedTests(unittest.TestCase):
                 validate_section(
                     "student_experience", value, self.task, self.root, self.lookup
                 )
+
+    def test_full_field_quote_restores_case_and_spacing_without_fuzzy_matching(self):
+        self.assertEqual(
+            source_quote("ITALIAN  THEATRE", "Italian Theatre"), "Italian Theatre"
+        )
+        self.assertIsNone(source_quote("Italian literature", "Italian Theatre"))

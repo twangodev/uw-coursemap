@@ -15,7 +15,7 @@ from .profiles import load_profile
 from .store import Store, now
 
 
-WORKER_VERSION = 27
+WORKER_VERSION = 28
 
 
 def generation_schema(schema):

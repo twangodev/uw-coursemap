@@ -174,3 +174,21 @@ class ReuseTests(unittest.TestCase):
         self.assertEqual(result["value"]["root"], "n")
         self.assertEqual(len(result["value"]["nodes"]), 1)
         self.assertTrue(result["value"]["notes"])
+
+    def test_related_lookup_cannot_replace_target_requirements_or_reviews(self):
+        related = {
+            "course_id": "COMPSCI 200",
+            "course_reference": {"subjects": ["COMPSCI"], "course_number": 200},
+            "title": "Programming I",
+            "description": "Introduction to programming.",
+            "requirements_text": "MATH 221",
+            "reviews": [{"id": "foreign"}],
+        }
+        ast = evidence_view(
+            related, {"requirements", "student_experience"}, related=True
+        )
+        self.assertEqual(set(ast), {"course_id", "course_reference", "title"})
+        search = evidence_view(related, {"search_profile"}, related=True)
+        self.assertIn("description", search)
+        self.assertNotIn("requirements_text", search)
+        self.assertNotIn("reviews", search)
