@@ -328,3 +328,19 @@ uv run coursemap --workspace "$COURSEMAP_WORKSPACE" enrich-resume JOB_ID --concu
 This preserves the job's model/task configuration and completed checkpoints;
 fresh outputs record `provenance.client_concurrency`. The vLLM server's
 `--max-num-seqs` and `--max-num-batched-tokens` must be configured separately.
+
+Rejected sections can be repaired in a separate, resumable conversation job:
+
+```bash
+uv run coursemap --workspace "$COURSEMAP_WORKSPACE" enrich-repair PARENT_JOB_ID \
+  --models-config models.lock.json --profile enrichment-unified --limit 20 --turns 3
+```
+
+Use `--limit 0` for all rejected courses, or repeated `--course` canonical IDs for
+specific failures. Each turn sends the preceding assistant response and exact
+validator feedback back to the same pinned Qwen model with thinking enabled.
+Accepted sections are locked. The result preserves the parent output hash,
+section origins, full repair conversation, and each attempted validation. A job
+can complete with unresolved sections after its bounded retry budget; those stay
+invalid or review-required. Missing review evidence is not repairable by inference.
+Use `enrich-resume` with the new job ID after interruption.

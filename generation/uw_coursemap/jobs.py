@@ -389,6 +389,10 @@ class Jobs:
                         from .unified import generate_unified
 
                         selected_worker = generate_unified
+                        if spec["task"].get("repair_mode") == "conversation_v1":
+                            from .repair import generate_repair
+
+                            selected_worker = generate_repair
                         args.append(context)
                     pending[pool.submit(selected_worker, *args)] = row
                     return

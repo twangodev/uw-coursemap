@@ -71,6 +71,17 @@ def parser():
         command.add_argument("job_id")
         if name == "enrich-resume":
             command.add_argument("--concurrency", type=int)
+    repair = commands.add_parser(
+        "enrich-repair",
+        help="Repair saved rejected sections through validator conversation turns",
+    )
+    repair.add_argument("job_id")
+    repair.add_argument("--models-config", type=Path, required=True)
+    repair.add_argument("--profile", default="enrichment-unified")
+    repair.add_argument("--limit", type=int, default=20)
+    repair.add_argument("--course", action="append")
+    repair.add_argument("--turns", type=int, default=3)
+    repair.add_argument("--prepare-only", action="store_true")
     descriptions = {
         "resume": "Continue an interrupted run",
         "status": "Show source and stage completion",
@@ -226,6 +237,7 @@ def main(argv=None):
         "derive-resume",
         "enrich",
         "enrich-resume",
+        "enrich-repair",
         "job-status",
     }:
         from .lifecycle import build
@@ -253,6 +265,20 @@ def main(argv=None):
                         course_ids=args.course,
                     )
                     print(f"Created enrichment job {job}", flush=True)
+                    result = jobs.status(job) if args.prepare_only else jobs.run(job)
+                elif args.command == "enrich-repair":
+                    from .repair import create_repair
+
+                    job = create_repair(
+                        jobs,
+                        args.job_id,
+                        args.models_config,
+                        args.profile,
+                        args.limit,
+                        args.course,
+                        args.turns,
+                    )
+                    print(f"Created repair job {job}", flush=True)
                     result = jobs.status(job) if args.prepare_only else jobs.run(job)
                 elif args.command == "enrich-resume":
                     result = jobs.run(args.job_id, concurrency=args.concurrency)
