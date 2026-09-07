@@ -290,20 +290,44 @@ def validate_section(name, candidate, task, root, lookup):
                 years = sorted(
                     {r["date"][:4] for r in evidence if re.match(r"\d{4}", r["date"])}
                 )
-                summary = text_view(theme["summary"]).casefold()
-                if years and any(year not in summary for year in (years[0], years[-1])):
-                    raise ValueError(
-                        f"Historical sentiment summary must state its cited review years: {years[0]} to {years[-1]}"
+                people = {
+                    r["instructor_id"]: r.get("instructor_name") for r in evidence
+                }
+                theme["scope"] = {
+                    "instructors": [
+                        {"id": key, "name": people[key]} for key in sorted(people)
+                    ],
+                    "review_year_start": years[0] if years else None,
+                    "review_year_end": years[-1] if years else None,
+                    "historical": True,
+                }
+                # Normalize an explicit leading date label from the citations;
+                # model-written thematic prose is preserved and scope is always typed.
+                prefix = re.match(
+                    r"^Reviews (?:from \d{4}(?:\s*(?:to|[-–—])\s*\d{4})?|of .+?\(\d{4}(?:\s*(?:to|[-–—])\s*\d{4})?\))",
+                    theme["summary"],
+                    re.I,
+                )
+                if prefix and years:
+                    period = (
+                        years[0]
+                        if years[0] == years[-1]
+                        else years[0] + "–" + years[-1]
                     )
-                people = {r["instructor_id"] for r in evidence}
-                names = {r.get("instructor_name") for r in evidence} - {None, ""}
-                if (
-                    len(people) == 1
-                    and names
-                    and not any(text_view(name).casefold() in summary for name in names)
-                ):
-                    raise ValueError(
-                        "Sentiment from one instructor's reviews must name that instructor in the summary: "
-                        + ", ".join(sorted(names))
+                    names = {name for name in people.values() if name}
+                    label = (
+                        f"Reviews of {next(iter(names))} ({period})"
+                        if len(people) == 1 and len(names) == 1
+                        else f"Reviews from {period}"
                     )
+                    original = theme["summary"]
+                    theme["summary"] = label + original[prefix.end() :]
+                    if theme["summary"] != original:
+                        repairs.append(
+                            {
+                                "field": "summary_scope",
+                                "original": original,
+                                "resolved": theme["summary"],
+                            }
+                        )
     return {"status": state, "value": value, "error": None, "citation_repairs": repairs}

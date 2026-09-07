@@ -433,3 +433,5 @@ conversation remains in `recovery_events`; request and tool budgets remain share
 `public/rmp_reviews.parquet` retains all comments on matched RMP profiles, including historical instructors. Rows retain source review/profile IDs, dates, scores, and original course labels; unresolved course links remain null. LLM sentiment uses a bounded historical sample and cites its review evidence.
 
 For a review refresh, repeat `enrich --reuse-job JOB_ID` for the previously selected jobs. Unchanged source and lookup evidence is revalidated before retaining search/requirements sections with their original provenance. Review sentiment is regenerated; courses without attributable reviews need no model call when their other sections can be reused. Ambiguous semicolon eligibility rules retain their source text and are marked `needs_review` without an asserted Boolean tree.
+
+Sentiment themes include deterministic `scope` metadata (cited instructors and review-year range), derived from their review IDs. Model-written leading date labels are normalized to that evidence with the original text recorded in the trace.

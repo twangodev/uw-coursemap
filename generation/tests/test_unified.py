@@ -208,24 +208,31 @@ class UnifiedTests(unittest.TestCase):
                 }
             ],
         }
-        with self.assertRaisesRegex(ValueError, "review years"):
-            validate_section(
-                "student_experience", value, self.task, self.root, self.lookup
-            )
-        value["themes"][0]["summary"] = (
-            "Reviews from 2017–2022 describe useful projects."
+        result = validate_section(
+            "student_experience", value, self.task, self.root, self.lookup
         )
-        with self.assertRaisesRegex(ValueError, "name that instructor"):
-            validate_section(
-                "student_experience", value, self.task, self.root, self.lookup
-            )
+        theme = result["value"]["themes"][0]
+        self.assertEqual(theme["summary"], "Useful projects.")
+        self.assertEqual(
+            theme["scope"],
+            {
+                "instructors": [{"id": "rmp:1", "name": "Jane Doe"}],
+                "review_year_start": "2017",
+                "review_year_end": "2022",
+                "historical": True,
+            },
+        )
         value["themes"][0]["summary"] = (
-            "Reviews of Jane Doe (2017–2022) describe useful projects."
+            "Reviews from 2020 to 2021 describe useful projects."
         )
         result = validate_section(
             "student_experience", value, self.task, self.root, self.lookup
         )
-        self.assertEqual(result["status"], "valid")
+        self.assertEqual(
+            result["value"]["themes"][0]["summary"],
+            "Reviews of Jane Doe (2017–2022) describe useful projects.",
+        )
+        self.assertEqual(result["citation_repairs"][0]["field"], "summary_scope")
 
     def test_sentiment_can_cite_the_full_thirty_review_sample(self):
         self.root["reviews"] = [
