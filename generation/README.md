@@ -2,6 +2,9 @@
 
 Run from the project root with Python 3.12 and `uv sync --locked`. Scraping,
 processing, and publication are independent commands with persistent checkpoints.
+Run these manually on the local machine each semester; GitHub Actions does not
+scrape or publish datasets. Published data lives on
+[Hugging Face](https://huggingface.co/datasets/twangodev/uw-coursemap).
 
 ```sh
 export COURSEMAP_WORKSPACE=/path/to/persistent/coursemap
