@@ -149,6 +149,11 @@ snapshot, at most six calls and depth two; no browsing or code execution occurs.
 Consulted-record hashes (including missing lookups) invalidate cached results when
 their evidence changes. Original requirement text/AST and normalized display text
 remain distinct. Related descriptions inform background, never formal eligibility.
+Requirement graphs pass deterministic validation and are compared with the legacy
+AST when possible. Structural disagreements require review; neither parser is
+automatically authoritative. Citation aliases and abbreviated quotes are resolved
+only against supplied records and ordered verbatim source fragments; repairs are
+recorded in the result.
 
 Each section has its own status: `valid`, `needs_review`, `invalid`, or
 `insufficient_evidence`. Job completion means processing finished, not that every

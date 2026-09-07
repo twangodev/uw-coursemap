@@ -9,13 +9,73 @@ import time
 import jsonschema
 import requests
 
-from .course_context import CourseLookup
+from .course_context import CourseLookup, text_view
 from .jobs import WORKER_VERSION, generation_schema
 from .models import digest
 from .requirements import restore_quotes, validate_graph
+from .requirements_eval import expression, normalize
 
 
 SECTIONS = ("search_profile", "requirements", "student_experience")
+
+
+def compare_parsers(section, original):
+    def convert(node):
+        if isinstance(node, str):
+            return {"condition": text_view(node)}
+        if isinstance(node, dict) and "course_number" in node:
+            return {
+                "course": {
+                    "subjects": node["subjects"],
+                    "course_number": node["course_number"],
+                    "timing": "prior",
+                    "minimum_grade": None,
+                }
+            }
+        if isinstance(node, dict) and node.get("operator") in {"AND", "OR", "NOT"}:
+            return {
+                {"AND": "all", "OR": "any", "NOT": "not"}[node["operator"]]: [
+                    convert(c) for c in node["children"]
+                ]
+            }
+        raise ValueError("Unsupported legacy AST form")
+
+    comparison = {
+        "structural_match": None,
+        "note": "Both parsers are candidates; structural agreement does not prove semantic correctness.",
+    }
+    if original.get("ast") is not None and section.get("value") is not None:
+        try:
+            comparison["structural_match"] = normalize(
+                convert(original["ast"])
+            ) == normalize(expression(section["value"]))
+        except (ValueError, KeyError, TypeError, IndexError):
+            comparison["note"] = (
+                "Legacy AST could not be compared; preserve both candidates for review."
+            )
+        if comparison["structural_match"] is False and section["status"] == "valid":
+            section["status"] = "needs_review"
+    section["parser_comparison"] = comparison
+
+
+def source_quote(quote, source):
+    if quote in source:
+        return quote
+    quote = text_view(quote)
+    if quote in source:
+        return quote
+    parts = [part.strip() for part in re.split(r"\.{3}|…", quote) if part.strip()]
+    if len(parts) < 2:
+        return None
+    start, end = None, 0
+    for part in parts:
+        position = source.find(part, end)
+        if position < 0:
+            return None
+        if start is None:
+            start = position
+        end = position + len(part)
+    return source[start:end]
 
 
 def validate_section(name, candidate, task, root, lookup):
@@ -24,6 +84,7 @@ def validate_section(name, candidate, task, root, lookup):
     )
     value = copy.deepcopy(candidate)
     state = "valid"
+    repairs = []
     if name == "search_profile":
         claims = [
             value["summary"],
@@ -35,12 +96,22 @@ def validate_section(name, candidate, task, root, lookup):
             if not claim["evidence"]:
                 raise ValueError("Search claims require evidence")
             for citation in claim["evidence"]:
-                course = lookup.evidence.get(citation["course_id"])
-                if course is None or citation["quote"] not in course.get(
-                    citation["field"], ""
-                ):
+                original = copy.deepcopy(citation)
+                key = lookup.context.resolve(citation["course_id"])
+                course = lookup.evidence.get(key)
+                quote = (
+                    source_quote(citation["quote"], course.get(citation["field"], ""))
+                    if course
+                    else None
+                )
+                if not quote:
                     raise ValueError(
-                        "Search evidence must quote a supplied course field"
+                        f"Invalid evidence for {citation['course_id']}.{citation['field']}: {citation['quote']!r}. Copy a short exact substring from supplied text; do not paraphrase or invent omitted text."
+                    )
+                citation.update(course_id=key, quote=quote)
+                if citation != original:
+                    repairs.append(
+                        {"original": original, "resolved": copy.deepcopy(citation)}
                     )
         for claim in [value["summary"], *value["topics"], *value["skills_taught"]]:
             if any(
@@ -50,6 +121,9 @@ def validate_section(name, candidate, task, root, lookup):
                 raise ValueError(
                     "Taught content must cite the root course description, not prerequisites"
                 )
+        jsonschema.Draft202012Validator(task["schema"]["properties"][name]).validate(
+            value
+        )
     elif name == "requirements":
         linked = list(root["linked_courses"])
         compact = re.sub(r"[^A-Z0-9]", "", root["requirements_text"].upper())
@@ -97,7 +171,7 @@ def validate_section(name, candidate, task, root, lookup):
                     )
                 theme["evidence_count"] = len(ids)
                 theme["evidence"] = [reviews[key] for key in ids]
-    return {"status": state, "value": value, "error": None}
+    return {"status": state, "value": value, "error": None, "citation_repairs": repairs}
 
 
 def request(profile, task, messages, allow_lookup):
@@ -306,6 +380,7 @@ def generate_unified(profile, task, payload, context, transport=request):
                 if name == "student_experience" and not root["reviews"]
                 else "Model did not return this section",
             }
+    compare_parsers(sections["requirements"], root["original_requirements"])
     return {
         "course_id": root["course_id"],
         "model": profile["model"],

@@ -4,7 +4,12 @@ import unittest
 
 from uw_coursemap.course_context import CourseLookup, text_view
 from uw_coursemap.models import digest
-from uw_coursemap.unified import generate_unified, validate_section
+from uw_coursemap.unified import (
+    compare_parsers,
+    generate_unified,
+    source_quote,
+    validate_section,
+)
 
 TASK = Path(__file__).resolve().parents[2] / "inference/tasks/course_enrichment.json"
 
@@ -220,3 +225,53 @@ class UnifiedTests(unittest.TestCase):
         raw = r"COMP\xa0SCI\xa0300"
         self.assertEqual(text_view(raw), "COMP SCI 300")
         self.assertEqual(raw, r"COMP\xa0SCI\xa0300")
+
+    def test_abbreviated_citations_expand_only_ordered_source_fragments(self):
+        self.assertEqual(
+            source_quote("Programming...objects.", "Programming using objects."),
+            "Programming using objects.",
+        )
+        self.assertIsNone(
+            source_quote("objects...Programming", "Programming using objects.")
+        )
+        self.assertIsNone(
+            source_quote("Programming...Java", "Programming using objects.")
+        )
+        self.search["summary"]["evidence"][0]["quote"] = "Programming...objects."
+        result = validate_section(
+            "search_profile", self.search, self.task, self.root, self.lookup
+        )
+        self.assertEqual(
+            result["value"]["summary"]["evidence"][0]["quote"],
+            "Programming using objects.",
+        )
+        self.assertEqual(
+            result["citation_repairs"][0]["original"]["quote"], "Programming...objects."
+        )
+        self.assertEqual(
+            self.search["summary"]["evidence"][0]["quote"], "Programming...objects."
+        )
+
+    def test_legacy_disagreement_flags_review_without_replacing_candidate(self):
+        value = {
+            "status": "parsed",
+            "root": "n",
+            "nodes": [
+                {
+                    "id": "n",
+                    "kind": "condition",
+                    "children": [],
+                    "condition": "Graduate standing",
+                    "course": None,
+                    "evidence": "Graduate standing",
+                }
+            ],
+            "notes": [],
+        }
+        section = {"status": "valid", "value": value}
+        compare_parsers(section, {"ast": "Graduate standing"})
+        self.assertTrue(section["parser_comparison"]["structural_match"])
+        compare_parsers(section, {"ast": "Consent of instructor"})
+        self.assertEqual(section["status"], "needs_review")
+        self.assertFalse(section["parser_comparison"]["structural_match"])
+        self.assertEqual(section["value"], value)
