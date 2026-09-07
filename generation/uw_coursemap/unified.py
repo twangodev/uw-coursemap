@@ -12,7 +12,7 @@ import requests
 from .course_context import CourseLookup, text_view
 from .jobs import WORKER_VERSION, generation_schema
 from .models import digest
-from .requirements import restore_quotes, validate_graph
+from .requirements import graph_diagnostics, restore_quotes, validate_graph
 from .requirements_eval import expression, normalize
 
 
@@ -144,6 +144,9 @@ def validate_section(name, candidate, task, root, lookup):
             "linked_courses": linked,
         }
         restore_quotes(value, payload)
+        diagnostics = graph_diagnostics(value, payload)
+        if diagnostics:
+            raise ValueError("\n".join(diagnostics))
         validate_graph(value, payload)
         state = "needs_review" if value["status"] == "needs_review" else "valid"
     else:
@@ -265,15 +268,22 @@ def generate_unified(profile, task, payload, context, transport=request):
     attempts = []
     final_turns = 0
     usage = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
-    # Three tool rounds, one mandatory final response, one targeted correction.
-    for turn in range(5):
-        allow_lookup = turn < 3 and lookup.calls < lookup.max_calls
+    repair_message = None
+    repair_attempts = 0
+    # Three tool rounds, one final response, at most two correction attempts.
+    for turn in range(6):
+        repairing = sections.get("requirements", {}).get("status") == "invalid"
+        turn_profile = {**profile, "thinking": True} if repairing else profile
+        if repairing:
+            repair_attempts += 1
+        allow_lookup = not sections and turn < 3 and lookup.calls < lookup.max_calls
         try:
-            response, tokens = transport(profile, task, messages, allow_lookup)
+            response, tokens = transport(turn_profile, task, messages, allow_lookup)
         except (ValueError, requests.RequestException, KeyError, IndexError) as exc:
             attempts.append(
                 {
                     "turn": turn,
+                    "thinking": turn_profile.get("thinking", False),
                     "error": type(exc).__name__
                     + ": "
                     + (
@@ -284,8 +294,10 @@ def generate_unified(profile, task, payload, context, transport=request):
                 }
             )
             if sections:
-                break  # Keep successful sections if a correction request fails.
-            if turn == 4:
+                if not repairing or repair_attempts >= 2:
+                    break
+                continue  # Retry the same rejected AST once; retain accepted sections.
+            if turn == 5:
                 raise
             messages.append(
                 {
@@ -297,7 +309,15 @@ def generate_unified(profile, task, payload, context, transport=request):
         for key in usage:
             usage[key] += tokens.get(key, 0)
         if not isinstance(response, dict):
-            attempts.append({"turn": turn, "error": "Expected an object"})
+            attempts.append(
+                {
+                    "turn": turn,
+                    "thinking": turn_profile.get("thinking", False),
+                    "error": "Expected an object",
+                }
+            )
+            if repair_attempts >= 2:
+                break
             continue
         calls = response.get("lookups", [])
         if not isinstance(calls, list):
@@ -319,12 +339,12 @@ def generate_unified(profile, task, payload, context, transport=request):
                     if isinstance(exc, jsonschema.ValidationError)
                     else str(exc)
                 )
-                errors[name] = reason[:600]
+                errors[name] = reason[:6000]
                 sections[name] = {
                     "status": "invalid",
                     "value": None,
                     "candidate": candidate,
-                    "error": reason[:600],
+                    "error": reason[:6000],
                 }
         results = []
         if allow_lookup:
@@ -335,7 +355,19 @@ def generate_unified(profile, task, payload, context, transport=request):
                     results.append(
                         lookup.get_course(call["course_id"], call["from_course"])
                     )
-        attempts.append({"turn": turn, "errors": errors, "tool_results": results})
+        attempts.append(
+            {
+                "turn": turn,
+                "thinking": turn_profile.get("thinking", False),
+                "errors": errors,
+                "tool_results": results,
+                "rejected_requirements": sections.get("requirements", {}).get(
+                    "candidate"
+                )
+                if "requirements" in errors
+                else None,
+            }
+        )
         if not results and any(response.get(name) is not None for name in SECTIONS):
             final_turns += 1
         missing = [
@@ -343,9 +375,11 @@ def generate_unified(profile, task, payload, context, transport=request):
             for name in SECTIONS
             if name not in sections or sections[name]["status"] == "invalid"
         ]
-        if not missing or final_turns >= 2:
+        if not missing or final_turns >= 3 or repair_attempts >= 2:
             break
-        # Do not repeatedly echo large candidates; keep evidence and actionable errors.
+        # Keep only the latest repair candidate to bound context growth.
+        if repair_message is not None:
+            messages.remove(repair_message)
         messages.append(
             {
                 "role": "user",
@@ -359,6 +393,9 @@ def generate_unified(profile, task, payload, context, transport=request):
                         ],
                         "sections_needed": missing,
                         "validation_errors": errors,
+                        "rejected_requirements": sections.get("requirements", {}).get(
+                            "candidate"
+                        ),
                         "instruction": "Return missing sections. Already accepted sections must be null. Use lookups [] now."
                         if not allow_lookup or not results
                         else "Use returned evidence; finish sections when ready.",
@@ -367,6 +404,7 @@ def generate_unified(profile, task, payload, context, transport=request):
                 ),
             }
         )
+        repair_message = messages[-1] if sections else None
     for name in SECTIONS:
         if name not in sections:
             sections[name] = {

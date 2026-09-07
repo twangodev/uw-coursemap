@@ -144,7 +144,10 @@ uv run coursemap enrich RUN_ID --models-config "$COURSEMAP_WORKSPACE/unified-mod
 ```
 
 One conversation plans local `get_course` lookups, generates all sections, and can
-repair rejected sections without overwriting accepted ones. Lookups use the same
+repair rejected sections without overwriting accepted ones. AST failures receive
+up to two repair attempts with thinking enabled, the rejected candidate, and
+combined quote, cycle, reachability, and global-exclusion diagnostics. Each
+attempt records its thinking setting and rejected AST in dataset provenance. Lookups use the same
 snapshot, at most six calls and depth two; no browsing or code execution occurs.
 Consulted-record hashes (including missing lookups) invalidate cached results when
 their evidence changes. Original requirement text/AST and normalized display text

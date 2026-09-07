@@ -122,3 +122,80 @@ def validate_graph(value, payload):
                     "use an unconditional not node under the root all (or root not), "
                     "quoting the entire exclusion sentence as its evidence"
                 )
+
+
+def graph_diagnostics(value, payload):
+    """Collect repairable faults together, even when the candidate is cyclic."""
+    text = payload.get("requirements_text") or ""
+    nodes = value["nodes"]
+    by_id = {n["id"]: n for n in nodes}
+    errors = []
+    if len(by_id) != len(nodes):
+        errors.append("Duplicate node IDs; assign a unique ID to each node.")
+    if nodes and value["root"] not in by_id:
+        errors.append(f"Missing root node {value['root']!r}.")
+    for node in nodes:
+        key = node["id"]
+        if not node["evidence"] or node["evidence"] not in text:
+            errors.append(
+                f"Node {key}: evidence {node['evidence']!r} must quote an exact source substring."
+            )
+        if key in node["children"]:
+            errors.append(f"Node {key} references itself; remove the self-reference.")
+        missing = set(node["children"]) - by_id.keys()
+        if missing:
+            errors.append(
+                f"Node {key} references missing nodes: {', '.join(sorted(missing))}."
+            )
+    visited, active = set(), set()
+
+    def visit(key):
+        if key not in by_id:
+            return
+        if key in active:
+            errors.append(
+                f"Cycle reaches node {key}; requirement graphs must be trees."
+            )
+            return
+        if key in visited:
+            errors.append(
+                f"Node {key} has multiple parents; requirement graphs must be trees."
+            )
+            return
+        visited.add(key)
+        active.add(key)
+        for child in by_id[key]["children"]:
+            visit(child)
+        active.remove(key)
+
+    visit(value["root"])
+    unreachable = by_id.keys() - visited
+    if unreachable:
+        errors.append(
+            f"Unreachable nodes: {', '.join(sorted(unreachable))}; connect all conditions and exclusions to the root."
+        )
+    clauses = re.findall(
+        r"(?:^|[.!?]\s+)(Not open to students with credit for[^.!?]+)",
+        text,
+        flags=re.IGNORECASE,
+    )
+    unconditional, seen = [], set()
+
+    def exclusions(key):
+        if key in seen or key not in by_id:
+            return
+        seen.add(key)
+        node = by_id[key]
+        if node["kind"] == "not":
+            unconditional.append(node["evidence"])
+        elif node["kind"] == "all":
+            for child in node["children"]:
+                exclusions(child)
+
+    exclusions(value["root"])
+    for clause in clauses:
+        if not any(clause in evidence for evidence in unconditional):
+            errors.append(
+                f"Missing global exclusion {clause!r}: use a not node under the root all (or root not), with the full exclusion as evidence, applying to every eligibility alternative."
+            )
+    return errors

@@ -4,6 +4,7 @@ import unittest
 
 from uw_coursemap.course_context import CourseLookup, text_view
 from uw_coursemap.models import digest
+from uw_coursemap.requirements import graph_diagnostics
 from uw_coursemap.unified import (
     compare_parsers,
     generate_unified,
@@ -98,7 +99,7 @@ class UnifiedTests(unittest.TestCase):
             result["sections"]["student_experience"]["status"], "insufficient_evidence"
         )
         self.assertEqual(result["model_id"], "test@" + "a" * 40)
-        self.assertEqual(usage["completion_tokens"], 20)
+        self.assertEqual(usage["completion_tokens"], 30)
         self.assertEqual(
             result["source_requirements"], self.root["original_requirements"]
         )
@@ -275,3 +276,90 @@ class UnifiedTests(unittest.TestCase):
         self.assertEqual(section["status"], "needs_review")
         self.assertFalse(section["parser_comparison"]["structural_match"])
         self.assertEqual(section["value"], value)
+
+    def test_ast_repairs_enable_thinking_and_preserve_accepted_sections(self):
+        calls = []
+        bad = {**self.requirements, "root": "missing"}
+
+        def transport(profile, task, messages, allow_lookup):
+            calls.append(profile.get("thinking", False))
+            if len(calls) > 1:
+                feedback = json.loads(messages[-1]["content"])
+                self.assertEqual(feedback["rejected_requirements"], bad)
+                self.assertIn("requirements", feedback["validation_errors"])
+                self.assertFalse(allow_lookup)
+            return {
+                "lookups": [],
+                "search_profile": self.search if len(calls) == 1 else None,
+                "student_experience": self.experience if len(calls) == 1 else None,
+                "requirements": self.requirements if len(calls) == 3 else bad,
+            }, {}
+
+        result, _ = generate_unified(
+            self.profile, self.task, self.root, self.context, transport
+        )
+        self.assertEqual(calls, [False, True, True])
+        self.assertEqual(result["sections"]["requirements"]["status"], "valid")
+        self.assertEqual(result["sections"]["search_profile"]["value"], self.search)
+        self.assertEqual(
+            [a["thinking"] for a in result["provenance"]["attempts"]], calls
+        )
+        self.assertEqual(
+            result["provenance"]["attempts"][0]["rejected_requirements"], bad
+        )
+
+    def test_graph_feedback_collects_quotes_cycles_unreachable_and_exclusions(self):
+        node = {
+            "id": "n0",
+            "kind": "any",
+            "children": ["n0", "missing"],
+            "evidence": "invented",
+            "condition": None,
+            "course": None,
+        }
+        value = {
+            "status": "needs_review",
+            "root": "n0",
+            "notes": ["review"],
+            "nodes": [node, {**node, "id": "orphan", "children": []}],
+        }
+        errors = "\n".join(
+            graph_diagnostics(
+                value,
+                {
+                    "requirements_text": "Graduate standing. Not open to students with credit for COMP SCI 367."
+                },
+            )
+        )
+        for expected in [
+            "evidence",
+            "references itself",
+            "missing nodes",
+            "Cycle",
+            "Unreachable nodes: orphan",
+            "Missing global exclusion",
+            "367",
+        ]:
+            self.assertIn(expected, errors)
+
+    def test_failed_ast_repair_requests_stop_after_two_and_keep_search(self):
+        calls = []
+
+        def transport(profile, task, messages, allow_lookup):
+            calls.append(profile.get("thinking", False))
+            if len(calls) > 1:
+                raise ValueError("Unified output was truncated")
+            return {
+                "lookups": [],
+                "search_profile": self.search,
+                "student_experience": self.experience,
+                "requirements": {**self.requirements, "root": "missing"},
+            }, {}
+
+        result, _ = generate_unified(
+            self.profile, self.task, self.root, self.context, transport
+        )
+        self.assertEqual(calls, [False, True, True])
+        self.assertEqual(result["sections"]["requirements"]["status"], "invalid")
+        self.assertEqual(result["sections"]["search_profile"]["value"], self.search)
+        self.assertIn("truncated", result["provenance"]["attempts"][-1]["error"])
