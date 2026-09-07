@@ -22,6 +22,13 @@ SECTIONS = ("search_profile", "requirements", "student_experience")
 def compare_parsers(section, original):
     def convert(node):
         if isinstance(node, str):
+            if text_view(node).lower().rstrip(".") in {
+                "",
+                "none",
+                "no prerequisites",
+                "no requisites",
+            }:
+                return None
             return {"condition": text_view(node)}
         if isinstance(node, dict) and "course_number" in node:
             return {
@@ -58,24 +65,70 @@ def compare_parsers(section, original):
     section["parser_comparison"] = comparison
 
 
+def quote_projection(text):
+    chars, positions = [], []
+    for i, char in enumerate(text):
+        char = {"’": "'", "‘": "'", "“": '"', "”": '"'}.get(char, char)
+        if char == '"' or (
+            char == "'"
+            and not (
+                i > 0
+                and i + 1 < len(text)
+                and text[i - 1].isalnum()
+                and text[i + 1].isalnum()
+            )
+        ):
+            continue
+        chars.append(char)
+        positions.append(i)
+    return "".join(chars), positions
+
+
+def literal_span(quote, source):
+    position = source.find(quote)
+    if position >= 0:
+        return position, position + len(quote)
+    projected, positions = quote_projection(source)
+    needle, _ = quote_projection(quote)
+    position = projected.find(needle) if needle else -1
+    if position >= 0:
+        return positions[position], positions[position + len(needle) - 1] + 1
+    return None
+
+
 def source_quote(quote, source):
     if quote in source:
         return quote
     quote = text_view(quote)
-    if quote in source:
-        return quote
+    span = literal_span(quote, source)
+    if span is not None:
+        return source[span[0] : span[1]]
     parts = [part.strip() for part in re.split(r"\.{3}|…", quote) if part.strip()]
     if len(parts) < 2:
         return None
     start, end = None, 0
     for part in parts:
-        position = source.find(part, end)
-        if position < 0:
+        span = literal_span(part, source[end:])
+        if span is None:
             return None
         if start is None:
-            start = position
-        end = position + len(part)
+            start = end + span[0]
+        end += span[1]
     return source[start:end]
+
+
+def excluded_background(course, root):
+    ref = course["course_reference"]
+    for clause in re.findall(r"Not open[^.!?]*", root["requirements_text"], re.I):
+        compact = re.sub(r"[^A-Z0-9]", "", clause.upper())
+        if re.search(
+            r"(?<!\d)" + str(ref["course_number"]) + r"(?!\d)", clause
+        ) and any(
+            re.sub(r"[^A-Z0-9]", "", subject.upper()) in compact
+            for subject in ref["subjects"]
+        ):
+            return True
+    return False
 
 
 def validate_section(name, candidate, task, root, lookup):
@@ -86,6 +139,11 @@ def validate_section(name, candidate, task, root, lookup):
     state = "valid"
     repairs = []
     if name == "search_profile":
+        summary = value["summary"]["text"].rstrip()
+        if summary.endswith((",", ";", ":")):
+            raise ValueError(
+                "Summary appears clipped; rewrite it as a short complete sentence, never cut a word or end with a comma."
+            )
         claims = [
             value["summary"],
             *value["topics"],
@@ -104,6 +162,10 @@ def validate_section(name, candidate, task, root, lookup):
                     if course
                     else None
                 )
+                if not quote and course and citation["field"] == "description":
+                    quote = source_quote(citation["quote"], course.get("title", ""))
+                    if quote:
+                        citation["field"] = "title"
                 if not quote:
                     raise ValueError(
                         f"Invalid evidence for {citation['course_id']}.{citation['field']}: {citation['quote']!r}. Copy a short exact substring from supplied text; do not paraphrase or invent omitted text."
@@ -115,12 +177,22 @@ def validate_section(name, candidate, task, root, lookup):
                     )
         for claim in [value["summary"], *value["topics"], *value["skills_taught"]]:
             if any(
-                e["course_id"] != root["course_id"] or e["field"] != "description"
+                e["course_id"] != root["course_id"]
+                or e["field"] not in {"description", "title"}
                 for e in claim["evidence"]
             ):
                 raise ValueError(
-                    "Taught content must cite the root course description, not prerequisites"
+                    "Taught content must cite the root course description or title, not prerequisites. Omit claims supported only by another course."
                 )
+        for claim in value["assumed_background"]:
+            for citation in claim["evidence"]:
+                key = citation["course_id"]
+                if key != root["course_id"] and excluded_background(
+                    lookup.evidence[key], root
+                ):
+                    raise ValueError(
+                        f"{key} is listed in a credit exclusion, not a positive prerequisite. Remove background claims imported from this excluded course; do not relabel taught content as assumed knowledge."
+                    )
         jsonschema.Draft202012Validator(task["schema"]["properties"][name]).validate(
             value
         )
@@ -253,6 +325,9 @@ def request(profile, task, messages, allow_lookup):
 
 def generate_unified(profile, task, payload, context, transport=request):
     root = payload
+    repair_limit = task.get("ast_repair_attempts", 2)
+    if type(repair_limit) is not int or repair_limit not in {0, 1, 2}:
+        raise ValueError("ast_repair_attempts must be 0, 1, or 2")
     lookup = CourseLookup(context, root["course_id"], **task.get("tool_limits", {}))
     view = {k: v for k, v in root.items() if k != "original_requirements"}
     messages = [
@@ -272,7 +347,10 @@ def generate_unified(profile, task, payload, context, transport=request):
     repair_attempts = 0
     # Three tool rounds, one final response, at most two correction attempts.
     for turn in range(6):
-        repairing = sections.get("requirements", {}).get("status") == "invalid"
+        repairing = (
+            repair_attempts < repair_limit
+            and sections.get("requirements", {}).get("status") == "invalid"
+        )
         turn_profile = {**profile, "thinking": True} if repairing else profile
         if repairing:
             repair_attempts += 1
@@ -294,7 +372,7 @@ def generate_unified(profile, task, payload, context, transport=request):
                 }
             )
             if sections:
-                if not repairing or repair_attempts >= 2:
+                if not repairing or repair_attempts >= repair_limit and repairing:
                     break
                 continue  # Retry the same rejected AST once; retain accepted sections.
             if turn == 5:
@@ -316,7 +394,7 @@ def generate_unified(profile, task, payload, context, transport=request):
                     "error": "Expected an object",
                 }
             )
-            if repair_attempts >= 2:
+            if repair_attempts >= repair_limit and repairing:
                 break
             continue
         calls = response.get("lookups", [])
@@ -326,7 +404,10 @@ def generate_unified(profile, task, payload, context, transport=request):
         for name in SECTIONS:
             if calls and allow_lookup:
                 continue  # Accept claims only after requested evidence arrives.
-            if name in sections and sections[name]["status"] != "invalid":
+            if name in sections and (
+                sections[name]["status"] != "invalid"
+                or (name == "requirements" and repair_limit == 0)
+            ):
                 continue
             candidate = response.get(name)
             if candidate is None:
@@ -373,9 +454,18 @@ def generate_unified(profile, task, payload, context, transport=request):
         missing = [
             name
             for name in SECTIONS
-            if name not in sections or sections[name]["status"] == "invalid"
+            if name not in sections
+            or (
+                sections[name]["status"] == "invalid"
+                and not (name == "requirements" and repair_attempts >= repair_limit)
+            )
         ]
-        if not missing or final_turns >= 3 or repair_attempts >= 2:
+        if (
+            not missing
+            or final_turns >= 3
+            or repair_attempts >= repair_limit
+            and repairing
+        ):
             break
         # Keep only the latest repair candidate to bound context growth.
         if repair_message is not None:
@@ -395,8 +485,15 @@ def generate_unified(profile, task, payload, context, transport=request):
                         "validation_errors": errors,
                         "rejected_requirements": sections.get("requirements", {}).get(
                             "candidate"
-                        ),
-                        "instruction": "Return missing sections. Already accepted sections must be null. Use lookups [] now."
+                        )
+                        if "requirements" in missing
+                        else None,
+                        "deferred_sections": ["requirements"]
+                        if "requirements" in sections
+                        and sections["requirements"]["status"] == "invalid"
+                        and "requirements" not in missing
+                        else [],
+                        "instruction": "Return only sections_needed. Accepted and deferred sections must be null. Use lookups [] now."
                         if not allow_lookup or not results
                         else "Use returned evidence; finish sections when ready.",
                     },
@@ -430,6 +527,7 @@ def generate_unified(profile, task, payload, context, transport=request):
         "course_history": root["history"],
         "provenance": {
             "worker_version": WORKER_VERSION,
+            "ast_repair_attempts": repair_limit,
             "generation_settings": {
                 key: profile[key]
                 for key in (

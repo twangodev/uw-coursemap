@@ -144,9 +144,10 @@ uv run coursemap enrich RUN_ID --models-config "$COURSEMAP_WORKSPACE/unified-mod
 ```
 
 One conversation plans local `get_course` lookups, generates all sections, and can
-repair rejected sections without overwriting accepted ones. AST failures receive
-up to two repair attempts with thinking enabled, the rejected candidate, and
-combined quote, cycle, reachability, and global-exclusion diagnostics. Each
+repair rejected sections without overwriting accepted ones. The bulk task defers failed ASTs so search metadata can finish without expensive
+AST retries. For focused repair runs, set `ast_repair_attempts` to 1 or 2 in a copy
+of the task JSON. Those repairs enable thinking and receive the rejected candidate
+and combined quote, cycle, reachability, and global-exclusion diagnostics. Each
 attempt records its thinking setting and rejected AST in dataset provenance. Lookups use the same
 snapshot, at most six calls and depth two; no browsing or code execution occurs.
 Consulted-record hashes (including missing lookups) invalidate cached results when
@@ -154,7 +155,9 @@ their evidence changes. Original requirement text/AST and normalized display tex
 remain distinct. Related descriptions inform background, never formal eligibility.
 Requirement graphs pass deterministic validation and are compared with the legacy
 AST when possible. Structural disagreements require review; neither parser is
-automatically authoritative. Citation aliases and abbreviated quotes are resolved
+automatically authoritative. Search citations may reference the root title or description. Explicitly excluded
+courses cannot supply assumed-background claims; summaries ending mid-clause are
+rejected for correction. Citation aliases, quotation styles, and abbreviated quotes are resolved
 only against supplied records and ordered verbatim source fragments; repairs are
 recorded in the result.
 

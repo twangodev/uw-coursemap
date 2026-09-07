@@ -52,6 +52,7 @@ class Context:
 class UnifiedTests(unittest.TestCase):
     def setUp(self):
         self.task = json.loads(TASK.read_text())
+        self.task["ast_repair_attempts"] = 2
         self.context = Context()
         self.root = self.context.get("COMPSCI 300")
         self.lookup = CourseLookup(self.context, "COMPSCI 300")
@@ -363,3 +364,98 @@ class UnifiedTests(unittest.TestCase):
         self.assertEqual(result["sections"]["requirements"]["status"], "invalid")
         self.assertEqual(result["sections"]["search_profile"]["value"], self.search)
         self.assertIn("truncated", result["provenance"]["attempts"][-1]["error"])
+
+    def test_citation_quote_style_and_title_restore_literal_evidence(self):
+        for quote in ["the golden age of Hollywood", "the 'golden age' of Hollywood"]:
+            resolved = source_quote(quote, 'the "golden age" of Hollywood')
+            self.assertEqual(resolved, 'the "golden age" of Hollywood')
+        self.assertIsNone(source_quote("students can enroll", "students cannot enroll"))
+        self.assertIsNone(source_quote("students cant enroll", "students can't enroll"))
+        self.root["title"] = "FOURTH SEMESTER URDU"
+        self.search["summary"]["evidence"][0]["quote"] = self.root["title"]
+        result = validate_section(
+            "search_profile", self.search, self.task, self.root, self.lookup
+        )
+        self.assertEqual(result["value"]["summary"]["evidence"][0]["field"], "title")
+        self.assertEqual(
+            result["citation_repairs"][0]["original"]["field"], "description"
+        )
+
+    def test_excluded_courses_cannot_supply_assumed_background(self):
+        self.lookup.get_course("COMPSCI 200", "COMPSCI 300")
+        self.root["requirements_text"] = (
+            "Graduate standing. Not open to students with credit for COMP SCI 200."
+        )
+        self.search["assumed_background"] = [
+            {
+                "text": "Prior object-oriented programming",
+                "evidence": [
+                    {
+                        "course_id": "COMPSCI 200",
+                        "field": "description",
+                        "quote": "Programming using objects.",
+                    }
+                ],
+            }
+        ]
+        with self.assertRaisesRegex(ValueError, "credit exclusion"):
+            validate_section(
+                "search_profile", self.search, self.task, self.root, self.lookup
+            )
+        self.root["requirements_text"] = "COMP SCI 200"
+        self.assertEqual(
+            validate_section(
+                "search_profile", self.search, self.task, self.root, self.lookup
+            )["status"],
+            "valid",
+        )
+
+    def test_clipped_summary_is_rejected(self):
+        self.search["summary"]["text"] = "Genomics applications in microbi,"
+        with self.assertRaisesRegex(ValueError, "clipped"):
+            validate_section(
+                "search_profile", self.search, self.task, self.root, self.lookup
+            )
+
+    def test_none_legacy_ast_agrees_with_empty_graph(self):
+        section = {"status": "valid", "value": self.requirements}
+        compare_parsers(section, {"ast": "None"})
+        self.assertTrue(section["parser_comparison"]["structural_match"])
+        self.assertEqual(section["status"], "valid")
+
+    def test_bulk_defers_ast_while_repairing_search_without_thinking(self):
+        self.task["ast_repair_attempts"] = 0
+        bad = {**self.requirements, "root": "missing"}
+        calls = []
+
+        def transport(profile, task, messages, allow_lookup):
+            calls.append(profile.get("thinking", False))
+            if len(calls) == 1:
+                return {
+                    "lookups": [],
+                    "search_profile": {
+                        **self.search,
+                        "summary": {**self.search["summary"], "text": "clipped,"},
+                    },
+                    "requirements": bad,
+                    "student_experience": self.experience,
+                }, {}
+            feedback = json.loads(messages[-1]["content"])
+            self.assertEqual(feedback["sections_needed"], ["search_profile"])
+            self.assertEqual(feedback["deferred_sections"], ["requirements"])
+            self.assertIsNone(feedback["rejected_requirements"])
+            return {
+                "lookups": [],
+                "search_profile": self.search,
+                "requirements": self.requirements,
+                "student_experience": None,
+            }, {}
+
+        result, _ = generate_unified(
+            self.profile, self.task, self.root, self.context, transport
+        )
+        self.assertEqual(calls, [False, False])
+        self.assertEqual(result["sections"]["search_profile"]["status"], "valid")
+        self.assertEqual(result["sections"]["requirements"]["candidate"], bad)
+        self.assertEqual(result["sections"]["requirements"]["status"], "invalid")
+        self.assertEqual(result["provenance"]["ast_repair_attempts"], 0)
