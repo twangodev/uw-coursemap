@@ -352,7 +352,7 @@ engine. `profiles.enrichment-unified` enables the Qwen XML tool parser and uses 
 32K context, 16K output budget, and the measured 256-sequence/384-client throughput
 settings. Hardware power limits are managed separately.
 
-New jobs use worker version 16. Resume older jobs from their original checkout;
+New jobs use worker version 17. Resume older jobs from their original checkout;
 the worker-version check prevents mixing implementations. The exact PydanticAI
 version is included in job identity, cache keys and output provenance. Native
 message histories (including tool returns and retry feedback) are saved in

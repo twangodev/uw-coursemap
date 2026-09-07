@@ -58,6 +58,25 @@ class RequirementsTests(unittest.TestCase):
             ],
         }
 
+    def test_unlinked_numeric_alternative_cannot_be_silently_dropped(self):
+        self.payload["requirements_text"] += " or 171"
+        with self.assertRaisesRegex(ValueError, "missing from leaf conditions: 171"):
+            validate_graph(self.value, self.payload)
+        self.value["nodes"][0]["children"].append("unlinked")
+        self.value["nodes"].append(
+            {
+                "id": "unlinked",
+                "kind": "condition",
+                "children": [],
+                "course": None,
+                "condition": "171",
+                "evidence": "171",
+            }
+        )
+        self.value["status"] = "needs_review"
+        self.value["notes"] = ["Unlinked course number preserved verbatim."]
+        validate_graph(self.value, self.payload)
+
     def test_supported_expression_preserves_course_and_noncourse_alternative(self):
         jsonschema.Draft202012Validator(self.task["schema"]).validate(self.value)
         validate_graph(self.value, self.payload)

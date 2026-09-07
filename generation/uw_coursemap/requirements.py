@@ -96,6 +96,20 @@ def validate_graph(value, payload):
     visit(value["root"])
     if visited != set(by_id):
         raise ValueError("Requirement graph has unreachable nodes")
+    source_numbers = set(re.findall(r"(?<!\d)\d{3}(?!\d)", text))
+    represented = " ".join(
+        str(node["course"]["course_number"])
+        if node["kind"] == "course"
+        else node["condition"] or ""
+        for node in nodes
+        if not node["children"]
+    )
+    missing = source_numbers - set(re.findall(r"(?<!\d)\d{3}(?!\d)", represented))
+    if missing:
+        raise ValueError(
+            f"Source numeric references missing from leaf conditions: {', '.join(sorted(missing))}. "
+            "Preserve every alternative. References absent from linked_courses must remain verbatim condition nodes with needs_review, not be dropped."
+        )
     if value["status"] == "parsed":
         # A separate exclusion sentence constrains all eligibility alternatives.
         # This deliberately covers one explicit catalog form, not arbitrary prose.
