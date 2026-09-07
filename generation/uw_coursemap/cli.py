@@ -50,6 +50,7 @@ def parser():
             command.add_argument("--models-config", type=Path, required=True)
         if name == "enrich":
             command.add_argument("--prepare-only", action="store_true")
+            command.add_argument("--reuse-job", action="append", default=[])
             command.add_argument("--profile", default="enrichment")
             command.add_argument("--task", type=Path, required=True)
             command.add_argument(
@@ -279,6 +280,7 @@ def main(argv=None):
                         args.task,
                         args.limit,
                         course_ids=args.course,
+                        reuse_job_ids=args.reuse_job,
                     )
                     print(f"Created enrichment job {job}", flush=True)
                     result = jobs.status(job) if args.prepare_only else jobs.run(job)

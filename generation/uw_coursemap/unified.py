@@ -6,7 +6,12 @@ import re
 import jsonschema
 
 from .course_context import text_view
-from .requirements import graph_diagnostics, restore_quotes, validate_graph
+from .requirements import (
+    ambiguous_semicolons,
+    graph_diagnostics,
+    restore_quotes,
+    validate_graph,
+)
 from .requirements_eval import expression, normalize
 
 
@@ -212,6 +217,21 @@ def validate_section(name, candidate, task, root, lookup):
             value
         )
     elif name == "requirements":
+        if ambiguous_semicolons(root["requirements_text"]):
+            # Keep ambiguous eligibility prose, not a guessed executable Boolean tree.
+            return {
+                "status": "needs_review",
+                "value": {
+                    "status": "needs_review",
+                    "root": None,
+                    "nodes": [],
+                    "notes": [
+                        "Top-level semicolons leave eligibility alternatives ambiguous; consult the preserved requirements_text. No Boolean grouping is asserted."
+                    ],
+                },
+                "error": None,
+                "citation_repairs": [],
+            }
         linked = list(root["linked_courses"])
         compact = re.sub(r"[^A-Z0-9]", "", root["requirements_text"].upper())
         for key, course in lookup.evidence.items():

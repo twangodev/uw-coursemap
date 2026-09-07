@@ -3,9 +3,46 @@
 import re
 
 
+def shared_subject_references(payload):
+    """Resolve only explicit comma-list shorthand, retaining literal source spans."""
+    text = payload.get("requirements_text") or ""
+    subjects = {s for ref in payload.get("linked_courses", []) for s in ref["subjects"]}
+    result = []
+    for subject in sorted(subjects):
+        prefix = r"\s*".join(re.escape(c) for c in subject.replace(" ", ""))
+        pattern = rf"(?<![A-Za-z]){prefix}\s*\d{{3}}(?P<tail>(?:\s*,\s*(?:or\s+)?\d{{3}})+)(?!\d)"
+        for match in re.finditer(pattern, text, re.I):
+            for number in re.finditer(r"\d{3}", match["tail"]):
+                start = match.start("tail") + number.start()
+                result.append(
+                    {
+                        "subject": subject,
+                        "course_number": int(number.group()),
+                        "text": number.group(),
+                        "start": start,
+                        "end": start + 3,
+                        "context": match.group(),
+                    }
+                )
+    return result
+
+
+def ambiguous_semicolons(text):
+    """Bare top-level semicolons do not specify AND versus OR."""
+    depth, cuts = 0, []
+    for i, char in enumerate(text):
+        depth += (char == "(") - (char == ")")
+        if char == ";" and depth == 0:
+            cuts.append(i)
+    return any(
+        not re.match(r"\s*(?:and\b|or\b|not open\b)", text[i + 1 :], re.I) for i in cuts
+    )
+
+
 def restore_quotes(value, payload):
     """Resolve case and whitespace differences back to literal source substrings."""
     text = payload.get("requirements_text") or ""
+    shorthand = shared_subject_references(payload)
     for node in value["nodes"]:
         for field in ("evidence", "condition"):
             quote = node[field]
@@ -23,6 +60,22 @@ def restore_quotes(value, payload):
                 if match:
                     node[field] = match.group()
                     break
+            if node[field] not in text:
+                compact = re.sub(r"\s+", "", node[field]).upper()
+                matches = [
+                    r
+                    for r in shorthand
+                    if compact
+                    == r["subject"].replace(" ", "").upper() + str(r["course_number"])
+                ]
+                if len(matches) == 1:
+                    node[field] = matches[0]["text"]
+                    if node["kind"] != "condition":
+                        continue
+                    value["status"] = "needs_review"
+                    note = f"Source shorthand {matches[0]['text']} inherits {matches[0]['subject']}; its catalog identity requires review."
+                    if note not in value["notes"] and len(value["notes"]) < 4:
+                        value["notes"].append(note)
         if (
             node["kind"] == "condition"
             and node["condition"] is None

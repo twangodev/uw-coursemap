@@ -27,7 +27,6 @@ from pydantic_ai.exceptions import (
 from pydantic_ai.messages import (
     ModelRequest,
     ModelResponse,
-    SystemPromptPart,
     TextPart,
     UserPromptPart,
 )
@@ -40,6 +39,42 @@ from .models import canonical, digest
 from .unified import SECTIONS, compare_parsers, validate_section
 
 ORCHESTRATOR = {"name": "pydantic-ai", "version": version("pydantic-ai-slim")}
+
+
+def evidence_view(root, needed):
+    keys = {"course_id", "course_reference", "title"}
+    if "search_profile" in needed:
+        keys.update(
+            {"description", "requirements_text", "linked_courses", "source_url"}
+        )
+    if "requirements" in needed:
+        keys.update({"requirements_text", "linked_courses"})
+    if "student_experience" in needed:
+        keys.update({"reviews", "review_selection"})
+    result = {k: v for k, v in root.items() if k in keys}
+    if "requirements" in needed:
+        from .requirements import shared_subject_references
+
+        result["source_reference_spans"] = shared_subject_references(root)
+    return result
+
+
+def output_budget(profile, messages, task, schema, repair=False):
+    # Conservative estimate, including tool schema/system overhead; server limits
+    # remain authoritative and the existing overflow recovery is retained.
+    raw = (
+        canonical(serialize_messages(messages))
+        + native_prompt(task)
+        + canonical(schema)
+    )
+    estimated_input = len(raw.encode("utf-8")) // 2 + 2048
+    remaining = profile.get("context_length", 32768) - estimated_input
+    return max(
+        256,
+        min(
+            profile.get("max_output_tokens", 6144), 4096 if repair else 8192, remaining
+        ),
+    )
 
 
 def validation_feedback(exc):
@@ -91,9 +126,10 @@ class PinnedModel(OpenAIChatModel):
 async def _conversation(profile, task, payload, context, model=None):
     from .jobs import WORKER_VERSION, generation_schema
 
-    seed = payload.get("repair_seed")
+    reused = payload.get("reuse_seed") if not payload.get("repair_seed") else None
+    seed = payload.get("repair_seed") or reused
     previous = seed["output"] if seed else None
-    root = {k: v for k, v in payload.items() if k != "repair_seed"}
+    root = {k: v for k, v in payload.items() if k not in {"repair_seed", "reuse_seed"}}
     if context.fingerprint(root["course_id"]) != digest(root):
         raise ValueError("Source context changed")
     lookup = CourseLookup(context, root["course_id"], **task.get("tool_limits", {}))
@@ -167,14 +203,19 @@ async def _conversation(profile, task, payload, context, model=None):
             if s["status"] == "invalid"
         },
     }
-    source_view = {
-        k: v for k, v in root.items() if k not in {"original_requirements", "history"}
+    needed = {
+        name
+        for name in SECTIONS
+        if sections.get(name, {}).get("status", "invalid") == "invalid"
     }
+    source_view = evidence_view(root, needed)
     initial = canonical(
         {
             "course": source_view,
             "lookup_evidence": {
-                k: v for k, v in lookup.evidence.items() if k != root["course_id"]
+                k: evidence_view(v, needed)
+                for k, v in lookup.evidence.items()
+                if k != root["course_id"]
             },
         }
     )
@@ -198,17 +239,7 @@ async def _conversation(profile, task, payload, context, model=None):
                 model_name=f"{profile['model']}@{profile['revision']}",
             ),
         ]
-        saved = previous.get("provenance", {}).get("conversation")
-        if (
-            saved
-            and previous.get("provenance", {}).get("orchestrator", {}).get("name")
-            == "pydantic-ai"
-        ):
-            history = ModelMessagesTypeAdapter.validate_python(saved)
-            for message in history:
-                for part in message.parts:
-                    if isinstance(part, SystemPromptPart):
-                        part.content = native_prompt(task)
+        # Repair against a fresh, focused exchange. Prior traces remain in the parent job.
         initial = canonical(feedback)
     usage = RunUsage()
     request_failure = None
@@ -225,7 +256,7 @@ async def _conversation(profile, task, payload, context, model=None):
     def settings(ctx: RunContext):
         nonlocal request_thinking
         thinking = not direct_recovery and bool(
-            seed
+            (seed and not reused)
             or profile.get("thinking")
             or repair_limit
             and sections.get("requirements", {}).get("status") == "invalid"
@@ -235,7 +266,9 @@ async def _conversation(profile, task, payload, context, model=None):
             "temperature": profile.get("temperature", 0.6),
             "top_p": profile.get("top_p", 0.95),
             "presence_penalty": profile.get("presence_penalty", 0),
-            "max_tokens": profile.get("max_output_tokens", 6144),
+            "max_tokens": output_budget(
+                profile, ctx.messages, task, schema, repair=bool(seed and not reused)
+            ),
             "parallel_tool_calls": False,
             "extra_body": {
                 "top_k": profile.get("top_k", 20),
@@ -284,7 +317,12 @@ async def _conversation(profile, task, payload, context, model=None):
         @agent.tool_plain
         def get_course(course_id: str, from_course: str) -> dict:
             """Read a related course from this frozen snapshot; from_course must already be provided."""
-            return lookup.get_course(course_id, from_course)
+            found = lookup.get_course(course_id, from_course)
+            return (
+                evidence_view(found, needed)
+                if found and "course_id" in found
+                else found
+            )
 
         @agent.output_validator
         def validate(ctx: RunContext, value: dict) -> dict:
@@ -429,7 +467,7 @@ async def _conversation(profile, task, payload, context, model=None):
                             {
                                 "course": source_view,
                                 "lookup_evidence": {
-                                    k: v
+                                    k: evidence_view(v, needed)
                                     for k, v in lookup.evidence.items()
                                     if k != root["course_id"]
                                 },
@@ -574,11 +612,26 @@ async def _conversation(profile, task, payload, context, model=None):
             retained_sections=locked,
             repaired_sections=sorted(repaired),
             section_origins={
-                name: {"job_id": seed["job_id"], "output_hash": digest(previous)}
+                name: (
+                    (reused or {}).get("section_origins", {})
+                    if reused
+                    else previous.get("provenance", {}).get("section_origins", {})
+                ).get(
+                    name,
+                    {
+                        "job_id": seed["job_id"],
+                        "output_hash": digest(previous),
+                        "model": previous.get("model"),
+                        "model_revision": previous.get("model_revision"),
+                    },
+                )
                 for name in locked
             },
         )
-        provenance["generation_settings"]["thinking"] = True
+        provenance["repair_context_compacted"] = True
+        provenance["generation_settings"]["thinking"] = bool(seed and not reused)
+        if reused:
+            provenance["reuse_source_job"] = reused["job_id"]
     result = {
         "course_id": root["course_id"],
         "model": profile["model"],

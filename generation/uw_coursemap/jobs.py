@@ -15,7 +15,7 @@ from .profiles import load_profile
 from .store import Store, now
 
 
-WORKER_VERSION = 23
+WORKER_VERSION = 24
 
 
 def generation_schema(schema):
@@ -130,7 +130,14 @@ class Jobs:
         }
 
     def create(
-        self, source_run, profiles, profile_name, task_path, limit=100, course_ids=None
+        self,
+        source_run,
+        profiles,
+        profile_name,
+        task_path,
+        limit=100,
+        course_ids=None,
+        reuse_job_ids=None,
     ):
         if limit < 0:
             raise ValueError("limit must be nonnegative")
@@ -178,9 +185,17 @@ class Jobs:
                         "Selected course is missing or ambiguous in the snapshot"
                     )
             from .agents import ORCHESTRATOR
+            from .reuse import ReuseIndex
+
+            reuse = (
+                ReuseIndex(self, reuse_job_ids, context, task, profile)
+                if reuse_job_ids
+                else None
+            )
 
             spec = {
                 "task": task,
+                "reuse_job_ids": sorted(set(reuse_job_ids or [])),
                 "profile": profile.model_dump(),
                 "source_hash": source.input_hash(source_run),
                 "total_courses": len(courses),
@@ -213,6 +228,10 @@ class Jobs:
                             payload[field] = value
                     else:
                         payload = {field: courses[key].get(field) for field in fields}
+                    if reuse is not None:
+                        seed = reuse.seed(key)
+                        if seed:
+                            payload["reuse_seed"] = seed
                     cache_profile = profile.model_dump(
                         exclude={"base_url", "concurrency"}
                     )

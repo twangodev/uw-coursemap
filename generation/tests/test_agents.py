@@ -439,7 +439,7 @@ class AgentTests(unittest.TestCase):
         self.assertEqual(output["sections"]["search_profile"]["status"], "invalid")
         self.assertTrue(output["provenance"]["request_error"])
 
-    def test_chained_repair_resumes_serialized_native_conversation(self):
+    def test_chained_repair_compacts_prior_native_conversation(self):
         f = self.fixture
 
         def reject(*args):
@@ -456,7 +456,7 @@ class AgentTests(unittest.TestCase):
         }
 
         def accept(messages, info):
-            self.assertGreaterEqual(
+            self.assertLess(
                 len(messages), len(previous["provenance"]["conversation"])
             )
             self.assertIn(
