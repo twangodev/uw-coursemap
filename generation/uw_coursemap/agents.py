@@ -42,6 +42,20 @@ from .unified import SECTIONS, compare_parsers, validate_section
 ORCHESTRATOR = {"name": "pydantic-ai", "version": version("pydantic-ai-slim")}
 
 
+def validation_feedback(exc):
+    if not isinstance(exc, jsonschema.ValidationError):
+        return str(exc)
+    path = ".".join(str(part) for part in exc.absolute_path) or "<section>"
+    message = exc.message
+    if len(message) > 1000:
+        expected = repr(exc.validator_value)[:500]
+        message = (
+            f"Failed {exc.validator} constraint {expected}; received {type(exc.instance).__name__}. "
+            "Return a value matching the schema at this path. Do not encode objects as JSON strings."
+        )
+    return f"{path}: {message}"
+
+
 def native_prompt(task):
     prompt = task["prompt"]
     if prompt.startswith("Your first turn is a lookup plan only:"):
@@ -330,11 +344,7 @@ async def _conversation(profile, task, payload, context, model=None):
                     TypeError,
                     jsonschema.ValidationError,
                 ) as exc:
-                    reason = (
-                        exc.message
-                        if isinstance(exc, jsonschema.ValidationError)
-                        else str(exc)
-                    )
+                    reason = validation_feedback(exc)
                     errors[name] = reason[:6000]
                     sections[name] = {
                         "status": "invalid",

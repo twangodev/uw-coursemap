@@ -272,6 +272,50 @@ class AgentTests(unittest.TestCase):
             self.previous["sections"]["search_profile"],
         )
 
+    def test_schema_feedback_does_not_echo_large_malformed_candidate(self):
+        f = self.fixture
+        malformed = "malformed-json-object " * 2000
+        calls = []
+
+        def model(messages, info):
+            calls.append(messages)
+            if len(calls) == 1:
+                return ModelResponse(
+                    parts=[
+                        TextPart(
+                            json.dumps(
+                                {
+                                    "requirements": malformed,
+                                    "search_profile": None,
+                                    "student_experience": None,
+                                }
+                            )
+                        )
+                    ]
+                )
+            feedback = [
+                p for m in messages for p in m.parts if isinstance(p, RetryPromptPart)
+            ][-1]
+            content = str(feedback.content)
+            self.assertLess(len(content), 2000)
+            self.assertIn("object", content)
+            self.assertIn("received str", content)
+            self.assertNotIn(malformed, content)
+            return self.response(
+                {
+                    "requirements": f.requirements,
+                    "search_profile": None,
+                    "student_experience": None,
+                }
+            )
+
+        output, _ = generate_repair(
+            f.profile, self.task, self.seed, f.context, FunctionModel(model)
+        )
+        self.assertEqual(output["sections"]["requirements"]["status"], "valid")
+        self.assertIn(malformed, json.dumps(output["provenance"]["conversation"]))
+        self.assertEqual(len(calls), 2)
+
     def test_context_overflow_compacts_history_and_preserves_trace(self):
         from pydantic_ai.exceptions import ModelHTTPError
         from uw_coursemap.agents import serialize_messages
