@@ -4,6 +4,7 @@ import hashlib
 import json
 import shutil
 import sqlite3
+from datetime import datetime, timezone
 from pathlib import Path
 
 from . import SCHEMA_VERSION
@@ -434,6 +435,25 @@ def verify_release(directory):
     return manifest
 
 
+def sync_metadata(manifest, source, revision, course_count):
+    """Badge metadata for the source snapshot activated by a publication."""
+    completed = source["completed_at"]
+    return {
+        "schema_version": 1,
+        "source_run": source["run_id"],
+        "data_revision": revision,
+        "scan_started_at": source["started_at"],
+        "scan_completed_at": completed,
+        "last_scan_utc": datetime.fromisoformat(completed)
+        .astimezone(timezone.utc)
+        .strftime("%Y-%m-%d %H:%M UTC"),
+        "courses": manifest.get("public_tables", {}).get(
+            "courses_current", course_count
+        ),
+        "history_snapshots": len(manifest.get("history", [source["run_id"]])),
+    }
+
+
 def publish(store, run, repo_id, api=None, download=None):
     from huggingface_hub import (
         HfApi,
@@ -565,7 +585,23 @@ def publish(store, run, repo_id, api=None, download=None):
                 "Another release advanced HF main; latest was not replaced"
             )
     else:
-        operations = [CommitOperationAdd("latest.json", pointer)]
+        operations = [
+            CommitOperationAdd("latest.json", pointer),
+            CommitOperationAdd(
+                "sync.json",
+                canonical(
+                    sync_metadata(
+                        manifest,
+                        store.run(source_run),
+                        revision,
+                        store.db.execute(
+                            "SELECT count(*) FROM observations WHERE run_id=? AND kind='courses'",
+                            (source_run,),
+                        ).fetchone()[0],
+                    )
+                ).encode(),
+            ),
+        ]
         # Put the friendly tables on main as well, so the default HF viewer works.
         # The serving pointer still pins the complete immutable release revision.
         if "public_tables" in manifest:

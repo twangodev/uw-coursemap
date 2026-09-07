@@ -378,12 +378,19 @@ class PipelineTests(unittest.TestCase):
             publish(self.store, self.run, "owner/data", api, api.download)
         self.assertFalse(api.tags)
         self.assertNotIn("latest.json", api.files["main"])
+        self.assertNotIn("sync.json", api.files["main"])
         self.assertEqual(len(api.files["runs/" + self.run]), 100)
         api.fail_on_commit = None
         result = publish(self.store, self.run, "owner/data", api, api.download)
         self.assertIn(result["tag"], api.tags)
         self.assertIn("latest.json", api.files["main"])
-        self.assertEqual(api.added_counts, [100, 11, 1])
+        self.assertEqual(api.added_counts, [100, 11, 2])
+        sync = json.loads(api.files["main"]["sync.json"])
+        self.assertEqual(sync["data_revision"], result["revision"])
+        self.assertEqual(sync["source_run"], self.run)
+        self.assertEqual(
+            sync["scan_completed_at"], self.store.run(self.run)["completed_at"]
+        )
         self.assertEqual(
             result, publish(self.store, self.run, "owner/data", api, api.download)
         )
@@ -395,6 +402,22 @@ class PipelineTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "main changed"):
             publish(self.store, self.run, "owner/data", api, api.download)
         self.assertNotIn("latest.json", api.files["main"])
+        self.assertNotIn("sync.json", api.files["main"])
+
+    def test_failed_publication_preserves_previous_badge_metadata(self):
+        root = self.release()
+        api = FakeHub(root)
+        previous = b'{"source_run":"previous"}'
+        api.files["main"]["sync.json"] = previous
+        api.fail_on_commit = 2  # Branch cleanup succeeds; the data upload fails.
+        with self.assertRaisesRegex(RuntimeError, "interrupted"):
+            publish(self.store, self.run, "owner/data", api, api.download)
+        self.assertEqual(api.files["main"]["sync.json"], previous)
+        api.fail_on_commit = None
+        result = publish(self.store, self.run, "owner/data", api, api.download)
+        sync = json.loads(api.files["main"]["sync.json"])
+        self.assertEqual(sync["source_run"], self.run)
+        self.assertEqual(sync["data_revision"], result["revision"])
 
     def test_full_derived_pipeline_and_compatibility_export(self):
         from uw_coursemap.derive import derive
@@ -706,6 +729,9 @@ class FakeHub:
             raise RuntimeError("interrupted upload")
         assert parent_commit == self.heads[revision]
         for op in operations:
+            if not hasattr(op, "path_or_fileobj"):
+                self.files[revision].pop(op.path_in_repo, None)
+                continue
             content = op.path_or_fileobj
             self.files[revision][op.path_in_repo] = (
                 content if isinstance(content, bytes) else Path(content).read_bytes()

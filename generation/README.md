@@ -254,6 +254,10 @@ its exact `revision` for every file. SQLite/Parquet and Dataset Viewer configura
 live on the release revision. Website paths map to
 `web/<sha256(logical_path)[:2]>/<logical_path>` to avoid oversized HF directories.
 
+The same promotion updates `sync.json` with scan timestamps, course count, snapshot
+count, and data revision. Shields dynamic JSON badges can read `$.last_scan_utc`
+and `$.courses` from its `raw/main/sync.json` URL; badge caches delay refreshes.
+
 No Cloudflare deployment is activated here. Before merging, retire or reconfigure
 the legacy hosted GitHub Actions scrape; it cannot reach local inference servers.
 Older combined runs can still resume with their original checkout and configuration.
