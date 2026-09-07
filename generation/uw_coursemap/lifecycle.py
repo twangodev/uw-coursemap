@@ -284,7 +284,11 @@ def _release(store, run, build_id, enrichment_ids):
             from .public_data import write_public, dataset_card
 
             public_counts = write_public(
-                staging / "coursemap.sqlite", staging, release_id, run
+                staging / "coursemap.sqlite",
+                staging,
+                release_id,
+                run,
+                store.root / "course-identities.json",
             )
             if build_store:
                 from .derive import write_compatibility

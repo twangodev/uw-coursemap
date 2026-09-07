@@ -610,7 +610,9 @@ def publish(store, run, repo_id, api=None, download=None):
             operations.append(
                 CommitOperationAdd(
                     "README.md",
-                    dataset_card(source_run, manifest["public_tables"]).encode(),
+                    dataset_card(
+                        source_run, manifest["public_tables"], repo_id=repo_id
+                    ).encode(),
                 )
             )
             operations.extend(

@@ -12,8 +12,14 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 
 from .models import canonical, digest
+from .identities import catalog_identities
+from .dataset_shape import (
+    SCHEMAS as SHAPE_SCHEMAS,
+    DESCRIPTIONS as SHAPE_DESCRIPTIONS,
+    write_shape,
+)
 
-PUBLIC_VERSION = 2
+PUBLIC_VERSION = 3
 GRADE_FIELDS = (
     "a ab b bc c d f satisfactory unsatisfactory credit no_credit passed "
     "incomplete no_work not_reported other total"
@@ -23,6 +29,7 @@ STRINGS = pa.list_(TEXT)
 TIME = pa.timestamp("us", tz="UTC")
 CATALOG_FIELDS = [
     ("course_id", TEXT),
+    ("course_uid", TEXT),
     ("catalog_version_id", TEXT),
     ("course_number", pa.int64()),
     ("subjects", STRINGS),
@@ -37,6 +44,7 @@ SCHEMAS = {
             ("job_id", TEXT),
             ("run_id", TEXT),
             ("course_id", TEXT),
+            ("course_uid", TEXT),
             ("output_id", TEXT),
             ("model", TEXT),
             ("model_revision", TEXT),
@@ -81,6 +89,7 @@ SCHEMAS = {
         OBSERVATION_FIELDS
         + [
             ("course_id", TEXT),
+            ("course_uid", TEXT),
             ("term_id", TEXT),
             ("term_name", TEXT),
             ("instructors", STRINGS),
@@ -92,6 +101,7 @@ SCHEMAS = {
         + [
             ("offering_id", TEXT),
             ("course_id", TEXT),
+            ("course_uid", TEXT),
             ("term_id", TEXT),
             ("source_course_id", TEXT),
             ("source_subject_id", TEXT),
@@ -110,6 +120,9 @@ DESCRIPTIONS = {
     "grades_latest": "One row per course and grading term, choosing the latest observed distribution across included snapshots (observed_at, run_id). semester is the observation semester; term_id is the grading semester. Counts are not duplicated for repeated scrapes. Cross-listed course aliases may still overlap; do not interpret a sum across courses as distinct students. Missing counts remain null.",
     "offerings_current": "One row per enrollment offering in the selected source snapshot. Unmatched course_id stays null. This is a schedule snapshot, not live enrollment availability.",
 }
+
+SCHEMAS.update(SHAPE_SCHEMAS)
+DESCRIPTIONS.update(SHAPE_DESCRIPTIONS)
 
 
 def timestamp(value):
@@ -263,7 +276,7 @@ def enrich_fields(row):
     return result
 
 
-def write_public(database, destination, release_id, source_run):
+def write_public(database, destination, release_id, source_run, registry_path=None):
     """Read an immutable archive; write only the public/ and serving/ subtrees."""
     destination = Path(destination)
     directory = destination / "public"
@@ -282,6 +295,11 @@ def write_public(database, destination, release_id, source_run):
                 "observed_at": timestamp(runs[run]["observed_at"]),
             }
 
+        identities = catalog_identities(db, registry_path)
+        write_json(
+            directory / "course_identity_registry.json",
+            {"version": 1, "assignments": identities},
+        )
         counts, versions, current = {}, {}, {}
 
         def history():
@@ -290,6 +308,7 @@ def write_public(database, destination, release_id, source_run):
                 catalog = catalog_record(
                     row["course_id"], json.loads(row["record_json"])
                 )
+                catalog["course_uid"] = identities[row["course_id"]]
                 versions.setdefault(catalog["catalog_version_id"], catalog)
                 value = {
                     **observation(row["run_id"]),
@@ -326,6 +345,7 @@ def write_public(database, destination, release_id, source_run):
                         "source_subject_id",
                     )
                 },
+                "course_uid": identities.get(row["course_id"]),
                 "title": detail.get("title"),
                 "credits_min": detail.get("minimumCredits"),
                 "credits_max": detail.get("maximumCredits"),
@@ -384,6 +404,7 @@ def write_public(database, destination, release_id, source_run):
                     value = {
                         **observation(run),
                         "course_id": key[0],
+                        "course_uid": identities.get(key[0]),
                         "term_id": key[1],
                         "term_name": term_names.get(key[1]),
                         "instructors": distribution.get("instructors", []),
@@ -410,6 +431,7 @@ def write_public(database, destination, release_id, source_run):
                 value = dict(row)
                 provenance = json.loads(value["output_json"]).get("provenance", {})
                 value.update(
+                    course_uid=identities.get(row["course_id"]),
                     created_at=timestamp(value["created_at"]),
                     selected_for_release=bool(value.pop("selected")),
                     has_conversation=bool(provenance.get("conversation")),
@@ -423,6 +445,7 @@ def write_public(database, destination, release_id, source_run):
             traces(),
             max_text_bytes=16 * 1024 * 1024,
         )
+        counts.update(write_shape(db, directory, runs, source_run, identities))
         write_serving(
             destination / "serving",
             release_id,
@@ -548,50 +571,80 @@ def write_serving(directory, release_id, source_run, courses, offerings, grades)
     )
 
 
-def dataset_card(source_run, public_counts, archive_counts=None):
+def dataset_card(
+    source_run, public_counts, archive_counts=None, repo_id="twangodev/uw-coursemap"
+):
+    import yaml
+    from urllib.parse import urlencode
+
     configs = []
-    for name in [
-        "courses_current",
-        "courses_history",
-        "catalog_versions",
-        "grades_latest",
-        "offerings_current",
-    ]:
-        configs.append(
-            f"- config_name: {name}\n"
-            + ("  default: true\n" if name == "courses_current" else "")
-            + f"  data_files: public/{name}.parquet"
+    for prefix, counts in [("public", public_counts), ("tables", archive_counts or {})]:
+        for name in counts:
+            config = {
+                "config_name": name if prefix == "public" else "archive_" + name,
+                "data_files": [{"split": "train", "path": f"{prefix}/{name}.parquet"}],
+            }
+            if name == "courses_current" and prefix == "public":
+                config["default"] = True
+            configs.append(config)
+    metadata = {
+        "pretty_name": "UW Course Map",
+        "language": ["en"],
+        "multilinguality": ["monolingual"],
+        "annotations_creators": ["machine-generated"],
+        "task_categories": ["text-retrieval"],
+        "tags": [
+            "education",
+            "university-of-wisconsin-madison",
+            "courses",
+            "grades",
+            "prerequisites",
+            "tabular",
+            "parquet",
+            "llm-generated",
+        ],
+        "configs": configs,
+    }
+
+    def badge(label, query):
+        url = "https://img.shields.io/badge/dynamic/json?" + urlencode(
+            {
+                "url": f"https://huggingface.co/datasets/{repo_id}/raw/main/sync.json",
+                "query": query,
+                "label": label,
+                "color": "blue",
+                "cacheSeconds": 3600,
+            }
         )
-    for name in archive_counts or {}:
-        configs.append(
-            f"- config_name: archive_{name}\n  data_files: tables/{name}.parquet"
+        return f"![{label}]({url})"
+
+    return (
+        "---\n"
+        + yaml.safe_dump(metadata, sort_keys=False)
+        + "---\n\n"
+        + "\n".join(
+            [
+                "# UW Course Map",
+                "",
+                badge("last scan", "$.last_scan_utc"),
+                badge("courses", "$.courses"),
+                "",
+                "UW–Madison courses, grades, instructors, offerings, history, and LLM metadata in Parquet.",
+                "",
+                "Sources: [UW Guide](https://guide.wisc.edu/), [enrollment](https://public.enroll.wisc.edu/), [Madgrades](https://madgrades.com/).",
+                "",
+                "```python",
+                "from datasets import load_dataset",
+                "",
+                f'courses = load_dataset("{repo_id}", "courses_current", split="train")',
+                "```",
+                "",
+                "See [schema](public/schema.json) for tables and columns; [manifest](manifest.json) for provenance and checksums. `llm_traces` retains recorded outputs and model revisions.",
+                "",
+                "This dataset is not affiliated with or endorsed by the University of Wisconsin–Madison.",
+                "",
+            ]
         )
-    descriptions = "\n".join(
-        f"- `{name}` ({public_counts[name]:,} rows): {DESCRIPTIONS[name]}"
-        for name in SCHEMAS
-    )
-    return "\n".join(
-        [
-            "---",
-            "configs:",
-            *configs,
-            "---",
-            "",
-            "# UW Course Map",
-            "",
-            f"Source snapshot `{source_run}`. Start with `courses_current`; structured fields use native Parquet lists and numeric types. Dates are UTC timestamps.",
-            "",
-            descriptions,
-            "",
-            "LLM-generated fields are prefixed `llm_` and are not official catalog facts. Only validated sections are projected; missing, invalid, review-required and insufficient-evidence statuses remain explicit. Model, revision, job and output IDs identify provenance. Flexible requirement ASTs remain JSON strings; full recorded conversations, thinking, citations, rejected candidates and settings are available in `llm_traces` and the archive.",
-            "",
-            "See `public/schema.json` for every column. The `manifest.json` on the pinned release revision provides checksums and archive provenance. History covers observed snapshots only; course renumberings are not inferred.",
-            "",
-            "Serving: resolve the published `latest.json` once and pin its exact HF revision for all requests. Fetch `serving/manifest.json`, then the course shard, search index or requirement trees from that same revision. Cache by revision plus path; promote a new revision only after fetching and verifying its artifacts. `serving/search.json` is a portable keyword inverted index (Unicode alphanumeric casefold tokens, AND intersection); it is not semantic/vector search. Requirement trees retain logical operators; do not flatten exclusions into prerequisite edges. No Worker is deployed by this export.",
-            "",
-            "The relational archive retains complete records and repeated observations. Never sum its repeated grade snapshots. Sources include UW Guide, UW public enrollment and Madgrades; schedules and source data may contain errors.",
-            "",
-        ]
     )
 
 
@@ -610,17 +663,23 @@ def export_public(root, archive_id):
     if not (archive / "coursemap.sqlite").is_file():
         raise ValueError("Public export requires a complete SQLite archive")
     source_run = manifest.get("source_run", manifest["run_id"])
-    selection = {
-        "source_run": source_run,
-        "input_hash": manifest["input_hash"],
-        "archive_release": archive_id,
-        "archive_manifest_sha256": checksum(archive / "manifest.json"),
-        "public_schema_version": PUBLIC_VERSION,
-        "exporter_hash": code_hash(),
-    }
-    release_id = "public-" + digest(selection)[:24]
-    target = root / "releases" / release_id
     with file_lock(root / "releases.lock"):
+        with sqlite3.connect(archive / "coursemap.sqlite") as identity_db:
+            identity_db.row_factory = sqlite3.Row
+            identities = catalog_identities(
+                identity_db, root / "course-identities.json"
+            )
+        selection = {
+            "course_identities_sha256": digest(identities),
+            "source_run": source_run,
+            "input_hash": manifest["input_hash"],
+            "archive_release": archive_id,
+            "archive_manifest_sha256": checksum(archive / "manifest.json"),
+            "public_schema_version": PUBLIC_VERSION,
+            "exporter_hash": code_hash(),
+        }
+        release_id = "public-" + digest(selection)[:24]
+        target = root / "releases" / release_id
         if target.exists():
             verify_release(target)
             return target
@@ -629,7 +688,11 @@ def export_public(root, archive_id):
             shutil.rmtree(staging)
         staging.mkdir()
         counts = write_public(
-            archive / "coursemap.sqlite", staging, release_id, source_run
+            archive / "coursemap.sqlite",
+            staging,
+            release_id,
+            source_run,
+            root / "course-identities.json",
         )
         (staging / "README.md").write_text(dataset_card(source_run, counts))
         write_json(

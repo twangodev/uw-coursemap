@@ -378,4 +378,118 @@ class PublicDataTests(unittest.TestCase):
         card = dataset_card("new", counts, {"grades": 2})
         self.assertEqual(card.count("default: true"), 1)
         self.assertIn("config_name: archive_grades", card)
-        self.assertIn("latest observed distribution", card)
+        self.assertIn("not affiliated with or endorsed", card)
+        self.assertNotIn("license:", card)
+        for name in counts:
+            self.assertIn(f"path: public/{name}.parquet", card)
+
+    def test_section_grades_keep_coteachers_and_replace_old_assignments(self):
+        for run, people in [
+            ("old", [{"id": 1, "name": "Old Name"}, {"id": 3, "name": "Gone"}]),
+            ("new", [{"id": 1, "name": "New Name"}, {"id": 2, "name": "New Name"}]),
+        ]:
+            payload = {
+                "source_id": "source-course",
+                "course_reference": self.record["course_reference"],
+                "courseOfferings": [
+                    {
+                        "termCode": 1262,
+                        "sections": [
+                            {
+                                "sectionNumber": 1,
+                                "aCount": 0,
+                                "total": 4,
+                                "instructors": people,
+                            }
+                        ],
+                    }
+                ],
+            }
+            self.db.execute(
+                "INSERT INTO observations VALUES(?,?,?,?,?,?,?,?)",
+                (
+                    run,
+                    "madgrades",
+                    "grades",
+                    "source-course",
+                    None,
+                    "2026-09-01T00:00:00+00:00",
+                    "hash",
+                    canonical(payload),
+                ),
+            )
+        self.db.commit()
+        output, counts = self.export()
+
+        def rows(name):
+            return pq.read_table(output / f"public/{name}.parquet").to_pylist()
+
+        self.assertEqual(counts["section_grades_latest"], 1)
+        grade = rows("section_grades_latest")[0]
+        self.assertEqual(grade["a"], 0)
+        self.assertIsNone(grade["b"])
+        self.assertEqual(grade["course_uid"], rows("courses_current")[0]["course_uid"])
+        self.assertEqual(counts["grade_section_instructors"], 2)
+        roster = {r["instructor_uid"]: r for r in rows("instructors")}
+        teachers = [
+            roster[r["instructor_uid"]] for r in rows("grade_section_instructors")
+        ]
+        self.assertEqual({r["source_instructor_id"] for r in teachers}, {"1", "2"})
+        renamed = next(r for r in teachers if r["source_instructor_id"] == "1")
+        self.assertEqual(renamed["name"], "New Name")
+        self.assertEqual(renamed["first_observed_at"].year, 2025)
+        self.assertEqual(renamed["last_observed_at"].year, 2026)
+        self.assertEqual(
+            {
+                r["name"]
+                for r in rows("instructor_aliases")
+                if r["instructor_uid"] == renamed["instructor_uid"]
+            },
+            {"Old Name", "New Name"},
+        )
+        versions = {r["catalog_version_id"] for r in rows("catalog_versions")}
+        self.assertTrue(
+            all(
+                r["catalog_version_id"] in versions for r in rows("course_observations")
+            )
+        )
+
+    def test_section_identity_uses_class_number_not_course_local_label(self):
+        for i, class_number in [(1, 101), (2, 202), (3, 101)]:
+            if i > 1:
+                self.db.execute(
+                    "INSERT INTO offerings SELECT run_id,?,term_id,course_id,source_course_id,source_subject_id,course_reference_json,details_json FROM offerings WHERE offering_id='offering-1'",
+                    (f"offering-{i}",),
+                )
+            self.db.execute(
+                "INSERT INTO sections VALUES(?,?,?,?,?,?)",
+                (
+                    "new",
+                    f"offering-{i}",
+                    "LEC:001",
+                    "LEC",
+                    "001",
+                    canonical(
+                        {
+                            "classUniqueId": {
+                                "classNumber": class_number,
+                                "termCode": "1262",
+                            },
+                            "enrollmentStatus": {"capacity": class_number},
+                            "startDate": 0,
+                        }
+                    ),
+                ),
+            )
+        self.db.commit()
+        output, counts = self.export()
+        self.assertEqual(counts["sections_current"], 2)
+        self.assertEqual(counts["offering_sections"], 3)
+        sections = pq.read_table(output / "public/sections_current.parquet").to_pylist()
+        self.assertEqual({r["source_section_id"] for r in sections}, {"101", "202"})
+        self.assertTrue(
+            all(
+                r["start_date"].year == 1970 and r["start_date"].tzinfo
+                for r in sections
+            )
+        )

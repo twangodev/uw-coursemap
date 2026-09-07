@@ -294,7 +294,11 @@ Public datasets and serving exports
 
 `release` also writes typed `public/*.parquet` tables: `courses_current` (the HF
 Viewer default), `courses_history`, `catalog_versions`, `grades_latest`, and
-`offerings_current`. Lists are native Parquet lists, grade counts are integers,
+`offerings_current`, plus course identities/aliases, observation links, instructors,
+section grades and teacher links, current classes/meetings, and version-bound LLM
+results and traces. Preserve the workspace's `course-identities.json` across runs;
+`public/course_identity_registry.json` provides a portable recovery copy.
+Lists are native Parquet lists, grade counts are integers,
 credits are nullable numbers, and observation times are UTC timestamps. Flexible
 requirement ASTs remain JSON. `public/schema.json` describes each row and column.
 The archive remains available under `archive_*` HF configurations.
