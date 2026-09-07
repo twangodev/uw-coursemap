@@ -19,6 +19,8 @@ from uw_coursemap.public_data import (
     export_public,
     search_ids,
     write_public,
+    write_rows,
+    selected_enrichments,
 )
 from uw_coursemap.release import PUBLIC_SCHEMA
 
@@ -326,6 +328,24 @@ class PublicDataTests(unittest.TestCase):
         self.assertNotIn(
             "Recorded Qwen reasoning", (output / "serving/search.json").read_text()
         )
+
+    def test_large_trace_rows_are_byte_batched_without_losing_content(self):
+        path = self.root / "bounded.parquet"
+        schema = pa.schema([("output_json", pa.string())])
+        rows = [{"output_json": "é" * n} for n in [20, 20, 60, 10]]
+        self.assertEqual(write_rows(path, schema, iter(rows), max_text_bytes=100), 4)
+        self.assertEqual(pq.read_metadata(path).num_row_groups, 3)
+        self.assertEqual(pq.read_table(path).to_pylist(), rows)
+
+    def test_selected_projection_does_not_retain_raw_traces(self):
+        self.add_job("selected", 1)
+        self.db.row_factory = sqlite3.Row
+        selected = selected_enrichments(self.db)
+        self.assertTrue(selected)
+        for value in selected.values():
+            self.assertNotIn("output_json", value)
+            self.assertIn("llm_search_status", value)
+            self.assertEqual(value["llm_job_id"], "selected")
 
     def test_empty_tables_keep_schema_and_card_has_one_default(self):
         self.db.execute("DELETE FROM grades")

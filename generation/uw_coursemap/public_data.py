@@ -153,17 +153,35 @@ def catalog_record(course_id, record):
     return {**fields, "catalog_version_id": digest(fields)}
 
 
-def write_rows(path, schema, rows):
-    count, batch = 0, []
+def write_rows(path, schema, rows, max_text_bytes=None):
+    count, batch, text_bytes = 0, [], 0
     with pq.ParquetWriter(
         path, schema, compression="zstd", write_page_index=True
     ) as writer:
         for row in rows:
+            row_bytes = (
+                sum(
+                    len(value.encode("utf-8"))
+                    for value in row.values()
+                    if isinstance(value, str)
+                )
+                if max_text_bytes is not None
+                else 0
+            )
+            if (
+                batch
+                and max_text_bytes is not None
+                and text_bytes + row_bytes > max_text_bytes
+            ):
+                writer.write_table(pa.Table.from_pylist(batch, schema=schema))
+                count += len(batch)
+                batch, text_bytes = [], 0
             batch.append(row)
+            text_bytes += row_bytes
             if len(batch) == 4096:
                 writer.write_table(pa.Table.from_pylist(batch, schema=schema))
                 count += len(batch)
-                batch = []
+                batch, text_bytes = [], 0
         if batch:
             writer.write_table(pa.Table.from_pylist(batch, schema=schema))
             count += len(batch)
@@ -179,7 +197,7 @@ def selected_enrichments(db):
         return {}
     # Deliberate selection wins; within it, the newest job wins as a whole.
     return {
-        row["course_id"]: dict(row)
+        row["course_id"]: enrich_fields(row)
         for row in db.execute("""SELECT e.*,j.created_at,o.output_id,o.model,o.model_revision
             FROM current_course_enrichments e JOIN enrichment_jobs j USING(job_id)
             JOIN course_enrichment_runs b USING(job_id,run_id,course_id)
@@ -334,7 +352,7 @@ def write_public(database, destination, release_id, source_run):
                     for o in related
                     if o["credits_min"] is not None or o["credits_max"] is not None
                 ],
-                **enrich_fields(enrichment.get(key)),
+                **enrichment.get(key, enrich_fields(None)),
             )
         for course in current.values():
             for field in SCHEMAS["courses_current"].names:
@@ -400,7 +418,10 @@ def write_public(database, destination, release_id, source_run):
                 yield value
 
         counts["llm_traces"] = write_rows(
-            directory / "llm_traces.parquet", SCHEMAS["llm_traces"], traces()
+            directory / "llm_traces.parquet",
+            SCHEMAS["llm_traces"],
+            traces(),
+            max_text_bytes=16 * 1024 * 1024,
         )
         write_serving(
             destination / "serving",
