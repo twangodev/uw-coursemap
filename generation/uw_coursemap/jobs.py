@@ -12,10 +12,11 @@ import requests
 
 from .models import canonical, digest
 from .profiles import load_profile
+from .tasks import load_task
 from .store import Store, now
 
 
-WORKER_VERSION = 28
+WORKER_VERSION = 29
 
 
 def generation_schema(schema):
@@ -144,7 +145,7 @@ class Jobs:
         profile = load_profile(profiles, profile_name)
         if profile.runner != "generate":
             raise ValueError("Enrichment requires a generation profile")
-        task = json.loads(Path(task_path).read_text())
+        task = load_task(task_path)
         if not task.get("name") or not task.get("prompt") or not task.get("version"):
             raise ValueError("Task must have a name, version, prompt, and JSON schema")
         jsonschema.Draft202012Validator.check_schema(task["schema"])

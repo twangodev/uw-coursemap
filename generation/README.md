@@ -124,7 +124,7 @@ uv run coursemap enrich-resume ENRICHMENT_ID
 ```
 
 `--prepare-only` creates a job without contacting inference; `--limit 0` selects
-all courses. The task file defines source inputs, prompt, JSON Schema, and task
+all courses. The task manifest defines source inputs, Markdown prompt files, a JSON Schema file, and task
 version. The initial task produces summaries, topics, skills, and search phrases;
 topic/skill evidence must quote the description. It does not estimate workload,
 grades, or instructor quality. Schema and exact-quote checks reject malformed
@@ -453,3 +453,5 @@ comments and model conversations remain in the dataset.
 Public prerequisite ASTs are best-effort display trees and always have a root node. Trees marked `needs_review` remain available. Failed, missing, or empty parses fall back to one original-text condition node (or “No prerequisites listed” when empty). The original LLM status and archived outputs remain unchanged; these display trees are not eligibility decisions.
 
 Instructor-specific review themes include `subject_instructor_id`, the instructor name in their summary, and review citations for that instructor and course. Teaching themes must name their subject. Historical scope remains explicit; the review sample does not establish a student-wide preference or instructor ranking.
+
+Edit prompt text in `inference/prompts/`, output contracts in `inference/schemas/`, and versions/options in `inference/tasks/`. Prompt paths resolve relative to the manifest. Jobs store the resolved text and schema, so later file edits do not change recorded jobs; content changes also invalidate cached outputs. Inline prompt/schema tasks remain supported.

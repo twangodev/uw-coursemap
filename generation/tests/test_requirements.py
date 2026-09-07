@@ -7,15 +7,13 @@ import jsonschema
 
 from uw_coursemap.requirements import restore_quotes, validate_graph, graph_diagnostics
 from uw_coursemap.requirements_eval import expression, matches, normalize
+from uw_coursemap.tasks import load_task
 
 
 class RequirementsTests(unittest.TestCase):
     def setUp(self):
-        self.task = json.loads(
-            (
-                Path(__file__).resolve().parents[2]
-                / "inference/tasks/requirements.json"
-            ).read_text()
+        self.task = load_task(
+            Path(__file__).resolve().parents[2] / "inference/tasks/requirements.json"
         )
         self.payload = {
             "requirements_text": "MATH 221 or consent of instructor",

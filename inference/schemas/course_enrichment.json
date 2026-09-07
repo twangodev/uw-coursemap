@@ -1,0 +1,433 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "search_profile",
+    "requirements",
+    "student_experience"
+  ],
+  "properties": {
+    "search_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "summary",
+        "topics",
+        "skills_taught",
+        "assumed_background",
+        "search_phrases"
+      ],
+      "properties": {
+        "summary": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "text",
+            "evidence"
+          ],
+          "properties": {
+            "text": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 240
+            },
+            "evidence": {
+              "type": "array",
+              "maxItems": 4,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "course_id",
+                  "field",
+                  "quote"
+                ],
+                "properties": {
+                  "course_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  },
+                  "field": {
+                    "enum": [
+                      "description",
+                      "requirements_text",
+                      "title"
+                    ]
+                  },
+                  "quote": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 1800
+                  }
+                }
+              }
+            }
+          }
+        },
+        "topics": {
+          "type": "array",
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "text",
+              "evidence"
+            ],
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 240
+              },
+              "evidence": {
+                "type": "array",
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "course_id",
+                    "field",
+                    "quote"
+                  ],
+                  "properties": {
+                    "course_id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 100
+                    },
+                    "field": {
+                      "enum": [
+                        "description",
+                        "requirements_text",
+                        "title"
+                      ]
+                    },
+                    "quote": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 1800
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "skills_taught": {
+          "type": "array",
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "text",
+              "evidence"
+            ],
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 240
+              },
+              "evidence": {
+                "type": "array",
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "course_id",
+                    "field",
+                    "quote"
+                  ],
+                  "properties": {
+                    "course_id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 100
+                    },
+                    "field": {
+                      "enum": [
+                        "description",
+                        "requirements_text",
+                        "title"
+                      ]
+                    },
+                    "quote": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 1800
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "assumed_background": {
+          "type": "array",
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "text",
+              "evidence"
+            ],
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 240
+              },
+              "evidence": {
+                "type": "array",
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "course_id",
+                    "field",
+                    "quote"
+                  ],
+                  "properties": {
+                    "course_id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 100
+                    },
+                    "field": {
+                      "enum": [
+                        "description",
+                        "requirements_text",
+                        "title"
+                      ]
+                    },
+                    "quote": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 1800
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "search_phrases": {
+          "type": "array",
+          "maxItems": 12,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          }
+        }
+      }
+    },
+    "requirements": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "root",
+        "nodes",
+        "notes"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "parsed",
+            "none",
+            "needs_review"
+          ]
+        },
+        "root": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "nodes": {
+          "type": "array",
+          "maxItems": 64,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "kind",
+              "children",
+              "course",
+              "condition",
+              "evidence"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "all",
+                  "any",
+                  "not",
+                  "course",
+                  "condition"
+                ]
+              },
+              "children": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "course": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "additionalProperties": false,
+                "required": [
+                  "subjects",
+                  "course_number",
+                  "timing",
+                  "minimum_grade"
+                ],
+                "properties": {
+                  "subjects": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "course_number": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9999
+                  },
+                  "timing": {
+                    "type": "string",
+                    "enum": [
+                      "prior",
+                      "prior_or_concurrent",
+                      "concurrent",
+                      "unspecified"
+                    ]
+                  },
+                  "minimum_grade": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "condition": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "evidence": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "notes": {
+          "type": "array",
+          "maxItems": 4,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240
+          }
+        }
+      }
+    },
+    "student_experience": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "themes"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "supported",
+            "insufficient_evidence"
+          ]
+        },
+        "themes": {
+          "type": "array",
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "aspect",
+              "sentiment",
+              "summary",
+              "review_ids"
+            ],
+            "properties": {
+              "aspect": {
+                "enum": [
+                  "workload",
+                  "organization",
+                  "assessment",
+                  "teaching_clarity",
+                  "projects",
+                  "overall"
+                ]
+              },
+              "sentiment": {
+                "enum": [
+                  "positive",
+                  "mixed",
+                  "negative",
+                  "neutral"
+                ]
+              },
+              "summary": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 240
+              },
+              "review_ids": {
+                "type": "array",
+                "maxItems": 30,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                }
+              },
+              "subject_instructor_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "For an instructor-specific theme, the exact instructor_id whose course reviews support the summary. Null for a general course theme."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

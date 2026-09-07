@@ -1,0 +1,129 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status",
+    "root",
+    "nodes",
+    "notes"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "parsed",
+        "none",
+        "needs_review"
+      ]
+    },
+    "root": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "nodes": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "kind",
+          "children",
+          "course",
+          "condition",
+          "evidence"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "all",
+              "any",
+              "not",
+              "course",
+              "condition"
+            ]
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "course": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": false,
+            "required": [
+              "subjects",
+              "course_number",
+              "timing",
+              "minimum_grade"
+            ],
+            "properties": {
+              "subjects": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "course_number": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9999
+              },
+              "timing": {
+                "type": "string",
+                "enum": [
+                  "prior",
+                  "prior_or_concurrent",
+                  "concurrent",
+                  "unspecified"
+                ]
+              },
+              "minimum_grade": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "condition": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "notes": {
+      "type": "array",
+      "maxItems": 4,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 240
+      }
+    }
+  }
+}

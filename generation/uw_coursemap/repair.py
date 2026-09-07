@@ -61,9 +61,9 @@ def create_repair(
         raise ValueError("No rejected course sections selected")
     source_task = original["task"]
     if task_path is not None:
-        from pathlib import Path
+        from .tasks import load_task
 
-        source_task = json.loads(Path(task_path).read_text())
+        source_task = load_task(task_path)
         if (
             source_task.get("workflow") != "unified_v1"
             or source_task.get("schema") != original["task"]["schema"]

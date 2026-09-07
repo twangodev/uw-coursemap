@@ -8,6 +8,7 @@ from pathlib import Path
 from uw_coursemap.jobs import WORKER_VERSION, check_server, generate
 from uw_coursemap.models import digest
 from uw_coursemap.profiles import load_profile
+from uw_coursemap.tasks import load_task
 from uw_coursemap.requirements_eval import expression, matches
 
 
@@ -24,7 +25,7 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     profile = load_profile(args.models_config, args.profile).model_dump()
-    task = json.loads(args.task.read_text())
+    task = load_task(args.task)
     fixtures = json.loads(args.cases.read_text())
     check_server(profile)
 

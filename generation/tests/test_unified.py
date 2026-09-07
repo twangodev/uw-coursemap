@@ -1,9 +1,9 @@
-import json
 from pathlib import Path
 import unittest
 
 from uw_coursemap.course_context import CourseLookup, text_view
 from uw_coursemap.models import digest
+from uw_coursemap.tasks import load_task
 from uw_coursemap.requirements import graph_diagnostics
 from uw_coursemap.unified import (
     compare_parsers,
@@ -50,7 +50,7 @@ class Context:
 
 class UnifiedTests(unittest.TestCase):
     def setUp(self):
-        self.task = json.loads(TASK.read_text())
+        self.task = load_task(TASK)
         self.task["ast_repair_attempts"] = 2
         self.context = Context()
         self.root = self.context.get("COMPSCI 300")
