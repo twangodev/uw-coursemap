@@ -134,6 +134,25 @@ async def _conversation(profile, task, payload, context, model=None):
         raise ValueError("Source context changed")
     lookup = CourseLookup(context, root["course_id"], **task.get("tool_limits", {}))
     sections = copy.deepcopy(previous["sections"]) if previous else {}
+    from .requirements import ambiguous_semicolons
+
+    deterministic_sections = []
+    if sections.get("requirements", {}).get(
+        "status", "invalid"
+    ) == "invalid" and ambiguous_semicolons(root["requirements_text"]):
+        sections["requirements"] = validate_section(
+            "requirements",
+            {
+                "status": "needs_review",
+                "root": None,
+                "nodes": [],
+                "notes": ["Ambiguous eligibility punctuation"],
+            },
+            task,
+            root,
+            lookup,
+        )
+        deterministic_sections.append("requirements")
     locked = [
         name
         for name in SECTIONS
@@ -576,6 +595,7 @@ async def _conversation(profile, task, payload, context, model=None):
     provenance = {
         "worker_version": WORKER_VERSION,
         "validation_only": validation_only,
+        "deterministic_sections": deterministic_sections,
         "revalidated_candidates": revalidated_candidates,
         "orchestrator": ORCHESTRATOR,
         "input_hash": digest(root),

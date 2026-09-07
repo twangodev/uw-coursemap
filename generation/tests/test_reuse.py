@@ -69,6 +69,13 @@ class ReuseTests(unittest.TestCase):
             "insufficient_evidence",
         )
 
+    def test_unchanged_missing_lookup_is_reusable_but_new_identity_is_not(self):
+        self.previous["provenance"]["dependencies"] = {"COMPSCI 302": "missing"}
+        self.refresh()
+        self.assertIsNotNone(self.index.seed("COMPSCI 300"))
+        self.f.context.courses["COMPSCI 302"] = test_unified.course("COMPSCI 302")
+        self.assertIsNone(self.index.seed("COMPSCI 300"))
+
     def test_unchanged_course_without_reviews_makes_no_model_request(self):
         from pydantic_ai.models.function import FunctionModel
         from uw_coursemap.agents import generate_unified

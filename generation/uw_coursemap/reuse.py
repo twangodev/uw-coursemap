@@ -8,6 +8,7 @@ from .course_context import CourseContext, CourseLookup
 from .models import digest
 from .store import Store
 from .unified import validate_section
+from .requirements import ambiguous_semicolons
 
 FACT_FIELDS = (
     "course_id",
@@ -72,12 +73,7 @@ class ReuseIndex:
             for c in provenance.get("tool_calls", [])
             if c.get("tool") == "get_course"
         )
-        if any(
-            old.get(k) is None
-            or self.context.get(k) is None
-            or facts(old.get(k)) != facts(self.context.get(k))
-            for k in dependencies
-        ):
+        if any(facts(old.get(k)) != facts(self.context.get(k)) for k in dependencies):
             return None
         lookup = CourseLookup(self.context, key, **self.task.get("tool_limits", {}))
         try:
@@ -114,6 +110,26 @@ class ReuseIndex:
                 }
         except (ValueError, KeyError):
             return None
+        if (
+            ambiguous_semicolons(root["requirements_text"])
+            and "requirements" not in sections
+        ):
+            sections["requirements"] = validate_section(
+                "requirements",
+                {
+                    "status": "needs_review",
+                    "root": None,
+                    "nodes": [],
+                    "notes": ["Ambiguous eligibility punctuation"],
+                },
+                self.task,
+                root,
+                lookup,
+            )
+            origins["requirements"] = {
+                "kind": "deterministic_ambiguous_eligibility",
+                "input_hash": digest(facts(root)),
+            }
         if not sections:
             return None
         for name in ("search_profile", "requirements", "student_experience"):
