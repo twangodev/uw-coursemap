@@ -85,6 +85,18 @@ class ReportTests(unittest.TestCase):
                     (json.dumps(output),),
                 )
             self.assertEqual(report(directory, "job")["changed_retained_sections"], 1)
+            output["provenance"]["request_error"] = (
+                "This model's maximum context length is 32768 tokens"
+            )
+            with sqlite3.connect(path) as db:
+                db.execute(
+                    "UPDATE results SET output_json=? WHERE course_id='CS 100'",
+                    (json.dumps(output),),
+                )
+            self.assertEqual(
+                report(directory, "job")["failure_categories"],
+                {"context_window": 1, "worker_error": 1},
+            )
             with self.assertRaisesRegex(ValueError, "Unknown enrichment"):
                 report(directory, "absent")
 

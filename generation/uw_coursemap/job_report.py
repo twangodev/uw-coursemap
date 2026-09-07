@@ -33,7 +33,9 @@ def report(root, job_id):
             error = provenance.get("request_error")
             if error:
                 kind = (
-                    "token_limit"
+                    "context_window"
+                    if "maximum context length" in error
+                    else "token_limit"
                     if "Model token limit" in error
                     else "validation_retry_limit"
                     if "output retries" in error
