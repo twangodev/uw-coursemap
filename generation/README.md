@@ -378,3 +378,8 @@ truncation, rather than re-entering the same failed thinking mode.
 Plain JSON final submissions use PydanticAI TextOutput and the same section
 validators when vLLM does not return a tool-call envelope. This fallback never
 executes tools described in text.
+
+Use `coursemap --workspace PATH job-report JOB_ID` for a read-only snapshot of
+completion counts, section quality, failure categories, truncation recoveries,
+recorded usage, and verification that retained sections were unchanged. A
+completed job can still contain rejected or review-required sections.

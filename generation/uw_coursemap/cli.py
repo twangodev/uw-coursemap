@@ -66,7 +66,7 @@ def parser():
         if name == "release":
             command.add_argument("--build")
             command.add_argument("--enrichment", action="append", default=[])
-    for name in ("enrich-resume", "job-status", "derive-resume"):
+    for name in ("enrich-resume", "job-status", "job-report", "derive-resume"):
         command = commands.add_parser(name)
         command.add_argument("job_id")
         if name == "enrich-resume":
@@ -231,6 +231,11 @@ def main(argv=None):
         from .crawl import crawl
 
         crawl(args.workspace, args.run_id, args.source, args.offline)
+        return
+    if args.command == "job-report":
+        from .job_report import report
+
+        print(canonical(report(args.workspace, args.job_id)))
         return
     if args.command in {
         "derive",
