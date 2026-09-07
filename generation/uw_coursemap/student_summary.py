@@ -22,11 +22,17 @@ def summary_seeds(jobs, ids, run):
             "SELECT course_id,output_json FROM results WHERE job_id=? AND status=?",
             (job["job_id"], "complete"),
         ):
+            original = json.loads(row["output_json"])
             seeds[row["course_id"]] = {
                 "job_id": job["job_id"],
+                "failed_subtasks": [
+                    t
+                    for t in original.get("provenance", {}).get("subtasks", [])
+                    if t.get("error")
+                ],
                 "output": {
                     k: v
-                    for k, v in json.loads(row["output_json"]).items()
+                    for k, v in original.items()
                     if k in {"sections", "model", "model_revision", "task_version"}
                 },
             }
@@ -53,6 +59,12 @@ def validate_claims(value, payload):
                 raise ValueError(
                     "Cite distinct supplied citation_id handles for each claim"
                 )
+            if re.search(r"[\u4e00-\u9fff]", claim["text"]) or not re.search(
+                r"[.!?][\"'’”)]?$", claim["text"].strip()
+            ):
+                raise ValueError(
+                    "Write complete English sentences with ending punctuation, without truncation or stray non-English words"
+                )
             years = set(re.findall(r"\b(?:19|20)\d{2}\b", claim["text"]))
             cited_years = {reviews[i].get("date", "")[:4] for i in ids}
             if not years <= cited_years:
@@ -65,18 +77,21 @@ def validate_claims(value, payload):
                 )
     mode = payload["mode"]
     if mode == "overview":
-        if value["summary"] or not value["quick_take"]:
+        if value.get("summary"):
             raise ValueError("Overview requires quick_take claims, with summary empty")
     else:
-        if not value["summary"] or any(
-            value[k]
+        if any(
+            value.get(k, [])
             for k in ("quick_take", "difficulty_workload", "student_experience")
         ):
             raise ValueError(
                 "Return this scope in summary only; leave other arrays empty"
             )
-    if mode == "professor" and payload["instructor_name"] not in " ".join(
-        c["text"] for c in value["summary"]
+    if (
+        mode == "professor"
+        and value.get("summary")
+        and payload["instructor_name"]
+        not in " ".join(c["text"] for c in value["summary"])
     ):
         raise ValueError("Name the supplied current instructor exactly in the summary")
 
@@ -128,7 +143,7 @@ def generate_student(profile, task, payload, generate=None):
                         p
                         for p in prior["current_instructors"]
                         if p["instructor_uid"] == person["instructor_uid"]
-                        and p["review_status"] == "supported"
+                        and p["review_status"] in {"supported", "insufficient_evidence"}
                     ),
                     None,
                 )
@@ -165,15 +180,52 @@ def generate_student(profile, task, payload, generate=None):
             "term_id": source["term_id"],
             "instructor_name": person["name"] if person else None,
             "reviews": shown,
+            "current_instructors": [p["name"] for p in source["current_instructors"]],
+            "teaching_history": [
+                {
+                    "name": p["name"],
+                    "terms": [t["term_name"] or t["term_id"] for t in p["terms"]],
+                }
+                for p in source.get("teaching_history", [])
+            ],
         }
+        previous_failure = next(
+            (
+                t
+                for t in payload["summary_seed"].get("failed_subtasks", [])
+                if t["mode"] == mode
+                and t.get("instructor_uid")
+                == (person["instructor_uid"] if person else None)
+            ),
+            None,
+        )
+        if prior and previous_failure:
+            request["_history"] = previous_failure.get("conversation", [])
         local_profile = {
             **profile,
             "max_output_tokens": min(profile["max_output_tokens"], 4096),
         }
         try:
             with capture_run_messages() as messages:
-                result, cost = generate(local_profile, task, request)
+                scoped_task = copy.deepcopy(task)
+                fields = (
+                    ("quick_take", "difficulty_workload", "student_experience")
+                    if mode == "overview"
+                    else ("summary",)
+                )
+                scoped_task["schema"]["properties"] = {
+                    k: scoped_task["schema"]["properties"][k] for k in fields
+                }
+                scoped_task["schema"]["required"] = list(fields)
+                result, cost = generate(local_profile, scoped_task, request)
             validate_claims(result, request)
+            for field in (
+                "summary",
+                "quick_take",
+                "difficulty_workload",
+                "student_experience",
+            ):
+                result.setdefault(field, [])
             traces.append(
                 {
                     "mode": mode,
@@ -218,9 +270,13 @@ def generate_student(profile, task, payload, generate=None):
                                 }
                             )
                         )
-                        claim["text"] = (
-                            f"Historical reviews of {names}: " + claim["text"]
-                        )
+                        if "historical" not in claim["text"].casefold():
+                            label = (
+                                f"Historical reviews of {names}"
+                                if len(names) < 80
+                                else "Historical reviews"
+                            )
+                            claim["text"] = label + ": " + claim["text"]
             return {
                 k: result[k]
                 for k in (
@@ -248,21 +304,27 @@ def generate_student(profile, task, payload, generate=None):
         result = run("professor", person["reviews"], person)
         grade = grade_sentence(person["grade_records"])
         claims = result["summary"] if result else []
+        if not person["reviews"]:
+            review_status, message = (
+                "no_course_reviews",
+                "No course-specific reviews available",
+            )
+        elif result is None:
+            review_status, message = "generation_failed", "Summary generation failed"
+        elif not claims:
+            review_status, message = (
+                "insufficient_evidence",
+                "Available reviews do not provide enough detail",
+            )
+        else:
+            review_status, message = "supported", None
         current.append(
             {
                 "instructor_uid": person["instructor_uid"],
                 "name": person["name"],
                 "rmp_instructor_id": person["rmp_instructor_id"],
-                "review_status": "supported"
-                if result
-                else "generation_failed"
-                if person["reviews"]
-                else "no_course_reviews",
-                "message": None
-                if result
-                else "Summary generation failed"
-                if person["reviews"]
-                else "No course-specific reviews available",
+                "review_status": review_status,
+                "message": message,
                 "summary": claims + ([grade] if grade else []),
             }
         )
@@ -296,6 +358,17 @@ def generate_student(profile, task, payload, generate=None):
         "student_experience": overview["student_experience"],
         "current_instructors": current,
         "historical_context": history["summary"] if history else [],
+        "teaching_history": [
+            {
+                "text": p["name"]
+                + " is recorded teaching in "
+                + ", ".join(t["term_name"] or t["term_id"] for t in p["terms"])
+                + ". Recorded history may be incomplete and does not establish a future schedule.",
+                "citations": [c for t in p["terms"] for c in t["citations"]],
+            }
+            for p in source.get("teaching_history", [])
+            if p["terms"]
+        ],
         "message": None if overview_reviews else "No course-specific reviews available",
         "errors": errors,
     }

@@ -730,8 +730,16 @@ async def _generic(profile, task, payload, model=None):
                 raise ModelRetry(str(exc)[:6000]) from exc
             return value
 
+        request = {k: v for k, v in payload.items() if k != "_history"}
+        history = (
+            ModelMessagesTypeAdapter.validate_python(payload["_history"])
+            if payload.get("_history")
+            else None
+        )
         result = await agent.run(
-            canonical(payload), usage_limits=UsageLimits(request_limit=3)
+            canonical(request),
+            message_history=history,
+            usage_limits=UsageLimits(request_limit=3),
         )
         output = result.output
         output.setdefault("provenance", {}).update(

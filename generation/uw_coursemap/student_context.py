@@ -85,6 +85,26 @@ def grade_sentence(records):
     }
 
 
+def teaching_history(professors):
+    """Recorded teaching terms, with raw section citations and no inferred schedule."""
+    history = []
+    for name, records in sorted(professors.items()):
+        terms = {}
+        for record in records:
+            term = terms.setdefault(
+                record["term_id"],
+                {
+                    "term_id": record["term_id"],
+                    "term_name": record["term_name"],
+                    "citations": [],
+                },
+            )
+            if record["citation"] not in term["citations"]:
+                term["citations"].append(record["citation"])
+        history.append({"name": name, "terms": [terms[t] for t in sorted(terms)]})
+    return history
+
+
 class StudentContext:
     def __init__(self, store, run, courses):
         self.run, self.base = run, courses
@@ -241,6 +261,14 @@ class StudentContext:
         historical = sample_reviews(
             [r for r in reviews if r["instructor_id"] not in current_rmp], 12
         )
+        history_names = {
+            match_name(name, tuple(sorted(self.professor_grades[key])))
+            for name in {
+                *(p["name"] for p in people),
+                *(r.get("instructor_name") for r in historical),
+            }
+            if name
+        }
         return {
             "course_id": key,
             "term_id": self.term,
@@ -248,5 +276,12 @@ class StudentContext:
             "offered": key in self.rosters,
             "current_instructors": people,
             "historical_reviews": historical,
+            "teaching_history": teaching_history(
+                {
+                    name: self.professor_grades[key][name]
+                    for name in history_names
+                    if name
+                }
+            ),
             "grade_records": self.course_grades[key],
         }

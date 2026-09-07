@@ -1,6 +1,8 @@
 import copy
 import unittest
-from uw_coursemap.student_context import grade_sentence, match_name
+from pathlib import Path
+from uw_coursemap.tasks import load_task
+from uw_coursemap.student_context import grade_sentence, match_name, teaching_history
 from uw_coursemap.student_summary import generate_student, validate_claims
 
 
@@ -33,6 +35,14 @@ def review(id, instructor):
 
 
 class StudentSummaryTests(unittest.TestCase):
+    def test_teaching_history_keeps_both_seasons_and_zero_grade_sections(self):
+        fall = grade("1252", 0, 0)
+        spring = grade("1264", 10, 0)
+        history = teaching_history({"Dan Negrut": [spring, fall, copy.deepcopy(fall)]})
+        self.assertEqual([t["term_id"] for t in history[0]["terms"]], ["1252", "1264"])
+        self.assertEqual(len(history[0]["terms"][0]["citations"]), 1)
+        self.assertNotIn("counts", str(history))
+
     def test_grades_deduplicate_weight_and_use_last_three_usable_terms(self):
         data = [
             grade("1", 10, 0),
@@ -88,6 +98,12 @@ class StudentSummaryTests(unittest.TestCase):
         calls = []
 
         def fake(profile, task, request):
+            expected = (
+                {"quick_take", "difficulty_workload", "student_experience"}
+                if request["mode"] == "overview"
+                else {"summary"}
+            )
+            self.assertEqual(set(task["schema"]["properties"]), expected)
             calls.append(request)
             result = {
                 k: []
@@ -130,7 +146,17 @@ class StudentSummaryTests(unittest.TestCase):
         }
         payload = {
             "source_run": "run",
-            "summary_seed": {"job_id": "parent", "output": {"sections": base}},
+            "summary_seed": {
+                "job_id": "parent",
+                "output": {"sections": base},
+                "failed_subtasks": [
+                    {
+                        "mode": "professor",
+                        "instructor_uid": "uw:1",
+                        "conversation": ["stale input"],
+                    }
+                ],
+            },
             "student_context": {
                 "course_id": "COMPSCI 300",
                 "term_id": "1272",
@@ -138,18 +164,29 @@ class StudentSummaryTests(unittest.TestCase):
                 "offered": True,
                 "current_instructors": people,
                 "historical_reviews": [review("2", "rmp:old")],
+                "teaching_history": teaching_history({"Jane Doe": [grade("1", 1, 1)]}),
                 "grade_records": [grade("1", 1, 1)],
             },
         }
         result, _ = generate_student(
             {"model": "test", "revision": "abc", "max_output_tokens": 1000},
-            {"version": 1},
+            load_task(
+                Path(__file__).resolve().parents[2]
+                / "inference/tasks/student_summary.json"
+            ),
             payload,
             generate=fake,
         )
         self.assertEqual({k: result["sections"][k] for k in base}, base)
         section = result["sections"]["student_summary"]
         self.assertEqual(section["status"], "valid")
+        self.assertNotIn("_history", calls[0])
+        self.assertEqual(
+            calls[0]["teaching_history"], [{"name": "Jane Doe", "terms": ["1"]}]
+        )
+        teaching = section["value"]["teaching_history"][0]
+        self.assertIn("Jane Doe is recorded teaching in 1.", teaching["text"])
+        self.assertEqual(teaching["citations"], [grade("1", 1, 1)["citation"]])
         current = section["value"]["current_instructors"]
         self.assertEqual(current[1]["review_status"], "no_course_reviews")
         self.assertEqual(
@@ -167,7 +204,10 @@ class StudentSummaryTests(unittest.TestCase):
         before = len(calls)
         resumed, _ = generate_student(
             {"model": "test", "revision": "abc", "max_output_tokens": 1000},
-            {"version": 1},
+            load_task(
+                Path(__file__).resolve().parents[2]
+                / "inference/tasks/student_summary.json"
+            ),
             payload,
             generate=fake,
         )

@@ -10,7 +10,7 @@
   "properties": {
     "summary": {
       "type": "array",
-      "maxItems": 3,
+      "maxItems": 2,
       "items": {
         "type": "object",
         "additionalProperties": false,
@@ -22,7 +22,7 @@
           "text": {
             "type": "string",
             "minLength": 1,
-            "maxLength": 500
+            "maxLength": 1000
           },
           "review_ids": {
             "type": "array",
@@ -37,7 +37,7 @@
     },
     "quick_take": {
       "type": "array",
-      "maxItems": 3,
+      "maxItems": 2,
       "items": {
         "type": "object",
         "additionalProperties": false,
@@ -49,7 +49,7 @@
           "text": {
             "type": "string",
             "minLength": 1,
-            "maxLength": 500
+            "maxLength": 1000
           },
           "review_ids": {
             "type": "array",
@@ -76,7 +76,7 @@
           "text": {
             "type": "string",
             "minLength": 1,
-            "maxLength": 500
+            "maxLength": 1000
           },
           "review_ids": {
             "type": "array",
@@ -103,7 +103,7 @@
           "text": {
             "type": "string",
             "minLength": 1,
-            "maxLength": 500
+            "maxLength": 1000
           },
           "review_ids": {
             "type": "array",
