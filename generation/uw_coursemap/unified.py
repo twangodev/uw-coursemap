@@ -306,6 +306,30 @@ def validate_section(name, candidate, task, root, lookup):
                 people = {
                     r["instructor_id"]: r.get("instructor_name") for r in evidence
                 }
+                subject = theme.get("subject_instructor_id")
+                if (
+                    task.get("named_instructor_themes")
+                    and subject is None
+                    and any(people.values())
+                    and (
+                        theme["aspect"] == "teaching_clarity"
+                        or (theme["aspect"] == "overall" and len(people) == 1)
+                    )
+                ):
+                    raise ValueError(
+                        "Name the instructor: teaching_clarity themes and single-instructor overall themes require subject_instructor_id. "
+                        "Split teaching feedback into separate named-instructor themes, each citing only that instructor's reviews."
+                    )
+                if subject is not None:
+                    if set(people) != {subject}:
+                        raise ValueError(
+                            "Instructor-specific themes must cite only reviews attributed to subject_instructor_id"
+                        )
+                    name = people[subject]
+                    if not name or name not in theme["summary"]:
+                        raise ValueError(
+                            "Instructor-specific summary must include the exact instructor_name from its cited reviews"
+                        )
                 theme["scope"] = {
                     "instructors": [
                         {"id": key, "name": people[key]} for key in sorted(people)

@@ -184,6 +184,60 @@ class UnifiedTests(unittest.TestCase):
         )
         self.assertNotIn("evidence_count", value["themes"][0])
 
+    def test_named_instructor_theme_cannot_borrow_another_teachers_reviews(self):
+        self.root["reviews"] = [
+            {
+                "id": "r1",
+                "course_id": "COMPSCI 300",
+                "comment": "Clear lectures.",
+                "date": "2025-05-01",
+                "instructor_id": "i1",
+                "instructor_name": "Jane Doe",
+            },
+            {
+                "id": "r2",
+                "course_id": "COMPSCI 300",
+                "comment": "Helpful teacher.",
+                "date": "2024-05-01",
+                "instructor_id": "i2",
+                "instructor_name": "John Roe",
+            },
+        ]
+        theme = {
+            "aspect": "teaching_clarity",
+            "sentiment": "positive",
+            "summary": "A cited review praises Jane Doe for clear lectures.",
+            "subject_instructor_id": "i1",
+            "review_ids": ["r1"],
+        }
+        value = {"status": "supported", "themes": [theme]}
+        result = validate_section(
+            "student_experience", value, self.task, self.root, self.lookup
+        )
+        self.assertEqual(result["value"]["themes"][0]["subject_instructor_id"], "i1")
+        for ids in (["r2"], ["r1", "r2"]):
+            theme["review_ids"] = ids
+            with self.assertRaisesRegex(ValueError, "only reviews attributed"):
+                validate_section(
+                    "student_experience", value, self.task, self.root, self.lookup
+                )
+        theme["review_ids"] = ["r1"]
+        theme["subject_instructor_id"] = None
+        with self.assertRaisesRegex(ValueError, "Name the instructor"):
+            validate_section(
+                "student_experience",
+                value,
+                {**self.task, "named_instructor_themes": True},
+                self.root,
+                self.lookup,
+            )
+        theme["subject_instructor_id"] = "i1"
+        theme["summary"] = "A good instructor."
+        with self.assertRaisesRegex(ValueError, "exact instructor_name"):
+            validate_section(
+                "student_experience", value, self.task, self.root, self.lookup
+            )
+
     def test_sentiment_summary_preserves_historical_teacher_scope(self):
         self.root["reviews"] = [
             {

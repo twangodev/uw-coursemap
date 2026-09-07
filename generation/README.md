@@ -451,3 +451,5 @@ locked. Review citation handles are resolved exactly to the original IDs; raw
 comments and model conversations remain in the dataset.
 
 Public prerequisite ASTs are best-effort display trees and always have a root node. Trees marked `needs_review` remain available. Failed, missing, or empty parses fall back to one original-text condition node (or “No prerequisites listed” when empty). The original LLM status and archived outputs remain unchanged; these display trees are not eligibility decisions.
+
+Instructor-specific review themes include `subject_instructor_id`, the instructor name in their summary, and review citations for that instructor and course. Teaching themes must name their subject. Historical scope remains explicit; the review sample does not establish a student-wide preference or instructor ranking.
