@@ -1,11 +1,14 @@
 import { expect, test } from "@playwright/test";
-test("course history charts remain visible for an ungraded current term", async ({
+test("course history charts expand on demand for an ungraded current term", async ({
   page,
 }) => {
   await page.goto("/courses/COMPSCI_300");
+  await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   const history = page.getByRole("region", {
     name: "Historical grade outcomes",
   });
+  await expect(history).toHaveCount(0);
+  await page.locator(".more-grade-details > summary").click();
   await history.scrollIntoViewIfNeeded();
   await expect(
     history.getByRole("heading", { name: "Grade mix over time" }),
@@ -18,6 +21,8 @@ test("course history charts remain visible for an ungraded current term", async 
     .getByText("Grade counts & non-letter outcomes", { exact: true })
     .click();
   await expect(page.locator(".outcomes-table")).toContainText("Spring 2026");
+  await page.locator(".more-grade-details > summary").click();
+  await expect(history).toHaveCount(0);
 });
 test("departments and prerequisite maps serve distinct purposes", async ({
   page,

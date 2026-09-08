@@ -30,16 +30,15 @@
 
 <style>
 
-  .projection-heading { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-bottom: 20px; }
+  .projection-heading { display: grid; gap: 6px; margin-bottom: 20px; }
   h3 { font-size: 16px; margin: 0; font-weight: 500; }
   .projection-heading span { font-size: 12px; }
   .projected-range { font-size: 40px; letter-spacing: -0.04em; line-height: 1.3; }
   .projected-range span { font-size: 14px; letter-spacing: 0; color: var(--muted); }
   .interval-label { color: var(--muted); font-size: 13px; margin-top: 8px; }
-  .interval-scale { position: relative; height: 4px; background: var(--border); margin-top: 28px; max-width: 420px; border-radius: 2px; }
+  .interval-scale { position: relative; height: 4px; background: var(--border); margin-top: 28px; border-radius: 2px; }
   .interval-band { position: absolute; top: -3px; height: 10px; min-width: 2px; border-radius: 3px; background: var(--text); }
-  .scale-labels { display: flex; justify-content: space-between; max-width: 420px; font-size: 11px; color: var(--muted); margin-top: 8px; }
+  .scale-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 8px; }
   details { padding-bottom: 0; margin-top: 20px; font-size: 12px; }
   details p { max-width: 80ch; line-height: 1.7; margin-top: 12px; }
-  @media (max-width: 760px) { .projection-heading { align-items: start; flex-direction: column; gap: 8px; } }
 </style>

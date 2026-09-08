@@ -13,6 +13,7 @@
   import { instructorChartRows, gradeTrendDomain, type InstructorTrend } from "$lib/instructor-trends";
   import { scalePoint } from "d3-scale";
   import { termName, courseTitle } from "$lib/format";
+  let moreDetailsOpen = $state(false);
   let {
     grades = [],
     projection,
@@ -175,7 +176,7 @@
 {#if failure}<p role="alert">{failure}</p>{/if}{#if loading}<p class="muted">
     Loading grades…
   </p>{/if}
-  <div class="charts">
+  <div class="charts" class:projected-charts={isProjected && trends.length > 1}>
     <div>
       {#if isProjected}
         <GradeEstimate {projection} term={selectedTerm} />
@@ -241,6 +242,10 @@
         </div>
       </div>{/if}
   </div>
+  <details class="more-grade-details" bind:open={moreDetailsOpen}>
+    <summary>More grade details <span>Grade mix, volume & source data</span></summary>
+    {#if moreDetailsOpen}
+    <GradeHistory grades={source} through={selectedTerm} />
   {#if selected.length}<details>
     <summary>Grade data</summary>
     <div class="table-scroll">
@@ -266,9 +271,20 @@
   {:else}Course averages for GPA and A/AB share; median course for grade count. Above/below does not imply teaching quality. Courses may have different historical coverage. Historical grades describe past outcomes; co-taught sections share one distribution. Instructor lines use grade-weighted section averages; all instructors are shown by default. Hover over a term to identify instructors, or select one above to isolate their history.{/if}
 </p></details>
 
-<GradeHistory grades={source} through={selectedTerm} />
+    {/if}
+  </details>
 
 <style>
+  .more-grade-details { border-top: 1px solid var(--border); padding: 20px 0 0; }
+  .more-grade-details > summary { font-size: 15px; color: var(--text); cursor: pointer; }
+  .more-grade-details > summary span { margin-left: 12px; color: var(--muted); font-size: 12px; }
+  .more-grade-details[open] > summary { margin-bottom: 28px; }
+  @media (min-width: 960px) {
+    .charts.projected-charts { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr); gap: 48px; align-items: start; }
+  }
+  @media (max-width: 600px) {
+    .more-grade-details > summary span { display: block; margin: 4px 0 0 18px; }
+  }
 
   .fallback-note { margin: 0 0 20px; font-size: 14px; }
   .grade-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }

@@ -133,9 +133,7 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 64px;
-    margin-top: 56px;
-    padding-top: 48px;
-    border-top: 1px solid var(--border);
+    margin-bottom: 28px;
   }
   .history-row {
     display: grid;
