@@ -4,6 +4,7 @@ export interface PeerCourse {
   term: string;
   gpa: number;
   count: number;
+  topShare: number;
   subjects: string[];
 }
 
@@ -12,12 +13,10 @@ export function compareCourse(
   peers: PeerCourse[],
   subject = "",
 ) {
-  const level = Math.floor(Number(course.code.match(/(\d+)$/)?.[1]) / 100);
   const cohort = peers.filter(
     (peer) =>
       peer.count >= 30 &&
       peer.term === course.term &&
-      Math.floor(Number(peer.code.match(/(\d+)$/)?.[1]) / 100) === level &&
       (!subject || peer.subjects.includes(subject)),
   );
   if (course.count < 30 || cohort.length < 10) return null;
@@ -29,7 +28,6 @@ export function compareCourse(
     2;
   return {
     size: cohort.length,
-    level: level * 100,
     gpaPercentile: Math.round(
       (100 * others.filter((peer) => peer.gpa < course.gpa).length) /
         others.length,

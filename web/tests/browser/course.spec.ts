@@ -64,21 +64,20 @@ test("grade filters reset and instructor links retain course context", async ({
   const grades = page.locator("#grades");
   const count = grades.locator(".metric-strip");
   const overall = await count.textContent();
-  const instructors = grades.getByRole("combobox", {
+  const instructors = grades.getByRole("button", {
     name: "Instructor",
     exact: true,
   });
-  const option = await instructors
-    .locator("option")
-    .nth(1)
-    .getAttribute("value");
+  await instructors.click();
+  const option = page.getByRole("listbox").getByRole("option").nth(1);
   const response = page.waitForResponse(
     (r) => r.url().includes(`/api/courses/${uid}/grades`) && r.ok(),
   );
-  await instructors.selectOption(option!);
+  await option.click();
   await response;
   await expect(grades.getByText("Loading grades…")).not.toBeVisible();
-  await instructors.selectOption("");
+  await instructors.click();
+  await page.getByRole("option", { name: "Course overall", exact: true }).click();
   await expect(count).toHaveText(overall!);
   const professor = page.locator("#professors h3 a").first();
   const name = await professor.textContent();
@@ -192,4 +191,23 @@ test("takeaways rotate and pause for reading sources", async ({ page }) => {
   await page.mouse.move(0, 0);
   await page.clock.fastForward(16000);
   await expect(card.locator(".claim > p")).toHaveText(reading!);
+});
+
+test("school and department comparisons stay synchronized", async ({ page }) => {
+  await page.goto(`/courses/${uid}`);
+  await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
+  const metrics = page.locator("#grades .metric-strip");
+  const school = await metrics.textContent();
+  await page.getByRole("button", { name: "Comparison group", exact: true }).click();
+  await page.getByRole("option", { name: "Department · COMPSCI", exact: true }).click();
+  await expect(metrics).not.toHaveText(school!);
+  await expect(page.locator(".course-context .context-heading")).toContainText("COMPSCI");
+  await expect(metrics.locator(".metric-comparison")).toHaveCount(3);
+  await page.getByRole("button", { name: "Term", exact: true }).click();
+  await page.getByRole("option", { name: "Spring 2026", exact: true }).click();
+  await expect(metrics).toContainText("478");
+  await page.getByRole("button", { name: "Comparison group", exact: true }).click();
+  await page.keyboard.press("Home");
+  await page.keyboard.press("Enter");
+  await expect(page.locator(".course-context .context-heading")).toContainText("UW–Madison");
 });

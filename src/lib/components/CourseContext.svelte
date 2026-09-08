@@ -1,39 +1,31 @@
 <script lang="ts">
+  import { metricColor } from "$lib/grade-benchmarks";
   import { BarChart } from "layerchart";
   import { termName } from "$lib/format";
-  let { context }: { context: any } = $props();
-  let subject = $state("");
+  let { context, scope = "school" }: { context: any; scope?: string } = $props();
+  let benchmark = $derived(context.benchmarks.terms[context.term]?.[scope]);
   let comparison = $derived(
-    subject
-      ? context.departments.find((row: any) => row.subject === subject)
+    scope !== "school"
+      ? context.departments.find((row: any) => row.subject === scope)
           ?.comparison
       : context.university,
   );
 </script>
 
-{#if context?.university}
+{#if comparison}
   <section class="course-context" aria-labelledby="context-title">
     <div class="context-heading">
       <div>
         <h2 id="context-title">Where this course fits</h2>
         <p class="muted">
-          {termName(context.term)} · {comparison.level}-level courses
+          {termName(context.term)} · all course levels
         </p>
       </div>
-      {#if context.departments.length}
-        <label class="cohort-label"
-          >Compare with<select bind:value={subject}
-            ><option value="">Across UW–Madison</option
-            >{#each context.departments as department}<option
-                value={department.subject}>{department.subject}</option
-              >{/each}</select
-          ></label
-        >
-      {:else}<span class="muted">Across UW–Madison</span>{/if}
+      <span class="muted">{scope === "school" ? "UW–Madison" : scope}</span>
     </div>
     <div class="context-grid">
       <div>
-        <p class="context-number">{context.gpa.toFixed(2)} <span>GPA</span></p>
+        <p class="context-number" style:color={metricColor(context.gpa, benchmark?.gpa)}>{context.gpa.toFixed(2)} <span>GPA</span></p>
         <p>
           Higher than <strong>{comparison.gpaPercentile}%</strong> of other courses
           in this group.
@@ -60,7 +52,7 @@
         <p class="chart-caption">Course GPAs · red marks this course’s range</p>
       </div>
       <div class="course-scale">
-        <p class="context-number">
+        <p class="context-number" style:color={metricColor(context.count, benchmark?.count)}>
           {context.count.toLocaleString()} <span>letter grades</span>
         </p>
         <p>
@@ -98,7 +90,7 @@
     <details class="comparison-method">
       <summary>About this comparison</summary>
       <p>
-        {comparison.size} courses in the same term and level, each with at least 30
+        {comparison.size} courses in the same term, each with at least 30
         recorded letter grades. Cross-listed courses count once. GPA is not a measure
         of difficulty or teaching quality. The typical course is the median by recorded
         grade count; tied values are not counted as lower.
@@ -124,15 +116,6 @@
     margin-bottom: 8px;
   }
   .context-heading p {
-    font-size: 14px;
-  }
-  .cohort-label {
-    display: grid;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--muted);
-  }
-  select {
     font-size: 14px;
   }
   .context-grid {

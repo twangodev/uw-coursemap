@@ -6,13 +6,13 @@ const peers: PeerCourse[] = Array.from({ length: 10 }, (_, i) => ({
   term: "1264",
   gpa: 2 + i * 0.1,
   count: 30 + i * 10,
+  topShare: 50,
   subjects: ["COMPSCI", "ECE"],
 }));
 describe("course context", () => {
-  it("compares only same-term, same-level courses and handles cross-list membership", () => {
+  it("compares only same-term courses and handles cross-list membership", () => {
     const unrelated = [
       { ...peers[0], uid: "other-term", term: "1254" },
-      { ...peers[0], uid: "other-level", code: "COMPSCI 200" },
       { ...peers[0], uid: "small", count: 29 },
     ];
     const result = compareCourse(peers[5], [...peers, ...unrelated], "ECE")!;

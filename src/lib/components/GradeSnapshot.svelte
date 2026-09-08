@@ -1,6 +1,8 @@
 <script lang="ts">
   import { BarChart } from "layerchart";
-  let { grades = [] }: { grades: any[] } = $props();
+  import MetricComparison from "./MetricComparison.svelte";
+  import { metricColor, type Benchmark } from "$lib/grade-benchmarks";
+  let { grades = [], benchmark }: { grades: any[]; benchmark?: Benchmark | null } = $props();
   const keys = ["a", "ab", "b", "bc", "c", "d", "f"];
   const weights = [4, 3.5, 3, 2.5, 2, 1, 0];
   let bars = $derived(
@@ -29,12 +31,13 @@
     <a href="#grades" aria-label="Explore full grade history">↗</a>
   </div>
   <div class="snapshot-value">
-    <strong>{gpa?.toFixed(2) ?? "—"}</strong><span
+    <strong style:color={metricColor(gpa, benchmark?.gpa)}>{gpa?.toFixed(2) ?? "—"}</strong><span
       >average GPA<br /><span class="muted"
         >{total.toLocaleString()} letter grades</span
       ></span
     >
   </div>
+  {#if total}<MetricComparison value={gpa} reference={benchmark?.gpa} kind="gpa" />{/if}
   {#if total}<div class="mini-chart">
       <BarChart
         data={percentageBars}

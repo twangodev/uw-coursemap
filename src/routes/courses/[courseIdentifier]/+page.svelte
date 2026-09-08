@@ -9,6 +9,7 @@
     ChartColumn,
     Layers,
   } from "@lucide/svelte";
+  import Select from "$lib/components/Select.svelte";
   import Panel from "$lib/components/Panel.svelte";
   import Claims from "$lib/components/Claims.svelte";
   import RotatingClaims from "$lib/components/RotatingClaims.svelte";
@@ -30,6 +31,9 @@
         a.name.localeCompare(b.name),
     ),
   );
+  let comparisonScope = $state("school");
+  let scope = $derived(c.subjects.includes(comparisonScope) ? comparisonScope : "school");
+  let benchmark = $derived(data.context?.benchmarks.all[scope]);
   let summary = $derived(c.student_summary);
   let Graph = $state<any>(null);
   let graphError = $state("");
@@ -121,6 +125,12 @@
       ><link.icon size={14} strokeWidth={1.5} />{link.label}</a
     >{/each}
 </nav>
+{#if data.context}
+  <div class="comparison-toolbar">
+    <span>Compare with</span>
+    <Select label="Comparison group" value={scope} onChange={(value) => comparisonScope = value} options={[{ value: "school", label: "School · UW–Madison" }, ...c.subjects.map((subject: string) => ({ value: subject, label: `Department · ${subject}` }))]} />
+  </div>
+{/if}
 <section class="course-overview" id="overview" aria-label="Course overview">
   <div class="overview-take">
     {#if summary.difficulty_workload?.length || summary.quick_take?.length || summary.student_experience?.length}
@@ -130,7 +140,7 @@
       />{/key}
     {:else}<h2>What to expect</h2><p class="muted">No student feedback recorded yet.</p>{/if}
   </div>
-  <GradeSnapshot grades={c.grades} />
+  <GradeSnapshot grades={c.grades} {benchmark} />
 </section>
 <div class="course-workspace">
   <aside class="course-facts" aria-label="Course details">
@@ -176,6 +186,8 @@
     <Panel title="Grades" id="grades">
       <Grades
         grades={c.grades}
+        benchmarks={data.context?.benchmarks}
+        {scope}
         uid={c.course_uid}
         revision={c.revision}
         instructors={c.grade_instructors || c.instructors}
@@ -186,7 +198,7 @@
           <pre>{JSON.stringify(c.grade_conflicts, null, 2)}</pre>
         </details>{/if}
     </Panel>
-    {#if data.context}<CourseContext context={data.context} />{/if}
+    {#if data.context}<CourseContext context={data.context} {scope} />{/if}
     {#if data.projection}<GradeProjection projection={data.projection} />{/if}
     <Panel
       title="Student experience"
@@ -391,6 +403,9 @@
 </div>
 
 <style>
+  .comparison-toolbar { display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-top: 28px; color: var(--muted); font-size: 13px; }
+  @media (max-width: 600px) { .comparison-toolbar { justify-content: flex-start; } }
+
   .course-tag-groups {
     display: grid;
     gap: 14px;
