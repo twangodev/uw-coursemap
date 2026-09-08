@@ -8,7 +8,6 @@ export const handle: Handle = async ({ event, resolve }) => {
     redirect(308, "/search");
   if (path.startsWith("/explorer/"))
     redirect(308, "/subjects/" + path.slice("/explorer/".length));
-  if (path === "/courses/easiest") redirect(308, "/search?sort=gpa");
   if (path === "/instructors/by-rating-count")
     redirect(308, "/search?kind=instructor");
   if (path === "/stats") redirect(308, "/subjects");

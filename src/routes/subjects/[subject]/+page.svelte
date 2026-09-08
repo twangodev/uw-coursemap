@@ -1,4 +1,5 @@
 <script lang="ts">
+  import CourseCollections from "$lib/components/CourseCollections.svelte";
   import Select from "$lib/components/Select.svelte";
   import { goto } from "$app/navigation";
   import { termName } from "$lib/format";
@@ -13,6 +14,7 @@
   <h1>{data.subject}</h1>
   <p class="muted">Get a feel for the department. Find your next class.</p>
 </div>
+<CourseCollections subject={data.subject} term={data.results.term} />
 <DepartmentStats stats={data.stats} />
 <div class="term-toolbar">
   <Select

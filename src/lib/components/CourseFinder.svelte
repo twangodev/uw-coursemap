@@ -10,12 +10,14 @@
     subject = "",
     path = "/search",
     showTerm = true,
+    ranked = false,
   }: {
     results: any;
     status: any;
     subject?: string;
     path?: string;
     showTerm?: boolean;
+    ranked?: boolean;
   } = $props();
   function change(key: string, value: string) {
     const query = new URLSearchParams(location.search);
@@ -32,7 +34,7 @@
 
 <section aria-label="Find courses" class="finder">
   <div class="finder-heading">
-    <h2>Find your next class</h2>
+    <h2>{ranked ? "Find your fit" : "Find your next class"}</h2>
     <span class="muted"><strong>{results.total}</strong> courses</span>
   </div>
   <form action={path} class="finder-search">
@@ -108,7 +110,7 @@
       ]}
       onChange={(v) => change("credits_max", v)}
     />
-    <Select
+    {#if !ranked}<Select
       label="Sort courses"
       value={urlParams.sort || ""}
       options={[
@@ -116,13 +118,12 @@
         { value: "gpa", label: "Higher historical grades" },
       ]}
       onChange={(v) => change("sort", v)}
-    />
+    />{/if}
   </div>
   <p class="coverage">
-    Historical grades cover up to five years through the selected term. Grade
-    sorting prioritizes courses with at least 100 letter grades.
+    Historical grades cover up to five years through the selected term. {ranked ? "Only courses with at least 100 letter grades are ranked." : "Grade sorting prioritizes courses with at least 100 letter grades."}
   </p>
-  <CourseList courses={results.items} />
+  <CourseList courses={results.items} rankStart={ranked ? (results.page - 1) * 30 + 1 : undefined} />
   <nav class="pagination" aria-label="Course results pages">
     {#if results.page > 1}<a href={pageLink(results.page - 1)}>← Previous</a
       >{/if}<span>Page {results.page}</span

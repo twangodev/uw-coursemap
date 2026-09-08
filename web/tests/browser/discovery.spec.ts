@@ -74,18 +74,20 @@ test("instructor reviews show original comments, paginate and filter by course",
   ).toBeLessThanOrEqual(390);
   expect(errors).toEqual([]);
 });
-test("legacy easiest URL becomes a historical-grade course finder", async ({
-  page,
-}) => {
-  await page.goto("/courses/easiest");
-  await expect(page).toHaveURL(/\/search\?sort=gpa/);
-  await expect(page.locator(".discovery-card").first()).toBeVisible();
-  await expect(
-    page.getByRole("button", { name: "Sort courses", exact: true }),
-  ).toContainText("Higher historical grades");
-  await expect(page.locator(".route-content")).toHaveCSS("opacity", "1");
-  await page.locator(".discovery-card").first().screenshot({
-    animations: "disabled",
-    path: "/tmp/uw-coursemap-design-audit/course-finder-card.png",
-  });
+test("dedicated course collections preserve department filters and fixed rankings", async ({ page }) => {
+  await page.goto("/subjects/COMPSCI");
+  await page.getByRole("navigation", { name: "Course collections" }).getByRole("link", { name: "Easiest courses" }).click();
+  await expect(page).toHaveURL(/\/courses\/easiest\?subject=COMPSCI/);
+  await expect(page.getByRole("heading", { name: "Easiest courses", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Department", exact: true })).toContainText("COMPSCI");
+  await expect(page.locator(".discovery-card").first()).toContainText("#1");
+  await expect(page.getByRole("button", { name: "Sort courses", exact: true })).toHaveCount(0);
+  await page.getByRole("navigation", { name: "Course collections" }).getByRole("link", { name: "Hardest courses" }).click();
+  await expect(page).toHaveURL(/\/courses\/hardest\?subject=COMPSCI/);
+  await expect(page.getByRole("heading", { name: "Hardest courses", exact: true })).toBeVisible();
+  await expect(page.locator(".discovery-card").first()).toContainText("COMPSCI");
+  await page.reload();
+  await expect(page.getByRole("button", { name: "Department", exact: true })).toContainText("COMPSCI");
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

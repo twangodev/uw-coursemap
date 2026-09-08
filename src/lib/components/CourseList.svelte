@@ -9,7 +9,7 @@
   import type { CourseCard } from "$lib/types";
   import Claims from "./Claims.svelte";
   import AnimatedNumber from "./AnimatedNumber.svelte";
-  let { courses }: { courses: CourseCard[] } = $props();
+  let { courses, rankStart }: { courses: CourseCard[]; rankStart?: number } = $props();
   const colors = [
     "var(--positive)",
     "var(--positive)",
@@ -22,12 +22,12 @@
 </script>
 
 <div class="course-results">
-  {#each courses as c}
+  {#each courses as c, index}
     {#if c.discovery}{@const d = c.discovery}
       <article class="discovery-card">
         <div class="card-heading">
           <a href={courseUrl(c.course_uid)}
-            ><span class="code">{c.course_id}</span>
+            ><span class="code">{#if rankStart}<span class="muted">#{rankStart + index} · </span>{/if}{c.course_id}</span>
             <h3>{courseTitle(c.title)}</h3></a
           ><span class="credits">{credits(c.credits_min, c.credits_max)}</span>
         </div>

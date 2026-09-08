@@ -1,4 +1,5 @@
 <script lang="ts">
+  import CourseCollections from "$lib/components/CourseCollections.svelte";
   let { data } = $props();
   let query = $state("");
   let departments = $derived(
@@ -19,6 +20,7 @@
     placeholder="Find a department…"
   />
 </div>
+<CourseCollections />
 <div class="department-grid">
   {#each departments as d}<a href={"/subjects/" + encodeURIComponent(d.subject)}
       ><span>{d.subject}</span><span class="mono muted">{d.count} courses</span

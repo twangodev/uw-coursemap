@@ -1,3 +1,4 @@
+import { isCourseCollection } from "$lib/course-collections";
 import { building, dev } from "$app/environment";
 import { error } from "@sveltejs/kit";
 import { coursePreviews } from "./discovery";
@@ -148,10 +149,15 @@ export async function search(url: URL, platform?: App.Platform) {
       }
     }
   }
+  const ranking = url.searchParams.get("ranking");
+  if (ranking && (kind !== "course" || !isCourseCollection(ranking))) error(400, "Invalid course ranking");
+  if (ranking) where += " AND h.grade_count>=100";
   const sort = url.searchParams.get("sort");
   const order =
     kind === "instructor"
       ? "c.current DESC,c.name"
+      : ranking
+        ? `h.history_gpa ${ranking === "hardest" ? "ASC" : "DESC"},h.grade_count DESC,c.code`
       : sort === "gpa"
         ? "CASE WHEN h.grade_count>=100 THEN 0 ELSE 1 END,CASE WHEN h.grade_count>=100 THEN h.history_gpa END DESC,c.code"
         : expression

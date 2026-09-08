@@ -1,4 +1,5 @@
 <script lang="ts">
+  import CourseCollections from "$lib/components/CourseCollections.svelte";
   import CourseFinder from "$lib/components/CourseFinder.svelte";
   import { instructorUrl, termName } from "$lib/format";
   let { data } = $props();
@@ -20,6 +21,7 @@
   <span>{termName(data.status.term)}</span>
 </div>
 {#if data.results.kind === "course"}
+  <CourseCollections />
   <CourseFinder results={data.results} status={data.status} />
   <p class="switch">
     <a href="/search?kind=instructor">Looking for a professor? →</a>

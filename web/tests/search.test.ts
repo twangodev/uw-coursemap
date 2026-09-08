@@ -86,3 +86,16 @@ describe("presentation integrity", () => {
     expect(graph.edges).toHaveLength(1);
   });
 });
+
+
+it("ranks eligible courses in both directions and rejects unknown collections", async () => {
+  for (const ranking of ["easiest", "hardest"]) {
+    const result = await search(new URL(`http://localhost/search?ranking=${ranking}&subject=COMPSCI&sort=gpa`));
+    expect(result.items.length).toBeGreaterThan(2);
+    expect(result.items.every(c => c.discovery.history.count >= 100)).toBe(true);
+    const gpas = result.items.map(c => c.discovery.history.gpa);
+    expect(gpas).toEqual([...gpas].sort((a, b) => ranking === "easiest" ? b - a : a - b));
+    expect(result.items.every(c => c.course_id.includes("COMPSCI"))).toBe(true);
+  }
+  await expect(search(new URL("http://localhost/search?ranking=unknown"))).rejects.toMatchObject({ status: 400 });
+});
