@@ -1,10 +1,14 @@
 import { defineConfig } from "@playwright/test";
+const port = Number(process.env.TEST_PORT || 4173);
+const baseURL = `http://127.0.0.1:${port}`;
 export default defineConfig({
   testDir: "web/tests/browser",
-  use: { baseURL: "http://127.0.0.1:4173" },
+  use: { baseURL },
   webServer: {
-    command: "bun run dev --host 127.0.0.1 --port 4173",
-    url: "http://127.0.0.1:4173",
+    command: process.env.TEST_PREVIEW
+      ? `bun run preview --ip 127.0.0.1 --port ${port}`
+      : `bun run dev --host 127.0.0.1 --port ${port}`,
+    url: baseURL,
     reuseExistingServer: !process.env.CI,
   },
   projects: [{ name: "chromium", use: { browserName: "chromium" } }],

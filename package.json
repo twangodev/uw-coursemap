@@ -9,7 +9,7 @@
     "format": "prettier --write .",
     "dev": "vite dev",
     "build": "NODE_OPTIONS=--max-old-space-size=6144 vite build",
-    "preview": "vite preview",
+    "preview": "wrangler dev",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "test": "vitest run",
     "data:import": "uv run --locked uwcourses-site import",

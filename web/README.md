@@ -19,6 +19,18 @@ uv run --locked uwcourses-site assets-check
 bun x playwright test
 ```
 
+Production preview runs the built Cloudflare Worker with Wrangler and uses local D1, not `.site/site.sqlite`. After importing a new dataset, stop the preview and refresh its database before restarting:
+
+```sh
+set -e
+for part in .site/sql/*.sql; do
+  bun x wrangler d1 execute DB_BLUE --local --file="$part"
+done
+bun run preview --ip 0.0.0.0 --port 4173
+```
+
+`TEST_PREVIEW=1 bun x playwright test` runs browser checks against the production preview. Set `TEST_PORT` to use a different port.
+
 ## Cloudflare setup
 
 Create D1 databases `uw-coursemap-blue` and `uw-coursemap-green`, then put their IDs in `wrangler.jsonc`. Set GitHub secrets `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` with Workers Scripts and D1 edit permissions. `HF_TOKEN` is optional for the public dataset.
