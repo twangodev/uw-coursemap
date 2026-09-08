@@ -5,13 +5,16 @@
   import { metricColor, type Benchmarks } from "$lib/grade-benchmarks";
   import { onDestroy } from "svelte";
   import { BarChart, LineChart } from "layerchart";
+  import { curveMonotoneX } from "d3-shape";
+  import { instructorChartRows, gradeTrendDomain, type InstructorTrend } from "$lib/instructor-trends";
   import { scalePoint } from "d3-scale";
-  import { termName } from "$lib/format";
+  import { termName, courseTitle } from "$lib/format";
   let {
     grades = [],
     uid,
     revision,
     instructors = [],
+    instructorTrends = [],
     benchmarks,
     scope = "school",
     selectedTerm = $bindable(""),
@@ -21,6 +24,7 @@
     uid: string;
     revision: string;
     instructors: any[];
+    instructorTrends?: InstructorTrend[];
     benchmarks?: { all: Benchmarks; terms: Record<string, Benchmarks> };
     scope?: string;
     selectedTerm?: string;
@@ -48,7 +52,7 @@
   );
   let trends = $derived.by(() => {
     const groups = new Map<string, any[]>();
-    for (const r of source)
+    for (const r of grades)
       groups.set(r.term_id, [...(groups.get(r.term_id) || []), r]);
     return [...groups]
       .sort(([a], [b]) => a.localeCompare(b))
@@ -56,13 +60,21 @@
         const counts = keys.map((k) => rs.reduce((s, r) => s + (r[k] || 0), 0));
         const n = counts.reduce((a, b) => a + b, 0);
         return {
-          term: termName(term),
+          term,
           gpa: n ? counts.reduce((s, n, i) => s + n * weights[i], 0) / n : null,
           n,
         };
       })
       .filter((r) => r.gpa != null);
   });
+  const lineColors = ["var(--accent)", "var(--positive)", "#987746", "#866787"];
+  let visibleInstructors = $derived(selectedInstructor ? instructorTrends.filter((instructor) => instructor.uid === selectedInstructor) : instructorTrends);
+  let lineSeries = $derived([
+    { key: "overall", label: "Course average", color: "var(--text)" },
+    ...visibleInstructors.map((instructor) => ({ key: instructor.uid, label: courseTitle(instructor.name), color: lineColors[instructorTrends.findIndex((row) => row.uid === instructor.uid) % lineColors.length] })),
+  ]);
+  let trendRows = $derived(instructorChartRows(trends, visibleInstructors).map((row) => ({ ...row, label: termName(row.term) })));
+  let trendDomain = $derived(gradeTrendDomain(trendRows, lineSeries.map((series) => series.key)));
   let total = $derived(bars.reduce((s, b) => s + b.count, 0));
   let gpa = $derived(
     total
@@ -195,13 +207,15 @@
         <h3>Grades over time</h3>
         <div class="chart">
           <LineChart
-            data={trends}
-            x="term"
-            y="gpa"
-            series={[{ key: "gpa", label: "GPA", color: "var(--text)" }]}
+            data={trendRows}
+            x="label"
+            series={lineSeries}
             xScale={scalePoint()}
-            props={{ xAxis: { tickOcclusion: true, tickSpacing: 90 } }}
-            yDomain={[0, 4]}
+            props={{ tooltip: { hideTotal: true, root: { pointerEvents: true }, list: { style: "max-height: 280px; overflow-y: auto" }, item: { format: (value: number) => value.toFixed(2) } }, xAxis: { tickOcclusion: true, tickSpacing: 90 }, spline: { curve: curveMonotoneX, strokeWidth: 1.8 } }}
+            yDomain={trendDomain}
+            yBaseline={undefined}
+            yNice={false}
+            legend={false}
             height={220}
           />
         </div>
@@ -231,10 +245,11 @@
   </p>{/if}
 <details class="benchmark-note"><summary>About these comparisons</summary><p>{scope === "school" ? "UW–Madison" : scope} · matching recorded terms · all course levels.
   {#if selectedInstructor}Whole-course comparisons are unavailable for an instructor subset.
-  {:else}Course averages for GPA and A/AB share; median course for grade count. Above/below does not imply teaching quality. Courses may have different historical coverage. Historical grades describe past outcomes; co-taught sections share one distribution.{/if}
+  {:else}Course averages for GPA and A/AB share; median course for grade count. Above/below does not imply teaching quality. Courses may have different historical coverage. Historical grades describe past outcomes; co-taught sections share one distribution. Instructor lines use grade-weighted section averages; all instructors are shown by default. Hover over a term to identify instructors, or select one above to isolate their history.{/if}
 </p></details>
 
 <style>
+
   .grade-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
   .grade-toolbar .metric-strip { margin: 0; padding: 0; border: 0; gap: 32px; }
   .grade-toolbar .filters { margin: 0; gap: 12px; }

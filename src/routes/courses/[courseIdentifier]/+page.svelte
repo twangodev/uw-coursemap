@@ -209,6 +209,7 @@
     <Panel title="Grades" id="grades">
       <Grades
         grades={c.grades}
+        instructorTrends={data.instructorTrends}
         bind:selectedTerm={selectedGradeTerm}
         showTermSelect={false}
         benchmarks={data.context?.benchmarks}

@@ -263,3 +263,17 @@ test("inline citations show original comments without expanding the page", async
   await expect(sources).toHaveCount(0);
   await expect(trigger).toBeFocused();
 });
+
+test("grade history fits curved instructor lines and identifies them on hover", async ({ page }) => {
+
+  await page.goto(`/courses/${uid}`);
+  await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
+  const chart = page.locator("#grades .charts > div").last();
+  const paths = chart.locator("path.lc-path");
+  expect(await paths.evaluateAll((nodes) => nodes.filter((node) => node.getAttribute("d")?.includes("C")).length)).toBeGreaterThan(4);
+  await expect(chart.locator(".trend-legend")).toHaveCount(0);
+  await chart.locator(".chart").hover();
+  await expect(page.locator(".lc-tooltip-root")).toContainText("Course average");
+  await expect(page.locator(".lc-tooltip-root")).not.toContainText("total");
+  await chart.screenshot({ path: "/tmp/uw-coursemap-design-audit/all-instructor-trends.png" });
+});

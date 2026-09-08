@@ -1,6 +1,7 @@
 import { redirect, error } from "@sveltejs/kit";
 import { pageData, query } from "$lib/server/data";
 import { gradeKeys, projectGrades } from "$lib/grade-projection";
+import { instructorGradeTrends } from "$lib/server/instructor-trends";
 import { courseContext } from "$lib/server/course-context";
 import { normalize, courseUrl } from "$lib/format";
 import entriesData from "../../../../.site/entries.json";
@@ -26,9 +27,11 @@ export async function load({ params, platform }) {
     (row: any) =>
       row.term_id === target && gradeKeys.some((key) => Number(row[key]) > 0),
   );
+  const [context, instructorTrends] = await Promise.all([courseContext(course, platform), instructorGradeTrends(course, platform)]);
   return {
     course,
-    context: await courseContext(course, platform),
+    context,
+    instructorTrends,
     projection:
       target && !gradesReleased ? projectGrades(course.grades, target) : null,
   };
