@@ -179,6 +179,31 @@ class StudentSummaryTests(unittest.TestCase):
                 request,
             )
 
+    def test_review_availability_is_not_a_cited_claim(self):
+        request = {"mode": "history", "reviews": [{"citation_id": "review:1"}]}
+        for text in [
+            "The current instructors have no reviewed history in this dataset.",
+            "No course-specific reviews are available for the current instructor.",
+        ]:
+            with (
+                self.subTest(text=text),
+                self.assertRaisesRegex(ValueError, "availability"),
+            ):
+                validate_claims(
+                    {"summary": [{"text": text, "review_ids": ["review:1"]}]}, request
+                )
+        validate_claims(
+            {
+                "summary": [
+                    {
+                        "text": "A reviewer reported receiving no feedback on assignments.",
+                        "review_ids": ["review:1"],
+                    }
+                ]
+            },
+            request,
+        )
+
     def test_independent_professors_history_and_missing_reviews(self):
         calls = []
         profiles_seen = []
@@ -315,6 +340,27 @@ class StudentSummaryTests(unittest.TestCase):
             resumed["sections"]["student_summary"]["value"], section["value"]
         )
         self.assertEqual(len(resumed["provenance"]["reused_scopes"]), 3)
+        misleading = copy.deepcopy(payload)
+        misleading["summary_seed"]["output"]["sections"]["student_summary"]["value"][
+            "historical_context"
+        ][0]["text"] += " No reviews are available for the current instructor."
+        corrected, _ = generate_student(
+            {"model": "test", "revision": "abc", "max_output_tokens": 1000},
+            load_task(
+                Path(__file__).resolve().parents[2]
+                / "inference/tasks/student_summary.json"
+            ),
+            misleading,
+            generate=fake,
+        )
+        self.assertEqual(len(calls), before + 1)
+        self.assertEqual(calls[-1]["mode"], "history")
+        self.assertEqual(len(corrected["provenance"]["reused_scopes"]), 2)
+        self.assertEqual(
+            corrected["sections"]["student_summary"]["value"]["current_instructors"],
+            section["value"]["current_instructors"],
+        )
+        before = len(calls)
         from uw_coursemap.models import digest
 
         old_profile = {

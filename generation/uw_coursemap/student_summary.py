@@ -91,6 +91,15 @@ def summary_seeds(jobs, ids, run, *, allow_partial=False):
     return seeds
 
 
+def describes_review_availability(text):
+    return bool(
+        re.search(
+            r"\bno reviewed history\b|\bno (?:course-specific |student )?reviews (?:are )?(?:available|provided)\b",
+            text.casefold(),
+        )
+    )
+
+
 def validate_claims(value, payload):
     reviews = {r["citation_id"]: r for r in payload["reviews"]}
     limits = {
@@ -119,6 +128,10 @@ def validate_claims(value, payload):
                     "Do not repeat the same claim across fields; give each field a distinct purpose"
                 )
             seen.add(normalized)
+            if describes_review_availability(normalized):
+                raise ValueError(
+                    "Do not describe review availability in a cited claim; runtime supplies availability separately. Summarize the supplied reviews instead."
+                )
             # Variation describes disagreement, not population-wide consensus.
             consensus_text = re.sub(
                 r"\b(?:vary|varies|varied|differ|differs|differed) widely\b",
@@ -255,7 +268,11 @@ def generate_student(profile, task, payload, generate=None):
                         for c in prior[k]
                         if c["citations"][0]["type"] == "review"
                     ]
-            if empty is not None:
+            if empty is not None and not any(
+                describes_review_availability(claim["text"])
+                for claims in empty.values()
+                for claim in claims
+            ):
                 reused_scopes.append(
                     {
                         "mode": mode,
