@@ -361,3 +361,25 @@ test("course fit describes recorded grades and selected-term section sizes", asy
   await expect(fit).not.toContainText("Lectures");
   await expect(page.locator(".fit-source")).toContainText("Grades: Spring 2026");
 });
+
+
+test("course-fit charts remain visible for unreleased terms and heading comparison stays synchronized", async ({ page }) => {
+  await page.goto(`/courses/${uid}`);
+  await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
+  const context = page.locator(".course-context");
+  await expect(context.locator("h2")).toContainText("Where this course fits relative to UW–Madison");
+  await expect(context.locator(".context-heading")).toContainText("Latest available grades");
+  await expect(context.locator('.context-chart svg[role="figure"]').first()).toBeVisible();
+  await expect(context.locator('.scale-comparison svg[role="figure"]').first()).toBeVisible();
+  await context.getByRole("button", { name: "Course fit comparison", exact: true }).click();
+  await page.getByRole("option", { name: "COMPSCI", exact: true }).click();
+  await expect(page.getByRole("button", { name: "Comparison group", exact: true })).toContainText("COMPSCI");
+  await expect(context.locator(".fit-summary")).toContainText("COMPSCI");
+  await expect(context.locator('.context-chart svg[role="figure"]').first()).toBeVisible();
+  await page.getByRole("button", { name: "Comparison group", exact: true }).click();
+  await page.getByRole("option", { name: "School · UW–Madison", exact: true }).click();
+  await expect(context.getByRole("button", { name: "Course fit comparison", exact: true })).toContainText("UW–Madison");
+  await context.screenshot({ path: "/tmp/uw-coursemap-design-audit/course-fit-comparison.png" });
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});

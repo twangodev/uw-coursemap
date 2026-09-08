@@ -239,7 +239,7 @@
           <pre>{JSON.stringify(c.grade_conflicts, null, 2)}</pre>
         </details>{/if}
     </Panel>
-    {#if data.context}<CourseContext context={data.context} sections={c.sections} {scope} term={selectedGradeTerm} />{/if}
+    {#if data.context}<CourseContext context={data.context} sections={c.sections} subjects={c.subjects} {scope} onScopeChange={(value) => comparisonScope = value} term={selectedGradeTerm} />{/if}
     <Panel
       title="Student experience"
       id="experience"

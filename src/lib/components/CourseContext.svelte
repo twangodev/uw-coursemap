@@ -1,38 +1,36 @@
 <script lang="ts">
   import { courseFit } from "$lib/course-fit";
+  import Select from "./Select.svelte";
   import AnimatedNumber from "./AnimatedNumber.svelte";
   import { metricColor } from "$lib/grade-benchmarks";
   import { BarChart } from "layerchart";
   import { termName } from "$lib/format";
-  let { context: catalog, scope = "school", term = "", sections = [] }: { context: any; scope?: string; term?: string; sections?: any[] } = $props();
-  let context = $derived(term ? catalog.terms[term] : catalog.all);
-  let benchmark = $derived(term ? catalog.benchmarks.terms[term]?.[scope] : catalog.benchmarks.all[scope]);
+  let { context: catalog, scope = "school", term = "", sections = [], subjects = [], onScopeChange }: { context: any; scope?: string; term?: string; sections?: any[]; subjects?: string[]; onScopeChange?: (scope: string) => void } = $props();
+  let contextTerm = $derived(term && !catalog.terms[term] ? Object.keys(catalog.terms).filter(t => t < term && catalog.terms[t]).sort().at(-1) : term);
+  let context = $derived(contextTerm ? catalog.terms[contextTerm] : term ? null : catalog.all);
+  let benchmark = $derived(contextTerm ? catalog.benchmarks.terms[contextTerm]?.[scope] : term ? null : catalog.benchmarks.all[scope]);
   let comparison = $derived(
     scope !== "school"
       ? context?.departments.find((row: any) => row.subject === scope)
           ?.comparison
       : context?.university,
   );
-  let fitTerm = $derived(term && !context ? Object.keys(catalog.terms).filter(t => t < term && catalog.terms[t]).sort().at(-1) : term);
-  let fitContext = $derived(fitTerm ? catalog.terms[fitTerm] : context);
-  let fitBenchmark = $derived(fitTerm ? catalog.benchmarks.terms[fitTerm]?.[scope] : benchmark);
   let sectionTerm = $derived(term || sections.map(section => section.term_id).sort().at(-1));
-  let fit = $derived(courseFit({ gpa: fitContext?.count >= 30 ? fitContext.gpa : null, reference: fitBenchmark?.gpa, group: scope === "school" ? "UW–Madison" : scope, sections: sections.filter(section => section.term_id === sectionTerm) }));
+  let fit = $derived(courseFit({ gpa: context?.count >= 30 ? context.gpa : null, reference: benchmark?.gpa, group: scope === "school" ? "UW–Madison" : scope, sections: sections.filter(section => section.term_id === sectionTerm) }));
 </script>
 
 {#if (comparison && context) || fit}
   <section class="course-context" aria-labelledby="context-title">
     <div class="context-heading">
       <div>
-        <h2 id="context-title">Where this course fits</h2>
+        <h2 id="context-title">Where this course fits relative to <span class="inline-comparison"><Select label="Course fit comparison" value={scope} onChange={onScopeChange} options={[{ value: "school", label: "UW–Madison" }, ...subjects.map(subject => ({ value: subject, label: subject }))]} /></span></h2>
         <p class="muted">
-          {term ? termName(term) : "All recorded terms"} · all course levels
+          {contextTerm && contextTerm !== term ? `Latest available grades · ${termName(contextTerm)}` : contextTerm ? termName(contextTerm) : term ? termName(term) : "All recorded terms"} · all course levels
         </p>
       </div>
-      <span class="muted">{scope === "school" ? "UW–Madison" : scope}</span>
     </div>
     {#if fit}<p class="fit-summary">{fit}</p>
-      <p class="fit-source muted">{fitContext && fitBenchmark ? `Grades: ${fitTerm ? termName(fitTerm) : "all recorded terms"}. ` : ""}{sections.some(section => section.term_id === sectionTerm && section.enrolled > 0) ? `Section enrollment: ${termName(sectionTerm)} snapshot.` : ""}</p>
+      <p class="fit-source muted">{context && benchmark ? `Grades: ${contextTerm ? termName(contextTerm) : "all recorded terms"}. ` : ""}{sections.some(section => section.term_id === sectionTerm && section.enrolled > 0) ? `Section enrollment: ${termName(sectionTerm)} snapshot.` : ""}</p>
     {/if}
     {#if comparison && context}<div class="context-grid">
       <div>
@@ -112,6 +110,8 @@
 {:else}<p class="muted">Not enough comparable courses for {term ? termName(term) : "these recorded terms"} in {scope === "school" ? "UW–Madison" : scope}.</p>{/if}
 
 <style>
+  .inline-comparison { display: inline-block; max-width: 100%; vertical-align: baseline; }
+  .inline-comparison :global(.course-select-trigger) { padding: 0 0 2px; border: 0; border-bottom: 1px dashed var(--muted); border-radius: 0; background: transparent; font: inherit; line-height: inherit; gap: 8px; }
   .fit-summary { max-width: 68ch; font-size: 18px; line-height: 1.65; margin-bottom: 10px; }
   .fit-source { font-size: 12px; margin-bottom: 28px; }
   .course-context {
