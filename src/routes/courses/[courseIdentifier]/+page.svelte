@@ -123,6 +123,11 @@
     <div>
       <h1 title={c.title}>{courseTitle(c.title)}</h1>
       <p class="course-description">{introduction}</p>
+      <div class="row course-meta">
+        <span class:available={selectedOfferings.length}
+          ><i></i>{selectedOfferings.length ? "offering recorded" : "no offering record for this term"}</span
+        ><span>{credits(c.credits_min, c.credits_max)}</span>
+      </div>
     </div>
     <div class="current-teachers">
       <span class="teacher-label">{selectedGradeTerm ? `Recorded instructors · ${termLabel}` : `Teaching · ${termName(c.semester)}`}</span>
@@ -137,11 +142,6 @@
         >{:else}<span class="muted">No instructors listed</span>{/each}
       {#if headerProfessors.length > 3}<a class="more-teachers" href="#professors">+{headerProfessors.length - 3} more <ArrowUpRight size={15} /></a>{/if}
     </div>
-  </div>
-  <div class="row course-meta">
-    <span class:available={selectedOfferings.length}
-      ><i></i>{selectedOfferings.length ? "offering recorded" : "no offering record for this term"}</span
-    ><span>{credits(c.credits_min, c.credits_max)}</span>
   </div>
 </div>
 <div class="course-navigation">

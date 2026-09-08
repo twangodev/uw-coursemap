@@ -56,7 +56,7 @@
           "var(--negative)",
         ]}
         series={[{ key: "percentage" }]}
-        height={105}
+        height={90}
         axis={false}
         grid={false}
         props={{
@@ -82,7 +82,7 @@
 
 <style>
   .grade-snapshot {
-    padding: 26px 28px 20px;
+    padding: 20px 24px;
     min-width: 0;
     background: var(--surface);
     border-radius: 6px;
@@ -116,7 +116,7 @@
     font-size: 13px;
   }
   .mini-chart {
-    height: 110px;
+    height: 95px;
     margin-top: 8px;
   }
   .mini-chart :global(rect) {

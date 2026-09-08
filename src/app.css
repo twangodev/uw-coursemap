@@ -396,6 +396,7 @@ a:hover {
   color: var(--text);
 }
 .course-meta {
+  margin-top: 16px;
   font-size: 12px;
   color: var(--muted);
   gap: 20px;
@@ -679,27 +680,27 @@ a:hover {
 .course-identity {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 270px;
-  gap: 64px;
+  gap: 40px;
   align-items: start;
 }
 .course-heading {
-  padding: 24px 0 36px;
-  gap: 28px;
+  padding: 8px 0 24px;
+  gap: 16px;
 }
 .course-heading h1 {
-  font-size: clamp(30px, 3.8vw, 48px);
+  font-size: clamp(28px, 3.2vw, 40px);
   font-weight: 550;
   letter-spacing: -0.045em;
 }
 .course-description {
   max-width: 690px;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.55;
-  margin-top: 16px;
+  margin-top: 10px;
 }
 .current-teachers {
   display: grid;
-  gap: 10px;
+  gap: 6px;
   padding-left: 24px;
   border-left: 1px solid var(--border);
 }
@@ -707,7 +708,7 @@ a:hover {
   display: block;
   font: 14px var(--font-sans);
   color: var(--muted);
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 .current-teachers a {
   display: flex;
@@ -719,12 +720,12 @@ a:hover {
 .course-overview {
   display: grid;
   grid-template-columns: minmax(0, 1.65fr) minmax(300px, 1fr);
-  gap: 40px;
-  margin: 40px 0 72px;
+  gap: 24px;
+  margin: 24px 0 40px;
   scroll-margin-top: 80px;
 }
 .overview-take {
-  padding: 40px 44px;
+  padding: 24px 28px;
   border: 1px solid var(--border);
   border-radius: 6px;
 }
@@ -740,8 +741,8 @@ a:hover {
 }
 .overview-take .claim {
   max-width: 52ch;
-  font-size: 21px;
-  line-height: 1.7;
+  font-size: 18px;
+  line-height: 1.55;
 }
 .overview-take .citations {
   font-size: 12px;
@@ -824,7 +825,7 @@ a:hover {
     margin-bottom: 32px;
   }
   .overview-take {
-    padding: 28px 24px;
+    padding: 20px;
   }
   .overview-heading {
     align-items: start;
