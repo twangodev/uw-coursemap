@@ -65,7 +65,7 @@ export async function coursePreviews(
       ?.summary?.find((row: any) => row.citations?.length);
     return {
       ...item,
-      description: course.description || null,
+      description: course.llm_summary?.replace(`${course.course_id} ${course.title} `, "").replace(/^./, (letter: string) => letter.toUpperCase()) || null,
       discovery: {
         term,
         offered: course.offerings.some((row: any) => row.term_id === term),

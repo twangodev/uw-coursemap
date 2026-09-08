@@ -31,7 +31,7 @@
             <h3>{courseTitle(c.title)}</h3></a
           ><span class="credits">{credits(c.credits_min, c.credits_max)}</span>
         </div>
-        {#if c.description}<p class="catalog-description">{c.description}</p>{/if}
+        {#if c.description}<p class="course-description">{c.description}</p>{/if}
         <p class="offering">
           {d.offered
             ? `Offering recorded · ${termName(d.term)}`
@@ -93,7 +93,7 @@
     {:else}<a class="course-row" href={courseUrl(c.course_uid)}
         ><span class="code">{c.course_id}</span><span
           class="course-title"
-          title={c.title}>{courseTitle(c.title)}{#if c.description}<span class="catalog-description">{c.description}</span>{/if}</span
+          title={c.title}>{courseTitle(c.title)}{#if c.description}<span class="course-description">{c.description}</span>{/if}</span
         ><span class="muted mono"
           >{credits(c.credits_min, c.credits_max)}{c.gpa != null
             ? ` · ${c.gpa.toFixed(2)} GPA`
@@ -135,7 +135,7 @@
     margin: 7px 0 0;
     line-height: 1.25;
   }
-  .catalog-description { display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; max-width: 75ch; margin: 14px 0 0; color: var(--muted); font-size: 14px; font-weight: 400; line-height: 1.65; }
+  .course-description { display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; max-width: 75ch; margin: 14px 0 0; color: var(--muted); font-size: 14px; font-weight: 400; line-height: 1.65; }
   .credits,
   .offering {
     font-size: 12px;
