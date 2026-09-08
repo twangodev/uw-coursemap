@@ -1,19 +1,24 @@
 import { building } from "$app/environment";
-import { instructorUrls } from "$lib/server/instructor-urls";
+import entriesData from "../../../../.site/entries.json";
+import {
+  instructorUrls,
+  resolveInstructorUid,
+} from "$lib/server/instructor-urls";
 import { error, redirect } from "@sveltejs/kit";
 import { pageData, query, status } from "$lib/server/data";
 import { instructorReviews } from "$lib/server/reviews";
 import { instructorCourses } from "$lib/server/instructor-courses";
 export const prerender = "auto";
 export async function entries() {
-  return [...(await instructorUrls()).values()].map((url) => ({
-    uid: decodeURIComponent(url.split("/").at(-1)!),
+  const urls = await instructorUrls();
+  return entriesData.instructors.map((uid) => ({
+    uid: decodeURIComponent(urls.get(uid)!.split("/").at(-1)!),
   }));
 }
 export async function load({ params, platform, setHeaders, url }) {
   const urls = await instructorUrls(platform);
   const path = "/instructors/" + encodeURIComponent(params.uid);
-  let uid = [...urls].find(([, value]) => value === path)?.[0];
+  const uid = await resolveInstructorUid(path, platform);
   if (!uid && urls.has(params.uid))
     redirect(308, urls.get(params.uid)! + (building ? "" : url.search));
   if (!uid) error(404, "Instructor not found");

@@ -43,3 +43,18 @@ export async function withInstructorUrls<
     instructor_url: urls.get(row.instructor_uid || row.uid || ""),
   }));
 }
+
+// Reverse lookup is cached with the revision's URL map, including on the Worker.
+const reverseIndexes = new WeakMap<Map<string, string>, Map<string, string>>();
+export async function resolveInstructorUid(
+  path: string,
+  platform?: App.Platform,
+) {
+  const urls = await instructorUrls(platform);
+  let reverse = reverseIndexes.get(urls);
+  if (!reverse) {
+    reverse = new Map([...urls].map(([uid, url]) => [url, uid]));
+    reverseIndexes.set(urls, reverse);
+  }
+  return reverse.get(path);
+}
