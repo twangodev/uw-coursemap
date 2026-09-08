@@ -115,6 +115,7 @@ test("calendar filters meetings, exposes details and exports dates", async ({
   page,
 }) => {
   await page.goto("/courses/COMPSCI_300");
+  await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   const schedule = page.locator("#schedule");
   await schedule.scrollIntoViewIfNeeded();
   await expect(schedule.locator(".week-grid")).toBeVisible();
@@ -153,8 +154,8 @@ test("course context, projection and captured instructor ratings remain distinct
 }) => {
   await page.goto("/courses/COMPSCI_300");
   await expect(
-    page.locator(".grade-snapshot .grade-percentages"),
-  ).toContainText("34.1%");
+    page.locator(".grade-snapshot .grade-percentages").getByRole("img", { name: "34.1%", exact: true }),
+  ).toBeVisible();
   await expect(page.getByRole("button", { name: "Term", exact: true })).toContainText("Fall 2026");
   await expect(page.locator("#grades .grade-estimate")).toContainText("Fall 2026");
   await expect(page.locator("#grades .grade-estimate")).toContainText("prediction interval");
