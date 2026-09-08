@@ -344,3 +344,20 @@ test("insufficient projection history falls back only inside grades", async ({ p
   await expect(page.locator("#grades .fallback-note")).toHaveCount(0);
   await expect(page.locator("#grades .grade-percentages")).toBeVisible();
 });
+
+
+test("course fit describes recorded grades and selected-term section sizes", async ({ page }) => {
+  await page.goto(`/courses/${uid}`);
+  await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
+  const fit = page.locator(".fit-summary");
+  await expect(fit).toContainText("Lectures are");
+  await expect(fit).toContainText("UW–Madison");
+  await expect(page.locator(".fit-source")).toContainText("Section enrollment: Fall 2026 snapshot");
+  await page.getByRole("button", { name: "Comparison group", exact: true }).click();
+  await page.getByRole("option", { name: "Department · COMPSCI", exact: true }).click();
+  await expect(fit).toContainText("COMPSCI");
+  await page.getByRole("button", { name: "Term", exact: true }).click();
+  await page.getByRole("option", { name: "Spring 2026", exact: true }).click();
+  await expect(fit).not.toContainText("Lectures");
+  await expect(page.locator(".fit-source")).toContainText("Grades: Spring 2026");
+});
