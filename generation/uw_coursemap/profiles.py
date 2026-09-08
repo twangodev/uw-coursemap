@@ -9,6 +9,9 @@ from urllib.parse import urlparse
 from pydantic import BaseModel, ConfigDict, Field
 
 
+DEFAULT_REQUEST_TIMEOUT_SECONDS = 180
+
+
 class ModelProfile(BaseModel):
     model_config = ConfigDict(extra="forbid")
     model: str = Field(min_length=1)
@@ -23,7 +26,9 @@ class ModelProfile(BaseModel):
     top_k: int = Field(default=20, ge=0)
     presence_penalty: float = Field(default=0, ge=-2, le=2)
     thinking: bool = False
-    request_timeout_seconds: int = Field(default=180, ge=1, le=1800)
+    request_timeout_seconds: int = Field(
+        default=DEFAULT_REQUEST_TIMEOUT_SECONDS, ge=1, le=1800
+    )
     document_prefix: str = ""
     engine: str = "vllm"
     engine_version: str = "0.28.0"

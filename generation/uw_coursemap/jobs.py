@@ -11,12 +11,12 @@ import jsonschema
 import requests
 
 from .models import canonical, digest
-from .profiles import load_profile
+from .profiles import DEFAULT_REQUEST_TIMEOUT_SECONDS, load_profile
 from .tasks import load_task
 from .store import Store, now
 
 
-WORKER_VERSION = 44
+WORKER_VERSION = 45
 
 
 def generation_schema(schema):
@@ -151,7 +151,12 @@ class Jobs:
         if profile.runner != "generate":
             raise ValueError("Enrichment requires a generation profile")
         task = load_task(task_path)
-        if not task.get("name") or not task.get("prompt") or not task.get("version"):
+        if (
+            not task.get("name")
+            or not task.get("prompt")
+            or not task.get("version")
+            or "schema" not in task
+        ):
             raise ValueError("Task must have a name, version, prompt, and JSON schema")
         jsonschema.Draft202012Validator.check_schema(task["schema"])
         if task.get("validator") not in {
@@ -162,6 +167,11 @@ class Jobs:
             raise ValueError("Unknown task validator")
         if task.get("workflow") not in {None, "unified_v1", "student_summary_v1"}:
             raise ValueError("Unknown enrichment workflow")
+        if reuse_job_ids and task.get("workflow") not in {
+            "unified_v1",
+            "student_summary_v1",
+        }:
+            raise ValueError("Reuse requires unified enrichment or student summaries")
         fields = task.get(
             "input_fields",
             ["course_reference", "course_title", "description", "prerequisites"],
@@ -401,7 +411,10 @@ class Jobs:
                                 concurrency
                             )
                             value["provenance"]["request_timeout_seconds"] = (
-                                profile.get("request_timeout_seconds", 180)
+                                profile.get(
+                                    "request_timeout_seconds",
+                                    DEFAULT_REQUEST_TIMEOUT_SECONDS,
+                                )
                             )
                             encoded, tokens = canonical(value), canonical(usage)
                             with self.db:

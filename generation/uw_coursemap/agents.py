@@ -35,6 +35,7 @@ from pydantic_ai.providers.vllm import VLLMProvider
 from pydantic_ai.usage import RunUsage, UsageLimits
 
 from .course_context import CourseLookup
+from .profiles import DEFAULT_REQUEST_TIMEOUT_SECONDS
 from .models import canonical, digest
 from .unified import SECTIONS, compare_parsers, validate_section, review_handles
 
@@ -339,7 +340,7 @@ async def _conversation(profile, task, payload, context, model=None):
             found = lookup.get_course(course_id, from_course)
             return (
                 evidence_view(found, needed, related=True)
-                if found and "course_id" in found
+                if found and "course_reference" in found
                 else found
             )
 
@@ -571,7 +572,9 @@ async def _conversation(profile, task, payload, context, model=None):
             base_url=profile["base_url"],
             api_key=os.environ.get("COURSEMAP_INFERENCE_API_KEY", "local"),
             max_retries=2,
-            timeout=profile.get("request_timeout_seconds", 360),
+            timeout=profile.get(
+                "request_timeout_seconds", DEFAULT_REQUEST_TIMEOUT_SECONDS
+            ),
         ) as client:
             messages = await run(
                 PinnedModel(
@@ -862,7 +865,7 @@ async def _generic(profile, task, payload, model=None):
         base_url=profile["base_url"],
         api_key=os.environ.get("COURSEMAP_INFERENCE_API_KEY", "local"),
         max_retries=2,
-        timeout=profile.get("request_timeout_seconds", 360),
+        timeout=profile.get("request_timeout_seconds", DEFAULT_REQUEST_TIMEOUT_SECONDS),
     ) as client:
         return await run(
             PinnedModel(

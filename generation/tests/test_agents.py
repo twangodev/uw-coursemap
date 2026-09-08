@@ -230,6 +230,55 @@ class AgentTests(unittest.TestCase):
         )
         self.assertEqual(output["sections"]["search_profile"]["status"], "valid")
 
+    def test_native_lookup_preserves_missing_and_already_provided_status(self):
+        f = self.fixture
+        for identifier, expected in [
+            (
+                "MISSING 999",
+                {
+                    "course_id": "MISSING 999",
+                    "error": "Course not found in this snapshot",
+                },
+            ),
+            ("COMPSCI 300", {"course_id": "COMPSCI 300", "already_provided": True}),
+        ]:
+            with self.subTest(identifier=identifier):
+                calls = []
+
+                def model(messages, info):
+                    calls.append(1)
+                    if len(calls) == 1:
+                        return ModelResponse(
+                            parts=[
+                                ToolCallPart(
+                                    "get_course",
+                                    {
+                                        "course_id": identifier,
+                                        "from_course": "COMPSCI 300",
+                                    },
+                                )
+                            ]
+                        )
+                    returned = [
+                        p.content
+                        for m in messages
+                        for p in m.parts
+                        if isinstance(p, ToolReturnPart)
+                    ]
+                    self.assertEqual(returned[-1], expected)
+                    return self.response(
+                        {
+                            "search_profile": f.search,
+                            "requirements": f.requirements,
+                            "student_experience": f.experience,
+                        }
+                    )
+
+                generate_unified(
+                    f.profile, self.task, f.root, f.context, FunctionModel(model)
+                )
+                self.assertEqual(len(calls), 2)
+
     def test_thinking_only_truncation_recovers_without_thinking(self):
         f = self.fixture
         calls = []

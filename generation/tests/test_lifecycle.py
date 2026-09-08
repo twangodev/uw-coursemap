@@ -74,6 +74,34 @@ class LifecycleTests(unittest.TestCase):
                 run or self.run, "unused", "enrichment", self.task, limit=0
             )
 
+    def test_missing_task_schema_and_generic_reuse_fail_before_job_creation(self):
+        self.core()
+        jobs = Jobs(self.root)
+        try:
+            task = json.loads(self.task.read_text())
+            del task["schema"]
+            self.task.write_text(canonical(task))
+            with self.assertRaisesRegex(ValueError, "JSON schema"):
+                self.create_job(jobs)
+            task["schema"] = {}
+            self.task.write_text(canonical(task))
+            with (
+                patch("uw_coursemap.jobs.load_profile", return_value=self.profile),
+                self.assertRaisesRegex(ValueError, "Reuse requires unified"),
+            ):
+                jobs.create(
+                    self.run,
+                    "unused",
+                    "enrichment",
+                    self.task,
+                    reuse_job_ids=["missing"],
+                )
+            self.assertEqual(
+                jobs.db.execute("SELECT count(*) FROM jobs").fetchone()[0], 0
+            )
+        finally:
+            jobs.close()
+
     def test_explicit_repair_selection_ignores_sample_limit(self):
         from uw_coursemap.repair import create_repair
 
