@@ -11,10 +11,11 @@ import re
 import shutil
 import sqlite3
 import pyarrow.parquet as pq
+from .instructor_stats import attach_ratings
 
 ROOT = Path.cwd()
 REPO = "twangodev/uw-coursemap"
-IMPORTER_VERSION = "1"
+IMPORTER_VERSION = "2"
 GRADES = ["a", "ab", "b", "bc", "c", "d", "f"]
 WEIGHTS = [4, 3.5, 3, 2.5, 2, 1, 0]
 MAX_CHUNK = 1024 * 1024
@@ -191,6 +192,7 @@ def compile_release(source, revision, output, static, limit=0):
         raise ValueError("Empty course release")
     print(f"Importing {len(courses)} courses", flush=True)
     inst = {r["instructor_uid"]: r for r in rows(source, "instructors")}
+    attach_ratings(inst, rows(source, "rmp_reviews"))
     section_inst = defaultdict(set)
     for r in rows(source, "section_instructors_current"):
         section_inst[r["section_uid"]].add(r["instructor_uid"])
@@ -246,6 +248,8 @@ def compile_release(source, revision, output, static, limit=0):
     grade_instructors = defaultdict(set)
     for r in rows(source, "grade_section_instructors"):
         grade_instructors[r["grade_section_uid"]].add(r["instructor_uid"])
+    instructor_grades = defaultdict(lambda: [0] * len(GRADES))
+    instructor_sections = defaultdict(int)
     for r in rows(source, "section_grades_latest"):
         uid = r["course_uid"]
         if uid in courses:
@@ -256,10 +260,19 @@ def compile_release(source, revision, output, static, limit=0):
                 (uid, r["term_id"], r["grade_section_uid"], encode(ids), encode(r)),
             )
             for iid in ids:
+                if iid in inst:
+                    for index, key in enumerate(GRADES):
+                        instructor_grades[iid][index] += r.get(key) or 0
+                    instructor_sections[iid] += 1
                 db.execute(
                     "INSERT OR IGNORE INTO teaching VALUES(?,?,?)",
                     (iid, uid, r["term_id"]),
                 )
+    for iid, counts in instructor_grades.items():
+        inst[iid]["grade_statistics"] = {
+            **grade_stats([dict(zip(GRADES, counts))]),
+            "sections": instructor_sections[iid],
+        }
     paths = defaultdict(dict)
     for table, kind in [
         ("courses_history", "history"),
