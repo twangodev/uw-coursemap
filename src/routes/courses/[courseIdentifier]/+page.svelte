@@ -19,7 +19,6 @@
   import RotatingClaims from "$lib/components/RotatingClaims.svelte";
   import Evidence from "$lib/components/Evidence.svelte";
   import InstructorStats from "$lib/components/InstructorStats.svelte";
-  import GradeProjection from "$lib/components/GradeProjection.svelte";
   import CourseContext from "$lib/components/CourseContext.svelte";
   import GradeSnapshot from "$lib/components/GradeSnapshot.svelte";
   import Grades from "$lib/components/Grades.svelte";
@@ -31,6 +30,7 @@
   let comparisonScope = $state("school");
   let scope = $derived(c.subjects.includes(comparisonScope) ? comparisonScope : "school");
   let termSelection = $state<string | null>(null);
+  let projectedTerm = $derived(c.grades.some((row: any) => row.term_id === c.semester && ["a", "ab", "b", "bc", "c", "d", "f"].some((key) => row[key] > 0)) ? "" : c.semester);
   let gradeTerms = $derived([...new Set<string>([c.semester, ...c.grades.map((row: any) => row.term_id), ...c.sections.map((row: any) => row.term_id)].filter(Boolean))].sort().reverse());
   let selectedGradeTerm = $derived(termSelection ?? gradeTerms[0] ?? c.semester);
   let gradeTermIndex = $derived(gradeTerms.indexOf(selectedGradeTerm));
@@ -159,7 +159,7 @@
     {/if}
     <div class="navigation-filter term-picker" role="group" aria-label="Grade term">
       <button class="term-step" aria-label={selectedGradeTerm ? "Previous term" : "Latest term"} disabled={!gradeTerms.length || gradeTermIndex >= gradeTerms.length - 1} onclick={() => stepTerm(1)}><ChevronLeft size={14} /></button>
-      <Select label="Term" value={selectedGradeTerm} onChange={(value) => termSelection = value} options={[{ value: "", label: "All recorded terms" }, ...gradeTerms.map((term) => ({ value: term, label: termName(term) }))]} />
+      <Select label="Term" value={selectedGradeTerm} onChange={(value) => termSelection = value} options={[{ value: "", label: "All recorded terms" }, ...gradeTerms.map((term) => ({ value: term, label: termName(term) + (term === projectedTerm ? " · Projected" : "") }))]} />
       <button class="term-step" aria-label="Next term" disabled={gradeTermIndex <= 0} onclick={() => stepTerm(-1)}><ChevronRight size={14} /></button>
     </div>
   </div>
@@ -220,6 +220,8 @@
     <Panel title="Grades" id="grades">
       <Grades
         grades={c.grades}
+        projection={data.projection}
+        {projectedTerm}
         instructorTrends={data.instructorTrends}
         selectedTerm={selectedGradeTerm}
         showTermSelect={false}
@@ -236,7 +238,6 @@
         </details>{/if}
     </Panel>
     {#if data.context}<CourseContext context={data.context} {scope} term={selectedGradeTerm} />{/if}
-    {#if data.projection && (!selectedGradeTerm || selectedGradeTerm === data.projection.target)}<GradeProjection projection={data.projection} />{/if}
     <Panel
       title="Student experience"
       id="experience"

@@ -1,4 +1,6 @@
 <script lang="ts">
+  import GradeEstimate from "./GradeEstimate.svelte";
+  import type { GradeProjection } from "$lib/grade-projection";
   import AnimatedNumber from "./AnimatedNumber.svelte";
   import Select from "./Select.svelte";
   import MetricComparison from "./MetricComparison.svelte";
@@ -11,6 +13,8 @@
   import { termName, courseTitle } from "$lib/format";
   let {
     grades = [],
+    projection,
+    projectedTerm = "",
     uid,
     revision,
     instructors = [],
@@ -21,6 +25,8 @@
     showTermSelect = true,
   }: {
     grades: any[];
+    projection?: GradeProjection | null;
+    projectedTerm?: string;
     uid: string;
     revision: string;
     instructors: any[];
@@ -30,6 +36,7 @@
     selectedTerm?: string;
     showTermSelect?: boolean;
   } = $props();
+  let isProjected = $derived(!!projectedTerm && selectedTerm === projectedTerm);
   let selectedInstructor = $state("");
   // Instructor subsets have different term/section coverage; do not compare them with whole courses.
   let benchmark = $derived(selectedInstructor ? null : (selectedTerm ? benchmarks?.terms[selectedTerm]?.[scope] : benchmarks?.all[scope]));
@@ -137,7 +144,7 @@
 </script>
 
 <div class="grade-toolbar">
-<div class="metric-strip">
+{#if !isProjected}<div class="metric-strip">
   <div>
     <div class="metric-value" style:color={metricColor(gpa, benchmark?.gpa)}><MetricComparison value={gpa} reference={benchmark?.gpa} kind="gpa" label="Average GPA" group={scope === "school" ? "UW–Madison" : scope}><AnimatedNumber value={gpa} decimals={2} /></MetricComparison></div>
     <div class="metric-label">average GPA</div>
@@ -153,9 +160,10 @@
     <div class="metric-label">letter grades</div>
   </div>
 </div>
+{/if}
 <div class="filters">
   {#if showTermSelect}<div class="filter-select"><span>Term</span><Select label="Term" bind:value={selectedTerm} options={[{ value: "", label: "All recorded terms" }, ...[...new Set<string>(grades.map((r) => r.term_id))].sort().reverse().map((term) => ({ value: term, label: termName(term) }))]} /></div>{/if}
-  <div class="filter-select"><span>Instructor</span><Select label="Instructor" bind:value={selectedInstructor} onChange={change} options={[{ value: "", label: "Course overall" }, ...instructors.map((i) => ({ value: i.instructor_uid, label: i.name }))]} /></div>
+  <div class="filter-select"><span>{isProjected ? "Historical instructor" : "Instructor"}</span><Select label="Instructor" bind:value={selectedInstructor} onChange={change} options={[{ value: "", label: "Course overall" }, ...instructors.map((i) => ({ value: i.instructor_uid, label: i.name }))]} /></div>
 </div>
 </div>
 {#if failure}<p role="alert">{failure}</p>{/if}{#if loading}<p class="muted">
@@ -163,6 +171,9 @@
   </p>{/if}
   <div class="charts">
     <div>
+      {#if isProjected}
+        <GradeEstimate {projection} term={selectedTerm} />
+      {:else}
       <h3>Grade distribution · % of letter grades</h3>
       {#if total}
       <div class="chart">
@@ -204,6 +215,7 @@
           </div>{/each}
       </div>
       {:else}<p class="empty">No recorded grades for this selection.</p>{/if}
+      {/if}
     </div>
     {#if trends.length > 1}<div>
         <h3>Grades over time{selectedTerm ? ` · through ${termName(selectedTerm)}` : ""}</h3>

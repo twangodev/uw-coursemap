@@ -2,15 +2,15 @@
   import AnimatedNumber from "./AnimatedNumber.svelte";
   import { termName } from "$lib/format";
   import type { GradeProjection } from "$lib/grade-projection";
-  let { projection }: { projection: GradeProjection } = $props();
+  let { projection, term }: { projection?: GradeProjection | null; term: string } = $props();
 </script>
 
-<section class="projection" aria-labelledby="projection-title">
+<div class="grade-estimate">
   <div class="projection-heading">
-    <h2 id="projection-title">{termName(projection.target)} outlook</h2>
+    <h3>{termName(term)} · Projected</h3>
     <span class="muted">Before grades are released</span>
   </div>
-  {#if projection.interval}
+  {#if projection?.interval}
     <p class="projected-range"><AnimatedNumber value={projection.interval.lower} decimals={2} />–<AnimatedNumber value={projection.interval.upper} decimals={2} /> <span>average GPA</span></p>
     <p class="interval-label">Approximate {projection.interval.coverage}% prediction interval</p>
     <div class="interval-scale" aria-hidden="true">
@@ -20,18 +20,18 @@
   {:else}
     <p class="muted">Not enough historical forecasts to estimate a reliable range.</p>
   {/if}
-  <details>
+  {#if projection}<details>
     <summary>About this estimate</summary>
     <p>The course’s semester-average GPA, not an individual student’s grade. The center uses {projection.sourceTerms.length} {projection.sameSeason ? "same-season" : "recent"} terms, weighted toward recent results.</p>
     <p>The range uses the finite-sample 80th-percentile rank of absolute errors from earlier same-season forecasts. Each forecast uses only records from earlier terms. At least four forecasts are required; bounds are rounded outward and limited to 0–4. This is an empirical estimate: changing instructors or grading policies can reduce its coverage.</p>
     {#if projection.backtest}<p>{projection.backtest.terms} earlier forecasts · {projection.backtest.gpaError.toFixed(2)} GPA average error.</p>{/if}
-  </details>
-</section>
+  </details>{/if}
+</div>
 
 <style>
-  .projection { border-top: 1px solid var(--border); padding: 24px 0 0; }
+
   .projection-heading { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-bottom: 20px; }
-  h2 { font-size: 23px; margin: 0; }
+  h3 { font-size: 16px; margin: 0; font-weight: 500; }
   .projection-heading span { font-size: 12px; }
   .projected-range { font-size: 40px; letter-spacing: -0.04em; line-height: 1.3; }
   .projected-range span { font-size: 14px; letter-spacing: 0; color: var(--muted); }
