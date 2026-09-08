@@ -10,7 +10,7 @@
 </script>
 
 <svelte:head
-  ><title>UW Courses — Your next semester starts here</title></svelte:head
+  ><title>UW Courses — Your next semester starts here</title><meta name="description" content="Explore UW–Madison courses, professors, grades and prerequisites." /></svelte:head
 >
 <section class="landing">
   <div class="landing-copy">

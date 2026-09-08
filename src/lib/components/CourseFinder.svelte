@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { departmentLabel } from "$lib/departments";
   import { Search } from "@lucide/svelte";
   import { goto } from "$app/navigation";
   import SearchInput from "./SearchInput.svelte";
@@ -63,7 +64,7 @@
           { value: "", label: "All departments" },
           ...status.departments.map((d: any) => ({
             value: d.subject,
-            label: d.subject,
+            label: departmentLabel(d.subject),
           })),
         ]}
         onChange={(v) => change("subject", v)}

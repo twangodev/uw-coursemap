@@ -78,13 +78,13 @@ test("dedicated course collections preserve department filters and fixed ranking
   await page.goto("/subjects/COMPSCI");
   await page.getByRole("navigation", { name: "Course collections" }).getByRole("link", { name: "Easiest courses" }).click();
   await expect(page).toHaveURL(/\/subjects\/COMPSCI\/easiest/);
-  await expect(page.getByRole("heading", { name: "Easiest courses in COMPSCI", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Easiest courses in Computer Sciences", exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: "Department", exact: true })).toHaveCount(0);
   await expect(page.locator(".discovery-card").first()).toContainText("#1");
   await expect(page.getByRole("button", { name: "Sort courses", exact: true })).toHaveCount(0);
   await page.getByRole("navigation", { name: "Course collections" }).getByRole("link", { name: "Hardest courses" }).click();
   await expect(page).toHaveURL(/\/subjects\/COMPSCI\/hardest/);
-  await expect(page.getByRole("heading", { name: "Hardest courses in COMPSCI", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Hardest courses in Computer Sciences", exact: true })).toBeVisible();
   await expect(page.locator(".discovery-card").first()).toContainText("COMPSCI");
   await page.reload();
   await expect(page.getByRole("button", { name: "Department", exact: true })).toHaveCount(0);
@@ -97,12 +97,12 @@ test("department rankings are available without JavaScript and cannot switch sub
   const context = await browser.newContext({ javaScriptEnabled: false });
   const staticPage = await context.newPage();
   await staticPage.goto("http://127.0.0.1:4173/subjects/COMPSCI/easiest");
-  await expect(staticPage.getByRole("heading", { name: "Easiest courses in COMPSCI", exact: true })).toBeVisible();
+  await expect(staticPage.getByRole("heading", { name: "Easiest courses in Computer Sciences", exact: true })).toBeVisible();
   await expect(staticPage.locator(".discovery-card").first()).toContainText("COMPSCI");
   await context.close();
   await page.goto("/subjects/COMPSCI/easiest?subject=MATH&ranking=hardest");
   await expect(page.locator(".discovery-card").first()).toContainText("COMPSCI");
-  await expect(page.getByRole("heading", { name: "Easiest courses in COMPSCI", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Easiest courses in Computer Sciences", exact: true })).toBeVisible();
   const response = await page.goto("/subjects/NOTADEPARTMENT/easiest");
   expect(response?.status()).toBe(404);
 });
@@ -114,5 +114,19 @@ test("main navigation opens the instructor directory on mobile", async ({ page }
   await expect(page.getByRole("heading", { name: "Find a professor", exact: true })).toBeVisible();
   await expect(page.getByLabel("Search instructors")).toBeVisible();
   await expect(page.locator(".course-row").first()).toContainText("adjusted");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
+
+test("department names appear in search, headings and SEO metadata", async ({ page }) => {
+  await page.goto("/subjects");
+  await page.getByLabel("Find a department").fill("computer sciences");
+  const link = page.locator('.department-grid a[href="/subjects/COMPSCI"]');
+  await expect(link).toContainText("Computer Sciences");
+  await link.click();
+  await expect(page.getByRole("heading", { name: "Computer Sciences", exact: true })).toBeVisible();
+  await expect(page).toHaveTitle("Computer Sciences (COMPSCI) Courses, Grades & Reviews · UW Courses");
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /Explore Computer Sciences courses at UW–Madison/);
+  await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

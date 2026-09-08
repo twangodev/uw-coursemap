@@ -13,7 +13,7 @@
 <svelte:head
   ><title
     >{data.results.kind === "course" ? "Find courses" : "Find a professor"} · UW Courses</title
-  ><meta name="robots" content="noindex,follow" /></svelte:head
+  ><meta name="description" content="Find UW–Madison courses and instructors. Compare historical grades, student reviews and adjusted instructor ratings." /><meta name="robots" content="noindex,follow" /></svelte:head
 >
 <div class="search-heading">
   <h1>

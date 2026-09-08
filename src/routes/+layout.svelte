@@ -28,12 +28,6 @@
   });
 </script>
 
-<svelte:head
-  ><meta
-    name="description"
-    content="Explore UW–Madison courses, professors, grades and prerequisites."
-  /></svelte:head
->
 <a class="skip-link" href="#main">Skip to content</a>
 <header>
   <nav aria-label="Main navigation">

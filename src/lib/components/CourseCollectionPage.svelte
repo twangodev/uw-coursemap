@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { departmentName, departmentLabel } from "$lib/departments";
   import CourseFinder from "$lib/components/CourseFinder.svelte";
   import CourseCollections from "$lib/components/CourseCollections.svelte";
   import {
@@ -14,18 +15,18 @@
 <svelte:head
   ><title
     >{collection.title}{data.results.filters.subject
-      ? ` · ${data.results.filters.subject}`
+      ? ` · ${departmentLabel(data.results.filters.subject)}`
       : ""} · UW Courses</title
-  ><meta name="description" content={collection.description} /></svelte:head
+  ><meta name="description" content={`${collection.description}${data.results.filters.subject ? ` Explore ${departmentName(data.results.filters.subject)} at UW–Madison.` : ""}`} /></svelte:head
 >
 <div class="collection-heading">
   <a
     class="muted"
     href={data.results.filters.subject
       ? `/subjects/${encodeURIComponent(data.results.filters.subject)}`
-      : "/search"}>← {data.results.filters.subject || "Explore courses"}</a
+      : "/search"}>← {data.results.filters.subject ? departmentLabel(data.results.filters.subject) : "Explore courses"}</a
   >
-  <h1>{collection.title}{data.subject ? ` in ${data.subject}` : ""}</h1>
+  <h1>{collection.title}{data.subject ? ` in ${departmentName(data.subject)}` : ""}</h1>
   <p>{collection.description}</p>
   <p class="muted method">
     {collection.method} At least 100 letter grades over the five years through the

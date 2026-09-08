@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { departmentName, departmentLabel } from "$lib/departments";
   import CourseCollections from "$lib/components/CourseCollections.svelte";
   import Select from "$lib/components/Select.svelte";
   import { goto } from "$app/navigation";
@@ -6,12 +7,16 @@
   import CourseFinder from "$lib/components/CourseFinder.svelte";
   import DepartmentStats from "$lib/components/DepartmentStats.svelte";
   let { data } = $props();
+  let name = $derived(departmentName(data.subject));
+  let title = $derived(`${departmentLabel(data.subject)} Courses, Grades & Reviews · UW Courses`);
+  let description = $derived(`Explore ${name} courses at UW–Madison. Compare historical grades, instructors and student reviews, and find the easiest and hardest courses in ${name}.`);
 </script>
 
-<svelte:head><title>{data.subject} · UW Courses</title></svelte:head>
+<svelte:head><title>{title}</title><meta name="description" content={description} /><meta property="og:title" content={title} /><meta property="og:description" content={description} /></svelte:head>
 <div class="hero">
   <a class="muted" href="/subjects">← Departments</a>
-  <h1>{data.subject}</h1>
+  <p class="mono department-code">{data.subject}</p>
+  <h1>{name}</h1>
   <p class="muted">Get a feel for the department. Find your next class.</p>
 </div>
 <CourseCollections subject={data.subject} term={data.results.term} />
@@ -46,6 +51,7 @@
 <DepartmentStats stats={data.stats} term={data.results.term} detail />
 
 <style>
+  .department-code { margin: 22px 0 10px; color: var(--accent); font-size: 13px; }
   .term-toolbar {
     display: flex;
     justify-content: flex-end;

@@ -1,15 +1,16 @@
 <script lang="ts">
+  import { departmentName } from "$lib/departments";
   import CourseCollections from "$lib/components/CourseCollections.svelte";
   let { data } = $props();
   let query = $state("");
   let departments = $derived(
     data.status.departments.filter((department) =>
-      department.subject.toLowerCase().includes(query.trim().toLowerCase()),
+      `${department.subject} ${departmentName(department.subject)}`.toLowerCase().includes(query.trim().toLowerCase()),
     ),
   );
 </script>
 
-<svelte:head><title>Departments · UW Courses</title></svelte:head>
+<svelte:head><title>UW–Madison Departments & Courses · UW Courses</title><meta name="description" content="Browse UW–Madison departments by name. Explore courses, historical grades, instructor reviews, and department rankings." /></svelte:head>
 <div class="department-heading">
   <h1>Departments</h1>
   <label class="sr-only" for="department-query">Find a department</label>
@@ -23,12 +24,15 @@
 <CourseCollections />
 <div class="department-grid">
   {#each departments as d}<a href={"/subjects/" + encodeURIComponent(d.subject)}
-      ><span>{d.subject}</span><span class="mono muted">{d.count} courses</span
+      ><span class="department-name">{departmentName(d.subject)}<small class="mono muted">{d.subject}</small></span><span class="mono muted">{d.count} courses</span
       ></a
     >{:else}<p class="muted">No matching departments.</p>{/each}
 </div>
 
 <style>
+  .department-name { display: grid; gap: 8px; line-height: 1.4; }
+  .department-name small { font-size: 11px; }
+  .department-grid a > .mono { flex-shrink: 0; font-size: 11px; }
   .department-heading {
     display: flex;
     align-items: center;

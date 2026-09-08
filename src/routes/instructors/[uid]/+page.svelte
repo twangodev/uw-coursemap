@@ -36,7 +36,7 @@
   }
 </script>
 
-<svelte:head><title>{data.instructor.name} · UW Courses</title></svelte:head>
+<svelte:head><title>{data.instructor.name} · UW Courses</title><meta name="description" content={`Explore courses taught by ${data.instructor.name || "this instructor"} at UW–Madison, with student reviews, adjusted ratings and historical grades.`} /></svelte:head>
 <div class="hero">
   <p class="mono muted">
     {data.instructor.current ? "Current instructor" : "Historical instructor"}
