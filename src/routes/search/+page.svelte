@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Search } from "@lucide/svelte";
   import CourseCollections from "$lib/components/CourseCollections.svelte";
   import CourseFinder from "$lib/components/CourseFinder.svelte";
   import { instructorUrl, termName } from "$lib/format";
@@ -33,7 +34,7 @@
       aria-label="Search instructors"
       placeholder="A professor’s name…"
       value={data.results.q}
-    /><button class="button-primary">Search</button>
+    /><button class="search-submit" aria-label="Search"><Search size={19} strokeWidth={1.5} /></button>
   </form>
   <p class="muted">{data.results.total} instructors</p>
   {#each data.results.items as i}<a
@@ -56,6 +57,7 @@
 {/if}
 
 <style>
+  .search-submit { display: grid; place-items: center; padding: 8px 10px; border: 0; background: transparent; }
   .search-heading {
     display: flex;
     justify-content: space-between;

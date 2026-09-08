@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Search } from "@lucide/svelte";
   import { goto } from "$app/navigation";
   import SearchInput from "./SearchInput.svelte";
   import Select from "./Select.svelte";
@@ -52,7 +53,7 @@
         type="hidden"
         name={key}
         {value}
-      />{/each}<button class="button-primary">Search</button>
+      />{/each}<button aria-label="Search"><Search size={19} strokeWidth={1.5} /></button>
   </form>
   <div class="finder-filters">
     {#if !subject}<Select
@@ -151,12 +152,14 @@
   }
   .finder-search {
     display: flex;
+    align-items: center;
     gap: 12px;
   }
+  .finder-search > button { display: grid; place-items: center; min-height: 42px; padding: 8px 10px; border: 0; background: transparent; flex-shrink: 0; }
   .finder-search :global(.search-input) {
     flex: 1;
     min-width: 0;
-    padding: 13px 0;
+    padding: 0;
     border: 0;
     border-bottom: 1px solid var(--border);
     background: transparent;

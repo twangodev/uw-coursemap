@@ -23,13 +23,12 @@
       your professors, and hear from the students who came before you.
     </p>
     <form action="/search" class="landing-search">
-      <Search size={19} strokeWidth={1.5} />
       <SearchInput
         revision={data.status.revision}
         label="Search courses or topics"
         placeholder="A course or curiosity…"
       />
-      <button aria-label="Find courses"><ArrowUpRight size={22} /></button>
+      <button aria-label="Find courses"><Search size={19} strokeWidth={1.5} /></button>
     </form>
     <div class="try-search">
       <span>Try</span><a href="/search?q=CS%20300">CS 300</a><a
@@ -115,20 +114,18 @@
   .landing-search:focus-within {
     border-color: var(--accent);
   }
-  .landing-search > :global(svg) {
-    flex-shrink: 0;
-    color: var(--muted);
-  }
   button {
-    display: grid;
-    place-items: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     flex-shrink: 0;
-    width: 42px;
-    height: 42px;
-    padding: 0;
-    background: var(--accent);
-    color: var(--bg);
-    border-color: var(--accent);
+    min-height: 42px;
+    padding: 8px 10px;
+    font-size: 14px;
+    background: transparent;
+    color: var(--text);
+    border: 0;
   }
   button:hover {
     opacity: 0.85;
