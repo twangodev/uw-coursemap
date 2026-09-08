@@ -333,6 +333,16 @@ def generate_student(profile, task, payload, generate=None):
         )
         if prior and previous_failure:
             request["_history"] = previous_failure.get("conversation", [])
+            checks = previous_failure.get("grounding_checks", [])
+            if checks:
+                last_check = checks[-1]
+                rejected = {
+                    c["claim_id"]: c["text"] for c in last_check["input"]["claims"]
+                }
+                request["repair_feedback"] = [
+                    {"claim": rejected[issue["claim_id"]], "reason": issue["reason"]}
+                    for issue in last_check["output"]["issues"]
+                ]
             request["_compact_history"] = (
                 "maximum context length" in previous_failure.get("error", "")
             )

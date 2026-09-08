@@ -449,11 +449,40 @@ class StudentSummaryTests(unittest.TestCase):
         exhausted["summary_seed"]["failed_subtasks"][0].update(
             error="UnexpectedModelBehavior: Model token limit (16384) exceeded before any response was generated.",
             inference={"thinking": True, "max_output_tokens": 16384},
+            grounding_checks=[
+                {
+                    "input": {
+                        "claims": [
+                            {
+                                "claim_id": "claim:1",
+                                "text": "Incorrect instructor attribution.",
+                            }
+                        ]
+                    },
+                    "output": {
+                        "issues": [
+                            {
+                                "claim_id": "claim:1",
+                                "reason": "The cited review concerns a different instructor.",
+                            }
+                        ]
+                    },
+                }
+            ],
         )
         direct, _ = generate_student(larger_profile, task, exhausted, generate=fake)
         self.assertFalse(profiles_seen[-1]["thinking"])
         self.assertEqual(profiles_seen[-1]["max_output_tokens"], 4096)
         self.assertTrue(calls[-1]["_compact_history"])
+        self.assertEqual(
+            calls[-1]["repair_feedback"],
+            [
+                {
+                    "claim": "Incorrect instructor attribution.",
+                    "reason": "The cited review concerns a different instructor.",
+                }
+            ],
+        )
         self.assertEqual(calls[-1]["_history"], ["saved repair turn"])
         self.assertEqual(len(direct["provenance"]["reused_scopes"]), 2)
         before = len(calls)
