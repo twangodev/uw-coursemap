@@ -279,11 +279,21 @@ def generate_student(profile, task, payload, generate=None):
         )
         if prior and previous_failure:
             request["_history"] = previous_failure.get("conversation", [])
+        thinking = bool(profile.get("thinking")) or bool(
+            prior
+            and previous_failure
+            and previous_failure.get("error", "").startswith("UnexpectedModelBehavior:")
+        )
         local_profile = {
             **profile,
+            "thinking": thinking,
             "max_output_tokens": min(
-                profile["max_output_tokens"], 8192 if profile.get("thinking") else 4096
+                profile["max_output_tokens"], 8192 if thinking else 4096
             ),
+        }
+        inference = {
+            "thinking": thinking,
+            "max_output_tokens": local_profile["max_output_tokens"],
         }
         try:
             with capture_run_messages() as messages:
@@ -320,6 +330,7 @@ def generate_student(profile, task, payload, generate=None):
                     "mode": mode,
                     "instructor_uid": person["instructor_uid"] if person else None,
                     "output": copy.deepcopy(result),
+                    "inference": inference,
                 }
             )
             conversations.extend(result.get("provenance", {}).get("conversation", []))
@@ -386,6 +397,7 @@ def generate_student(profile, task, payload, generate=None):
             traces.append(
                 {
                     **error,
+                    "inference": inference,
                     "conversation": trace,
                     "grounding_checks": getattr(exc, "grounding_checks", []),
                 }

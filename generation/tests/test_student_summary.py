@@ -156,6 +156,7 @@ class StudentSummaryTests(unittest.TestCase):
 
     def test_independent_professors_history_and_missing_reviews(self):
         calls = []
+        profiles_seen = []
 
         def fake(profile, task, request):
             expected = (
@@ -165,6 +166,7 @@ class StudentSummaryTests(unittest.TestCase):
             )
             self.assertEqual(set(task["schema"]["properties"]), expected)
             calls.append(request)
+            profiles_seen.append(profile)
             result = {
                 k: []
                 for k in (
@@ -302,6 +304,7 @@ class StudentSummaryTests(unittest.TestCase):
                     "mode": "professor",
                     "instructor_uid": "uw:1",
                     "conversation": ["saved repair turn"],
+                    "error": "UnexpectedModelBehavior: validation retries exhausted",
                 }
             ],
         }
@@ -313,11 +316,19 @@ class StudentSummaryTests(unittest.TestCase):
         self.assertEqual(len(calls), before + 1)
         self.assertEqual(calls[-1]["_history"], ["saved repair turn"])
         self.assertEqual(len(repaired["provenance"]["reused_scopes"]), 2)
+        self.assertTrue(profiles_seen[-1]["thinking"])
+        self.assertTrue(repaired["provenance"]["subtasks"][0]["inference"]["thinking"])
         generate_student(
             {**adjusted, "temperature": 0.1}, task, retry_payload, generate=fake
         )
         self.assertEqual(len(calls), before + 4)
         self.assertTrue(all("_history" not in call for call in calls[-3:]))
+        self.assertTrue(all(not p["thinking"] for p in profiles_seen[-3:]))
+        retry_payload["summary_seed"]["failed_subtasks"][0]["error"] = (
+            "ModelAPIError: server unavailable"
+        )
+        generate_student(adjusted, task, retry_payload, generate=fake)
+        self.assertFalse(profiles_seen[-1]["thinking"])
         before = len(calls)
         archive = {
             "file": "tables/observations.parquet",
