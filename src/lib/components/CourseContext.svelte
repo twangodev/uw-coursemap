@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { ArrowLeftRight } from "@lucide/svelte";
   import { courseFit } from "$lib/course-fit";
   import AnimatedNumber from "./AnimatedNumber.svelte";
   import { metricColor } from "$lib/grade-benchmarks";
@@ -24,7 +25,7 @@
   <section class="course-context" aria-labelledby="context-title">
     <div class="context-heading">
       <div>
-        <h2 id="context-title">Where this course fits relative to <button type="button" class="inline-comparison" aria-label="Course fit comparison" title={`Compare with ${nextScope === "school" ? "UW–Madison" : nextScope}`} onclick={() => onScopeChange?.(nextScope)}>{scope === "school" ? "UW–Madison" : scope}</button></h2>
+        <h2 id="context-title">Where this course fits relative to <button type="button" class="inline-comparison" aria-label="Course fit comparison" title={`Compare with ${nextScope === "school" ? "UW–Madison" : nextScope}`} onclick={() => onScopeChange?.(nextScope)}>{scope === "school" ? "UW–Madison" : scope}<span class="swap-icon" aria-hidden="true"><ArrowLeftRight size={17} strokeWidth={1.5} /></span></button></h2>
         <p class="muted">
           {contextTerm && contextTerm !== term ? `Latest available grades · ${termName(contextTerm)}` : contextTerm ? termName(contextTerm) : term ? termName(term) : "All recorded terms"} · all course levels
         </p>
@@ -111,7 +112,10 @@
 {:else}<p class="muted">Not enough comparable courses for {term ? termName(term) : "these recorded terms"} in {scope === "school" ? "UW–Madison" : scope}.</p>{/if}
 
 <style>
-  .inline-comparison { display: inline; max-width: 100%; padding: 0 0 2px; border: 0; border-bottom: 1px dashed var(--muted); border-radius: 0; background: transparent; color: inherit; font: inherit; line-height: inherit; cursor: pointer; }
+  .inline-comparison { display: inline-flex; align-items: baseline; gap: 8px; max-width: 100%; padding: 0 0 2px; border: 0; border-bottom: 1px dashed var(--muted); border-radius: 0; background: transparent; color: inherit; font: inherit; line-height: inherit; cursor: pointer; }
+  .swap-icon { display: inline-flex; align-self: center; opacity: 0; transition: opacity 140ms ease; }
+  .inline-comparison:hover .swap-icon, .inline-comparison:focus-visible .swap-icon { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { .swap-icon { transition: none; } }
   .inline-comparison:hover { color: var(--accent); border-color: var(--accent); }
   .inline-comparison:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
   .fit-summary { max-width: 68ch; font-size: 18px; line-height: 1.65; margin-bottom: 10px; }
