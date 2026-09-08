@@ -6,7 +6,7 @@ export const prerender = "auto";
 export function entries() {
   return entriesData.subjects.map((subject) => ({ subject }));
 }
-export async function load({ params, platform, url }) {
+export async function load({ params, platform }) {
   if (
     !(
       await query(
@@ -17,7 +17,7 @@ export async function load({ params, platform, url }) {
     ).length
   )
     error(404, "Department not found");
-  const searchUrl = new URL(url);
+  const searchUrl = new URL("http://prerender/search");
   searchUrl.searchParams.set("subject", params.subject);
   searchUrl.searchParams.set("kind", "course");
   const [results, stats] = await Promise.all([

@@ -26,7 +26,7 @@
       const query = new URLSearchParams(location.search);
       query.set("term", term);
       query.delete("page");
-      goto(`?${query}`, { noScroll: true });
+      goto(`?${query}`, { noScroll: true, keepFocus: true });
     }}
   />
 </div>

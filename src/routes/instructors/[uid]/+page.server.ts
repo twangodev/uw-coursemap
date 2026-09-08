@@ -1,5 +1,7 @@
 import { redirect } from "@sveltejs/kit";
-import { pageData, query } from "$lib/server/data";
+import { pageData, query, status } from "$lib/server/data";
+import { instructorReviews } from "$lib/server/reviews";
+import { instructorCourses } from "$lib/server/instructor-courses";
 import entriesData from "../../../../.site/entries.json";
 export const prerender = "auto";
 export function entries() {
@@ -23,5 +25,11 @@ export async function load({ params, platform, setHeaders }) {
     "SELECT term,count(DISTINCT course_uid) courses FROM teaching WHERE instructor_uid=? GROUP BY term ORDER BY term",
     [params.uid],
   );
-  return { instructor, history, timeline };
+  const dataset = await status(platform);
+  const term = dataset.term;
+  const [courses, reviews] = await Promise.all([
+    instructorCourses(params.uid, term, platform),
+    instructorReviews(params.uid, 1, "", platform),
+  ]);
+  return { instructor, history, timeline, term, courses, reviews };
 }

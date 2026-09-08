@@ -3,11 +3,45 @@ from pathlib import Path
 import sqlite3
 import tempfile
 import unittest
+from unittest.mock import patch
+from uwcourses_site import importer
 from uwcourses_site.importer import chunks, grade_stats, MAX_CHUNK
 from uwcourses_site.cli import check_assets
 
 
 class PublicationTests(unittest.TestCase):
+    def test_invalid_source_preserves_existing_generated_data(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            output = root / ".site"
+            static = root / "static/data"
+            output.mkdir()
+            static.mkdir(parents=True)
+            for path in [output, static]:
+                (path / "keep").write_text("existing release")
+            with (
+                patch.object(importer, "ROOT", root),
+                patch.object(
+                    importer, "verify", side_effect=ValueError("invalid source")
+                ),
+                patch(
+                    "sys.argv",
+                    [
+                        "import",
+                        "--source",
+                        str(root),
+                        "--revision",
+                        "revision123",
+                        "--output",
+                        str(output),
+                    ],
+                ),
+            ):
+                with self.assertRaisesRegex(ValueError, "invalid source"):
+                    importer.main()
+            self.assertTrue((output / "keep").exists())
+            self.assertTrue((static / "keep").exists())
+
     def test_trace_fragments_preserve_full_unicode_record(self):
         record = {"output": "α🐾" * MAX_CHUNK}
         with tempfile.TemporaryDirectory() as tmp:
@@ -70,7 +104,16 @@ class PublicationTests(unittest.TestCase):
                         statement = ""
         self.assertFalse(statement.strip())
         source = sqlite3.connect(".site/site.sqlite")
-        for table in ["courses", "instructors", "grades", "search"]:
+        for table in [
+            "courses",
+            "instructors",
+            "grades",
+            "search",
+            "course_numbers",
+            "offerings",
+            "grade_summaries",
+            "reviews",
+        ]:
             self.assertEqual(
                 restored.execute(f"SELECT count(*) FROM {table}").fetchone(),
                 source.execute(f"SELECT count(*) FROM {table}").fetchone(),
