@@ -5,6 +5,7 @@ from pathlib import Path
 
 
 def load_task(path, _parents=()):
+    # Operator-owned CLI manifests may share assets outside their own directory.
     path = Path(path).resolve()
     if path in _parents:
         raise ValueError("Cyclic task asset reference")

@@ -308,8 +308,7 @@ uv run ruff check generation scripts/serve_inference.py
 uv run ruff format --check generation scripts/serve_inference.py
 ```
 
-Public datasets and serving exports
-----------------------------------
+## Public datasets and serving exports
 
 `release` also writes typed `public/*.parquet` tables: `courses_current` (the HF
 Viewer default), `courses_history`, `catalog_versions`, `grades_latest`, and

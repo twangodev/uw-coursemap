@@ -106,6 +106,8 @@ def contains_inline_review_handle(text):
 
 def validate_claims(value, payload):
     reviews = {r["citation_id"]: r for r in payload["reviews"]}
+    # Hard rejection ceilings allow modest room beyond the prompt's concise targets.
+    # Do not regenerate grounded claims solely for exceeding those softer targets.
     limits = {
         "summary": 80,
         "quick_take": 55,
