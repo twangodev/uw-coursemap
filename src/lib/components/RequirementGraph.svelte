@@ -7,7 +7,15 @@
   let { ast }: { ast: Requirements } = $props();
   let expanded = $state(new Set<string>());
   $effect(() => {
-    expanded = new Set([ast.root]);
+    expanded = new Set(
+      ast.nodes
+        .filter(
+          (n) =>
+            n.id === ast.root ||
+            ast.nodes.find((r) => r.id === ast.root)?.children?.includes(n.id),
+        )
+        .map((n) => n.id),
+    );
   });
   let graph = $derived(visibleTree(ast, expanded));
   const nodeTypes = { requirement: RequirementNode };
@@ -25,6 +33,9 @@
     edges={graph.edges}
     {nodeTypes}
     fitView
+    zoomOnScroll={false}
+    preventScrolling={false}
+    minZoom={0.15}
     nodesDraggable={false}
     nodesConnectable={false}
     onnodeclick={({ node }) => toggle(node.id)}
@@ -46,7 +57,7 @@
     --xy-edge-stroke: var(--muted);
   }
   .graph {
-    height: 500px;
+    height: 420px;
     border: 1px solid var(--border);
     border-radius: 5px;
     background: var(--surface);

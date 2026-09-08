@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { readFile } from "node:fs/promises";
 const uid = "course_28c3390ba944d49fd17f7c72";
 test("course reading, citations, graph and theme", async ({ page }) => {
   const errors: string[] = [];
@@ -9,9 +10,7 @@ test("course reading, citations, graph and theme", async ({ page }) => {
     page.getByRole("heading", { name: "PROGRAMMING II", exact: true }),
   ).toBeVisible();
   await expect(page.getByText("Java", { exact: false }).first()).toBeVisible();
-  await page
-    .getByRole("button", { name: "Explore prerequisite graph" })
-    .click();
+  await page.locator("#requirements").scrollIntoViewIfNeeded();
   await expect(page.locator(".svelte-flow")).toBeVisible();
   await page.getByLabel("Color theme").selectOption("dark");
   await expect(page.locator("html")).toHaveClass("dark");
@@ -108,4 +107,41 @@ test("home and cross-listed course render on desktop", async ({ page }) => {
   await expect(page.locator("h1")).toContainText("HIGH PERFORMANCE COMPUTING");
   await page.locator("#grades").scrollIntoViewIfNeeded();
   await page.screenshot({ path: "test-results/cs759.png", fullPage: true });
+});
+
+test("calendar filters meetings, exposes details and exports dates", async ({
+  page,
+}) => {
+  await page.goto(`/courses/${uid}`);
+  const schedule = page.locator("#schedule");
+  await schedule.scrollIntoViewIfNeeded();
+  await expect(schedule.locator(".week-grid")).toBeVisible();
+  await page.getByLabel("Calendar section").selectOption("LEC 001");
+  await expect(schedule.locator(".meeting").first()).toContainText("LEC 001");
+  await expect(
+    schedule.locator(".meeting").filter({ hasText: "LEC 002" }),
+  ).toHaveCount(0);
+  await schedule.locator(".meeting").first().click();
+  await expect(
+    page.getByRole("region", { name: "Meeting details" }),
+  ).toBeVisible();
+  const download = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Export", exact: true }).click();
+  const file = await download;
+  expect(file.suggestedFilename()).toBe("course-schedule.ics");
+  const exported = await readFile((await file.path())!, "utf8");
+  expect(exported).toContain("BEGIN:VCALENDAR");
+  expect(exported).toContain("SUMMARY:COMPSCI 300 · LEC 001");
+  expect(exported).not.toContain("SUMMARY:COMPSCI 300 · LEC 002");
+  expect(exported).toContain("DTSTART:20260907T145500Z");
+  await page.getByRole("button", { name: "Next week" }).click();
+  await expect(schedule.locator(".week-label")).toContainText("Sep 14");
+  await expect(page.getByRole("tab")).toHaveCount(0);
+  await page.screenshot({ path: "test-results/calendar-desktop.png" });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(schedule.locator(".agenda")).toBeVisible();
+  expect(
+    await page.evaluate(() => document.documentElement.scrollWidth),
+  ).toBeLessThanOrEqual(390);
+  await page.screenshot({ path: "test-results/calendar-mobile.png" });
 });

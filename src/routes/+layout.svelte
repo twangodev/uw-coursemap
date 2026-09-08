@@ -40,7 +40,7 @@
       >uw<span>courses</span><span class="dot">.</span></a
     >
     <div class="row">
-      <a href="/search">Explore</a><a href="/subjects">Departments</a><label
+      <a href="/search">explore</a><a href="/subjects">departments</a><label
         class="sr-only"
         for="theme">Color theme</label
       ><select id="theme" bind:value={theme} onchange={apply}
@@ -86,9 +86,9 @@
     border-bottom: 1px solid var(--border);
   }
   nav {
-    max-width: 1120px;
+    max-width: 1380px;
     margin: auto;
-    padding: 1.2rem 2rem;
+    padding: 1rem 2.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -107,7 +107,7 @@
     color: var(--accent);
   }
   nav .row {
-    font-size: 0.9rem;
+    font: 11px var(--font-mono);
   }
   select {
     font-size: 0.75rem;

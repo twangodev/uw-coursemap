@@ -50,6 +50,15 @@
       })
       .filter((r) => r.gpa != null);
   });
+  let total = $derived(bars.reduce((s, b) => s + b.count, 0));
+  let gpa = $derived(
+    total
+      ? bars.reduce((s, b, i) => s + b.count * weights[i], 0) / total
+      : null,
+  );
+  let topShare = $derived(
+    total ? ((bars[0].count + bars[1].count) / total) * 100 : null,
+  );
   async function change() {
     controller?.abort();
     const request = new AbortController();
@@ -94,6 +103,22 @@
   }
 </script>
 
+<div class="metric-strip">
+  <div>
+    <div class="metric-value">{gpa?.toFixed(2) ?? "—"}</div>
+    <div class="metric-label">average GPA</div>
+  </div>
+  <div>
+    <div class="metric-value">
+      {topShare?.toFixed(0) ?? "—"}<small>%</small>
+    </div>
+    <div class="metric-label">A / AB grades</div>
+  </div>
+  <div>
+    <div class="metric-value">{total.toLocaleString()}</div>
+    <div class="metric-label">letter grades</div>
+  </div>
+</div>
 <div class="filters">
   <label
     >Term<select bind:value={selectedTerm}
@@ -176,9 +201,14 @@
 <style>
   .charts {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 2rem;
     margin: 1.5rem 0;
+  }
+  h3 {
+    font: 11px var(--font-mono);
+    color: var(--muted);
+    margin-bottom: 10px;
   }
   .chart {
     height: 260px;

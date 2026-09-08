@@ -25,21 +25,31 @@ export function visibleTree(ast: Requirements, expanded: Set<string>) {
     seen.add(id);
     const n = byId.get(id);
     if (!n) return;
-    nodes.push({
+    const entry = {
       id,
       type: "requirement",
-      position: { x: depth * 280, y: y++ * 110 },
+      position: { x: depth * 280, y: 0 },
       data: {
         label: nodeLabel(n),
         course: n.course,
         expandable: !!n.children?.length,
         expanded: expanded.has(id),
       },
-    });
+    };
+    nodes.push(entry);
     if (parent)
       edges.push({ id: parent + "-" + id, source: parent, target: id });
+    const start = nodes.length;
     if (expanded.has(id))
       for (const child of n.children || []) walk(child, depth + 1, id);
+    const children = nodes
+      .slice(start)
+      .filter((child) =>
+        edges.some((edge) => edge.source === id && edge.target === child.id),
+      );
+    entry.position.y = children.length
+      ? (children[0].position.y + children[children.length - 1].position.y) / 2
+      : y++ * 100;
   }
   walk(ast.root, 0);
   return { nodes, edges };

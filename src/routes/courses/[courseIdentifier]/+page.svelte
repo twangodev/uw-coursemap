@@ -1,34 +1,57 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  let interactive = $state(false);
-  onMount(() => {
-    interactive = true;
-  });
+  import {
+    ArrowUpRight,
+    BookOpen,
+    GitBranch,
+    CalendarDays,
+    Users,
+    ChartColumn,
+    Layers,
+  } from "@lucide/svelte";
+  import Panel from "$lib/components/Panel.svelte";
   import Claims from "$lib/components/Claims.svelte";
   import Evidence from "$lib/components/Evidence.svelte";
   import Grades from "$lib/components/Grades.svelte";
   import RequirementText from "$lib/components/RequirementText.svelte";
+  import CourseCalendar from "$lib/components/CourseCalendar.svelte";
   import { credits, instructorUrl, termName } from "$lib/format";
   let { data } = $props();
   let c = $derived(data.course);
   let summary = $derived(c.student_summary);
-  let offeringLabels = $derived([
-    ...new Set<string>(
-      c.offerings.map(
-        (o: any) =>
-          `${termName(o.term_id)} · ${credits(o.credits_min, o.credits_max)}${o.typically_offered ? ` · Typically ${o.typically_offered}` : ""}`,
-      ),
-    ),
-  ]);
   let Graph = $state<any>(null);
   let graphError = $state("");
-  async function showGraph() {
-    try {
-      Graph = (await import("$lib/components/RequirementGraph.svelte")).default;
-    } catch {
-      graphError = "Unable to load graph. The complete text tree is below.";
+  let active = $state("grades");
+  onMount(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries)
+          if (entry.isIntersecting) active = entry.target.id;
+      },
+      { rootMargin: "-10% 0px -65% 0px" },
+    );
+    for (const link of links) {
+      const section = document.getElementById(link.id);
+      if (section) observer.observe(section);
     }
-  }
+    return () => observer.disconnect();
+  });
+  onMount(() => {
+    import("$lib/components/RequirementGraph.svelte")
+      .then((m) => (Graph = m.default))
+      .catch(
+        () =>
+          (graphError = "Graph unavailable. The complete text tree is below."),
+      );
+  });
+  const links = [
+    { id: "grades", label: "grades", icon: ChartColumn },
+    { id: "experience", label: "student experience", icon: BookOpen },
+    { id: "professors", label: "professors", icon: Users },
+    { id: "requirements", label: "prerequisites", icon: GitBranch },
+    { id: "schedule", label: "calendar", icon: CalendarDays },
+    { id: "evidence", label: "sources", icon: Layers },
+  ];
 </script>
 
 <svelte:head
@@ -37,61 +60,76 @@
     content={c.llm_summary || c.description?.slice(0, 160)}
   /></svelte:head
 >
-<div class="hero">
-  <div class="row eyebrow">
-    {#each c.subjects as s}<a href={"/subjects/" + encodeURIComponent(s)}>{s}</a
-      >{/each}<span>· {termName(c.semester)}</span>
+<div class="course-heading">
+  <div class="row between">
+    <div class="breadcrumbs mono">
+      <a href="/search">courses</a><span>/</span><span>{c.course_id}</span>
+    </div>
+    <span class="mono muted">{termName(c.semester)}</span>
   </div>
-  <p class="mono accent">{c.course_id}</p>
   <h1>{c.title}</h1>
-  <div class="row">
-    <span class="pill">{credits(c.credits_min, c.credits_max)}</span><span
-      class="muted"
-      >{c.offerings.length
-        ? "Offered this term"
-        : "Not in current offerings"}</span
+  <div class="row course-meta">
+    <span class:available={c.offerings.length}
+      ><i></i>{c.offerings.length
+        ? "offered this term"
+        : "not currently offered"}</span
+    ><span>{credits(c.credits_min, c.credits_max)}</span><span
+      >{c.instructors.length} instructors</span
     >
   </div>
-  <p class="reading">{c.llm_summary || c.description}</p>
-  <nav class="row mono" aria-label="Course sections">
-    <a href="#experience">The class</a><a href="#professors">Professors</a><a
-      href="#grades">Grades</a
-    ><a href="#requirements">Requirements</a><a href="#evidence"
-      >Sources & history</a
-    >
-  </nav>
 </div>
-<section class="section" id="experience">
-  <h2>What’s the class like?</h2>
-  <div class="stack">
-    <Claims
-      claims={summary.quick_take || []}
-      reviewFiles={c.evidence.reviews}
-    />{#if !summary.quick_take?.length}<p>
-        {c.description}
-      </p>{/if}{#if summary.difficulty_workload?.length}<h3>
-        Difficulty & workload
-      </h3>
-      <Claims
-        claims={summary.difficulty_workload}
-        reviewFiles={c.evidence.reviews}
-      />{/if}{#if summary.student_experience?.length}<h3>Student experience</h3>
-      <Claims
-        claims={summary.student_experience}
-        reviewFiles={c.evidence.reviews}
-      />{/if}
-    <p class="muted">
-      Student feedback reflects individual reviewers’ experiences. Summaries are
-      AI-generated.
-    </p>
-    <details>
-      <summary>Catalog description & learning topics</summary>
-      <div class="stack">
+<nav class="course-jumps" aria-label="Course sections">
+  {#each links as link}<a
+      href={"#" + link.id}
+      aria-current={active === link.id ? "location" : undefined}
+      ><link.icon size={14} strokeWidth={1.5} />{link.label}</a
+    >{/each}
+</nav>
+<div class="course-workspace">
+  <aside class="course-facts" aria-label="Course details">
+    <Panel title="Course details">
+      <p class="course-intro">{c.llm_summary || c.description}</p>
+      <div class="fact-pair">
+        <span>[credits]</span><strong
+          >{credits(c.credits_min, c.credits_max)}</strong
+        >
+      </div>
+      <div class="fact-pair">
+        <span>[offered]</span><strong
+          >{[
+            ...new Set(
+              c.offerings.map((o: any) => o.typically_offered).filter(Boolean),
+            ),
+          ].join(" · ") || "Not recorded"}</strong
+        >
+      </div>
+      <div class="fact-pair">
+        <span>[subjects]</span>
+        <div class="row">
+          {#each c.subjects as subject}<a
+              href={"/subjects/" + encodeURIComponent(subject)}>{subject}</a
+            >{/each}
+        </div>
+      </div>
+      <div class="fact-block">
+        <h3><BookOpen size={13} /> Topics</h3>
+        <div class="tags">
+          {#each c.llm_topics as topic}<span>{topic}</span>{/each}
+        </div>
+      </div>
+      <div class="fact-block">
+        <h3><GitBranch size={13} /> Before you enroll</h3>
+        <p>{c.requirements_text || "No prerequisites listed."}</p>
+        <a class="small-link" href="#requirements"
+          >Explore requirements <ArrowUpRight size={12} /></a
+        >
+      </div>
+      <details>
+        <summary>Catalog description</summary>
         <p>{c.description}</p>
-        <h3>Topics</h3>
-        <ul>
-          {#each c.llm_topics as topic}<li>{topic}</li>{/each}
-        </ul>
+      </details>
+      <details>
+        <summary>Skills & assumed background</summary>
         <h3>Skills</h3>
         <ul>
           {#each c.llm_skills as skill}<li>{skill}</li>{/each}
@@ -100,150 +138,202 @@
         <ul>
           {#each c.llm_assumed_background as item}<li>{item}</li>{/each}
         </ul>
-      </div>
-    </details>
-  </div>
-</section>
-<section class="section" id="professors">
-  <h2>Who’s teaching?</h2>
-  <p class="eyebrow">{termName(c.semester)}</p>
-  <div class="stack">
-    {#each c.instructors as i}{@const feedback =
-        summary.current_instructors?.find(
-          (r: any) => r.instructor_uid === i.instructor_uid,
-        )}
-      <div class="section">
-        <h3><a href={instructorUrl(i.instructor_uid)}>{i.name}</a></h3>
-        {#if feedback?.summary?.length}<Claims
-            claims={feedback.summary}
+      </details>
+    </Panel>
+  </aside>
+  <div class="course-content">
+    <Panel title="Grades" id="grades" label="recorded outcomes">
+      <Grades
+        grades={c.grades}
+        uid={c.course_uid}
+        revision={c.revision}
+        instructors={c.grade_instructors || c.instructors}
+      />
+      {#if c.grade_conflicts?.length}<details>
+          <summary>Conflicting source distributions</summary>
+          <p class="muted">Excluded from calculated GPA.</p>
+          <pre>{JSON.stringify(c.grade_conflicts, null, 2)}</pre>
+        </details>{/if}
+    </Panel>
+    <Panel
+      title="Student experience"
+      id="experience"
+      label="AI summary · cited sources"
+    >
+      <div class="experience-grid">
+        <div>
+          <h3 class="tile-label">the class</h3>
+          <Claims
+            claims={summary.quick_take || []}
             reviewFiles={c.evidence.reviews}
-          />{:else}<p class="muted">
-            No course-specific reviews available.
-          </p>{/if}
-      </div>{:else}<p class="empty">No current instructors recorded.</p>{/each}
-  </div>
-  <details>
-    <summary>Historical instructors & teaching patterns</summary>
-    <div class="stack">
-      <Claims
-        claims={summary.historical_context || []}
-        reviewFiles={c.evidence.reviews}
-      /><Claims
-        claims={summary.teaching_history || []}
-        reviewFiles={c.evidence.reviews}
-      />
-      <p class="muted">
-        Recorded history may be incomplete and does not establish a future
-        schedule.
+          />{#if !summary.quick_take?.length}<p>{c.description}</p>{/if}
+        </div>
+        <div>
+          <h3 class="tile-label">difficulty & workload</h3>
+          <Claims
+            claims={summary.difficulty_workload || []}
+            reviewFiles={c.evidence.reviews}
+          />{#if !summary.difficulty_workload?.length}<p class="muted">
+              No workload feedback recorded.
+            </p>{/if}
+        </div>
+      </div>
+      {#if summary.student_experience?.length}<div class="experience-notes">
+          <Claims
+            claims={summary.student_experience}
+            reviewFiles={c.evidence.reviews}
+          />
+        </div>{/if}
+    </Panel>
+    <Panel title="Professors" id="professors" label={termName(c.semester)}>
+      <div class="professor-grid">
+        {#each c.instructors as i}{@const feedback =
+            summary.current_instructors?.find(
+              (r: any) => r.instructor_uid === i.instructor_uid,
+            )}
+          <article class="professor-tile">
+            <div class="professor-heading">
+              <span class="avatar" aria-hidden="true"
+                >{i.name
+                  .split(" ")
+                  .map((s: string) => s[0])
+                  .slice(0, 2)
+                  .join("")}</span
+              >
+              <h3>
+                <a href={instructorUrl(i.instructor_uid)}
+                  >{i.name}<ArrowUpRight size={13} /></a
+                >
+              </h3>
+            </div>
+            {#if feedback?.summary?.length}<Claims
+                claims={feedback.summary}
+                reviewFiles={c.evidence.reviews}
+              />{:else}<p class="muted">
+                No course-specific feedback yet.
+              </p>{/if}
+          </article>{:else}<p class="muted">
+            No current instructors recorded.
+          </p>{/each}
+      </div>
+      <details>
+        <summary>Historical instructors & teaching patterns</summary>
+        <div class="stack">
+          <Claims
+            claims={summary.historical_context || []}
+            reviewFiles={c.evidence.reviews}
+          /><Claims
+            claims={summary.teaching_history || []}
+            reviewFiles={c.evidence.reviews}
+          />
+          <p class="muted">
+            Recorded history may be incomplete and does not establish a future
+            schedule.
+          </p>
+        </div>
+      </details>
+    </Panel>
+    <Panel
+      title="Prerequisites"
+      id="requirements"
+      label="explore the connections"
+    >
+      <p class="requirements-source">
+        {c.requirements_text || "No prerequisites listed."}
       </p>
-    </div>
-  </details>
-</section>
-<section class="section" id="grades">
-  <h2>How have students performed?</h2>
-  <Grades
-    grades={c.grades}
-    uid={c.course_uid}
-    revision={c.revision}
-    instructors={c.grade_instructors || c.instructors}
-  />{#if c.grade_conflicts?.length}<details>
-      <summary
-        >Conflicting source distributions · excluded from calculated GPA</summary
-      >
-      <pre>{JSON.stringify(c.grade_conflicts, null, 2)}</pre>
-    </details>{/if}
-</section>
-<section class="section" id="requirements">
-  <h2>Can I take it?</h2>
-  <p>{c.requirements_text || "No prerequisites listed."}</p>
-  {#if c.requirements.status !== "valid"}<p class="muted mono">
-      Best-effort interpretation · check the original requirements above.
-    </p>{/if}
-  <div class="section">
-    {#if Graph}<Graph ast={c.requirements} />{:else}<button
-        onclick={showGraph}
-        disabled={!interactive}>Explore prerequisite graph</button
-      >{/if}{#if graphError}<p>{graphError}</p>{/if}
-    <details open>
-      <summary>Prerequisite text tree</summary><RequirementText
-        ast={c.requirements}
-      />
-    </details>
-  </div>
-</section>
-<section class="section">
-  <h2>Offerings & sections</h2>
-  {#each offeringLabels as label}<p>{label}</p>{/each}
-  <details>
-    <summary>{c.sections.length} current sections</summary>
-    <div class="table-scroll">
-      <table>
-        <thead
-          ><tr
-            ><th>Section</th><th>Mode</th><th>Enrollment at scan</th><th
-              >Waitlist</th
-            ></tr
-          ></thead
-        ><tbody
-          >{#each c.sections as s}<tr
-              ><td>{s.section_type} {s.section_number}</td><td
-                >{s.instruction_mode || "—"}</td
-              ><td>{s.enrolled ?? "—"} / {s.capacity ?? "—"}</td><td
-                >{s.waitlisted ?? "—"}</td
-              ></tr
-            >{/each}</tbody
+      {#if Graph}<Graph ast={c.requirements} />{:else}<div
+          class="graph-loading"
         >
-      </table>
-    </div>
-  </details>
-  <Evidence
-    title="Meeting dates & locations"
-    files={c.evidence.meetings || []}
-  />
-</section>
-<section class="section" id="evidence">
-  <h2>Sources & history</h2>
-  <details>
-    <summary>Current offering source records</summary>
-    <pre>{JSON.stringify(c.offerings, null, 2)}</pre>
-  </details>
-  <Evidence
-    title="Catalog observation history"
-    files={c.evidence.history || []}
-    description="These are observations at scan time, not inferred catalog validity periods."
-  /><Evidence
-    title="Student reviews"
-    files={c.evidence.reviews || []}
-  /><Evidence
-    title="LLM outputs across runs"
-    files={c.evidence.results || []}
-  /><Evidence
-    title="Full model traces"
-    files={c.evidence.traces || []}
-    description="Includes the recorded model configuration, reasoning and tool conversation where available."
-  />{#if c.catalog_variants?.length}<details>
-      <summary>Cross-listed catalog records</summary>
-      <pre>{JSON.stringify(c.catalog_variants, null, 2)}</pre>
-    </details>{/if}
-  <details>
-    <summary>Model & dataset provenance</summary>
-    <pre>{JSON.stringify(
-        {
-          model: c.llm_model,
-          model_revision: c.llm_model_revision,
-          task_version: c.llm_task_version,
-          output_id: c.llm_output_id,
-          requirements_status: c.llm_requirements_status,
-          dataset_revision: c.revision,
-          observed_at: c.observed_at,
-        },
-        null,
-        2,
-      )}</pre>
-  </details>
-  <a
-    class="mono"
-    href={`https://huggingface.co/datasets/${data.status.repository}/tree/${c.revision}`}
-    >Download the original dataset ↗</a
-  >
-</section>
+          {graphError || "Loading prerequisite tree…"}
+        </div>{/if}
+      {#if c.requirements.status !== "valid"}<p class="muted mono">
+          Best-effort interpretation · check the original requirements above.
+        </p>{/if}
+      <details>
+        <summary>Prerequisite text tree</summary><RequirementText
+          ast={c.requirements}
+        />
+      </details>
+    </Panel>
+    <Panel
+      title="Calendar & sections"
+      id="schedule"
+      label={termName(c.semester)}
+    >
+      <CourseCalendar
+        files={c.evidence.meetings || []}
+        observedAt={c.observed_at}
+      />
+      <div class="table-scroll">
+        <table>
+          <thead
+            ><tr
+              ><th>Section</th><th>Mode</th><th>Enrolled / capacity</th><th
+                >Waitlist</th
+              ></tr
+            ></thead
+          ><tbody
+            >{#each c.sections as s}<tr
+                ><td
+                  ><span class="mono">{s.section_type} {s.section_number}</span
+                  ></td
+                ><td>{s.instruction_mode || "—"}</td><td
+                  >{s.enrolled ?? "—"} / {s.capacity ?? "—"}</td
+                ><td>{s.waitlisted ?? "—"}</td></tr
+              >{/each}</tbody
+          >
+        </table>
+      </div>
+      <p class="muted mono">Enrollment at scan time.</p>
+      <Evidence
+        title="Meeting source records"
+        files={c.evidence.meetings || []}
+      />
+    </Panel>
+    <Panel title="Sources & history" id="evidence" label="dataset & provenance">
+      <details>
+        <summary>Current offering source records</summary>
+        <pre>{JSON.stringify(c.offerings, null, 2)}</pre>
+      </details>
+      <Evidence
+        title="Catalog observation history"
+        files={c.evidence.history || []}
+        description="These are observations at scan time, not inferred catalog validity periods."
+      /><Evidence
+        title="Student reviews"
+        files={c.evidence.reviews || []}
+      /><Evidence
+        title="LLM outputs across runs"
+        files={c.evidence.results || []}
+      /><Evidence
+        title="Full model traces"
+        files={c.evidence.traces || []}
+        description="Includes the recorded model configuration, reasoning and tool conversation where available."
+      />{#if c.catalog_variants?.length}<details>
+          <summary>Cross-listed catalog records</summary>
+          <pre>{JSON.stringify(c.catalog_variants, null, 2)}</pre>
+        </details>{/if}
+      <details>
+        <summary>Model & dataset provenance</summary>
+        <pre>{JSON.stringify(
+            {
+              model: c.llm_model,
+              model_revision: c.llm_model_revision,
+              task_version: c.llm_task_version,
+              output_id: c.llm_output_id,
+              requirements_status: c.llm_requirements_status,
+              dataset_revision: c.revision,
+              observed_at: c.observed_at,
+            },
+            null,
+            2,
+          )}</pre>
+      </details>
+      <a
+        class="mono"
+        href={`https://huggingface.co/datasets/${data.status.repository}/tree/${c.revision}`}
+        >Download the original dataset ↗</a
+      >
+    </Panel>
+  </div>
+</div>
