@@ -106,3 +106,13 @@ test("department rankings are available without JavaScript and cannot switch sub
   const response = await page.goto("/subjects/NOTADEPARTMENT/easiest");
   expect(response?.status()).toBe(404);
 });
+
+test("main navigation opens the instructor directory on mobile", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+  await page.getByRole("navigation", { name: "Main navigation" }).getByRole("link", { name: "instructors", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Find a professor", exact: true })).toBeVisible();
+  await expect(page.getByLabel("Search instructors")).toBeVisible();
+  await expect(page.locator(".course-row").first()).toContainText("adjusted");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});

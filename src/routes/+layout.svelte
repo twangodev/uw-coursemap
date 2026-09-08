@@ -43,7 +43,7 @@
       ></a
     >
     <div class="row">
-      <a href="/search">explore</a><a href="/subjects">departments</a>
+      <a href="/search">explore</a><a href="/subjects">departments</a><a href="/search?kind=instructor">instructors</a>
       <div class="theme-control">
         {#if theme === "dark"}<Moon size={16} />{:else if theme === "light"}<Sun
             size={16}
@@ -154,8 +154,11 @@
   @media (max-width: 640px) {
     nav {
       padding: 1rem;
+      flex-wrap: wrap;
     }
     nav .row {
+      width: 100%;
+      justify-content: space-between;
       gap: 12px;
       font-size: 13px;
     }
