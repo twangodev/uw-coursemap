@@ -161,7 +161,7 @@
         claims={[...(summary.difficulty_workload || []), ...(summary.quick_take || []), ...(summary.student_experience || [])]}
         reviewFiles={c.evidence.reviews}
       />{/key}
-    {:else}<h2>What to expect</h2><p class="muted">No student feedback recorded yet.</p>{/if}
+    {:else}<h2>Summary</h2><p class="muted">No student feedback recorded yet.</p>{/if}
   </div>
   <GradeSnapshot grades={overviewGrades} {benchmark} term={selectedGradeTerm} group={scope === "school" ? "UW–Madison" : scope} />
 </section>
