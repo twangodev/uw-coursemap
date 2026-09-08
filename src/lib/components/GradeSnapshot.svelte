@@ -15,6 +15,12 @@
       ? bars.reduce((sum, row, i) => sum + row.count * weights[i], 0) / total
       : null,
   );
+  let percentageBars = $derived(
+    bars.map((bar) => ({
+      ...bar,
+      percentage: total ? (bar.count / total) * 100 : 0,
+    })),
+  );
 </script>
 
 <div class="grade-snapshot">
@@ -31,16 +37,40 @@
   </div>
   {#if total}<div class="mini-chart">
       <BarChart
-        data={bars}
+        data={percentageBars}
         x="grade"
-        y="count"
-        series={[{ key: "count", color: "var(--accent)" }]}
+        y="percentage"
+        c="grade"
+        cDomain={keys.map((key) => key.toUpperCase())}
+        cRange={[
+          "var(--positive)",
+          "var(--positive)",
+          "var(--grade-mid)",
+          "var(--grade-mid)",
+          "var(--grade-mid)",
+          "var(--negative)",
+          "var(--negative)",
+        ]}
+        series={[{ key: "percentage" }]}
         height={105}
-        axis="x"
+        axis={false}
         grid={false}
-        props={{ bars: { strokeWidth: 0, radius: 2 } }}
+        props={{
+          bars: {
+            strokeWidth: 0,
+            radius: 2,
+          },
+        }}
       />
-    </div>{:else}<p class="muted">No recorded grade history.</p>{/if}
+    </div>
+    <div class="grade-percentages">
+      {#each bars as bar}<div>
+          <span>{bar.grade}</span><strong
+            >{((bar.count / total) * 100).toFixed(1)}%</strong
+          >
+        </div>{/each}
+    </div>
+  {:else}<p class="muted">No recorded grade history.</p>{/if}
   <p class="snapshot-note">
     All recorded terms · <a href="#grades">compare terms & instructors</a>
   </p>
@@ -97,5 +127,23 @@
     font-size: 12px;
     color: var(--muted);
     margin-top: 8px;
+  }
+  .grade-percentages {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 4px;
+    margin-top: 8px;
+  }
+  .grade-percentages div {
+    display: grid;
+    gap: 6px;
+    text-align: center;
+    font-size: 12px;
+  }
+  .grade-percentages span {
+    color: var(--muted);
+  }
+  .grade-percentages strong {
+    font-weight: 500;
   }
 </style>

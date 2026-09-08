@@ -101,6 +101,12 @@
       if (controller === request) loading = false;
     }
   }
+  let percentageBars = $derived(
+    bars.map((bar) => ({
+      ...bar,
+      percentage: total ? (bar.count / total) * 100 : 0,
+    })),
+  );
 </script>
 
 <div class="metric-strip">
@@ -141,16 +147,44 @@
 {#if selected.length}
   <div class="charts">
     <div>
-      <h3>Grade distribution</h3>
+      <h3>Grade distribution · % of letter grades</h3>
       <div class="chart">
         <BarChart
-          data={bars}
+          data={percentageBars}
           x="grade"
-          y="count"
-          series={[{ key: "count", label: "Students", color: "var(--accent)" }]}
+          y="percentage"
+          c="grade"
+          cDomain={keys.map((key) => key.toUpperCase())}
+          cRange={[
+            "var(--positive)",
+            "var(--positive)",
+            "var(--grade-mid)",
+            "var(--grade-mid)",
+            "var(--grade-mid)",
+            "var(--negative)",
+            "var(--negative)",
+          ]}
+          series={[
+            {
+              key: "percentage",
+              label: "Percent of letter grades",
+            },
+          ]}
           height={220}
-          props={{ bars: { strokeWidth: 0, radius: 2 } }}
+          props={{
+            bars: {
+              strokeWidth: 0,
+              radius: 2,
+            },
+          }}
         />
+      </div>
+      <div class="grade-percentages">
+        {#each bars as bar}<div>
+            <span>{bar.grade}</span><strong
+              >{total ? ((bar.count / total) * 100).toFixed(1) : "0.0"}%</strong
+            >
+          </div>{/each}
       </div>
     </div>
     {#if trends.length > 1}<div>
@@ -160,7 +194,7 @@
             data={trends}
             x="term"
             y="gpa"
-            series={[{ key: "gpa", label: "GPA", color: "var(--accent)" }]}
+            series={[{ key: "gpa", label: "GPA", color: "var(--text)" }]}
             xScale={scalePoint()}
             props={{ xAxis: { tickOcclusion: true, tickSpacing: 90 } }}
             yDomain={[0, 4]}
@@ -219,5 +253,23 @@
   }
   .chart :global(.lc-bar) {
     stroke: none;
+  }
+  .grade-percentages {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 4px;
+    margin: 12px 0;
+  }
+  .grade-percentages div {
+    display: grid;
+    gap: 6px;
+    text-align: center;
+    font-size: 12px;
+  }
+  .grade-percentages span {
+    color: var(--muted);
+  }
+  .grade-percentages strong {
+    font-weight: 500;
   }
 </style>

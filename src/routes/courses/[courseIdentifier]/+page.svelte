@@ -12,6 +12,8 @@
   import Panel from "$lib/components/Panel.svelte";
   import Claims from "$lib/components/Claims.svelte";
   import Evidence from "$lib/components/Evidence.svelte";
+  import GradeProjection from "$lib/components/GradeProjection.svelte";
+  import CourseContext from "$lib/components/CourseContext.svelte";
   import GradeSnapshot from "$lib/components/GradeSnapshot.svelte";
   import Grades from "$lib/components/Grades.svelte";
   import RequirementText from "$lib/components/RequirementText.svelte";
@@ -197,6 +199,8 @@
           <pre>{JSON.stringify(c.grade_conflicts, null, 2)}</pre>
         </details>{/if}
     </Panel>
+    {#if data.context}<CourseContext context={data.context} />{/if}
+    {#if data.projection}<GradeProjection projection={data.projection} />{/if}
     <Panel
       title="Student experience"
       id="experience"

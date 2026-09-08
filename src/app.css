@@ -25,6 +25,9 @@
   --muted: #777064;
   --border: #e2dfd8;
   --accent: #c5050c;
+  --positive: #36745a;
+  --negative: #ba3938;
+  --grade-mid: #a59168;
   --accent-mark: #d35545;
   --accent-soft: #f7e4e1;
   color-scheme: light;
@@ -36,6 +39,9 @@
   --muted: #a09a8c;
   --border: #2e2d28;
   --accent: #e68578;
+  --positive: #82bf99;
+  --negative: #ee8d85;
+  --grade-mid: #c5b487;
   --accent-mark: #e68578;
   --accent-soft: #3f1f1b;
   --color-primary: #e68578;
@@ -403,7 +409,7 @@ a:hover {
   margin-right: 6px;
 }
 .course-meta .available i {
-  background: var(--accent);
+  background: var(--positive);
 }
 .course-jumps {
   display: flex;
@@ -440,7 +446,7 @@ a:hover {
 }
 .course-content {
   display: grid;
-  gap: 48px;
+  gap: 64px;
   min-width: 0;
 }
 .course-facts {
@@ -543,6 +549,7 @@ a:hover {
   gap: 24px;
 }
 .professor-heading {
+  align-self: start;
   display: flex;
   gap: 10px;
   align-items: center;
@@ -713,11 +720,11 @@ a:hover {
   display: grid;
   grid-template-columns: minmax(0, 1.45fr) minmax(320px, 1fr);
   gap: 28px;
-  margin: 24px 0 48px;
+  margin: 36px 0 72px;
   scroll-margin-top: 80px;
 }
 .overview-take {
-  padding: 28px 32px;
+  padding: 36px 40px;
   border: 1px solid var(--border);
   border-radius: 6px;
 }
@@ -755,7 +762,7 @@ a:hover {
 }
 .course-content > .panel > .panel-heading {
   border: 0;
-  padding: 24px 0 20px;
+  padding: 32px 0 28px;
 }
 .course-content > .panel > .panel-body {
   padding: 0 0 12px;
@@ -807,10 +814,10 @@ a:hover {
   .course-overview {
     grid-template-columns: 1fr;
     gap: 16px;
-    margin-bottom: 32px;
+    margin-bottom: 48px;
   }
   .overview-take {
-    padding: 20px;
+    padding: 28px 24px;
   }
   .overview-heading {
     align-items: start;
@@ -905,4 +912,15 @@ a:hover {
       transform: translateY(0);
     }
   }
+}
+
+.teacher-rating {
+  margin-left: auto;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.teacher-rating small {
+  font-size: 11px;
+  color: var(--muted);
+  margin-left: 2px;
 }
