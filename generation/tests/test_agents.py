@@ -501,6 +501,67 @@ class AgentTests(unittest.TestCase):
                     )
                 self.assertEqual(len(calls), 3)
 
+    def test_resumed_generic_conversation_uses_current_prompt(self):
+        from pydantic_ai import ModelMessagesTypeAdapter
+        from pydantic_ai.messages import ModelRequest, SystemPromptPart, UserPromptPart
+
+        history = ModelMessagesTypeAdapter.dump_python(
+            [
+                ModelRequest(
+                    parts=[
+                        SystemPromptPart("Old conflicting instructions"),
+                        UserPromptPart("Original evidence"),
+                    ]
+                ),
+                ModelResponse(parts=[TextPart('{"answer": "old draft"}')]),
+                ModelRequest(
+                    parts=[UserPromptPart("Correct the instructor attribution")]
+                ),
+            ],
+            mode="json",
+        )
+        original = json.dumps(history, sort_keys=True)
+        task = {
+            "name": "resumed_summary",
+            "prompt": "Only return the requested historical summary.",
+            "schema": {
+                "type": "object",
+                "properties": {"answer": {"type": "string"}},
+                "required": ["answer"],
+            },
+        }
+
+        def model(messages, info):
+            parts = [p for m in messages for p in m.parts]
+            self.assertEqual(
+                [p.content for p in parts if p.part_kind == "system-prompt"],
+                [task["prompt"]],
+            )
+            self.assertTrue(
+                any(
+                    getattr(p, "content", None) == "Correct the instructor attribution"
+                    for p in parts
+                )
+            )
+            self.assertTrue(
+                any(
+                    getattr(p, "content", None) == '{"answer": "old draft"}'
+                    for p in parts
+                )
+            )
+            return ModelResponse(
+                parts=[TextPart('{"answer": "corrected"}')], finish_reason="stop"
+            )
+
+        out, _ = generate_generic(
+            {"max_output_tokens": 1024},
+            task,
+            {"_history": history},
+            FunctionModel(model),
+        )
+        self.assertEqual(out["answer"], "corrected")
+        self.assertEqual(json.dumps(history, sort_keys=True), original)
+
     def test_grounding_feedback_repairs_draft_and_keeps_both_traces(self):
         from uw_coursemap.tasks import load_task
 

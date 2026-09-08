@@ -791,10 +791,17 @@ async def _generic(profile, task, payload, model=None):
 
         request = {k: v for k, v in payload.items() if k != "_history"}
         history = (
-            ModelMessagesTypeAdapter.validate_python(payload["_history"])
+            ModelMessagesTypeAdapter.validate_python(copy.deepcopy(payload["_history"]))
             if payload.get("_history")
             else None
         )
+        # PydanticAI keeps historical system prompts when resuming. Apply the
+        # current scoped instructions without losing drafts or retry feedback.
+        for message in history or []:
+            if isinstance(message, ModelRequest):
+                for part in message.parts:
+                    if part.part_kind == "system-prompt":
+                        part.content = task["prompt"]
         try:
             result = await agent.run(
                 canonical(request),
