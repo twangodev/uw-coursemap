@@ -97,9 +97,15 @@ def validate_claims(value, payload):
                     "Do not repeat the same claim across fields; give each field a distinct purpose"
                 )
             seen.add(normalized)
+            # Variation describes disagreement, not population-wide consensus.
+            consensus_text = re.sub(
+                r"\b(?:vary|varies|varied|differ|differs|differed) widely\b",
+                "",
+                normalized,
+            )
             if re.search(
                 r"\b(widely|universally|unanimously)\b|\btop choice\b|\bstudents generally (?:prefer|agree)\b",
-                normalized,
+                consensus_text,
             ):
                 raise ValueError(
                     "Sampled reviews do not establish popularity or consensus. Describe what the cited reviewers say without ranking instructors or claiming widespread agreement."

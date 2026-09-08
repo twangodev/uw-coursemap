@@ -154,6 +154,31 @@ class StudentSummaryTests(unittest.TestCase):
                 request,
             )
 
+    def test_review_variation_is_not_consensus(self):
+        request = {"mode": "overview", "reviews": [{"citation_id": "review:1"}]}
+        for text in [
+            "Experiences vary widely.",
+            "Reported workload varies widely.",
+            "Historical experiences differed widely.",
+        ]:
+            with self.subTest(text=text):
+                validate_claims(
+                    {"quick_take": [{"text": text, "review_ids": ["review:1"]}]},
+                    request,
+                )
+        with self.assertRaisesRegex(ValueError, "consensus"):
+            validate_claims(
+                {
+                    "quick_take": [
+                        {
+                            "text": "Experiences vary widely, but this instructor is widely praised.",
+                            "review_ids": ["review:1"],
+                        }
+                    ]
+                },
+                request,
+            )
+
     def test_independent_professors_history_and_missing_reviews(self):
         calls = []
         profiles_seen = []
