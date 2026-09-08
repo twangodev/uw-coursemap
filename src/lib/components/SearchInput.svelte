@@ -75,6 +75,7 @@
                 instructor_uid?: string;
                 name?: string;
                 current?: boolean;
+                bayesian_quality?: number | null;
               }[];
             };
             return data.items.flatMap((row): Suggestion[] => {
@@ -94,9 +95,7 @@
                     uid: row.instructor_uid,
                     kind: "instructor",
                     heading: courseTitle(row.name || "Unknown instructor"),
-                    detail: row.current
-                      ? "Instructor · current teaching recorded"
-                      : "Instructor · historical teaching recorded",
+                    detail: `Instructor · ${row.bayesian_quality != null ? `${row.bayesian_quality.toFixed(1)}/5 adjusted · ` : ""}${row.current ? "current teaching recorded" : "historical teaching recorded"}`,
                     href: `/instructors/${row.instructor_uid}`,
                   },
                 ];

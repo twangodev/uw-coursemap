@@ -1,3 +1,5 @@
+import { instructorRatingPrior } from "./instructor-ratings";
+import { bayesianRating } from "$lib/instructor-ratings";
 import { query } from "./data";
 import { gradeSummary } from "$lib/discovery";
 
@@ -36,10 +38,12 @@ export async function coursePreviews(
     ),
     query(
       platform,
-      `SELECT DISTINCT t.course_uid,i.uid,i.name,json_extract(i.payload,'$.ratings.quality') quality FROM teaching t JOIN instructors i ON i.uid=t.instructor_uid WHERE t.course_uid IN (${placeholders}) AND t.term=? ORDER BY quality DESC,i.name`,
+      `SELECT DISTINCT t.course_uid,i.uid,i.name,json_extract(i.payload,'$.ratings.quality') quality,json_extract(i.payload,'$.ratings.quality_count') quality_count FROM teaching t JOIN instructors i ON i.uid=t.instructor_uid WHERE t.course_uid IN (${placeholders}) AND t.term=? ORDER BY quality DESC,i.name`,
       [...ids, term],
     ),
   ]);
+  const prior = teachers.length ? await instructorRatingPrior(platform) : null;
+  const rankedTeachers = teachers.map(row => ({ ...row, quality: bayesianRating(row.quality, row.quality_count ?? 0, prior) })).sort((a, b) => (b.quality ?? -1) - (a.quality ?? -1) || (a.name || "").localeCompare(b.name || ""));
   const payloads = new Map(
     courses.map((row) => [row.uid, JSON.parse(row.payload)]),
   );
@@ -72,7 +76,7 @@ export async function coursePreviews(
         history: gradeSummary(
           grades.filter((row) => row.uid === item.course_uid),
         ),
-        instructors: teachers.filter(
+        instructors: rankedTeachers.filter(
           (row) => row.course_uid === item.course_uid,
         ),
         instructorHistory: instructor ? gradeSummary(teacherRows) : null,

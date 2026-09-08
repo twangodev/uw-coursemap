@@ -1,3 +1,5 @@
+import { instructorRatingPrior, withInstructorRatings } from "./instructor-ratings";
+import { ratingPriorWeight } from "$lib/instructor-ratings";
 import { isCourseCollection } from "$lib/course-collections";
 import { building, dev } from "$app/environment";
 import { error } from "@sveltejs/kit";
@@ -57,7 +59,7 @@ export async function pageData(
       404,
       kind === "courses" ? "Course not found" : "Instructor not found",
     );
-  return JSON.parse(r.payload);
+  return withInstructorRatings(JSON.parse(r.payload), table, platform);
 }
 export async function assertRevision(url: URL, platform?: App.Platform) {
   const s = await status(platform);
@@ -153,9 +155,12 @@ export async function search(url: URL, platform?: App.Platform) {
   if (ranking && (kind !== "course" || !isCourseCollection(ranking))) error(400, "Invalid course ranking");
   if (ranking) where += " AND h.grade_count>=100";
   const sort = url.searchParams.get("sort");
+  const prior = kind === "instructor" ? await instructorRatingPrior(platform) : null;
+  const qualityCount = "json_extract(c.payload,'$.ratings.quality_count')";
+  const adjustedQuality = `CASE WHEN ${qualityCount}>0 THEN (json_extract(c.payload,'$.ratings.quality')*${qualityCount}+${prior ?? "NULL"}*${ratingPriorWeight})/(${qualityCount}+${ratingPriorWeight}) END`;
   const order =
     kind === "instructor"
-      ? "c.current DESC,c.name"
+      ? `c.current DESC,${adjustedQuality} DESC,c.name`
       : ranking
         ? `h.history_gpa ${ranking === "hardest" ? "ASC" : "DESC"},h.grade_count DESC,c.code`
       : sort === "gpa"
@@ -166,7 +171,7 @@ export async function search(url: URL, platform?: App.Platform) {
   const fields =
     kind === "course"
       ? "c.uid course_uid,c.code course_id,c.title,c.credits_min,c.credits_max,c.gpa"
-      : "c.uid instructor_uid,c.name,c.current";
+      : `c.uid instructor_uid,c.name,c.current,${adjustedQuality} bayesian_quality,${qualityCount} quality_count`;
   const [count] = await query(
     platform,
     `${kind === "course" ? historySql : ""}SELECT count(DISTINCT c.uid) total FROM ${from} WHERE ${where}`,

@@ -164,7 +164,7 @@ test("course context, projection and captured instructor ratings remain distinct
     .locator("#professors article")
     .filter({ hasText: "Hobbes Legault" });
   await expect(hobbes.locator(".rating-values").getByRole("img", { name: "93", exact: true })).toBeVisible();
-  await expect(hobbes.locator(".rating-values")).toContainText("RMP quality");
+  await expect(hobbes.locator(".rating-values")).toContainText("Adjusted rating");
   await hobbes.getByRole("link", { name: "Hobbes Legault" }).click();
   await expect(
     page.getByRole("heading", { name: "Hobbes Legault", exact: true }),
@@ -386,4 +386,19 @@ test("course-fit charts remain visible for unreleased terms and heading comparis
   await context.screenshot({ path: "/tmp/uw-coursemap-design-audit/course-fit-comparison.png" });
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
+test("Bayesian instructor ratings show their source and sort the course roster consistently", async ({ page }) => {
+  await page.goto("/courses/cs-300");
+  await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
+  const scores = await page.locator(".current-teachers .teacher-rating").evaluateAll(nodes => nodes.map(node => Number(node.textContent?.split("/")[0])));
+  expect(scores).toEqual([...scores].sort((a, b) => b - a));
+  const hobbes = page.locator("#professors article").filter({ hasText: "Hobbes Legault" });
+  await expect(hobbes.locator(".rating-values")).toContainText("Adjusted rating");
+  await expect(hobbes.locator(".rating-values").getByRole("img", { name: "4.4", exact: true })).toBeVisible();
+  await hobbes.getByText("About this rating", { exact: true }).click();
+  await expect(hobbes.locator(".rating-method")).toContainText("Raw average: 4.54/5 from 93 quality ratings");
+  await expect(hobbes.locator(".rating-method")).toContainText("20 additional ratings");
+  await hobbes.getByRole("link", { name: "Hobbes Legault" }).click();
+  await expect(page.locator(".rating-values").getByRole("img", { name: "4.4", exact: true })).toBeVisible();
 });

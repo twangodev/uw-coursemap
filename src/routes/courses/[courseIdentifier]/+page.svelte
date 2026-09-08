@@ -56,9 +56,9 @@
         graded, gpa: terms.reduce((sum, row) => sum + row.gpa * row.count, 0) / graded,
         sections: terms.reduce((sum, row) => sum + (row.sections || 0), 0),
       } : null };
-    }).sort((a, b) => (b.ratings?.quality ?? -1) - (a.ratings?.quality ?? -1) || a.name.localeCompare(b.name));
+    }).sort((a, b) => (b.ratings?.bayesian_quality ?? -1) - (a.ratings?.bayesian_quality ?? -1) || a.name.localeCompare(b.name));
   });
-  let headerProfessors = $derived([... (selectedGradeTerm ? professors : c.instructors)].sort((a, b) => (b.ratings?.quality ?? -1) - (a.ratings?.quality ?? -1) || (a.name || "").localeCompare(b.name || "")));
+  let headerProfessors = $derived([... (selectedGradeTerm ? professors : c.instructors)].sort((a, b) => (b.ratings?.bayesian_quality ?? -1) - (a.ratings?.bayesian_quality ?? -1) || (a.name || "").localeCompare(b.name || "")));
   let benchmark = $derived(selectedGradeTerm ? data.context?.benchmarks.terms[selectedGradeTerm]?.[scope] : data.context?.benchmarks.all[scope]);
   $effect(() => { c.course_uid; termSelection = null; });
   let allTimeSummary = $derived(c.student_summary);
@@ -129,10 +129,10 @@
       {#each headerProfessors.slice(0, 3) as instructor}<a
           href={instructorUrl(instructor.instructor_uid)}
           ><span>{instructor.name}</span
-          >{#if instructor.ratings?.quality != null}<span
+          >{#if instructor.ratings?.bayesian_quality != null}<span
               class="teacher-rating"
-              aria-label={`RMP quality ${instructor.ratings.quality.toFixed(1)} out of 5, from ${instructor.ratings.review_count} captured reviews`}
-              >{instructor.ratings.quality.toFixed(1)}<small>/5</small></span
+              aria-label={`Adjusted rating ${instructor.ratings.bayesian_quality.toFixed(1)} out of 5, from ${instructor.ratings.review_count} captured reviews`}
+              >{instructor.ratings.bayesian_quality.toFixed(1)}<small>/5</small></span
             >{/if}<ArrowUpRight size={15} /></a
         >{:else}<span class="muted">No instructors listed</span>{/each}
       {#if headerProfessors.length > 3}<a class="more-teachers" href="#professors">+{headerProfessors.length - 3} more <ArrowUpRight size={15} /></a>{/if}

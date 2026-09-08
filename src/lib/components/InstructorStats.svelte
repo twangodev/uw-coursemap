@@ -19,10 +19,10 @@
     {#if ratings}<div class="rating-values">
         <div>
           <strong
-            class:positive={ratings.quality >= 4}
-            class:negative={ratings.quality != null && ratings.quality < 3}
-            ><AnimatedNumber value={ratings.quality} decimals={1} /><small>/5</small></strong
-          ><span>RMP quality</span>
+            class:positive={ratings.bayesian_quality >= 4}
+            class:negative={ratings.bayesian_quality != null && ratings.bayesian_quality < 3}
+            ><AnimatedNumber value={ratings.bayesian_quality} decimals={1} /><small>/5</small></strong
+          ><span>Adjusted rating</span>
         </div>
         <div>
           <strong
@@ -35,11 +35,12 @@
           >
         </div>
       </div>
+      {#if ratings.bayesian_quality != null}<details class="rating-method"><summary>About this rating</summary><p>Raw average: {ratings.quality.toFixed(2)}/5 from {ratings.quality_count} quality ratings. The adjusted rating blends this with the UW review average ({ratings.prior_mean.toFixed(2)}/5), weighted as {ratings.prior_weight} additional ratings. Smaller samples stay closer to that average. Each captured review is counted once in the prior; this does not correct who chooses to leave a review.</p></details>{/if}
       {#if course && course.review_count !== ratings.review_count}<p
           class="course-rating"
         >
           For this course: <strong
-            >{course.quality?.toFixed(1) ?? "—"}/5 quality</strong
+            >{course.quality?.toFixed(1) ?? "—"}/5 raw quality</strong
           >
           · {course.difficulty?.toFixed(1) ?? "—"}/5 difficulty · {course.review_count}
           reviews
@@ -59,6 +60,8 @@
 {/if}
 
 <style>
+  .rating-method { font-size: 12px; margin-top: 16px; padding: 0; }
+  .rating-method p { max-width: 70ch; line-height: 1.7; margin-top: 10px; color: var(--muted); }
   .grade-coverage { display: block; color: var(--muted); font-size: 12px; margin-top: 6px; }
   .instructor-stats {
     margin: 12px 0 24px;

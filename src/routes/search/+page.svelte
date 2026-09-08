@@ -41,7 +41,7 @@
       class="course-row"
       href={instructorUrl(i.instructor_uid)}
       ><span>{i.name || "Name unavailable"}</span><span class="muted"
-        >{i.current
+        >{#if i.bayesian_quality != null}{i.bayesian_quality.toFixed(1)}/5 adjusted · {/if}{i.current
           ? `Teaching in ${termName(data.status.term)}`
           : "Historical instructor"}</span
       ></a
