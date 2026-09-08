@@ -1,4 +1,4 @@
-FROM node:25-alpine AS builder
+FROM node:26-alpine AS builder
 
 WORKDIR /app
 
@@ -14,7 +14,7 @@ ENV NODE_OPTIONS="--max-old-space-size=4096"
 RUN npm run build
 RUN npm prune --production
 
-FROM node:25-alpine AS runtime
+FROM node:26-alpine AS runtime
 
 WORKDIR /app
 
