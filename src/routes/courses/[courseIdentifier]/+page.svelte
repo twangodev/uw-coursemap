@@ -169,12 +169,12 @@
   <aside class="course-facts" aria-label="Course details">
     <Panel title="Course details">
       <div class="fact-pair">
-        <span>[credits]</span><strong
+        <span>Credits</span><strong
           >{credits(c.credits_min, c.credits_max)}</strong
         >
       </div>
       <div class="fact-pair">
-        <span>[offered]</span><strong
+        <span>Typically offered</span><strong
           >{[
             ...new Set(
               c.offerings.map((o: any) => o.typically_offered).filter(Boolean),
@@ -183,7 +183,7 @@
         >
       </div>
       <div class="fact-pair">
-        <span>[subjects]</span>
+        <span>Subjects</span>
         <div class="row">
           {#each c.subjects as subject}<a
               href={"/subjects/" + encodeURIComponent(subject)}>{subject}</a

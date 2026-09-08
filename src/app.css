@@ -461,15 +461,15 @@ a:hover {
 }
 .fact-pair {
   display: grid;
-  grid-template-columns: 65px 1fr;
-  gap: 8px;
-  margin: 12px 0;
-  font-size: 12px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 7px;
+  margin: 0 0 24px;
+  font-size: 14px;
+  line-height: 1.6;
 }
 .fact-pair > span {
-  font: 12px var(--font-mono);
+  font-size: 12px;
   color: var(--muted);
-  padding-top: 3px;
 }
 .fact-pair strong {
   font-weight: 450;
