@@ -354,6 +354,7 @@ class StudentSummaryTests(unittest.TestCase):
             resumed["sections"]["student_summary"]["value"], section["value"]
         )
         self.assertEqual(len(resumed["provenance"]["reused_scopes"]), 3)
+        self.assertNotIn("student_summary", resumed["provenance"]["section_origins"])
         for suffix in [
             " No reviews are available for the current instructor.",
             " (review:1).",

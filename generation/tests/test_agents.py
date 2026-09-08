@@ -357,6 +357,7 @@ class AgentTests(unittest.TestCase):
         self.assertEqual(output["sections"]["requirements"]["status"], "valid")
         event = output["provenance"]["recovery_events"][0]
         self.assertTrue(event["context_compacted"])
+        self.assertFalse(output["provenance"]["generation_settings"]["thinking"])
         self.assertEqual(
             event["conversation"],
             serialize_messages(calls[0]),

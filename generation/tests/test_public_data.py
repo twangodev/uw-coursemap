@@ -195,6 +195,7 @@ class PublicDataTests(unittest.TestCase):
         self.assertEqual((course["credits_min"], course["credits_max"]), (3, 4))
         self.assertEqual(course["credit_offering_ids"], ["offering-1"])
         self.assertEqual(course["llm_search_status"], "not_generated")
+        self.assertEqual(course["llm_student_summary_status"], "not_generated")
 
     def test_only_selected_valid_sections_enter_search_and_requirement_graph(self):
         self.add_job("1-selected", 1)

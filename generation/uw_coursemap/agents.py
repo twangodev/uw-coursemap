@@ -649,7 +649,7 @@ async def _conversation(profile, task, payload, context, model=None):
             },
         )
         provenance["repair_context_compacted"] = True
-        provenance["generation_settings"]["thinking"] = bool(seed and not reused)
+        provenance["generation_settings"]["thinking"] = request_thinking
         if reused:
             provenance["reuse_source_job"] = reused["job_id"]
     result = {

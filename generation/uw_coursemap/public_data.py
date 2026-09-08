@@ -234,6 +234,7 @@ def enrich_fields(row):
         "llm_search_status": "not_generated",
         "llm_requirements_status": "not_generated",
         "llm_experience_status": "not_generated",
+        "llm_student_summary_status": "not_generated",
         **{
             key: []
             for key in (

@@ -603,6 +603,7 @@ def generate_student(profile, task, payload, generate=None):
                     "section_hash": digest(v),
                 }
                 for k, v in previous["sections"].items()
+                if k != "student_summary"
             },
             "subtasks": traces,
             "section_overrides": overrides,
