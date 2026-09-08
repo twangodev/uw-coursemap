@@ -147,7 +147,7 @@
         <Select label="Comparison group" value={scope} onChange={(value) => comparisonScope = value} options={[{ value: "school", label: "School · UW–Madison" }, ...c.subjects.map((subject: string) => ({ value: subject, label: `Department · ${subject}` }))]} />
       </div>
     {/if}
-    <div class="navigation-filter term-picker">
+    <div class="navigation-filter term-picker" role="group" aria-label="Grade term">
       <button class="term-step" aria-label={selectedGradeTerm ? "Previous term" : "Latest graded term"} disabled={!gradeTerms.length || gradeTermIndex >= gradeTerms.length - 1} onclick={() => stepTerm(1)}><ChevronLeft size={14} /></button>
       <Select label="Term" bind:value={selectedGradeTerm} options={[{ value: "", label: "All recorded terms" }, ...gradeTerms.map((term) => ({ value: term, label: termName(term) }))]} />
       <button class="term-step" aria-label="Next term" disabled={gradeTermIndex <= 0} onclick={() => stepTerm(-1)}><ChevronRight size={14} /></button>
@@ -432,9 +432,13 @@
   .course-navigation .course-jumps { position: static; flex: 1; min-width: 0; border: 0; margin: 0; padding: 0; }
   .course-navigation .course-jumps a { height: 30px; box-sizing: border-box; font-size: 12px; padding: 0 8px; gap: 5px; }
   .navigation-filter :global(.course-select-trigger) { height: 30px; box-sizing: border-box; padding-block: 0; }
-  .term-picker { grid-template-columns: 26px minmax(0, 1fr) 26px; }
+  .navigation-filter.term-picker { grid-template-columns: 28px minmax(0, 1fr) 28px; gap: 0; height: 30px; box-sizing: border-box; border: 1px solid var(--border); border-radius: 5px; background: var(--surface); }
+  .term-picker :global(.course-select-trigger) { height: 28px; border: 0; border-inline: 1px solid var(--border); border-radius: 0; background: transparent; }
+  .term-picker .term-step { width: 28px; height: 28px; border-radius: 0; }
+  .term-picker .term-step:first-child { border-radius: 4px 0 0 4px; }
+  .term-picker .term-step:last-child { border-radius: 0 4px 4px 0; }
   .term-step { display: grid; place-items: center; width: 26px; height: 30px; padding: 0; border: 0; border-radius: 4px; background: transparent; color: var(--muted); cursor: pointer; }
-  .term-step:hover:not(:disabled) { background: var(--surface); color: var(--text); }
+  .term-step:hover:not(:disabled) { background: var(--border); color: var(--text); }
   .term-step:disabled { opacity: 0.3; cursor: default; }
   .term-step:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .navigation-filters { display: flex; gap: 10px; flex-shrink: 0; }
