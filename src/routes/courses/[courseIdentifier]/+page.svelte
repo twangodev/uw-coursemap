@@ -254,9 +254,8 @@
             reviewFiles={c.evidence.reviews}
           />
         </div>{/if}
-    </Panel>
     {#if c.llm_topics?.length || c.llm_skills?.length}
-      <section id="topics" aria-label="AI-generated topics and skills">
+      <section class="course-topics" id="topics" aria-label="AI-generated topics and skills">
         <div class="course-tag-groups">
           {#each [{ label: "Topics", values: c.llm_topics }, { label: "Skills", values: c.llm_skills }] as group}
             {#if group.values?.length}
@@ -271,6 +270,7 @@
         </div>
       </section>
     {/if}
+    </Panel>
     <Panel title="Professors" id="professors" label={termName(c.semester)}>
       <div class="professor-grid">
         {#each professors as i}{@const feedback =
@@ -428,6 +428,7 @@
 </div>
 
 <style>
+  .course-topics { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); }
   .course-navigation { display: flex; align-items: center; gap: 20px; position: sticky; top: 0; z-index: 20; background: var(--bg); border-bottom: 1px solid var(--border); padding: 6px 0; }
   .course-navigation .course-jumps { position: static; flex: 1; min-width: 0; border: 0; margin: 0; padding: 0; }
   .course-navigation .course-jumps a { height: 30px; box-sizing: border-box; font-size: 12px; padding: 0 8px; gap: 5px; }

@@ -102,7 +102,7 @@
 
 <style>
   .course-context {
-    padding: 40px 0;
+    padding: 24px 0 0;
     border-top: 1px solid var(--border);
   }
   .context-heading {
@@ -110,7 +110,7 @@
     justify-content: space-between;
     align-items: start;
     gap: 24px;
-    margin-bottom: 36px;
+    margin-bottom: 24px;
   }
   h2 {
     font-size: 25px;
@@ -122,7 +122,7 @@
   .context-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 56px;
+    gap: 32px;
   }
   .context-number {
     font-size: 40px;
@@ -157,8 +157,9 @@
   }
 
   .comparison-method {
+    padding-bottom: 0;
     font-size: 13px;
-    margin-top: 36px;
+    margin-top: 20px;
   }
   .comparison-method p {
     max-width: 80ch;
@@ -171,10 +172,10 @@
     }
     .context-grid {
       grid-template-columns: 1fr;
-      gap: 40px;
+      gap: 28px;
     }
     .course-context {
-      padding: 32px 0;
+      padding: 24px 0 0;
     }
   }
 </style>

@@ -446,7 +446,7 @@ a:hover {
 }
 .course-content {
   display: grid;
-  gap: 64px;
+  gap: 32px;
   min-width: 0;
 }
 .course-facts {
@@ -538,22 +538,23 @@ a:hover {
 .professor-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 18px;
-  margin-bottom: 16px;
+  gap: 0;
+  margin-bottom: 0;
 }
 .professor-tile {
-  padding: 18px 0;
+  padding: 16px 0;
   border-bottom: 1px solid var(--border);
   display: grid;
   grid-template-columns: 210px minmax(0, 1fr);
   gap: 24px;
 }
+.professor-tile:last-child { border-bottom: 0; }
 .professor-heading {
   align-self: start;
   display: flex;
   gap: 10px;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 0;
 }
 .professor-heading h3 {
   font-size: 14px;
@@ -720,7 +721,7 @@ a:hover {
   display: grid;
   grid-template-columns: minmax(0, 1.45fr) minmax(320px, 1fr);
   gap: 28px;
-  margin: 36px 0 72px;
+  margin: 24px 0 40px;
   scroll-margin-top: 80px;
 }
 .overview-take {
@@ -762,11 +763,12 @@ a:hover {
 }
 .course-content > .panel > .panel-heading {
   border: 0;
-  padding: 32px 0 28px;
+  padding: 24px 0 20px;
 }
 .course-content > .panel > .panel-body {
-  padding: 0 0 12px;
+  padding: 0;
 }
+.course-content > .panel > .panel-body > :last-child { margin-bottom: 0; }
 .course-facts > .panel {
   background: transparent;
   border: 0;
@@ -814,7 +816,7 @@ a:hover {
   .course-overview {
     grid-template-columns: 1fr;
     gap: 16px;
-    margin-bottom: 48px;
+    margin-bottom: 32px;
   }
   .overview-take {
     padding: 28px 24px;

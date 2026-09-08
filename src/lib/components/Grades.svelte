@@ -123,6 +123,7 @@
   );
 </script>
 
+<div class="grade-toolbar">
 <div class="metric-strip">
   <div>
     <div class="metric-value" style:color={metricColor(gpa, benchmark?.gpa)}><MetricComparison value={gpa} reference={benchmark?.gpa} kind="gpa" label="Average GPA" group={scope === "school" ? "UW–Madison" : scope}><AnimatedNumber value={gpa} decimals={2} /></MetricComparison></div>
@@ -143,10 +144,7 @@
   {#if showTermSelect}<div class="filter-select"><span>Term</span><Select label="Term" bind:value={selectedTerm} options={[{ value: "", label: "All recorded terms" }, ...[...new Set<string>(grades.map((r) => r.term_id))].sort().reverse().map((term) => ({ value: term, label: termName(term) }))]} /></div>{/if}
   <div class="filter-select"><span>Instructor</span><Select label="Instructor" bind:value={selectedInstructor} onChange={change} options={[{ value: "", label: "Course overall" }, ...instructors.map((i) => ({ value: i.instructor_uid, label: i.name }))]} /></div>
 </div>
-<details class="benchmark-note"><summary>About these comparisons</summary><p>{scope === "school" ? "UW–Madison" : scope} · matching recorded terms · all course levels.
-  {#if selectedInstructor}Whole-course comparisons are unavailable for an instructor subset.
-  {:else}Course averages for GPA and A/AB share; median course for grade count. Above/below does not imply teaching quality. Courses may have different historical coverage.{/if}
-</p></details>
+</div>
 {#if failure}<p role="alert">{failure}</p>{/if}{#if loading}<p class="muted">
     Loading grades…
   </p>{/if}
@@ -231,20 +229,32 @@
   </details>{:else}<p class="empty">
     No recorded grades for this selection.
   </p>{/if}
-<p class="muted">
-  Historical grades describe past outcomes. Co-taught sections share one
-  distribution.
-</p>
+<details class="benchmark-note"><summary>About these comparisons</summary><p>{scope === "school" ? "UW–Madison" : scope} · matching recorded terms · all course levels.
+  {#if selectedInstructor}Whole-course comparisons are unavailable for an instructor subset.
+  {:else}Course averages for GPA and A/AB share; median course for grade count. Above/below does not imply teaching quality. Courses may have different historical coverage. Historical grades describe past outcomes; co-taught sections share one distribution.{/if}
+</p></details>
 
 <style>
-  .filter-select { display: grid; gap: 8px; min-width: 0; font-size: 13px; color: var(--muted); }
-  .benchmark-note { font-size: 12px; line-height: 1.7; color: var(--muted); margin: 12px 0 24px; max-width: 85ch; }
+  .grade-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .grade-toolbar .metric-strip { margin: 0; padding: 0; border: 0; gap: 32px; }
+  .grade-toolbar .filters { margin: 0; gap: 12px; }
+  .filter-select :global(.course-select-trigger) { max-width: 240px; }
+  @media (max-width: 600px) {
+    .grade-toolbar { gap: 16px; }
+    .grade-toolbar .metric-strip { width: 100%; justify-content: space-between; gap: 16px; }
+    .grade-toolbar .filters { width: 100%; }
+    .filter-select { flex: 1; }
+    .filter-select :global(.course-select-trigger) { max-width: 100%; }
+  }
+
+  .filter-select { display: grid; gap: 4px; min-width: 0; font-size: 13px; color: var(--muted); }
+  .benchmark-note { font-size: 12px; line-height: 1.7; color: var(--muted); margin: 0; max-width: none; padding-bottom: 0; }
 
   .charts {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 2rem;
-    margin: 1.5rem 0;
+    margin: 24px 0 16px;
   }
   h3 {
     font: 13px var(--font-sans);
