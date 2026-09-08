@@ -15,12 +15,6 @@ class BuildingLoader:
         if geojson_path is None:
             current_dir = os.path.dirname(os.path.abspath(__file__))
             geojson_path = os.path.join(current_dir, "osm.geojson")
-            if not os.path.exists(geojson_path):
-                import sysconfig
-
-                geojson_path = os.path.join(
-                    sysconfig.get_path("data"), "share", "uw-coursemap", "osm.geojson"
-                )
 
         self.geojson_path = geojson_path
         self._buildings_gdf = None

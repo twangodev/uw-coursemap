@@ -134,7 +134,7 @@ def crawl(root, run, source, offline=False):
 
     store = Store(root)
     store.reset_source(run, source)
-    from http_utils import get_user_agent
+    from uw_coursemap.http_utils import get_user_agent
 
     config = json.loads(store.run(run)["config_json"])
     settings = {

@@ -31,12 +31,15 @@ def plain(value):
 
 
 def reconcile(store, run):
-    from course import Course
-    from enrollment import apply_enrollment
-    from enrollment_data import EnrollmentData, MadgradesData, TermData
-    from instructors import FullInstructor, RMPData, merge_instructors
-    from name_matcher import find_best_name_match, find_best_structured_match
-    from sanitization import sanitize_instructor_id
+    from uw_coursemap.course import Course
+    from uw_coursemap.enrollment import apply_enrollment
+    from uw_coursemap.enrollment_data import EnrollmentData, MadgradesData, TermData
+    from uw_coursemap.instructors import FullInstructor, RMPData, merge_instructors
+    from uw_coursemap.name_matcher import (
+        find_best_name_match,
+        find_best_structured_match,
+    )
+    from uw_coursemap.sanitization import sanitize_instructor_id
 
     EnrollmentData.MeetingLocation._all_locations.clear()
     courses = {
@@ -182,9 +185,9 @@ def encode_state(courses, instructors, meetings, terms, unmatched):
 
 
 def decode_state(state):
-    from course import Course
-    from enrollment_data import EnrollmentData
-    from instructors import FullInstructor
+    from uw_coursemap.course import Course
+    from uw_coursemap.enrollment_data import EnrollmentData
+    from uw_coursemap.instructors import FullInstructor
 
     courses = {
         Course.Reference.from_string(key): Course.from_json(value)
@@ -232,7 +235,10 @@ def derive(store, run):
         else:
             courses, instructors, meetings, terms, unmatched = decode_state(state)
             if stage == "aggregate":
-                from aggregate import aggregate_courses, aggregate_instructors
+                from uw_coursemap.aggregate import (
+                    aggregate_courses,
+                    aggregate_instructors,
+                )
 
                 instructor_stats = aggregate_instructors(courses, instructors)
                 stats, explorer = aggregate_courses(
@@ -242,7 +248,7 @@ def derive(store, run):
                 payload["statistics"] = plain({**instructor_stats, **stats})
                 payload["explorer"] = plain(explorer)
             elif stage == "optimize":
-                from embeddings import get_model, optimize_prerequisites
+                from uw_coursemap.embeddings import get_model, optimize_prerequisites
 
                 asyncio.run(
                     optimize_prerequisites(
@@ -259,19 +265,19 @@ def derive(store, run):
                     **encode_state(courses, instructors, meetings, terms, unmatched),
                 }
             else:
-                from cytoscape import (
+                from uw_coursemap.cytoscape import (
                     build_graphs,
                     cleanup_graphs,
                     generate_styles,
                     generate_style_from_graph,
                 )
-                from webscrape import build_subject_to_courses
+                from uw_coursemap.catalog import build_subject_to_courses
 
                 global_graph, subjects, per_course = build_graphs(
                     courses, build_subject_to_courses(courses)
                 )
                 cleanup_graphs(global_graph, subjects, per_course)
-                from color import generate_accessible_color
+                from uw_coursemap.color import generate_accessible_color
 
                 parents = {
                     node["data"]["id"]
@@ -303,7 +309,7 @@ def derive(store, run):
 
 
 def write_compatibility(store, run, directory):
-    from save import write_data
+    from uw_coursemap.save import write_data
 
     state = store.get_artifact(run, "graph")
     courses, instructors, meetings, terms, _ = decode_state(state)

@@ -5,7 +5,11 @@ from functools import lru_cache
 import json
 import re
 
-from name_matcher import find_best_name_match, HumanName, normalize_name_component
+from uw_coursemap.name_matcher import (
+    find_best_name_match,
+    HumanName,
+    normalize_name_component,
+)
 from .course_context import sample_reviews
 from .dataset_shape import instructor_identity
 from .models import digest

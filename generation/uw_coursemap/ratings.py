@@ -65,7 +65,7 @@ def next_cursor(connection, previous=None):
 
 def matched_teacher(name, candidates):
     """Keep ambiguous name matches unresolved rather than pick the first profile."""
-    from name_matcher import find_best_structured_match
+    from uw_coursemap.name_matcher import find_best_structured_match
 
     scores = []
     for candidate in candidates:

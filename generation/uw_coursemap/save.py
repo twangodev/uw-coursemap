@@ -7,11 +7,11 @@ from logging import getLogger
 
 from tqdm import tqdm
 
-from instructors import FullInstructor
-from json_serializable import JsonSerializable
-from map import get_buildings
-from sanitization import sanitize_entry, sanitize_instructor_id
-from sitemap_generation import generate_sitemap
+from uw_coursemap.instructors import FullInstructor
+from uw_coursemap.json_serializable import JsonSerializable
+from uw_coursemap.map import get_buildings
+from uw_coursemap.sanitization import sanitize_entry, sanitize_instructor_id
+from uw_coursemap.sitemap_generation import generate_sitemap
 
 logger = getLogger(__name__)
 

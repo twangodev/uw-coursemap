@@ -6,8 +6,8 @@ from logging import getLogger
 import numpy as np
 from tqdm.asyncio import tqdm
 
-from cache import read_embedding_cache, write_embedding_cache
-from course import Course
+from uw_coursemap.embedding_cache import read_embedding_cache, write_embedding_cache
+from uw_coursemap.course import Course
 
 logger = getLogger(__name__)
 

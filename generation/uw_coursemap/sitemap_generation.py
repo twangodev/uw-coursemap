@@ -6,7 +6,7 @@ from xml.etree.ElementTree import Element, SubElement, tostring
 from xml.dom.minidom import parseString
 from tqdm import tqdm
 
-from sanitization import sanitize_entry, sanitize_instructor_id
+from uw_coursemap.sanitization import sanitize_entry, sanitize_instructor_id
 
 logger = getLogger(__name__)
 

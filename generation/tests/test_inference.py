@@ -51,7 +51,7 @@ class InferenceTests(unittest.TestCase):
                     model.encode("text")
 
     def test_keyword_backend_never_loads_local_model_and_caches_batches(self):
-        from embeddings import CachedKeyBERT
+        from uw_coursemap.embeddings import CachedKeyBERT
 
         model = unittest.mock.Mock()
         model.model_name = "test"
@@ -110,7 +110,7 @@ class InferenceTests(unittest.TestCase):
 
     def test_prerequisite_popularity_uses_branch_enrollment(self):
         from types import SimpleNamespace
-        from embeddings import score_branch
+        from uw_coursemap.embeddings import score_branch
 
         def course(reference, enrollment):
             return SimpleNamespace(
@@ -124,7 +124,9 @@ class InferenceTests(unittest.TestCase):
             course("small", 10),
             course("large", 80),
         )
-        with patch("embeddings.get_embedding", return_value=np.asarray([1.0, 0.0])):
+        with patch(
+            "uw_coursemap.embeddings.get_embedding", return_value=np.asarray([1.0, 0.0])
+        ):
             args = ("unused", None, target, {"small": small, "large": large})
             self.assertAlmostEqual(score_branch(*args, 100, ["small"], 0, 1), 0.1)
             self.assertAlmostEqual(score_branch(*args, 100, ["large"], 0, 1), 0.8)

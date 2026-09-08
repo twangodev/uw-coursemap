@@ -270,7 +270,7 @@ def write_database(store, run, path, state_override=None):
                                 canonical(section),
                             ),
                         )
-                        from sanitization import sanitize_instructor_id
+                        from uw_coursemap.sanitization import sanitize_instructor_id
 
                         for instructor in section.get("instructors", []):
                             name = f"{instructor['name']['first']} {instructor['name']['last']}"

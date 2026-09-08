@@ -5,11 +5,16 @@ import numpy as np
 from logging import getLogger
 from tqdm.asyncio import tqdm
 
-from course import Course
-from embeddings import get_model, get_embeddings, get_keyword_model, CachedKeyBERT
-from enrollment_data import GradeData
-from instructors import FullInstructor
-from sanitization import sanitize_instructor_id
+from uw_coursemap.course import Course
+from uw_coursemap.embeddings import (
+    get_model,
+    get_embeddings,
+    get_keyword_model,
+    CachedKeyBERT,
+)
+from uw_coursemap.enrollment_data import GradeData
+from uw_coursemap.instructors import FullInstructor
+from uw_coursemap.sanitization import sanitize_instructor_id
 
 logger = getLogger(__name__)
 

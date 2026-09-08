@@ -6,7 +6,7 @@ Handles aggregating meeting data to buildings and calculating totals.
 import geojson
 from shapely.geometry import Point, shape
 from typing import Dict, List, Tuple, Any
-from building_loader import buildings_gdf
+from uw_coursemap.building_loader import buildings_gdf
 
 
 class BuildingAggregator:

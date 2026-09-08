@@ -576,7 +576,7 @@ class LifecycleTests(unittest.TestCase):
 
         before = self.store.records(self.run, "offerings")
         self.assertTrue(before)
-        with patch("enrollment.apply_enrollment", return_value=None):
+        with patch("uw_coursemap.enrollment.apply_enrollment", return_value=None):
             *_, unmatched = reconcile(self.store, self.run)
         self.assertEqual(set(unmatched["offerings"]), set(before))
         self.assertEqual(self.store.records(self.run, "offerings"), before)

@@ -399,7 +399,7 @@ def main(argv=None):
                     raise ValueError(
                         "At least 10 GiB free is required for a new run; model downloads may require more"
                     )
-                from http_utils import get_user_agent
+                from uw_coursemap.http_utils import get_user_agent
 
                 config = {
                     "http": {

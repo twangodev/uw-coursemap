@@ -503,21 +503,21 @@ class PipelineTests(unittest.TestCase):
         self.store.db.commit()
         model = FixtureModel()
         with (
-            patch("aggregate.get_model", return_value=model),
-            patch("aggregate.get_keyword_model", return_value=model),
+            patch("uw_coursemap.aggregate.get_model", return_value=model),
+            patch("uw_coursemap.aggregate.get_keyword_model", return_value=model),
             patch(
-                "aggregate.CachedKeyBERT",
+                "uw_coursemap.aggregate.CachedKeyBERT",
                 return_value=SimpleNamespace(
                     extract_keywords=lambda *a, **kw: [("programming", 1.0)]
                 ),
             ),
-            patch("embeddings.get_model", return_value=model),
+            patch("uw_coursemap.embeddings.get_model", return_value=model),
         ):
             state = derive(self.store, self.run)
         self.assertEqual(len(state["courses"]), 6)
         self.assertEqual(state["courses"]["COMPSCI 300"]["keywords"], ["programming"])
         with patch(
-            "aggregate.aggregate_courses",
+            "uw_coursemap.aggregate.aggregate_courses",
             side_effect=AssertionError("completed stage reran"),
         ):
             self.assertEqual(derive(self.store, self.run), state)
@@ -556,18 +556,22 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(verify_release(rebuilt)["files"], manifest["files"])
 
     def test_failed_optimization_cannot_silently_complete(self):
-        from embeddings import optimize_prerequisite
+        from uw_coursemap.embeddings import optimize_prerequisite
 
         course = SimpleNamespace(get_identifier=lambda: "COMPSCI 300")
         with patch(
-            "embeddings.prune_prerequisites", side_effect=ValueError("invalid input")
+            "uw_coursemap.embeddings.prune_prerequisites",
+            side_effect=ValueError("invalid input"),
         ) as prune:
             with self.assertRaisesRegex(RuntimeError, "optimization failed"):
                 optimize_prerequisite("unused", course, None, {}, 1, 1, 2, strict=True)
             self.assertEqual(prune.call_count, 2)
 
     def test_embedding_cache_is_revision_specific(self):
-        from cache import write_embedding_cache, read_embedding_cache
+        from uw_coursemap.embedding_cache import (
+            write_embedding_cache,
+            read_embedding_cache,
+        )
 
         first = SimpleNamespace(model_name="same/model", pipeline_revision="first")
         second = SimpleNamespace(model_name="same/model", pipeline_revision="second")

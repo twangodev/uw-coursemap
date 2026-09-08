@@ -7,10 +7,10 @@ from typing import List, Dict, Tuple
 
 import geojson
 
-from building_aggregator import BuildingAggregator
-from building_loader import BuildingLoader
-from meeting_processor import MeetingProcessor
-from spatial_query import SpatialQueryEngine
+from uw_coursemap.building_aggregator import BuildingAggregator
+from uw_coursemap.building_loader import BuildingLoader
+from uw_coursemap.meeting_processor import MeetingProcessor
+from uw_coursemap.spatial_query import SpatialQueryEngine
 
 
 class MapDataProcessor:

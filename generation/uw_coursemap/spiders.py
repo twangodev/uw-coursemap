@@ -58,7 +58,7 @@ class CatalogSpider(SourceSpider):
 
     def department(self, response):
         from bs4 import BeautifulSoup
-        from course import Course
+        from uw_coursemap.course import Course
 
         soup = BeautifulSoup(response.body, "html.parser")
         title = soup.find(class_="page-title")
@@ -265,7 +265,7 @@ class InstructorSpider(SourceSpider):
         )
 
     def faculty(self, response):
-        from instructors import parse_faculty
+        from uw_coursemap.instructors import parse_faculty
 
         faculty = parse_faculty(response.body)
         if not faculty:

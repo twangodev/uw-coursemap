@@ -9,10 +9,8 @@ dependencies = [
     "pydantic>=2.10,<3",
     "pyarrow>=19",
     "huggingface-hub>=0.33,<1",
-    "aiohttp-client-cache[sqlite]>=0.13.0",
     "anyascii>=0.3.3",
     "beautifulsoup4>=4.13.4",
-    "coloredlogs>=15.0.1",
     "diskcache>=5.6.3",
     "fake-useragent>=2.2.0",
     "frozendict>=2.4.6",
@@ -27,7 +25,6 @@ dependencies = [
     "python-dotenv>=1.1.1",
     "rapidfuzz>=3.13.0",
     "requests>=2.32.4",
-    "requests-cache>=1.2.1",
     "rtree>=1.4.0",
     "sentence-transformers>=5.0.0",
     "shapely>=2.1.1",
@@ -55,7 +52,6 @@ coursemap = "uw_coursemap.cli:main"
 [tool.setuptools]
 package-dir = {"" = "generation"}
 packages = ["uw_coursemap"]
-py-modules = ["aggregate", "aio_cache", "building_aggregator", "building_loader", "cache", "color", "course", "cytoscape", "embeddings", "enrollment", "enrollment_data", "http_utils", "instructors", "json_serializable", "madgrades", "main", "map", "meeting_data_loader", "meeting_processor", "name_matcher", "request_util", "requirement_ast", "safe_parse", "sanitization", "save", "sitemap_generation", "spatial_query", "timer", "webscrape"]
 
-[tool.setuptools.data-files]
-"share/uw-coursemap" = ["generation/osm.geojson"]
+[tool.setuptools.package-data]
+uw_coursemap = ["osm.geojson"]

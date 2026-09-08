@@ -3,8 +3,8 @@ from logging import getLogger
 from frozendict import frozendict
 from tqdm import tqdm
 
-from color import generate_random_hex_colors
-from course import Course
+from uw_coursemap.color import generate_random_hex_colors
+from uw_coursemap.course import Course
 
 logger = getLogger(__name__)
 

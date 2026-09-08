@@ -1,10 +1,7 @@
-import asyncio
-from json import JSONDecodeError
-
 from logging import getLogger
 
-from json_serializable import JsonSerializable
-from safe_parse import safe_int
+from uw_coursemap.json_serializable import JsonSerializable
+from uw_coursemap.safe_parse import safe_int
 
 logger = getLogger(__name__)
 
@@ -165,7 +162,7 @@ class EnrollmentData(JsonSerializable):
         def from_json(cls, data) -> "EnrollmentData.Meeting":
             course_reference = None
             if data.get("course_reference"):
-                from course import Course
+                from uw_coursemap.course import Course
 
                 course_reference = Course.Reference.from_json(data["course_reference"])
 
@@ -436,29 +433,6 @@ class MadgradesData:
     def __init__(self, cumulative, by_term: dict[str, GradeData]):
         self.cumulative = cumulative
         self.by_term = by_term
-
-    @classmethod
-    async def from_madgrades_async(
-        cls, session, url, madgrades_api_key, current_page, attempts=3
-    ) -> "MadgradesData":
-        auth_header = {"Authorization": f"Token token={madgrades_api_key}"}
-
-        try:
-            async with session.get(url, headers=auth_header) as response:
-                data = await response.json()
-        except (JSONDecodeError, Exception) as e:
-            if attempts > 0:
-                logger.debug(
-                    f"Failed to fetch Madgrades data from {url}: {e}. Attempting {attempts} more times..."
-                )
-                await asyncio.sleep(1)
-                return await cls.from_madgrades_async(
-                    session, url, madgrades_api_key, current_page, attempts - 1
-                )
-            logger.error(f"Failed to fetch Madgrades data from {url}: {e}")
-            raise RuntimeError(f"Failed to fetch Madgrades data from {url}") from e
-
-        return cls.from_response(data)
 
     @classmethod
     def from_response(cls, data):

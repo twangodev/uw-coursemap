@@ -6,7 +6,7 @@ Handles point-in-polygon queries and building lookups.
 import geojson
 from shapely.geometry import Point
 from typing import List, Tuple, Dict, Set
-from building_loader import buildings_gdf
+from uw_coursemap.building_loader import buildings_gdf
 
 
 class SpatialQueryEngine:

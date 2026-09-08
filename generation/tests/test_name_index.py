@@ -1,6 +1,6 @@
 import unittest
 
-from name_matcher import NameIndex, find_best_name_match, iter_name_matches
+from uw_coursemap.name_matcher import NameIndex, find_best_name_match, iter_name_matches
 
 
 class NameIndexTests(unittest.TestCase):
@@ -45,7 +45,7 @@ class NameIndexTests(unittest.TestCase):
 
     def test_malformed_historical_name_has_stable_safe_identifier(self):
         from pathvalidate import validate_filename
-        from sanitization import sanitize_instructor_id
+        from uw_coursemap.sanitization import sanitize_instructor_id
 
         first = sanitize_instructor_id("ADELA OLIVA CH?VEZ")
         validate_filename(first)

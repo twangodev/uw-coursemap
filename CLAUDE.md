@@ -43,14 +43,14 @@ npm run docs:dev
 cd search && docker-compose up
 
 # Setup Python environment (first time)
-cd generation && uv sync
-cd search && uv sync
+uv sync --locked
+uv sync --project search
 
 # Generate course data (Python with uv)
-cd generation && uv run python main.py
+uv run coursemap scrape --semester 1272
 
-# Test individual generation steps
-cd generation && uv run python main.py --step course_collection --no_build
+# Inspect a source snapshot
+uv run coursemap status RUN_ID
 
 # Run search service locally
 cd search && uv run python app.py
@@ -60,7 +60,7 @@ cd search && uv run python app.py
 - Version generation runs automatically before dev/build via `npm run generate`
 - **Python services use uv** for dependency management (not pip, pipenv, or conda)
 - Search service requires Elasticsearch via Docker Compose
-- Data generation can take 2-6 hours on fresh runs, ~3 minutes with caching
+- Scraping, inference, and publication have independent resumable checkpoints
 - Tests use Vitest framework with coverage reporting
 
 ## Application Architecture
@@ -82,13 +82,16 @@ The application helps University of Wisconsin-Madison students explore 10,000+ c
 - **Environment Variables**: Multi-service configuration (`PUBLIC_API_URL`, `PUBLIC_SEARCH_API_URL`)
 
 #### 2. **Data Generation Pipeline**
-Six-step process executed sequentially:
-1. **Course Collection**: UW Guide sitemap scraping + prerequisite AST building
-2. **Madgrades Integration**: Historical grade data integration
-3. **Instructor Collection**: Faculty data + Rate My Professors integration
-4. **Aggregation**: Statistics generation + embedding analysis
-5. **Optimization**: Prerequisite AST pruning using semantic similarity
-6. **Graph**: Cytoscape-compatible graph generation
+Run manually from the project root with `uv run coursemap`:
+
+1. Scrapy collects and freezes a source snapshot.
+2. `enrich` adds structured metadata through a separately managed inference server.
+3. `derive` optionally builds the website graphs and serving exports.
+4. `release` assembles immutable history and relational Parquet tables.
+5. `publish --parquet-only` uploads the dataset to Hugging Face.
+
+Active Python code lives in `generation/uw_coursemap`. Historical snapshot readers
+remain necessary for full-history exports. See `generation/README.md` for commands.
 
 #### 3. **Routing & Pages**
 - **File-based routing**: SvelteKit conventions with `+page.svelte` files
