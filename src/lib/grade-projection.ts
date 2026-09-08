@@ -47,6 +47,20 @@ function estimate(history: Observation[], target: string) {
   };
 }
 
+// Finite-sample rank of absolute walk-forward errors; this is an empirical
+// interval, not a guarantee under changing instructors or grading policies.
+export function predictionInterval(gpa: number, errors: number[]) {
+  if (errors.length < 4) return null;
+  const sorted = [...errors].sort((a, b) => a - b);
+  const radius = sorted[Math.ceil((sorted.length + 1) * 0.8) - 1];
+  return {
+    lower: Math.max(0, Math.floor((gpa - radius) * 100) / 100),
+    upper: Math.min(4, Math.ceil((gpa + radius) * 100) / 100),
+    coverage: 80,
+    terms: errors.length,
+  };
+}
+
 /** Walk-forward validation uses only observations preceding each held-out term. */
 export function projectGrades(records: GradeTerm[], target: string) {
   const history = observations(records).filter((row) => row.term < target);
@@ -79,6 +93,7 @@ export function projectGrades(records: GradeTerm[], target: string) {
   );
   return {
     target,
+    interval: predictionInterval(prediction.gpa, backtests.map((row) => row.error)),
     gpa: prediction.gpa,
     grades: gradeKeys.map((grade, i) => ({
       grade: grade.toUpperCase(),

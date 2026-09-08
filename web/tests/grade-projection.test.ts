@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { projectGrades } from "../../src/lib/grade-projection";
+import { projectGrades, predictionInterval } from "../../src/lib/grade-projection";
 const records = Array.from({ length: 12 }, (_, i) => ({
   term_id: String(1212 + Math.floor(i / 2) * 10 + (i % 2) * 2),
   a: 60,
@@ -36,4 +36,10 @@ describe("grade projections", () => {
     expect(projectGrades(records.slice(0, 2), "1224")).toBeNull();
     expect(projectGrades(records, "1404")).toBeNull();
   });
+});
+
+it("calibrates an outward-rounded bounded interval and rejects insufficient errors", () => {
+  expect(predictionInterval(3.5, [0.1, 0.2, 0.3])).toBeNull();
+  expect(predictionInterval(3.5, [0.1, 0.2, 0.3, 0.6])).toEqual({ lower: 2.9, upper: 4, coverage: 80, terms: 4 });
+  expect(predictionInterval(0.1, [0.1, 0.2, 0.3, 0.6])?.lower).toBe(0);
 });

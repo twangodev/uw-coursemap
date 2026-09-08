@@ -155,7 +155,7 @@ test("course context, projection and captured instructor ratings remain distinct
   await expect(page.locator(".course-context")).toContainText("Spring 2026");
   await expect(page.locator(".course-context")).toContainText("478");
   await expect(page.locator(".projection")).toContainText("Fall 2026");
-  await expect(page.locator(".projection")).toContainText("GPA average error");
+  await expect(page.locator(".projection")).toContainText("prediction interval");
   const hobbes = page
     .locator("#professors article")
     .filter({ hasText: "Hobbes Legault" });
