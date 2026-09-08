@@ -12,16 +12,22 @@
   import Panel from "$lib/components/Panel.svelte";
   import Claims from "$lib/components/Claims.svelte";
   import Evidence from "$lib/components/Evidence.svelte";
+  import GradeSnapshot from "$lib/components/GradeSnapshot.svelte";
   import Grades from "$lib/components/Grades.svelte";
   import RequirementText from "$lib/components/RequirementText.svelte";
   import CourseCalendar from "$lib/components/CourseCalendar.svelte";
-  import { credits, instructorUrl, termName } from "$lib/format";
+  import { credits, instructorUrl, termName, courseTitle } from "$lib/format";
   let { data } = $props();
   let c = $derived(data.course);
   let summary = $derived(c.student_summary);
   let Graph = $state<any>(null);
   let graphError = $state("");
-  let active = $state("grades");
+  let active = $state("overview");
+  let introduction = $derived(
+    (c.llm_summary || c.description || "")
+      .replace(`${c.course_id} ${c.title} `, "")
+      .replace(/^./, (letter: string) => letter.toUpperCase()),
+  );
   onMount(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -45,6 +51,7 @@
       );
   });
   const links = [
+    { id: "overview", label: "overview", icon: BookOpen },
     { id: "grades", label: "grades", icon: ChartColumn },
     { id: "experience", label: "student experience", icon: BookOpen },
     { id: "professors", label: "professors", icon: Users },
@@ -67,14 +74,30 @@
     </div>
     <span class="mono muted">{termName(c.semester)}</span>
   </div>
-  <h1>{c.title}</h1>
+  <div class="course-identity">
+    <div>
+      <h1 title={c.title}>{courseTitle(c.title)}</h1>
+      <p class="course-description">{introduction}</p>
+    </div>
+    <div class="current-teachers">
+      <span class="teacher-label">Teaching this term</span>
+      {#each c.instructors as instructor}<a
+          href={instructorUrl(instructor.instructor_uid)}
+          >{instructor.name}<ArrowUpRight size={15} /></a
+        >{:else}<span class="muted">No instructors listed</span>{/each}
+    </div>
+  </div>
   <div class="row course-meta">
+    {#if c.statistics?.gpa != null}<a href="#grades" class="course-gpa"
+        >{c.statistics.gpa.toFixed(2)} <span>average GPA</span></a
+      >{/if}
     <span class:available={c.offerings.length}
       ><i></i>{c.offerings.length
         ? "offered this term"
         : "not currently offered"}</span
     ><span>{credits(c.credits_min, c.credits_max)}</span><span
-      >{c.instructors.length} instructors</span
+      >{c.instructors.length}
+      {c.instructors.length === 1 ? "instructor" : "instructors"}</span
     >
   </div>
 </div>
@@ -85,10 +108,37 @@
       ><link.icon size={14} strokeWidth={1.5} />{link.label}</a
     >{/each}
 </nav>
+<section class="course-overview" id="overview" aria-label="Course overview">
+  <div class="overview-take">
+    <div class="overview-heading">
+      <h2>What to expect</h2>
+      <span class="mono muted">AI summary · sources below</span>
+    </div>
+    <Claims
+      claims={(summary.quick_take || [])
+        .filter(
+          (claim: any) =>
+            !claim.citations?.length ||
+            claim.citations.some((citation: any) => citation.type === "review"),
+        )
+        .slice(0, 1)}
+      reviewFiles={c.evidence.reviews}
+    />
+    {#if summary.difficulty_workload?.length}<div class="overview-workload">
+        <span class="teacher-label">Workload</span><Claims
+          claims={summary.difficulty_workload.slice(0, 1)}
+          reviewFiles={c.evidence.reviews}
+        />
+      </div>{:else}<p class="muted">No workload feedback recorded.</p>{/if}
+    <a class="overview-link" href="#experience"
+      >All student feedback <ArrowUpRight size={14} /></a
+    >
+  </div>
+  <GradeSnapshot grades={c.grades} />
+</section>
 <div class="course-workspace">
   <aside class="course-facts" aria-label="Course details">
     <Panel title="Course details">
-      <p class="course-intro">{c.llm_summary || c.description}</p>
       <div class="fact-pair">
         <span>[credits]</span><strong
           >{credits(c.credits_min, c.credits_max)}</strong
@@ -142,7 +192,7 @@
     </Panel>
   </aside>
   <div class="course-content">
-    <Panel title="Grades" id="grades" label="recorded outcomes">
+    <Panel title="Grades" id="grades">
       <Grades
         grades={c.grades}
         uid={c.course_uid}
@@ -233,11 +283,7 @@
         </div>
       </details>
     </Panel>
-    <Panel
-      title="Prerequisites"
-      id="requirements"
-      label="explore the connections"
-    >
+    <Panel title="Prerequisites" id="requirements">
       <p class="requirements-source">
         {c.requirements_text || "No prerequisites listed."}
       </p>
@@ -290,7 +336,7 @@
         files={c.evidence.meetings || []}
       />
     </Panel>
-    <Panel title="Sources & history" id="evidence" label="dataset & provenance">
+    <Panel title="Sources & history" id="evidence">
       <details>
         <summary>Current offering source records</summary>
         <pre>{JSON.stringify(c.offerings, null, 2)}</pre>

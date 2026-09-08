@@ -7,15 +7,7 @@
   let { ast }: { ast: Requirements } = $props();
   let expanded = $state(new Set<string>());
   $effect(() => {
-    expanded = new Set(
-      ast.nodes
-        .filter(
-          (n) =>
-            n.id === ast.root ||
-            ast.nodes.find((r) => r.id === ast.root)?.children?.includes(n.id),
-        )
-        .map((n) => n.id),
-    );
+    expanded = new Set(ast.nodes.map((n) => n.id));
   });
   let graph = $derived(visibleTree(ast, expanded));
   const nodeTypes = { requirement: RequirementNode };
@@ -27,12 +19,16 @@
   }
 </script>
 
-<div class="graph">
+<div
+  class="graph"
+  style:height={`${Math.max(480, Math.min(1100, ast.nodes.filter((node) => !node.children?.length).length * 85 + 100))}px`}
+>
   <SvelteFlow
     nodes={graph.nodes}
     edges={graph.edges}
     {nodeTypes}
     fitView
+    fitViewOptions={{ minZoom: 0.65, maxZoom: 1, padding: 0.12 }}
     zoomOnScroll={false}
     preventScrolling={false}
     minZoom={0.15}
@@ -43,8 +39,8 @@
   >
 </div>
 <p class="muted mono">
-  Select a group to expand or collapse. Course links are available in the text
-  tree.
+  Drag to explore. Select a group to expand or collapse. Course links are also
+  available in the text tree.
 </p>
 
 <style>
@@ -57,7 +53,6 @@
     --xy-edge-stroke: var(--muted);
   }
   .graph {
-    height: 420px;
     border: 1px solid var(--border);
     border-radius: 5px;
     background: var(--surface);

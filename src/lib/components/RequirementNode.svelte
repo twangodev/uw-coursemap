@@ -4,7 +4,7 @@
 </script>
 
 <Handle type="target" position={Position.Left} />
-<div class="node">
+<div class="node" class:group={data.expandable}>
   {#if data.course}<a
       class="nodrag"
       href={"/search?q=" +
@@ -20,9 +20,9 @@
 
 <style>
   .node {
-    width: 245px;
-    min-height: 65px;
-    padding: 0.7rem 1rem;
+    width: 190px;
+    min-height: 54px;
+    padding: 10px 12px;
     border: 1px solid var(--border);
     border-radius: 5px;
     background: var(--bg);
@@ -30,5 +30,12 @@
     display: grid;
     gap: 0.4rem;
     font-size: 14px;
+  }
+  .node.group {
+    width: 112px;
+    font-size: 13px;
+  }
+  .node.group .mono {
+    font-size: 10px;
   }
 </style>

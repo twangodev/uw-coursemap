@@ -7,7 +7,7 @@ test("course reading, citations, graph and theme", async ({ page }) => {
   await page.goto(`/courses/${uid}`);
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   await expect(
-    page.getByRole("heading", { name: "PROGRAMMING II", exact: true }),
+    page.getByRole("heading", { name: "Programming II", exact: true }),
   ).toBeVisible();
   await expect(page.getByText("Java", { exact: false }).first()).toBeVisible();
   await page.locator("#requirements").scrollIntoViewIfNeeded();
@@ -48,7 +48,7 @@ test("course content is available without JavaScript", async ({ browser }) => {
   const page = await context.newPage();
   await page.goto(`http://127.0.0.1:4173/courses/${uid}`);
   await expect(
-    page.getByRole("heading", { name: "PROGRAMMING II", exact: true }),
+    page.getByRole("heading", { name: "Programming II", exact: true }),
   ).toBeVisible();
   await expect(
     page.getByText("Prerequisite text tree", { exact: true }),
@@ -62,7 +62,7 @@ test("grade filters reset and instructor links retain course context", async ({
   await page.goto(`/courses/${uid}`);
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   const grades = page.locator("#grades");
-  const count = grades.locator("p").filter({ hasText: "letter grades" });
+  const count = grades.locator(".metric-strip");
   const overall = await count.textContent();
   const instructors = grades.getByRole("combobox", {
     name: "Instructor",
@@ -99,12 +99,12 @@ test("home and cross-listed course render on desktop", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto("/");
   await expect(
-    page.getByRole("heading", { name: "Find your next class." }),
+    page.getByRole("heading", { name: /on the Hill/ }),
   ).toBeVisible();
   await page.screenshot({ path: "test-results/home.png", fullPage: true });
   await page.goto("/courses/course_63e805b33518ff3fd8dc0a39");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
-  await expect(page.locator("h1")).toContainText("HIGH PERFORMANCE COMPUTING");
+  await expect(page.locator("h1")).toContainText("High Performance Computing");
   await page.locator("#grades").scrollIntoViewIfNeeded();
   await page.screenshot({ path: "test-results/cs759.png", fullPage: true });
 });

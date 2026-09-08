@@ -1,7 +1,7 @@
 <script lang="ts">
   import TeachingTimeline from "$lib/components/TeachingTimeline.svelte";
   import CourseList from "$lib/components/CourseList.svelte";
-  import { courseUrl, termName } from "$lib/format";
+  import { courseUrl, termName, courseTitle } from "$lib/format";
   let { data } = $props();
   let history = $state<any[]>([]);
   let page = $state(1);
@@ -34,11 +34,10 @@
 
 <svelte:head><title>{data.instructor.name} · UW Courses</title></svelte:head>
 <div class="hero">
-  <p class="eyebrow">
+  <p class="mono muted">
     {data.instructor.current ? "Current instructor" : "Historical instructor"}
   </p>
   <h1>{data.instructor.name || "Name unavailable"}</h1>
-  <p class="muted">Explore their courses and recorded teaching history.</p>
 </div>
 <section class="section">
   <h2>Teaching in {termName(data.status.term)}</h2>
@@ -56,7 +55,7 @@
         >{#each [...data.history, ...history] as r}<tr
             ><td>{termName(r.term)}</td><td
               ><a href={courseUrl(r.course_uid)}>{r.course_id}</a></td
-            ><td>{r.title}</td></tr
+            ><td>{courseTitle(r.title)}</td></tr
           >{/each}</tbody
       >
     </table>

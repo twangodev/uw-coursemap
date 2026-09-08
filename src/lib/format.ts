@@ -33,3 +33,36 @@ export function safeUrl(value: unknown): string | undefined {
     if (u.protocol === "https:" || u.protocol === "http:") return u.href;
   } catch {}
 }
+
+/** Present all-caps catalog headings without changing the source record. */
+export function courseTitle(value: string) {
+  if (value !== value.toUpperCase()) return value;
+  const keep =
+    /^(?:[IVX]+|AI|DNA|RNA|GIS|GPS|SQL|HTML|CSS|CAD|CAM|MRI|NMR|ESL|STEM|R|C|C\+\+|UW|US|USA|LGBTQ\+?|HIV|AIDS)$/;
+  const small = new Set([
+    "a",
+    "an",
+    "and",
+    "as",
+    "at",
+    "by",
+    "for",
+    "in",
+    "of",
+    "on",
+    "or",
+    "the",
+    "to",
+    "with",
+  ]);
+  return value
+    .split(/(\s+)/)
+    .map((word, index) => {
+      if (keep.test(word) || !word.trim()) return word;
+      const lower = word.toLowerCase();
+      return index && small.has(lower)
+        ? lower
+        : lower.replace(/^\w/, (letter) => letter.toUpperCase());
+    })
+    .join("");
+}

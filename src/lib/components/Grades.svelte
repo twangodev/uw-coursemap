@@ -138,10 +138,7 @@
 {#if failure}<p role="alert">{failure}</p>{/if}{#if loading}<p class="muted">
     Loading grades…
   </p>{/if}
-{#if selected.length}<p class="mono muted">
-    {bars.reduce((s, b) => s + b.count, 0).toLocaleString()} letter grades · other
-    outcomes excluded from GPA
-  </p>
+{#if selected.length}
   <div class="charts">
     <div>
       <h3>Grade distribution</h3>
@@ -151,7 +148,8 @@
           x="grade"
           y="count"
           series={[{ key: "count", label: "Students", color: "var(--accent)" }]}
-          height={250}
+          height={220}
+          props={{ bars: { strokeWidth: 0, radius: 2 } }}
         />
       </div>
     </div>
@@ -166,7 +164,7 @@
             xScale={scalePoint()}
             props={{ xAxis: { tickOcclusion: true, tickSpacing: 90 } }}
             yDomain={[0, 4]}
-            height={250}
+            height={220}
           />
         </div>
       </div>{/if}
@@ -206,12 +204,20 @@
     margin: 1.5rem 0;
   }
   h3 {
-    font: 11px var(--font-mono);
+    font: 13px var(--font-sans);
     color: var(--muted);
     margin-bottom: 10px;
   }
   .chart {
-    height: 260px;
+    height: 230px;
     color: var(--text);
+  }
+  .chart :global(text) {
+    font-size: 12px;
+    fill: var(--muted);
+    stroke: none;
+  }
+  .chart :global(.lc-bar) {
+    stroke: none;
   }
 </style>

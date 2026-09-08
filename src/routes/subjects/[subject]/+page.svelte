@@ -5,8 +5,8 @@
 
 <svelte:head><title>{data.subject} · UW Courses</title></svelte:head>
 <div class="hero">
-  <a class="eyebrow" href="/subjects">← Departments</a>
+  <a class="mono muted" href="/subjects">← Departments</a>
   <h1>{data.subject}</h1>
-  <p class="muted">{data.courses.length} courses to explore.</p>
+  <p class="muted">{data.courses.length} courses</p>
 </div>
 <CourseList courses={data.courses} />
