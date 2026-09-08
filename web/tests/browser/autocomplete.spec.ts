@@ -32,7 +32,7 @@ test("course autocomplete supports keyboard selection and dismissal", async ({
       .first(),
   ).toHaveAttribute("aria-selected", "true");
   await input.press("Enter");
-  await expect(page).toHaveURL(/\/courses\/cs-400$/);
+  await expect(page).toHaveURL(/\/courses\/COMPSCI_400$/);
 });
 
 test("finder suggestions retain filters and work on mobile", async ({
@@ -71,7 +71,7 @@ test("finder suggestions retain filters and work on mobile", async ({
     .first()
     .getByRole("button")
     .click();
-  await expect(page).toHaveURL(/\/courses\/cs-300$/);
+  await expect(page).toHaveURL(/\/courses\/COMPSCI_300$/);
 });
 
 test("autocomplete ignores stale responses and preserves regular search on errors", async ({
@@ -134,7 +134,7 @@ test("autocomplete includes instructors with distinct icons and opens their prof
   await expect(teacher).toContainText("Instructor");
   await expect(teacher.locator(".suggestion-icon svg")).toBeVisible();
   await teacher.getByRole("button").click();
-  await expect(page).toHaveURL(/\/instructors\//);
+  await expect(page).toHaveURL(/\/instructors\/HOBBES_LEGAULT$/);
   await expect(
     page.getByRole("heading", { name: "Hobbes Legault", exact: true }),
   ).toBeVisible();

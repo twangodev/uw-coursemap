@@ -23,7 +23,7 @@
   <a
     class="muted"
     href={data.results.filters.subject
-      ? `/subjects/${encodeURIComponent(data.results.filters.subject)}`
+      ? `/explorer/${encodeURIComponent(data.results.filters.subject)}`
       : "/search"}>← {data.results.filters.subject ? departmentLabel(data.results.filters.subject) : "Explore courses"}</a
   >
   <h1>{collection.title}{data.subject ? ` in ${departmentName(data.subject)}` : ""}</h1>
@@ -43,7 +43,7 @@
   status={data.status}
   subject={data.subject || ""}
   path={data.subject
-    ? `/subjects/${encodeURIComponent(data.subject)}/${data.collection}`
+    ? `/explorer/${encodeURIComponent(data.subject)}/${data.collection}`
     : `/courses/${data.collection}`}
   ranked
 />

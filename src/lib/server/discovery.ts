@@ -1,3 +1,4 @@
+import { withInstructorUrls } from "./instructor-urls";
 import { instructorRatingPrior } from "./instructor-ratings";
 import { bayesianRating } from "$lib/instructor-ratings";
 import { query } from "./data";
@@ -43,7 +44,7 @@ export async function coursePreviews(
     ),
   ]);
   const prior = teachers.length ? await instructorRatingPrior(platform) : null;
-  const rankedTeachers = teachers.map(row => ({ ...row, quality: bayesianRating(row.quality, row.quality_count ?? 0, prior) })).sort((a, b) => (b.quality ?? -1) - (a.quality ?? -1) || (a.name || "").localeCompare(b.name || ""));
+  const rankedTeachers = (await withInstructorUrls(teachers, platform)).map(row => ({ ...row, quality: bayesianRating(row.quality, row.quality_count ?? 0, prior) })).sort((a, b) => (b.quality ?? -1) - (a.quality ?? -1) || (a.name || "").localeCompare(b.name || ""));
   const payloads = new Map(
     courses.map((row) => [row.uid, JSON.parse(row.payload)]),
   );

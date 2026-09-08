@@ -4,15 +4,11 @@ import { redirect, type Handle } from "@sveltejs/kit";
 /** Preserve useful bookmarks from the previous frontend. */
 export const handle: Handle = async ({ event, resolve }) => {
   const path = event.url.pathname;
-  if (path === "/explorer" || path === "/explorer/all")
-    redirect(308, "/search");
-  if (path.startsWith("/explorer/"))
-    redirect(308, "/subjects/" + path.slice("/explorer/".length));
-  if (path === "/instructors/by-rating-count")
-    redirect(308, "/search?kind=instructor");
-  if (path === "/stats") redirect(308, "/subjects");
-  if (path.startsWith("/stats/"))
-    redirect(308, "/subjects/" + path.slice("/stats/".length));
+  if (path.startsWith("/subjects/"))
+    redirect(308, "/explorer/" + path.slice("/subjects/".length) + event.url.search);
+  // These retired tools now lead to the course browser.
+  if (path === "/live" || path === "/upload")
+    redirect(308, "/explorer/all" + event.url.search);
   if (
     !building &&
     !dev &&

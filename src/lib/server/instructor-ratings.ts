@@ -1,3 +1,4 @@
+import { instructorUrls } from "./instructor-urls";
 import { query } from "./data";
 import { adjustInstructorRating } from "$lib/instructor-ratings";
 let cached: { revision: string; mean: Promise<number | null> } | undefined;
@@ -24,9 +25,13 @@ export async function withInstructorRatings(
   kind: string,
   platform?: App.Platform,
 ) {
-  const prior = await instructorRatingPrior(platform);
+  const [prior, urls] = await Promise.all([
+    instructorRatingPrior(platform),
+    instructorUrls(platform),
+  ]);
   const adjust = (instructor: any) => ({
     ...instructor,
+    instructor_url: urls.get(instructor.instructor_uid),
     ratings: adjustInstructorRating(instructor.ratings, prior),
   });
   return kind === "instructors"

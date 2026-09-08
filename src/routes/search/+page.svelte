@@ -1,12 +1,13 @@
 <script lang="ts">
+  import { page } from "$app/state";
   import { Search } from "@lucide/svelte";
   import CourseCollections from "$lib/components/CourseCollections.svelte";
   import CourseFinder from "$lib/components/CourseFinder.svelte";
-  import { instructorUrl, termName } from "$lib/format";
+  import {  termName } from "$lib/format";
   let { data } = $props();
   function pageLink(n: number) {
     const q = new URLSearchParams({ ...data.results.filters, page: String(n) });
-    return `/search?${q}`;
+    return `${page.url.pathname}?${q}`;
   }
 </script>
 
@@ -23,12 +24,12 @@
 </div>
 {#if data.results.kind === "course"}
   <CourseCollections />
-  <CourseFinder results={data.results} status={data.status} />
+  <CourseFinder path={page.url.pathname} results={data.results} status={data.status} />
   <p class="switch">
-    <a href="/search?kind=instructor">Looking for a professor? →</a>
+    <a href="/instructors/by-rating-count">Looking for a professor? →</a>
   </p>
 {:else}
-  <form action="/search" class="instructor-search">
+  <form action={page.url.pathname} class="instructor-search">
     <input type="hidden" name="kind" value="instructor" /><input
       name="q"
       aria-label="Search instructors"
@@ -39,7 +40,7 @@
   <p class="muted">{data.results.total} instructors</p>
   {#each data.results.items as i}<a
       class="course-row"
-      href={instructorUrl(i.instructor_uid)}
+      href={i.instructor_url}
       ><span>{i.name || "Name unavailable"}</span><span class="muted"
         >{#if i.bayesian_quality != null}{i.bayesian_quality.toFixed(1)}/5 adjusted · {/if}{i.current
           ? `Teaching in ${termName(data.status.term)}`

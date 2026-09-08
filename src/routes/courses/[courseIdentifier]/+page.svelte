@@ -24,7 +24,7 @@
   import Grades from "$lib/components/Grades.svelte";
   import RequirementText from "$lib/components/RequirementText.svelte";
   import CourseCalendar from "$lib/components/CourseCalendar.svelte";
-  import { credits, instructorUrl, termName, courseTitle, courseUrl } from "$lib/format";
+  import { credits,  termName, courseTitle, courseUrl } from "$lib/format";
   let { data } = $props();
   let c = $derived(data.course);
   let comparisonScope = $state("school");
@@ -127,7 +127,7 @@
     <div class="current-teachers">
       <span class="teacher-label">{selectedGradeTerm ? `Recorded instructors · ${termLabel}` : `Teaching · ${termName(c.semester)}`}</span>
       {#each headerProfessors.slice(0, 3) as instructor}<a
-          href={instructorUrl(instructor.instructor_uid)}
+          href={instructor.instructor_url}
           ><span>{instructor.name}</span
           >{#if instructor.ratings?.bayesian_quality != null}<span
               class="teacher-rating"
@@ -199,7 +199,7 @@
         <span>Subjects</span>
         <div class="row">
           {#each c.subjects as subject}<a
-              href={"/subjects/" + encodeURIComponent(subject)}>{subject}</a
+              href={"/explorer/" + encodeURIComponent(subject)}>{subject}</a
             >{/each}
         </div>
       </div>
@@ -303,7 +303,7 @@
                   .join("")}</span
               >
               <h3>
-                <a href={instructorUrl(i.instructor_uid)}
+                <a href={i.instructor_url}
                   >{i.name}<ArrowUpRight size={13} /></a
                 >
               </h3>

@@ -1,4 +1,5 @@
-import { error } from "@sveltejs/kit";
+import { building } from "$app/environment";
+import { error, redirect } from "@sveltejs/kit";
 import { query, search } from "$lib/server/data";
 import { departmentStats } from "$lib/server/departments";
 import entriesData from "../../../../.site/entries.json";
@@ -6,7 +7,14 @@ export const prerender = "auto";
 export function entries() {
   return entriesData.subjects.map((subject) => ({ subject }));
 }
-export async function load({ params, platform }) {
+export async function load({ params, platform, url }) {
+  if (params.subject !== params.subject.toUpperCase())
+    redirect(
+      308,
+      url.pathname.slice(0, url.pathname.lastIndexOf("/") + 1) +
+        encodeURIComponent(params.subject.toUpperCase()) +
+        (building ? "" : url.search),
+    );
   if (
     !(
       await query(

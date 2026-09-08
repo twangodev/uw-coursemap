@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { page } from "$app/state";
   import { departmentName, departmentLabel } from "$lib/departments";
   import CourseCollections from "$lib/components/CourseCollections.svelte";
   import Select from "$lib/components/Select.svelte";
@@ -12,7 +13,7 @@
   let description = $derived(`Explore ${name} courses at UW–Madison. Compare historical grades, instructors and student reviews, and find the easiest and hardest courses in ${name}.`);
 </script>
 
-<svelte:head><title>{title}</title><meta name="description" content={description} /><meta property="og:title" content={title} /><meta property="og:description" content={description} /></svelte:head>
+<svelte:head><link rel="canonical" href={`/explorer/${encodeURIComponent(data.subject)}`} /><title>{title}</title><meta name="description" content={description} /><meta property="og:title" content={title} /><meta property="og:description" content={description} /></svelte:head>
 <div class="hero">
   <a class="muted" href="/subjects">← Departments</a>
   <p class="mono department-code">{data.subject}</p>
@@ -44,7 +45,7 @@
     results={data.results}
     status={data.status}
     subject={data.subject}
-    path={`/subjects/${encodeURIComponent(data.subject)}`}
+    path={page.url.pathname}
   />
 </div>
 

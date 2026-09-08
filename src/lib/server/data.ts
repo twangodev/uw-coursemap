@@ -1,3 +1,4 @@
+import { withInstructorUrls } from "./instructor-urls";
 import { instructorRatingPrior, withInstructorRatings } from "./instructor-ratings";
 import { ratingPriorWeight } from "$lib/instructor-ratings";
 import { isCourseCollection } from "$lib/course-collections";
@@ -184,7 +185,7 @@ export async function search(url: URL, platform?: App.Platform) {
   );
   return {
     items:
-      kind === "course" ? await coursePreviews(items, term, platform) : items,
+      kind === "course" ? await coursePreviews(items, term, platform) : await withInstructorUrls(items, platform),
     total: count.total,
     page,
     kind,

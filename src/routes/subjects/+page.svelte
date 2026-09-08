@@ -23,7 +23,7 @@
 </div>
 <CourseCollections />
 <div class="department-grid">
-  {#each departments as d}<a href={"/subjects/" + encodeURIComponent(d.subject)}
+  {#each departments as d}<a href={"/explorer/" + encodeURIComponent(d.subject)}
       ><span class="department-name">{departmentName(d.subject)}<small class="mono muted">{d.subject}</small></span><span class="mono muted">{d.count} courses</span
       ></a
     >{:else}<p class="muted">No matching departments.</p>{/each}

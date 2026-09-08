@@ -73,6 +73,7 @@
                 course_id?: string;
                 title?: string;
                 instructor_uid?: string;
+                instructor_url?: string;
                 name?: string;
                 current?: boolean;
                 bayesian_quality?: number | null;
@@ -96,7 +97,7 @@
                     kind: "instructor",
                     heading: courseTitle(row.name || "Unknown instructor"),
                     detail: `Instructor · ${row.bayesian_quality != null ? `${row.bayesian_quality.toFixed(1)}/5 adjusted · ` : ""}${row.current ? "current teaching recorded" : "historical teaching recorded"}`,
-                    href: `/instructors/${row.instructor_uid}`,
+                    href: row.instructor_url!,
                   },
                 ];
               return [];

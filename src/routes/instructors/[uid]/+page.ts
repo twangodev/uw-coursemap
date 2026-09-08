@@ -1,6 +1,6 @@
 import { building } from "$app/environment";
 import { error } from "@sveltejs/kit";
-export async function load({ data, url, fetch, parent, params }) {
+export async function load({ data, url, fetch, parent }) {
   if (building || !url.searchParams.has("term")) return data;
   const { status } = await parent();
   const query = new URLSearchParams({
@@ -8,7 +8,7 @@ export async function load({ data, url, fetch, parent, params }) {
     revision: status.revision,
   });
   const response = await fetch(
-    `/api/instructors/${params.uid}/courses?${query}`,
+    `/api/instructors/${data.instructor.instructor_uid}/courses?${query}`,
   );
   if (!response.ok)
     error(

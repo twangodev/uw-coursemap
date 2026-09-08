@@ -25,7 +25,7 @@ export async function load({ params, platform, url }) {
   );
   // A current canonical code wins over a reused historical alias.
   const currentMatches = matches.filter(
-    (course) => courseSlug(course.code) === uid.toLowerCase(),
+    (course) => courseSlug(course.code).toLowerCase() === uid.toLowerCase(),
   );
   if (currentMatches.length === 1) uid = currentMatches[0].uid;
   else if (matches.length === 1) uid = matches[0].uid;

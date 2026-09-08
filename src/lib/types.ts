@@ -11,7 +11,7 @@ export interface CourseCard {
     term: string;
     offered: boolean;
     history: ReturnType<typeof import("./discovery").gradeSummary>;
-    instructors: { uid: string; name: string | null; quality: number | null }[];
+    instructors: { instructor_url?: string; uid: string; name: string | null; quality: number | null }[];
     claim: Claim | null;
     reviewFiles: string[];
     instructorHistory?: ReturnType<

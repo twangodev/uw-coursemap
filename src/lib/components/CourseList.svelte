@@ -3,7 +3,6 @@
     courseUrl,
     credits,
     courseTitle,
-    instructorUrl,
     termName,
   } from "$lib/format";
   import type { CourseCard } from "$lib/types";
@@ -54,7 +53,7 @@
           </p>{/if}
         <div class="card-bottom">
           <div class="teachers">
-            {#each d.instructors.slice(0, 2) as i}<a href={instructorUrl(i.uid)}
+            {#each d.instructors.slice(0, 2) as i}<a href={i.instructor_url}
                 >{courseTitle(i.name || "Unknown instructor")}</a
               >{/each}{#if d.instructors.length > 2}<span class="muted"
                 >+{d.instructors.length - 2} more</span

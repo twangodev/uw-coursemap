@@ -1,3 +1,4 @@
+import anyAscii from "any-ascii";
 export function normalize(value: string) {
   return value
     .toUpperCase()
@@ -20,17 +21,25 @@ export function credits(min: number | null, max: number | null) {
     ? "Credits unavailable"
     : `${min}${max != null && max !== min ? "–" + max : ""} credits`;
 }
+// Match the original site's sorted subject codes and underscore-separated number.
 export function courseSlug(code: string) {
   const split = code.lastIndexOf(" ");
-  const subject = code.slice(0, split).split("/")[0].toLowerCase();
-  const department = subject === "compsci" ? "cs" : subject;
-  return `${department.replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}-${code.slice(split + 1)}`;
+  const subjects = code.slice(0, split).split("/").sort().join("_");
+  return `${subjects}_${code.slice(split + 1)}`.replaceAll(" ", "_");
 }
 export function courseUrl(code: string) {
   return "/courses/" + encodeURIComponent(courseSlug(code));
 }
-export function instructorUrl(uid: string) {
-  return "/instructors/" + encodeURIComponent(uid);
+// Keep the original site's name-based public identifiers.
+export function instructorSlug(name: string) {
+  return anyAscii(name)
+    .replaceAll(" ", "_")
+    .replaceAll("/", "_")
+    .replaceAll("'", "")
+    .replaceAll(".", "")
+    .toUpperCase()
+    .replace(/_+/g, "_")
+    .replace(/^_|_$/g, "");
 }
 export function safeUrl(value: unknown): string | undefined {
   if (typeof value !== "string") return;
