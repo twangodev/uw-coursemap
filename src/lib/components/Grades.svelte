@@ -225,7 +225,10 @@
       {/if}
     </div>
     {#if trends.length > 1}<div>
-        <h3>Grades over time{display.term ? ` · through ${termName(display.term)}` : ""}</h3>
+        <div class="trend-heading">
+          <h3>Grades over time</h3>
+          {#if display.term}<p>Through {termName(display.term)}</p>{/if}
+        </div>
         <div class="chart">
           <LineChart
             data={trendRows}
@@ -309,10 +312,15 @@
     margin: 36px 0;
   }
   h3 {
-    font: 18px var(--font-sans);
-    color: var(--muted);
-    margin-bottom: 24px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text);
+    margin: 0 0 24px;
   }
+  .trend-heading { display: grid; gap: 6px; margin-bottom: 20px; }
+  .trend-heading h3 { margin: 0; }
+  .trend-heading p { margin: 0; font-size: 12px; color: var(--muted); }
   .chart {
     height: 270px;
     color: var(--text);
