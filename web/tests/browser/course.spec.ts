@@ -308,7 +308,7 @@ test("term selection updates context, roster, history and snapshot availability"
   await expect(page.locator("#schedule")).toContainText("No calendar captured for Spring 2026");
   await expect(page.locator("#schedule tbody tr")).toHaveCount(0);
   await expect(page.locator("#grades .grade-estimate")).toHaveCount(0);
-  await expect(page.locator("#grades")).toContainText("through Spring 2026");
+  await expect(page.locator("#grades .trend-heading p")).toHaveText("Through Spring 2026");
   await page.getByRole("button", { name: "Comparison group", exact: true }).click();
   await page.getByRole("option", { name: "Department · COMPSCI", exact: true }).click();
   await page.locator("#professors .teaching-grades").first().getByRole("button").focus();
