@@ -292,12 +292,18 @@ def generate_student(profile, task, payload, generate=None):
             and previous_failure
             and previous_failure.get("error", "").startswith("UnexpectedModelBehavior:")
         )
+        output_limit = 8192 if thinking else 4096
+        if (
+            thinking
+            and prior
+            and previous_failure
+            and "Model token limit" in previous_failure.get("error", "")
+        ):
+            output_limit = 16384
         local_profile = {
             **profile,
             "thinking": thinking,
-            "max_output_tokens": min(
-                profile["max_output_tokens"], 8192 if thinking else 4096
-            ),
+            "max_output_tokens": min(profile["max_output_tokens"], output_limit),
         }
         inference = {
             "thinking": thinking,
