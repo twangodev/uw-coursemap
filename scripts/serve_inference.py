@@ -1,66 +1,30 @@
 """Launch an isolated vLLM server from a locked model profile."""
 
 import argparse
-import json
 import os
 from pathlib import Path
-import sqlite3
 import subprocess
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--workspace", required=True, type=Path)
-    selection = parser.add_mutually_exclusive_group(required=True)
-    selection.add_argument(
+    parser.add_argument(
         "--models-config",
         type=Path,
+        required=True,
         help="Pinned profile file produced by coursemap models-lock",
     )
-    selection.add_argument("--run", help="Compatibility with older combined runs")
     parser.add_argument("--profile", default="enrichment")
-    parser.add_argument("--kind", choices=["embedding", "keyword"])
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
-    from uw_coursemap.profiles import ModelProfile, load_profile
+    from uw_coursemap.profiles import load_profile
     from urllib.parse import urlparse
 
-    if args.models_config:
-        try:
-            profile = load_profile(args.models_config, args.profile, resolve=False)
-        except ValueError as exc:
-            parser.error(
-                f"{exc}. Create pinned profiles with coursemap models-lock first."
-            )
-    else:
-        if not args.kind:
-            parser.error("--run requires --kind")
-        with sqlite3.connect(
-            (args.workspace.resolve() / "pipeline.sqlite").as_uri() + "?mode=ro",
-            uri=True,
-        ) as db:
-            row = db.execute(
-                "SELECT config_json FROM runs WHERE run_id=?", (args.run,)
-            ).fetchone()
-        if row is None:
-            raise ValueError("Unknown scrape run")
-        config = json.loads(row[0])
-        profile = ModelProfile(
-            model=config[f"{args.kind}_model"],
-            revision=config[f"{args.kind}_revision"],
-            base_url="http://127.0.0.1:"
-            + ("8001" if args.kind == "embedding" else "8002")
-            + "/v1",
-            runner="pooling",
-            context_length=512 if args.kind == "embedding" else 256,
-            server_args=[
-                "--pooler-config",
-                '{"pooling_type":"MEAN","use_activation":true}',
-                "--gpu-memory-utilization",
-                "0.15",
-                "--enforce-eager",
-            ],
-        )
+    try:
+        profile = load_profile(args.models_config, args.profile, resolve=False)
+    except ValueError as exc:
+        parser.error(f"{exc}. Create pinned profiles with coursemap models-lock first.")
     if profile.engine != "vllm" or profile.engine_version != "0.28.0":
         raise ValueError(
             "This launcher uses the locked vLLM 0.28.0 runtime; launch other runtimes separately"

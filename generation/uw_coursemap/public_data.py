@@ -1,11 +1,9 @@
-"""Typed public datasets and small, immutable serving artifacts."""
+"""Typed public Parquet datasets with immutable provenance."""
 
 from collections import defaultdict
 from datetime import datetime, timezone
-import hashlib
 import json
 from pathlib import Path
-import re
 import sqlite3
 
 import pyarrow as pa
@@ -437,7 +435,6 @@ def write_public(database, destination, release_id, source_run, registry_path=No
             SCHEMAS["courses_current"],
             (current[k] for k in sorted(current)),
         )
-        grade_courses = defaultdict(list)
 
         def grades():
             seen = set()
@@ -465,8 +462,6 @@ def write_public(database, destination, release_id, source_run, registry_path=No
                         "instructors": distribution.get("instructors", []),
                         **{field: distribution.get(field) for field in GRADE_FIELDS},
                     }
-                    if key[0] in current:
-                        grade_courses[key[0]].append(value)
                     yield value
 
         counts["grades_latest"] = write_rows(
@@ -506,14 +501,6 @@ def write_public(database, destination, release_id, source_run, registry_path=No
             REVIEW_SCHEMA,
             review_rows(db, identities),
         )
-        write_serving(
-            destination / "serving",
-            release_id,
-            source_run,
-            current,
-            by_course,
-            grade_courses,
-        )
         write_json(
             directory / "schema.json",
             {
@@ -531,104 +518,6 @@ def write_public(database, destination, release_id, source_run, registry_path=No
         return counts
     finally:
         db.close()
-
-
-def search_tokens(text):
-    return sorted(set(re.findall(r"[^\W_]+", text.casefold())))
-
-
-def search_ids(index, query, limit=20):
-    """Reference exact-token AND search for the portable inverted index."""
-    terms = search_tokens(query)
-    if not terms:
-        return []
-    hits = set(index["postings"].get(terms[0], []))
-    for token in terms[1:]:
-        hits.intersection_update(index["postings"].get(token, []))
-    return [index["documents"][i]["course_id"] for i in sorted(hits)[:limit]]
-
-
-def write_serving(directory, release_id, source_run, courses, offerings, grades):
-    directory.mkdir()
-    shards, documents, postings, requirements = (
-        defaultdict(dict),
-        [],
-        defaultdict(list),
-        {},
-    )
-    identity = {
-        "release_id": release_id,
-        "source_run": source_run,
-        "schema_version": PUBLIC_VERSION,
-    }
-    for key in sorted(courses):
-        course = courses[key]
-        shard = hashlib.sha256(key.encode()).hexdigest()[:2]
-        shards[shard][key] = {
-            **course,
-            "grades": grades[key],
-            "offerings": offerings[key],
-        }
-        index = len(documents)
-        documents.append(
-            {
-                k: course.get(k)
-                for k in ("course_id", "title", "subjects", "llm_summary")
-            }
-        )
-        aliases = [
-            f"{s} {course['course_number']} {s}{course['course_number']}"
-            for s in course["subjects"]
-        ]
-        text = " ".join(
-            [
-                key,
-                course["title"],
-                course["description"],
-                *aliases,
-                course.get("llm_summary") or "",
-                *course["llm_topics"],
-                *course["llm_skills"],
-                *course["llm_search_phrases"],
-            ]
-        )
-        for token in search_tokens(text):
-            postings[token].append(index)
-        requirements[key] = {
-            "status": course["llm_requirements_status"],
-            "ast": json.loads(course["llm_requirements_ast_json"])
-            if course.get("llm_requirements_ast_json")
-            else None,
-            "job_id": course.get("llm_job_id"),
-            "output_id": course.get("llm_output_id"),
-            "model": course.get("llm_model"),
-            "model_revision": course.get("llm_model_revision"),
-        }
-    for shard, records in sorted(shards.items()):
-        write_json(
-            directory / "courses" / f"{shard}.json", {**identity, "courses": records}
-        )
-    write_json(
-        directory / "search.json",
-        {
-            **identity,
-            "tokenizer": "unicode-alphanumeric-casefold-v1",
-            "documents": documents,
-            "postings": postings,
-        },
-    )
-    write_json(directory / "requirements.json", {**identity, "courses": requirements})
-    write_json(
-        directory / "manifest.json",
-        {
-            **identity,
-            "course_count": len(courses),
-            "course_shards": sorted(shards),
-            "course_path": "courses/<sha256(UTF-8 canonical course_id)[:2]>.json",
-            "search": "search.json",
-            "requirements": "requirements.json",
-        },
-    )
 
 
 def dataset_card(

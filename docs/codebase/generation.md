@@ -18,10 +18,11 @@ Enrichment uses a separately managed vLLM or compatible server. It produces
 course metadata, prerequisite trees, cited student summaries, and saved model
 traces. Model identities and task versions are recorded with the results.
 
-`derive` optionally creates website graphs and serving exports. `release` combines
+`release` combines
 source history and selected enrichment jobs into relational Parquet tables;
 `publish --parquet-only` uploads the release to Hugging Face. Raw history is retained
-so consumers can derive their own statistics.
+so consumers can derive their own statistics. Search indexes and website responses
+belong to the consuming Worker; no static website files are generated.
 
 The historical importer remains available for recovering old snapshots from Git.
 Existing snapshots can be read and released without the former data submodule.

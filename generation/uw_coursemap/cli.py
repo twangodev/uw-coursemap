@@ -36,17 +36,15 @@ def parser():
     run.add_argument("--per-domain", type=int, default=16)
     run.add_argument("--target-concurrency", type=float, default=8)
     run.add_argument("--download-delay", type=float, default=0.1)
-    run.add_argument("--sitemap-base", default="https://uwcourses.com")
-    run.add_argument("--max-prerequisites", type=int, default=1)
     run.add_argument(
         "--include-instructors",
         action="store_true",
         help=argparse.SUPPRESS,
     )
-    for name in ("derive", "enrich", "release"):
+    for name in ("enrich", "release"):
         command = commands.add_parser(name)
         command.add_argument("run_id")
-        if name in ("derive", "enrich"):
+        if name == "enrich":
             command.add_argument("--models-config", type=Path, required=True)
         if name == "enrich":
             command.add_argument("--prepare-only", action="store_true")
@@ -70,9 +68,8 @@ def parser():
                 help="Stable sample size; 0 processes all courses",
             )
         if name == "release":
-            command.add_argument("--build")
             command.add_argument("--enrichment", action="append", default=[])
-    for name in ("enrich-resume", "job-status", "job-report", "derive-resume"):
+    for name in ("enrich-resume", "job-status", "job-report"):
         command = commands.add_parser(name)
         command.add_argument("job_id")
         if name == "enrich-resume":
@@ -96,7 +93,6 @@ def parser():
         "resume": "Continue an interrupted run",
         "status": "Show source and stage completion",
         "validate": "Check source completeness and relationships",
-        "export": "Build or verify a local release",
         "publish": "Upload a completed release to Hugging Face",
         "replay": "Create a new run from archived source responses",
     }
@@ -108,7 +104,7 @@ def parser():
             command.add_argument(
                 "--parquet-only",
                 action="store_true",
-                help="Publish tables, card and sync metadata without SQLite or serving files",
+                help="Publish tables, card and sync metadata without SQLite",
             )
         if name == "replay":
             command.add_argument("--source", choices=SOURCES, required=True)
@@ -124,7 +120,7 @@ def parser():
     )
     commands.add_parser(
         "public-export",
-        help="Build public tables and serving files from a verified archive",
+        help="Build public Parquet tables from a verified archive",
     ).add_argument("release_id")
     models = commands.add_parser("models-lock")
     models.add_argument("--models-config", type=Path, required=True)
@@ -186,50 +182,20 @@ def execute(store, run):
 
 
 def execute_run(store, run):
-    from .derive import derive
-    from .release import export, validate
+    from .lifecycle import scrape
 
-    if json.loads(store.run(run)["config_json"]).get("workflow") == "snapshot-v1":
-        from .lifecycle import scrape
-
-        return scrape(store, run)
-    info = store.run(run)
-    if info["status"] == "complete":
-        return {"run_id": run, "status": "complete"}
-    config = json.loads(info["config_json"])
-    if config["code_hash"] != code_hash():
+    if json.loads(store.run(run)["config_json"]).get("workflow") != "snapshot-v1":
+        if store.run(run)["status"] == "complete":
+            return {"run_id": run, "status": "complete"}
         raise ValueError(
-            "Pipeline code changed; create a new run instead of mixing versions"
+            "Legacy combined runs cannot resume; create a new scrape snapshot"
         )
-    with store.db:
-        store.db.execute("UPDATE runs SET status='running' WHERE run_id=?", (run,))
-    for source in SOURCES:
-        if store.stage_status(run, source) != "complete":
-            print(f"Running {source} ({run})", flush=True)
-            execute_source(store, run, source)
-    validate(store, run)
-    if store.stage_status(run, "derive") != "complete":
-        store.stage(run, "derive", "running")
-        try:
-            derive(store, run)
-        except Exception as exc:
-            store.stage(run, "derive", "failed", type(exc).__name__)
-            raise
-        store.stage(run, "derive", "complete")
-    store.stage(run, "export", "running")
-    try:
-        output = export(store, run)
-    except Exception as exc:
-        store.stage(run, "export", "failed", type(exc).__name__)
-        raise
-    store.stage(run, "export", "complete")
-    store.finish(run)
-    return {"run_id": run, "release": str(output)}
+    return scrape(store, run)
 
 
 def main(argv=None):
     args = parser().parse_args(argv)
-    for name in ("run_id", "job_id", "build"):
+    for name in ("run_id", "job_id"):
         value = getattr(args, name, None)
         if value and not re.fullmatch(r"[A-Za-z0-9_-]+", value):
             raise ValueError(f"Invalid {name}")
@@ -266,66 +232,55 @@ def main(argv=None):
         print(canonical(report(args.workspace, args.job_id)))
         return
     if args.command in {
-        "derive",
-        "derive-resume",
         "enrich",
         "enrich-resume",
         "enrich-repair",
         "job-status",
     }:
-        from .lifecycle import build
         from .jobs import Jobs
 
-        if args.command == "derive":
-            result = build(args.workspace, args.run_id, args.models_config)
-        elif args.command == "derive-resume":
-            meta = json.loads(
-                (args.workspace / "builds" / args.job_id / "build.json").read_text()
-            )
-            result = build(args.workspace, meta["source_run"], build_id=args.job_id)
-        else:
-            jobs = Jobs(args.workspace)
-            try:
-                if args.command == "enrich":
-                    if args.limit < 0:
-                        raise ValueError("limit must be nonnegative")
-                    job = jobs.create(
-                        args.run_id,
-                        args.models_config,
-                        args.profile,
-                        args.task,
-                        args.limit,
-                        course_ids=args.course,
-                        reuse_job_ids=args.reuse_job,
-                        allow_partial_reuse=args.allow_partial_reuse,
-                    )
-                    print(f"Created enrichment job {job}", flush=True)
-                    result = jobs.status(job) if args.prepare_only else jobs.run(job)
-                elif args.command == "enrich-repair":
-                    from .repair import create_repair
+        jobs = Jobs(args.workspace)
+        try:
+            if args.command == "enrich":
+                if args.limit < 0:
+                    raise ValueError("limit must be nonnegative")
+                job = jobs.create(
+                    args.run_id,
+                    args.models_config,
+                    args.profile,
+                    args.task,
+                    args.limit,
+                    course_ids=args.course,
+                    reuse_job_ids=args.reuse_job,
+                    allow_partial_reuse=args.allow_partial_reuse,
+                )
+                print(f"Created enrichment job {job}", flush=True)
+                result = jobs.status(job) if args.prepare_only else jobs.run(job)
+            elif args.command == "enrich-repair":
+                from .repair import create_repair
 
-                    job = create_repair(
-                        jobs,
-                        args.job_id,
-                        args.models_config,
-                        args.profile,
-                        args.limit,
-                        args.course,
-                        args.turns,
-                        task_path=args.task,
-                    )
-                    print(f"Created repair job {job}", flush=True)
-                    result = jobs.status(job) if args.prepare_only else jobs.run(job)
-                elif args.command == "enrich-resume":
-                    result = jobs.run(
-                        args.job_id,
-                        concurrency=args.concurrency,
-                        request_timeout=args.request_timeout_seconds,
-                    )
-                else:
-                    result = jobs.status(args.job_id)
-            finally:
-                jobs.close()
+                job = create_repair(
+                    jobs,
+                    args.job_id,
+                    args.models_config,
+                    args.profile,
+                    args.limit,
+                    args.course,
+                    args.turns,
+                    task_path=args.task,
+                )
+                print(f"Created repair job {job}", flush=True)
+                result = jobs.status(job) if args.prepare_only else jobs.run(job)
+            elif args.command == "enrich-resume":
+                result = jobs.run(
+                    args.job_id,
+                    concurrency=args.concurrency,
+                    request_timeout=args.request_timeout_seconds,
+                )
+            else:
+                result = jobs.status(args.job_id)
+        finally:
+            jobs.close()
         print(canonical(result))
         return
     if args.command == "public-export":
@@ -345,7 +300,7 @@ def main(argv=None):
                 canonical(
                     {
                         "release": str(
-                            release(store, args.run_id, args.build, args.enrichment)
+                            release(store, args.run_id, enrichment_ids=args.enrichment)
                         )
                     }
                 )
@@ -359,7 +314,6 @@ def main(argv=None):
                     validate(
                         store,
                         args.run_id,
-                        derived=store.stage_status(args.run_id, "derive") == "complete",
                     )
                 )
             )
@@ -391,8 +345,6 @@ def main(argv=None):
             if args.command in {"run", "scrape"}:
                 if not re.fullmatch(r"\d{4}", args.semester):
                     raise ValueError("Use the four-digit UW term code")
-                if args.max_prerequisites < 1:
-                    raise ValueError("max-prerequisites must be positive")
                 if not os.environ.get("MADGRADES_API_KEY"):
                     raise ValueError("MADGRADES_API_KEY is required")
                 if shutil.disk_usage(store.root).free < 10 * 1024**3:
@@ -413,8 +365,6 @@ def main(argv=None):
                     "ratings_contract": 1,
                     "user_agent": get_user_agent(),
                     "code_hash": code_hash(),
-                    "sitemap_base": args.sitemap_base,
-                    "max_prerequisites": args.max_prerequisites,
                 }
                 from .crawl import http_settings
 
@@ -432,18 +382,6 @@ def main(argv=None):
                 result = execute(store, run)
             elif args.command == "resume":
                 result = execute(store, args.run_id)
-            elif args.command == "export":
-                from .release import export
-
-                if (
-                    json.loads(store.run(args.run_id)["config_json"]).get("workflow")
-                    == "snapshot-v1"
-                ):
-                    from .lifecycle import release
-
-                    result = {"release": str(release(store, args.run_id))}
-                else:
-                    result = {"release": str(export(store, args.run_id))}
             elif args.command == "publish":
                 from .release import publish
 

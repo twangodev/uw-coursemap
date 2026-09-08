@@ -1,6 +1,5 @@
-"""Public contracts: temporal identity, typed data and safe serving projections."""
+"""Public contracts: temporal identity, typed data and preserved evidence."""
 
-import hashlib
 import json
 from pathlib import Path
 import sqlite3
@@ -17,7 +16,6 @@ from uw_coursemap.public_data import (
     catalog_record,
     dataset_card,
     export_public,
-    search_ids,
     write_public,
     write_rows,
     selected_enrichments,
@@ -205,19 +203,10 @@ class PublicDataTests(unittest.TestCase):
         self.assertEqual(course["llm_model_revision"], "a" * 40)
         self.assertEqual(course["llm_summary"], "Object oriented programming")
         self.assertIsNone(course["llm_experience_json"])
-        index = json.loads((output / "serving/search.json").read_text())
-        self.assertEqual(search_ids(index, "JAVA programming"), ["COMPSCI 300"])
-        self.assertEqual(search_ids(index, "COMPSCI300"), ["COMPSCI 300"])
-        self.assertEqual(search_ids(index, "experiment"), [])
-        graph = json.loads((output / "serving/requirements.json").read_text())
-        self.assertEqual(
-            graph["courses"]["COMPSCI 300"]["ast"]["nodes"][0]["kind"], "not"
-        )
-        self.assertEqual(graph["release_id"], index["release_id"])
-        shard = hashlib.sha256(b"COMPSCI 300").hexdigest()[:2]
-        detail = json.loads((output / f"serving/courses/{shard}.json").read_text())
-        self.assertEqual(detail["courses"]["COMPSCI 300"]["grades"][0]["a"], 2)
-        self.assertEqual(detail["release_id"], "release-test")
+        ast = json.loads(course["llm_requirements_ast_json"])
+        self.assertEqual(ast["nodes"][0]["kind"], "not")
+        self.assertNotIn("Ignore this experiment", json.dumps(course, default=str))
+        self.assertFalse((output / "serving").exists())
 
     def test_newer_selected_invalid_output_does_not_fall_back_to_stale_valid_output(
         self,
@@ -232,10 +221,6 @@ class PublicDataTests(unittest.TestCase):
         self.assertEqual(len(ast["nodes"]), 1)
         self.assertEqual(ast["nodes"][0]["condition"], row["requirements_text"])
         self.assertEqual(ast["root"], ast["nodes"][0]["id"])
-        index = json.loads((output / "serving/search.json").read_text())
-        self.assertEqual(search_ids(index, "unicorn"), [])
-        self.assertEqual(search_ids(index, "java"), [])
-        self.assertEqual(search_ids(index, "classes"), ["COMPSCI 300"])
 
     def test_uncertain_requirement_tree_is_available_for_display(self):
         self.add_job("selected", 1, status="needs_review")
@@ -246,8 +231,6 @@ class PublicDataTests(unittest.TestCase):
         self.assertEqual(ast["root"], "exclude")
         self.assertEqual(len(ast["nodes"]), 2)
         self.assertIsNone(row["llm_summary"])
-        serving = json.loads((output / "serving/requirements.json").read_text())
-        self.assertEqual(serving["courses"]["COMPSCI 300"]["ast"], ast)
 
     def test_empty_and_missing_trees_always_have_a_display_node(self):
         from uw_coursemap.public_data import display_requirements_ast
@@ -303,7 +286,7 @@ class PublicDataTests(unittest.TestCase):
         self.assertEqual(export_public(self.root, "archive-test"), target)
         with self.assertRaises(ValueError):
             export_public(self.root, "../archive-test")
-        (target / "serving/search.json").write_text("corrupted")
+        (target / "public/schema.json").write_text("corrupted")
         with self.assertRaisesRegex(ValueError, "checksum"):
             export_public(self.root, "archive-test")
 
@@ -361,7 +344,11 @@ class PublicDataTests(unittest.TestCase):
         self.assertEqual(rows[1]["model_revision"], "a" * 40)
         self.assertEqual(json.loads(rows[1]["usage_json"])["completion_tokens"], 123)
         self.assertNotIn(
-            "Recorded Qwen reasoning", (output / "serving/search.json").read_text()
+            "Recorded Qwen reasoning",
+            json.dumps(
+                pq.read_table(output / "public/courses_current.parquet").to_pylist(),
+                default=str,
+            ),
         )
 
     def test_large_trace_rows_are_byte_batched_without_losing_content(self):

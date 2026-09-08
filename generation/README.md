@@ -67,17 +67,13 @@ both clients and server launchers use the resulting JSON file:
 
 ```sh
 uv run coursemap models-lock --models-config inference/models.toml \
-  --profile embedding --profile keyword --profile enrichment \
+  --profile enrichment \
   --output "$COURSEMAP_WORKSPACE/models.lock.json"
 ```
 
-In separate terminals, start only the servers needed for the chosen job:
+Start the generation server for the chosen profile:
 
 ```sh
-uv run python scripts/serve_inference.py --workspace "$COURSEMAP_WORKSPACE" \
-  --models-config "$COURSEMAP_WORKSPACE/models.lock.json" --profile embedding
-uv run python scripts/serve_inference.py --workspace "$COURSEMAP_WORKSPACE" \
-  --models-config "$COURSEMAP_WORKSPACE/models.lock.json" --profile keyword
 uv run python scripts/serve_inference.py --workspace "$COURSEMAP_WORKSPACE" \
   --models-config "$COURSEMAP_WORKSPACE/models.lock.json" --profile enrichment
 ```
@@ -85,7 +81,7 @@ uv run python scripts/serve_inference.py --workspace "$COURSEMAP_WORKSPACE" \
 The separate `inference/` uv project locks vLLM and its GPU dependencies. Servers
 bind to loopback; `--dry-run` prints a launch command without downloading weights.
 Profiles control model/revision, token limits, dimensions, document prefix,
-concurrency, pooling, and server arguments. Alternative vLLM/SGLang servers can
+concurrency and server arguments. Alternative vLLM/SGLang servers can
 use the same HTTP boundary; serve the identity `HF_MODEL_ID@COMMIT_SHA` and record
 the actual engine/version in the profile. Optional authentication uses
 `COURSEMAP_INFERENCE_API_KEY`. No client loads model weights directly.
@@ -94,25 +90,8 @@ The default generation candidate is Qwen3.6-35B-A3B-FP8. Select
 `enrichment-nvfp4` for NVIDIA's Qwen3.6-35B-A3B-NVFP4, or `enrichment-bf16` as a
 reference. Lock that profile and use the same name in the server and enrichment
 commands. These are configurable candidates, not task-quality benchmark results.
-Generation concurrency defaults to 16 for FP8, 32 for NVFP4, and 8 for BF16;
-embedding profiles permit 16 concurrent batches of up to 32 texts per request.
-These are initial throughput settings; lower concurrency if memory pressure or
-latency warrants it. Lock profiles again to adopt changed defaults.
-Run one generation profile at a time; BF16's larger memory allocation requires
-stopping the embedding servers first.
-
-Build existing similarity, keywords, prerequisite display graphs, and website
-compatibility files with the embedding and keyword servers:
-
-```sh
-uv run coursemap derive RUN_ID --models-config "$COURSEMAP_WORKSPACE/models.lock.json"
-uv run coursemap derive-resume BUILD_ID
-```
-
-Builds copy one immutable snapshot into `builds/BUILD_ID/`, checkpoint each stage,
-and leave source data unchanged. Embeddings use bounded batches and disk caching.
-Cache identities include model and processing settings. Original prerequisite
-text/structure remains in source tables; optimized graph choices are derivatives.
+Concurrency and token limits are profile settings. Lock profiles again to adopt
+changed defaults. Run one generation profile at a time.
 
 For generative enrichment, start with a stable sample of 100 courses:
 
@@ -139,7 +118,7 @@ the cache identity. Completed jobs cannot be silently overwritten.
 Explicitly select optional outputs for a release:
 
 ```sh
-uv run coursemap release RUN_ID --build BUILD_ID --enrichment ENRICHMENT_ID
+uv run coursemap release RUN_ID --enrichment ENRICHMENT_ID
 uv run coursemap publish RELEASE_ID --repo OWNER/DATASET
 ```
 
@@ -212,7 +191,7 @@ A separate `Not open to students with credit for ...` sentence must constrain al
 eligibility alternatives in a parsed result. Review notes are bounded, and failed
 rows retain a short validation reason for diagnosis.
 These checks cannot prove semantic equivalence; review the pilot before using the
-results for eligibility or replacing existing graphs. Parsed requirements remain
+results for eligibility decisions. Parsed requirements remain
 separate enrichment records, with the original wording preserved.
 
 Run the small manually checked regression benchmark before changing the task or
@@ -236,7 +215,7 @@ bodies and Scrapy queues may contain authentication details. They are not export
 Parquet tables, a dataset card, and a checksummed manifest. Nested source structures
 remain JSON columns. History joins by `run_id`; `current_*` views select the chosen
 snapshot. Releases record source history, exporter identity, selected build/model
-provenance, and enrichment coverage. Website files are included only with `--build`.
+provenance, and enrichment coverage. Releases contain dataset tables, schema metadata, and provenance.
 Schema v4 stores complete distinct course records in `course_versions` and their
 presence in each run in `course_snapshots`. A changed description or other source
 field creates a new version; unchanged courses reuse the version. `courses` and
@@ -277,9 +256,8 @@ The same promotion updates `sync.json` with scan timestamps, course count, snaps
 count, and data revision. Shields dynamic JSON badges can read `$.last_scan_utc`
 and `$.courses` from its `raw/main/sync.json` URL; badge caches delay refreshes.
 
-No Cloudflare deployment is activated here. Before merging, retire or reconfigure
-the legacy hosted GitHub Actions scrape; it cannot reach local inference servers.
-Older combined runs can still resume with their original checkout and configuration.
+No Cloudflare deployment is activated here. Scraping runs manually on this machine.
+Retired combined runs require their original checkout; use a new snapshot for new work.
 
 Instructor reconciliation indexes parsed names by exact normalized surname, then
 uses up to 24 CPU processes in batches of 256. Set `COURSEMAP_NAME_WORKERS` to
@@ -298,7 +276,7 @@ to rerun. Observation timestamps prevent old backfills replacing newer snapshots
 Legacy course/instructor JSON and available meetings are retained; unavailable raw
 responses and model provenance are not invented. Historical grade totals are
 snapshots: **do not sum them across runs**. Legacy snapshots can be released or
-used for generative enrichment, but lack raw inputs for rebuilding website graphs.
+used for generative enrichment without rebuilding their unavailable source responses.
 
 ## Checks
 
@@ -308,7 +286,7 @@ uv run ruff check generation scripts/serve_inference.py
 uv run ruff format --check generation scripts/serve_inference.py
 ```
 
-## Public datasets and serving exports
+## Public datasets
 
 `release` also writes typed `public/*.parquet` tables: `courses_current` (the HF
 Viewer default), `courses_history`, `catalog_versions`, `grades_latest`, and
@@ -327,8 +305,8 @@ Full-record IDs still link to the complete archive. `grades_latest` selects one
 latest observation per course and grading term across included snapshots; it does
 not sum repeated scrapes. Credits come from current enrollment offerings and are
 null when unavailable. Only explicitly selected LLM jobs populate public courses;
-the newest selected job per course wins. Invalid/review-required sections retain
-status but do not enter search text or the usable requirement trees.
+the newest selected job per course wins. Rejected search metadata stays out of public search fields. Requirement trees
+retain their validation status and always provide at least one display node.
 
 To build a small public release from an existing verified archive without copying
 its SQLite/history tables or running inference:
@@ -338,12 +316,9 @@ uv run coursemap --workspace "$COURSEMAP_WORKSPACE" public-export RELEASE_ID
 ```
 
 This writes a separate checksummed release with the archive ID and manifest hash.
-`serving/` contains hash-sharded course JSON (with grades and offerings), a keyword
-inverted search index, and requirement trees preserving AND/OR/NOT logic. The
-reference tokenizer/query lives in `uw_coursemap.public_data.search_ids`.
-Consumers pin one HF revision for all files; cache keys must include that revision.
-Publishing also atomically updates the friendly Parquet tables and dataset card
-on HF `main` with `latest.json`, so default browsing works. No Worker is deployed.
+Consumers read the Parquet tables and pin one HF revision for consistent joins.
+Search indexes and website responses belong to the consuming Worker; the pipeline
+does not generate static JSON shards, maps, sitemaps, or website graphs.
 
 Resume inference with a scheduling override (1–512 concurrent client workers):
 
@@ -386,7 +361,7 @@ message histories (including tool returns and retry feedback) are saved in
 reload these histories with `ModelMessagesTypeAdapter`. Completed course results
 remain the durable checkpoint boundary; an interrupted in-flight course restarts
 from its saved input/parent conversation. SQLite still owns job state and source
-history; public Parquet and serving contracts are unchanged.
+history; public Parquet contracts are unchanged.
 
 Course agents use PydanticAI tool-output mode (`submit_sections`) alongside
 `get_course`; the live Qwen/vLLM check showed native-JSON mode can suppress tool
@@ -414,7 +389,7 @@ The public `llm_traces` Parquet config preserves each archived job/course output
 and its task/model settings, including recorded Qwen thinking, tool calls,
 validator feedback, and truncation recovery conversations. `has_conversation`
 distinguishes older outputs without recorded histories. Traces are separate from
-serving payloads and include rejected and unselected experiments for auditing.
+current-course rows and include rejected and unselected experiments for auditing.
 
 Long repair runs can resume with `enrich-resume JOB_ID --concurrency 256
 --request-timeout-seconds 1800`. Execution overrides are recorded on new results;
@@ -440,8 +415,7 @@ Parquet-only HF publication
 
 `uv run coursemap publish RELEASE_ID --repo twangodev/uw-coursemap --parquet-only`
 uploads public and archive Parquet tables, the minimal dataset card, manifest, and
-`sync.json` together. It verifies remote sizes and hashes. SQLite and serving
-artifacts stay local. Sync metadata identifies the release and manifest checksum,
+`sync.json` together. It verifies remote sizes and hashes. The SQLite source archive stays local. Sync metadata identifies the release and manifest checksum,
 so it survives a later repository-history squash.
 
 For targeted repairs with corrected instructions, `enrich-repair --task PATH`

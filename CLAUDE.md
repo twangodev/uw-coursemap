@@ -78,7 +78,7 @@ The application helps University of Wisconsin-Madison students explore 10,000+ c
 #### 1. **Microservice Data Architecture**
 - **Static API**: Generated JSON files served from CDN (courses, instructors, prerequisites)
 - **Search Service**: Flask + Elasticsearch for dynamic course search
-- **Data Generation**: Python pipeline with ML embeddings for course relationships
+- **Data Generation**: Python pipeline with source snapshots, LLM enrichment, and Parquet publication
 - **Environment Variables**: Multi-service configuration (`PUBLIC_API_URL`, `PUBLIC_SEARCH_API_URL`)
 
 #### 2. **Data Generation Pipeline**
@@ -86,9 +86,11 @@ Run manually from the project root with `uv run coursemap`:
 
 1. Scrapy collects and freezes a source snapshot.
 2. `enrich` adds structured metadata through a separately managed inference server.
-3. `derive` optionally builds the website graphs and serving exports.
-4. `release` assembles immutable history and relational Parquet tables.
-5. `publish --parquet-only` uploads the dataset to Hugging Face.
+3. `release` assembles immutable history and relational Parquet tables.
+4. `publish --parquet-only` uploads the dataset to Hugging Face.
+
+Website graphs, static JSON exports, and embedding-based graph pruning are retired.
+The Worker will consume Parquet and own search and serving.
 
 Active Python code lives in `generation/uw_coursemap`. Historical snapshot readers
 remain necessary for full-history exports. See `generation/README.md` for commands.
@@ -135,11 +137,10 @@ remain necessary for full-history exports. See `generation/README.md` for comman
 - **TailwindCSS 4**: Latest version with utility-first approach
 - **Caching Strategy**: 90-98% generation time reduction through platform-dependent caching
 
-#### Machine Learning Integration
-- **Embedding Models**: GIST Large Embedding v0 (local), formerly OpenAI text-embedding-3-small
-- **Semantic Similarity**: Cosine similarity for prerequisite optimization
-- **CUDA Support**: GPU acceleration for embedding generation
-- **Keyword extraction**: NLP-based keyword generation for courses
+#### LLM Enrichment
+- Qwen runs in a separately managed vLLM environment.
+- The local pipeline requests structured metadata, prerequisite trees, and cited summaries.
+- Full traces and pinned model revisions are archived in the dataset.
 
 ### Development Workflow & Standards
 - Uses [trunk-based development](https://trunkbaseddevelopment.com/)

@@ -7,11 +7,8 @@ import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import sqlite3
-import shutil
 import tempfile
 import unittest
-from unittest.mock import patch
-import numpy as np
 from types import SimpleNamespace
 
 import pyarrow.parquet as pq
@@ -32,7 +29,7 @@ from uw_coursemap.release import (
     verify_release,
     publish,
 )
-from uw_coursemap.derive import reconcile, encode_state
+from uw_coursemap.reconcile import reconcile, encode_state
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
@@ -204,8 +201,7 @@ class PipelineTests(unittest.TestCase):
         for source in SOURCES:
             self.store.stage(run, source, "complete")
         state = encode_state(*reconcile(self.store, run))
-        self.store.artifact(run, "graph", state, self.store.input_hash(run), {})
-        self.store.stage(run, "derive", "complete")
+        self.store.artifact(run, "source_state", state, self.store.input_hash(run), {})
         return state
 
     def test_history_and_current_view_ignore_incomplete_run(self):
@@ -359,7 +355,7 @@ class PipelineTests(unittest.TestCase):
         )
         self.assertEqual(len(state["instructors"]), 1)
         self.assertTrue(state["meetings"]["COMPSCI 300"])
-        validate(self.store, self.run, derived=True)
+        validate(self.store, self.run)
         db_path = Path(self.directory.name) / "public.sqlite"
         write_database(self.store, self.run, db_path)
         counts = write_parquet(db_path, Path(self.directory.name) / "tables")
@@ -462,127 +458,6 @@ class PipelineTests(unittest.TestCase):
         sync = json.loads(api.files["main"]["sync.json"])
         self.assertEqual(sync["source_run"], self.run)
         self.assertEqual(sync["data_revision"], result["revision"])
-
-    def test_full_derived_pipeline_and_compatibility_export(self):
-        from uw_coursemap.derive import derive
-        from uw_coursemap.release import export
-
-        self.seed()
-        # Six courses exercise the existing top-five similarity algorithm.
-        original = self.store.records(self.run, "courses")["COMPSCI 300"]
-        for number in (200, 201, 202, 203, 204):
-            course = json.loads(json.dumps(original))
-            course["course_reference"]["course_number"] = number
-            course["prerequisites"] = {
-                "prerequisites_text": "",
-                "linked_requisite_text": [],
-                "course_references": [],
-                "abstract_syntax_tree": None,
-            }
-            self.store.put(
-                self.run,
-                "catalog",
-                {
-                    "kind": "courses",
-                    "key": f"COMPSCI {number}",
-                    "payload": course,
-                    "source_url": "https://guide.wisc.edu/courses/comp_sci/",
-                },
-            )
-        config = {
-            "embedding_revision": "fixture-v1",
-            "keyword_revision": "fixture-v1",
-            "max_prerequisites": 1,
-            "sitemap_base": "https://uwcourses.com",
-        }
-        self.store.db.execute(
-            "UPDATE runs SET config_json=? WHERE run_id=?",
-            (canonical(config), self.run),
-        )
-        self.store.db.execute("DELETE FROM artifacts WHERE run_id=?", (self.run,))
-        self.store.db.commit()
-        model = FixtureModel()
-        with (
-            patch("uw_coursemap.aggregate.get_model", return_value=model),
-            patch("uw_coursemap.aggregate.get_keyword_model", return_value=model),
-            patch(
-                "uw_coursemap.aggregate.CachedKeyBERT",
-                return_value=SimpleNamespace(
-                    extract_keywords=lambda *a, **kw: [("programming", 1.0)]
-                ),
-            ),
-            patch("uw_coursemap.embeddings.get_model", return_value=model),
-        ):
-            state = derive(self.store, self.run)
-        self.assertEqual(len(state["courses"]), 6)
-        self.assertEqual(state["courses"]["COMPSCI 300"]["keywords"], ["programming"])
-        with patch(
-            "uw_coursemap.aggregate.aggregate_courses",
-            side_effect=AssertionError("completed stage reran"),
-        ):
-            self.assertEqual(derive(self.store, self.run), state)
-        self.store.stage(self.run, "derive", "complete")
-        target = export(self.store, self.run)
-        manifest = verify_release(target)
-        logical = "course/COMPSCI_300.json"
-        payload = json.loads(
-            (
-                target
-                / "web"
-                / hashlib.sha256(logical.encode()).hexdigest()[:2]
-                / logical
-            ).read_text()
-        )
-        self.assertEqual(payload["course_title"], "PROGRAMMING II")
-        self.assertEqual(payload["term_data"]["1272"]["grade_data"]["total"], 5)
-        self.assertEqual(
-            payload["prerequisites"], state["courses"]["COMPSCI 300"]["prerequisites"]
-        )
-        update = "update.json"
-        self.assertIn(
-            "updated_on",
-            json.loads(
-                (
-                    target
-                    / "web"
-                    / hashlib.sha256(update.encode()).hexdigest()[:2]
-                    / update
-                ).read_text()
-            ),
-        )
-        self.assertEqual(manifest["tables"]["course_snapshots"], 6)
-        shutil.rmtree(target)
-        rebuilt = export(self.store, self.run)
-        self.assertEqual(verify_release(rebuilt)["files"], manifest["files"])
-
-    def test_failed_optimization_cannot_silently_complete(self):
-        from uw_coursemap.embeddings import optimize_prerequisite
-
-        course = SimpleNamespace(get_identifier=lambda: "COMPSCI 300")
-        with patch(
-            "uw_coursemap.embeddings.prune_prerequisites",
-            side_effect=ValueError("invalid input"),
-        ) as prune:
-            with self.assertRaisesRegex(RuntimeError, "optimization failed"):
-                optimize_prerequisite("unused", course, None, {}, 1, 1, 2, strict=True)
-            self.assertEqual(prune.call_count, 2)
-
-    def test_embedding_cache_is_revision_specific(self):
-        from uw_coursemap.embedding_cache import (
-            write_embedding_cache,
-            read_embedding_cache,
-        )
-
-        first = SimpleNamespace(model_name="same/model", pipeline_revision="first")
-        second = SimpleNamespace(model_name="same/model", pipeline_revision="second")
-        vector = np.array([1.0, 2.0])
-        write_embedding_cache(self.directory.name, "input", vector, first)
-        self.assertTrue(
-            np.array_equal(
-                read_embedding_cache(self.directory.name, "input", first), vector
-            )
-        )
-        self.assertIsNone(read_embedding_cache(self.directory.name, "input", second))
 
     def test_http_retries_browser_headers_and_compressed_replay(self):
         body = (FIXTURES / "catalog.html").read_bytes()
@@ -723,19 +598,6 @@ crawl(sys.argv[1], sys.argv[2], "catalog", offline=len(sys.argv) > 4)
         )
         middleware.failed(None, fetched, None)
         self.assertIsNone(middleware.process_request(request))
-
-
-class FixtureModel:
-    model_name = "fixture"
-    pipeline_revision = "v1"
-
-    def encode(self, text, **kwargs):
-        if isinstance(text, list):
-            return np.asarray([self.encode(item, **kwargs) for item in text])
-        values = np.frombuffer(
-            hashlib.sha256(text.encode()).digest(), dtype=np.uint8
-        ).astype(float)
-        return values / np.linalg.norm(values)
 
 
 class FakeHub:

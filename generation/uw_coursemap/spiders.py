@@ -9,7 +9,7 @@ import scrapy
 from scrapy.http import JsonRequest
 
 from .models import CourseReference, digest
-from .derive import plain
+from .reconcile import plain
 
 
 def item(kind, key, payload, response):

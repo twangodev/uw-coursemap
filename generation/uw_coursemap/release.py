@@ -2,7 +2,6 @@
 
 import hashlib
 import json
-import shutil
 import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
@@ -17,7 +16,7 @@ def checksum(path):
         return hashlib.file_digest(stream, "sha256").hexdigest()
 
 
-def validate(store, run, derived=False):
+def validate(store, run):
     info = store.run(run)
     if info["origin"] == "legacy":
         from .legacy import legacy_state
@@ -85,18 +84,6 @@ def validate(store, run, derived=False):
                 errors.append(
                     f"{kind} count fell by more than 10% ({old[kind]} -> {counts.get(kind, 0)})"
                 )
-    if derived:
-        if store.stage_status(run, "derive") != "complete":
-            errors.append("Derived stages are incomplete")
-        else:
-            state = store.get_artifact(run, "graph")
-            if not state["instructors"]:
-                errors.append("No reconciled instructors")
-            if not any(state["meetings"].values()):
-                errors.append("No target-semester meetings")
-            total = counts.get("offerings", 0)
-            if len(state["unmatched"]["offerings"]) > total * 0.1:
-                errors.append("More than 10% of offerings do not match catalog courses")
     if errors:
         raise ValueError("Validation failed:\n" + "\n".join(errors[:25]))
     return counts
@@ -129,7 +116,9 @@ def snapshot_state(store, run):
         from .legacy import legacy_state
 
         return legacy_state(store, run)
-    for name in ("graph", "source_state"):
+    # Older completed snapshots stored reconciled records in a graph artifact.
+    # Read those archives without requiring the retired website generator.
+    for name in ("source_state", "graph"):
         row = store.db.execute(
             "SELECT payload_json FROM artifacts WHERE run_id=? AND name=?", (run, name)
         ).fetchone()
@@ -138,7 +127,7 @@ def snapshot_state(store, run):
     raise ValueError("Snapshot has no reconciled source state")
 
 
-def write_database(store, run, path, state_override=None):
+def write_database(store, run, path):
     public = sqlite3.connect(path)
     public.executescript(PUBLIC_SCHEMA)
     history = [
@@ -194,14 +183,7 @@ def write_database(store, run, path, state_override=None):
                     for k, v in store.records(identifier, "terms").items()
                 ],
             )
-            if identifier == run and state_override is not None:
-                state = state_override
-            elif info["origin"] == "legacy":
-                from .legacy import legacy_state
-
-                state = legacy_state(store, identifier)
-            else:
-                state = snapshot_state(store, identifier)
+            state = snapshot_state(store, identifier)
             for key, value in state["instructors"].items():
                 public.execute(
                     "INSERT INTO instructors VALUES(?,?,?,?,?,?,?,?)",
@@ -363,70 +345,6 @@ def write_parquet(database, directory):
         )
     db.close()
     return counts
-
-
-def export(store, run):
-    if store.run(run)["origin"] == "legacy":
-        raise ValueError(
-            "Legacy history is included in fresh scrape releases; it cannot produce a standalone website release"
-        )
-    validate(store, run, derived=True)
-    target = store.root / "releases" / run
-    if target.exists():
-        manifest = verify_release(target)
-        if manifest["run_id"] != run or manifest["input_hash"] != store.input_hash(run):
-            raise ValueError("Existing release does not match this run's observations")
-        return target
-    staging = target.with_name(run + ".partial")
-    if staging.exists():
-        shutil.rmtree(staging)
-    staging.mkdir(parents=True)
-    write_database(store, run, staging / "coursemap.sqlite")
-    counts = write_parquet(staging / "coursemap.sqlite", staging / "tables")
-    from .derive import write_compatibility
-
-    site = staging / "site"
-    site.mkdir()
-    write_compatibility(store, run, site)
-    # Hash partition preserves logical paths without exceeding HF folder limits.
-    for path in sorted(site.rglob("*")):
-        if path.is_file():
-            logical = path.relative_to(site).as_posix()
-            destination = (
-                staging
-                / "web"
-                / hashlib.sha256(logical.encode()).hexdigest()[:2]
-                / logical
-            )
-            destination.parent.mkdir(parents=True, exist_ok=True)
-            path.replace(destination)
-    shutil.rmtree(site)
-    configs = "\n".join(
-        f"- config_name: {name}\n  data_files: tables/{name}.parquet" for name in counts
-    )
-    (staging / "README.md").write_text(
-        f"---\nconfigs:\n{configs}\n---\n\n# UW Course Map\n\nSemester {store.run(run)['semester']}. Run `{run}`.\n\nSQLite and Parquet contain the same relational tables, including scrape history.\nJoin on `run_id` plus entity IDs; SQLite `current_*` views select this release.\n`observations` preserves source URLs, observation times, hashes, and original parsed records.\nJSON columns retain nested source fields, grade distributions, prerequisite trees, and derived details.\n`grades` contains per-term distributions; cumulative grades are retained in derived artifacts.\n`sections` and `meetings` retain instructor and location details in JSON.\nSources: UW Guide, UW public enrollment API, Madgrades, and Rate My Professors.\nMeetings are a snapshot, not a live schedule. Source data and model output may contain errors.\nExisting website files are under `web/<sha256(logical_path)[:2]>/<logical_path>`.\n"
-    )
-    manifest = {
-        "schema_version": SCHEMA_VERSION,
-        "run_id": run,
-        "semester": store.run(run)["semester"],
-        "observed_at": store.run(run)["observed_at"],
-        "input_hash": store.input_hash(run),
-        "tables": counts,
-        "files": {
-            p.relative_to(staging).as_posix(): {
-                "sha256": checksum(p),
-                "bytes": p.stat().st_size,
-            }
-            for p in sorted(staging.rglob("*"))
-            if p.is_file()
-        },
-    }
-    (staging / "manifest.json").write_text(canonical(manifest))
-    verify_release(staging)
-    staging.replace(target)
-    return target
 
 
 def verify_release(directory):

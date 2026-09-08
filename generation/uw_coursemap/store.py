@@ -10,7 +10,7 @@ import json
 from .models import canonical, digest, validate_record
 
 SOURCES = ("catalog", "madgrades", "enrollment", "instructors")
-STAGES = (*SOURCES, "derive", "export")
+STAGES = SOURCES
 KINDS = (
     "subjects",
     "courses",

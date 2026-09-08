@@ -8,7 +8,7 @@ from unittest.mock import patch
 import test_pipeline
 from uw_coursemap.cli import code_hash
 from uw_coursemap.jobs import Jobs
-from uw_coursemap.lifecycle import scrape, release, build
+from uw_coursemap.lifecycle import scrape, release
 from uw_coursemap.models import canonical
 from uw_coursemap.profiles import ModelProfile, load_profile, lock_profiles
 from uw_coursemap.release import verify_release, publish
@@ -73,6 +73,35 @@ class LifecycleTests(unittest.TestCase):
             return jobs.create(
                 run or self.run, "unused", "enrichment", self.task, limit=0
             )
+
+    def test_historical_graph_state_remains_readable(self):
+        from uw_coursemap.release import snapshot_state
+
+        self.core()
+        original = snapshot_state(self.store, self.run)
+        with self.store.db:
+            self.store.db.execute(
+                "UPDATE artifacts SET name='graph' WHERE run_id=? AND name='source_state'",
+                (self.run,),
+            )
+        self.assertEqual(snapshot_state(self.store, self.run), original)
+
+    def test_cli_has_no_website_build_commands(self):
+        import io
+        from uw_coursemap.cli import parser
+
+        cli = parser()
+        for argv in (
+            ["derive", "run"],
+            ["derive-resume", "build"],
+            ["export", "run"],
+            ["release", "run", "--build", "build"],
+        ):
+            with self.subTest(argv=argv), patch("sys.stderr", new_callable=io.StringIO):
+                with self.assertRaises(SystemExit) as error:
+                    cli.parse_args(argv)
+                self.assertEqual(error.exception.code, 2)
+        self.assertEqual(cli.parse_args(["release", "run"]).command, "release")
 
     def test_missing_task_schema_and_generic_reuse_fail_before_job_creation(self):
         self.core()
@@ -245,7 +274,10 @@ class LifecycleTests(unittest.TestCase):
                 try:
                     target = release(readonly, self.run)
                     manifest = verify_release(target)
-                    self.assertFalse(manifest["website_included"])
+                    self.assertNotIn("website_included", manifest)
+                    self.assertFalse((target / "web").exists())
+                    self.assertFalse((target / "serving").exists())
+                    self.assertNotIn("processing_builds", manifest["tables"])
                     self.assertEqual(manifest["tables"]["course_snapshots"], 1)
                     self.assertGreater(manifest["tables"]["meetings"], 0)
                     self.assertEqual(release(readonly, self.run), target)
@@ -263,7 +295,7 @@ class LifecycleTests(unittest.TestCase):
                     readonly.close()
         self.assertEqual(self.store.input_hash(self.run), before)
         self.assertIsNone(self.store.run(self.run)["revision"])
-        self.assertEqual(self.store.stage_status(self.run, "derive"), "pending")
+        self.assertIsNone(self.store.stage_status(self.run, "derive"))
 
     def test_resume_concurrency_override_preserves_job_spec_and_records_execution(self):
         from concurrent.futures import ThreadPoolExecutor
@@ -529,50 +561,8 @@ class LifecycleTests(unittest.TestCase):
         finally:
             jobs.close()
 
-    def test_build_failure_recovers_copied_snapshot_without_mutating_source(self):
-        self.core()
-        before = self.store.input_hash(self.run)
-        profile = self.profile.model_copy(update={"runner": "pooling"})
-        with (
-            patch("uw_coursemap.profiles.load_profile", return_value=profile),
-            patch("uw_coursemap.derive.derive", side_effect=RuntimeError("offline")),
-        ):
-            with self.assertRaises(RuntimeError):
-                build(self.root, self.run, "unused")
-        directory = next((self.root / "builds").glob("build-*"))
-        state = self.store.get_artifact(self.run, "source_state")
-
-        def complete(store, run):
-            store.artifact(run, "graph", state, store.input_hash(run), {})
-
-        with (
-            self.store.lock(),
-            patch("uw_coursemap.derive.derive", side_effect=complete),
-        ):
-            meta = build(self.root, self.run, build_id=directory.name)
-        self.assertEqual(meta["run_id"], directory.name)
-        self.assertEqual(self.store.input_hash(self.run), before)
-
-        with patch(
-            "uw_coursemap.derive.derive",
-            side_effect=AssertionError("reran completed build"),
-        ):
-            build(self.root, self.run, build_id=directory.name)
-        # Recover interruption between the database commit and metadata rename.
-        (directory / "build.json").unlink()
-        with patch("uw_coursemap.profiles.load_profile", return_value=profile):
-            self.assertEqual(build(self.root, self.run, "unused"), meta)
-        with sqlite3.connect(directory / "pipeline.sqlite") as db:
-            self.assertEqual(db.execute("SELECT count(*) FROM runs").fetchone()[0], 1)
-
-    def test_unknown_explicit_build_does_not_create_a_workspace(self):
-        self.core()
-        with self.assertRaisesRegex(ValueError, "Unknown build"):
-            build(self.root, self.run, "unused", build_id="build-typo")
-        self.assertFalse((self.root / "builds/build-typo").exists())
-
     def test_unresolved_enrollment_hit_preserves_raw_offering(self):
-        from uw_coursemap.derive import reconcile
+        from uw_coursemap.reconcile import reconcile
 
         before = self.store.records(self.run, "offerings")
         self.assertTrue(before)
@@ -633,7 +623,7 @@ class LifecycleTests(unittest.TestCase):
                 http_settings({"http": limits})
 
     def test_historical_crosslisting_ambiguity_preserves_raw_grades(self):
-        from uw_coursemap.derive import reconcile, encode_state
+        from uw_coursemap.reconcile import reconcile, encode_state
 
         course = self.store.records(self.run, "courses")["COMPSCI 300"]
         course["course_reference"]["subjects"] = ["MUSIC"]
