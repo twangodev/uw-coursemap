@@ -1,9 +1,10 @@
 <script lang="ts">
   import AnimatedNumber from "./AnimatedNumber.svelte";
+  import { termName } from "$lib/format";
   import { BarChart } from "layerchart";
   import MetricComparison from "./MetricComparison.svelte";
   import { metricColor, type Benchmark } from "$lib/grade-benchmarks";
-  let { grades = [], benchmark }: { grades: any[]; benchmark?: Benchmark | null } = $props();
+  let { grades = [], benchmark, term = "" }: { grades: any[]; benchmark?: Benchmark | null; term?: string } = $props();
   const keys = ["a", "ab", "b", "bc", "c", "d", "f"];
   const weights = [4, 3.5, 3, 2.5, 2, 1, 0];
   let bars = $derived(
@@ -76,7 +77,7 @@
     </div>
   {:else}<p class="muted">No recorded grade history.</p>{/if}
   <p class="snapshot-note">
-    All recorded terms · <a href="#grades">compare terms & instructors</a>
+    {term ? termName(term) : "All recorded terms"} · <a href="#grades">compare terms & instructors</a>
   </p>
 </div>
 

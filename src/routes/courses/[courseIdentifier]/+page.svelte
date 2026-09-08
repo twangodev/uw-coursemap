@@ -33,7 +33,10 @@
   );
   let comparisonScope = $state("school");
   let scope = $derived(c.subjects.includes(comparisonScope) ? comparisonScope : "school");
-  let benchmark = $derived(data.context?.benchmarks.all[scope]);
+  let selectedGradeTerm = $state("");
+  let overviewGrades = $derived(c.grades.filter((row: any) => !selectedGradeTerm || row.term_id === selectedGradeTerm));
+  let benchmark = $derived(selectedGradeTerm ? data.context?.benchmarks.terms[selectedGradeTerm]?.[scope] : data.context?.benchmarks.all[scope]);
+  $effect(() => { c.course_uid; selectedGradeTerm = ""; });
   let summary = $derived(c.student_summary);
   let Graph = $state<any>(null);
   let graphError = $state("");
@@ -118,19 +121,25 @@
     ><span>{credits(c.credits_min, c.credits_max)}</span>
   </div>
 </div>
-<nav class="course-jumps" aria-label="Course sections">
-  {#each links as link}<a
-      href={"#" + link.id}
-      aria-current={active === link.id ? "location" : undefined}
-      ><link.icon size={14} strokeWidth={1.5} />{link.label}</a
-    >{/each}
-</nav>
-{#if data.context}
-  <div class="comparison-toolbar">
-    <span>Compare with</span>
-    <Select label="Comparison group" value={scope} onChange={(value) => comparisonScope = value} options={[{ value: "school", label: "School · UW–Madison" }, ...c.subjects.map((subject: string) => ({ value: subject, label: `Department · ${subject}` }))]} />
+<div class="course-navigation">
+  <nav class="course-jumps" aria-label="Course sections">
+    {#each links as link}<a
+        href={"#" + link.id}
+        aria-current={active === link.id ? "location" : undefined}
+        ><link.icon size={14} strokeWidth={1.5} />{link.label}</a
+      >{/each}
+  </nav>
+  <div class="navigation-filters">
+    {#if data.context}
+      <div class="navigation-filter"><span>Compare with</span>
+        <Select label="Comparison group" value={scope} onChange={(value) => comparisonScope = value} options={[{ value: "school", label: "School · UW–Madison" }, ...c.subjects.map((subject: string) => ({ value: subject, label: `Department · ${subject}` }))]} />
+      </div>
+    {/if}
+    <div class="navigation-filter"><span>Term</span>
+      <Select label="Term" bind:value={selectedGradeTerm} options={[{ value: "", label: "All recorded terms" }, ...[...new Set<string>(c.grades.map((row: any) => row.term_id))].sort().reverse().map((term) => ({ value: term, label: termName(term) }))]} />
+    </div>
   </div>
-{/if}
+</div>
 <section class="course-overview" id="overview" aria-label="Course overview">
   <div class="overview-take">
     {#if summary.difficulty_workload?.length || summary.quick_take?.length || summary.student_experience?.length}
@@ -140,7 +149,7 @@
       />{/key}
     {:else}<h2>What to expect</h2><p class="muted">No student feedback recorded yet.</p>{/if}
   </div>
-  <GradeSnapshot grades={c.grades} {benchmark} />
+  <GradeSnapshot grades={overviewGrades} {benchmark} term={selectedGradeTerm} />
 </section>
 <div class="course-workspace">
   <aside class="course-facts" aria-label="Course details">
@@ -186,6 +195,8 @@
     <Panel title="Grades" id="grades">
       <Grades
         grades={c.grades}
+        bind:selectedTerm={selectedGradeTerm}
+        showTermSelect={false}
         benchmarks={data.context?.benchmarks}
         {scope}
         uid={c.course_uid}
@@ -403,8 +414,19 @@
 </div>
 
 <style>
-  .comparison-toolbar { display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-top: 28px; color: var(--muted); font-size: 13px; }
-  @media (max-width: 600px) { .comparison-toolbar { justify-content: flex-start; } }
+  .course-navigation { display: flex; align-items: center; gap: 20px; position: sticky; top: 0; z-index: 20; background: var(--bg); border-bottom: 1px solid var(--border); padding: 10px 0; }
+  .course-navigation .course-jumps { position: static; flex: 1; min-width: 0; border: 0; margin: 0; padding: 0; }
+  .course-navigation .course-jumps a { font-size: 12px; padding: 9px 8px; gap: 5px; }
+  .navigation-filters { display: flex; gap: 10px; flex-shrink: 0; }
+  .navigation-filter { display: grid; gap: 4px; min-width: 0; }
+  .navigation-filter > span { font-size: 11px; color: var(--muted); }
+  @media (max-width: 1000px) {
+    .course-navigation { flex-wrap: wrap; gap: 10px; }
+    .course-navigation .course-jumps { flex-basis: 100%; }
+    .navigation-filters { width: 100%; }
+    .navigation-filter { flex: 1; }
+    .course-overview, .course-workspace :global(section) { scroll-margin-top: 145px; }
+  }
 
   .course-tag-groups {
     display: grid;

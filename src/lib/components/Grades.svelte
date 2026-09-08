@@ -14,6 +14,8 @@
     instructors = [],
     benchmarks,
     scope = "school",
+    selectedTerm = $bindable(""),
+    showTermSelect = true,
   }: {
     grades: any[];
     uid: string;
@@ -21,8 +23,9 @@
     instructors: any[];
     benchmarks?: { all: Benchmarks; terms: Record<string, Benchmarks> };
     scope?: string;
+    selectedTerm?: string;
+    showTermSelect?: boolean;
   } = $props();
-  let selectedTerm = $state("");
   let selectedInstructor = $state("");
   // Instructor subsets have different term/section coverage; do not compare them with whole courses.
   let benchmark = $derived(selectedInstructor ? null : (selectedTerm ? benchmarks?.terms[selectedTerm]?.[scope] : benchmarks?.all[scope]));
@@ -140,7 +143,7 @@
   </div>
 </div>
 <div class="filters">
-  <div class="filter-select"><span>Term</span><Select label="Term" bind:value={selectedTerm} options={[{ value: "", label: "All recorded terms" }, ...[...new Set<string>(grades.map((r) => r.term_id))].sort().reverse().map((term) => ({ value: term, label: termName(term) }))]} /></div>
+  {#if showTermSelect}<div class="filter-select"><span>Term</span><Select label="Term" bind:value={selectedTerm} options={[{ value: "", label: "All recorded terms" }, ...[...new Set<string>(grades.map((r) => r.term_id))].sort().reverse().map((term) => ({ value: term, label: termName(term) }))]} /></div>{/if}
   <div class="filter-select"><span>Instructor</span><Select label="Instructor" bind:value={selectedInstructor} onChange={change} options={[{ value: "", label: "Course overall" }, ...instructors.map((i) => ({ value: i.instructor_uid, label: i.name }))]} /></div>
 </div>
 <p class="benchmark-note">{scope === "school" ? "UW–Madison" : scope} · matching recorded terms · all course levels.
