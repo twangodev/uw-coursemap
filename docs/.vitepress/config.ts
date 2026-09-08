@@ -68,7 +68,7 @@ const vitePressOptions: UserConfig = {
         text: "Usage",
         items: [
           {
-            text: "Content API Specification",
+            text: "Data access",
             link: "/usage/static-api",
           },
           {},

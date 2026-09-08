@@ -15,7 +15,7 @@ updates:
           - "minor"
           - "patch"
 
-  - package-ecosystem: "npm"
+  - package-ecosystem: "bun"
     directory: "/"
     schedule:
       interval: "weekly"
@@ -30,15 +30,6 @@ updates:
         update-types:
           - "minor"
           - "patch"
-
-  - package-ecosystem: "docker"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    groups:
-      docker:
-        patterns:
-          - "*"
 
   - package-ecosystem: "github-actions"
     directory: "/"

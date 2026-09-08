@@ -38,11 +38,6 @@ __pycache__
 # JetBrains
 /.idea
 
-# Paraglide / i18n
-src/paraglide/
-
-# Paraglide
-src/lib/paraglide
 
 # Local scraping runs and packaging
 .coursemap/
@@ -56,3 +51,12 @@ generation/build/
 generation/dist/
 
 inference/.venv/
+
+# Website build data
+/.site/
+/static/data/
+/.wrangler/
+/test-results/
+/playwright-report/
+
+/.ruff_cache/

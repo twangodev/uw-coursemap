@@ -1,80 +1,28 @@
-name: Node.js CI
-
-on:
-  push:
-  pull_request:
-
+name: Website CI
+on: [push, pull_request]
 permissions:
   contents: read
-
 jobs:
-  check-web:
+  web:
     runs-on: ubuntu-latest
-    env:
-      PUBLIC_API_URL: ${{ vars.PUBLIC_API_URL }}
-      PUBLIC_SEARCH_API_URL: ${{ vars.PUBLIC_SEARCH_API_URL }}
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
         with:
-          fetch-depth: "0"
-      - name: Setup Node
-        uses: actions/setup-node@v6
-        with:
-          node-version: 25
-          cache: "npm"
-      - run: npm ci
-      - run: npm run check
-
-  test-web:
-    runs-on: ubuntu-latest
-    env:
-      PUBLIC_API_URL: ${{ vars.PUBLIC_API_URL }}
-      PUBLIC_SEARCH_API_URL: ${{ vars.PUBLIC_SEARCH_API_URL }}
-    steps:
-      - uses: actions/checkout@v6
-        with:
-          fetch-depth: "0"
-      - name: Setup Node
-        uses: actions/setup-node@v6
+          bun-version: 1.4.0
+      - uses: actions/setup-node@v6
         with:
           node-version: 25
-          cache: "npm"
-      - run: npm ci
-      - run: npm run test
-
-  build-web:
-    runs-on: ubuntu-latest
-    needs:
-      - check-web
-      - test-web
-    env:
-      PUBLIC_API_URL: ${{ vars.PUBLIC_API_URL }}
-      PUBLIC_SEARCH_API_URL: ${{ vars.PUBLIC_SEARCH_API_URL }}
-    steps:
-      - uses: actions/checkout@v6
+      - uses: astral-sh/setup-uv@v6
         with:
-          fetch-depth: "0"
-      - name: Setup Node
-        uses: actions/setup-node@v6
-        with:
-          node-version: 25
-          cache: "npm"
-      - run: npm ci
-      - run: npm run build
-      - run: npm test
-
-  build-docs:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-        with:
-          fetch-depth: "0"
-      - name: Setup Node
-        uses: actions/setup-node@v6
-        with:
-          node-version: 25
-          cache: "npm"
-      - run: npm ci
-      - run: npm run docs:build --if-present
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          enable-cache: true
+      - run: bun install --frozen-lockfile
+      - run: uv run --locked uwcourses-site import --limit 8
+      - run: bun run check
+      - run: bun run test
+      - run: uv run --locked python -m unittest discover -s web/tests -p 'test_*.py'
+      - run: bun run build
+      - run: uv run --locked uwcourses-site assets-check
+      - run: bun x playwright install --with-deps chromium
+      - run: bun x playwright test

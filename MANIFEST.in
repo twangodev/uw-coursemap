@@ -1,3 +1,5 @@
 include uv.lock
 include generation/README.md
 recursive-include generation/tests *.py *.html *.json
+
+recursive-include web/uwcourses_site *.py *.json

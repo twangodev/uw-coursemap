@@ -1,20 +1,9 @@
 # Architecture
 
-The repository contains a SvelteKit frontend and a local Python data pipeline.
+The local Python pipeline scrapes source data and runs LLM enrichment, then publishes historical Parquet tables to [Hugging Face](https://huggingface.co/datasets/twangodev/uw-coursemap).
 
-The pipeline manually collects course, enrollment, grade, faculty, and review
-records each semester. A separate inference server adds structured metadata,
-prerequisite trees, and cited student summaries. Releases preserve source history
-and model traces in relational Parquet tables on
-[Hugging Face](https://huggingface.co/datasets/twangodev/uw-coursemap).
+A nightly GitHub Actions workflow pins that dataset revision. The `uwcourses_site` Python package validates and imports it into website-specific SQLite/D1 tables and bounded static evidence files. SvelteKit prerenders courses, departments and current instructors. Native Wrangler commands stage the inactive D1 database and deploy the matching Worker and assets.
 
-The frontend currently consumes externally hosted data through `PUBLIC_API_URL`
-and search through `PUBLIC_SEARCH_API_URL`. Its existing search interface uses
-`POST /search` and `GET /random-courses`.
+Cloudflare Workers Static Assets serves pages, histories and model traces. Same-origin `/api` endpoints provide D1 full-text search and structured filtering. Historical instructor pages render on demand. No scraping or inference runs in the request path.
 
-The Flask/Elasticsearch service and static website export pipeline have been
-removed. The planned Cloudflare Worker will ingest Parquet and own API responses
-and search indexing. That Worker is not implemented in this checkout yet.
-
-See [frontend](../codebase/frontend.md) and
-[generation](../codebase/generation.md) for the maintained code paths.
+See the repository's [website guide](https://github.com/twangodev/uw-coursemap/blob/main/web/README.md) for setup, validation and deployment.

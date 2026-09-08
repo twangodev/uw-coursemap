@@ -1,0 +1,109 @@
+name: Nightly website
+on:
+  schedule:
+    - cron: "17 3 * * *"
+      timezone: America/Los_Angeles
+  workflow_dispatch:
+    inputs:
+      first_deployment:
+        description: First deployment (Worker does not exist yet)
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: website-production
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      NODE_OPTIONS: --max-old-space-size=6144
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 25
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: bun install --frozen-lockfile
+      - run: uv run --locked uwcourses-site import
+      - name: Verify complete pinned release
+        run: jq -e ' .limited == false and (.revision | test("^[a-f0-9]{40}$")) ' .site/status.json
+      - run: bun run check
+      - run: bun run test
+      - run: uv run --locked python -m unittest discover -s web/tests -p 'test_*.py'
+      - run: bun run build
+      - run: uv run --locked uwcourses-site assets-check
+      - run: bun x playwright install --with-deps chromium
+      - run: bun x playwright test
+      - name: Select inactive D1 database
+        id: database
+        env:
+          WORKER_NAME: uw-coursemap
+          FIRST_DEPLOYMENT: ${{ inputs.first_deployment || false }}
+        run: |
+          set -euo pipefail
+          projection=$(jq -r .projection_id .site/status.json)
+          import=true
+          code=$(curl --silent --show-error --output .site/worker-settings.json --write-out '%{http_code}' \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/scripts/$WORKER_NAME/settings")
+          if [ "$code" = 404 ] && [ "$FIRST_DEPLOYMENT" = true ]; then
+            slot=blue
+          else
+            test "$code" = 200
+            jq -e '.success == true' .site/worker-settings.json
+            active=$(jq -r '[.result.bindings[] | select(.name=="DATA_SLOT") | .text][0]' .site/worker-settings.json)
+            case "$active" in
+              blue) slot=green ;;
+              green) slot=blue ;;
+              *) echo 'Cannot determine active D1 database; refusing to import.' >&2; exit 1 ;;
+            esac
+          fi
+          if [ "$code" = 200 ]; then
+            current=$(jq -r '[.result.bindings[] | select(.name=="DATA_PROJECTION") | .text][0]' .site/worker-settings.json)
+            if [ "$current" = "$projection" ]; then slot=$active; import=false; fi
+          fi
+          echo "projection=$projection" >> "$GITHUB_OUTPUT"
+          echo "import=$import" >> "$GITHUB_OUTPUT"
+          echo "slot=$slot" >> "$GITHUB_OUTPUT"
+          echo "binding=DB_${slot^^}" >> "$GITHUB_OUTPUT"
+      - name: Import inactive D1 database
+        if: steps.database.outputs.import == 'true'
+        env:
+          DATABASE_BINDING: ${{ steps.database.outputs.binding }}
+        run: |
+          set -euo pipefail
+          for part in .site/sql/*.sql; do
+            bun x wrangler d1 execute "$DATABASE_BINDING" --remote --file="$part"
+          done
+      - name: Verify staged database
+        env:
+          DATABASE_BINDING: ${{ steps.database.outputs.binding }}
+        run: |
+          set -euo pipefail
+          bun x wrangler d1 execute "$DATABASE_BINDING" --remote --json \
+            --command="SELECT (SELECT value FROM metadata WHERE key='ready') ready, (SELECT value FROM metadata WHERE key='status') status, (SELECT count(*) FROM courses) courses" > .site/d1-check.json
+          jq -e --slurpfile expected .site/status.json '.[0].results[0] | .ready == "true" and .courses == $expected[0].courses and ((.status | fromjson).projection_id == $expected[0].projection_id)' .site/d1-check.json
+      - name: Deploy matching code, assets and data selection
+        env:
+          DATA_SLOT: ${{ steps.database.outputs.slot }}
+          DATA_PROJECTION: ${{ steps.database.outputs.projection }}
+        run: bun x wrangler deploy --var "DATA_SLOT:$DATA_SLOT" --var "SITE_COMMIT:$GITHUB_SHA" --var "DATA_PROJECTION:$DATA_PROJECTION" --var "DEPLOYED_AT:$(date -u +%FT%TZ)"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: website-release
+          path: |
+            .site/status.json
+            .site/d1-check.json
+          retention-days: 30

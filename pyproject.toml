@@ -38,7 +38,11 @@ build-backend = "setuptools.build_meta"
 
 [project.scripts]
 coursemap = "uw_coursemap.cli:main"
+uwcourses-site = "uwcourses_site.cli:main"
 
 [tool.setuptools]
-package-dir = {"" = "generation"}
-packages = ["uw_coursemap"]
+package-dir = {"" = "generation", "uwcourses_site" = "web/uwcourses_site"}
+packages = ["uw_coursemap", "uwcourses_site"]
+
+[tool.setuptools.package-data]
+uwcourses_site = ["schema-v6.json"]
