@@ -3,6 +3,7 @@ export interface CourseCard {
   course_uid: string;
   course_id: string;
   title: string;
+  description?: string | null;
   credits_min: number | null;
   credits_max: number | null;
   gpa: number | null;

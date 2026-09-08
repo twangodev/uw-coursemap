@@ -65,6 +65,7 @@ export async function coursePreviews(
       ?.summary?.find((row: any) => row.citations?.length);
     return {
       ...item,
+      description: course.description || null,
       discovery: {
         term,
         offered: course.offerings.some((row: any) => row.term_id === term),

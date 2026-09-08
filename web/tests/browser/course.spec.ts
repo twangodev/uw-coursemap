@@ -25,6 +25,7 @@ test("course reading, citations, graph and theme", async ({ page }) => {
 });
 test("search resolves aliases and exposes filters", async ({ page }) => {
   await page.goto("/search?q=CS300");
+  await expect(page.locator(".discovery-card .catalog-description").first()).toContainText("Introduction to Object-Oriented Programming");
   await expect(page.locator(".discovery-card").first()).toContainText(
     "COMPSCI 300",
   );
