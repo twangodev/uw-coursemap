@@ -35,7 +35,7 @@
         x="grade"
         y="count"
         series={[{ key: "count", color: "var(--accent)" }]}
-        height={130}
+        height={105}
         axis="x"
         grid={false}
         props={{ bars: { strokeWidth: 0, radius: 2 } }}
@@ -73,7 +73,7 @@
     margin: 14px 0 0;
   }
   .snapshot-value strong {
-    font-size: 48px;
+    font-size: 44px;
     font-weight: 500;
     letter-spacing: -0.06em;
     line-height: 1.1;
@@ -82,7 +82,7 @@
     font-size: 13px;
   }
   .mini-chart {
-    height: 135px;
+    height: 110px;
     margin-top: 8px;
   }
   .mini-chart :global(rect) {

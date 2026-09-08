@@ -421,8 +421,8 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 7px;
-  font: 12px var(--font-mono);
-  padding: 8px 12px;
+  font: 14px var(--font-sans);
+  padding: 9px 12px;
   border-radius: 4px;
   white-space: nowrap;
   color: var(--muted);
@@ -440,7 +440,7 @@ a:hover {
 }
 .course-content {
   display: grid;
-  gap: 36px;
+  gap: 48px;
   min-width: 0;
 }
 .course-facts {
@@ -514,7 +514,7 @@ a:hover {
   padding-left: 24px;
 }
 .tile-label {
-  font: 12px var(--font-mono);
+  font: 14px var(--font-sans);
   color: var(--muted);
   margin-bottom: 12px;
 }
@@ -591,7 +591,7 @@ a:hover {
   max-width: 260px;
 }
 .panel .filters label {
-  font: 12px var(--font-mono);
+  font: 13px var(--font-sans);
 }
 .metric-strip {
   display: flex;
@@ -601,11 +601,12 @@ a:hover {
   margin-bottom: 16px;
 }
 .metric-value {
-  font: 500 28px/1.2 var(--font-mono);
+  font: 500 32px/1.2 var(--font-sans);
+  font-variant-numeric: tabular-nums;
   letter-spacing: -0.06em;
 }
 .metric-label {
-  font: 12px var(--font-mono);
+  font: 13px var(--font-sans);
   color: var(--muted);
   margin-top: 4px;
 }
@@ -697,7 +698,7 @@ a:hover {
 }
 .teacher-label {
   display: block;
-  font: 12px var(--font-mono);
+  font: 14px var(--font-sans);
   color: var(--muted);
   margin-bottom: 8px;
 }
@@ -716,7 +717,7 @@ a:hover {
   scroll-margin-top: 80px;
 }
 .overview-take {
-  padding: 24px 28px;
+  padding: 28px 32px;
   border: 1px solid var(--border);
   border-radius: 6px;
 }
@@ -725,31 +726,26 @@ a:hover {
   gap: 12px;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 .overview-heading h2 {
   font-size: 21px;
 }
 .overview-take .claim {
-  font-size: 17px;
-  line-height: 1.55;
+  max-width: 52ch;
+  font-size: 19px;
+  line-height: 1.6;
 }
 .overview-take .citations {
   font-size: 12px;
   color: var(--muted);
-}
-.overview-workload {
-  margin-top: 16px;
-}
-.overview-workload .claim {
-  font-size: 15px;
 }
 .overview-link {
   display: inline-flex;
   gap: 6px;
   align-items: center;
   font-size: 13px;
-  margin-top: 14px;
+  margin-top: 24px;
 }
 .course-content > .panel {
   background: transparent;
@@ -853,4 +849,60 @@ a:hover {
 .hero {
   padding: 14px 0 32px;
   gap: 18px;
+}
+
+/* Motion adds continuity without withholding content or moving the page layout. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+  .route-content {
+    animation: content-arrive 280ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+  }
+  a,
+  button,
+  input,
+  select {
+    transition:
+      color 160ms ease,
+      background-color 160ms ease,
+      border-color 160ms ease;
+  }
+  .course-row {
+    transition: background-color 180ms ease;
+  }
+  .course-row:hover {
+    background: color-mix(in srgb, var(--surface) 55%, transparent);
+  }
+  .current-teachers a svg,
+  .overview-link svg,
+  .small-link svg {
+    transition: transform 180ms ease;
+  }
+  .current-teachers a:hover svg,
+  .overview-link:hover svg,
+  .small-link:hover svg {
+    transform: translate(2px, -2px);
+  }
+  details[open] > :not(summary) {
+    animation: disclosure-arrive 180ms ease-out;
+  }
+  @keyframes content-arrive {
+    from {
+      opacity: 0.35;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes disclosure-arrive {
+    from {
+      opacity: 0;
+      transform: translateY(-3px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }

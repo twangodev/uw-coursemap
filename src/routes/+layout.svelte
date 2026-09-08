@@ -59,7 +59,9 @@
   </nav>
 </header>
 <main class="page" id="main">
-  {#key page.url.pathname}{@render children()}{/key}
+  {#key page.url.pathname}<div class="route-content">
+      {@render children()}
+    </div>{/key}
 </main>
 <footer class="page row between">
   <div>
@@ -116,7 +118,7 @@
     margin-right: 9px;
   }
   nav .row {
-    font: 12px var(--font-mono);
+    font: 14px var(--font-sans);
   }
   .theme-control {
     position: relative;
@@ -155,7 +157,7 @@
     }
     nav .row {
       gap: 12px;
-      font-size: 11px;
+      font-size: 13px;
     }
     .brand {
       font-size: 22px;

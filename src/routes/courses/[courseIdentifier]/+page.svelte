@@ -95,10 +95,7 @@
       ><i></i>{c.offerings.length
         ? "offered this term"
         : "not currently offered"}</span
-    ><span>{credits(c.credits_min, c.credits_max)}</span><span
-      >{c.instructors.length}
-      {c.instructors.length === 1 ? "instructor" : "instructors"}</span
-    >
+    ><span>{credits(c.credits_min, c.credits_max)}</span>
   </div>
 </div>
 <nav class="course-jumps" aria-label="Course sections">
@@ -112,24 +109,16 @@
   <div class="overview-take">
     <div class="overview-heading">
       <h2>What to expect</h2>
-      <span class="mono muted">AI summary · sources below</span>
+      <span class="mono muted">AI summary</span>
     </div>
-    <Claims
-      claims={(summary.quick_take || [])
-        .filter(
-          (claim: any) =>
-            !claim.citations?.length ||
-            claim.citations.some((citation: any) => citation.type === "review"),
-        )
-        .slice(0, 1)}
-      reviewFiles={c.evidence.reviews}
-    />
-    {#if summary.difficulty_workload?.length}<div class="overview-workload">
-        <span class="teacher-label">Workload</span><Claims
-          claims={summary.difficulty_workload.slice(0, 1)}
-          reviewFiles={c.evidence.reviews}
-        />
-      </div>{:else}<p class="muted">No workload feedback recorded.</p>{/if}
+    {#if summary.difficulty_workload?.length || summary.quick_take?.length}
+      <Claims
+        claims={summary.difficulty_workload?.length
+          ? summary.difficulty_workload.slice(0, 1)
+          : summary.quick_take.slice(0, 1)}
+        reviewFiles={c.evidence.reviews}
+      />
+    {:else}<p class="muted">No student feedback recorded yet.</p>{/if}
     <a class="overview-link" href="#experience"
       >All student feedback <ArrowUpRight size={14} /></a
     >
@@ -164,16 +153,19 @@
       <div class="fact-block">
         <h3><BookOpen size={13} /> Topics</h3>
         <div class="tags">
-          {#each c.llm_topics as topic}<span>{topic}</span>{/each}
+          {#each c.llm_topics.slice(0, 2) as topic}<span>{topic}</span>{/each}
+          {#if c.llm_topics.length > 2}<details>
+              <summary>More topics</summary>
+              <div class="tags">
+                {#each c.llm_topics.slice(2) as topic}<span>{topic}</span
+                  >{/each}
+              </div>
+            </details>{/if}
         </div>
       </div>
-      <div class="fact-block">
-        <h3><GitBranch size={13} /> Before you enroll</h3>
-        <p>{c.requirements_text || "No prerequisites listed."}</p>
-        <a class="small-link" href="#requirements"
-          >Explore requirements <ArrowUpRight size={12} /></a
-        >
-      </div>
+      <a class="small-link" href="#requirements"
+        >View prerequisites <ArrowUpRight size={14} /></a
+      >
       <details>
         <summary>Catalog description</summary>
         <p>{c.description}</p>

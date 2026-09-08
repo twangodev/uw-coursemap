@@ -249,4 +249,28 @@
       gap: 5px;
     }
   }
+  @media (prefers-reduced-motion: no-preference) {
+    .landing-copy {
+      animation: landing-arrive 600ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+    }
+    .landing-art {
+      animation: landing-arrive 850ms 80ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+    }
+    .landing-search button :global(svg) {
+      transition: transform 180ms ease;
+    }
+    .landing-search button:hover :global(svg) {
+      transform: translate(2px, -2px);
+    }
+    @keyframes landing-arrive {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
 </style>
