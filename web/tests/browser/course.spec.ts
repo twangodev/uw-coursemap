@@ -168,3 +168,28 @@ test("course context, projection and captured instructor ratings remain distinct
   ).toBeVisible();
   await expect(page.locator(".rating-values")).toContainText("93");
 });
+
+test("takeaways rotate and pause for reading sources", async ({ page }) => {
+  await page.clock.install();
+  await page.goto(`/courses/${uid}`);
+  await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
+  const card = page.getByRole("region", { name: "Student takeaways", exact: true });
+  const initial = await card.locator(".claim > p").textContent();
+  await page.mouse.move(0, 0);
+  await page.clock.fastForward(8000);
+  await expect(card.locator(".claim > p")).not.toHaveText(initial!);
+  await card.getByRole("button", { name: "Pause takeaway rotation" }).click();
+  const paused = await card.locator(".claim > p").textContent();
+  await page.mouse.move(0, 0);
+  await page.clock.fastForward(16000);
+  await expect(card.locator(".claim > p")).toHaveText(paused!);
+  await card.getByRole("button", { name: "Next takeaway" }).click();
+  await expect(card.locator(".claim > p")).not.toHaveText(paused!);
+  await card.locator("details > summary").first().click();
+  await card.getByRole("button", { name: "Resume takeaway rotation" }).click();
+  await card.getByRole("button", { name: "Pause takeaway rotation" }).blur();
+  const reading = await card.locator(".claim > p").textContent();
+  await page.mouse.move(0, 0);
+  await page.clock.fastForward(16000);
+  await expect(card.locator(".claim > p")).toHaveText(reading!);
+});

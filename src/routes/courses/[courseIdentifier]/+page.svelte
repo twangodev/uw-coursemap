@@ -11,6 +11,7 @@
   } from "@lucide/svelte";
   import Panel from "$lib/components/Panel.svelte";
   import Claims from "$lib/components/Claims.svelte";
+  import RotatingClaims from "$lib/components/RotatingClaims.svelte";
   import Evidence from "$lib/components/Evidence.svelte";
   import InstructorStats from "$lib/components/InstructorStats.svelte";
   import GradeProjection from "$lib/components/GradeProjection.svelte";
@@ -122,21 +123,12 @@
 </nav>
 <section class="course-overview" id="overview" aria-label="Course overview">
   <div class="overview-take">
-    <div class="overview-heading">
-      <h2>What to expect</h2>
-      <span class="mono muted">AI summary</span>
-    </div>
-    {#if summary.difficulty_workload?.length || summary.quick_take?.length}
-      <Claims
-        claims={summary.difficulty_workload?.length
-          ? summary.difficulty_workload.slice(0, 1)
-          : summary.quick_take.slice(0, 1)}
+    {#if summary.difficulty_workload?.length || summary.quick_take?.length || summary.student_experience?.length}
+      {#key c.course_uid}<RotatingClaims
+        claims={[...(summary.difficulty_workload || []), ...(summary.quick_take || []), ...(summary.student_experience || [])]}
         reviewFiles={c.evidence.reviews}
-      />
-    {:else}<p class="muted">No student feedback recorded yet.</p>{/if}
-    <a class="overview-link" href="#experience"
-      >All student feedback <ArrowUpRight size={14} /></a
-    >
+      />{/key}
+    {:else}<h2>What to expect</h2><p class="muted">No student feedback recorded yet.</p>{/if}
   </div>
   <GradeSnapshot grades={c.grades} />
 </section>
