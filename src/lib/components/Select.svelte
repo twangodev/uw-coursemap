@@ -29,12 +29,12 @@
 </Select.Root>
 
 <style>
-  :global(.course-select-trigger) { display: inline-flex; align-items: center; justify-content: space-between; gap: 16px; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 5px; padding: 9px 12px; font: inherit; font-size: 13px; max-width: 100%; cursor: pointer; }
+  :global(.course-select-trigger) { display: inline-flex; align-items: center; justify-content: space-between; gap: 16px; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 5px; padding: 4px 10px; font: inherit; font-size: 12px; line-height: 18px; max-width: 100%; cursor: pointer; }
   :global(.course-select-trigger span) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   :global(.course-select-trigger svg) { flex-shrink: 0; color: var(--muted); }
   :global(.course-select-trigger:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
   :global(.course-select-content) { z-index: 100; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 4px; box-shadow: 0 8px 24px #0002; min-width: var(--bits-select-anchor-width); max-width: min(360px, calc(100vw - 24px)); max-height: min(320px, var(--bits-select-content-available-height)); overflow-y: auto; }
-  :global(.course-select-item) { display: flex; align-items: center; justify-content: space-between; gap: 20px; border-radius: 3px; padding: 9px 10px; font-size: 13px; cursor: pointer; outline: none; }
+  :global(.course-select-item) { display: flex; align-items: center; justify-content: space-between; gap: 20px; border-radius: 3px; padding: 5px 9px; font-size: 12px; line-height: 18px; cursor: pointer; outline: none; }
   :global(.course-select-item[data-highlighted]) { background: var(--border); }
   :global(.course-select-item svg) { flex-shrink: 0; color: var(--accent); }
 </style>

@@ -418,11 +418,11 @@
 </div>
 
 <style>
-  .course-navigation { display: flex; align-items: center; gap: 20px; position: sticky; top: 0; z-index: 20; background: var(--bg); border-bottom: 1px solid var(--border); padding: 10px 0; }
+  .course-navigation { display: flex; align-items: center; gap: 20px; position: sticky; top: 0; z-index: 20; background: var(--bg); border-bottom: 1px solid var(--border); padding: 6px 0; }
   .course-navigation .course-jumps { position: static; flex: 1; min-width: 0; border: 0; margin: 0; padding: 0; }
   .course-navigation .course-jumps a { font-size: 12px; padding: 9px 8px; gap: 5px; }
   .navigation-filters { display: flex; gap: 10px; flex-shrink: 0; }
-  .navigation-filter { display: grid; gap: 4px; min-width: 0; }
+  .navigation-filter { display: grid; gap: 2px; min-width: 0; }
   .navigation-filter > span { font-size: 11px; color: var(--muted); }
   @media (max-width: 1000px) {
     .course-navigation { flex-wrap: wrap; gap: 10px; }
