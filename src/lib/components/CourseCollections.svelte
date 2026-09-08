@@ -7,7 +7,6 @@
   }: { subject?: string; term?: string; active?: string } = $props();
   let query = $derived(
     new URLSearchParams({
-      ...(subject ? { subject } : {}),
       ...(term ? { term } : {}),
     }).toString(),
   );
@@ -16,7 +15,7 @@
 <nav aria-label="Course collections" class="collections">
   {#each Object.entries(courseCollections) as [slug, collection]}
     <a
-      href={`/courses/${slug}${query ? `?${query}` : ""}`}
+      href={`${subject ? `/subjects/${encodeURIComponent(subject)}` : "/courses"}/${slug}${query ? `?${query}` : ""}`}
       aria-current={active === slug ? "page" : undefined}
       >{collection.title}<span aria-hidden="true">↗</span></a
     >
