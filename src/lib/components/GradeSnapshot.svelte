@@ -4,7 +4,7 @@
   import { BarChart } from "layerchart";
   import MetricComparison from "./MetricComparison.svelte";
   import { metricColor, type Benchmark } from "$lib/grade-benchmarks";
-  let { grades = [], benchmark, term = "" }: { grades: any[]; benchmark?: Benchmark | null; term?: string } = $props();
+  let { grades = [], benchmark, term = "", group = "UW–Madison" }: { grades: any[]; benchmark?: Benchmark | null; term?: string; group?: string } = $props();
   const keys = ["a", "ab", "b", "bc", "c", "d", "f"];
   const weights = [4, 3.5, 3, 2.5, 2, 1, 0];
   let bars = $derived(
@@ -33,13 +33,12 @@
     <a href="#grades" aria-label="Explore full grade history">↗</a>
   </div>
   <div class="snapshot-value">
-    <strong style:color={metricColor(gpa, benchmark?.gpa)}><AnimatedNumber value={gpa} decimals={2} /></strong><span
+    <strong style:color={metricColor(gpa, benchmark?.gpa)}><MetricComparison value={gpa} reference={benchmark?.gpa} kind="gpa" label="Average GPA" {group}><AnimatedNumber value={gpa} decimals={2} /></MetricComparison></strong><span
       >average GPA<br /><span class="muted"
         ><AnimatedNumber value={total} /> letter grades</span
       ></span
     >
   </div>
-  {#if total}<MetricComparison value={gpa} reference={benchmark?.gpa} kind="gpa" />{/if}
   {#if total}<div class="mini-chart">
       <BarChart
         data={percentageBars}

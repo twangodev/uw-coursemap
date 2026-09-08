@@ -198,12 +198,20 @@ test("school and department comparisons stay synchronized", async ({ page }) => 
   await page.goto(`/courses/${uid}`);
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   const metrics = page.locator("#grades .metric-strip");
-  const school = await numberValues(metrics);
+  await expect(page.getByRole("tooltip")).toHaveCount(0);
+  const trigger = metrics.getByRole("button", { name: "Average GPA comparison", exact: true });
+  await trigger.hover();
+  await expect(page.getByRole("tooltip")).toBeVisible();
+  const school = await numberValues(page.getByRole("tooltip"));
+  await page.keyboard.press("Escape");
   await page.getByRole("button", { name: "Comparison group", exact: true }).click();
   await page.getByRole("option", { name: "Department · COMPSCI", exact: true }).click();
-  await expect.poll(() => numberValues(metrics)).not.toEqual(school);
+  await trigger.focus();
+  await expect(page.getByRole("tooltip")).toContainText("COMPSCI");
+  await expect.poll(() => numberValues(page.getByRole("tooltip"))).not.toEqual(school);
+  await page.keyboard.press("Escape");
   await expect(page.locator(".course-context .context-heading")).toContainText("COMPSCI");
-  await expect(metrics.locator(".metric-comparison")).toHaveCount(3);
+  await expect(metrics.locator(".metric-tooltip-trigger")).toHaveCount(3);
   await page.getByRole("button", { name: "Term", exact: true }).click();
   await page.getByRole("option", { name: "Spring 2026", exact: true }).click();
   await expect(metrics.getByRole("img", { name: "478", exact: true })).toBeVisible();
@@ -223,4 +231,16 @@ test("animated numbers preserve accessible values with reduced motion", async ({
   await page.getByRole("option", { name: "Spring 2026", exact: true }).click();
   await expect(metrics.getByRole("img", { name: "478", exact: true })).toBeVisible();
   expect(await metrics.locator("number-flow-svelte").evaluateAll((nodes) => nodes.every((node) => !node.shadowRoot?.getAnimations().some((animation) => animation.playState === "running")))).toBe(true);
+});
+
+test("metric comparison details open on touch", async ({ browser }) => {
+  const context = await browser.newContext({ hasTouch: true, viewport: { width: 390, height: 844 } });
+  const page = await context.newPage();
+  await page.goto(`http://127.0.0.1:4173/courses/${uid}`);
+  await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
+  await page.locator(".grade-snapshot").getByRole("button", { name: "Average GPA comparison" }).tap();
+  await expect(page.getByRole("tooltip")).toContainText("UW–Madison");
+  await page.locator("h1").tap();
+  await expect(page.getByRole("tooltip")).toHaveCount(0);
+  await context.close();
 });

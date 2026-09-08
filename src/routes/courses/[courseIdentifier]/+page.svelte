@@ -149,7 +149,7 @@
       />{/key}
     {:else}<h2>What to expect</h2><p class="muted">No student feedback recorded yet.</p>{/if}
   </div>
-  <GradeSnapshot grades={overviewGrades} {benchmark} term={selectedGradeTerm} />
+  <GradeSnapshot grades={overviewGrades} {benchmark} term={selectedGradeTerm} group={scope === "school" ? "UW–Madison" : scope} />
 </section>
 <div class="course-workspace">
   <aside class="course-facts" aria-label="Course details">

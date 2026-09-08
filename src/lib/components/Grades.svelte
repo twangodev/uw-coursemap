@@ -125,31 +125,28 @@
 
 <div class="metric-strip">
   <div>
-    <div class="metric-value" style:color={metricColor(gpa, benchmark?.gpa)}><AnimatedNumber value={gpa} decimals={2} /></div>
+    <div class="metric-value" style:color={metricColor(gpa, benchmark?.gpa)}><MetricComparison value={gpa} reference={benchmark?.gpa} kind="gpa" label="Average GPA" group={scope === "school" ? "UW–Madison" : scope}><AnimatedNumber value={gpa} decimals={2} /></MetricComparison></div>
     <div class="metric-label">average GPA</div>
-    <MetricComparison value={gpa} reference={benchmark?.gpa} kind="gpa" />
   </div>
   <div>
     <div class="metric-value" style:color={metricColor(topShare, benchmark?.topShare)}>
-      <AnimatedNumber value={topShare} /><small>%</small>
+      <MetricComparison value={topShare} reference={benchmark?.topShare} kind="share" label="A / AB grades" group={scope === "school" ? "UW–Madison" : scope}><AnimatedNumber value={topShare} /><small>%</small></MetricComparison>
     </div>
     <div class="metric-label">A / AB grades</div>
-    <MetricComparison value={topShare} reference={benchmark?.topShare} kind="share" />
   </div>
   <div>
-    <div class="metric-value" style:color={metricColor(total, benchmark?.count)}><AnimatedNumber value={total} /></div>
+    <div class="metric-value" style:color={metricColor(total, benchmark?.count)}><MetricComparison value={total} reference={benchmark?.count} label="Letter grades" group={scope === "school" ? "UW–Madison" : scope}><AnimatedNumber value={total} /></MetricComparison></div>
     <div class="metric-label">letter grades</div>
-    <MetricComparison value={total} reference={benchmark?.count} />
   </div>
 </div>
 <div class="filters">
   {#if showTermSelect}<div class="filter-select"><span>Term</span><Select label="Term" bind:value={selectedTerm} options={[{ value: "", label: "All recorded terms" }, ...[...new Set<string>(grades.map((r) => r.term_id))].sort().reverse().map((term) => ({ value: term, label: termName(term) }))]} /></div>{/if}
   <div class="filter-select"><span>Instructor</span><Select label="Instructor" bind:value={selectedInstructor} onChange={change} options={[{ value: "", label: "Course overall" }, ...instructors.map((i) => ({ value: i.instructor_uid, label: i.name }))]} /></div>
 </div>
-<p class="benchmark-note">{scope === "school" ? "UW–Madison" : scope} · matching recorded terms · all course levels.
+<details class="benchmark-note"><summary>About these comparisons</summary><p>{scope === "school" ? "UW–Madison" : scope} · matching recorded terms · all course levels.
   {#if selectedInstructor}Whole-course comparisons are unavailable for an instructor subset.
   {:else}Course averages for GPA and A/AB share; median course for grade count. Above/below does not imply teaching quality. Courses may have different historical coverage.{/if}
-</p>
+</p></details>
 {#if failure}<p role="alert">{failure}</p>{/if}{#if loading}<p class="muted">
     Loading grades…
   </p>{/if}
