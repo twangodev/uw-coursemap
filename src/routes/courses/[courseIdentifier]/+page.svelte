@@ -10,7 +10,9 @@
     Users,
     ChartColumn,
     Layers,
+    Info,
   } from "@lucide/svelte";
+  import { Tooltip } from "bits-ui";
   import { citationContext, citationKey, citationNumbers } from "$lib/citations";
   import { courseFitObservations } from "$lib/course-fit";
   import type { Citation } from "$lib/types";
@@ -29,6 +31,7 @@
   let { data } = $props();
   let c = $derived(data.course);
   let comparisonScope = $state("school");
+  let experienceInfoOpen = $state(false);
   let scope = $derived(c.subjects.includes(comparisonScope) ? comparisonScope : "school");
   let termSelection = $state<string | null>(null);
   let projectedTerm = $derived(c.grades.some((row: any) => row.term_id === c.semester && ["a", "ab", "b", "bc", "c", "d", "f"].some((key) => row[key] > 0)) ? "" : c.semester);
@@ -326,8 +329,15 @@
     <Panel
       title="Student experience"
       id="experience"
-      label={snapshotAvailable ? `AI summary · ${termName(c.student_summary?.term_id || c.semester)}` : termLabel}
     >
+      {#snippet tools()}
+        <Tooltip.Provider delayDuration={200}><Tooltip.Root bind:open={experienceInfoOpen} disableCloseOnTriggerClick>
+          <Tooltip.Trigger class="experience-info" aria-label="About student experience" onclick={() => experienceInfoOpen = true}><Info size={16} /></Tooltip.Trigger>
+          <Tooltip.Portal><Tooltip.Content class="experience-info-content" role="tooltip" sideOffset={6}>
+            {snapshotAvailable ? `AI-generated from captured student reviews · ${termName(c.student_summary?.term_id || c.semester)}. Open citations to read the original comments.` : `No student-experience summary for ${termLabel}. Reviews are not reliably assigned to teaching terms.`}
+          </Tooltip.Content></Tooltip.Portal>
+        </Tooltip.Root></Tooltip.Provider>
+      {/snippet}
       {#if snapshotAvailable}<div class="experience-grid">
         <div>
           <h3 class="tile-label">the class</h3>
@@ -463,6 +473,8 @@
 </div>
 
 <style>
+  :global(.experience-info) { display: grid; place-items: center; padding: 4px; border: 0; background: transparent; color: var(--muted); cursor: help; }
+  :global(.experience-info-content) { z-index: 100; max-width: 270px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 5px; background: var(--surface); color: var(--muted); font-size: 12px; line-height: 1.6; box-shadow: 0 5px 20px #0001; }
   .course-page {
     max-width: 1120px;
     margin-inline: auto;
