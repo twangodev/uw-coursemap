@@ -52,7 +52,7 @@
   );
   let trends = $derived.by(() => {
     const groups = new Map<string, any[]>();
-    for (const r of grades)
+    for (const r of grades.filter((row) => !selectedTerm || row.term_id <= selectedTerm))
       groups.set(r.term_id, [...(groups.get(r.term_id) || []), r]);
     return [...groups]
       .sort(([a], [b]) => a.localeCompare(b))
@@ -71,9 +71,10 @@
   let visibleInstructors = $derived(selectedInstructor ? instructorTrends.filter((instructor) => instructor.uid === selectedInstructor) : instructorTrends);
   let lineSeries = $derived([
     { key: "overall", label: "Course average", color: "var(--text)" },
+    { key: "benchmark", label: scope === "school" ? "UW–Madison average" : `${scope} average`, color: "var(--muted)" },
     ...visibleInstructors.map((instructor) => ({ key: instructor.uid, label: courseTitle(instructor.name), color: lineColors[instructorTrends.findIndex((row) => row.uid === instructor.uid) % lineColors.length] })),
   ]);
-  let trendRows = $derived(instructorChartRows(trends, visibleInstructors).map((row) => ({ ...row, label: termName(row.term) })));
+  let trendRows = $derived(instructorChartRows(trends, visibleInstructors).filter((row) => !selectedTerm || row.term <= selectedTerm).map((row) => ({ ...row, label: termName(row.term), benchmark: benchmarks?.terms[row.term]?.[scope]?.gpa ?? null })));
   let trendDomain = $derived(gradeTrendDomain(trendRows, lineSeries.map((series) => series.key)));
   let total = $derived(bars.reduce((s, b) => s + b.count, 0));
   let gpa = $derived(
@@ -160,10 +161,10 @@
 {#if failure}<p role="alert">{failure}</p>{/if}{#if loading}<p class="muted">
     Loading grades…
   </p>{/if}
-{#if selected.length}
   <div class="charts">
     <div>
       <h3>Grade distribution · % of letter grades</h3>
+      {#if total}
       <div class="chart">
         <BarChart
           data={percentageBars}
@@ -202,9 +203,10 @@
             >
           </div>{/each}
       </div>
+      {:else}<p class="empty">No recorded grades for this selection.</p>{/if}
     </div>
     {#if trends.length > 1}<div>
-        <h3>Grades over time</h3>
+        <h3>Grades over time{selectedTerm ? ` · through ${termName(selectedTerm)}` : ""}</h3>
         <div class="chart">
           <LineChart
             data={trendRows}
@@ -221,7 +223,7 @@
         </div>
       </div>{/if}
   </div>
-  <details>
+  {#if selected.length}<details>
     <summary>Grade data</summary>
     <div class="table-scroll">
       <table>
@@ -240,9 +242,7 @@
         >
       </table>
     </div>
-  </details>{:else}<p class="empty">
-    No recorded grades for this selection.
-  </p>{/if}
+  </details>{/if}
 <details class="benchmark-note"><summary>About these comparisons</summary><p>{scope === "school" ? "UW–Madison" : scope} · matching recorded terms · all course levels.
   {#if selectedInstructor}Whole-course comparisons are unavailable for an instructor subset.
   {:else}Course averages for GPA and A/AB share; median course for grade count. Above/below does not imply teaching quality. Courses may have different historical coverage. Historical grades describe past outcomes; co-taught sections share one distribution. Instructor lines use grade-weighted section averages; all instructors are shown by default. Hover over a term to identify instructors, or select one above to isolate their history.{/if}

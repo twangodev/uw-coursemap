@@ -1,11 +1,16 @@
 <script lang="ts">
   import AnimatedNumber from "./AnimatedNumber.svelte";
-  import { safeUrl } from "$lib/format";
+  import MetricComparison from "./MetricComparison.svelte";
+  import { metricColor, type Benchmark } from "$lib/grade-benchmarks";
+  import { safeUrl, termName } from "$lib/format";
   let {
     ratings,
     grades,
     courseUid,
-  }: { ratings?: any; grades?: any; courseUid?: string } = $props();
+    benchmark,
+    group = "UW–Madison",
+    term = "",
+  }: { ratings?: any; grades?: any; courseUid?: string; benchmark?: Benchmark | null; group?: string; term?: string } = $props();
   let course = $derived(courseUid ? ratings?.courses?.[courseUid] : null);
 </script>
 
@@ -42,17 +47,19 @@
       <p class="rating-source">
         <a href={safeUrl(ratings.source_url)} target="_blank" rel="noreferrer"
           >RMP profile ↗</a
-        > · Captured review averages; profile matched by name.
+        > · All captured review dates; profile matched by name.
       </p>
     {/if}
     {#if grades?.graded}<div class="teaching-grades">
-        <strong>{grades.gpa?.toFixed(2)}</strong> average GPA · {grades.graded.toLocaleString()}
-        letter grades across {grades.sections.toLocaleString()} recorded sections
+        <strong style:color={metricColor(grades.gpa, benchmark?.gpa)}><MetricComparison value={grades.gpa} reference={benchmark?.gpa} kind="gpa" label="Instructor course GPA" {group}><AnimatedNumber value={grades.gpa} decimals={2} /></MetricComparison></strong> average GPA · <AnimatedNumber value={grades.graded} />
+        letter grades across <AnimatedNumber value={grades.sections} /> recorded sections
+        {#if courseUid}<span class="grade-coverage">This course · {term ? termName(term) : "all recorded terms"}. Comparison uses whole-course averages.</span>{/if}
       </div>{/if}
   </div>
 {/if}
 
 <style>
+  .grade-coverage { display: block; color: var(--muted); font-size: 12px; margin-top: 6px; }
   .instructor-stats {
     margin: 12px 0 24px;
   }

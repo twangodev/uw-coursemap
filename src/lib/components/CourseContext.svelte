@@ -3,23 +3,24 @@
   import { metricColor } from "$lib/grade-benchmarks";
   import { BarChart } from "layerchart";
   import { termName } from "$lib/format";
-  let { context, scope = "school" }: { context: any; scope?: string } = $props();
-  let benchmark = $derived(context.benchmarks.terms[context.term]?.[scope]);
+  let { context: catalog, scope = "school", term = "" }: { context: any; scope?: string; term?: string } = $props();
+  let context = $derived(term ? catalog.terms[term] : catalog.all);
+  let benchmark = $derived(term ? catalog.benchmarks.terms[term]?.[scope] : catalog.benchmarks.all[scope]);
   let comparison = $derived(
     scope !== "school"
-      ? context.departments.find((row: any) => row.subject === scope)
+      ? context?.departments.find((row: any) => row.subject === scope)
           ?.comparison
-      : context.university,
+      : context?.university,
   );
 </script>
 
-{#if comparison}
+{#if comparison && context}
   <section class="course-context" aria-labelledby="context-title">
     <div class="context-heading">
       <div>
         <h2 id="context-title">Where this course fits</h2>
         <p class="muted">
-          {termName(context.term)} · all course levels
+          {context.term ? termName(context.term) : "All recorded terms"} · all course levels
         </p>
       </div>
       <span class="muted">{scope === "school" ? "UW–Madison" : scope}</span>
@@ -91,14 +92,14 @@
     <details class="comparison-method">
       <summary>About this comparison</summary>
       <p>
-        {comparison.size} courses in the same term, each with at least 30
+        {comparison.size} courses over {term ? "the same term" : "the course’s recorded terms"}, each with at least 30
         recorded letter grades. Cross-listed courses count once. GPA is not a measure
         of difficulty or teaching quality. The typical course is the median by recorded
         grade count; tied values are not counted as lower.
       </p>
     </details>
   </section>
-{/if}
+{:else}<p class="muted">Not enough comparable courses for {term ? termName(term) : "these recorded terms"} in {scope === "school" ? "UW–Madison" : scope}.</p>{/if}
 
 <style>
   .course-context {

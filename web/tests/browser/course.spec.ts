@@ -153,8 +153,7 @@ test("course context, projection and captured instructor ratings remain distinct
   await expect(
     page.locator(".grade-snapshot .grade-percentages"),
   ).toContainText("34.1%");
-  await expect(page.locator(".course-context")).toContainText("Spring 2026");
-  await expect(page.locator(".course-context")).toContainText("478");
+  await expect(page.getByRole("button", { name: "Term", exact: true })).toContainText("Fall 2026");
   await expect(page.locator(".projection")).toContainText("Fall 2026");
   await expect(page.locator(".projection")).toContainText("prediction interval");
   const hobbes = page
@@ -199,6 +198,8 @@ test("takeaways rotate and pause for reading sources", async ({ page }) => {
 test("school and department comparisons stay synchronized", async ({ page }) => {
   await page.goto(`/courses/${uid}`);
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
+  await page.getByRole("button", { name: "Term", exact: true }).click();
+  await page.getByRole("option", { name: "Spring 2026", exact: true }).click();
   const metrics = page.locator("#grades .metric-strip");
   await expect(page.getByRole("tooltip")).toHaveCount(0);
   const trigger = metrics.getByRole("button", { name: "Average GPA comparison", exact: true });
@@ -228,7 +229,7 @@ test("animated numbers preserve accessible values with reduced motion", async ({
   await page.goto(`/courses/${uid}`);
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   const metrics = page.locator("#grades .metric-strip");
-  await expect(metrics.getByRole("img", { name: "11,038", exact: true })).toBeVisible();
+  await expect(page.locator(".grade-snapshot").getByRole("img", { name: "11,038", exact: true })).toBeVisible();
   await page.getByRole("button", { name: "Term", exact: true }).click();
   await page.getByRole("option", { name: "Spring 2026", exact: true }).click();
   await expect(metrics.getByRole("img", { name: "478", exact: true })).toBeVisible();
@@ -276,4 +277,49 @@ test("grade history fits curved instructor lines and identifies them on hover", 
   await expect(page.locator(".lc-tooltip-root")).toContainText("Course average");
   await expect(page.locator(".lc-tooltip-root")).not.toContainText("total");
   await chart.screenshot({ path: "/tmp/uw-coursemap-design-audit/all-instructor-trends.png" });
+});
+
+test("term selection updates context, roster, history and snapshot availability", async ({ page }) => {
+  await page.goto(`/courses/${uid}`);
+  await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
+  await page.locator(".course-facts").screenshot({ path: "/tmp/uw-coursemap-design-audit/course-details-spaced.png" });
+  const term = page.getByRole("button", { name: "Term", exact: true });
+  await expect(term).toContainText("Fall 2026");
+  const allTimeGrades = await numberValues(page.locator(".grade-snapshot"));
+  await term.click();
+  await page.getByRole("option", { name: "Spring 2026", exact: true }).click();
+  await expect(page.locator(".course-context")).toContainText("Spring 2026");
+  await expect(page.locator(".course-context").getByRole("img", { name: "478", exact: true })).toBeVisible();
+  await expect(page.locator("#professors .panel-heading")).toContainText("Spring 2026");
+  await expect(page.locator("#professors")).not.toContainText("Ben Jacobsen");
+  await expect(page.locator("#professors .teaching-grades").first()).toContainText("Spring 2026");
+  await expect(page.locator("#overview [data-citation-trigger]").first()).toBeVisible();
+  expect(await numberValues(page.locator(".grade-snapshot"))).toEqual(allTimeGrades);
+  await expect(page.locator("#experience")).toContainText("No student-experience summary for Spring 2026");
+  await expect(page.locator("#requirements")).toContainText("No prerequisite snapshot for Spring 2026");
+  await expect(page.locator("#schedule")).toContainText("No calendar captured for Spring 2026");
+  await expect(page.locator("#schedule tbody tr")).toHaveCount(0);
+  await expect(page.locator(".projection")).toHaveCount(0);
+  await expect(page.locator("#grades")).toContainText("through Spring 2026");
+  await page.getByRole("button", { name: "Comparison group", exact: true }).click();
+  await page.getByRole("option", { name: "Department · COMPSCI", exact: true }).click();
+  await page.locator("#professors .teaching-grades").first().getByRole("button").focus();
+  await expect(page.getByRole("tooltip")).toContainText("COMPSCI");
+  await page.keyboard.press("Escape");
+  await term.click();
+  await page.getByRole("option", { name: "Fall 2026", exact: true }).click();
+  await expect(page.locator("#professors")).toContainText("Ben Jacobsen");
+  await expect(page.locator("#grades")).toContainText("No recorded grades");
+  await expect(page.locator(".projection")).toBeVisible();
+  await expect(page.locator("#overview [data-citation-trigger]").first()).toBeVisible();
+  await expect(page.locator("#schedule tbody tr").first()).toBeVisible();
+});
+
+test("historical instructors without a recorded name do not break course pages", async ({ page }) => {
+  const response = await page.goto("/courses/course_f55fac894a94d4843c58c348");
+  expect(response?.status()).toBe(200);
+  await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
+  await page.getByRole("button", { name: "Term", exact: true }).click();
+  await page.getByRole("option", { name: "All recorded terms", exact: true }).click();
+  await expect(page.locator("#professors")).toContainText("Unknown instructor");
 });

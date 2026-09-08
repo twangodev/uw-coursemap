@@ -8,7 +8,7 @@ type Catalog = {
   groups: Map<string, PeerCourse[]>;
   courses: Map<string, PeerCourse>;
   benchmarks: Map<string, Benchmarks>;
-  histories: Map<string, Benchmarks>;
+  histories: Map<string, { benchmarks: Benchmarks; rows: PeerCourse[] }>;
 };
 let buildPeers: Promise<Catalog> | undefined;
 function index(rows: PeerCourse[]): Catalog {
@@ -71,26 +71,24 @@ export async function courseContext(course: any, platform?: App.Platform) {
       : index(await peers(platform));
   const current = catalog.courses.get(course.course_uid + ":" + term);
   if (!current) return null;
-  const rows = catalog.groups.get(term) || [];
   const terms = [...new Set<string>(course.grades.map((row: any) => row.term_id))].sort();
   const historyKey = terms.join(",");
   let history = catalog.histories.get(historyKey);
   if (!history) {
-    history = cohortBenchmarks(aggregateTerms(terms.flatMap((term) => catalog.groups.get(term) || [])));
+    const rows = aggregateTerms(terms.flatMap((term) => catalog.groups.get(term) || [])).map((row) => ({ ...row, term: "", code: "" }));
+    history = { benchmarks: cohortBenchmarks(rows), rows };
     if (catalog.histories.size >= 128) catalog.histories.delete(catalog.histories.keys().next().value!);
     catalog.histories.set(historyKey, history);
   }
   const select = (values: Benchmarks = {}) => Object.fromEntries(["school", ...current.subjects].map((key) => [key, values[key] || null]));
-  return {
-    term,
-    benchmarks: { all: select(history), terms: Object.fromEntries(terms.map((term) => [term, select(catalog.benchmarks.get(term))])) },
-    gpa: current.gpa,
-    count: current.count,
+  const contextFor = (current: PeerCourse | undefined, rows: PeerCourse[]) => current ? {
+    term: current.term, gpa: current.gpa, count: current.count,
     university: compareCourse(current, rows),
-    departments: current.subjects
-      .map((subject) => ({
-        subject,
-        comparison: compareCourse(current, rows, subject),
-      })),
+    departments: current.subjects.map((subject) => ({ subject, comparison: compareCourse(current, rows, subject) })),
+  } : null;
+  return {
+    all: contextFor(history.rows.find((row) => row.uid === course.course_uid), history.rows),
+    terms: Object.fromEntries(terms.map((term) => [term, contextFor(catalog.courses.get(course.course_uid + ":" + term), catalog.groups.get(term) || [])])),
+    benchmarks: { all: select(history.benchmarks), terms: Object.fromEntries(terms.map((term) => [term, select(catalog.benchmarks.get(term))])) },
   };
 }

@@ -2,7 +2,7 @@ export interface InstructorTrend {
   uid: string;
   name: string;
   count: number;
-  terms: { term: string; gpa: number; count: number }[];
+  terms: { term: string; gpa: number; count: number; sections?: number }[];
 }
 const grades = ["a", "ab", "b", "bc", "c", "d", "f"];
 const weights = [4, 3.5, 3, 2.5, 2, 1, 0];
@@ -14,7 +14,7 @@ export function instructorSeries(rows: Record<string, any>[], names: Map<string,
     if (!count) continue;
     const current: InstructorTrend = series.get(row.instructor_uid) || { uid: row.instructor_uid, name: names.get(row.instructor_uid) || "Unknown instructor", count: 0, terms: [] };
     current.count += count;
-    current.terms.push({ term: row.term, count, gpa: counts.reduce((sum, n, i) => sum + n * weights[i], 0) / count });
+    current.terms.push({ term: row.term, count, sections: Number(row.sections) || 0, gpa: counts.reduce((sum, n, i) => sum + n * weights[i], 0) / count });
     series.set(row.instructor_uid, current);
   }
   return [...series.values()].sort((a, b) => b.count - a.count || a.uid.localeCompare(b.uid));

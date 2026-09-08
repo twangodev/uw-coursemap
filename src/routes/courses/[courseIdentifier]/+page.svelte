@@ -28,27 +28,41 @@
   import { credits, instructorUrl, termName, courseTitle } from "$lib/format";
   let { data } = $props();
   let c = $derived(data.course);
-  let professors = $derived(
-    [...c.instructors].sort(
-      (a, b) =>
-        (b.ratings?.quality ?? -1) - (a.ratings?.quality ?? -1) ||
-        a.name.localeCompare(b.name),
-    ),
-  );
   let comparisonScope = $state("school");
   let scope = $derived(c.subjects.includes(comparisonScope) ? comparisonScope : "school");
-  let selectedGradeTerm = $state("");
-  let gradeTerms = $derived([...new Set<string>(c.grades.map((row: any) => row.term_id))].sort().reverse());
+  let termSelection = $state<string | null>(null);
+  let gradeTerms = $derived([...new Set<string>([c.semester, ...c.grades.map((row: any) => row.term_id), ...c.sections.map((row: any) => row.term_id)].filter(Boolean))].sort().reverse());
+  let selectedGradeTerm = $derived(termSelection ?? gradeTerms[0] ?? c.semester);
   let gradeTermIndex = $derived(gradeTerms.indexOf(selectedGradeTerm));
   function stepTerm(direction: number) {
     const index = gradeTermIndex + direction;
-    if (index >= 0 && index < gradeTerms.length) selectedGradeTerm = gradeTerms[index];
+    if (index >= 0 && index < gradeTerms.length) termSelection = gradeTerms[index];
   }
-  let overviewGrades = $derived(c.grades.filter((row: any) => !selectedGradeTerm || row.term_id === selectedGradeTerm));
+  let termLabel = $derived(selectedGradeTerm ? termName(selectedGradeTerm) : "All recorded terms");
+  let snapshotAvailable = $derived(!selectedGradeTerm || selectedGradeTerm === c.semester);
+  let selectedSections = $derived(c.sections.filter((section: any) => !selectedGradeTerm || section.term_id === selectedGradeTerm));
+  let selectedOfferings = $derived(c.offerings.filter((offering: any) => !selectedGradeTerm || offering.term_id === selectedGradeTerm));
+  let professors = $derived.by(() => {
+    const roster = new Map<string, any>();
+    if (snapshotAvailable) for (const instructor of c.instructors) roster.set(instructor.instructor_uid, instructor);
+    for (const instructor of c.grade_instructors || []) {
+      const history = data.instructorTrends.find((row) => row.uid === instructor.instructor_uid);
+      if ((!selectedGradeTerm || history?.terms.some((row) => row.term === selectedGradeTerm)) && !roster.has(instructor.instructor_uid)) roster.set(instructor.instructor_uid, instructor);
+    }
+    return [...roster.values()].map((instructor) => {
+      const terms = data.instructorTrends.find((row) => row.uid === instructor.instructor_uid)?.terms.filter((row) => !selectedGradeTerm || row.term === selectedGradeTerm) || [];
+      const graded = terms.reduce((sum, row) => sum + row.count, 0);
+      return { ...instructor, name: instructor.name || "Unknown instructor", grade_statistics: graded ? {
+        graded, gpa: terms.reduce((sum, row) => sum + row.gpa * row.count, 0) / graded,
+        sections: terms.reduce((sum, row) => sum + (row.sections || 0), 0),
+      } : null };
+    }).sort((a, b) => (b.ratings?.quality ?? -1) - (a.ratings?.quality ?? -1) || a.name.localeCompare(b.name));
+  });
   let benchmark = $derived(selectedGradeTerm ? data.context?.benchmarks.terms[selectedGradeTerm]?.[scope] : data.context?.benchmarks.all[scope]);
-  $effect(() => { c.course_uid; selectedGradeTerm = ""; });
-  let summary = $derived(c.student_summary);
-  let sourceNumbers = $derived(citationNumbers(summary));
+  $effect(() => { c.course_uid; termSelection = null; });
+  let allTimeSummary = $derived(c.student_summary);
+  let summary = $derived(!selectedGradeTerm || selectedGradeTerm === c.student_summary?.term_id ? c.student_summary : {});
+  let sourceNumbers = $derived(citationNumbers(allTimeSummary));
   setContext(citationContext, (citation: Citation) => sourceNumbers.get(citationKey(citation)));
   let Graph = $state<any>(null);
   let graphError = $state("");
@@ -102,7 +116,7 @@
     <div class="breadcrumbs mono">
       <a href="/search">courses</a><span>/</span><span>{c.course_id}</span>
     </div>
-    <span class="mono muted">{termName(c.semester)}</span>
+    <span class="mono muted">{selectedGradeTerm ? termLabel : termName(c.semester)}</span>
   </div>
   <div class="course-identity">
     <div>
@@ -110,8 +124,8 @@
       <p class="course-description">{introduction}</p>
     </div>
     <div class="current-teachers">
-      <span class="teacher-label">Teaching this term</span>
-      {#each professors as instructor}<a
+      <span class="teacher-label">{selectedGradeTerm ? `Recorded instructors · ${termLabel}` : `Teaching · ${termName(c.semester)}`}</span>
+      {#each (selectedGradeTerm ? professors : c.instructors) as instructor}<a
           href={instructorUrl(instructor.instructor_uid)}
           ><span>{instructor.name}</span
           >{#if instructor.ratings?.quality != null}<span
@@ -123,13 +137,9 @@
     </div>
   </div>
   <div class="row course-meta">
-    {#if c.statistics?.gpa != null}<a href="#grades" class="course-gpa"
-        >{c.statistics.gpa.toFixed(2)} <span>average GPA</span></a
-      >{/if}
-    <span class:available={c.offerings.length}
-      ><i></i>{c.offerings.length
-        ? "offered this term"
-        : "not currently offered"}</span
+    {#if c.statistics?.gpa != null}<a href="#grades" class="course-gpa">{c.statistics.gpa.toFixed(2)} <span>all-time GPA</span></a>{/if}
+    <span class:available={selectedOfferings.length}
+      ><i></i>{selectedOfferings.length ? "offering recorded" : "no offering record for this term"}</span
     ><span>{credits(c.credits_min, c.credits_max)}</span>
   </div>
 </div>
@@ -148,26 +158,27 @@
       </div>
     {/if}
     <div class="navigation-filter term-picker" role="group" aria-label="Grade term">
-      <button class="term-step" aria-label={selectedGradeTerm ? "Previous term" : "Latest graded term"} disabled={!gradeTerms.length || gradeTermIndex >= gradeTerms.length - 1} onclick={() => stepTerm(1)}><ChevronLeft size={14} /></button>
-      <Select label="Term" bind:value={selectedGradeTerm} options={[{ value: "", label: "All recorded terms" }, ...gradeTerms.map((term) => ({ value: term, label: termName(term) }))]} />
+      <button class="term-step" aria-label={selectedGradeTerm ? "Previous term" : "Latest term"} disabled={!gradeTerms.length || gradeTermIndex >= gradeTerms.length - 1} onclick={() => stepTerm(1)}><ChevronLeft size={14} /></button>
+      <Select label="Term" value={selectedGradeTerm} onChange={(value) => termSelection = value} options={[{ value: "", label: "All recorded terms" }, ...gradeTerms.map((term) => ({ value: term, label: termName(term) }))]} />
       <button class="term-step" aria-label="Next term" disabled={gradeTermIndex <= 0} onclick={() => stepTerm(-1)}><ChevronRight size={14} /></button>
     </div>
   </div>
 </div>
 <section class="course-overview" id="overview" aria-label="Course overview">
   <div class="overview-take">
-    {#if summary.difficulty_workload?.length || summary.quick_take?.length || summary.student_experience?.length}
+    {#if allTimeSummary.difficulty_workload?.length || allTimeSummary.quick_take?.length || allTimeSummary.student_experience?.length}
       {#key c.course_uid}<RotatingClaims
-        claims={[...(summary.difficulty_workload || []), ...(summary.quick_take || []), ...(summary.student_experience || [])]}
+        claims={[...(allTimeSummary.difficulty_workload || []), ...(allTimeSummary.quick_take || []), ...(allTimeSummary.student_experience || [])]}
         reviewFiles={c.evidence.reviews}
       />{/key}
     {:else}<h2>Summary</h2><p class="muted">No student feedback recorded yet.</p>{/if}
   </div>
-  <GradeSnapshot grades={overviewGrades} {benchmark} term={selectedGradeTerm} group={scope === "school" ? "UW–Madison" : scope} />
+  <GradeSnapshot grades={c.grades} benchmark={data.context?.benchmarks.all[scope]} group={scope === "school" ? "UW–Madison" : scope} />
 </section>
 <div class="course-workspace">
   <aside class="course-facts" aria-label="Course details">
     <Panel title="Course details">
+      {#if !snapshotAvailable}<p class="muted">Catalog details below are from {termName(c.semester)}; no catalog snapshot for {termLabel}.</p>{/if}
       <div class="fact-pair">
         <span>Credits</span><strong
           >{credits(c.credits_min, c.credits_max)}</strong
@@ -177,7 +188,7 @@
         <span>Typically offered</span><strong
           >{[
             ...new Set(
-              c.offerings.map((o: any) => o.typically_offered).filter(Boolean),
+              selectedOfferings.map((o: any) => o.typically_offered).filter(Boolean),
             ),
           ].join(" · ") || "Not recorded"}</strong
         >
@@ -210,7 +221,7 @@
       <Grades
         grades={c.grades}
         instructorTrends={data.instructorTrends}
-        bind:selectedTerm={selectedGradeTerm}
+        selectedTerm={selectedGradeTerm}
         showTermSelect={false}
         benchmarks={data.context?.benchmarks}
         {scope}
@@ -224,14 +235,14 @@
           <pre>{JSON.stringify(c.grade_conflicts, null, 2)}</pre>
         </details>{/if}
     </Panel>
-    {#if data.context}<CourseContext context={data.context} {scope} />{/if}
-    {#if data.projection}<GradeProjection projection={data.projection} />{/if}
+    {#if data.context}<CourseContext context={data.context} {scope} term={selectedGradeTerm} />{/if}
+    {#if data.projection && (!selectedGradeTerm || selectedGradeTerm === data.projection.target)}<GradeProjection projection={data.projection} />{/if}
     <Panel
       title="Student experience"
       id="experience"
-      label="AI summary · cited sources"
+      label={snapshotAvailable ? `AI summary · ${termName(c.student_summary?.term_id || c.semester)}` : termLabel}
     >
-      <div class="experience-grid">
+      {#if snapshotAvailable}<div class="experience-grid">
         <div>
           <h3 class="tile-label">the class</h3>
           <Claims
@@ -271,8 +282,9 @@
         </div>
       </section>
     {/if}
+    {:else}<p class="muted">No student-experience summary for {termLabel}. Reviews are not reliably assigned to teaching terms.</p>{/if}
     </Panel>
-    <Panel title="Professors" id="professors" label={termName(c.semester)}>
+    <Panel title="Professors" id="professors" label={termLabel}>
       <div class="professor-grid">
         {#each professors as i}{@const feedback =
             summary.current_instructors?.find(
@@ -298,6 +310,9 @@
                 ratings={i.ratings}
                 grades={i.grade_statistics}
                 courseUid={c.course_uid}
+                {benchmark}
+                group={scope === "school" ? "UW–Madison" : scope}
+                term={selectedGradeTerm}
               />
               {#if feedback?.summary?.length}<Claims
                   claims={feedback.summary}
@@ -307,7 +322,7 @@
                 </p>{/if}
             </div>
           </article>{:else}<p class="muted">
-            No current instructors recorded.
+            No instructors recorded for this selection.
           </p>{/each}
       </div>
       <details>
@@ -328,6 +343,7 @@
       </details>
     </Panel>
     <Panel title="Prerequisites" id="requirements">
+      {#if snapshotAvailable}
       <p class="requirements-source">
         {c.requirements_text || "No prerequisites listed."}
       </p>
@@ -344,16 +360,18 @@
           ast={c.requirements}
         />
       </details>
+      {:else}<p class="muted">No prerequisite snapshot for {termLabel}. The available prerequisite tree is from {termName(c.semester)}.</p>{/if}
     </Panel>
     <Panel
       title="Calendar & sections"
       id="schedule"
-      label={termName(c.semester)}
+      label={selectedGradeTerm ? termLabel : termName(c.semester)}
     >
-      <CourseCalendar
+      {#if snapshotAvailable}<CourseCalendar
         files={c.evidence.meetings || []}
         observedAt={c.observed_at}
       />
+      {:else}<p class="muted">No calendar captured for {termLabel}.</p>{/if}
       <div class="table-scroll">
         <table>
           <thead
@@ -363,7 +381,7 @@
               ></tr
             ></thead
           ><tbody
-            >{#each c.sections as s}<tr
+            >{#each selectedSections as s}<tr
                 ><td
                   ><span class="mono">{s.section_type} {s.section_number}</span
                   ></td
@@ -374,16 +392,16 @@
           >
         </table>
       </div>
-      <p class="muted mono">Enrollment at scan time.</p>
-      <Evidence
+      {#if selectedSections.length}<p class="muted mono">Enrollment at scan time.</p>{/if}
+      {#if snapshotAvailable}<Evidence
         title="Meeting source records"
         files={c.evidence.meetings || []}
-      />
+      />{/if}
     </Panel>
     <Panel title="Sources & history" id="evidence">
       <details>
-        <summary>Current offering source records</summary>
-        <pre>{JSON.stringify(c.offerings, null, 2)}</pre>
+        <summary>Selected offering source records</summary>
+        <pre>{JSON.stringify(selectedOfferings, null, 2)}</pre>
       </details>
       <Evidence
         title="Catalog observation history"

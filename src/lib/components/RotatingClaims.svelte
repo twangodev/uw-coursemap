@@ -37,7 +37,7 @@
       <h2>Summary</h2>
       <Tooltip.Provider delayDuration={200}><Tooltip.Root bind:open={infoOpen} disableCloseOnTriggerClick>
         <Tooltip.Trigger class="summary-info" aria-label="About this summary" onclick={() => infoOpen = true}><Info size={14} /></Tooltip.Trigger>
-        <Tooltip.Portal><Tooltip.Content role="tooltip" class="summary-info-content" sideOffset={6}>AI-generated from student reviews. Open the citations to read the original comments.</Tooltip.Content></Tooltip.Portal>
+        <Tooltip.Portal><Tooltip.Content role="tooltip" class="summary-info-content" sideOffset={6}>AI-generated from student reviews across all captured dates. Open the citations to read the original comments.</Tooltip.Content></Tooltip.Portal>
       </Tooltip.Root></Tooltip.Provider>
     </div>
   {#if items.length > 1}
