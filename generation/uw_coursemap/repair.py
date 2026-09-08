@@ -55,7 +55,7 @@ def create_repair(
                 "Each requested canonical course ID must have a rejected section"
             )
     rows.sort(key=lambda row: digest(row["course_id"]))
-    if limit:
+    if limit and not course_ids:
         rows = rows[:limit]
     if not rows:
         raise ValueError("No rejected course sections selected")

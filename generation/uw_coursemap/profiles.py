@@ -75,8 +75,10 @@ def lock_profiles(path, names, output):
     """Resolve once, then share the same immutable identities with all clients."""
     from .models import canonical
 
-    data = {"profiles": {name: load_profile(path, name).model_dump() for name in names}}
     target = Path(output)
+    if target.suffix != ".json":
+        raise ValueError("Locked model profiles require a .json output path")
+    data = {"profiles": {name: load_profile(path, name).model_dump() for name in names}}
     target.parent.mkdir(parents=True, exist_ok=True)
     temporary = target.with_suffix(target.suffix + ".tmp")
     temporary.write_text(canonical(data))

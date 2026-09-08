@@ -74,6 +74,62 @@ class LifecycleTests(unittest.TestCase):
                 run or self.run, "unused", "enrichment", self.task, limit=0
             )
 
+    def test_explicit_repair_selection_ignores_sample_limit(self):
+        from uw_coursemap.repair import create_repair
+
+        self.core()
+        jobs = Jobs(self.root)
+        try:
+            parent = self.create_job(jobs)
+            spec = json.loads(jobs.status(parent)["spec_json"])
+            spec["task"]["workflow"] = "unified_v1"
+            rejected = canonical({"sections": {"requirements": {"status": "invalid"}}})
+            with jobs.db:
+                jobs.db.execute(
+                    "UPDATE jobs SET status='complete',spec_json=? WHERE job_id=?",
+                    (canonical(spec), parent),
+                )
+                jobs.db.execute(
+                    "UPDATE results SET status='complete',output_json=? WHERE job_id=?",
+                    (rejected, parent),
+                )
+                row = jobs.db.execute(
+                    "SELECT cache_key,input_json FROM results WHERE job_id=? LIMIT 1",
+                    (parent,),
+                ).fetchone()
+                jobs.db.execute(
+                    "INSERT INTO results(job_id,course_id,cache_key,input_json,status,output_json) "
+                    "VALUES(?,?,?,?,?,?)",
+                    (
+                        parent,
+                        "EXTRA 999",
+                        row[0] + "extra",
+                        row[1],
+                        "complete",
+                        rejected,
+                    ),
+                )
+            selected = [
+                r[0]
+                for r in jobs.db.execute(
+                    "SELECT course_id FROM results WHERE job_id=?", (parent,)
+                )
+            ]
+            self.assertGreater(len(selected), 1)
+            with patch("uw_coursemap.repair.load_profile", return_value=self.profile):
+                repair = create_repair(
+                    jobs, parent, "unused", "enrichment", limit=1, course_ids=selected
+                )
+            actual = {
+                r[0]
+                for r in jobs.db.execute(
+                    "SELECT course_id FROM results WHERE job_id=?", (repair,)
+                )
+            }
+            self.assertEqual(actual, set(selected))
+        finally:
+            jobs.close()
+
     def test_partial_summary_reuse_freezes_completed_results(self):
         from uw_coursemap.student_summary import summary_seeds
 
@@ -468,6 +524,7 @@ class LifecycleTests(unittest.TestCase):
             meta = build(self.root, self.run, build_id=directory.name)
         self.assertEqual(meta["run_id"], directory.name)
         self.assertEqual(self.store.input_hash(self.run), before)
+
         with patch(
             "uw_coursemap.derive.derive",
             side_effect=AssertionError("reran completed build"),
@@ -479,6 +536,22 @@ class LifecycleTests(unittest.TestCase):
             self.assertEqual(build(self.root, self.run, "unused"), meta)
         with sqlite3.connect(directory / "pipeline.sqlite") as db:
             self.assertEqual(db.execute("SELECT count(*) FROM runs").fetchone()[0], 1)
+
+    def test_unknown_explicit_build_does_not_create_a_workspace(self):
+        self.core()
+        with self.assertRaisesRegex(ValueError, "Unknown build"):
+            build(self.root, self.run, "unused", build_id="build-typo")
+        self.assertFalse((self.root / "builds/build-typo").exists())
+
+    def test_unresolved_enrollment_hit_preserves_raw_offering(self):
+        from uw_coursemap.derive import reconcile
+
+        before = self.store.records(self.run, "offerings")
+        self.assertTrue(before)
+        with patch("enrollment.apply_enrollment", return_value=None):
+            *_, unmatched = reconcile(self.store, self.run)
+        self.assertEqual(set(unmatched["offerings"]), set(before))
+        self.assertEqual(self.store.records(self.run, "offerings"), before)
 
     def test_offline_model_fails_before_scheduling_courses(self):
         import requests
@@ -594,6 +667,8 @@ class LifecycleTests(unittest.TestCase):
             '[profiles.test]\nmodel="test/model"\nbase_url="http://127.0.0.1:8003/v1"\n'
         )
         output = self.root / "locked.json"
+        with self.assertRaisesRegex(ValueError, ".json"):
+            lock_profiles(path, ["test"], self.root / "locked.toml")
         with patch("huggingface_hub.HfApi") as hub:
             hub.return_value.model_info.return_value.sha = "b" * 40
             lock_profiles(path, ["test"], output)

@@ -186,7 +186,7 @@ class Store:
                 """INSERT INTO observations VALUES(?,?,?,?,?,?,?,?)
                 ON CONFLICT(run_id,source,kind,entity_id) DO UPDATE SET
                 source_url=excluded.source_url, content_hash=excluded.content_hash,
-                payload_json=excluded.payload_json""",
+                payload_json=excluded.payload_json, observed_at=excluded.observed_at""",
                 (
                     run,
                     source,

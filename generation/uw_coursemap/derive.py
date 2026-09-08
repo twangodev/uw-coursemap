@@ -100,6 +100,9 @@ def reconcile(store, run):
             {int(k): v for k, v in terms.items()},
             {original_ref: courses[ref]},
         )
+        if result is None:
+            unmatched["offerings"].append(key)
+            continue
         names, occurrences, _ = result
         emails.update(names)
         for meeting in occurrences:

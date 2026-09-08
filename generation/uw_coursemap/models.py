@@ -70,8 +70,9 @@ def validate_record(record):
     elif record.kind == "offerings":
         if not isinstance(record.payload.get("sections"), list):
             raise ValueError("Enrollment package must contain a sections list")
-        CourseReference.model_validate(record.payload["course_reference"])
+        CourseReference.model_validate(record.payload.get("course_reference"))
     elif record.kind == "grades":
+        CourseReference.model_validate(record.payload.get("course_reference"))
         if not isinstance(record.payload.get("courseOfferings"), list):
             raise ValueError("Missing Madgrades offerings")
         if not isinstance(record.payload.get("cumulative"), dict):

@@ -252,6 +252,50 @@ class PipelineTests(unittest.TestCase):
             )
         self.assertEqual(self.store.records(self.run, "courses"), {})
 
+    def test_missing_references_are_rejected_before_storage(self):
+        for kind, payload in [
+            ("offerings", {"sections": []}),
+            ("grades", {"courseOfferings": [], "cumulative": {}}),
+        ]:
+            with self.subTest(kind=kind), self.assertRaises(ValueError):
+                self.store.put(
+                    self.run,
+                    "enrollment" if kind == "offerings" else "madgrades",
+                    {
+                        "kind": kind,
+                        "key": "bad",
+                        "payload": payload,
+                        "source_url": "https://example.org",
+                    },
+                )
+            self.assertEqual(self.store.records(self.run, kind), {})
+
+    def test_replaced_observation_records_the_new_observation_time(self):
+        from unittest.mock import patch
+
+        self.seed()
+        key, value = next(iter(self.store.records(self.run, "courses").items()))
+        item = {
+            "kind": "courses",
+            "key": key,
+            "payload": value,
+            "source_url": "https://example.org",
+        }
+        with patch("uw_coursemap.store.now", return_value="2026-01-01T00:00:00+00:00"):
+            self.store.put(self.run, "catalog", item)
+        value["description"] = "Updated catalog description"
+        with patch("uw_coursemap.store.now", return_value="2026-02-01T00:00:00+00:00"):
+            self.store.put(self.run, "catalog", item)
+        row = self.store.db.execute(
+            "SELECT observed_at,payload_json FROM observations WHERE run_id=? AND source='catalog' AND kind='courses' AND entity_id=?",
+            (self.run, key),
+        ).fetchone()
+        self.assertEqual(row["observed_at"], "2026-02-01T00:00:00+00:00")
+        self.assertEqual(
+            json.loads(row["payload_json"])["description"],
+            "Updated catalog description",
+        )
+
     def test_explicitly_empty_department_is_valid(self):
         catalog = CatalogSpider(store=self.store, run=self.run)
         title = '<h1 class="page-title">Otolaryngology (OTOLARYN)</h1>'

@@ -98,6 +98,10 @@ def import_revision(store, repository, revision):
     for path, value in values.items():
         parts = PurePosixPath(path).parts
         if len(parts) == 3:
+            if parts[1] not in paths_to_courses:
+                raise ValueError(
+                    f"Legacy meetings file has no matching course: {path} at {commit}"
+                )
             key = paths_to_courses[parts[1]]
             # Identical meetings in a legacy export represent one occurrence.
             meetings[key] = list({canonical(m): m for m in value}.values())

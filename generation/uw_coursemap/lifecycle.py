@@ -78,6 +78,7 @@ def build(root, source_run, profiles=None, build_id=None):
             raise ValueError(
                 "Legacy snapshots lack raw inputs for rebuilding; release or enrich them directly"
             )
+        explicit_build = build_id is not None
         if build_id is None:
             selected = {
                 kind: load_profile(profiles, kind).model_dump()
@@ -97,6 +98,8 @@ def build(root, source_run, profiles=None, build_id=None):
             config.setdefault("sitemap_base", "https://uwcourses.com")
             build_id = "build-" + digest(config)[:24]
         directory = root / "builds" / build_id
+        if explicit_build and not (directory / "build.json").is_file():
+            raise ValueError(f"Unknown build: {build_id}")
         state = Store(directory)
         try:
             with state.lock():

@@ -456,6 +456,7 @@ class MadgradesData:
                     session, url, madgrades_api_key, current_page, attempts - 1
                 )
             logger.error(f"Failed to fetch Madgrades data from {url}: {e}")
+            raise RuntimeError(f"Failed to fetch Madgrades data from {url}") from e
 
         return cls.from_response(data)
 
