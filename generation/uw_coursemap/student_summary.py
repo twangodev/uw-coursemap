@@ -33,6 +33,26 @@ def profile_identity(profile):
     )
 
 
+def scope_prompt(prompt, mode):
+    """Give the writer only the instructions matching its restricted schema."""
+    heading = "Return only this request's fields:\n"
+    if heading in prompt:
+        before, rest = prompt.split(heading, 1)
+        modes, after = rest.split("\nDo not describe", 1)
+        instruction = re.search(rf"(?ms)^- {re.escape(mode)}: (.*?)(?=^- |\Z)", modes)
+        if instruction is None:
+            raise ValueError(f"Missing student-summary instructions for {mode}")
+        prompt = (
+            before + heading + instruction[1].strip() + "\n\nDo not describe" + after
+        )
+    if mode == "history":
+        prompt = prompt.replace(
+            "Prioritize current instructors.",
+            "Discuss only the supplied historical reviews. The current roster is context, not review evidence.",
+        )
+    return prompt
+
+
 def summary_seeds(jobs, ids, run, *, allow_partial=False):
     seeds = {}
     for job in sorted(
@@ -312,6 +332,7 @@ def generate_student(profile, task, payload, generate=None):
         try:
             with capture_run_messages() as messages:
                 scoped_task = copy.deepcopy(task)
+                scoped_task["prompt"] = scope_prompt(scoped_task["prompt"], mode)
                 fields = (
                     ("quick_take", "difficulty_workload", "student_experience")
                     if mode == "overview"

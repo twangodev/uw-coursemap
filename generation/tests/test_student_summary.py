@@ -190,6 +190,14 @@ class StudentSummaryTests(unittest.TestCase):
                 else {"summary"}
             )
             self.assertEqual(set(task["schema"]["properties"]), expected)
+            self.assertNotIn("- professor:", task["prompt"])
+            self.assertNotIn("- overview:", task["prompt"])
+            self.assertNotIn("- history:", task["prompt"])
+            if request["mode"] != "overview":
+                self.assertNotIn("quick_take", task["prompt"])
+            if request["mode"] == "history":
+                self.assertNotIn("Prioritize current instructors.", task["prompt"])
+                self.assertIn("only the supplied historical reviews", task["prompt"])
             calls.append(request)
             profiles_seen.append(profile)
             result = {
