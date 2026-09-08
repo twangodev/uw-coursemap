@@ -1,4 +1,5 @@
 <script lang="ts">
+  import AnimatedNumber from "./AnimatedNumber.svelte";
   import { metricColor } from "$lib/grade-benchmarks";
   import { BarChart } from "layerchart";
   import { termName } from "$lib/format";
@@ -25,9 +26,9 @@
     </div>
     <div class="context-grid">
       <div>
-        <p class="context-number" style:color={metricColor(context.gpa, benchmark?.gpa)}>{context.gpa.toFixed(2)} <span>GPA</span></p>
+        <p class="context-number" style:color={metricColor(context.gpa, benchmark?.gpa)}><AnimatedNumber value={context.gpa} decimals={2} /> <span>GPA</span></p>
         <p>
-          Higher than <strong>{comparison.gpaPercentile}%</strong> of other courses
+          Higher than <strong><AnimatedNumber value={comparison.gpaPercentile} decimals={0} />%</strong> of other courses
           in this group.
         </p>
         <div class="context-chart">
@@ -53,11 +54,11 @@
       </div>
       <div class="course-scale">
         <p class="context-number" style:color={metricColor(context.count, benchmark?.count)}>
-          {context.count.toLocaleString()} <span>letter grades</span>
+          <AnimatedNumber value={context.count} decimals={0} /> <span>letter grades</span>
         </p>
         <p>
           More recorded grades than <strong
-            >{comparison.countPercentile}%</strong
+            ><AnimatedNumber value={comparison.countPercentile} decimals={0} />%</strong
           > of other courses in this group.
         </p>
         <div class="scale-comparison">
@@ -79,7 +80,7 @@
         </div>
         <p class="scale-caption">
           Typical course in this group: <strong
-            >{comparison.medianCount.toLocaleString()}</strong
+            ><AnimatedNumber value={comparison.medianCount} decimals={1} /></strong
           > letter grades.
         </p>
         <p class="chart-caption">

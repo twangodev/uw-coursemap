@@ -1,4 +1,5 @@
 <script lang="ts">
+  import AnimatedNumber from "./AnimatedNumber.svelte";
   import { BarChart } from "layerchart";
   import MetricComparison from "./MetricComparison.svelte";
   import { metricColor, type Benchmark } from "$lib/grade-benchmarks";
@@ -31,9 +32,9 @@
     <a href="#grades" aria-label="Explore full grade history">↗</a>
   </div>
   <div class="snapshot-value">
-    <strong style:color={metricColor(gpa, benchmark?.gpa)}>{gpa?.toFixed(2) ?? "—"}</strong><span
+    <strong style:color={metricColor(gpa, benchmark?.gpa)}><AnimatedNumber value={gpa} decimals={2} /></strong><span
       >average GPA<br /><span class="muted"
-        >{total.toLocaleString()} letter grades</span
+        ><AnimatedNumber value={total} /> letter grades</span
       ></span
     >
   </div>
@@ -69,7 +70,7 @@
     <div class="grade-percentages">
       {#each bars as bar}<div>
           <span>{bar.grade}</span><strong
-            >{((bar.count / total) * 100).toFixed(1)}%</strong
+            ><AnimatedNumber value={bar.count / total * 100} decimals={1} suffix="%" /></strong
           >
         </div>{/each}
     </div>

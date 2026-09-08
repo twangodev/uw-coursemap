@@ -1,4 +1,5 @@
 <script lang="ts">
+  import AnimatedNumber from "./AnimatedNumber.svelte";
   import { safeUrl } from "$lib/format";
   let {
     ratings,
@@ -15,16 +16,16 @@
           <strong
             class:positive={ratings.quality >= 4}
             class:negative={ratings.quality != null && ratings.quality < 3}
-            >{ratings.quality?.toFixed(1) ?? "—"}<small>/5</small></strong
+            ><AnimatedNumber value={ratings.quality} decimals={1} /><small>/5</small></strong
           ><span>RMP quality</span>
         </div>
         <div>
           <strong
-            >{ratings.difficulty?.toFixed(1) ?? "—"}<small>/5</small></strong
+            ><AnimatedNumber value={ratings.difficulty} decimals={1} /><small>/5</small></strong
           ><span>RMP difficulty</span>
         </div>
         <div>
-          <strong>{ratings.review_count.toLocaleString()}</strong><span
+          <strong><AnimatedNumber value={ratings.review_count} /></strong><span
             >captured reviews</span
           >
         </div>

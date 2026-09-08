@@ -1,4 +1,5 @@
 <script lang="ts">
+  import AnimatedNumber from "./AnimatedNumber.svelte";
   import Select from "./Select.svelte";
   import MetricComparison from "./MetricComparison.svelte";
   import { metricColor, type Benchmarks } from "$lib/grade-benchmarks";
@@ -121,19 +122,19 @@
 
 <div class="metric-strip">
   <div>
-    <div class="metric-value" style:color={metricColor(gpa, benchmark?.gpa)}>{gpa?.toFixed(2) ?? "—"}</div>
+    <div class="metric-value" style:color={metricColor(gpa, benchmark?.gpa)}><AnimatedNumber value={gpa} decimals={2} /></div>
     <div class="metric-label">average GPA</div>
     <MetricComparison value={gpa} reference={benchmark?.gpa} kind="gpa" />
   </div>
   <div>
     <div class="metric-value" style:color={metricColor(topShare, benchmark?.topShare)}>
-      {topShare?.toFixed(0) ?? "—"}<small>%</small>
+      <AnimatedNumber value={topShare} /><small>%</small>
     </div>
     <div class="metric-label">A / AB grades</div>
     <MetricComparison value={topShare} reference={benchmark?.topShare} kind="share" />
   </div>
   <div>
-    <div class="metric-value" style:color={metricColor(total, benchmark?.count)}>{total.toLocaleString()}</div>
+    <div class="metric-value" style:color={metricColor(total, benchmark?.count)}><AnimatedNumber value={total} /></div>
     <div class="metric-label">letter grades</div>
     <MetricComparison value={total} reference={benchmark?.count} />
   </div>
@@ -187,7 +188,7 @@
       <div class="grade-percentages">
         {#each bars as bar}<div>
             <span>{bar.grade}</span><strong
-              >{total ? ((bar.count / total) * 100).toFixed(1) : "0.0"}%</strong
+              ><AnimatedNumber value={total ? bar.count / total * 100 : 0} decimals={1} suffix="%" /></strong
             >
           </div>{/each}
       </div>

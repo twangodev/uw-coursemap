@@ -1,5 +1,6 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, type Locator } from "@playwright/test";
 import { readFile } from "node:fs/promises";
+const numberValues = (locator: Locator) => locator.getByRole("img").evaluateAll((nodes) => nodes.map((node) => node.getAttribute("aria-label")));
 const uid = "course_28c3390ba944d49fd17f7c72";
 test("course reading, citations, graph and theme", async ({ page }) => {
   const errors: string[] = [];
@@ -63,7 +64,7 @@ test("grade filters reset and instructor links retain course context", async ({
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   const grades = page.locator("#grades");
   const count = grades.locator(".metric-strip");
-  const overall = await count.textContent();
+  const overall = await numberValues(count);
   const instructors = grades.getByRole("button", {
     name: "Instructor",
     exact: true,
@@ -78,7 +79,7 @@ test("grade filters reset and instructor links retain course context", async ({
   await expect(grades.getByText("Loading grades…")).not.toBeVisible();
   await instructors.click();
   await page.getByRole("option", { name: "Course overall", exact: true }).click();
-  await expect(count).toHaveText(overall!);
+  await expect.poll(() => numberValues(count)).toEqual(overall);
   const professor = page.locator("#professors h3 a").first();
   const name = await professor.textContent();
   await professor.click();
@@ -197,17 +198,29 @@ test("school and department comparisons stay synchronized", async ({ page }) => 
   await page.goto(`/courses/${uid}`);
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   const metrics = page.locator("#grades .metric-strip");
-  const school = await metrics.textContent();
+  const school = await numberValues(metrics);
   await page.getByRole("button", { name: "Comparison group", exact: true }).click();
   await page.getByRole("option", { name: "Department · COMPSCI", exact: true }).click();
-  await expect(metrics).not.toHaveText(school!);
+  await expect.poll(() => numberValues(metrics)).not.toEqual(school);
   await expect(page.locator(".course-context .context-heading")).toContainText("COMPSCI");
   await expect(metrics.locator(".metric-comparison")).toHaveCount(3);
   await page.getByRole("button", { name: "Term", exact: true }).click();
   await page.getByRole("option", { name: "Spring 2026", exact: true }).click();
-  await expect(metrics).toContainText("478");
+  await expect(metrics.getByRole("img", { name: "478", exact: true })).toBeVisible();
   await page.getByRole("button", { name: "Comparison group", exact: true }).click();
   await page.keyboard.press("Home");
   await page.keyboard.press("Enter");
   await expect(page.locator(".course-context .context-heading")).toContainText("UW–Madison");
+});
+
+test("animated numbers preserve accessible values with reduced motion", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto(`/courses/${uid}`);
+  await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
+  const metrics = page.locator("#grades .metric-strip");
+  await expect(metrics.getByRole("img", { name: "11,038", exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Term", exact: true }).click();
+  await page.getByRole("option", { name: "Spring 2026", exact: true }).click();
+  await expect(metrics.getByRole("img", { name: "478", exact: true })).toBeVisible();
+  expect(await metrics.locator("number-flow-svelte").evaluateAll((nodes) => nodes.every((node) => !node.shadowRoot?.getAnimations().some((animation) => animation.playState === "running")))).toBe(true);
 });

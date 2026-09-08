@@ -1,4 +1,5 @@
 <script lang="ts">
+  import AnimatedNumber from "./AnimatedNumber.svelte";
   import { termName } from "$lib/format";
   import type { GradeProjection } from "$lib/grade-projection";
   let { projection }: { projection: GradeProjection } = $props();
@@ -10,7 +11,7 @@
     <span class="muted">Before grades are released</span>
   </div>
   {#if projection.interval}
-    <p class="projected-range">{projection.interval.lower.toFixed(2)}–{projection.interval.upper.toFixed(2)} <span>average GPA</span></p>
+    <p class="projected-range"><AnimatedNumber value={projection.interval.lower} decimals={2} />–<AnimatedNumber value={projection.interval.upper} decimals={2} /> <span>average GPA</span></p>
     <p class="interval-label">Approximate {projection.interval.coverage}% prediction interval</p>
     <div class="interval-scale" aria-hidden="true">
       <div class="interval-band" style:left={`${projection.interval.lower / 4 * 100}%`} style:width={`${(projection.interval.upper - projection.interval.lower) / 4 * 100}%`}></div>
