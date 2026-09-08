@@ -48,7 +48,7 @@
         term: results.term,
         availability: results.availability,
       }}
-      placeholder="A course, topic, or something you want to learn…"
+      placeholder="A course, professor, or something you want to learn…"
     />{#each Object.entries( { ...urlParams, term: results.term, availability: results.availability }, ).filter(([key]) => !["q", "page"].includes(key)) as [key, value]}<input
         type="hidden"
         name={key}

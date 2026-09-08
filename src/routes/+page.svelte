@@ -26,7 +26,7 @@
       <SearchInput
         revision={data.status.revision}
         label="Search courses or topics"
-        placeholder="A course or curiosity…"
+        placeholder="A course, professor, or topic…"
       />
       <button aria-label="Find courses"><Search size={19} strokeWidth={1.5} /></button>
     </form>

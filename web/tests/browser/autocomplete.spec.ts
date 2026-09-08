@@ -11,7 +11,7 @@ test("course autocomplete supports keyboard selection and dismissal", async ({
   await input.fill("CS 300");
   await expect(
     page
-      .getByRole("listbox", { name: "Suggested courses" })
+      .getByRole("listbox", { name: "Search suggestions" })
       .getByRole("option")
       .first(),
   ).toContainText("300");
@@ -20,14 +20,14 @@ test("course autocomplete supports keyboard selection and dismissal", async ({
   await input.fill("CS 400");
   await expect(
     page
-      .getByRole("listbox", { name: "Suggested courses" })
+      .getByRole("listbox", { name: "Search suggestions" })
       .getByRole("option")
       .first(),
   ).toContainText("400");
   await input.press("ArrowDown");
   await expect(
     page
-      .getByRole("listbox", { name: "Suggested courses" })
+      .getByRole("listbox", { name: "Search suggestions" })
       .getByRole("option")
       .first(),
   ).toHaveAttribute("aria-selected", "true");
@@ -56,7 +56,7 @@ test("finder suggestions retain filters and work on mobile", async ({
   expect(url.searchParams.get("availability")).toBe("all");
   await expect(
     page
-      .getByRole("listbox", { name: "Suggested courses" })
+      .getByRole("listbox", { name: "Search suggestions" })
       .getByRole("option")
       .first(),
   ).toBeVisible();
@@ -66,7 +66,7 @@ test("finder suggestions retain filters and work on mobile", async ({
     ),
   ).toBe(true);
   await page
-    .getByRole("listbox", { name: "Suggested courses" })
+    .getByRole("listbox", { name: "Search suggestions" })
     .getByRole("option")
     .first()
     .getByRole("button")
@@ -101,13 +101,13 @@ test("autocomplete ignores stale responses and preserves regular search on error
   await input.fill("new");
   await expect(
     page
-      .getByRole("listbox", { name: "Suggested courses" })
+      .getByRole("listbox", { name: "Search suggestions" })
       .getByRole("option"),
   ).toContainText("new");
   await page.waitForTimeout(600);
   await expect(
     page
-      .getByRole("listbox", { name: "Suggested courses" })
+      .getByRole("listbox", { name: "Search suggestions" })
       .getByRole("option"),
   ).toContainText("new");
   await input.fill("broken");
@@ -116,4 +116,26 @@ test("autocomplete ignores stale responses and preserves regular search on error
   );
   await input.press("Enter");
   await expect(page).toHaveURL(/\/search\?q=broken/);
+});
+
+test("autocomplete includes instructors with distinct icons and opens their profiles", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
+  const input = page.getByRole("combobox", {
+    name: "Search courses or topics",
+  });
+  await input.fill("Hobbes");
+  const teacher = page
+    .getByRole("listbox", { name: "Search suggestions" })
+    .getByRole("option")
+    .filter({ hasText: "Hobbes Legault" }).filter({ hasText: "current teaching" });
+  await expect(teacher).toContainText("Instructor");
+  await expect(teacher.locator(".suggestion-icon svg")).toBeVisible();
+  await teacher.getByRole("button").click();
+  await expect(page).toHaveURL(/\/instructors\//);
+  await expect(
+    page.getByRole("heading", { name: "Hobbes Legault", exact: true }),
+  ).toBeVisible();
 });
