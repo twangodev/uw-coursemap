@@ -28,7 +28,7 @@ export function visibleTree(ast: Requirements, expanded: Set<string>) {
     const entry = {
       id,
       type: "requirement",
-      position: { x: depth * 150, y: 0 },
+      position: { x: depth * 260, y: 0 },
       data: {
         label: nodeLabel(n),
         course: n.course,
@@ -49,7 +49,7 @@ export function visibleTree(ast: Requirements, expanded: Set<string>) {
       );
     entry.position.y = children.length
       ? (children[0].position.y + children[children.length - 1].position.y) / 2
-      : y++ * 85;
+      : y++ * 120;
   }
   walk(ast.root, 0);
   return { nodes, edges };

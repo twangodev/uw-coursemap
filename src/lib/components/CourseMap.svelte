@@ -31,7 +31,7 @@
 <p class="muted">
   {graph.nodes.length - 1} connected courses. Drag to see more.
   Prerequisites on the left; courses that reference this course on the right.
-  Select a card to explore its connections, or its title to open the course.
+  Select a node to explore its connections, or its title to open the course.
 </p>
 
 <style>

@@ -100,7 +100,7 @@ export function mapView(data: CourseMapData, focus: string) {
       .map((edge) => ({
         ...edge,
         id: `${edge.source}:${edge.target}`,
-        type: "smoothstep",
+        type: "default",
         markerEnd: { type: "arrowclosed" as const },
       })),
   };
