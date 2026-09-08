@@ -12,10 +12,11 @@ import shutil
 import sqlite3
 import pyarrow.parquet as pq
 from .instructor_stats import attach_ratings
+from .discovery import build_discovery
 
 ROOT = Path.cwd()
 REPO = "twangodev/uw-coursemap"
-IMPORTER_VERSION = "2"
+IMPORTER_VERSION = "3"
 GRADES = ["a", "ab", "b", "bc", "c", "d", "f"]
 WEIGHTS = [4, 3.5, 3, 2.5, 2, 1, 0]
 MAX_CHUNK = 1024 * 1024
@@ -151,8 +152,8 @@ class SqlParts:
             self.stream.close()
 
 
-def compile_release(source, revision, output, static, limit=0):
-    manifest = verify(source)
+def compile_release(source, revision, output, static, limit=0, manifest=None):
+    manifest = manifest or verify(source)
     output.mkdir(parents=True, exist_ok=True)
     dbpath = output / "site.sqlite"
     dbpath.unlink(missing_ok=True)
@@ -404,6 +405,7 @@ def compile_release(source, revision, output, static, limit=0):
                 "courses": sorted(items, key=lambda c: c["course_id"]),
             },
         )
+    build_discovery(db, rows(source, "rmp_reviews"))
     status = {
         "revision": revision,
         "repository": REPO,
@@ -413,6 +415,7 @@ def compile_release(source, revision, output, static, limit=0):
             revision.encode()
             + Path(__file__).read_bytes()
             + Path(__file__).with_name("schema-v6.json").read_bytes()
+            + Path(__file__).with_name("discovery.py").read_bytes()
         ).hexdigest(),
         "observed_at": manifest["observed_at"],
         "built_at": datetime.now(timezone.utc).isoformat(),
@@ -460,6 +463,10 @@ def compile_release(source, revision, output, static, limit=0):
             "teaching",
             "grades",
             "metadata",
+            "course_numbers",
+            "offerings",
+            "grade_summaries",
+            "reviews",
         ]:
             f.write(f"DROP TABLE IF EXISTS {table};\n")
         for (sql,) in db.execute(
@@ -551,13 +558,16 @@ def main():
         )
     if not re.fullmatch(r"[a-zA-Z0-9-]{8,80}", revision):
         raise ValueError("Invalid revision")
+    manifest = verify(source)
     # Clean only the importer-owned generated tree. Git never tracks these files.
     static = ROOT / "static/data"
     if static.exists():
         shutil.rmtree(static)
     if args.output.exists():
         shutil.rmtree(args.output)
-    compile_release(source, revision, args.output, ROOT / "static", args.limit)
+    compile_release(
+        source, revision, args.output, ROOT / "static", args.limit, manifest
+    )
 
 
 if __name__ == "__main__":

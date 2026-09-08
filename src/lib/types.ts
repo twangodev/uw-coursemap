@@ -6,6 +6,20 @@ export interface CourseCard {
   credits_min: number | null;
   credits_max: number | null;
   gpa: number | null;
+  discovery?: {
+    term: string;
+    offered: boolean;
+    history: ReturnType<typeof import("./discovery").gradeSummary>;
+    instructors: { uid: string; name: string | null; quality: number | null }[];
+    claim: Claim | null;
+    reviewFiles: string[];
+    instructorHistory?: ReturnType<
+      typeof import("./discovery").gradeSummary
+    > | null;
+    courseComparison?: ReturnType<
+      typeof import("./discovery").gradeSummary
+    > | null;
+  };
 }
 export interface Status {
   revision: string;
