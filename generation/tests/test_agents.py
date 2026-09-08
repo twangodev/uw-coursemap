@@ -562,6 +562,57 @@ class AgentTests(unittest.TestCase):
         self.assertEqual(out["answer"], "corrected")
         self.assertEqual(json.dumps(history, sort_keys=True), original)
 
+    def test_context_repair_sends_evidence_once_and_preserves_feedback(self):
+        from pydantic_ai import ModelMessagesTypeAdapter
+        from pydantic_ai.messages import ModelRequest, RetryPromptPart, UserPromptPart
+
+        history = ModelMessagesTypeAdapter.dump_python(
+            [
+                ModelRequest(parts=[UserPromptPart("Repeated old evidence" * 1000)]),
+                ModelResponse(parts=[TextPart('{"answer": "old draft"}')]),
+                ModelRequest(
+                    parts=[
+                        RetryPromptPart("Correct the instructor attribution"),
+                        UserPromptPart("Repeated old evidence" * 1000),
+                    ]
+                ),
+            ],
+            mode="json",
+        )
+        original = json.dumps(history, sort_keys=True)
+        task = {
+            "name": "context_repair",
+            "prompt": "Use the current evidence.",
+            "schema": {
+                "type": "object",
+                "properties": {"answer": {"type": "string"}},
+                "required": ["answer"],
+            },
+        }
+
+        def model(messages, info):
+            serialized = ModelMessagesTypeAdapter.dump_json(messages).decode()
+            self.assertNotIn("Repeated old evidence", serialized)
+            self.assertEqual(serialized.count("Current source evidence"), 1)
+            self.assertIn("Correct the instructor attribution", serialized)
+            self.assertIn("old draft", serialized)
+            return ModelResponse(
+                parts=[TextPart('{"answer": "corrected"}')], finish_reason="stop"
+            )
+
+        out, _ = generate_generic(
+            {"max_output_tokens": 1024},
+            task,
+            {
+                "_history": history,
+                "_compact_history": True,
+                "evidence": "Current source evidence",
+            },
+            FunctionModel(model),
+        )
+        self.assertTrue(out["provenance"]["history_compacted"])
+        self.assertEqual(json.dumps(history, sort_keys=True), original)
+
     def test_grounding_feedback_repairs_draft_and_keeps_both_traces(self):
         from uw_coursemap.tasks import load_task
 

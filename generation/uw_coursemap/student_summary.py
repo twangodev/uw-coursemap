@@ -333,6 +333,9 @@ def generate_student(profile, task, payload, generate=None):
         )
         if prior and previous_failure:
             request["_history"] = previous_failure.get("conversation", [])
+            request["_compact_history"] = (
+                "maximum context length" in previous_failure.get("error", "")
+            )
         thinking = bool(profile.get("thinking")) or bool(
             prior
             and previous_failure

@@ -789,12 +789,37 @@ async def _generic(profile, task, payload, model=None):
                 raise ModelRetry(str(exc)[:6000]) from exc
             return value
 
-        request = {k: v for k, v in payload.items() if k != "_history"}
+        request = {
+            k: v
+            for k, v in payload.items()
+            if k not in {"_history", "_compact_history"}
+        }
         history = (
             ModelMessagesTypeAdapter.validate_python(copy.deepcopy(payload["_history"]))
             if payload.get("_history")
             else None
         )
+        if history and payload.get("_compact_history"):
+            # Retain the latest native drafts and feedback, but send source
+            # evidence once. Original messages remain in the parent job trace.
+            drafts = [
+                i
+                for i, m in enumerate(history)
+                if isinstance(m, ModelResponse)
+                and any(p.part_kind == "text" for p in m.parts)
+            ]
+            compact = []
+            for message in history[
+                (drafts[-2] if len(drafts) > 1 else drafts[-1])
+                if drafts
+                else len(history) :
+            ]:
+                message.parts = [
+                    p for p in message.parts if p.part_kind in {"text", "retry-prompt"}
+                ]
+                if message.parts:
+                    compact.append(message)
+            history = compact or None
         # PydanticAI keeps historical system prompts when resuming. Apply the
         # current scoped instructions without losing drafts or retry feedback.
         for message in history or []:
@@ -819,6 +844,7 @@ async def _generic(profile, task, payload, model=None):
             input_hash=digest(payload),
             task_hash=digest(task),
             grounding_checks=grounding_checks,
+            history_compacted=bool(payload.get("_compact_history")),
         )
         usage = result.usage
         return output, {
