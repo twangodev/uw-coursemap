@@ -111,6 +111,7 @@
     content={c.llm_summary || c.description?.slice(0, 160)}
   /><link rel="canonical" href={courseUrl(c.course_id)} /></svelte:head
 >
+<div class="course-page">
 <div class="course-heading">
   <div class="row between">
     <div class="breadcrumbs mono">
@@ -448,7 +449,13 @@
   </div>
 </div>
 
+</div>
+
 <style>
+  .course-page {
+    max-width: 1120px;
+    margin-inline: auto;
+  }
   .course-topics { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); }
   .course-navigation { display: flex; align-items: center; gap: 20px; position: sticky; top: 0; z-index: 20; background: var(--bg); border-bottom: 1px solid var(--border); padding: 6px 0; }
   .course-navigation .course-jumps { position: static; flex: 1; min-width: 0; border: 0; margin: 0; padding: 0; }
