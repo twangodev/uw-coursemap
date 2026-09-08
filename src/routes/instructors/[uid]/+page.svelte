@@ -1,4 +1,5 @@
 <script lang="ts">
+  import InstructorStats from "$lib/components/InstructorStats.svelte";
   import TeachingTimeline from "$lib/components/TeachingTimeline.svelte";
   import CourseList from "$lib/components/CourseList.svelte";
   import { courseUrl, termName, courseTitle } from "$lib/format";
@@ -39,6 +40,10 @@
   </p>
   <h1>{data.instructor.name || "Name unavailable"}</h1>
 </div>
+<InstructorStats
+  ratings={data.instructor.ratings}
+  grades={data.instructor.grade_statistics}
+/>
 <section class="section">
   <h2>Teaching in {termName(data.status.term)}</h2>
   <CourseList courses={data.instructor.courses} />

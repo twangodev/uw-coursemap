@@ -12,6 +12,7 @@
   import Panel from "$lib/components/Panel.svelte";
   import Claims from "$lib/components/Claims.svelte";
   import Evidence from "$lib/components/Evidence.svelte";
+  import InstructorStats from "$lib/components/InstructorStats.svelte";
   import GradeProjection from "$lib/components/GradeProjection.svelte";
   import CourseContext from "$lib/components/CourseContext.svelte";
   import GradeSnapshot from "$lib/components/GradeSnapshot.svelte";
@@ -21,6 +22,13 @@
   import { credits, instructorUrl, termName, courseTitle } from "$lib/format";
   let { data } = $props();
   let c = $derived(data.course);
+  let professors = $derived(
+    [...c.instructors].sort(
+      (a, b) =>
+        (b.ratings?.quality ?? -1) - (a.ratings?.quality ?? -1) ||
+        a.name.localeCompare(b.name),
+    ),
+  );
   let summary = $derived(c.student_summary);
   let Graph = $state<any>(null);
   let graphError = $state("");
@@ -83,9 +91,14 @@
     </div>
     <div class="current-teachers">
       <span class="teacher-label">Teaching this term</span>
-      {#each c.instructors as instructor}<a
+      {#each professors as instructor}<a
           href={instructorUrl(instructor.instructor_uid)}
-          >{instructor.name}<ArrowUpRight size={15} /></a
+          ><span>{instructor.name}</span
+          >{#if instructor.ratings?.quality != null}<span
+              class="teacher-rating"
+              aria-label={`RMP quality ${instructor.ratings.quality.toFixed(1)} out of 5, from ${instructor.ratings.review_count} captured reviews`}
+              >{instructor.ratings.quality.toFixed(1)}<small>/5</small></span
+            >{/if}<ArrowUpRight size={15} /></a
         >{:else}<span class="muted">No instructors listed</span>{/each}
     </div>
   </div>
@@ -152,19 +165,6 @@
             >{/each}
         </div>
       </div>
-      <div class="fact-block">
-        <h3><BookOpen size={13} /> Topics</h3>
-        <div class="tags">
-          {#each c.llm_topics.slice(0, 2) as topic}<span>{topic}</span>{/each}
-          {#if c.llm_topics.length > 2}<details>
-              <summary>More topics</summary>
-              <div class="tags">
-                {#each c.llm_topics.slice(2) as topic}<span>{topic}</span
-                  >{/each}
-              </div>
-            </details>{/if}
-        </div>
-      </div>
       <a class="small-link" href="#requirements"
         >View prerequisites <ArrowUpRight size={14} /></a
       >
@@ -173,12 +173,7 @@
         <p>{c.description}</p>
       </details>
       <details>
-        <summary>Skills & assumed background</summary>
-        <h3>Skills</h3>
-        <ul>
-          {#each c.llm_skills as skill}<li>{skill}</li>{/each}
-        </ul>
-        <h3>Assumed background</h3>
+        <summary>Assumed background</summary>
         <ul>
           {#each c.llm_assumed_background as item}<li>{item}</li>{/each}
         </ul>
@@ -231,9 +226,25 @@
           />
         </div>{/if}
     </Panel>
+    {#if c.llm_topics?.length || c.llm_skills?.length}
+      <section id="topics" aria-label="AI-generated topics and skills">
+        <div class="course-tag-groups">
+          {#each [{ label: "Topics", values: c.llm_topics }, { label: "Skills", values: c.llm_skills }] as group}
+            {#if group.values?.length}
+              <div>
+                <h3 class="tag-label">{group.label}</h3>
+                <ul class="course-tags" aria-label={group.label}>
+                  {#each group.values as tag}<li>{tag}</li>{/each}
+                </ul>
+              </div>
+            {/if}
+          {/each}
+        </div>
+      </section>
+    {/if}
     <Panel title="Professors" id="professors" label={termName(c.semester)}>
       <div class="professor-grid">
-        {#each c.instructors as i}{@const feedback =
+        {#each professors as i}{@const feedback =
             summary.current_instructors?.find(
               (r: any) => r.instructor_uid === i.instructor_uid,
             )}
@@ -252,12 +263,19 @@
                 >
               </h3>
             </div>
-            {#if feedback?.summary?.length}<Claims
-                claims={feedback.summary}
-                reviewFiles={c.evidence.reviews}
-              />{:else}<p class="muted">
-                No course-specific feedback yet.
-              </p>{/if}
+            <div>
+              <InstructorStats
+                ratings={i.ratings}
+                grades={i.grade_statistics}
+                courseUid={c.course_uid}
+              />
+              {#if feedback?.summary?.length}<Claims
+                  claims={feedback.summary}
+                  reviewFiles={c.evidence.reviews}
+                />{:else}<p class="muted">
+                  No course-specific feedback yet.
+                </p>{/if}
+            </div>
           </article>{:else}<p class="muted">
             No current instructors recorded.
           </p>{/each}
@@ -379,3 +397,31 @@
     </Panel>
   </div>
 </div>
+
+<style>
+  .course-tag-groups {
+    display: grid;
+    gap: 14px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.65;
+  }
+  .tag-label {
+    font-size: inherit;
+    font-weight: 500;
+    margin: 0 0 4px;
+  }
+  .course-tags {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .course-tags li {
+    display: inline;
+    overflow-wrap: anywhere;
+  }
+  .course-tags li + li::before {
+    content: " · ";
+    white-space: pre-wrap;
+  }
+</style>

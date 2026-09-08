@@ -145,3 +145,26 @@ test("calendar filters meetings, exposes details and exports dates", async ({
   ).toBeLessThanOrEqual(390);
   await page.screenshot({ path: "test-results/calendar-mobile.png" });
 });
+
+test("course context, projection and captured instructor ratings remain distinct", async ({
+  page,
+}) => {
+  await page.goto(`/courses/${uid}`);
+  await expect(
+    page.locator(".grade-snapshot .grade-percentages"),
+  ).toContainText("34.1%");
+  await expect(page.locator(".course-context")).toContainText("Spring 2026");
+  await expect(page.locator(".course-context")).toContainText("478");
+  await expect(page.locator(".projection")).toContainText("Fall 2026");
+  await expect(page.locator(".projection")).toContainText("GPA average error");
+  const hobbes = page
+    .locator("#professors article")
+    .filter({ hasText: "Hobbes Legault" });
+  await expect(hobbes.locator(".rating-values")).toContainText("93");
+  await expect(hobbes.locator(".rating-values")).toContainText("RMP quality");
+  await hobbes.getByRole("link", { name: "Hobbes Legault" }).click();
+  await expect(
+    page.getByRole("heading", { name: "Hobbes Legault", exact: true }),
+  ).toBeVisible();
+  await expect(page.locator(".rating-values")).toContainText("93");
+});
