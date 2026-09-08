@@ -10,7 +10,7 @@ export default {
       concurrency: 16,
       handleHttpError: "fail",
       handleMissingId: "warn",
-      entries: ["/", "/subjects"],
+      entries: ["/", "/subjects", "/explorer", "/stats"],
     },
   },
 };
