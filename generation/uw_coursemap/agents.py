@@ -685,6 +685,12 @@ async def _generic(profile, task, payload, model=None):
     from .requirements import restore_quotes, validate_graph
 
     async def run(selected_model):
+        grounding_checks = []
+        grounding_usage = {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+        }
         agent = Agent(
             selected_model,
             output_type=NativeOutput(
@@ -705,7 +711,7 @@ async def _generic(profile, task, payload, model=None):
         )
 
         @agent.output_validator
-        def validate(ctx: RunContext, value: dict) -> dict:
+        async def validate(ctx: RunContext, value: dict) -> dict:
             try:
                 if any(
                     isinstance(m, ModelResponse) and m.finish_reason == "length"
@@ -726,6 +732,59 @@ async def _generic(profile, task, payload, model=None):
                 if task.get("validator") == "requirements_graph_v1":
                     restore_quotes(value, payload)
                     validate_graph(value, payload)
+                if task.get("grounding_task"):
+                    from .grounding import grounding_request
+
+                    request = grounding_request(task, value, payload)
+                    if request:
+                        check_task, check_payload = request
+                        check_settings = {
+                            "thinking": check_task.get("thinking", False),
+                            "max_output_tokens": check_task.get(
+                                "max_output_tokens", 2048
+                            ),
+                        }
+                        try:
+                            with capture_run_messages() as check_messages:
+                                checked, cost = await _generic(
+                                    {**profile, **check_settings},
+                                    check_task,
+                                    check_payload,
+                                    model=selected_model,
+                                )
+                        except Exception as exc:
+                            grounding_checks.append(
+                                {
+                                    "input": check_payload,
+                                    "error": str(exc),
+                                    "conversation": serialize_messages(check_messages),
+                                    "inference": check_settings,
+                                }
+                            )
+                            raise
+                        grounding_checks.append(
+                            {
+                                "input": check_payload,
+                                "output": checked,
+                                "usage": cost,
+                                "inference": check_settings,
+                            }
+                        )
+                        for key in grounding_usage:
+                            grounding_usage[key] += cost.get(key, 0)
+                        if checked["issues"]:
+                            claims = {
+                                c["claim_id"]: c["text"]
+                                for c in check_payload["claims"]
+                            }
+                            feedback = [
+                                {"claim": claims[i["claim_id"]], "reason": i["reason"]}
+                                for i in checked["issues"]
+                            ]
+                            raise ValueError(
+                                "Revise these unsupported claims using their cited reviews, correct their citations, or omit them: "
+                                + canonical(feedback)
+                            )
             except (ValueError, KeyError, TypeError, jsonschema.ValidationError) as exc:
                 raise ModelRetry(str(exc)[:6000]) from exc
             return value
@@ -736,11 +795,15 @@ async def _generic(profile, task, payload, model=None):
             if payload.get("_history")
             else None
         )
-        result = await agent.run(
-            canonical(request),
-            message_history=history,
-            usage_limits=UsageLimits(request_limit=3),
-        )
+        try:
+            result = await agent.run(
+                canonical(request),
+                message_history=history,
+                usage_limits=UsageLimits(request_limit=3),
+            )
+        except Exception as exc:
+            exc.grounding_checks = grounding_checks
+            raise
         output = result.output
         output.setdefault("provenance", {}).update(
             worker_version=WORKER_VERSION,
@@ -748,12 +811,16 @@ async def _generic(profile, task, payload, model=None):
             conversation=serialize_messages(result.all_messages()),
             input_hash=digest(payload),
             task_hash=digest(task),
+            grounding_checks=grounding_checks,
         )
         usage = result.usage
         return output, {
-            "prompt_tokens": usage.input_tokens,
-            "completion_tokens": usage.output_tokens,
-            "total_tokens": usage.input_tokens + usage.output_tokens,
+            "prompt_tokens": usage.input_tokens + grounding_usage["prompt_tokens"],
+            "completion_tokens": usage.output_tokens
+            + grounding_usage["completion_tokens"],
+            "total_tokens": usage.input_tokens
+            + usage.output_tokens
+            + grounding_usage["total_tokens"],
         }
 
     if model is not None:

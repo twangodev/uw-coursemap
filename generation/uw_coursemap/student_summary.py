@@ -41,6 +41,13 @@ def summary_seeds(jobs, ids, run):
 
 def validate_claims(value, payload):
     reviews = {r["citation_id"]: r for r in payload["reviews"]}
+    limits = {
+        "summary": 80,
+        "quick_take": 55,
+        "difficulty_workload": 45,
+        "student_experience": 45,
+    }
+    seen = set()
     for field, claims in value.items():
         if field not in {
             "summary",
@@ -49,7 +56,24 @@ def validate_claims(value, payload):
             "student_experience",
         }:
             continue
+        if sum(len(c["text"].split()) for c in claims) > limits[field]:
+            raise ValueError(
+                f"Shorten {field} to at most {limits[field]} words; preserve the supporting citations"
+            )
         for claim in claims:
+            normalized = " ".join(claim["text"].casefold().split())
+            if normalized in seen:
+                raise ValueError(
+                    "Do not repeat the same claim across fields; give each field a distinct purpose"
+                )
+            seen.add(normalized)
+            if re.search(
+                r"\b(widely|universally|unanimously)\b|\btop choice\b|\bstudents generally (?:prefer|agree)\b",
+                normalized,
+            ):
+                raise ValueError(
+                    "Sampled reviews do not establish popularity or consensus. Describe what the cited reviewers say without ranking instructors or claiming widespread agreement."
+                )
             ids = claim["review_ids"]
             if (
                 not ids
@@ -57,7 +81,8 @@ def validate_claims(value, payload):
                 or any(i not in reviews for i in ids)
             ):
                 raise ValueError(
-                    "Cite distinct supplied citation_id handles for each claim"
+                    "Cite distinct citation_id handles only, not source IDs. Allowed handles: "
+                    + ", ".join(reviews)
                 )
             if re.search(r"[\u4e00-\u9fff]", claim["text"]) or not re.search(
                 r"[.!?][\"'’”)]?$", claim["text"].strip()
@@ -110,8 +135,10 @@ def generate_student(profile, task, payload, generate=None):
         .get("value")
         or {}
     )
-    if prior.get("context_hash") != digest(source) or prior.get("task_hash") != digest(
-        task
+    if (
+        prior.get("context_hash") != digest(source)
+        or prior.get("task_hash") != digest(task)
+        or prior.get("profile_hash") != digest(profile)
     ):
         prior = {}
     reused_scopes = []
@@ -178,8 +205,23 @@ def generate_student(profile, task, payload, generate=None):
             "course_id": source["course_id"],
             "mode": mode,
             "term_id": source["term_id"],
+            "term_name": source["term_name"],
             "instructor_name": person["name"] if person else None,
-            "reviews": shown,
+            "reviews": [
+                {
+                    k: v
+                    for k, v in r.items()
+                    if k
+                    not in {
+                        "id",
+                        "source_review_id",
+                        "instructor_id",
+                        "source_url",
+                        "course_id",
+                    }
+                }
+                for r in shown
+            ],
             "current_instructors": [p["name"] for p in source["current_instructors"]],
             "teaching_history": [
                 {
@@ -203,7 +245,9 @@ def generate_student(profile, task, payload, generate=None):
             request["_history"] = previous_failure.get("conversation", [])
         local_profile = {
             **profile,
-            "max_output_tokens": min(profile["max_output_tokens"], 4096),
+            "max_output_tokens": min(
+                profile["max_output_tokens"], 8192 if profile.get("thinking") else 4096
+            ),
         }
         try:
             with capture_run_messages() as messages:
@@ -217,6 +261,15 @@ def generate_student(profile, task, payload, generate=None):
                     k: scoped_task["schema"]["properties"][k] for k in fields
                 }
                 scoped_task["schema"]["required"] = list(fields)
+                if mode != "professor":
+                    for field in fields:
+                        scoped_task["schema"]["properties"][field]["maxItems"] = 1
+                for field in fields:
+                    ids = scoped_task["schema"]["properties"][field]["items"][
+                        "properties"
+                    ]["review_ids"]
+                    ids["items"]["enum"] = list(evidence)
+                    ids["maxItems"] = min(ids["maxItems"], len(evidence))
                 result, cost = generate(local_profile, scoped_task, request)
             validate_claims(result, request)
             for field in (
@@ -294,7 +347,13 @@ def generate_student(profile, task, payload, generate=None):
                 "instructor_uid": person["instructor_uid"] if person else None,
                 "error": f"{type(exc).__name__}: {exc}",
             }
-            traces.append({**error, "conversation": trace})
+            traces.append(
+                {
+                    **error,
+                    "conversation": trace,
+                    "grounding_checks": getattr(exc, "grounding_checks", []),
+                }
+            )
             errors.append(error)
             return None
 
@@ -349,6 +408,7 @@ def generate_student(profile, task, payload, generate=None):
         "version": 2,
         "context_hash": digest(source),
         "task_hash": digest(task),
+        "profile_hash": digest(profile),
         "course_id": source["course_id"],
         "term_id": source["term_id"],
         "term_name": source["term_name"],
@@ -375,6 +435,17 @@ def generate_student(profile, task, payload, generate=None):
     seed = payload["summary_seed"]
     previous = seed["output"]
     sections = copy.deepcopy(previous["sections"])
+    overrides = {}
+    if source.get("has_description") is False:
+        sections["search_profile"] = {
+            "status": "insufficient_evidence",
+            "value": None,
+            "error": "The catalog description is empty; use the source title instead of inferred search metadata.",
+        }
+        overrides["search_profile"] = {
+            "source": "catalog",
+            "reason": "empty_description",
+        }
     sections["student_summary"] = {
         "status": "invalid" if errors else "valid",
         "value": value,
@@ -401,6 +472,7 @@ def generate_student(profile, task, payload, generate=None):
                 for k, v in previous["sections"].items()
             },
             "subtasks": traces,
+            "section_overrides": overrides,
             "reused_scopes": reused_scopes,
             "conversation": conversations,
         },

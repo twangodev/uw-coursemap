@@ -3,6 +3,7 @@
 import copy
 import json
 import unittest
+from pathlib import Path
 
 from pydantic_ai import ModelMessagesTypeAdapter
 from pydantic_ai.messages import (
@@ -499,6 +500,96 @@ class AgentTests(unittest.TestCase):
                         FunctionModel(model),
                     )
                 self.assertEqual(len(calls), 3)
+
+    def test_grounding_feedback_repairs_draft_and_keeps_both_traces(self):
+        from uw_coursemap.tasks import load_task
+
+        task = load_task(
+            Path(__file__).resolve().parents[2] / "inference/tasks/student_summary.json"
+        )
+        payload = {
+            "course_id": "MUSIC 101",
+            "term_id": "1272",
+            "term_name": "Fall 2026",
+            "mode": "overview",
+            "current_instructors": [],
+            "reviews": [
+                {
+                    "citation_id": "review:1",
+                    "instructor_name": "Example",
+                    "date": "2025-01-01",
+                    "comment": "The final essay is easy, but the exam is hard.",
+                }
+            ],
+        }
+
+        def draft(text):
+            return {
+                "summary": [],
+                "quick_take": [{"text": text, "review_ids": ["review:1"]}],
+                "difficulty_workload": [],
+                "student_experience": [],
+            }
+
+        answers = [
+            draft("The final exam is easy."),
+            {
+                "issues": [
+                    {
+                        "claim_id": "claim:1",
+                        "reason": "The review calls the essay easy, not the exam.",
+                    }
+                ]
+            },
+            draft("The reviewer found the final essay easy and the exam hard."),
+            {"issues": []},
+        ]
+        calls = []
+
+        def model(messages, info):
+            calls.append(messages)
+            return ModelResponse(
+                parts=[TextPart(json.dumps(answers[len(calls) - 1]))],
+                finish_reason="stop",
+            )
+
+        out, usage = generate_generic(
+            {"max_output_tokens": 1024}, task, payload, FunctionModel(model)
+        )
+        self.assertEqual(len(calls), 4)
+        self.assertIn("essay easy", out["quick_take"][0]["text"])
+        checks = out["provenance"]["grounding_checks"]
+        self.assertEqual(len(checks), 2)
+        self.assertEqual(
+            checks[0]["inference"], {"thinking": True, "max_output_tokens": 8192}
+        )
+        self.assertTrue(checks[0]["output"]["provenance"]["conversation"])
+        self.assertEqual(checks[1]["output"]["issues"], [])
+        self.assertGreaterEqual(
+            usage["total_tokens"], sum(c["usage"]["total_tokens"] for c in checks)
+        )
+        from pydantic_ai.exceptions import UnexpectedModelBehavior
+
+        repeated = []
+
+        def never_repairs(messages, info):
+            answer = answers[len(repeated) % 2]
+            repeated.append(1)
+            return ModelResponse(
+                parts=[TextPart(json.dumps(answer))], finish_reason="stop"
+            )
+
+        with self.assertRaises(UnexpectedModelBehavior) as failed:
+            generate_generic(
+                {"max_output_tokens": 1024}, task, payload, FunctionModel(never_repairs)
+            )
+        self.assertEqual(len(repeated), 6)
+        self.assertEqual(len(failed.exception.grounding_checks), 3)
+        self.assertTrue(
+            failed.exception.grounding_checks[-1]["output"]["provenance"][
+                "conversation"
+            ]
+        )
 
     def test_changed_source_blocks_repair_before_inference(self):
         f = self.fixture

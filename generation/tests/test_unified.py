@@ -49,6 +49,14 @@ class Context:
 
 
 class UnifiedTests(unittest.TestCase):
+    def test_missing_description_does_not_preserve_inferred_metadata(self):
+        self.root["description"] = ""
+        result = validate_section(
+            "search_profile", self.search, self.task, self.root, self.lookup
+        )
+        self.assertEqual(result["status"], "insufficient_evidence")
+        self.assertIsNone(result["value"])
+
     def setUp(self):
         self.task = load_task(TASK)
         self.task["ast_repair_attempts"] = 2

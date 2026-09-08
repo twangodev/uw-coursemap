@@ -271,6 +271,9 @@ class StudentContext:
         }
         return {
             "course_id": key,
+            "has_description": bool(
+                self.base.courses[key].get("description", "").strip()
+            ),
             "term_id": self.term,
             "term_name": self.term_name,
             "offered": key in self.rosters,

@@ -94,6 +94,31 @@ class StudentSummaryTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 validate_claims(output, request)
 
+    def test_claims_reject_repetition_and_overlong_quick_take(self):
+        request = {"mode": "overview", "reviews": [{"citation_id": "review:1"}]}
+        claim = {
+            "text": "Reviewers describe useful projects.",
+            "review_ids": ["review:1"],
+        }
+        with self.assertRaisesRegex(ValueError, "repeat"):
+            validate_claims(
+                {"quick_take": [claim], "student_experience": [claim]}, request
+            )
+        with self.assertRaisesRegex(ValueError, "Shorten"):
+            validate_claims(
+                {"quick_take": [{**claim, "text": "useful " * 56 + "projects."}]},
+                request,
+            )
+        with self.assertRaisesRegex(ValueError, "consensus"):
+            validate_claims(
+                {
+                    "quick_take": [
+                        {**claim, "text": "This instructor is widely praised."}
+                    ]
+                },
+                request,
+            )
+
     def test_independent_professors_history_and_missing_reviews(self):
         calls = []
 
@@ -198,7 +223,11 @@ class StudentSummaryTests(unittest.TestCase):
             ],
             "rmp:old",
         )
-        self.assertEqual([r["instructor_id"] for r in calls[-1]["reviews"]], ["rmp:1"])
+        self.assertEqual(
+            [r["instructor_name"] for r in calls[-1]["reviews"]], ["rmp:1"]
+        )
+        self.assertNotIn("id", calls[-1]["reviews"][0])
+        self.assertNotIn("source_review_id", calls[-1]["reviews"][0])
 
         payload["summary_seed"] = {"job_id": "previous", "output": result}
         before = len(calls)
@@ -216,6 +245,25 @@ class StudentSummaryTests(unittest.TestCase):
             resumed["sections"]["student_summary"]["value"], section["value"]
         )
         self.assertEqual(len(resumed["provenance"]["reused_scopes"]), 3)
+        payload["student_context"]["has_description"] = False
+        limited, _ = generate_student(
+            {"model": "test", "revision": "abc", "max_output_tokens": 1000},
+            load_task(
+                Path(__file__).resolve().parents[2]
+                / "inference/tasks/student_summary.json"
+            ),
+            payload,
+            generate=fake,
+        )
+        self.assertEqual(
+            limited["sections"]["search_profile"]["status"], "insufficient_evidence"
+        )
+        self.assertIsNone(limited["sections"]["search_profile"]["value"])
+        self.assertEqual(
+            limited["provenance"]["section_overrides"]["search_profile"]["reason"],
+            "empty_description",
+        )
+        self.assertEqual(result["sections"]["search_profile"], base["search_profile"])
 
     def test_current_roster_uses_term_and_deduplicates_cross_listings(self):
         from uw_coursemap.student_context import StudentContext
@@ -264,6 +312,7 @@ class StudentSummaryTests(unittest.TestCase):
 
         class Base:
             reviews = {}
+            courses = {"COMPSCI 300": {"description": "Programming."}}
 
             def resolve(self, key):
                 return key if key == "COMPSCI 300" else None

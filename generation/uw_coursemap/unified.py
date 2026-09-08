@@ -137,6 +137,13 @@ def review_handles(root):
 
 
 def validate_section(name, candidate, task, root, lookup):
+    if name == "search_profile" and not root.get("description", "").strip():
+        return {
+            "status": "insufficient_evidence",
+            "value": None,
+            "error": "The catalog description is empty; use the source title instead of inferred search metadata.",
+            "citation_repairs": [],
+        }
     jsonschema.Draft202012Validator(task["schema"]["properties"][name]).validate(
         candidate
     )

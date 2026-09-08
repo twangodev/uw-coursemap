@@ -8,6 +8,25 @@ from uw_coursemap.tasks import load_task
 
 
 class TaskTests(unittest.TestCase):
+    def test_grounding_assets_are_frozen_and_cycles_rejected(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            main = root / "main.json"
+            check = root / "check.json"
+            main.write_text(json.dumps({"grounding_task_file": "check.json"}))
+            check.write_text(
+                json.dumps({"prompt": "Check evidence", "schema": {"type": "object"}})
+            )
+            frozen = load_task(main)
+            self.assertEqual(frozen["grounding_task"]["prompt"], "Check evidence")
+            check.write_text(
+                json.dumps({"prompt": "Updated check", "schema": {"type": "object"}})
+            )
+            self.assertNotEqual(digest(frozen), digest(load_task(main)))
+            check.write_text(json.dumps({"grounding_task_file": "main.json"}))
+            with self.assertRaisesRegex(ValueError, "Cyclic"):
+                load_task(main)
+
     def test_relative_assets_are_frozen_and_content_changes_affect_identity(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
