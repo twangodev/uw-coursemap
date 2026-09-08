@@ -1,0 +1,11 @@
+{
+  "name": "student_summary",
+  "version": 14,
+  "workflow": "student_summary_v1",
+  "validator": "student_claims_v1",
+  "prompt_files": [
+    "../prompts/student_summary.md"
+  ],
+  "schema_file": "../schemas/student_summary.json",
+  "grounding_task_file": "review_grounding.json"
+}

@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "issues": {
+      "type": "array",
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "properties": {
+          "claim_id": {"type": "string"},
+          "reason": {"type": "string", "minLength": 1, "maxLength": 600}
+        },
+        "required": ["claim_id", "reason"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["issues"],
+  "additionalProperties": false
+}

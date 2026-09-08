@@ -5,8 +5,7 @@
 To get started with development of this project, clone the repository from GitHub:
 
 ```sh [git]
-git clone https://github.com/twangodev/uw-coursemap.git \
-  --recurse-submodules
+git clone https://github.com/twangodev/uw-coursemap.git
 ```
 
 Next, create a `.env` file in the root directory of the project. This project contains an `.env.example`, which may be copied and modified for each environment.
@@ -48,12 +47,10 @@ npm run docs:dev
 
 ### Search
 
-First, you will need to initialize the [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) if you have
-not done so already.
-
-```sh [git]
-git submodule update --init --recursive
-```
+The legacy search service reads a local compatibility export from `DATA_DIR`.
+The data directory is not included in the checkout; populate it from a local
+pipeline release before starting this service. Published Parquet tables are
+available on [Hugging Face](https://huggingface.co/datasets/twangodev/uw-coursemap).
 
 #### Setup Elasticsearch
 
@@ -101,16 +98,16 @@ This spins up a development server that listens for requests.
 
 ### Generation
 
-The generation process requires the same Python setup as the search. Install [uv] and the dependencies as specified above, just in the `generation` directory.
-
-> [!TIP]
-> Ideally, you should create separate virtual environments for the search and generation processes.
+Scraping, enrichment, and publication run manually on the local machine. From
+the project root, install dependencies with [uv] and inspect the pipeline CLI:
 
 ```sh [uv]
-uv run python ./generation/main.py --help
+uv sync --locked
+uv run coursemap --help
 ```
 
-For full details on how to run the generation process, see the [Generation](../codebase/generation.md) documentation.
+See the [local pipeline guide](https://github.com/twangodev/uw-coursemap/blob/main/generation/README.md)
+for semester runs, inference, persistent history, and Hugging Face publication.
 
 ## Deployment
 

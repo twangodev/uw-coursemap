@@ -1,0 +1,15 @@
+{
+  "name": "requirements_graph",
+  "version": 6,
+  "input_fields": {
+    "course_reference": "course_reference",
+    "requirements_text": "prerequisites.prerequisites_text",
+    "linked_courses": "prerequisites.course_references"
+  },
+  "validator": "requirements_graph_v1",
+  "prompt_files": [
+    "../prompts/evidence.md",
+    "../prompts/requirements.md"
+  ],
+  "schema_file": "../schemas/requirements.json"
+}

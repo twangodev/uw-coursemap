@@ -1,0 +1,44 @@
+[project]
+name = "uw-coursemap-generation"
+version = "0.1.0"
+description = "UW Course Map Data Generation Service"
+readme = "generation/README.md"
+requires-python = "==3.12.*"
+dependencies = [
+    "scrapy>=2.18,<3",
+    "pydantic>=2.10,<3",
+    "pyarrow>=19",
+    "huggingface-hub>=0.33,<1",
+    "anyascii>=0.3.3",
+    "beautifulsoup4>=4.13.4",
+    "diskcache>=5.6.3",
+    "fake-useragent>=2.2.0",
+    "frozendict>=2.4.6",
+    "hf-xet>=1.1.5",
+    "lxml>=6.0.0",
+    "nameparser>=1.1.3",
+    "pathvalidate>=3.3.1",
+    "python-dotenv>=1.1.1",
+    "rapidfuzz>=3.13.0",
+    "requests>=2.32.4",
+    "tqdm>=4.67.1",
+    "jsonschema>=4.23,<5",
+    "pydantic-ai-slim[openai]>=2.36,<3",
+    "pyyaml>=6,<7",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.12.9",
+]
+
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+coursemap = "uw_coursemap.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "generation"}
+packages = ["uw_coursemap"]

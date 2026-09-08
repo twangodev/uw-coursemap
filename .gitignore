@@ -25,6 +25,7 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
 # Generation
+/data/
 generation/.cache
 
 # Automatically Generated
@@ -42,3 +43,16 @@ src/paraglide/
 
 # Paraglide
 src/lib/paraglide
+
+# Local scraping runs and packaging
+.coursemap/
+/.venv/
+/.cache/
+/*.egg-info/
+/dist/
+generation/.venv/
+generation/*.egg-info/
+generation/build/
+generation/dist/
+
+inference/.venv/

@@ -43,14 +43,14 @@ npm run docs:dev
 cd search && docker-compose up
 
 # Setup Python environment (first time)
-cd generation && uv sync
-cd search && uv sync
+uv sync --locked
+uv sync --project search
 
 # Generate course data (Python with uv)
-cd generation && uv run python main.py
+uv run coursemap scrape --semester 1272
 
-# Test individual generation steps
-cd generation && uv run python main.py --step course_collection --no_build
+# Inspect a source snapshot
+uv run coursemap status RUN_ID
 
 # Run search service locally
 cd search && uv run python app.py
@@ -60,7 +60,7 @@ cd search && uv run python app.py
 - Version generation runs automatically before dev/build via `npm run generate`
 - **Python services use uv** for dependency management (not pip, pipenv, or conda)
 - Search service requires Elasticsearch via Docker Compose
-- Data generation can take 2-6 hours on fresh runs, ~3 minutes with caching
+- Scraping, inference, and publication have independent resumable checkpoints
 - Tests use Vitest framework with coverage reporting
 
 ## Application Architecture
@@ -78,17 +78,22 @@ The application helps University of Wisconsin-Madison students explore 10,000+ c
 #### 1. **Microservice Data Architecture**
 - **Static API**: Generated JSON files served from CDN (courses, instructors, prerequisites)
 - **Search Service**: Flask + Elasticsearch for dynamic course search
-- **Data Generation**: Python pipeline with ML embeddings for course relationships
+- **Data Generation**: Python pipeline with source snapshots, LLM enrichment, and Parquet publication
 - **Environment Variables**: Multi-service configuration (`PUBLIC_API_URL`, `PUBLIC_SEARCH_API_URL`)
 
 #### 2. **Data Generation Pipeline**
-Six-step process executed sequentially:
-1. **Course Collection**: UW Guide sitemap scraping + prerequisite AST building
-2. **Madgrades Integration**: Historical grade data integration
-3. **Instructor Collection**: Faculty data + Rate My Professors integration
-4. **Aggregation**: Statistics generation + embedding analysis
-5. **Optimization**: Prerequisite AST pruning using semantic similarity
-6. **Graph**: Cytoscape-compatible graph generation
+Run manually from the project root with `uv run coursemap`:
+
+1. Scrapy collects and freezes a source snapshot.
+2. `enrich` adds structured metadata through a separately managed inference server.
+3. `release` assembles immutable history and relational Parquet tables.
+4. `publish --parquet-only` uploads the dataset to Hugging Face.
+
+Website graphs, static JSON exports, and embedding-based graph pruning are retired.
+The Worker will consume Parquet and own search and serving.
+
+Active Python code lives in `generation/uw_coursemap`. Historical snapshot readers
+remain necessary for full-history exports. See `generation/README.md` for commands.
 
 #### 3. **Routing & Pages**
 - **File-based routing**: SvelteKit conventions with `+page.svelte` files
@@ -132,11 +137,10 @@ Six-step process executed sequentially:
 - **TailwindCSS 4**: Latest version with utility-first approach
 - **Caching Strategy**: 90-98% generation time reduction through platform-dependent caching
 
-#### Machine Learning Integration
-- **Embedding Models**: GIST Large Embedding v0 (local), formerly OpenAI text-embedding-3-small
-- **Semantic Similarity**: Cosine similarity for prerequisite optimization
-- **CUDA Support**: GPU acceleration for embedding generation
-- **Keyword extraction**: NLP-based keyword generation for courses
+#### LLM Enrichment
+- Qwen runs in a separately managed vLLM environment.
+- The local pipeline requests structured metadata, prerequisite trees, and cited summaries.
+- Full traces and pinned model revisions are archived in the dataset.
 
 ### Development Workflow & Standards
 - Uses [trunk-based development](https://trunkbaseddevelopment.com/)
