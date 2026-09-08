@@ -19,7 +19,7 @@
     const onMotion = () => { if (motion.matches) paused = true; };
     motion.addEventListener("change", onMotion);
     const timer = window.setInterval(() => {
-      if (items.length < 2 || paused || document.hidden || container.matches(":hover") || container.contains(document.activeElement) || container.querySelector("details[open]")) return;
+      if (items.length < 2 || paused || document.hidden || container.matches(":hover") || container.contains(document.activeElement) || container.querySelector("[data-citation-trigger][aria-expanded=true]")) return;
       move(1);
     }, 8000);
     return () => {

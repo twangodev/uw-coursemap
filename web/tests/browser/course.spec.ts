@@ -185,9 +185,11 @@ test("takeaways rotate and pause for reading sources", async ({ page }) => {
   await expect(card.locator(".claim > p")).toHaveText(paused!);
   await card.getByRole("button", { name: "Next takeaway" }).click();
   await expect(card.locator(".claim > p")).not.toHaveText(paused!);
-  await card.locator("details > summary").first().click();
+  await card.locator("[data-citation-trigger]").first().click();
+  await expect(page.getByRole("dialog", { name: "Sources", exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Close sources", exact: true }).click();
   await card.getByRole("button", { name: "Resume takeaway rotation" }).click();
-  await card.getByRole("button", { name: "Pause takeaway rotation" }).blur();
+  await card.locator("[data-citation-trigger]").first().click();
   const reading = await card.locator(".claim > p").textContent();
   await page.mouse.move(0, 0);
   await page.clock.fastForward(16000);
@@ -243,4 +245,21 @@ test("metric comparison details open on touch", async ({ browser }) => {
   await page.locator("h1").tap();
   await expect(page.getByRole("tooltip")).toHaveCount(0);
   await context.close();
+});
+
+test("inline citations show original comments without expanding the page", async ({ page }) => {
+  await page.goto(`/courses/${uid}`);
+  await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
+  const trigger = page.locator("#overview [data-citation-trigger]").first();
+  const before = await page.locator("#overview").boundingBox();
+  await trigger.click();
+  const sources = page.getByRole("dialog", { name: "Sources", exact: true });
+  await expect(sources.locator("blockquote").first()).toBeVisible();
+  await expect(sources).toContainText("Rate My Professors");
+  await expect(sources.getByRole("link", { name: "View RMP profile" }).first()).toHaveAttribute("href", /^https:\/\/www.ratemyprofessors.com\/professor\//);
+  expect((await page.locator("#overview").boundingBox())?.height).toBe(before?.height);
+  await expect(sources.locator("pre")).toHaveCount(0);
+  await page.keyboard.press("Escape");
+  await expect(sources).toHaveCount(0);
+  await expect(trigger).toBeFocused();
 });

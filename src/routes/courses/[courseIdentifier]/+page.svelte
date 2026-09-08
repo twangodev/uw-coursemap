@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount, setContext } from "svelte";
   import {
     ArrowUpRight,
     BookOpen,
@@ -9,6 +9,8 @@
     ChartColumn,
     Layers,
   } from "@lucide/svelte";
+  import { citationContext, citationKey, citationNumbers } from "$lib/citations";
+  import type { Citation } from "$lib/types";
   import Select from "$lib/components/Select.svelte";
   import Panel from "$lib/components/Panel.svelte";
   import Claims from "$lib/components/Claims.svelte";
@@ -38,6 +40,8 @@
   let benchmark = $derived(selectedGradeTerm ? data.context?.benchmarks.terms[selectedGradeTerm]?.[scope] : data.context?.benchmarks.all[scope]);
   $effect(() => { c.course_uid; selectedGradeTerm = ""; });
   let summary = $derived(c.student_summary);
+  let sourceNumbers = $derived(citationNumbers(summary));
+  setContext(citationContext, (citation: Citation) => sourceNumbers.get(citationKey(citation)));
   let Graph = $state<any>(null);
   let graphError = $state("");
   let active = $state("overview");
