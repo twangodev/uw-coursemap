@@ -280,6 +280,45 @@ class StudentSummaryTests(unittest.TestCase):
             resumed["sections"]["student_summary"]["value"], section["value"]
         )
         self.assertEqual(len(resumed["provenance"]["reused_scopes"]), 3)
+        from uw_coursemap.models import digest
+
+        old_profile = {
+            "model": "test",
+            "revision": "abc",
+            "max_output_tokens": 1000,
+            "request_timeout_seconds": 900,
+        }
+        legacy = copy.deepcopy(result)
+        legacy_value = legacy["sections"]["student_summary"]["value"]
+        legacy_value["profile_hash"] = digest(old_profile)
+        legacy_value["errors"] = [{"mode": "professor", "instructor_uid": "uw:1"}]
+        retry_payload = copy.deepcopy(payload)
+        retry_payload["summary_seed"] = {
+            "job_id": "legacy",
+            "profile": old_profile,
+            "output": legacy,
+            "failed_subtasks": [
+                {
+                    "mode": "professor",
+                    "instructor_uid": "uw:1",
+                    "conversation": ["saved repair turn"],
+                }
+            ],
+        }
+        adjusted = {**old_profile, "request_timeout_seconds": 1800, "concurrency": 256}
+        task = load_task(
+            Path(__file__).resolve().parents[2] / "inference/tasks/student_summary.json"
+        )
+        repaired, _ = generate_student(adjusted, task, retry_payload, generate=fake)
+        self.assertEqual(len(calls), before + 1)
+        self.assertEqual(calls[-1]["_history"], ["saved repair turn"])
+        self.assertEqual(len(repaired["provenance"]["reused_scopes"]), 2)
+        generate_student(
+            {**adjusted, "temperature": 0.1}, task, retry_payload, generate=fake
+        )
+        self.assertEqual(len(calls), before + 4)
+        self.assertTrue(all("_history" not in call for call in calls[-3:]))
+        before = len(calls)
         archive = {
             "file": "tables/observations.parquet",
             "entity_id": "grade-source",

@@ -22,6 +22,17 @@ def without_archive_refs(value):
     return value
 
 
+def profile_identity(profile):
+    """Inference semantics, independent of client scheduling and transport."""
+    return digest(
+        {
+            k: v
+            for k, v in profile.items()
+            if k not in {"base_url", "concurrency", "request_timeout_seconds"}
+        }
+    )
+
+
 def summary_seeds(jobs, ids, run):
     seeds = {}
     for job in sorted(
@@ -31,13 +42,19 @@ def summary_seeds(jobs, ids, run):
             raise ValueError(
                 "Student summary reuse requires completed jobs from the same snapshot"
             )
+        job_profile = json.loads(job["spec_json"])["profile"]
         for row in jobs.db.execute(
             "SELECT course_id,output_json FROM results WHERE job_id=? AND status=?",
             (job["job_id"], "complete"),
         ):
             original = json.loads(row["output_json"])
+            profile = dict(job_profile)
+            timeout = original.get("provenance", {}).get("request_timeout_seconds")
+            if timeout is not None:
+                profile["request_timeout_seconds"] = timeout
             seeds[row["course_id"]] = {
                 "job_id": job["job_id"],
+                "profile": profile,
                 "failed_subtasks": [
                     t
                     for t in original.get("provenance", {}).get("subtasks", [])
@@ -151,11 +168,14 @@ def generate_student(profile, task, payload, generate=None):
     same_source = prior.get("context_hash") == digest(source)
     if prior and not same_source:
         same_source = prior.get("context_hash") == digest(without_archive_refs(source))
-    if (
-        not same_source
-        or prior.get("task_hash") != digest(task)
-        or prior.get("profile_hash") != digest(profile)
-    ):
+    same_profile = prior.get("profile_hash") in {
+        digest(profile),
+        profile_identity(profile),
+    }
+    old_profile = payload["summary_seed"].get("profile")
+    if old_profile and prior.get("profile_hash") == digest(old_profile):
+        same_profile = profile_identity(old_profile) == profile_identity(profile)
+    if not same_source or prior.get("task_hash") != digest(task) or not same_profile:
         prior = {}
     reused_scopes = []
     traces, conversations, errors = [], [], []
@@ -424,7 +444,7 @@ def generate_student(profile, task, payload, generate=None):
         "version": 2,
         "context_hash": digest(source),
         "task_hash": digest(task),
-        "profile_hash": digest(profile),
+        "profile_hash": profile_identity(profile),
         "course_id": source["course_id"],
         "term_id": source["term_id"],
         "term_name": source["term_name"],
