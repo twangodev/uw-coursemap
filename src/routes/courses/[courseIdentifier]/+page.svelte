@@ -24,7 +24,7 @@
   import Grades from "$lib/components/Grades.svelte";
   import RequirementText from "$lib/components/RequirementText.svelte";
   import CourseCalendar from "$lib/components/CourseCalendar.svelte";
-  import { credits, instructorUrl, termName, courseTitle } from "$lib/format";
+  import { credits, instructorUrl, termName, courseTitle, courseUrl } from "$lib/format";
   let { data } = $props();
   let c = $derived(data.course);
   let comparisonScope = $state("school");
@@ -110,7 +110,7 @@
   ><title>{c.course_id} · {c.title} · UW Courses</title><meta
     name="description"
     content={c.llm_summary || c.description?.slice(0, 160)}
-  /></svelte:head
+  /><link rel="canonical" href={courseUrl(c.course_uid, c.course_id)} /></svelte:head
 >
 <div class="course-heading">
   <div class="row between">

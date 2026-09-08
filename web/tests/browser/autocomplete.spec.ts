@@ -32,7 +32,7 @@ test("course autocomplete supports keyboard selection and dismissal", async ({
       .first(),
   ).toHaveAttribute("aria-selected", "true");
   await input.press("Enter");
-  await expect(page).toHaveURL(/\/courses\/course_/);
+  await expect(page).toHaveURL(/\/courses\/cs-400$/);
 });
 
 test("finder suggestions retain filters and work on mobile", async ({
@@ -71,7 +71,7 @@ test("finder suggestions retain filters and work on mobile", async ({
     .first()
     .getByRole("button")
     .click();
-  await expect(page).toHaveURL(/\/courses\/course_/);
+  await expect(page).toHaveURL(/\/courses\/cs-300$/);
 });
 
 test("autocomplete ignores stale responses and preserves regular search on errors", async ({

@@ -90,7 +90,7 @@
         <thead><tr><th>Term</th><th>Course</th><th>Title</th></tr></thead><tbody
           >{#each [...data.history, ...history] as r}<tr
               ><td>{termName(r.term)}</td><td
-                ><a href={courseUrl(r.course_uid)}>{r.course_id}</a></td
+                ><a href={courseUrl(r.course_uid, r.course_id)}>{r.course_id}</a></td
               ><td>{courseTitle(r.title)}</td></tr
             >{/each}</tbody
         >

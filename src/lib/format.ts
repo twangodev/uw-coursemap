@@ -20,8 +20,14 @@ export function credits(min: number | null, max: number | null) {
     ? "Credits unavailable"
     : `${min}${max != null && max !== min ? "–" + max : ""} credits`;
 }
-export function courseUrl(uid: string) {
-  return "/courses/" + encodeURIComponent(uid);
+export function courseSlug(code: string) {
+  const split = code.lastIndexOf(" ");
+  const subject = code.slice(0, split).split("/")[0].toLowerCase();
+  const department = subject === "compsci" ? "cs" : subject;
+  return `${department.replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}-${code.slice(split + 1)}`;
+}
+export function courseUrl(uid: string, code?: string | null) {
+  return "/courses/" + encodeURIComponent(code ? courseSlug(code) : uid);
 }
 export function instructorUrl(uid: string) {
   return "/instructors/" + encodeURIComponent(uid);

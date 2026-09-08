@@ -89,7 +89,7 @@
     {#each result.items as review (`${review.source_instructor_id}:${review.source_review_id}`)}
       <article class="student-review">
         <div class="review-meta">
-          {#if review.course_uid}<a href={courseUrl(review.course_uid)}
+          {#if review.course_uid}<a href={courseUrl(review.course_uid, initial.courses.find((c: any) => c.course_uid === review.course_uid)?.course_id)}
               >{initial.courses.find(
                 (c: any) => c.course_uid === review.course_uid,
               )?.course_id ||

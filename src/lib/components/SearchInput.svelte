@@ -2,7 +2,7 @@
   import { untrack } from "svelte";
   import { goto } from "$app/navigation";
   import { BookOpen, UserRound } from "@lucide/svelte";
-  import { courseTitle } from "$lib/format";
+  import { courseTitle, courseUrl } from "$lib/format";
   type Suggestion = {
     uid: string;
     kind: "course" | "instructor";
@@ -85,7 +85,7 @@
                     kind: "course",
                     heading: row.course_id || "Course",
                     detail: courseTitle(row.title || ""),
-                    href: `/courses/${row.course_uid}`,
+                    href: courseUrl(row.course_uid, row.course_id),
                   },
                 ];
               if (kind === "instructor" && row.instructor_uid)

@@ -1,33 +1,51 @@
+import { building } from "$app/environment";
 import { redirect, error } from "@sveltejs/kit";
 import { pageData, query } from "$lib/server/data";
 import { gradeKeys, projectGrades } from "$lib/grade-projection";
 import { instructorGradeTrends } from "$lib/server/instructor-trends";
 import { courseContext } from "$lib/server/course-context";
-import { normalize, courseUrl } from "$lib/format";
-import entriesData from "../../../../.site/entries.json";
+import { normalize, courseUrl, courseSlug } from "$lib/format";
 export const prerender = "auto";
-export function entries() {
-  return entriesData.courses.map((courseIdentifier) => ({ courseIdentifier }));
+export async function entries() {
+  const courses = await query(undefined, "SELECT code FROM courses");
+  const slugs = courses.map((course) => courseSlug(course.code));
+  if (new Set(slugs).size !== slugs.length)
+    throw new Error(
+      "Course URL collision: readable URLs must identify a unique course.",
+    );
+  return slugs.map((courseIdentifier) => ({ courseIdentifier }));
 }
-export async function load({ params, platform }) {
-  if (!params.courseIdentifier.startsWith("course_")) {
+export async function load({ params, platform, url }) {
+  let uid = params.courseIdentifier;
+  if (!uid.startsWith("course_")) {
     const matches = await query(
       platform,
-      "SELECT uid FROM aliases WHERE alias=?",
-      [normalize(params.courseIdentifier)],
+      "SELECT c.uid,c.code FROM aliases a JOIN courses c ON c.uid=a.uid WHERE a.alias=?",
+      [normalize(uid)],
     );
-    if (matches.length === 1) redirect(308, courseUrl(matches[0].uid));
-    if (matches.length > 1)
+    // A current canonical code wins over a reused historical alias.
+    const canonical = matches.filter(
+      (course) => courseSlug(course.code) === uid.toLowerCase(),
+    );
+    if (canonical.length === 1) uid = canonical[0].uid;
+    else if (matches.length === 1) uid = matches[0].uid;
+    else if (matches.length > 1)
       redirect(307, "/search?q=" + encodeURIComponent(params.courseIdentifier));
-    error(404, "Course not found");
+    else error(404, "Course not found");
   }
-  const course = await pageData("courses", params.courseIdentifier, platform);
+  const course = await pageData("courses", uid, platform);
+  const canonical = courseUrl(course.course_uid, course.course_id);
+  if (params.courseIdentifier !== courseSlug(course.course_id))
+    redirect(308, canonical + (building ? "" : url.search));
   const target = course.semester;
   const gradesReleased = course.grades.some(
     (row: any) =>
       row.term_id === target && gradeKeys.some((key) => Number(row[key]) > 0),
   );
-  const [context, instructorTrends] = await Promise.all([courseContext(course, platform), instructorGradeTrends(course, platform)]);
+  const [context, instructorTrends] = await Promise.all([
+    courseContext(course, platform),
+    instructorGradeTrends(course, platform),
+  ]);
   return {
     course,
     context,
