@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-test("canonical course URLs render and old IDs and cross-list aliases redirect", async ({
+test("canonical course URLs render and cross-list aliases redirect without supporting raw IDs", async ({
   page,
   request,
 }) => {
@@ -8,8 +8,7 @@ test("canonical course URLs render and old IDs and cross-list aliases redirect",
     "/courses/course_28c3390ba944d49fd17f7c72?from=bookmark",
     { maxRedirects: 0 },
   );
-  expect(old.status()).toBe(308);
-  expect(old.headers().location).toBe("/courses/cs-300?from=bookmark");
+  expect(old.status()).toBe(404);
   for (const alias of ["CS300", "compsci-300"]) {
     const response = await request.get(`/courses/${alias}`, {
       maxRedirects: 0,

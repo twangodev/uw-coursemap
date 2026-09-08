@@ -6,10 +6,9 @@ it("uses readable subject-number URLs, with a single canonical cross-list path",
   expect(courseSlug("COMPSCI 300")).toBe("cs-300");
   expect(courseSlug("MATH 221")).toBe("math-221");
   expect(courseSlug("COMPSCI/ECE/EMA/EP/ME 759")).toBe("cs-759");
-  expect(courseUrl("course_abc", "A A E 101")).toBe("/courses/a-a-e-101");
+  expect(courseUrl("A A E 101")).toBe("/courses/a-a-e-101");
   expect(normalize("cs-300")).toBe("COMPSCI300");
   expect(normalize("ece-759")).toBe("ECE759");
-  expect(courseUrl("course_abc")).toBe("/courses/course_abc");
 });
 it("assigns unique slugs across the full catalog and resolves each to its stable ID", async () => {
   const courses = await query(undefined, "SELECT uid,code FROM courses");

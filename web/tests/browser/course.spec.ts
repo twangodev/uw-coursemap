@@ -5,7 +5,7 @@ const uid = "course_28c3390ba944d49fd17f7c72";
 test("course reading, citations, graph and theme", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
-  await page.goto(`/courses/${uid}`);
+  await page.goto("/courses/cs-300");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   await expect(
     page.getByRole("heading", { name: "Programming II", exact: true }),
@@ -36,7 +36,7 @@ test("search resolves aliases and exposes filters", async ({ page }) => {
 });
 test("mobile layout stays within viewport", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(`/courses/${uid}`);
+  await page.goto("/courses/cs-300");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   expect(
     await page.evaluate(() => document.documentElement.scrollWidth),
@@ -49,7 +49,7 @@ test("mobile layout stays within viewport", async ({ page }) => {
 test("course content is available without JavaScript", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
-  await page.goto(`http://127.0.0.1:4173/courses/${uid}`);
+  await page.goto("http://127.0.0.1:4173/courses/cs-300");
   await expect(
     page.getByRole("heading", { name: "Programming II", exact: true }),
   ).toBeVisible();
@@ -62,7 +62,7 @@ test("course content is available without JavaScript", async ({ browser }) => {
 test("grade filters reset and instructor links retain course context", async ({
   page,
 }) => {
-  await page.goto(`/courses/${uid}`);
+  await page.goto("/courses/cs-300");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   const grades = page.locator("#grades");
   const count = grades.locator(".metric-strip");
@@ -104,7 +104,7 @@ test("home and cross-listed course render on desktop", async ({ page }) => {
     page.getByRole("heading", { name: /on the Hill/ }),
   ).toBeVisible();
   await page.screenshot({ path: "test-results/home.png", fullPage: true });
-  await page.goto("/courses/course_63e805b33518ff3fd8dc0a39");
+  await page.goto("/courses/cs-759");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   await expect(page.locator("h1")).toContainText("High Performance Computing");
   await page.locator("#grades").scrollIntoViewIfNeeded();
@@ -114,7 +114,7 @@ test("home and cross-listed course render on desktop", async ({ page }) => {
 test("calendar filters meetings, exposes details and exports dates", async ({
   page,
 }) => {
-  await page.goto(`/courses/${uid}`);
+  await page.goto("/courses/cs-300");
   const schedule = page.locator("#schedule");
   await schedule.scrollIntoViewIfNeeded();
   await expect(schedule.locator(".week-grid")).toBeVisible();
@@ -151,7 +151,7 @@ test("calendar filters meetings, exposes details and exports dates", async ({
 test("course context, projection and captured instructor ratings remain distinct", async ({
   page,
 }) => {
-  await page.goto(`/courses/${uid}`);
+  await page.goto("/courses/cs-300");
   await expect(
     page.locator(".grade-snapshot .grade-percentages"),
   ).toContainText("34.1%");
@@ -174,7 +174,7 @@ test("course context, projection and captured instructor ratings remain distinct
 
 test("takeaways rotate and pause for reading sources", async ({ page }) => {
   await page.clock.install();
-  await page.goto(`/courses/${uid}`);
+  await page.goto("/courses/cs-300");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   const card = page.getByRole("region", { name: "Student takeaways", exact: true });
   const initial = await card.locator(".claim > p").textContent();
@@ -200,7 +200,7 @@ test("takeaways rotate and pause for reading sources", async ({ page }) => {
 });
 
 test("school and department comparisons stay synchronized", async ({ page }) => {
-  await page.goto(`/courses/${uid}`);
+  await page.goto("/courses/cs-300");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   await page.getByRole("button", { name: "Term", exact: true }).click();
   await page.getByRole("option", { name: "Spring 2026", exact: true }).click();
@@ -230,7 +230,7 @@ test("school and department comparisons stay synchronized", async ({ page }) => 
 
 test("animated numbers preserve accessible values with reduced motion", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto(`/courses/${uid}`);
+  await page.goto("/courses/cs-300");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   const metrics = page.locator("#grades .metric-strip");
   await expect(page.locator(".grade-snapshot").getByRole("img", { name: "11,038", exact: true })).toBeVisible();
@@ -243,7 +243,7 @@ test("animated numbers preserve accessible values with reduced motion", async ({
 test("metric comparison details open on touch", async ({ browser }) => {
   const context = await browser.newContext({ hasTouch: true, viewport: { width: 390, height: 844 } });
   const page = await context.newPage();
-  await page.goto(`http://127.0.0.1:4173/courses/${uid}`);
+  await page.goto("http://127.0.0.1:4173/courses/cs-300");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   await page.locator(".grade-snapshot").getByRole("button", { name: "Average GPA comparison" }).tap();
   await expect(page.getByRole("tooltip")).toContainText("UW–Madison");
@@ -253,7 +253,7 @@ test("metric comparison details open on touch", async ({ browser }) => {
 });
 
 test("inline citations show original comments without expanding the page", async ({ page }) => {
-  await page.goto(`/courses/${uid}`);
+  await page.goto("/courses/cs-300");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   const trigger = page.locator("#overview [data-citation-trigger]").first();
   const before = await page.locator("#overview").boundingBox();
@@ -271,7 +271,7 @@ test("inline citations show original comments without expanding the page", async
 
 test("grade history fits curved instructor lines and identifies them on hover", async ({ page }) => {
 
-  await page.goto(`/courses/${uid}`);
+  await page.goto("/courses/cs-300");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   const chart = page.locator("#grades .charts > div").last();
   const paths = chart.locator("path.lc-path");
@@ -284,7 +284,7 @@ test("grade history fits curved instructor lines and identifies them on hover", 
 });
 
 test("term selection updates context, roster, history and snapshot availability", async ({ page }) => {
-  await page.goto(`/courses/${uid}`);
+  await page.goto("/courses/cs-300");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   await page.locator(".course-facts").screenshot({ path: "/tmp/uw-coursemap-design-audit/course-details-spaced.png" });
   const term = page.getByRole("button", { name: "Term", exact: true });
@@ -324,7 +324,7 @@ test("term selection updates context, roster, history and snapshot availability"
 });
 
 test("historical instructors without a recorded name do not break course pages", async ({ page }) => {
-  const response = await page.goto("/courses/course_f55fac894a94d4843c58c348");
+  const response = await page.goto("/courses/african-203");
   expect(response?.status()).toBe(200);
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   await page.getByRole("button", { name: "Term", exact: true }).click();
@@ -333,7 +333,7 @@ test("historical instructors without a recorded name do not break course pages",
 });
 
 test("insufficient projection history falls back only inside grades", async ({ page }) => {
-  await page.goto("/courses/course_c7911cf4ed9adf4f70e4ddcd");
+  await page.goto("/courses/zoology-692");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   await expect(page.getByRole("button", { name: "Term", exact: true })).toHaveText("Fall 2026");
   await expect(page.locator("#grades .fallback-note")).toContainText("Latest available · Spring 2022");
@@ -348,7 +348,7 @@ test("insufficient projection history falls back only inside grades", async ({ p
 
 
 test("course fit describes recorded grades and selected-term section sizes", async ({ page }) => {
-  await page.goto(`/courses/${uid}`);
+  await page.goto("/courses/cs-300");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   const fit = page.locator(".fit-summary");
   await expect(fit).toContainText("Lectures are");
@@ -365,7 +365,7 @@ test("course fit describes recorded grades and selected-term section sizes", asy
 
 
 test("course-fit charts remain visible for unreleased terms and heading comparison stays synchronized", async ({ page }) => {
-  await page.goto(`/courses/${uid}`);
+  await page.goto("/courses/cs-300");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   const context = page.locator(".course-context");
   await expect(context.locator("h2")).toContainText("Where this course fits relative to UW–Madison");

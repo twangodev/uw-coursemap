@@ -26,7 +26,7 @@
     {#if c.discovery}{@const d = c.discovery}
       <article class="discovery-card">
         <div class="card-heading">
-          <a href={courseUrl(c.course_uid, c.course_id)}
+          <a href={courseUrl(c.course_id)}
             ><span class="code">{#if rankStart}<span class="muted">#{rankStart + index} · </span>{/if}{c.course_id}</span>
             <h3>{courseTitle(c.title)}</h3></a
           ><span class="credits">{credits(c.credits_min, c.credits_max)}</span>
@@ -90,7 +90,7 @@
             </div>{:else}<p class="muted">No recorded grade history</p>{/if}
         </div>
       </article>
-    {:else}<a class="course-row" href={courseUrl(c.course_uid, c.course_id)}
+    {:else}<a class="course-row" href={courseUrl(c.course_id)}
         ><span class="code">{c.course_id}</span><span
           class="course-title"
           title={c.title}>{courseTitle(c.title)}{#if c.description}<span class="course-description">{c.description}</span>{/if}</span

@@ -78,14 +78,14 @@
               }[];
             };
             return data.items.flatMap((row): Suggestion[] => {
-              if (kind === "course" && row.course_uid)
+              if (kind === "course" && row.course_uid && row.course_id)
                 return [
                   {
                     uid: row.course_uid,
                     kind: "course",
                     heading: row.course_id || "Course",
                     detail: courseTitle(row.title || ""),
-                    href: courseUrl(row.course_uid, row.course_id),
+                    href: courseUrl(row.course_id),
                   },
                 ];
               if (kind === "instructor" && row.instructor_uid)

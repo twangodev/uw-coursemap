@@ -110,7 +110,7 @@
   ><title>{c.course_id} · {c.title} · UW Courses</title><meta
     name="description"
     content={c.llm_summary || c.description?.slice(0, 160)}
-  /><link rel="canonical" href={courseUrl(c.course_uid, c.course_id)} /></svelte:head
+  /><link rel="canonical" href={courseUrl(c.course_id)} /></svelte:head
 >
 <div class="course-heading">
   <div class="row between">

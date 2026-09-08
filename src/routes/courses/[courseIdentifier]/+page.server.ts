@@ -17,24 +17,24 @@ export async function entries() {
 }
 export async function load({ params, platform, url }) {
   let uid = params.courseIdentifier;
-  if (!uid.startsWith("course_")) {
-    const matches = await query(
-      platform,
-      "SELECT c.uid,c.code FROM aliases a JOIN courses c ON c.uid=a.uid WHERE a.alias=?",
-      [normalize(uid)],
-    );
-    // A current canonical code wins over a reused historical alias.
-    const canonical = matches.filter(
-      (course) => courseSlug(course.code) === uid.toLowerCase(),
-    );
-    if (canonical.length === 1) uid = canonical[0].uid;
-    else if (matches.length === 1) uid = matches[0].uid;
-    else if (matches.length > 1)
-      redirect(307, "/search?q=" + encodeURIComponent(params.courseIdentifier));
-    else error(404, "Course not found");
-  }
+  if (uid.startsWith("course_")) error(404, "Course not found");
+  const matches = await query(
+    platform,
+    "SELECT c.uid,c.code FROM aliases a JOIN courses c ON c.uid=a.uid WHERE a.alias=?",
+    [normalize(uid)],
+  );
+  // A current canonical code wins over a reused historical alias.
+  const currentMatches = matches.filter(
+    (course) => courseSlug(course.code) === uid.toLowerCase(),
+  );
+  if (currentMatches.length === 1) uid = currentMatches[0].uid;
+  else if (matches.length === 1) uid = matches[0].uid;
+  else if (matches.length > 1)
+    redirect(307, "/search?q=" + encodeURIComponent(params.courseIdentifier));
+  else error(404, "Course not found");
+
   const course = await pageData("courses", uid, platform);
-  const canonical = courseUrl(course.course_uid, course.course_id);
+  const canonical = courseUrl(course.course_id);
   if (params.courseIdentifier !== courseSlug(course.course_id))
     redirect(308, canonical + (building ? "" : url.search));
   const target = course.semester;

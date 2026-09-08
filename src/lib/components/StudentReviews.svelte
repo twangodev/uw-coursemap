@@ -87,9 +87,12 @@
   {#if loading}<p class="muted" role="status">Loading reviews…</p>{/if}
   <div class="review-list">
     {#each result.items as review (`${review.source_instructor_id}:${review.source_review_id}`)}
+      {@const course = initial.courses.find(
+        (c: any) => c.course_uid === review.course_uid,
+      )}
       <article class="student-review">
         <div class="review-meta">
-          {#if review.course_uid}<a href={courseUrl(review.course_uid, initial.courses.find((c: any) => c.course_uid === review.course_uid)?.course_id)}
+          {#if course}<a href={courseUrl(course.course_id)}
               >{initial.courses.find(
                 (c: any) => c.course_uid === review.course_uid,
               )?.course_id ||

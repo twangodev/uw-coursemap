@@ -26,8 +26,8 @@ export function courseSlug(code: string) {
   const department = subject === "compsci" ? "cs" : subject;
   return `${department.replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}-${code.slice(split + 1)}`;
 }
-export function courseUrl(uid: string, code?: string | null) {
-  return "/courses/" + encodeURIComponent(code ? courseSlug(code) : uid);
+export function courseUrl(code: string) {
+  return "/courses/" + encodeURIComponent(courseSlug(code));
 }
 export function instructorUrl(uid: string) {
   return "/instructors/" + encodeURIComponent(uid);
