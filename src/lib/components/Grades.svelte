@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { gradeDisplay } from "$lib/grade-display";
   import GradeEstimate from "./GradeEstimate.svelte";
   import type { GradeProjection } from "$lib/grade-projection";
   import AnimatedNumber from "./AnimatedNumber.svelte";
@@ -36,10 +37,8 @@
     selectedTerm?: string;
     showTermSelect?: boolean;
   } = $props();
-  let isProjected = $derived(!!projectedTerm && selectedTerm === projectedTerm);
   let selectedInstructor = $state("");
   // Instructor subsets have different term/section coverage; do not compare them with whole courses.
-  let benchmark = $derived(selectedInstructor ? null : (selectedTerm ? benchmarks?.terms[selectedTerm]?.[scope] : benchmarks?.all[scope]));
   let filtered = $state<any[] | null>(null);
   let failure = $state("");
   let loading = $state(false);
@@ -48,8 +47,11 @@
   const keys = ["a", "ab", "b", "bc", "c", "d", "f"];
   const weights = [4, 3.5, 3, 2.5, 2, 1, 0];
   let source = $derived(filtered || grades);
+  let display = $derived(gradeDisplay(source, selectedTerm, projectedTerm, !!projection?.interval && projection.target === selectedTerm));
+  let isProjected = $derived(display.mode === "projected");
+  let benchmark = $derived(selectedInstructor ? null : (display.term ? benchmarks?.terms[display.term]?.[scope] : benchmarks?.all[scope]));
   let selected = $derived(
-    source.filter((r) => !selectedTerm || r.term_id === selectedTerm),
+    source.filter((r) => !display.term || r.term_id === display.term),
   );
   let bars = $derived(
     keys.map((k) => ({
@@ -59,7 +61,7 @@
   );
   let trends = $derived.by(() => {
     const groups = new Map<string, any[]>();
-    for (const r of grades.filter((row) => !selectedTerm || row.term_id <= selectedTerm))
+    for (const r of grades.filter((row) => !display.term || row.term_id <= display.term))
       groups.set(r.term_id, [...(groups.get(r.term_id) || []), r]);
     return [...groups]
       .sort(([a], [b]) => a.localeCompare(b))
@@ -81,7 +83,7 @@
     { key: "benchmark", label: scope === "school" ? "UW–Madison average" : `${scope} average`, color: "var(--muted)" },
     ...visibleInstructors.map((instructor) => ({ key: instructor.uid, label: courseTitle(instructor.name), color: lineColors[instructorTrends.findIndex((row) => row.uid === instructor.uid) % lineColors.length] })),
   ]);
-  let trendRows = $derived(instructorChartRows(trends, visibleInstructors).filter((row) => !selectedTerm || row.term <= selectedTerm).map((row) => ({ ...row, label: termName(row.term), benchmark: benchmarks?.terms[row.term]?.[scope]?.gpa ?? null })));
+  let trendRows = $derived(instructorChartRows(trends, visibleInstructors).filter((row) => !display.term || row.term <= display.term).map((row) => ({ ...row, label: termName(row.term), benchmark: benchmarks?.terms[row.term]?.[scope]?.gpa ?? null })));
   let trendDomain = $derived(gradeTrendDomain(trendRows, lineSeries.map((series) => series.key)));
   let total = $derived(bars.reduce((s, b) => s + b.count, 0));
   let gpa = $derived(
@@ -143,8 +145,11 @@
   );
 </script>
 
+{#if display.mode === "fallback" && !loading && !failure}
+  <p class="fallback-note">Latest available · {termName(display.term)}<span class="muted"> — not enough history to project {termName(selectedTerm)}.</span></p>
+{/if}
 <div class="grade-toolbar">
-{#if !isProjected}<div class="metric-strip">
+{#if !isProjected && display.mode !== "empty"}<div class="metric-strip">
   <div>
     <div class="metric-value" style:color={metricColor(gpa, benchmark?.gpa)}><MetricComparison value={gpa} reference={benchmark?.gpa} kind="gpa" label="Average GPA" group={scope === "school" ? "UW–Madison" : scope}><AnimatedNumber value={gpa} decimals={2} /></MetricComparison></div>
     <div class="metric-label">average GPA</div>
@@ -214,11 +219,11 @@
             >
           </div>{/each}
       </div>
-      {:else}<p class="empty">No recorded grades for this selection.</p>{/if}
+      {:else}<p class="empty">{display.mode === "empty" ? "No grades available yet." : "No recorded grades for this selection."}</p>{/if}
       {/if}
     </div>
     {#if trends.length > 1}<div>
-        <h3>Grades over time{selectedTerm ? ` · through ${termName(selectedTerm)}` : ""}</h3>
+        <h3>Grades over time{display.term ? ` · through ${termName(display.term)}` : ""}</h3>
         <div class="chart">
           <LineChart
             data={trendRows}
@@ -262,6 +267,7 @@
 
 <style>
 
+  .fallback-note { margin: 0 0 20px; font-size: 14px; }
   .grade-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
   .grade-toolbar .metric-strip { margin: 0; padding: 0; border: 0; gap: 32px; }
   .grade-toolbar .filters { margin: 0; gap: 12px; }

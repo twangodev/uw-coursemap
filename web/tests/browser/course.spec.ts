@@ -330,3 +330,17 @@ test("historical instructors without a recorded name do not break course pages",
   await page.getByRole("option", { name: "All recorded terms", exact: true }).click();
   await expect(page.locator("#professors")).toContainText("Unknown instructor");
 });
+
+test("insufficient projection history falls back only inside grades", async ({ page }) => {
+  await page.goto("/courses/course_c7911cf4ed9adf4f70e4ddcd");
+  await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
+  await expect(page.getByRole("button", { name: "Term", exact: true })).toHaveText("Fall 2026");
+  await expect(page.locator("#grades .fallback-note")).toContainText("Latest available · Spring 2022");
+  await expect(page.locator("#grades .grade-estimate")).toHaveCount(0);
+  await expect(page.locator("#grades .metric-strip")).toBeVisible();
+  await expect(page.locator("#professors .panel-heading")).toContainText("Fall 2026");
+  await page.getByRole("button", { name: "Term", exact: true }).click();
+  await page.getByRole("option", { name: "Spring 2022", exact: true }).click();
+  await expect(page.locator("#grades .fallback-note")).toHaveCount(0);
+  await expect(page.locator("#grades .grade-percentages")).toBeVisible();
+});

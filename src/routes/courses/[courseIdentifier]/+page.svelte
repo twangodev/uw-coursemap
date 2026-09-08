@@ -161,7 +161,7 @@
     {/if}
     <div class="navigation-filter term-picker" role="group" aria-label="Grade term">
       <button class="term-step" aria-label={selectedGradeTerm ? "Previous term" : "Latest term"} disabled={!gradeTerms.length || gradeTermIndex >= gradeTerms.length - 1} onclick={() => stepTerm(1)}><ChevronLeft size={14} /></button>
-      <Select label="Term" value={selectedGradeTerm} onChange={(value) => termSelection = value} options={[{ value: "", label: "All recorded terms" }, ...gradeTerms.map((term) => ({ value: term, label: termName(term) + (term === projectedTerm ? " · Projected" : "") }))]} />
+      <Select label="Term" value={selectedGradeTerm} onChange={(value) => termSelection = value} options={[{ value: "", label: "All recorded terms" }, ...gradeTerms.map((term) => ({ value: term, label: termName(term) + (term === projectedTerm && data.projection?.interval ? " · Projected" : "") }))]} />
       <button class="term-step" aria-label="Next term" disabled={gradeTermIndex <= 0} onclick={() => stepTerm(-1)}><ChevronRight size={14} /></button>
     </div>
   </div>
