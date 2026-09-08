@@ -1,5 +1,6 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
+  import SearchInput from "./SearchInput.svelte";
   import Select from "./Select.svelte";
   import CourseList from "./CourseList.svelte";
   import { termName } from "$lib/format";
@@ -35,11 +36,16 @@
     <span class="muted"><strong>{results.total}</strong> courses</span>
   </div>
   <form action={path} class="finder-search">
-    <input
-      name="q"
-      aria-label="Search courses"
-      placeholder="A course, topic, or something you want to learn…"
+    <SearchInput
       value={results.q}
+      revision={status.revision}
+      filters={{
+        ...urlParams,
+        subject: subject || urlParams.subject || "",
+        term: results.term,
+        availability: results.availability,
+      }}
+      placeholder="A course, topic, or something you want to learn…"
     />{#each Object.entries( { ...urlParams, term: results.term, availability: results.availability }, ).filter(([key]) => !["q", "page"].includes(key)) as [key, value]}<input
         type="hidden"
         name={key}
@@ -146,7 +152,7 @@
     display: flex;
     gap: 12px;
   }
-  .finder-search input {
+  .finder-search :global(.search-input) {
     flex: 1;
     min-width: 0;
     padding: 13px 0;

@@ -1,5 +1,6 @@
 <script lang="ts">
   import { ArrowUpRight, Search } from "@lucide/svelte";
+  import SearchInput from "$lib/components/SearchInput.svelte";
   import Terrace from "$lib/components/Terrace.svelte";
   import { termName } from "$lib/format";
   let { data } = $props();
@@ -23,11 +24,10 @@
     </p>
     <form action="/search" class="landing-search">
       <Search size={19} strokeWidth={1.5} />
-      <label class="sr-only" for="home-search">Search courses or topics</label>
-      <input
-        id="home-search"
-        name="q"
-        placeholder="A course, professor, or curiosity…"
+      <SearchInput
+        revision={data.status.revision}
+        label="Search courses or topics"
+        placeholder="A course or curiosity…"
       />
       <button aria-label="Find courses"><ArrowUpRight size={22} /></button>
     </form>
@@ -118,17 +118,6 @@
   .landing-search > :global(svg) {
     flex-shrink: 0;
     color: var(--muted);
-  }
-  input {
-    padding: 8px 0;
-    border: 0;
-    min-width: 0;
-    width: 100%;
-    font-size: 16px;
-    background: transparent;
-  }
-  input:focus-visible {
-    outline: 0;
   }
   button {
     display: grid;
