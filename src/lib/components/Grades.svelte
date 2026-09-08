@@ -204,7 +204,7 @@
               label: "Percent of letter grades",
             },
           ]}
-          height={220}
+          height={260}
           props={{
             bars: {
               strokeWidth: 0,
@@ -236,7 +236,7 @@
             yBaseline={undefined}
             yNice={false}
             legend={false}
-            height={220}
+            height={260}
           />
         </div>
       </div>{/if}
@@ -288,17 +288,17 @@
 
   .charts {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 2rem;
-    margin: 24px 0 16px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 56px;
+    margin: 36px 0;
   }
   h3 {
-    font: 13px var(--font-sans);
+    font: 18px var(--font-sans);
     color: var(--muted);
-    margin-bottom: 10px;
+    margin-bottom: 24px;
   }
   .chart {
-    height: 230px;
+    height: 270px;
     color: var(--text);
   }
   .chart :global(text) {

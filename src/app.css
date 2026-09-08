@@ -319,7 +319,7 @@ th {
   }
 }
 
-/* Shared panel system: quiet surfaces, compact labels, consistent spacing. */
+/* Shared panels and course reading layout. */
 :root {
   --radius: 5px;
   --space-panel: 20px;
@@ -440,21 +440,25 @@ a:hover {
 }
 .course-workspace {
   display: grid;
-  grid-template-columns: 230px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   align-items: start;
-  gap: 36px;
+  gap: 64px;
+  max-width: 1120px;
+  margin-inline: auto;
 }
 .course-content {
   display: grid;
-  gap: 32px;
+  gap: 72px;
   min-width: 0;
 }
 .course-facts {
-  position: sticky;
-  top: 73px;
+  position: static;
 }
 .course-facts .panel-body {
   font-size: 13px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px 48px;
 }
 .course-intro {
   margin-bottom: 18px;
@@ -463,7 +467,7 @@ a:hover {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 7px;
-  margin: 0 0 24px;
+  margin: 0;
   font-size: 14px;
   line-height: 1.6;
 }
@@ -513,11 +517,10 @@ a:hover {
 .experience-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 64px;
 }
 .experience-grid > div + div {
-  border-left: 1px solid var(--border);
-  padding-left: 24px;
+  padding-left: 0;
 }
 .tile-label {
   font: 14px var(--font-sans);
@@ -525,8 +528,8 @@ a:hover {
   margin-bottom: 12px;
 }
 .experience-notes {
-  margin-top: 15px;
-  padding-top: 15px;
+  margin-top: 36px;
+  padding-top: 28px;
   border-top: 1px solid var(--border);
 }
 .panel .claim {
@@ -542,11 +545,11 @@ a:hover {
   margin-bottom: 0;
 }
 .professor-tile {
-  padding: 16px 0;
+  padding: 32px 0;
   border-bottom: 1px solid var(--border);
   display: grid;
-  grid-template-columns: 210px minmax(0, 1fr);
-  gap: 24px;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 48px;
 }
 .professor-tile:last-child { border-bottom: 0; }
 .professor-heading {
@@ -557,7 +560,8 @@ a:hover {
   margin-bottom: 0;
 }
 .professor-heading h3 {
-  font-size: 14px;
+  font-size: 18px;
+  font-weight: 500;
 }
 .professor-heading a {
   display: flex;
@@ -619,9 +623,6 @@ a:hover {
   margin-top: 4px;
 }
 @media (max-width: 1050px) {
-  .course-workspace {
-    grid-template-columns: 220px minmax(0, 1fr);
-  }
   .page {
     padding: 24px;
   }
@@ -684,8 +685,8 @@ a:hover {
   align-items: start;
 }
 .course-heading {
-  padding: 12px 0 20px;
-  gap: 24px;
+  padding: 24px 0 36px;
+  gap: 28px;
 }
 .course-heading h1 {
   font-size: clamp(30px, 3.8vw, 48px);
@@ -719,13 +720,13 @@ a:hover {
 }
 .course-overview {
   display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(320px, 1fr);
-  gap: 28px;
-  margin: 24px 0 40px;
+  grid-template-columns: minmax(0, 1.65fr) minmax(300px, 1fr);
+  gap: 40px;
+  margin: 40px 0 72px;
   scroll-margin-top: 80px;
 }
 .overview-take {
-  padding: 36px 40px;
+  padding: 40px 44px;
   border: 1px solid var(--border);
   border-radius: 6px;
 }
@@ -741,8 +742,8 @@ a:hover {
 }
 .overview-take .claim {
   max-width: 52ch;
-  font-size: 19px;
-  line-height: 1.6;
+  font-size: 21px;
+  line-height: 1.7;
 }
 .overview-take .citations {
   font-size: 12px;
@@ -763,8 +764,10 @@ a:hover {
 }
 .course-content > .panel > .panel-heading {
   border: 0;
-  padding: 24px 0 20px;
+  padding: 32px 0;
+  align-items: baseline;
 }
+.course-content > .panel > .panel-heading h2 { font-size: 28px; font-weight: 500; }
 .course-content > .panel > .panel-body {
   padding: 0;
 }
@@ -774,13 +777,17 @@ a:hover {
   border: 0;
 }
 .course-facts .panel-heading {
-  padding: 24px 0 16px;
+  padding: 24px 0;
   border-top: 1px solid var(--border);
   border-bottom: 0;
 }
-.course-facts .panel-body {
-  padding: 0;
-}
+.course-facts .panel-body { padding: 0; }
+.course-facts .panel-body > details { padding: 0; margin: 0; border: 0; }
+.course-facts .panel-body > details[open] { grid-column: 1 / -1; }
+.course-facts .panel-body > .small-link { align-self: start; margin: 0; }
+.course-facts .panel-body > p { grid-column: 1 / -1; }
+.course-facts .panel-body > details p, .course-facts .panel-body > details ul { max-width: 80ch; }
+
 .course-facts .tags {
   display: grid;
   gap: 10px;
@@ -826,9 +833,11 @@ a:hover {
     flex-direction: column;
     gap: 4px;
   }
-  .course-workspace {
-    gap: 28px;
-  }
+  .course-workspace { gap: 40px; }
+  .course-content { gap: 48px; }
+  .course-facts .panel-body { grid-template-columns: 1fr; gap: 20px; }
+  .course-facts .fact-pair { grid-template-columns: 120px minmax(0, 1fr); gap: 16px; }
+  .course-content > .panel > .panel-heading h2 { font-size: 24px; }
   .professor-tile {
     grid-template-columns: 1fr;
     gap: 6px;
@@ -842,16 +851,6 @@ a:hover {
   }
 }
 
-.course-gpa {
-  font-size: 16px;
-  color: var(--text);
-  font-weight: 550;
-}
-.course-gpa span {
-  font-size: 12px;
-  font-weight: 400;
-  color: var(--muted);
-}
 .hero h1 {
   font-size: clamp(32px, 4vw, 46px);
 }

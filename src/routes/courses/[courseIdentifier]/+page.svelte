@@ -97,14 +97,13 @@
   });
   const links = [
     { id: "overview", label: "overview", icon: BookOpen },
-    { id: "grades", label: "grades", icon: ChartColumn },
-    { id: "experience", label: "student experience", icon: BookOpen },
     { id: "professors", label: "professors", icon: Users },
-    { id: "requirements", label: "prerequisites", icon: GitBranch },
     { id: "schedule", label: "calendar", icon: CalendarDays },
+    { id: "experience", label: "student experience", icon: BookOpen },
+    { id: "requirements", label: "prerequisites", icon: GitBranch },
+    { id: "grades", label: "grades", icon: ChartColumn },
     { id: "evidence", label: "sources", icon: Layers },
-  ];
-</script>
+  ];</script>
 
 <svelte:head
   ><title>{c.course_id} · {c.title} · UW Courses</title><meta
@@ -139,7 +138,6 @@
     </div>
   </div>
   <div class="row course-meta">
-    {#if c.statistics?.gpa != null}<a href="#grades" class="course-gpa">{c.statistics.gpa.toFixed(2)} <span>all-time GPA</span></a>{/if}
     <span class:available={selectedOfferings.length}
       ><i></i>{selectedOfferings.length ? "offering recorded" : "no offering record for this term"}</span
     ><span>{credits(c.credits_min, c.credits_max)}</span>
@@ -219,74 +217,6 @@
     </Panel>
   </aside>
   <div class="course-content">
-    <Panel title="Grades" id="grades">
-      <Grades
-        grades={c.grades}
-        projection={data.projection}
-        {projectedTerm}
-        instructorTrends={data.instructorTrends}
-        selectedTerm={selectedGradeTerm}
-        showTermSelect={false}
-        benchmarks={data.context?.benchmarks}
-        {scope}
-        uid={c.course_uid}
-        revision={c.revision}
-        instructors={c.grade_instructors || c.instructors}
-      />
-      {#if c.grade_conflicts?.length}<details>
-          <summary>Conflicting source distributions</summary>
-          <p class="muted">Excluded from calculated GPA.</p>
-          <pre>{JSON.stringify(c.grade_conflicts, null, 2)}</pre>
-        </details>{/if}
-    </Panel>
-    {#if data.context}<CourseContext context={data.context} sections={c.sections} subjects={c.subjects} {scope} onScopeChange={(value) => comparisonScope = value} term={selectedGradeTerm} />{/if}
-    <Panel
-      title="Student experience"
-      id="experience"
-      label={snapshotAvailable ? `AI summary · ${termName(c.student_summary?.term_id || c.semester)}` : termLabel}
-    >
-      {#if snapshotAvailable}<div class="experience-grid">
-        <div>
-          <h3 class="tile-label">the class</h3>
-          <Claims
-            claims={summary.quick_take || []}
-            reviewFiles={c.evidence.reviews}
-          />{#if !summary.quick_take?.length}<p>{c.description}</p>{/if}
-        </div>
-        <div>
-          <h3 class="tile-label">difficulty & workload</h3>
-          <Claims
-            claims={summary.difficulty_workload || []}
-            reviewFiles={c.evidence.reviews}
-          />{#if !summary.difficulty_workload?.length}<p class="muted">
-              No workload feedback recorded.
-            </p>{/if}
-        </div>
-      </div>
-      {#if summary.student_experience?.length}<div class="experience-notes">
-          <Claims
-            claims={summary.student_experience}
-            reviewFiles={c.evidence.reviews}
-          />
-        </div>{/if}
-    {#if c.llm_topics?.length || c.llm_skills?.length}
-      <section class="course-topics" id="topics" aria-label="AI-generated topics and skills">
-        <div class="course-tag-groups">
-          {#each [{ label: "Topics", values: c.llm_topics }, { label: "Skills", values: c.llm_skills }] as group}
-            {#if group.values?.length}
-              <div>
-                <h3 class="tag-label">{group.label}</h3>
-                <ul class="course-tags" aria-label={group.label}>
-                  {#each group.values as tag}<li>{tag}</li>{/each}
-                </ul>
-              </div>
-            {/if}
-          {/each}
-        </div>
-      </section>
-    {/if}
-    {:else}<p class="muted">No student-experience summary for {termLabel}. Reviews are not reliably assigned to teaching terms.</p>{/if}
-    </Panel>
     <Panel title="Professors" id="professors" label={termLabel}>
       <div class="professor-grid">
         {#each professors as i}{@const feedback =
@@ -345,27 +275,6 @@
         </div>
       </details>
     </Panel>
-    <Panel title="Prerequisites" id="requirements">
-      <a class="small-link" href={`/explorer/${encodeURIComponent(c.subjects[0])}?course=${encodeURIComponent(c.course_id)}`}>Explore connected courses on the map →</a>
-      {#if snapshotAvailable}
-      <p class="requirements-source">
-        {c.requirements_text || "No prerequisites listed."}
-      </p>
-      {#if Graph}<Graph ast={c.requirements} />{:else}<div
-          class="graph-loading"
-        >
-          {graphError || "Loading prerequisite tree…"}
-        </div>{/if}
-      {#if c.requirements.status !== "valid"}<p class="muted mono">
-          Best-effort interpretation · check the original requirements above.
-        </p>{/if}
-      <details>
-        <summary>Prerequisite text tree</summary><RequirementText
-          ast={c.requirements}
-        />
-      </details>
-      {:else}<p class="muted">No prerequisite snapshot for {termLabel}. The available prerequisite tree is from {termName(c.semester)}.</p>{/if}
-    </Panel>
     <Panel
       title="Calendar & sections"
       id="schedule"
@@ -402,6 +311,95 @@
         files={c.evidence.meetings || []}
       />{/if}
     </Panel>
+    <Panel
+      title="Student experience"
+      id="experience"
+      label={snapshotAvailable ? `AI summary · ${termName(c.student_summary?.term_id || c.semester)}` : termLabel}
+    >
+      {#if snapshotAvailable}<div class="experience-grid">
+        <div>
+          <h3 class="tile-label">the class</h3>
+          <Claims
+            claims={summary.quick_take || []}
+            reviewFiles={c.evidence.reviews}
+          />{#if !summary.quick_take?.length}<p>{c.description}</p>{/if}
+        </div>
+        <div>
+          <h3 class="tile-label">difficulty & workload</h3>
+          <Claims
+            claims={summary.difficulty_workload || []}
+            reviewFiles={c.evidence.reviews}
+          />{#if !summary.difficulty_workload?.length}<p class="muted">
+              No workload feedback recorded.
+            </p>{/if}
+        </div>
+      </div>
+      {#if summary.student_experience?.length}<div class="experience-notes">
+          <Claims
+            claims={summary.student_experience}
+            reviewFiles={c.evidence.reviews}
+          />
+        </div>{/if}
+    {#if c.llm_topics?.length || c.llm_skills?.length}
+      <section class="course-topics" id="topics" aria-label="AI-generated topics and skills">
+        <div class="course-tag-groups">
+          {#each [{ label: "Topics", values: c.llm_topics }, { label: "Skills", values: c.llm_skills }] as group}
+            {#if group.values?.length}
+              <div>
+                <h3 class="tag-label">{group.label}</h3>
+                <ul class="course-tags" aria-label={group.label}>
+                  {#each group.values as tag}<li>{tag}</li>{/each}
+                </ul>
+              </div>
+            {/if}
+          {/each}
+        </div>
+      </section>
+    {/if}
+    {:else}<p class="muted">No student-experience summary for {termLabel}. Reviews are not reliably assigned to teaching terms.</p>{/if}
+    </Panel>
+    <Panel title="Prerequisites" id="requirements">
+      <a class="small-link" href={`/explorer/${encodeURIComponent(c.subjects[0])}?course=${encodeURIComponent(c.course_id)}`}>Explore connected courses on the map →</a>
+      {#if snapshotAvailable}
+      <p class="requirements-source">
+        {c.requirements_text || "No prerequisites listed."}
+      </p>
+      {#if Graph}<Graph ast={c.requirements} />{:else}<div
+          class="graph-loading"
+        >
+          {graphError || "Loading prerequisite tree…"}
+        </div>{/if}
+      {#if c.requirements.status !== "valid"}<p class="muted mono">
+          Best-effort interpretation · check the original requirements above.
+        </p>{/if}
+      <details>
+        <summary>Prerequisite text tree</summary><RequirementText
+          ast={c.requirements}
+        />
+      </details>
+      {:else}<p class="muted">No prerequisite snapshot for {termLabel}. The available prerequisite tree is from {termName(c.semester)}.</p>{/if}
+    </Panel>
+    <Panel title="Grades" id="grades">
+      <Grades
+        grades={c.grades}
+        projection={data.projection}
+        {projectedTerm}
+        instructorTrends={data.instructorTrends}
+        selectedTerm={selectedGradeTerm}
+        showTermSelect={false}
+        benchmarks={data.context?.benchmarks}
+        {scope}
+        uid={c.course_uid}
+        revision={c.revision}
+        instructors={c.grade_instructors || c.instructors}
+      />
+      {#if c.grade_conflicts?.length}<details>
+          <summary>Conflicting source distributions</summary>
+          <p class="muted">Excluded from calculated GPA.</p>
+          <pre>{JSON.stringify(c.grade_conflicts, null, 2)}</pre>
+        </details>{/if}
+    </Panel>
+    {#if data.context}<CourseContext context={data.context} sections={c.sections} subjects={c.subjects} {scope} onScopeChange={(value) => comparisonScope = value} term={selectedGradeTerm} />{/if}
     <Panel title="Sources & history" id="evidence">
       <details>
         <summary>Selected offering source records</summary>

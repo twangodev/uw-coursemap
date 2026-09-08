@@ -107,7 +107,7 @@
     margin: 14px 0 0;
   }
   .snapshot-value strong {
-    font-size: 44px;
+    font-size: 36px;
     font-weight: 500;
     letter-spacing: -0.06em;
     line-height: 1.1;
