@@ -6,7 +6,7 @@ type Section = {
 };
 
 /** Describe observed outcomes and enrollment, never inferred workload or personal success. */
-export function courseFit({
+export function courseFitObservations({
   gpa,
   reference,
   group,
@@ -17,7 +17,7 @@ export function courseFit({
   group: string;
   sections?: Section[];
 }) {
-  const sentences: string[] = [];
+  const sentences: { text: string; kind: "grades" | "enrollment" }[] = [];
   if (
     gpa != null &&
     reference != null &&
@@ -25,13 +25,14 @@ export function courseFit({
     Number.isFinite(reference)
   ) {
     const delta = Math.round((gpa - reference) * 100) / 100;
-    sentences.push(
-      delta >= 0.2
+    sentences.push({
+      kind: "grades",
+      text: delta >= 0.2
         ? `Students tend to earn higher grades here than in other ${group} courses.`
         : delta <= -0.2
           ? `Grades tend to run lower here than in other ${group} courses.`
           : `Grade outcomes are close to the average across ${group} courses.`,
-    );
+    });
   }
   const unique = [
     ...new Map(
@@ -64,10 +65,12 @@ export function courseFit({
     );
     const scale =
       median <= 30 ? "small" : median >= 100 ? "large" : "mid-sized";
-    sentences.push(
-      `${noun} are ${scale}, with a median of ${median.toLocaleString("en-US")} enrolled students in the recorded sections.`,
-    );
+    sentences.push({ kind: "enrollment", text: `${noun} are ${scale}, with a median of ${median.toLocaleString("en-US")} enrolled students in the recorded sections.` });
     if (type !== "LEC") break;
   }
-  return sentences.join(" ");
+  return sentences;
+}
+
+export function courseFit(input: Parameters<typeof courseFitObservations>[0]) {
+  return courseFitObservations(input).map(({ text }) => text).join(" ");
 }

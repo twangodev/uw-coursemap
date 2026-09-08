@@ -12,6 +12,7 @@
     Layers,
   } from "@lucide/svelte";
   import { citationContext, citationKey, citationNumbers } from "$lib/citations";
+  import { courseFitObservations } from "$lib/course-fit";
   import type { Citation } from "$lib/types";
   import Select from "$lib/components/Select.svelte";
   import Panel from "$lib/components/Panel.svelte";
@@ -62,6 +63,16 @@
   let benchmark = $derived(selectedGradeTerm ? data.context?.benchmarks.terms[selectedGradeTerm]?.[scope] : data.context?.benchmarks.all[scope]);
   $effect(() => { c.course_uid; termSelection = null; });
   let allTimeSummary = $derived(c.student_summary);
+  let observationTerm = $derived(c.sections.map((section: any) => section.term_id).filter(Boolean).sort().at(-1));
+  let overviewClaims = $derived([
+    ...(allTimeSummary.difficulty_workload || []), ...(allTimeSummary.quick_take || []), ...(allTimeSummary.student_experience || []),
+    ...courseFitObservations({
+      gpa: (data.context?.all?.count ?? 0) >= 30 ? data.context?.all?.gpa : null,
+      reference: data.context?.benchmarks.all[scope]?.gpa,
+      group: scope === "school" ? "UW–Madison" : scope,
+      sections: c.sections.filter((section: any) => section.term_id === observationTerm),
+    }).map(({ text, kind }) => ({ text, source: kind === "grades" ? "Recorded grades · all terms" : `Section enrollment · ${termName(observationTerm)} snapshot`, href: kind === "grades" ? "#grades" : "#schedule" })),
+  ]);
   let summary = $derived(!selectedGradeTerm || selectedGradeTerm === c.student_summary?.term_id ? c.student_summary : {});
   let sourceNumbers = $derived(citationNumbers(allTimeSummary));
   setContext(citationContext, (citation: Citation) => sourceNumbers.get(citationKey(citation)));
@@ -167,9 +178,9 @@
 </div>
 <section class="course-overview" id="overview" aria-label="Course overview">
   <div class="overview-take">
-    {#if allTimeSummary.difficulty_workload?.length || allTimeSummary.quick_take?.length || allTimeSummary.student_experience?.length}
+    {#if overviewClaims.length}
       {#key c.course_uid}<RotatingClaims
-        claims={[...(allTimeSummary.difficulty_workload || []), ...(allTimeSummary.quick_take || []), ...(allTimeSummary.student_experience || [])]}
+        claims={overviewClaims}
         reviewFiles={c.evidence.reviews}
       />{/key}
     {:else}<h2>Summary</h2><p class="muted">No student feedback recorded yet.</p>{/if}
@@ -400,7 +411,7 @@
           <pre>{JSON.stringify(c.grade_conflicts, null, 2)}</pre>
         </details>{/if}
     </Panel>
-    {#if data.context}<CourseContext context={data.context} sections={c.sections} subjects={c.subjects} {scope} onScopeChange={(value) => comparisonScope = value} term={selectedGradeTerm} />{/if}
+    {#if data.context}<CourseContext context={data.context} subjects={c.subjects} {scope} onScopeChange={(value) => comparisonScope = value} term={selectedGradeTerm} />{/if}
     <Panel title="Sources & history" id="evidence">
       <details>
         <summary>Selected offering source records</summary>

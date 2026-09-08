@@ -5,7 +5,7 @@
   import Claims from "./Claims.svelte";
   import type { Claim } from "$lib/types";
 
-  let { claims, reviewFiles = [] }: { claims: Claim[]; reviewFiles?: string[] } = $props();
+  let { claims, reviewFiles = [] }: { claims: (Claim & { source?: string; href?: string })[]; reviewFiles?: string[] } = $props();
   let index = $state(0);
   let paused = $state(false);
   let infoOpen = $state(false);
@@ -37,7 +37,7 @@
       <h2>Summary</h2>
       <Tooltip.Provider delayDuration={200}><Tooltip.Root bind:open={infoOpen} disableCloseOnTriggerClick>
         <Tooltip.Trigger class="summary-info" aria-label="About this summary" onclick={() => infoOpen = true}><Info size={14} /></Tooltip.Trigger>
-        <Tooltip.Portal><Tooltip.Content role="tooltip" class="summary-info-content" sideOffset={6}>AI-generated from student reviews across all captured dates. Open the citations to read the original comments.</Tooltip.Content></Tooltip.Portal>
+        <Tooltip.Portal><Tooltip.Content role="tooltip" class="summary-info-content" sideOffset={6}>Review summaries are AI-generated; citations open the original comments. Grade and class-size observations are calculated from recorded data and labeled with their source.</Tooltip.Content></Tooltip.Portal>
       </Tooltip.Root></Tooltip.Provider>
     </div>
   {#if items.length > 1}
@@ -55,6 +55,7 @@
     {#key current.text}
       <div class="takeaway" role="group" aria-label={`${index % items.length + 1} of ${items.length}`}>
         <Claims claims={[current]} {reviewFiles} />
+        {#if current.source}<a class="observation-source" href={current.href}>{current.source} ↗</a>{/if}
       </div>
     {/key}
   {/if}
@@ -62,6 +63,7 @@
 </div>
 
 <style>
+  .observation-source { display: inline-block; margin-top: 16px; font-size: 12px; color: var(--muted); }
   .takeaway-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
   h2 { margin: 0; font-size: 14px; font-weight: 550; color: var(--muted); }
   .summary-title { display: flex; align-items: center; gap: 6px; }

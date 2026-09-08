@@ -1,11 +1,10 @@
 <script lang="ts">
   import { ArrowLeftRight } from "@lucide/svelte";
-  import { courseFit } from "$lib/course-fit";
   import AnimatedNumber from "./AnimatedNumber.svelte";
   import { metricColor } from "$lib/grade-benchmarks";
   import { BarChart } from "layerchart";
   import { termName } from "$lib/format";
-  let { context: catalog, scope = "school", term = "", sections = [], subjects = [], onScopeChange }: { context: any; scope?: string; term?: string; sections?: any[]; subjects?: string[]; onScopeChange?: (scope: string) => void } = $props();
+  let { context: catalog, scope = "school", term = "", subjects = [], onScopeChange }: { context: any; scope?: string; term?: string; subjects?: string[]; onScopeChange?: (scope: string) => void } = $props();
   let comparisonScopes = $derived(["school", ...new Set(subjects.filter(subject => subject !== "school"))]);
   let nextScope = $derived(comparisonScopes[(comparisonScopes.indexOf(scope) + 1) % comparisonScopes.length]);
   let contextTerm = $derived(term && !catalog.terms[term] ? Object.keys(catalog.terms).filter(t => t < term && catalog.terms[t]).sort().at(-1) : term);
@@ -17,11 +16,9 @@
           ?.comparison
       : context?.university,
   );
-  let sectionTerm = $derived(term || sections.map(section => section.term_id).sort().at(-1));
-  let fit = $derived(courseFit({ gpa: context?.count >= 30 ? context.gpa : null, reference: benchmark?.gpa, group: scope === "school" ? "UW–Madison" : scope, sections: sections.filter(section => section.term_id === sectionTerm) }));
 </script>
 
-{#if (comparison && context) || fit}
+{#if comparison && context}
   <section class="course-context" aria-labelledby="context-title">
     <div class="context-heading">
       <div>
@@ -31,9 +28,6 @@
         </p>
       </div>
     </div>
-    {#if fit}<p class="fit-summary">{fit}</p>
-      <p class="fit-source muted">{context && benchmark ? `Grades: ${contextTerm ? termName(contextTerm) : "all recorded terms"}. ` : ""}{sections.some(section => section.term_id === sectionTerm && section.enrolled > 0) ? `Section enrollment: ${termName(sectionTerm)} snapshot.` : ""}</p>
-    {/if}
     {#if comparison && context}<div class="context-grid">
       <div>
         <p class="context-number" style:color={metricColor(context.gpa, benchmark?.gpa)}><AnimatedNumber value={context.gpa} decimals={2} /> <span>GPA</span></p>
@@ -118,8 +112,6 @@
   @media (prefers-reduced-motion: reduce) { .swap-icon { transition: none; } }
   .inline-comparison:hover { color: var(--accent); border-color: var(--accent); }
   .inline-comparison:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-  .fit-summary { max-width: 68ch; font-size: 18px; line-height: 1.65; margin-bottom: 10px; }
-  .fit-source { font-size: 12px; margin-bottom: 28px; }
   .course-context {
     padding: 24px 0 0;
     border-top: 1px solid var(--border);

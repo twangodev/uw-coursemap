@@ -348,20 +348,27 @@ test("insufficient projection history falls back only inside grades", async ({ p
 });
 
 
-test("course fit describes recorded grades and selected-term section sizes", async ({ page }) => {
+test("calculated grade and enrollment observations rotate with review summaries", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/courses/COMPSCI_300");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
-  const fit = page.locator(".fit-summary");
-  await expect(fit).toContainText("Lectures are");
-  await expect(fit).toContainText("UW–Madison");
-  await expect(page.locator(".fit-source")).toContainText("Section enrollment: Fall 2026 snapshot");
+  const card = page.getByRole("region", { name: "Student takeaways", exact: true });
+  for (let i = 0; i < 12 && !(await card.locator(".observation-source").count()); i++) {
+    await card.getByRole("button", { name: "Next takeaway" }).click();
+  }
+  await expect(card.locator(".observation-source")).toHaveText("Recorded grades · all terms ↗");
+  await expect(card.locator(".claim")).toContainText("UW–Madison");
+  await expect(card.locator("[data-citation-trigger]")).toHaveCount(0);
   await page.getByRole("button", { name: "Comparison group", exact: true }).click();
   await page.getByRole("option", { name: "Department · COMPSCI", exact: true }).click();
-  await expect(fit).toContainText("COMPSCI");
+  await expect(card.locator(".claim")).toContainText("COMPSCI");
+  await card.getByRole("button", { name: "Next takeaway" }).click();
+  await expect(card.locator(".claim")).toContainText("Lectures are");
+  await expect(card.locator(".observation-source")).toContainText("Section enrollment · Fall 2026 snapshot");
   await page.getByRole("button", { name: "Term", exact: true }).click();
   await page.getByRole("option", { name: "Spring 2026", exact: true }).click();
-  await expect(fit).not.toContainText("Lectures");
-  await expect(page.locator(".fit-source")).toContainText("Grades: Spring 2026");
+  await expect(card.locator(".observation-source")).toContainText("Fall 2026 snapshot");
+  await expect(page.locator(".fit-summary")).toHaveCount(0);
 });
 
 
@@ -376,7 +383,7 @@ test("course-fit charts remain visible for unreleased terms and heading comparis
   await context.getByRole("button", { name: "Course fit comparison", exact: true }).click();
   await expect(page.getByRole("listbox")).toHaveCount(0);
   await expect(page.getByRole("button", { name: "Comparison group", exact: true })).toContainText("COMPSCI");
-  await expect(context.locator(".fit-summary")).toContainText("COMPSCI");
+  await expect(context.locator("h2")).toContainText("COMPSCI");
   await expect(context.locator('.context-chart svg[role="figure"]').first()).toBeVisible();
   await context.getByRole("button", { name: "Course fit comparison", exact: true }).press("Enter");
   await expect(page.getByRole("button", { name: "Comparison group", exact: true })).toContainText("UW–Madison");
