@@ -1,4 +1,5 @@
 <script lang="ts">
+  import GradeHistory from "./GradeHistory.svelte";
   import { gradeDisplay } from "$lib/grade-display";
   import GradeEstimate from "./GradeEstimate.svelte";
   import type { GradeProjection } from "$lib/grade-projection";
@@ -264,6 +265,8 @@
   {#if selectedInstructor}Whole-course comparisons are unavailable for an instructor subset.
   {:else}Course averages for GPA and A/AB share; median course for grade count. Above/below does not imply teaching quality. Courses may have different historical coverage. Historical grades describe past outcomes; co-taught sections share one distribution. Instructor lines use grade-weighted section averages; all instructors are shown by default. Hover over a term to identify instructors, or select one above to isolate their history.{/if}
 </p></details>
+
+<GradeHistory grades={source} through={selectedTerm} />
 
 <style>
 
