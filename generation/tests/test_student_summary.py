@@ -7,6 +7,7 @@ from uw_coursemap.student_context import (
     match_name,
     teaching_history,
     select_course_grades,
+    review_course_correction,
 )
 from uw_coursemap.student_summary import generate_student, validate_claims
 
@@ -40,6 +41,20 @@ def review(id, instructor):
 
 
 class StudentSummaryTests(unittest.TestCase):
+    def test_review_course_corrections_require_explicit_resolvable_opening(self):
+        aliases = {"AAE 635": "AAE 635", "ECE 759": "COMPSCI/ECE 759"}
+        for text, expected in [
+            ("Actually AAE635. He cares about his students.", "AAE 635"),
+            ("This review is for ECE 759, a good course.", "COMPSCI/ECE 759"),
+            ("Actually AAE999, a good course.", None),
+            ("AAE635 was harder than this class.", None),
+            ("Actually a great instructor.", None),
+        ]:
+            with self.subTest(text=text):
+                self.assertEqual(
+                    review_course_correction({"comment": text}, aliases.get), expected
+                )
+
     def test_conflicting_alias_grades_follow_selected_record_without_summing(self):
         first, second = grade("1262", 8, 2), grade("1262", 26, 8)
         first["citation"]["source_record"] = {"entity_id": "first"}

@@ -519,6 +519,8 @@ class AgentTests(unittest.TestCase):
                     "instructor_name": "Example",
                     "date": "2025-01-01",
                     "comment": "The final essay is easy, but the exam is hard.",
+                    "difficulty_rating": 5,
+                    "quality_rating": 4,
                 }
             ],
         }
@@ -559,6 +561,9 @@ class AgentTests(unittest.TestCase):
         self.assertEqual(len(calls), 4)
         self.assertIn("essay easy", out["quick_take"][0]["text"])
         checks = out["provenance"]["grounding_checks"]
+        cited = checks[-1]["input"]["claims"][0]["cited_reviews"][0]
+        self.assertEqual(cited["difficulty_rating"], 5)
+        self.assertEqual(cited["quality_rating"], 4)
         self.assertEqual(len(checks), 2)
         self.assertEqual(
             checks[0]["inference"], {"thinking": True, "max_output_tokens": 8192}

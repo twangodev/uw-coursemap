@@ -20,6 +20,8 @@ def grounding_request(task, value, payload):
                             "scope": reviews[i].get("instructor_scope"),
                             "date": reviews[i].get("date"),
                             "comment": reviews[i]["comment"],
+                            "difficulty_rating": reviews[i].get("difficulty_rating"),
+                            "quality_rating": reviews[i].get("quality_rating"),
                         }
                         for i in claim["review_ids"]
                     ],

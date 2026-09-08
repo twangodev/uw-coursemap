@@ -3,6 +3,7 @@
 from collections import defaultdict
 from functools import lru_cache
 import json
+import re
 
 from name_matcher import find_best_name_match, HumanName, normalize_name_component
 from .course_context import sample_reviews
@@ -10,6 +11,17 @@ from .dataset_shape import instructor_identity
 from .models import digest
 
 POINTS = {"a": 4, "ab": 3.5, "b": 3, "bc": 2.5, "c": 2, "d": 1, "f": 0}
+
+
+def review_course_correction(review, resolve):
+    """Recognize an explicit opening correction, without guessing a reassignment."""
+    match = re.match(
+        r"^\s*(?:actually|this (?:review|rating) is for)\s*[:,\-]?\s*"
+        r"([a-z&/ -]+?)\s*(\d{3})\b",
+        review["comment"],
+        re.I,
+    )
+    return resolve(f"{match[1].strip().upper()} {match[2]}") if match else None
 
 
 def person_name(person):
@@ -287,6 +299,21 @@ class StudentContext:
 
     def get(self, key):
         reviews = self.base.reviews.get(key, [])
+        excluded = []
+        retained = []
+        for review in reviews:
+            corrected = review_course_correction(review, self.base.resolve)
+            if corrected and corrected != key:
+                excluded.append(
+                    {
+                        "source_review_id": review["source_review_id"],
+                        "claimed_course_id": corrected,
+                        "reason": "Review explicitly identifies a different course",
+                    }
+                )
+            else:
+                retained.append(review)
+        reviews = retained
         people, current_rmp = [], set()
         for p in sorted(self.rosters.get(key, {}).values(), key=lambda p: p["name"]):
             matched = match_name(p["name"], self.rating_names)
@@ -319,6 +346,7 @@ class StudentContext:
         }
         return {
             "course_id": key,
+            **({"excluded_reviews": excluded} if excluded else {}),
             "has_description": bool(
                 self.base.courses[key].get("description", "").strip()
             ),
