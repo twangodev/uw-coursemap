@@ -1,5 +1,5 @@
 import { expect, it } from "vitest";
-import { buildCourseMap, mapView } from "../../src/lib/course-map";
+import { buildCourseMap } from "../../src/lib/course-map";
 const course = (uid: string, code: string, requirements: any = null) => ({
   uid,
   code,
@@ -33,9 +33,10 @@ it("maps referenced alternatives, excludes exclusions, and handles cycles", () =
     course("367", "COMPSCI 367"),
   ]);
   expect(map.edges).toEqual([{ source: "200", target: "300" }]);
-  expect(mapView(map, "300").nodes.map((node) => node.id)).toEqual([
+  expect(map.courses.map((node) => node.uid)).toEqual([
     "200",
     "300",
+    "367",
   ]);
 });
 it("does not merge ambiguous courses or drop isolated course nodes", () => {
@@ -55,5 +56,5 @@ it("does not merge ambiguous courses or drop isolated course nodes", () => {
     }),
   ]);
   expect(map.edges).toEqual([]);
-  expect(mapView(map, "z").nodes).toHaveLength(1);
+  expect(map.courses.map(node => node.uid)).toEqual(["x", "y", "z"]);
 });

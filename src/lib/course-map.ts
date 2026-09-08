@@ -1,4 +1,4 @@
-import { normalize, courseUrl } from "./format";
+import { normalize } from "./format";
 import type { Requirements } from "./types";
 export interface MapCourse {
   uid: string;
@@ -64,49 +64,4 @@ export function buildCourseMap(
     courses: rows.map(({ requirements, ...row }) => row),
     edges: [...edges.values()],
   };
-}
-export function mapView(data: CourseMapData, focus: string) {
-  const visible = new Set([focus]);
-  for (const edge of data.edges)
-    if (edge.source === focus || edge.target === focus) {
-      visible.add(edge.source);
-      visible.add(edge.target);
-    }
-  const courses = data.courses.filter((course) => visible.has(course.uid));
-  const columns = [0, 0, 0];
-  const result = {
-    nodes: courses.map((course) => {
-      const column =
-        course.uid === focus
-          ? 1
-          : data.edges.some(
-                (edge) => edge.source === course.uid && edge.target === focus,
-              )
-            ? 0
-            : 2;
-      return {
-        id: course.uid,
-        type: "course",
-        position: { x: column * 320, y: columns[column]++ * 120 },
-        data: {
-          ...course,
-          href: courseUrl(course.code),
-          focused: course.uid === focus,
-        },
-      };
-    }),
-    edges: data.edges
-      .filter((edge) => visible.has(edge.source) && visible.has(edge.target))
-      .map((edge) => ({
-        ...edge,
-        id: `${edge.source}:${edge.target}`,
-        type: "default",
-        markerEnd: { type: "arrowclosed" as const },
-      })),
-  };
-  for (const node of result.nodes) {
-    const column = Math.round(node.position.x / 320);
-    node.position.y -= (columns[column] - 1) * 60;
-  }
-  return result;
 }

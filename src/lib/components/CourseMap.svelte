@@ -1,61 +1,112 @@
 <script lang="ts">
-  import { SvelteFlow, Controls, Background } from "@xyflow/svelte";
-  import "@xyflow/svelte/dist/style.css";
-  import CourseMapNode from "./CourseMapNode.svelte";
-  import { mapView, type CourseMapData } from "$lib/course-map";
-  let { data, focus }: { data: CourseMapData; focus: string } = $props();
-  let selected = $state("");
-  $effect(() => {
-    selected = focus;
+  import { onMount } from "svelte";
+  import { Plus, Minus, Maximize2, RotateCw } from "@lucide/svelte";
+  import cytoscape, { type Core, type StylesheetStyle } from "cytoscape";
+  import type { CourseMapData } from "$lib/course-map";
+  let { data, focus = "", onSelect }: { data: CourseMapData; focus?: string; onSelect: (uid: string) => void } = $props();
+  let container: HTMLDivElement;
+  let cy = $state.raw<Core | null>(null);
+  let ready = $state(false);
+  let error = $state("");
+  let worker: Worker | undefined;
+
+  function styles(): StylesheetStyle[] {
+    const css = getComputedStyle(document.documentElement);
+    const color = (name: string) => css.getPropertyValue(name).trim();
+    return [
+      { selector: "node", style: {
+        shape: "ellipse", width: 16, height: 16,
+        "background-color": color("--bg"), "border-color": color("--accent"), "border-width": 2,
+        label: "data(code)", "font-family": "Overused Grotesk", "font-size": 13,
+        color: color("--text"), "text-valign": "bottom", "text-margin-y": 7,
+        "min-zoomed-font-size": 5, "text-background-color": color("--bg"),
+        "text-background-opacity": 0.85, "text-background-padding": "2px",
+      } },
+      { selector: "edge", style: {
+        width: 1, "line-color": color("--muted"), "target-arrow-color": color("--muted"),
+        "target-arrow-shape": "triangle", "arrow-scale": 0.65, "curve-style": "straight", opacity: 0.35,
+      } },
+      { selector: ".faded", style: { opacity: 0.12 } },
+      { selector: "node.connected", style: { "background-color": color("--accent-soft"), "min-zoomed-font-size": 0 } },
+      { selector: "edge.connected", style: { "curve-style": "bezier", "line-color": color("--accent"), "target-arrow-color": color("--accent"), opacity: 0.8, width: 1.5 } },
+      { selector: "node.focused", style: { width: 23, height: 23, "background-color": color("--accent"), "font-weight": 600, "min-zoomed-font-size": 0 } },
+    ];
+  }
+  function fit() { cy?.fit(undefined, 70); }
+  function zoom(factor: number) {
+    if (cy) cy.zoom({ level: cy.zoom() * factor, renderedPosition: { x: cy.width() / 2, y: cy.height() / 2 } });
+  }
+  function arrange() {
+    ready = false;
+    error = "";
+    worker?.terminate();
+    worker = new Worker(new URL("../course-map-layout.worker.ts", import.meta.url), { type: "module" });
+    worker.onmessage = ({ data: result }) => {
+      if (result.error) { error = result.error; worker?.terminate(); return; }
+      cy?.nodes().positions(node => result.positions[node.id()]);
+      ready = true;
+      fit();
+      worker?.terminate();
+    };
+    worker.onerror = () => { error = "The map could not be arranged. Try again."; worker?.terminate(); };
+    worker.postMessage({ courses: data.courses.map(course => ({ uid: course.uid })), edges: data.edges.map(({ source, target }) => ({ source, target })) });
+  }
+  onMount(() => {
+    cy = cytoscape({
+      container,
+      elements: [
+        ...data.courses.map(course => ({ data: { id: course.uid, code: course.code } })),
+        ...data.edges.map(edge => ({ data: { ...edge, id: `${edge.source}:${edge.target}` } })),
+      ],
+      style: styles(),
+      layout: { name: "grid" },
+      minZoom: 0.005, maxZoom: 3, wheelSensitivity: 0.2,
+      pixelRatio: Math.min(devicePixelRatio, 2),
+      textureOnViewport: true,
+      boxSelectionEnabled: false,
+    });
+    cy.on("tap", "node", event => onSelect(event.target.id()));
+    cy.on("tap", event => { if (event.target === cy) onSelect(""); });
+    const resize = new ResizeObserver(() => cy?.resize());
+    resize.observe(container);
+    const theme = new MutationObserver(() => cy?.style(styles()));
+    theme.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    arrange();
+    return () => { worker?.terminate(); resize.disconnect(); theme.disconnect(); cy?.destroy(); cy = null; };
   });
-  let graph = $derived(mapView(data, selected));
-  const nodeTypes = { course: CourseMapNode };
+  $effect(() => {
+    if (!cy || !ready) return;
+    const selected = cy.getElementById(focus);
+    cy.batch(() => {
+      cy!.elements().removeClass("faded connected focused");
+      if (selected.length) {
+        const neighborhood = selected.closedNeighborhood();
+        cy!.elements().not(neighborhood).addClass("faded");
+        neighborhood.addClass("connected");
+        selected.addClass("focused");
+      }
+    });
+    if (selected.length) {
+      cy.fit(selected.closedNeighborhood(), 120);
+      const level = Math.max(cy.width() < 600 ? 0.75 : 0.45, Math.min(1.3, cy.zoom()));
+      if (cy.zoom() !== level) { cy.zoom(level); cy.center(selected); }
+    }
+  });
 </script>
 
-<div class="map" aria-label="Course prerequisite map">
-  {#key selected}<SvelteFlow
-      nodes={graph.nodes}
-      edges={graph.edges}
-      {nodeTypes}
-      fitView
-      fitViewOptions={{ padding: 0.18, minZoom: 0.85, maxZoom: 1 }}
-      minZoom={0.1}
-      nodesDraggable={false}
-      nodesConnectable={false}
-      zoomOnScroll={false}
-      preventScrolling={false}
-      onnodeclick={({ node }) => (selected = node.id)}
-      ><Background /><Controls /></SvelteFlow
-    >{/key}
+<div class="map" bind:this={container} role="img" aria-label={`Course prerequisite map: ${data.courses.length} courses, ${data.edges.length} connections`} data-ready={ready} data-node-count={data.courses.length}></div>
+{#if !ready}<div class="map-status" role="status">{error || `Arranging ${data.courses.length.toLocaleString()} courses…`}{#if error}<button onclick={arrange}>Try again</button>{/if}</div>{/if}
+<div class="map-controls" aria-label="Map controls">
+  <button aria-label="Zoom in" onclick={() => zoom(1.3)}><Plus size={17} /></button>
+  <button aria-label="Zoom out" onclick={() => zoom(1 / 1.3)}><Minus size={17} /></button>
+  <button aria-label="Fit all courses" onclick={() => { onSelect(""); fit(); }}><Maximize2 size={17} /></button>
+  <button aria-label="Rearrange map" onclick={arrange} disabled={!ready && !error}><RotateCw size={16} /></button>
 </div>
-<p class="muted">
-  {graph.nodes.length - 1} connected courses. Drag to see more.
-  Prerequisites on the left; courses that reference this course on the right.
-  Select a node to explore its connections, or its title to open the course.
-</p>
 
 <style>
-  .map {
-    height: 620px;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    background: var(--surface);
-  }
-  p {
-    font-size: 13px;
-    line-height: 1.7;
-    margin-top: 16px;
-  }
-  :global(.svelte-flow) {
-    --xy-controls-button-background-color: var(--bg);
-    --xy-controls-button-color: var(--text);
-    --xy-controls-button-border-color: var(--border);
-    --xy-edge-stroke: var(--muted);
-    --xy-background-color: var(--surface);
-  }
-  @media (max-width: 640px) {
-    .map {
-      height: 520px;
-    }
-  }
+  .map { position: absolute; inset: 0; background: var(--bg); }
+  .map-status { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: 16px 20px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); font-size: 14px; }
+  .map-status button { display: block; margin-top: 12px; }
+  .map-controls { position: absolute; left: 20px; bottom: 24px; display: flex; gap: 1px; padding: 4px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); }
+  .map-controls button { display: grid; place-items: center; width: 36px; height: 36px; border: 0; padding: 0; }
 </style>

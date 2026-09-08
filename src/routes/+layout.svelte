@@ -5,6 +5,7 @@
   import { onMount } from "svelte";
   let { data, children } = $props();
   let theme = $state("system");
+  let fullscreenMap = $derived(/^\/explorer\/[^/]+\/?$/.test(page.url.pathname));
   function apply() {
     document.documentElement.classList.toggle(
       "dark",
@@ -29,7 +30,7 @@
 </script>
 
 <a class="skip-link" href="#main">Skip to content</a>
-<header>
+{#if !fullscreenMap}<header>
   <nav aria-label="Main navigation">
     <a class="brand" href="/"
       ><img src="/uw-coursemap-logo.svg" alt="" width="28" height="28" />uw<span
@@ -51,13 +52,13 @@
       </div>
     </div>
   </nav>
-</header>
-<main class="page" id="main">
+</header>{/if}
+<main class="page" class:map-page={fullscreenMap} id="main">
   {#key page.url.pathname}<div class="route-content">
       {@render children()}
     </div>{/key}
 </main>
-<footer class="page row between">
+{#if !fullscreenMap}<footer class="page row between">
   <div>
     <p class="muted">
       Not affiliated with or endorsed by the University of Wisconsin–Madison.
@@ -68,9 +69,11 @@
     href={`https://huggingface.co/datasets/${data.status.repository}/tree/${data.status.revision}`}
     >Dataset · scanned {data.status.observed_at.slice(0, 10)}</a
   >
-</footer>
+</footer>{/if}
 
 <style>
+  .page.map-page { max-width: none; padding: 0; margin: 0; }
+  .map-page .route-content { animation: none; transform: none; }
   .skip-link {
     position: fixed;
     top: 1rem;
