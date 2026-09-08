@@ -1,16 +1,28 @@
 import { error } from "@sveltejs/kit";
-import { query } from "$lib/server/data";
+import { query, search } from "$lib/server/data";
+import { departmentStats } from "$lib/server/departments";
 import entriesData from "../../../../.site/entries.json";
-export const prerender = true;
+export const prerender = "auto";
 export function entries() {
   return entriesData.subjects.map((subject) => ({ subject }));
 }
-export async function load({ params, platform }) {
-  const courses = await query(
-    platform,
-    "SELECT c.uid course_uid,c.code course_id,c.title,c.credits_min,c.credits_max,c.gpa FROM courses c JOIN subjects s ON s.uid=c.uid WHERE s.subject=? ORDER BY c.code",
-    [params.subject],
-  );
-  if (!courses.length) error(404, "Department not found");
-  return { subject: params.subject, courses };
+export async function load({ params, platform, url }) {
+  if (
+    !(
+      await query(
+        platform,
+        "SELECT uid FROM subjects WHERE subject=? LIMIT 1",
+        [params.subject],
+      )
+    ).length
+  )
+    error(404, "Department not found");
+  const searchUrl = new URL(url);
+  searchUrl.searchParams.set("subject", params.subject);
+  searchUrl.searchParams.set("kind", "course");
+  const [results, stats] = await Promise.all([
+    search(searchUrl, platform),
+    departmentStats(params.subject, platform),
+  ]);
+  return { subject: params.subject, results, stats };
 }

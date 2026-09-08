@@ -25,12 +25,13 @@ test("course reading, citations, graph and theme", async ({ page }) => {
 });
 test("search resolves aliases and exposes filters", async ({ page }) => {
   await page.goto("/search?q=CS300");
-  await expect(page.locator(".course-row").first()).toContainText(
+  await expect(page.locator(".discovery-card").first()).toContainText(
     "COMPSCI 300",
   );
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
-  await page.getByLabel("Search", { exact: true }).fill("programming");
-  await expect(page.locator(".course-row").first()).toBeVisible();
+  await page.getByLabel("Search courses", { exact: true }).fill("programming");
+  await page.getByRole("button", {name:"Search",exact:true}).click();
+  await expect(page.locator(".discovery-card").first()).toBeVisible();
 });
 test("mobile layout stays within viewport", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });

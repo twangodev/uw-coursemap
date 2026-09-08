@@ -85,7 +85,11 @@ export async function coursePreviews(
           : null,
         claim: instructor
           ? teacherClaim || null
-          : claims.find((row: any) => row.citations?.length) || null,
+          : claims.find((row: any) =>
+              row.citations?.some(
+                (citation: any) => citation.type === "review",
+              ),
+            ) || null,
         reviewFiles: course.evidence?.reviews || [],
       },
     };
