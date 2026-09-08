@@ -372,10 +372,13 @@ test("course-fit charts remain visible for unreleased terms and heading comparis
   await expect(context.locator('.context-chart svg[role="figure"]').first()).toBeVisible();
   await expect(context.locator('.scale-comparison svg[role="figure"]').first()).toBeVisible();
   await context.getByRole("button", { name: "Course fit comparison", exact: true }).click();
-  await page.getByRole("option", { name: "COMPSCI", exact: true }).click();
+  await expect(page.getByRole("listbox")).toHaveCount(0);
   await expect(page.getByRole("button", { name: "Comparison group", exact: true })).toContainText("COMPSCI");
   await expect(context.locator(".fit-summary")).toContainText("COMPSCI");
   await expect(context.locator('.context-chart svg[role="figure"]').first()).toBeVisible();
+  await context.getByRole("button", { name: "Course fit comparison", exact: true }).press("Enter");
+  await expect(page.getByRole("button", { name: "Comparison group", exact: true })).toContainText("UW–Madison");
+  await context.getByRole("button", { name: "Course fit comparison", exact: true }).click();
   await page.getByRole("button", { name: "Comparison group", exact: true }).click();
   await page.getByRole("option", { name: "School · UW–Madison", exact: true }).click();
   await expect(context.getByRole("button", { name: "Course fit comparison", exact: true })).toContainText("UW–Madison");

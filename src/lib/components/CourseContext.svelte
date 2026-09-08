@@ -1,11 +1,12 @@
 <script lang="ts">
   import { courseFit } from "$lib/course-fit";
-  import Select from "./Select.svelte";
   import AnimatedNumber from "./AnimatedNumber.svelte";
   import { metricColor } from "$lib/grade-benchmarks";
   import { BarChart } from "layerchart";
   import { termName } from "$lib/format";
   let { context: catalog, scope = "school", term = "", sections = [], subjects = [], onScopeChange }: { context: any; scope?: string; term?: string; sections?: any[]; subjects?: string[]; onScopeChange?: (scope: string) => void } = $props();
+  let comparisonScopes = $derived(["school", ...new Set(subjects.filter(subject => subject !== "school"))]);
+  let nextScope = $derived(comparisonScopes[(comparisonScopes.indexOf(scope) + 1) % comparisonScopes.length]);
   let contextTerm = $derived(term && !catalog.terms[term] ? Object.keys(catalog.terms).filter(t => t < term && catalog.terms[t]).sort().at(-1) : term);
   let context = $derived(contextTerm ? catalog.terms[contextTerm] : term ? null : catalog.all);
   let benchmark = $derived(contextTerm ? catalog.benchmarks.terms[contextTerm]?.[scope] : term ? null : catalog.benchmarks.all[scope]);
@@ -23,7 +24,7 @@
   <section class="course-context" aria-labelledby="context-title">
     <div class="context-heading">
       <div>
-        <h2 id="context-title">Where this course fits relative to <span class="inline-comparison"><Select label="Course fit comparison" value={scope} onChange={onScopeChange} options={[{ value: "school", label: "UW–Madison" }, ...subjects.map(subject => ({ value: subject, label: subject }))]} /></span></h2>
+        <h2 id="context-title">Where this course fits relative to <button type="button" class="inline-comparison" aria-label="Course fit comparison" title={`Compare with ${nextScope === "school" ? "UW–Madison" : nextScope}`} onclick={() => onScopeChange?.(nextScope)}>{scope === "school" ? "UW–Madison" : scope}</button></h2>
         <p class="muted">
           {contextTerm && contextTerm !== term ? `Latest available grades · ${termName(contextTerm)}` : contextTerm ? termName(contextTerm) : term ? termName(term) : "All recorded terms"} · all course levels
         </p>
@@ -110,8 +111,9 @@
 {:else}<p class="muted">Not enough comparable courses for {term ? termName(term) : "these recorded terms"} in {scope === "school" ? "UW–Madison" : scope}.</p>{/if}
 
 <style>
-  .inline-comparison { display: inline-block; max-width: 100%; vertical-align: baseline; }
-  .inline-comparison :global(.course-select-trigger) { padding: 0 0 2px; border: 0; border-bottom: 1px dashed var(--muted); border-radius: 0; background: transparent; font: inherit; line-height: inherit; gap: 8px; }
+  .inline-comparison { display: inline; max-width: 100%; padding: 0 0 2px; border: 0; border-bottom: 1px dashed var(--muted); border-radius: 0; background: transparent; color: inherit; font: inherit; line-height: inherit; cursor: pointer; }
+  .inline-comparison:hover { color: var(--accent); border-color: var(--accent); }
+  .inline-comparison:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
   .fit-summary { max-width: 68ch; font-size: 18px; line-height: 1.65; margin-bottom: 10px; }
   .fit-source { font-size: 12px; margin-bottom: 28px; }
   .course-context {
