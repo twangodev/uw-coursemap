@@ -82,10 +82,6 @@ const vitePressOptions: UserConfig = {
             link: "/codebase/frontend",
           },
           {
-            text: "Search",
-            link: "/codebase/search",
-          },
-          {
             text: "Generation",
             link: "/codebase/generation",
           },
@@ -141,7 +137,7 @@ const vitePressOptions: UserConfig = {
         src: "https://rybbit.twango.dev/api/script.js",
         defer: "",
         "data-site-id": "2",
-        "data-web-vitals": "true"
+        "data-web-vitals": "true",
       },
     ],
     [

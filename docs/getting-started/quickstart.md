@@ -1,150 +1,48 @@
 # Quickstart
 
-## Development
+## Frontend
 
-To get started with development of this project, clone the repository from GitHub:
+Clone the repository, configure the public API endpoints, and install dependencies:
 
-```sh [git]
+```sh
 git clone https://github.com/twangodev/uw-coursemap.git
-```
-
-Next, create a `.env` file in the root directory of the project. This project contains an `.env.example`, which may be copied and modified for each environment.
-
-```sh [sh]
+cd uw-coursemap
 cp .env.example .env
-```
-
-::: details .env.example
-<<< @/../.env.example{dotenv}
-:::
-
-Next, determine whether you want to run the frontend, search, generation, or all. If you're not sure what you want to run, you should read up on the [architecture](architecture.md) to get a better understanding of the project.
-
-Frontend is the easiest to get started with, so we recommend starting there.
-
-### Frontend
-
-To begin development on the frontend, ensure you have [Node.js](https://nodejs.org/en/download/) installed. Then, navigate into the project directory and install the dependencies:
-
-```sh [npm]
-npm install
-```
-
-You can now run the development server for the frontend, which should be accessible within your browser at the specified URL.
-
-```sh [npm]
+npm ci
 npm run dev
 ```
 
-::: details How do I preview documentation?
-We use [VitePress](https://vitepress.dev/) to generate the documentation for this project, as it runs alongside the frontend. To preview the documentation, you can run the following command:
+The frontend currently uses `PUBLIC_API_URL` for course data and
+`PUBLIC_SEARCH_API_URL` for search and random-course requests. These services are
+external to this checkout. The replacement Parquet-backed Worker is planned.
 
-```sh [npm]
+To preview the documentation:
+
+```sh
 npm run docs:dev
 ```
 
-:::
+## Local data pipeline
 
-### Search
+Use Python 3.12 and run from the project root:
 
-The legacy search service reads a local compatibility export from `DATA_DIR`.
-The data directory is not included in the checkout; populate it from a local
-pipeline release before starting this service. Published Parquet tables are
-available on [Hugging Face](https://huggingface.co/datasets/twangodev/uw-coursemap).
-
-#### Setup Elasticsearch
-
-Next, you will need to install [Elasticsearch] on your machine. We recommend using [Docker] to run Elasticsearch, as it is the easiest way to get started. If you don't have Docker installed, it can be easily downloaded with [Docker Desktop][docker]
-
-```sh [docker]
-docker compose up -d
-```
-
-At this point, you will need to reconfigure your environment variables to point to the Elasticsearch instance. As specified in the `docker-compose.yml`, the Docker container binds to `localhost:9200`, so you can use the following configuration:
-
-```dotenv
-ELASTIC_HOST=https://localhost:9200
-```
-
-::: details docker-compose.yml
-<<< @/../docker-compose.yml{yaml}
-:::
-
-> [!IMPORTANT]
-> Ensure that your `DATA_DIR` environment variable is correctly configured. During local development, this should point to a directory on your local machine where the data will be stored. The default is `./data`.
->
-> In Docker Compose, we mount the data directly onto the root directory of the container, so you can use `/data` as the value for `DATA_DIR`.
-
-#### Setup Flask
-
-Finally, ensure you have [Python](https://www.python.org/downloads/) installed. Follow the documentation to setup a virtual environment with [uv](https://docs.astral.sh/uv/getting-started/installation/)
-
-Install the dependencies for the search service:
-
-```sh [uv]
-uv sync
-```
-
-We recommend running the service from the project root directory, as that is likely where your environment variables are set up. You can run the search service with the following command:
-
-```sh [uv]
-uv run python ./search/app.py
-```
-
-This spins up a development server that listens for requests.
-
-> [!CAUTION]
-> This server is not intended for production use. It is only meant for development and testing purposes. For production, you should use a WSGI server like [Gunicorn](https://gunicorn.org/), which is already configured through the `uw-coursemap-search` Docker image.
-
-### Generation
-
-Scraping, enrichment, and publication run manually on the local machine. From
-the project root, install dependencies with [uv] and inspect the pipeline CLI:
-
-```sh [uv]
+```sh
 uv sync --locked
 uv run coursemap --help
 ```
 
-See the [local pipeline guide](https://github.com/twangodev/uw-coursemap/blob/main/generation/README.md)
-for semester runs, inference, persistent history, and Hugging Face publication.
+Set `MADGRADES_API_KEY` and choose a persistent `COURSEMAP_WORKSPACE`. See the
+[generation guide](../codebase/generation.md) for scraping, LLM enrichment, and
+Hugging Face publication. The dataset is available on
+[Hugging Face](https://huggingface.co/datasets/twangodev/uw-coursemap).
 
-## Deployment
+## Frontend container
 
-We recommend deploying this application using [Docker] for ease of use. We publish both the frontend and search images to [Docker Hub] and the [GitHub Container Registry][GHCR], which `docker-compose.yml` will pull from by default.
+The root Compose file runs only the frontend:
 
-To deploy the application, you will need to create a `.env` file in the root directory of the project, just like in [development](#development). You can use the `.env.example` file as a template and copy it to create your own `.env` file.
-
-```sh [sh]
-cp .env.example .env
+```sh
+docker compose up --build web
 ```
 
-> [!CAUTION]
-> Ensure that you change `ELASTIC_PASSWORD` in the `.env` file to a secure password. This is the password for the `elastic` user in Elasticsearch, and it is used to authenticate the search server to Elasticsearch.
-
-To run the application, run the following command:
-
-```sh [docker]
-docker compose up -d
-```
-
-This will start the application in detached mode. You can view the logs with the following command:
-
-```sh [docker]
-docker compose logs -f
-```
-
-To stop the application, run the following command:
-
-```sh [docker]
-docker compose down
-```
-
-To expose your application to the internet, you can use a production grade reverse proxy like [NGINX](https://www.nginx.com/), [Caddy](https://caddyserver.com/), or [Traefik](https://traefik.io/).
-
-[frontend]: #frontend
-[docker]: https://www.docker.com/products/docker-desktop
-[elasticsearch]: https://www.elastic.co/elasticsearch
-[uv]: https://docs.astral.sh/uv/
-[docker hub]: https://hub.docker.com/search?q=twango%2Fuw-coursemap
-[GHCR]: https://github.com/twangodev?tab=packages&repo_name=uw-coursemap
+The Flask/Elasticsearch service has been retired. There is no local search server
+to start; configure an available endpoint until the Worker migration is complete.
