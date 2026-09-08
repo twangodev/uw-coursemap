@@ -33,12 +33,14 @@ def profile_identity(profile):
     )
 
 
-def summary_seeds(jobs, ids, run):
+def summary_seeds(jobs, ids, run, *, allow_partial=False):
     seeds = {}
     for job in sorted(
         (jobs.status(i) for i in ids), key=lambda j: (j["created_at"], j["job_id"])
     ):
-        if job["status"] != "complete" or job["source_run"] != run:
+        if (job["status"] != "complete" and not allow_partial) or job[
+            "source_run"
+        ] != run:
             raise ValueError(
                 "Student summary reuse requires completed jobs from the same snapshot"
             )

@@ -74,6 +74,81 @@ class LifecycleTests(unittest.TestCase):
                 run or self.run, "unused", "enrichment", self.task, limit=0
             )
 
+    def test_partial_summary_reuse_freezes_completed_results(self):
+        from uw_coursemap.student_summary import summary_seeds
+
+        self.core()
+        jobs = Jobs(self.root)
+        try:
+            parent = self.create_job(jobs)
+            original = {
+                "sections": {
+                    "student_summary": {
+                        "status": "invalid",
+                        "value": {"draft": "first"},
+                    }
+                }
+            }
+            with jobs.db:
+                jobs.db.execute(
+                    "UPDATE jobs SET status='running' WHERE job_id=?", (parent,)
+                )
+                jobs.db.execute(
+                    "UPDATE results SET status='complete',output_json=? WHERE job_id=?",
+                    (canonical(original), parent),
+                )
+                jobs.db.execute(
+                    "INSERT INTO results(job_id,course_id,cache_key,input_json,status) VALUES(?, 'unfinished', 'unused', '{}', 'pending')",
+                    (parent,),
+                )
+            with self.assertRaises(ValueError):
+                summary_seeds(jobs, [parent], self.run)
+            seeds = summary_seeds(jobs, [parent], self.run, allow_partial=True)
+            self.assertNotIn("unfinished", seeds)
+            with self.assertRaises(ValueError):
+                summary_seeds(jobs, [parent], "different-snapshot", allow_partial=True)
+            task = json.loads(self.task.read_text())
+            task["workflow"] = "student_summary_v1"
+            self.task.write_text(canonical(task))
+            with (
+                patch("uw_coursemap.jobs.load_profile", return_value=self.profile),
+                patch("uw_coursemap.student_context.StudentContext") as context,
+            ):
+                context.return_value.get.return_value = {"course_id": "COMPSCI 300"}
+
+                def create():
+                    return jobs.create(
+                        self.run,
+                        "unused",
+                        "enrichment",
+                        self.task,
+                        limit=0,
+                        reuse_job_ids=[parent],
+                        allow_partial_reuse=True,
+                    )
+
+                child = create()
+                self.assertEqual(child, create())
+                frozen = jobs.db.execute(
+                    "SELECT input_json FROM results WHERE job_id=?", (child,)
+                ).fetchone()[0]
+                original["sections"]["student_summary"]["value"]["draft"] = "second"
+                with jobs.db:
+                    jobs.db.execute(
+                        "UPDATE results SET output_json=? WHERE job_id=? AND status='complete'",
+                        (canonical(original), parent),
+                    )
+                self.assertNotEqual(child, create())
+                self.assertEqual(
+                    frozen,
+                    jobs.db.execute(
+                        "SELECT input_json FROM results WHERE job_id=?", (child,)
+                    ).fetchone()[0],
+                )
+            self.assertEqual(jobs.status(parent)["status"], "running")
+        finally:
+            jobs.close()
+
     def test_source_only_release_and_publish_during_scrape_lock(self):
         with patch(
             "huggingface_hub.HfApi",

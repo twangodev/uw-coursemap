@@ -16,7 +16,7 @@ from .tasks import load_task
 from .store import Store, now
 
 
-WORKER_VERSION = 34
+WORKER_VERSION = 35
 
 
 def generation_schema(schema):
@@ -143,6 +143,7 @@ class Jobs:
         limit=100,
         course_ids=None,
         reuse_job_ids=None,
+        allow_partial_reuse=False,
     ):
         if limit < 0:
             raise ValueError("limit must be nonnegative")
@@ -198,12 +199,19 @@ class Jobs:
             from .reuse import ReuseIndex
 
             student = task.get("workflow") == "student_summary_v1"
+            if allow_partial_reuse and not student:
+                raise ValueError("Partial reuse requires the student summary workflow")
             if student:
                 from .student_context import StudentContext
                 from .student_summary import summary_seeds
 
                 student_context = StudentContext(source, source_run, context)
-                seeds = summary_seeds(self, reuse_job_ids or [], source_run)
+                seeds = summary_seeds(
+                    self,
+                    reuse_job_ids or [],
+                    source_run,
+                    allow_partial=allow_partial_reuse,
+                )
                 if any(key not in seeds for key in selected):
                     raise ValueError(
                         "Student summaries require --reuse-job coverage for every selected course"
@@ -224,6 +232,12 @@ class Jobs:
                 "worker_version": WORKER_VERSION,
                 "orchestrator": ORCHESTRATOR,
             }
+            if allow_partial_reuse:
+                # Freeze exactly the completed results observed at creation time.
+                # Later parent progress must produce a distinct child job.
+                spec["reuse_snapshot_hash"] = digest(
+                    {key: seeds[key] for key in selected}
+                )
             job = (
                 "enrich-"
                 + digest(
