@@ -15,7 +15,7 @@
 <nav aria-label="Course collections" class="collections">
   {#each Object.entries(courseCollections) as [slug, collection]}
     <a
-      href={`${subject ? `/explorer/${encodeURIComponent(subject)}` : "/courses"}/${slug}${query ? `?${query}` : ""}`}
+      href={`${subject ? `/departments/${encodeURIComponent(subject)}` : "/courses"}/${slug}${query ? `?${query}` : ""}`}
       aria-current={active === slug ? "page" : undefined}
       >{collection.title}<span aria-hidden="true">↗</span></a
     >

@@ -5,10 +5,10 @@ import { redirect, type Handle } from "@sveltejs/kit";
 export const handle: Handle = async ({ event, resolve }) => {
   const path = event.url.pathname;
   if (path.startsWith("/subjects/"))
-    redirect(308, "/explorer/" + path.slice("/subjects/".length) + event.url.search);
+    redirect(308, "/departments/" + path.slice("/subjects/".length) + event.url.search);
   // These retired tools now lead to the course browser.
   if (path === "/live" || path === "/upload")
-    redirect(308, "/explorer/all" + event.url.search);
+    redirect(308, "/search" + event.url.search);
   if (
     !building &&
     !dev &&

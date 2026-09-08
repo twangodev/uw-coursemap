@@ -37,7 +37,7 @@
       ></a
     >
     <div class="row">
-      <a href="/explorer/all">explore</a><a href="/subjects">departments</a><a href="/instructors/by-rating-count">instructors</a>
+      <a href="/search">courses</a><a href="/departments">departments</a><a href="/instructors/by-rating-count">instructors</a><a href="/explorer">map</a>
       <div class="theme-control">
         {#if theme === "dark"}<Moon size={16} />{:else if theme === "light"}<Sun
             size={16}

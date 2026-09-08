@@ -1,1 +1,1 @@
-export { load } from "../../explorer/[subject]/+page";
+export { load } from "../../departments/[subject]/+page";

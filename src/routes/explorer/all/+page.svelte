@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Page from "../../search/+page.svelte";
-  let { data } = $props();
+import ExplorerPage from "$lib/components/ExplorerPage.svelte";
+let { data } = $props();
 </script>
-<Page {data} />
+<ExplorerPage {data} />

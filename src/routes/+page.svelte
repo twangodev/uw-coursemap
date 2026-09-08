@@ -53,7 +53,7 @@
   </div>
   <div class="department-list">
     {#each departments as d}<a
-        href={"/explorer/" + encodeURIComponent(d.subject)}
+        href={"/departments/" + encodeURIComponent(d.subject)}
         ><span>{d.subject}</span><span class="department-count"
           >{d.count} courses <ArrowUpRight size={14} /></span
         ></a

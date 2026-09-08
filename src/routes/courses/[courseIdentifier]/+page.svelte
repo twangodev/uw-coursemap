@@ -199,7 +199,7 @@
         <span>Subjects</span>
         <div class="row">
           {#each c.subjects as subject}<a
-              href={"/explorer/" + encodeURIComponent(subject)}>{subject}</a
+              href={"/departments/" + encodeURIComponent(subject)}>{subject}</a
             >{/each}
         </div>
       </div>
@@ -346,6 +346,7 @@
       </details>
     </Panel>
     <Panel title="Prerequisites" id="requirements">
+      <a class="small-link" href={`/explorer/${encodeURIComponent(c.subjects[0])}?course=${encodeURIComponent(c.course_id)}`}>Explore connected courses on the map →</a>
       {#if snapshotAvailable}
       <p class="requirements-source">
         {c.requirements_text || "No prerequisites listed."}

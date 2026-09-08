@@ -1,1 +1,1 @@
-export { load, entries, prerender } from "../../explorer/[subject]/+page.server";
+export { load, entries, prerender } from "../../departments/[subject]/+page.server";

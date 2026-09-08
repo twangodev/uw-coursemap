@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Page from "../subjects/+page.svelte";
-  let { data } = $props();
+import Directory from "$lib/components/DepartmentDirectory.svelte";
+let { data } = $props();
 </script>
-<Page {data} />
+<Directory {data} map />

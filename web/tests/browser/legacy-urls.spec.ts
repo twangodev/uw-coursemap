@@ -27,14 +27,14 @@ test("original instructor URLs retain profile identity and term filtering", asyn
 test("old directory and department addresses render without changing the URL", async ({
   page,
 }) => {
-  for (const path of ["/explorer", "/stats", "/subjects"]) {
+  for (const path of ["/departments", "/stats", "/subjects"]) {
     await page.goto(path);
     await expect(
       page.getByRole("heading", { name: "Departments", exact: true }),
     ).toBeVisible();
     expect(new URL(page.url()).pathname).toBe(path);
   }
-  for (const path of ["/explorer/COMPSCI", "/stats/COMPSCI"]) {
+  for (const path of ["/departments/COMPSCI", "/stats/COMPSCI"]) {
     await page.goto(path);
     await expect(
       page.getByRole("heading", { name: "Computer Sciences", exact: true }),
@@ -43,7 +43,7 @@ test("old directory and department addresses render without changing the URL", a
   }
   await page.goto("/explorer/all");
   await expect(
-    page.getByRole("heading", { name: "Explore courses", exact: true }),
+    page.getByRole("heading", { name: "Course prerequisite map", exact: true }),
   ).toBeVisible();
   await page.goto("/instructors/by-rating-count");
   await expect(

@@ -3,7 +3,7 @@ const instructor = "instructor_a65e64df990aa3bab98ee125";
 test("department overview stays historical while finder and term statistics change", async ({
   page,
 }) => {
-  await page.goto("/explorer/COMPSCI");
+  await page.goto("/departments/COMPSCI");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   const overview = page.getByRole("region", {
     name: "Department overview",
@@ -75,15 +75,15 @@ test("instructor reviews show original comments, paginate and filter by course",
   expect(errors).toEqual([]);
 });
 test("dedicated course collections preserve department filters and fixed rankings", async ({ page }) => {
-  await page.goto("/explorer/COMPSCI");
+  await page.goto("/departments/COMPSCI");
   await page.getByRole("navigation", { name: "Course collections" }).getByRole("link", { name: "Easiest courses" }).click();
-  await expect(page).toHaveURL(/\/explorer\/COMPSCI\/easiest/);
+  await expect(page).toHaveURL(/\/departments\/COMPSCI\/easiest/);
   await expect(page.getByRole("heading", { name: "Easiest courses in Computer Sciences", exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: "Department", exact: true })).toHaveCount(0);
   await expect(page.locator(".discovery-card").first()).toContainText("#1");
   await expect(page.getByRole("button", { name: "Sort courses", exact: true })).toHaveCount(0);
   await page.getByRole("navigation", { name: "Course collections" }).getByRole("link", { name: "Hardest courses" }).click();
-  await expect(page).toHaveURL(/\/explorer\/COMPSCI\/hardest/);
+  await expect(page).toHaveURL(/\/departments\/COMPSCI\/hardest/);
   await expect(page.getByRole("heading", { name: "Hardest courses in Computer Sciences", exact: true })).toBeVisible();
   await expect(page.locator(".discovery-card").first()).toContainText("COMPSCI");
   await page.reload();
@@ -93,17 +93,17 @@ test("dedicated course collections preserve department filters and fixed ranking
 });
 
 
-test("department rankings are available without JavaScript and cannot switch subjects through query parameters", async ({ browser, page }) => {
+test("department rankings are available without JavaScript and cannot switch subjects through query parameters", async ({ browser, page, baseURL }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const staticPage = await context.newPage();
-  await staticPage.goto("http://127.0.0.1:4173/explorer/COMPSCI/easiest");
+  await staticPage.goto(new URL("/departments/COMPSCI/easiest", baseURL).href);
   await expect(staticPage.getByRole("heading", { name: "Easiest courses in Computer Sciences", exact: true })).toBeVisible();
   await expect(staticPage.locator(".discovery-card").first()).toContainText("COMPSCI");
   await context.close();
-  await page.goto("/explorer/COMPSCI/easiest?subject=MATH&ranking=hardest");
+  await page.goto("/departments/COMPSCI/easiest?subject=MATH&ranking=hardest");
   await expect(page.locator(".discovery-card").first()).toContainText("COMPSCI");
   await expect(page.getByRole("heading", { name: "Easiest courses in Computer Sciences", exact: true })).toBeVisible();
-  const response = await page.goto("/explorer/NOTADEPARTMENT/easiest");
+  const response = await page.goto("/departments/NOTADEPARTMENT/easiest");
   expect(response?.status()).toBe(404);
 });
 
@@ -121,7 +121,7 @@ test("main navigation opens the instructor directory on mobile", async ({ page }
 test("department names appear in search, headings and SEO metadata", async ({ page }) => {
   await page.goto("/subjects");
   await page.getByLabel("Find a department").fill("computer sciences");
-  const link = page.locator('.department-grid a[href="/explorer/COMPSCI"]');
+  const link = page.locator('.department-grid a[href="/departments/COMPSCI"]');
   await expect(link).toContainText("Computer Sciences");
   await link.click();
   await expect(page.getByRole("heading", { name: "Computer Sciences", exact: true })).toBeVisible();

@@ -46,10 +46,10 @@ test("mobile layout stays within viewport", async ({ page }) => {
     fullPage: true,
   });
 });
-test("course content is available without JavaScript", async ({ browser }) => {
+test("course content is available without JavaScript", async ({ browser, baseURL }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
-  await page.goto("http://127.0.0.1:4173/courses/COMPSCI_300");
+  await page.goto(new URL("/courses/COMPSCI_300", baseURL).href);
   await expect(
     page.getByRole("heading", { name: "Programming II", exact: true }),
   ).toBeVisible();
@@ -240,10 +240,10 @@ test("animated numbers preserve accessible values with reduced motion", async ({
   expect(await metrics.locator("number-flow-svelte").evaluateAll((nodes) => nodes.every((node) => !node.shadowRoot?.getAnimations().some((animation) => animation.playState === "running")))).toBe(true);
 });
 
-test("metric comparison details open on touch", async ({ browser }) => {
+test("metric comparison details open on touch", async ({ browser, baseURL }) => {
   const context = await browser.newContext({ hasTouch: true, viewport: { width: 390, height: 844 } });
   const page = await context.newPage();
-  await page.goto("http://127.0.0.1:4173/courses/COMPSCI_300");
+  await page.goto(new URL("/courses/COMPSCI_300", baseURL).href);
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   await page.locator(".grade-snapshot").getByRole("button", { name: "Average GPA comparison" }).tap();
   await expect(page.getByRole("tooltip")).toContainText("UW–Madison");
