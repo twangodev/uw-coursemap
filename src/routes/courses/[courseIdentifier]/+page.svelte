@@ -2,6 +2,8 @@
   import { onMount, setContext } from "svelte";
   import {
     ArrowUpRight,
+    ChevronLeft,
+    ChevronRight,
     BookOpen,
     GitBranch,
     CalendarDays,
@@ -36,6 +38,12 @@
   let comparisonScope = $state("school");
   let scope = $derived(c.subjects.includes(comparisonScope) ? comparisonScope : "school");
   let selectedGradeTerm = $state("");
+  let gradeTerms = $derived([...new Set<string>(c.grades.map((row: any) => row.term_id))].sort().reverse());
+  let gradeTermIndex = $derived(gradeTerms.indexOf(selectedGradeTerm));
+  function stepTerm(direction: number) {
+    const index = gradeTermIndex + direction;
+    if (index >= 0 && index < gradeTerms.length) selectedGradeTerm = gradeTerms[index];
+  }
   let overviewGrades = $derived(c.grades.filter((row: any) => !selectedGradeTerm || row.term_id === selectedGradeTerm));
   let benchmark = $derived(selectedGradeTerm ? data.context?.benchmarks.terms[selectedGradeTerm]?.[scope] : data.context?.benchmarks.all[scope]);
   $effect(() => { c.course_uid; selectedGradeTerm = ""; });
@@ -139,8 +147,10 @@
         <Select label="Comparison group" value={scope} onChange={(value) => comparisonScope = value} options={[{ value: "school", label: "School · UW–Madison" }, ...c.subjects.map((subject: string) => ({ value: subject, label: `Department · ${subject}` }))]} />
       </div>
     {/if}
-    <div class="navigation-filter">
-      <Select label="Term" bind:value={selectedGradeTerm} options={[{ value: "", label: "All recorded terms" }, ...[...new Set<string>(c.grades.map((row: any) => row.term_id))].sort().reverse().map((term) => ({ value: term, label: termName(term) }))]} />
+    <div class="navigation-filter term-picker">
+      <button class="term-step" aria-label={selectedGradeTerm ? "Previous term" : "Latest graded term"} disabled={!gradeTerms.length || gradeTermIndex >= gradeTerms.length - 1} onclick={() => stepTerm(1)}><ChevronLeft size={14} /></button>
+      <Select label="Term" bind:value={selectedGradeTerm} options={[{ value: "", label: "All recorded terms" }, ...gradeTerms.map((term) => ({ value: term, label: termName(term) }))]} />
+      <button class="term-step" aria-label="Next term" disabled={gradeTermIndex <= 0} onclick={() => stepTerm(-1)}><ChevronRight size={14} /></button>
     </div>
   </div>
 </div>
@@ -422,6 +432,11 @@
   .course-navigation .course-jumps { position: static; flex: 1; min-width: 0; border: 0; margin: 0; padding: 0; }
   .course-navigation .course-jumps a { height: 30px; box-sizing: border-box; font-size: 12px; padding: 0 8px; gap: 5px; }
   .navigation-filter :global(.course-select-trigger) { height: 30px; box-sizing: border-box; padding-block: 0; }
+  .term-picker { grid-template-columns: 26px minmax(0, 1fr) 26px; }
+  .term-step { display: grid; place-items: center; width: 26px; height: 30px; padding: 0; border: 0; border-radius: 4px; background: transparent; color: var(--muted); cursor: pointer; }
+  .term-step:hover:not(:disabled) { background: var(--surface); color: var(--text); }
+  .term-step:disabled { opacity: 0.3; cursor: default; }
+  .term-step:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .navigation-filters { display: flex; gap: 10px; flex-shrink: 0; }
   .navigation-filter { display: grid; gap: 2px; min-width: 0; }
   @media (max-width: 1000px) {
