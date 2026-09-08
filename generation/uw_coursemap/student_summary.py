@@ -100,6 +100,10 @@ def describes_review_availability(text):
     )
 
 
+def contains_inline_review_handle(text):
+    return bool(re.search(r"\breview:\d+\b", text, re.I))
+
+
 def validate_claims(value, payload):
     reviews = {r["citation_id"]: r for r in payload["reviews"]}
     limits = {
@@ -128,6 +132,10 @@ def validate_claims(value, payload):
                     "Do not repeat the same claim across fields; give each field a distinct purpose"
                 )
             seen.add(normalized)
+            if contains_inline_review_handle(normalized):
+                raise ValueError(
+                    "Remove inline review handles from prose; keep the supporting handles in review_ids only."
+                )
             if describes_review_availability(normalized):
                 raise ValueError(
                     "Do not describe review availability in a cited claim; runtime supplies availability separately. Summarize the supplied reviews instead."
@@ -270,6 +278,7 @@ def generate_student(profile, task, payload, generate=None):
                     ]
             if empty is not None and not any(
                 describes_review_availability(claim["text"])
+                or contains_inline_review_handle(claim["text"])
                 for claims in empty.values()
                 for claim in claims
             ):

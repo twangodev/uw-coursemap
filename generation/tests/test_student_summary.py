@@ -179,6 +179,20 @@ class StudentSummaryTests(unittest.TestCase):
                 request,
             )
 
+    def test_inline_review_handles_require_native_repair(self):
+        request = {"mode": "history", "reviews": [{"citation_id": "review:1"}]}
+        for text in [
+            "The reviewer liked the course (review:1).",
+            "Clear lectures [review:1, review:2].",
+        ]:
+            with (
+                self.subTest(text=text),
+                self.assertRaisesRegex(ValueError, "inline review handles"),
+            ):
+                validate_claims(
+                    {"summary": [{"text": text, "review_ids": ["review:1"]}]}, request
+                )
+
     def test_review_availability_is_not_a_cited_claim(self):
         request = {"mode": "history", "reviews": [{"citation_id": "review:1"}]}
         for text in [
@@ -340,26 +354,33 @@ class StudentSummaryTests(unittest.TestCase):
             resumed["sections"]["student_summary"]["value"], section["value"]
         )
         self.assertEqual(len(resumed["provenance"]["reused_scopes"]), 3)
-        misleading = copy.deepcopy(payload)
-        misleading["summary_seed"]["output"]["sections"]["student_summary"]["value"][
-            "historical_context"
-        ][0]["text"] += " No reviews are available for the current instructor."
-        corrected, _ = generate_student(
-            {"model": "test", "revision": "abc", "max_output_tokens": 1000},
-            load_task(
-                Path(__file__).resolve().parents[2]
-                / "inference/tasks/student_summary.json"
-            ),
-            misleading,
-            generate=fake,
-        )
-        self.assertEqual(len(calls), before + 1)
-        self.assertEqual(calls[-1]["mode"], "history")
-        self.assertEqual(len(corrected["provenance"]["reused_scopes"]), 2)
-        self.assertEqual(
-            corrected["sections"]["student_summary"]["value"]["current_instructors"],
-            section["value"]["current_instructors"],
-        )
+        for suffix in [
+            " No reviews are available for the current instructor.",
+            " (review:1).",
+        ]:
+            before = len(calls)
+            misleading = copy.deepcopy(payload)
+            misleading["summary_seed"]["output"]["sections"]["student_summary"][
+                "value"
+            ]["historical_context"][0]["text"] += suffix
+            corrected, _ = generate_student(
+                {"model": "test", "revision": "abc", "max_output_tokens": 1000},
+                load_task(
+                    Path(__file__).resolve().parents[2]
+                    / "inference/tasks/student_summary.json"
+                ),
+                misleading,
+                generate=fake,
+            )
+            self.assertEqual(len(calls), before + 1)
+            self.assertEqual(calls[-1]["mode"], "history")
+            self.assertEqual(len(corrected["provenance"]["reused_scopes"]), 2)
+            self.assertEqual(
+                corrected["sections"]["student_summary"]["value"][
+                    "current_instructors"
+                ],
+                section["value"]["current_instructors"],
+            )
         before = len(calls)
         from uw_coursemap.models import digest
 
