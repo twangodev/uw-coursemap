@@ -135,11 +135,11 @@
   </nav>
   <div class="navigation-filters">
     {#if data.context}
-      <div class="navigation-filter"><span>Compare with</span>
+      <div class="navigation-filter">
         <Select label="Comparison group" value={scope} onChange={(value) => comparisonScope = value} options={[{ value: "school", label: "School · UW–Madison" }, ...c.subjects.map((subject: string) => ({ value: subject, label: `Department · ${subject}` }))]} />
       </div>
     {/if}
-    <div class="navigation-filter"><span>Term</span>
+    <div class="navigation-filter">
       <Select label="Term" bind:value={selectedGradeTerm} options={[{ value: "", label: "All recorded terms" }, ...[...new Set<string>(c.grades.map((row: any) => row.term_id))].sort().reverse().map((term) => ({ value: term, label: termName(term) }))]} />
     </div>
   </div>
@@ -420,10 +420,10 @@
 <style>
   .course-navigation { display: flex; align-items: center; gap: 20px; position: sticky; top: 0; z-index: 20; background: var(--bg); border-bottom: 1px solid var(--border); padding: 6px 0; }
   .course-navigation .course-jumps { position: static; flex: 1; min-width: 0; border: 0; margin: 0; padding: 0; }
-  .course-navigation .course-jumps a { font-size: 12px; padding: 9px 8px; gap: 5px; }
+  .course-navigation .course-jumps a { height: 30px; box-sizing: border-box; font-size: 12px; padding: 0 8px; gap: 5px; }
+  .navigation-filter :global(.course-select-trigger) { height: 30px; box-sizing: border-box; padding-block: 0; }
   .navigation-filters { display: flex; gap: 10px; flex-shrink: 0; }
   .navigation-filter { display: grid; gap: 2px; min-width: 0; }
-  .navigation-filter > span { font-size: 11px; color: var(--muted); }
   @media (max-width: 1000px) {
     .course-navigation { flex-wrap: wrap; gap: 10px; }
     .course-navigation .course-jumps { flex-basis: 100%; }
