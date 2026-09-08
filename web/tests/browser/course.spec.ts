@@ -288,6 +288,9 @@ test("term selection updates context, roster, history and snapshot availability"
   await page.locator(".course-facts").screenshot({ path: "/tmp/uw-coursemap-design-audit/course-details-spaced.png" });
   const term = page.getByRole("button", { name: "Term", exact: true });
   await expect(term).toContainText("Fall 2026");
+  const rosterCount = await page.locator("#professors .professor-tile").count();
+  await expect(page.locator('.current-teachers a[href^="/instructors/"]')).toHaveCount(Math.min(rosterCount, 3));
+  if (rosterCount > 3) await expect(page.locator('.current-teachers a[href="#professors"]')).toContainText(`+${rosterCount - 3} more`);
   const allTimeGrades = await numberValues(page.locator(".grade-snapshot"));
   await term.click();
   await page.getByRole("option", { name: "Spring 2026", exact: true }).click();

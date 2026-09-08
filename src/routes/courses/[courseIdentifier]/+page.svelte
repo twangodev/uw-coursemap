@@ -58,6 +58,7 @@
       } : null };
     }).sort((a, b) => (b.ratings?.quality ?? -1) - (a.ratings?.quality ?? -1) || a.name.localeCompare(b.name));
   });
+  let headerProfessors = $derived([... (selectedGradeTerm ? professors : c.instructors)].sort((a, b) => (b.ratings?.quality ?? -1) - (a.ratings?.quality ?? -1) || (a.name || "").localeCompare(b.name || "")));
   let benchmark = $derived(selectedGradeTerm ? data.context?.benchmarks.terms[selectedGradeTerm]?.[scope] : data.context?.benchmarks.all[scope]);
   $effect(() => { c.course_uid; termSelection = null; });
   let allTimeSummary = $derived(c.student_summary);
@@ -125,7 +126,7 @@
     </div>
     <div class="current-teachers">
       <span class="teacher-label">{selectedGradeTerm ? `Recorded instructors · ${termLabel}` : `Teaching · ${termName(c.semester)}`}</span>
-      {#each (selectedGradeTerm ? professors : c.instructors) as instructor}<a
+      {#each headerProfessors.slice(0, 3) as instructor}<a
           href={instructorUrl(instructor.instructor_uid)}
           ><span>{instructor.name}</span
           >{#if instructor.ratings?.quality != null}<span
@@ -134,6 +135,7 @@
               >{instructor.ratings.quality.toFixed(1)}<small>/5</small></span
             >{/if}<ArrowUpRight size={15} /></a
         >{:else}<span class="muted">No instructors listed</span>{/each}
+      {#if headerProfessors.length > 3}<a class="more-teachers" href="#professors">+{headerProfessors.length - 3} more <ArrowUpRight size={15} /></a>{/if}
     </div>
   </div>
   <div class="row course-meta">
