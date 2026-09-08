@@ -446,6 +446,16 @@ class StudentSummaryTests(unittest.TestCase):
             repaired["provenance"]["subtasks"][0]["inference"]["max_output_tokens"],
             16384,
         )
+        exhausted["summary_seed"]["failed_subtasks"][0].update(
+            error="UnexpectedModelBehavior: Model token limit (16384) exceeded before any response was generated.",
+            inference={"thinking": True, "max_output_tokens": 16384},
+        )
+        direct, _ = generate_student(larger_profile, task, exhausted, generate=fake)
+        self.assertFalse(profiles_seen[-1]["thinking"])
+        self.assertEqual(profiles_seen[-1]["max_output_tokens"], 4096)
+        self.assertTrue(calls[-1]["_compact_history"])
+        self.assertEqual(calls[-1]["_history"], ["saved repair turn"])
+        self.assertEqual(len(direct["provenance"]["reused_scopes"]), 2)
         before = len(calls)
         archive = {
             "file": "tables/observations.parquet",

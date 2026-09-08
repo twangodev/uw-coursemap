@@ -341,6 +341,17 @@ def generate_student(profile, task, payload, generate=None):
             and previous_failure
             and previous_failure.get("error", "").startswith("UnexpectedModelBehavior:")
         )
+        if (
+            prior
+            and previous_failure
+            and "Model token limit" in previous_failure.get("error", "")
+            and previous_failure.get("inference", {}).get("max_output_tokens", 0)
+            >= 16384
+        ):
+            # Repeated reasoning exhaustion needs a direct draft, not another
+            # larger reasoning loop. The independent grounding check still thinks.
+            thinking = False
+            request["_compact_history"] = True
         output_limit = 8192 if thinking else 4096
         if (
             thinking
