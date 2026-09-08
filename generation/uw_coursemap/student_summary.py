@@ -9,6 +9,19 @@ from .student_context import grade_sentence
 from .course_context import sample_reviews
 
 
+def without_archive_refs(value):
+    """Recognize old fingerprints when only archival citation pointers were added."""
+    if isinstance(value, dict):
+        return {
+            k: without_archive_refs(v)
+            for k, v in value.items()
+            if k not in {"source_record", "alternative_source_records"}
+        }
+    if isinstance(value, list):
+        return [without_archive_refs(v) for v in value]
+    return value
+
+
 def summary_seeds(jobs, ids, run):
     seeds = {}
     for job in sorted(
@@ -135,8 +148,11 @@ def generate_student(profile, task, payload, generate=None):
         .get("value")
         or {}
     )
+    same_source = prior.get("context_hash") == digest(source)
+    if prior and not same_source:
+        same_source = prior.get("context_hash") == digest(without_archive_refs(source))
     if (
-        prior.get("context_hash") != digest(source)
+        not same_source
         or prior.get("task_hash") != digest(task)
         or prior.get("profile_hash") != digest(profile)
     ):

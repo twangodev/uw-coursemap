@@ -2,7 +2,12 @@ import copy
 import unittest
 from pathlib import Path
 from uw_coursemap.tasks import load_task
-from uw_coursemap.student_context import grade_sentence, match_name, teaching_history
+from uw_coursemap.student_context import (
+    grade_sentence,
+    match_name,
+    teaching_history,
+    select_course_grades,
+)
 from uw_coursemap.student_summary import generate_student, validate_claims
 
 
@@ -35,6 +40,21 @@ def review(id, instructor):
 
 
 class StudentSummaryTests(unittest.TestCase):
+    def test_conflicting_alias_grades_follow_selected_record_without_summing(self):
+        first, second = grade("1262", 8, 2), grade("1262", 26, 8)
+        first["citation"]["source_record"] = {"entity_id": "first"}
+        second["citation"]["source_record"] = {"entity_id": "second"}
+        selected = select_course_grades([first, second])
+        self.assertEqual(len(selected), 1)
+        self.assertEqual(selected[0]["counts"]["a"], 26)
+        self.assertEqual(
+            selected[0]["citation"]["alternative_source_records"],
+            [{"entity_id": "first"}],
+        )
+        sentence = grade_sentence(selected)
+        self.assertIn("n=34 letter grades", sentence["text"])
+        self.assertIn("source records differ", sentence["text"])
+
     def test_teaching_history_keeps_both_seasons_and_zero_grade_sections(self):
         fall = grade("1252", 0, 0)
         spring = grade("1264", 10, 0)
@@ -245,6 +265,31 @@ class StudentSummaryTests(unittest.TestCase):
             resumed["sections"]["student_summary"]["value"], section["value"]
         )
         self.assertEqual(len(resumed["provenance"]["reused_scopes"]), 3)
+        archive = {
+            "file": "tables/observations.parquet",
+            "entity_id": "grade-source",
+            "source": "madgrades",
+            "kind": "grades",
+        }
+        payload["student_context"]["grade_records"][0]["citation"]["source_record"] = (
+            archive
+        )
+        anchored, _ = generate_student(
+            {"model": "test", "revision": "abc", "max_output_tokens": 1000},
+            load_task(
+                Path(__file__).resolve().parents[2]
+                / "inference/tasks/student_summary.json"
+            ),
+            payload,
+            generate=fake,
+        )
+        self.assertEqual(len(calls), before)
+        self.assertEqual(
+            anchored["sections"]["student_summary"]["value"]["quick_take"][-1][
+                "citations"
+            ][0]["source_record"],
+            archive,
+        )
         payload["student_context"]["has_description"] = False
         limited, _ = generate_student(
             {"model": "test", "revision": "abc", "max_output_tokens": 1000},
@@ -307,7 +352,24 @@ class StudentSummaryTests(unittest.TestCase):
                 return {
                     "terms": {"1272": {"name": "Fall 2026"}},
                     "offerings": {"one": current, "cross_listing": current, "old": old},
-                    "grades": {},
+                    "grades": {
+                        "grade-source": {
+                            "course_reference": current["course_reference"],
+                            "source_id": "grade-source",
+                            "courseOfferings": [
+                                {
+                                    "termCode": 1264,
+                                    "cumulative": {},
+                                    "sections": [
+                                        {
+                                            "sectionNumber": 1,
+                                            "instructors": [{"name": "Jane Doe"}],
+                                        }
+                                    ],
+                                }
+                            ],
+                        }
+                    },
                 }[kind]
 
         class Base:
@@ -323,3 +385,16 @@ class StudentSummaryTests(unittest.TestCase):
         )
         self.assertEqual(context["term_id"], "1272")
         self.assertEqual(context["historical_reviews"], [])
+        for row in [
+            context["grade_records"][0],
+            context["current_instructors"][0]["grade_records"][0],
+        ]:
+            self.assertEqual(
+                row["citation"]["source_record"],
+                {
+                    "file": "tables/observations.parquet",
+                    "source": "madgrades",
+                    "kind": "grades",
+                    "entity_id": "grade-source",
+                },
+            )

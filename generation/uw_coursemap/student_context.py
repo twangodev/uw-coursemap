@@ -52,7 +52,14 @@ def grade_sentence(records):
     terms = defaultdict(list)
     seen = set()
     for record in records:
-        identity = json.dumps(record["citation"], sort_keys=True)
+        identity = json.dumps(
+            {
+                k: v
+                for k, v in record["citation"].items()
+                if k not in {"source_record", "alternative_source_records"}
+            },
+            sort_keys=True,
+        )
         if identity in seen:
             continue
         seen.add(identity)
@@ -77,12 +84,43 @@ def grade_sentence(records):
         )
         citations.extend(r["citation"] for r in terms[term])
     joint = any(r.get("joint") for term in selected for r in terms[term])
+    conflicts = [
+        terms[term][0]["term_name"] or term
+        for term in selected
+        if any(r["citation"].get("alternative_source_records") for r in terms[term])
+    ]
     return {
         "text": "Recent recorded grades — "
         + "; ".join(descriptions)
-        + (". Includes jointly taught sections." if joint else "."),
+        + (". Includes jointly taught sections." if joint else ".")
+        + (
+            " Cross-listed source records differ for "
+            + ", ".join(conflicts)
+            + "; figures use the selected dataset record."
+            if conflicts
+            else ""
+        ),
         "citations": citations,
     }
+
+
+def select_course_grades(records):
+    """Match reconciliation's last-record selection, retaining conflicting sources."""
+    selected = {}
+    for record in records:
+        previous = selected.get(record["term_id"])
+        if previous and (
+            previous["counts"] != record["counts"]
+            or previous["citation"].get("alternative_source_records")
+        ):
+            alternatives = previous["citation"].get(
+                "alternative_source_records", []
+            ) + [previous["citation"]["source_record"]]
+            record["citation"]["alternative_source_records"] = [
+                r for r in alternatives if r != record["citation"]["source_record"]
+            ]
+        selected[record["term_id"]] = record
+    return list(selected.values())
 
 
 def teaching_history(professors):
@@ -181,10 +219,16 @@ class StudentContext:
                 uid: p for uid, p in roster.items() if "LEC" in p["section_types"]
             }
             self.rosters[key] = lecturers or roster
-        for value in store.records(run, "grades").values():
+        for entity_id, value in store.records(run, "grades").items():
             key = self.resolve(value["course_reference"])
             if not key:
                 continue
+            archive = {
+                "file": "tables/observations.parquet",
+                "source": "madgrades",
+                "kind": "grades",
+                "entity_id": entity_id,
+            }
             for offering in value.get("courseOfferings", []):
                 term = str(offering["termCode"])
                 common = {"term_id": term, "term_name": terms.get(term, {}).get("name")}
@@ -198,6 +242,7 @@ class StudentContext:
                             "table": "grades_latest",
                             "course_id": key,
                             "term_id": term,
+                            "source_record": archive,
                         },
                     }
                 )
@@ -215,6 +260,7 @@ class StudentContext:
                             value.get("source_id") or value.get("courseUuid")
                         ),
                         "section_number": section.get("sectionNumber"),
+                        "source_record": archive,
                     }
                     record = {
                         **common,
@@ -225,6 +271,8 @@ class StudentContext:
                     for person in people:
                         if person.get("name"):
                             self.professor_grades[key][person["name"]].append(record)
+        for key, records in self.course_grades.items():
+            self.course_grades[key] = select_course_grades(records)
 
     @staticmethod
     def counts(value):
