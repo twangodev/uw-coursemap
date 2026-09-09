@@ -36,7 +36,7 @@ bun run preview --ip 0.0.0.0 --port 4173
 
 The A/B D1 database IDs are configured in `wrangler.json` as `DB_A` and `DB_B`. Set `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` as secrets in the GitHub `production` environment with Workers Scripts and D1 edit permissions. `HF_TOKEN` is optional for the public dataset.
 
-Run the nightly workflow manually with **First deployment** enabled once to create the Worker. Validate its workers.dev preview, then attach `uwcourses.com` in Cloudflare. Subsequent runs leave that option disabled.
+Run the **Deploy** workflow manually with **First deployment** enabled once to create the Worker. Validate its workers.dev preview, then attach `uwcourses.com` in Cloudflare. Subsequent runs leave that option disabled.
 
 GitHub Actions runs at 03:17 America/Los_Angeles and also supports **Run workflow**. It pins HF, imports locally, builds and tests, then uses native Wrangler commands to import the inactive D1 database and deploy matching code/assets with the new database selection. Only this workflow should modify these production databases. When the HF revision and importer are unchanged, the active database is reused while the site still rebuilds and redeploys. The workflow calls `uwcourses-site deploy`; database selection, ordered imports, verification and deployment live in that tested CLI command, not inline Bash. No separate deployment scripts or Cloudflare cron are needed.
 

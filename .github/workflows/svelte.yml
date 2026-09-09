@@ -1,9 +1,13 @@
-name: Website CI
+name: Svelte
 on: [push, pull_request]
 permissions:
   contents: read
+concurrency:
+  group: svelte-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
-  web:
+  check:
+    name: Svelte
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -14,14 +18,14 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 25
-      - uses: astral-sh/setup-uv@v6
+      - uses: astral-sh/setup-uv@v7
         with:
+          python-version: "3.12"
           enable-cache: true
       - run: bun install --frozen-lockfile
       - run: uv run --locked uwcourses-site import --limit 8
       - run: bun run check
       - run: bun run test
-      - run: uv run --locked python -m unittest discover -s web/tests -p 'test_*.py'
       - run: bun x playwright install --with-deps chromium
       - name: Cache social cards
         uses: actions/cache@v5

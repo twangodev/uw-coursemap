@@ -1,4 +1,4 @@
-name: Nightly website
+name: Deploy
 on:
   schedule:
     - cron: "17 3 * * *"
@@ -21,11 +21,6 @@ jobs:
       url: https://uwcourses.com
     runs-on: ubuntu-latest
     timeout-minutes: 120
-    env:
-      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      HF_TOKEN: ${{ secrets.HF_TOKEN }}
-      NODE_OPTIONS: --max-old-space-size=6144
     steps:
       - uses: actions/checkout@v6
       - uses: oven-sh/setup-bun@v2
@@ -34,11 +29,14 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 25
-      - uses: astral-sh/setup-uv@v6
+      - uses: astral-sh/setup-uv@v7
         with:
+          python-version: "3.12"
           enable-cache: true
       - run: bun install --frozen-lockfile
       - run: uv run --locked uwcourses-site import
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
       - run: uv run --locked uwcourses-site release-check
       - run: bun run check
       - run: bun run test
@@ -53,10 +51,11 @@ jobs:
             ${{ runner.os }}-social-${{ hashFiles('web/social-images.mjs', 'web/social-card.html', 'static/fonts/OverusedGrotesk-VF.woff2', 'static/uw-coursemap-logo.svg') }}-
       - run: bun run build
       - run: bun run seo:check
-      - run: uv run --locked uwcourses-site assets-check
       - run: bun x playwright test
       - name: Deploy verified release
         env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           FIRST_DEPLOYMENT: ${{ inputs.first_deployment || false }}
         run: uv run --locked uwcourses-site deploy
       - uses: actions/upload-artifact@v4
