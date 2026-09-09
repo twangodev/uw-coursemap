@@ -59,3 +59,7 @@ These changes improve discoverability and clarify page meaning. They do not guar
 - [Google: sitemap construction and submission](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)
 - [Google: Course list structured data](https://developers.google.com/search/docs/appearance/structured-data/course)
 - [Google: breadcrumb structured data](https://developers.google.com/search/docs/appearance/structured-data/breadcrumb)
+
+## Incremental follow-up: hydration responses
+
+Hydration JSON now receives `X-Robots-Tag: noindex` both from static assets and dynamic responses. Instructor data requests bypass the HTML cache using SvelteKit's `isDataRequest` flag; URL suffix checks are insufficient because SvelteKit strips the suffix before invoking hooks. Four regression tests pass. A local Cloudflare assets fixture confirmed the header on root, course, and nested catalog hydration JSON, while its HTML control remained indexable. The generated-output audit now checks both hydration header rules.

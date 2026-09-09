@@ -127,6 +127,8 @@ if len(sys.argv) == 1:
     assert re.search(r"/data/\*\n[ \t]+X-Robots-Tag: noindex", headers), (
         "Missing data noindex header"
     )
+    for pattern in ["/__data.json", "/*/__data.json"]:
+        assert pattern + "\n  X-Robots-Tag: noindex" in headers, pattern
     redirects = Path(".svelte-kit/cloudflare/_redirects").read_text().splitlines()
     for old, target in [("/subjects", "/departments"), ("/stats", "/departments")]:
         assert f"{old} {target} 308" in redirects, f"Missing redirect: {old}"

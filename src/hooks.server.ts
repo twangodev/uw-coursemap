@@ -15,7 +15,7 @@ export const handle: Handle = async ({ event, resolve }) => {
     event.platform &&
     event.request.method === "GET" &&
     path.startsWith("/instructors/") &&
-    !path.endsWith("__data.json")
+    !event.isDataRequest
   ) {
     const dataset = await status(event.platform);
     const keyUrl = new URL(event.url);
@@ -33,6 +33,7 @@ export const handle: Handle = async ({ event, resolve }) => {
     return response;
   }
   const response = await resolve(event);
-  if (path.startsWith("/api/")) response.headers.set("X-Robots-Tag", "noindex");
+  if (event.isDataRequest || path.startsWith("/api/"))
+    response.headers.set("X-Robots-Tag", "noindex");
   return response;
 };
