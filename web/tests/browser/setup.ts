@@ -24,7 +24,7 @@ export default function setup() {
         ".site/browser-state",
         ...args,
       ],
-      { stdio: "pipe", maxBuffer: 16 * 1024 * 1024 },
+      { stdio: ["ignore", "ignore", "inherit"] },
     );
   for (const part of parts) {
     console.log(`Seeding browser D1: ${part}`);
