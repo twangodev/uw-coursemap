@@ -38,10 +38,32 @@ def main():
         import_main()
     else:
         parser = argparse.ArgumentParser(description=__doc__)
-        parser.add_argument("command", choices=["assets-check"])
+        parser.add_argument(
+            "command", choices=["assets-check", "release-check", "deploy"]
+        )
         parser.add_argument("--root", type=Path, default=Path(".svelte-kit/cloudflare"))
+        parser.add_argument("--site", type=Path, default=Path(".site"))
+        parser.add_argument("--config", type=Path, default=Path("wrangler.json"))
+        parser.add_argument("--first-deployment", action="store_true")
         args = parser.parse_args()
-        check_assets(args.root)
+        if args.command == "assets-check":
+            check_assets(args.root)
+        else:
+            from .deployment import Release, deploy
+
+            if args.command == "release-check":
+                release = Release.read(args.site / "status.json")
+                print(f"Verified complete release {release.revision}")
+            else:
+                import os
+
+                check_assets(args.root)
+                deploy(
+                    args.config,
+                    args.site,
+                    args.first_deployment
+                    or os.environ.get("FIRST_DEPLOYMENT") == "true",
+                )
 
 
 if __name__ == "__main__":

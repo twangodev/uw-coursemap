@@ -2,7 +2,7 @@ import adapter from "@sveltejs/adapter-cloudflare";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import { buildSocialImages } from "./web/social-images.mjs";
 const cloudflare = adapter({
-  config: process.env.WRANGLER_CONFIG || "wrangler.jsonc",
+  config: process.env.WRANGLER_CONFIG || "wrangler.json",
 });
 export default {
   preprocess: vitePreprocess(),
