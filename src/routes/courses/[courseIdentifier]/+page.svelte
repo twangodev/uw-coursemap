@@ -102,10 +102,10 @@
   });
   const links = [
     { id: "overview", label: "overview", icon: BookOpen },
+    { id: "requirements", label: "prerequisites", icon: GitBranch },
     { id: "professors", label: "professors", icon: Users },
     { id: "schedule", label: "calendar", icon: CalendarDays },
     { id: "experience", label: "student experience", icon: BookOpen },
-    { id: "requirements", label: "prerequisites", icon: GitBranch },
     { id: "grades", label: "grades", icon: ChartColumn },
     { id: "evidence", label: "sources", icon: Layers },
   ];</script>
@@ -223,6 +223,23 @@
     </Panel>
   </aside>
   <div class="course-content">
+    <Panel title="Prerequisites" id="requirements">
+      <a class="small-link" href={`/explorer/${encodeURIComponent(c.subjects[0])}?course=${encodeURIComponent(c.course_id)}`}>Explore connected courses on the map →</a>
+      {#if snapshotAvailable}
+      <p class="requirements-source">
+        {c.requirements_text || "No prerequisites listed."}
+      </p>
+      <RequirementGraph ast={c.requirements} course={c.course_id} following={data.following} />
+      {#if c.requirements.status !== "valid"}<p class="muted mono">
+          Best-effort interpretation · check the original requirements above.
+        </p>{/if}
+      <details>
+        <summary>Prerequisite text tree</summary><RequirementText
+          ast={c.requirements}
+        />
+      </details>
+      {:else}<p class="muted">No prerequisite snapshot for {termLabel}. The available prerequisite tree is from {termName(c.semester)}.</p>{/if}
+    </Panel>
     <Panel title="Professors" id="professors" label={termLabel}>
       <div class="professor-grid">
         {#each professors as i}{@const feedback =
@@ -370,23 +387,6 @@
       </section>
     {/if}
     {:else}<p class="muted">No student-experience summary for {termLabel}. Reviews are not reliably assigned to teaching terms.</p>{/if}
-    </Panel>
-    <Panel title="Prerequisites" id="requirements">
-      <a class="small-link" href={`/explorer/${encodeURIComponent(c.subjects[0])}?course=${encodeURIComponent(c.course_id)}`}>Explore connected courses on the map →</a>
-      {#if snapshotAvailable}
-      <p class="requirements-source">
-        {c.requirements_text || "No prerequisites listed."}
-      </p>
-      <RequirementGraph ast={c.requirements} course={c.course_id} following={data.following} />
-      {#if c.requirements.status !== "valid"}<p class="muted mono">
-          Best-effort interpretation · check the original requirements above.
-        </p>{/if}
-      <details>
-        <summary>Prerequisite text tree</summary><RequirementText
-          ast={c.requirements}
-        />
-      </details>
-      {:else}<p class="muted">No prerequisite snapshot for {termLabel}. The available prerequisite tree is from {termName(c.semester)}.</p>{/if}
     </Panel>
     <Panel title="Grades" id="grades">
       <Grades
