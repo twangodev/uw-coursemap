@@ -8,6 +8,8 @@ import {
 } from "../../src/lib/server/documents/storage";
 import { pageDocument } from "../../src/lib/server/documents/page";
 
+import { courseContexts } from "../../src/lib/server/course-context";
+
 const document = {
   schema_version: 1,
   url: "https://uwcourses.com/courses/COMPSCI_300",
@@ -103,6 +105,24 @@ describe("static page documents", () => {
     await expect(
       readDocument(context("/courses/missing", env).url, env),
     ).rejects.toMatchObject({ status: 404 });
+  });
+  it("uses precomputed comparisons for search cards without reading grade histories", async () => {
+    const precomputed = { all: { gpa: 3.2 }, terms: {}, benchmarks: {} };
+    const { platform: env } = platform({
+      "/__documents/contexts/course-one.json": { context: precomputed },
+    });
+    const course = {
+      course_uid: "course-one",
+      get grades() {
+        throw new Error("Grade history scanned at runtime");
+      },
+    };
+    expect((await courseContexts([course], env)).get("course-one")).toEqual(
+      precomputed,
+    );
+    await expect(
+      courseContexts([{ course_uid: "missing" }], env),
+    ).rejects.toMatchObject({ status: 503 });
   });
   it("does not turn asset outages into a database scan or a 404", async () => {
     const env = {

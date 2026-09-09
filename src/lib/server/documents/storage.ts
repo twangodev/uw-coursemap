@@ -58,12 +58,16 @@ export async function readDocument(
   const parts = path.split("/").filter(Boolean).map(decodeURIComponent);
   if (parts[0] === "courses" && !parts[1]?.startsWith("course_")) {
     const target = routes?.courses[normalize(parts[1] || "")];
-    if (target && target !== path)
-      redirect(308, target + (target.includes("?") ? "" : url.search));
+    if (typeof target === "string" && target !== path)
+      redirect(
+        target.startsWith("/search?") ? 307 : 308,
+        target + (target.includes("?") ? "" : url.search),
+      );
   }
   if (parts[0] === "instructors") {
     const target = routes?.instructors[parts[1]];
-    if (target && target !== path) redirect(308, target + url.search);
+    if (typeof target === "string" && target !== path)
+      redirect(308, target + url.search);
   }
   if (
     (parts[0] === "departments" || parts[0] === "explorer") &&
