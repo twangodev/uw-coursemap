@@ -518,7 +518,7 @@
   .term-step:disabled { opacity: 0.3; cursor: default; }
   .term-step:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .section-links { position: relative; display: flex; flex: 0 0 auto; width: max-content; gap: 5px; }
-  .section-indicator { position: absolute; left: 0; bottom: 0; height: 2px; background: var(--accent); border-radius: 2px; pointer-events: none; transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), width 320ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .section-indicator { position: absolute; left: 0; bottom: 0; height: 2px; background: var(--accent); border-radius: 2px; pointer-events: none; transition: transform var(--motion-travel) var(--motion-ease), width var(--motion-travel) var(--motion-ease); }
   .has-indicator a[aria-current="location"] { box-shadow: none; }
   @media (prefers-reduced-motion: reduce) { .section-indicator { transition: none; } }
   .navigation-filters { display: flex; gap: 10px; flex-shrink: 0; }

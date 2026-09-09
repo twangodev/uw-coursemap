@@ -71,7 +71,7 @@
   button:hover { color: var(--text); background: var(--border); }
   button:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
   @media (prefers-reduced-motion: no-preference) {
-    .takeaway { animation: appear 350ms ease-out; }
-    @keyframes appear { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
+    .takeaway { animation: appear var(--motion-enter) var(--motion-ease); }
+    @keyframes appear { from { opacity: 0; transform: translateY(2px); } to { opacity: 1; transform: translateY(0); } }
   }
 </style>

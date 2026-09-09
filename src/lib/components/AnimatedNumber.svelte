@@ -14,8 +14,8 @@
     {suffix}
     locales="en-US"
     format={{ minimumFractionDigits: decimals, maximumFractionDigits: decimals }}
-    transformTiming={{ duration: 450, easing: "ease-out" }}
-    opacityTiming={{ duration: 200, easing: "ease-out" }}
+    transformTiming={{ duration: 320, easing: "cubic-bezier(0.22, 1, 0.36, 1)" }}
+    opacityTiming={{ duration: 180, easing: "ease-out" }}
     respectMotionPreference={true}
     style="font-variant-numeric: tabular-nums; --number-flow-mask-height: 0.08em;"
   /></span>

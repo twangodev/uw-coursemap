@@ -237,10 +237,10 @@
   }
   @media (prefers-reduced-motion: no-preference) {
     .landing-copy {
-      animation: landing-arrive 600ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+      animation: landing-arrive var(--motion-travel) var(--motion-ease) both;
     }
     .landing-art {
-      animation: landing-arrive 850ms 80ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+      animation: landing-arrive 420ms 40ms var(--motion-ease) both;
     }
     .landing-search button :global(svg) {
       transition: transform 180ms ease;
@@ -251,7 +251,7 @@
     @keyframes landing-arrive {
       from {
         opacity: 0;
-        transform: translateY(12px);
+        transform: translateY(6px);
       }
       to {
         opacity: 1;

@@ -12,6 +12,11 @@
   --color-surface-content: #1a1916;
 }
 :root {
+  --motion-fast: 120ms;
+  --motion-normal: 180ms;
+  --motion-enter: 240ms;
+  --motion-travel: 320ms;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --bg: #f8f6f1;
   --surface: #efede7;
   --text: #1a1916;
@@ -898,60 +903,47 @@ a:hover {
   gap: 18px;
 }
 
-/* Motion adds continuity without withholding content or moving the page layout. */
+/* Shared motion: short fades, a few pixels of travel, no delayed content reveals. */
 @media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
+  html { scroll-behavior: smooth; }
+  .route-content { animation: content-arrive var(--motion-enter) var(--motion-ease); }
+  a, button, input, select {
+    transition: color var(--motion-fast) ease, background-color var(--motion-fast) ease, border-color var(--motion-fast) ease;
   }
-  .route-content {
-    animation: content-arrive 280ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+  .course-row:hover { background: color-mix(in srgb, var(--surface) 55%, transparent); }
+  .current-teachers a svg, .overview-link svg, .small-link svg, .prerequisite-map-link svg {
+    transition: transform var(--motion-normal) var(--motion-ease);
   }
-  a,
-  button,
-  input,
-  select {
-    transition:
-      color 160ms ease,
-      background-color 160ms ease,
-      border-color 160ms ease;
+  .current-teachers a:hover svg, .overview-link:hover svg, .small-link:hover svg, .prerequisite-map-link:hover svg { transform: translate(2px, -2px); }
+  .course-select-trigger svg { transition: transform var(--motion-normal) var(--motion-ease); }
+  .course-select-trigger[data-state="open"] svg { transform: rotate(180deg); }
+
+  :is(.course-select-content, .badge-evidence, .meeting-popover, .citation-preview, .ai-disclaimer-tooltip, .metric-tooltip) {
+    --enter-y: -3px;
+    animation: surface-arrive var(--motion-normal) var(--motion-ease);
   }
-  .course-row {
-    transition: background-color 180ms ease;
+  :is(.course-select-content, .badge-evidence, .meeting-popover, .citation-preview, .ai-disclaimer-tooltip, .metric-tooltip)[data-side="top"] { --enter-y: 3px; }
+  :is(.course-select-content, .badge-evidence, .meeting-popover, .citation-preview, .ai-disclaimer-tooltip, .metric-tooltip)[data-state="closed"] {
+    animation: surface-leave var(--motion-fast) ease forwards;
+    pointer-events: none;
   }
-  .course-row:hover {
-    background: color-mix(in srgb, var(--surface) 55%, transparent);
-  }
-  .current-teachers a svg,
-  .overview-link svg,
-  .small-link svg {
-    transition: transform 180ms ease;
-  }
-  .current-teachers a:hover svg,
-  .overview-link:hover svg,
-  .small-link:hover svg {
-    transform: translate(2px, -2px);
-  }
-  details[open] > :not(summary) {
-    animation: disclosure-arrive 180ms ease-out;
-  }
-  @keyframes content-arrive {
-    from {
-      opacity: 0.35;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  @keyframes disclosure-arrive {
-    from {
+  .suggestions, .sticky-course-title { animation: surface-arrive var(--motion-normal) var(--motion-ease); }
+  details[open] > :not(summary) { animation: disclosure-arrive var(--motion-normal) var(--motion-ease); }
+  @supports (interpolate-size: allow-keywords) {
+    :is(.comparison-method, .benchmark-note, .rating-method, .grade-estimate details) { interpolate-size: allow-keywords; }
+    :is(.comparison-method, .benchmark-note, .rating-method, .grade-estimate details)::details-content {
+      height: 0;
       opacity: 0;
-      transform: translateY(-3px);
+      overflow: clip;
+      transition: height var(--motion-normal) var(--motion-ease), opacity var(--motion-fast) ease, content-visibility var(--motion-normal) allow-discrete;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    :is(.comparison-method, .benchmark-note, .rating-method, .grade-estimate details)[open]::details-content { height: auto; opacity: 1; }
+    :is(.comparison-method, .benchmark-note, .rating-method, .grade-estimate details)[open] > :not(summary) { animation: none; }
   }
+  @keyframes content-arrive { from { opacity: 0.7; } to { opacity: 1; } }
+  @keyframes surface-arrive { from { opacity: 0; translate: 0 var(--enter-y, -3px); } to { opacity: 1; translate: 0 0; } }
+  @keyframes surface-leave { from { opacity: 1; } to { opacity: 0; } }
+  @keyframes disclosure-arrive { from { opacity: 0; translate: 0 -2px; } to { opacity: 1; translate: 0 0; } }
 }
 
 .teacher-rating {
