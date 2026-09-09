@@ -51,6 +51,12 @@ jobs:
       - run: bun run seo:check
       - run: uv run --locked uwcourses-site assets-check
       - run: bun x playwright test
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: browser-failures-${{ github.job }}
+          path: test-results/
+          retention-days: 7
   deploy:
     name: Deploy
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
@@ -93,6 +99,12 @@ jobs:
       - run: bun run build
       - run: bun run seo:check
       - run: bun x playwright test
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: browser-failures-${{ github.job }}
+          path: test-results/
+          retention-days: 7
       - name: Deploy verified release
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
