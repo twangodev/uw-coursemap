@@ -142,10 +142,10 @@
 <div class="course-page" style={`--course-navigation-height: ${navigationHeight}px`}>
 <div class="course-heading">
   <div class="row between">
-    <div class="breadcrumbs mono">
+    <nav class="breadcrumbs mono" aria-label="Breadcrumb">
       <a href="/departments">departments</a><span>/</span>
       {#if c.subjects.length}<a href={`/departments/${encodeURIComponent(c.subjects[0])}`}>{departmentName(c.subjects[0])}</a><span>/</span>{/if}<span>{c.course_id}</span>
-    </div>
+    </nav>
     <span class="mono muted">{selectedGradeTerm ? termLabel : termName(c.semester)}</span>
   </div>
   <div class="course-identity">

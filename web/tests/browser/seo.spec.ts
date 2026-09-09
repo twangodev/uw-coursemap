@@ -152,3 +152,18 @@ test("instructor HTML describes its named person and hydration JSON stays out of
   }
   expect(response.headers()["x-robots-tag"]).toBeUndefined();
 });
+
+test('discovery landing pages are indexable while query variants remain excluded', async ({ request }) => {
+  for (const path of ['/search', '/instructors/by-rating-count']) {
+    const response = await request.get(path);
+    expect(response.status()).toBe(200);
+    const html = await response.text();
+    expect(html).toContain('name="robots" content="index,follow');
+    expect(html).toContain(`rel="canonical" href="https://uwcourses.com${path}"`);
+    for (const query of ['?q=300', '?page=2']) {
+      const filtered = await request.get(path + query);
+      expect(filtered.status()).toBe(200);
+      expect(await filtered.text()).toContain('name="robots" content="noindex,follow"');
+    }
+  }
+});

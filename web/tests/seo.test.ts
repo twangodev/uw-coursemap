@@ -228,3 +228,15 @@ it("gives every indexable page family a connected page entity", () => {
   }
   expect(pageSeo({}, "/missing", 404).structuredData["@graph"]).toEqual([]);
 });
+
+it('indexes clean discovery pages with distinct metadata, but excludes filtered results', () => {
+  for (const path of ['/search', '/instructors/by-rating-count']) {
+    const seo = pageSeo({ discoveryFiltered: false }, path);
+    expect(seo.noindex).toBe(false);
+    expect(seo.canonical).toBe('https://uwcourses.com' + path);
+    expect(seo.structuredData['@graph'].some(item => item['@type'] === 'CollectionPage')).toBe(true);
+    expect(pageSeo({ discoveryFiltered: true }, path).noindex).toBe(true);
+    expect(pageSeo({ discoveryFiltered: false }, path, 404).noindex).toBe(true);
+  }
+  expect(pageSeo({ discoveryFiltered: false }, '/search').title).not.toBe(pageSeo({ discoveryFiltered: false }, '/instructors/by-rating-count').title);
+});

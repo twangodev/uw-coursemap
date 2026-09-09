@@ -69,8 +69,7 @@ export function pageSeo(data: any, pathname: string, status = 200) {
   const graph: Record<string, unknown>[] = [];
   const noindex =
     status >= 400 ||
-    pathname === "/search" ||
-    pathname === "/instructors/by-rating-count" ||
+    ((pathname === "/search" || pathname === "/instructors/by-rating-count") && data.discoveryFiltered !== false) ||
     Boolean(data.collection && data.results?.total === 0) ||
     Boolean(data.instructor && !data.instructor.name?.trim());
   if (status >= 400) {
@@ -147,7 +146,13 @@ export function pageSeo(data: any, pathname: string, status = 200) {
     pathname === "/search" ||
     pathname === "/instructors/by-rating-count"
   ) {
-    title = "Search UW–Madison Courses & Instructors | UW Courses";
+    const instructors = pathname === "/instructors/by-rating-count";
+    title = instructors
+      ? "UW–Madison Professors, Ratings & Reviews | UW Courses"
+      : "Explore UW–Madison Courses, Grades & Prerequisites | UW Courses";
+    description = instructors
+      ? "Find UW–Madison professors and compare student reviews, instructor ratings, courses taught and historical grades."
+      : "Discover UW–Madison courses for your next semester. Compare prerequisites, historical grades and instructors, and explore courses by department.";
   }
   if (pathname === "/" && status < 400)
     graph.push({
@@ -186,7 +191,7 @@ export function pageSeo(data: any, pathname: string, status = 200) {
     if (breadcrumb) breadcrumb["@id"] = canonical + "#breadcrumb";
     graph.push({
       "@type":
-        entity?.["@type"] === "ItemList" || pathname === "/departments"
+        entity?.["@type"] === "ItemList" || pathname === "/departments" || pathname === "/search" || pathname === "/instructors/by-rating-count"
           ? "CollectionPage"
           : "WebPage",
       "@id": canonical + "#webpage",
