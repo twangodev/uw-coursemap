@@ -476,8 +476,7 @@
   :global(.experience-info) { display: grid; place-items: center; padding: 4px; border: 0; background: transparent; color: var(--muted); cursor: help; }
   :global(.experience-info-content) { z-index: 100; max-width: 270px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 5px; background: var(--surface); color: var(--muted); font-size: 12px; line-height: 1.6; box-shadow: 0 5px 20px #0001; }
   .course-page {
-    max-width: 1120px;
-    margin-inline: auto;
+    width: 100%;
   }
   .course-topics { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); }
   .course-navigation { display: flex; align-items: center; gap: 20px; position: sticky; top: 0; z-index: 20; background: var(--bg); border-bottom: 1px solid var(--border); padding: 6px 0; }
