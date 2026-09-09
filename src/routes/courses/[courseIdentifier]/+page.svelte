@@ -10,14 +10,12 @@
     Users,
     ChartColumn,
     Layers,
-    Info,
   } from "@lucide/svelte";
-  import { Tooltip } from "bits-ui";
   import { citationContext, citationKey, citationNumbers } from "$lib/citations";
   import { courseFitObservations } from "$lib/course-fit";
   import type { Citation } from "$lib/types";
   import Select from "$lib/components/Select.svelte";
-  import AIInfo from "$lib/components/AIInfo.svelte";
+  import AIDisclaimer from "$lib/components/AIDisclaimer.svelte";
   import Badges from "$lib/components/Badges.svelte";
   import { courseBadges, instructorBadges } from "$lib/badges";
   import Panel from "$lib/components/Panel.svelte";
@@ -37,7 +35,6 @@
   let { data } = $props();
   let c = $derived(data.course);
   let comparisonScope = $state("school");
-  let experienceInfoOpen = $state(false);
   let scope = $derived(c.subjects.includes(comparisonScope) ? comparisonScope : "school");
   let termSelection = $state<string | null>(null);
   let projectedTerm = $derived(c.grades.some((row: any) => row.term_id === c.semester && ["a", "ab", "b", "bc", "c", "d", "f"].some((key) => row[key] > 0)) ? "" : c.semester);
@@ -186,6 +183,8 @@
     {#if overviewClaims.length}
       {#key c.course_uid}<RotatingClaims
         claims={overviewClaims}
+        model={c.llm_model}
+        revision={c.llm_model_revision}
         reviewFiles={c.evidence.reviews}
       />{/key}
     {:else}<h2>Summary</h2><p class="muted">No student feedback recorded yet.</p>{/if}
@@ -225,7 +224,7 @@
         </article>
         {#if c.llm_assumed_background.length}
           <aside class="helpful-background" aria-label="Helpful background">
-            <h3>Helpful background <AIInfo model={c.llm_model} revision={c.llm_model_revision} /></h3>
+            <h3>Helpful background <AIDisclaimer model={c.llm_model} revision={c.llm_model_revision} label="About AI suggestions" description="Suggested background is not an official prerequisite." /></h3>
             <ul>{#each c.llm_assumed_background as item}<li>{item}</li>{/each}</ul>
           </aside>
         {/if}
@@ -352,12 +351,7 @@
       id="experience"
     >
       {#snippet tools()}
-        <Tooltip.Provider delayDuration={200}><Tooltip.Root bind:open={experienceInfoOpen} disableCloseOnTriggerClick>
-          <Tooltip.Trigger class="experience-info" aria-label="About student experience" onclick={() => experienceInfoOpen = true}><Info size={16} /></Tooltip.Trigger>
-          <Tooltip.Portal><Tooltip.Content class="experience-info-content" role="tooltip" sideOffset={6}>
-            {snapshotAvailable ? `AI-generated from captured student reviews · ${termName(c.student_summary?.term_id || c.semester)}. Open citations to read the original comments.` : `No student-experience summary for ${termLabel}. Reviews are not reliably assigned to teaching terms.`}
-          </Tooltip.Content></Tooltip.Portal>
-        </Tooltip.Root></Tooltip.Provider>
+        <AIDisclaimer model={c.llm_model} revision={c.llm_model_revision} label="About student experience" description={snapshotAvailable ? `Captured student reviews · ${termName(c.student_summary?.term_id || c.semester)}. Citations open the original comments.` : `No student-experience summary for ${termLabel}. Reviews are not reliably assigned to teaching terms.`} />
       {/snippet}
       {#if snapshotAvailable}<div class="experience-grid">
         <div>
@@ -473,8 +467,6 @@
 </div>
 
 <style>
-  :global(.experience-info) { display: grid; place-items: center; padding: 4px; border: 0; background: transparent; color: var(--muted); cursor: help; }
-  :global(.experience-info-content) { z-index: 100; max-width: 270px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 5px; background: var(--surface); color: var(--muted); font-size: 12px; line-height: 1.6; box-shadow: 0 5px 20px #0001; }
   .course-page {
     width: 100%;
   }

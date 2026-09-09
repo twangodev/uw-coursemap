@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi, afterEach } from 'vitest';
 import { instructorBadges, courseBadges } from '../../src/lib/badges';
 const ratings = { bayesian_quality: 4, quality_count: 10, difficulty: 3.5, difficulty_count: 10 };
 const course = { course_id: 'COMPSCI 300', semester: '1272', sections: [
@@ -45,10 +45,29 @@ describe('student badges', () => {
   });
 });
 
-import { modelFamily } from '../../src/lib/model-identity';
-it('identifies model family independently of checkpoint distributor', () => {
-  expect(modelFamily('nvidia/Qwen3.6-35B-A3B-NVFP4')).toBe('qwen');
-  expect(modelFamily('Qwen/Qwen3-32B')).toBe('qwen');
-  expect(modelFamily('unknown/model')).toBeNull();
-  expect(modelFamily(null)).toBeNull();
+import { modelPublisher, resolveModelPublisher } from '../../src/lib/model-identity';
+afterEach(() => vi.unstubAllGlobals());
+it('resolves publisher from the HF namespace rather than model family', () => {
+  expect(modelPublisher('nvidia/Qwen3.6-35B-A3B-NVFP4')).toBe('nvidia');
+  expect(modelPublisher('Qwen/Qwen3-32B')).toBe('qwen');
+  expect(modelPublisher('local-model')).toBeNull();
+  expect(modelPublisher(null)).toBeNull();
+});
+it('shares public publisher metadata requests between disclaimers', async () => {
+  const request = vi.fn().mockResolvedValue(new Response(JSON.stringify({ fullname: 'NVIDIA', avatarUrl: 'https://cdn-avatars.huggingface.co/nvidia.png' })));
+  vi.stubGlobal('fetch', request);
+  const results = await Promise.all([resolveModelPublisher('nvidia/Qwen3'), resolveModelPublisher('nvidia/Other')]);
+  expect(results[0]).toEqual({ name: 'NVIDIA', avatar: 'https://cdn-avatars.huggingface.co/nvidia.png' });
+  expect(request).toHaveBeenCalledTimes(1);
+  expect(request.mock.calls[0][0]).toBe('https://huggingface.co/api/organizations/nvidia/overview');
+});
+it('supports individual publishers and retries failed metadata requests', async () => {
+  const request = vi.fn().mockResolvedValueOnce(new Response('', { status: 404 })).mockResolvedValueOnce(new Response(JSON.stringify({ fullname: 'Example', avatarUrl: 'javascript:bad' })));
+  vi.stubGlobal('fetch', request);
+  expect(await resolveModelPublisher('example/model')).toEqual({ name: 'Example', avatar: null });
+  expect(request.mock.calls[1][0]).toBe('https://huggingface.co/api/users/example/overview');
+  request.mockRejectedValueOnce(new Error('offline'));
+  expect(await resolveModelPublisher('offline/model')).toBeNull();
+  request.mockResolvedValueOnce(new Response(JSON.stringify({ fullname: 'Recovered' })));
+  expect(await resolveModelPublisher('offline/model')).toEqual({ name: 'Recovered', avatar: null });
 });

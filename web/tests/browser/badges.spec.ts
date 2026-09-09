@@ -58,15 +58,24 @@ test('badge evidence opens on touch and fits mobile and dark layouts', async ({ 
   await context.close();
 });
 
-test('AI suggestion info names the exact recorded model with its family logo', async ({ page }) => {
+test('all AI disclaimers share HF publisher attribution', async ({ page }) => {
+  let requests = 0;
+  await page.route('https://huggingface.co/api/organizations/nvidia/overview', route => {
+    requests++;
+    return route.fulfill({ json: { fullname: 'NVIDIA', avatarUrl: 'https://cdn-avatars.huggingface.co/test-nvidia.svg' } });
+  });
+  await page.route('https://cdn-avatars.huggingface.co/test-nvidia.svg', route => route.fulfill({ contentType: 'image/svg+xml', body: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><circle cx="10" cy="10" r="8" fill="green"/></svg>' }));
   await page.goto('/courses/COMPSCI_300');
-  const info = page.getByRole('button', { name: 'About AI suggestions' });
-  await info.hover();
-  const tooltip = page.getByRole('tooltip').filter({ hasText: 'nvidia/Qwen3.6-35B-A3B-NVFP4' });
-  await expect(tooltip).toBeVisible();
-  await expect(tooltip).toContainText('1355db6a052410cfd62085d94b58866fd0f2c3c5');
-  await expect(tooltip.getByRole('img', { name: 'Qwen' })).toBeVisible();
-  expect(await tooltip.getByRole('img', { name: 'Qwen' }).evaluate(e => getComputedStyle(e).maskImage)).not.toBe('none');
-  await expect(page.getByText('AI suggested', { exact: true })).toHaveCount(0);
-  await page.screenshot({ path: 'test-results/ai-info.png', animations: 'disabled' });
+  await expect(page.locator('html')).toHaveAttribute('data-hydrated', 'true');
+  expect(requests).toBe(0);
+  await expect(page.locator('.ai-disclaimer')).toHaveCount(3);
+  for (const label of ['About this summary', 'About AI suggestions', 'About student experience']) {
+    await page.getByRole('button', { name: label, exact: true }).hover();
+    const tooltip = page.getByRole('tooltip').filter({ hasText: 'nvidia/Qwen3.6-35B-A3B-NVFP4' });
+    await expect(tooltip).toBeVisible();
+    await expect(tooltip).toContainText('1355db6a052410cfd62085d94b58866fd0f2c3c5');
+    await expect(tooltip.getByRole('img', { name: 'NVIDIA' })).toBeVisible();
+    await page.keyboard.press('Escape');
+  }
+  expect(requests).toBe(1);
 });

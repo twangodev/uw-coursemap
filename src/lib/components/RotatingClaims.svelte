@@ -1,14 +1,13 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { Info, ChevronLeft, ChevronRight, Pause, Play } from "@lucide/svelte";
-  import { Tooltip } from "bits-ui";
+  import { ChevronLeft, ChevronRight, Pause, Play } from "@lucide/svelte";
+  import AIDisclaimer from "./AIDisclaimer.svelte";
   import Claims from "./Claims.svelte";
   import type { Claim } from "$lib/types";
 
-  let { claims, reviewFiles = [] }: { claims: (Claim & { source?: string; href?: string })[]; reviewFiles?: string[] } = $props();
+  let { claims, reviewFiles = [], model, revision }: { claims: (Claim & { source?: string; href?: string })[]; reviewFiles?: string[]; model?: string | null; revision?: string | null } = $props();
   let index = $state(0);
   let paused = $state(false);
-  let infoOpen = $state(false);
   let container: HTMLDivElement;
   const items = $derived(claims.filter((claim, i) => claims.findIndex((other) => other.text === claim.text) === i));
   const current = $derived(items[index % Math.max(items.length, 1)]);
@@ -35,10 +34,7 @@
   <div class="takeaway-heading">
     <div class="summary-title">
       <h2>Summary</h2>
-      <Tooltip.Provider delayDuration={200}><Tooltip.Root bind:open={infoOpen} disableCloseOnTriggerClick>
-        <Tooltip.Trigger class="summary-info" aria-label="About this summary" onclick={() => infoOpen = true}><Info size={14} /></Tooltip.Trigger>
-        <Tooltip.Portal><Tooltip.Content role="tooltip" class="summary-info-content" sideOffset={6}>Review summaries are AI-generated; citations open the original comments. Grade and class-size observations are calculated from recorded data and labeled with their source.</Tooltip.Content></Tooltip.Portal>
-      </Tooltip.Root></Tooltip.Provider>
+<AIDisclaimer {model} {revision} label="About this summary" description="Review summaries cite the original comments. Grade and class-size observations are calculated from recorded data and labeled with their source." />
     </div>
   {#if items.length > 1}
     <div class="controls">
@@ -67,8 +63,6 @@
   .takeaway-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
   h2 { margin: 0; font-size: 14px; font-weight: 550; color: var(--muted); }
   .summary-title { display: flex; align-items: center; gap: 6px; }
-  :global(.summary-info) { display: grid; place-items: center; border: 0; padding: 3px; background: none; color: var(--muted); cursor: help; }
-  :global(.summary-info-content) { z-index: 100; max-width: 250px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 5px; background: var(--surface); color: var(--muted); font-size: 12px; line-height: 1.6; box-shadow: 0 5px 20px #0001; }
   .controls { flex-shrink: 0; }
   .controls span { min-width: 28px; text-align: center; }
 
