@@ -39,7 +39,9 @@ async function createInventory() {
   ];
   const assets = new Map<string, string[]>();
   for (const path of new Set(paths)) {
-    const asset = documentAsset(path).slice("/__documents/".length);
+    const asset = decodeURIComponent(
+      documentAsset(path).slice("/__documents/".length),
+    );
     const group = assets.get(asset) || [];
     group.push(path);
     assets.set(asset, group);

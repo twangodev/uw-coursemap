@@ -13,6 +13,7 @@ test("JSON document families satisfy the published contracts", async ({
     "/instructors/by-rating-count",
     "/departments",
     "/departments/COMPSCI",
+    "/departments/ANAT%26PHY",
     "/departments/COMPSCI/catalog",
     "/departments/COMPSCI/easiest",
     "/courses/hardest",

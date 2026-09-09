@@ -39,7 +39,15 @@ export async function readDocument(
   url: URL,
   platform?: App.Platform,
 ): Promise<PublicDocument> {
-  const path = url.pathname;
+  let path: string;
+  try {
+    path = url.pathname
+      .split("/")
+      .map((part) => encodeURIComponent(decodeURIComponent(part)))
+      .join("/");
+  } catch {
+    error(400, "Invalid document URL");
+  }
   const stored = await readAsset<
     PublicDocument | Record<string, PublicDocument>
   >(documentAsset(path), platform);
