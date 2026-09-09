@@ -23,22 +23,24 @@ export default async function setup() {
       await db.prepare(sql).run();
       const statement = source.prepare(`SELECT * FROM ${identifier(name)}`);
       statement.setReturnArrays(true);
-      let batch: D1PreparedStatement[] = [];
+      let rows: (string | number | null)[][] = [];
+      const flush = async () => {
+        if (!rows.length) return;
+        await db
+          .prepare(
+            `INSERT INTO ${identifier(name)} VALUES ${rows.map((row) => `(${row.map(() => "?").join(",")})`).join(",")}`,
+          )
+          .bind(...rows.flat())
+          .run();
+        rows = [];
+      };
       for (const row of statement.iterate()) {
         const values = row as unknown as (string | number | null)[];
-        batch.push(
-          db
-            .prepare(
-              `INSERT INTO ${identifier(name)} VALUES (${values.map(() => "?").join(",")})`,
-            )
-            .bind(...values),
-        );
-        if (batch.length === 100) {
-          await db.batch(batch);
-          batch = [];
-        }
+        // D1 permits at most 100 bound parameters per statement.
+        if ((rows.length + 1) * values.length > 100) await flush();
+        rows.push(values);
       }
-      if (batch.length) await db.batch(batch);
+      await flush();
     }
     for (const { sql } of source
       .prepare(
