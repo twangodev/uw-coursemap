@@ -167,3 +167,25 @@ test('discovery landing pages are indexable while query variants remain excluded
     }
   }
 });
+
+test('social cards match page families and serve valid 1200 by 630 PNGs', async ({ request }) => {
+  for (const [path, kind] of [
+    ['/courses/COMPSCI_300', 'courses'],
+    ['/instructors/HOBBES_LEGAULT', 'instructors'],
+    ['/departments/COMPSCI', 'departments'],
+    ['/explorer/COMPSCI', 'maps'],
+  ]) {
+    const html = await (await request.get(path)).text();
+    expect(html).toContain(`property="og:image" content="https://uwcourses.com/social/${kind}.png"`);
+    expect(html).toContain('name="twitter:card" content="summary_large_image"');
+    expect(html).toContain('property="og:image:alt" content="UW Courses');
+    const response = await request.get(`/social/${kind}.png`);
+    expect(response.status()).toBe(200);
+    expect(response.headers()['content-type']).toContain('image/png');
+    const png = await response.body();
+    expect(png.subarray(0, 8).toString('hex')).toBe('89504e470d0a1a0a');
+    expect(png.readUInt32BE(16)).toBe(1200);
+    expect(png.readUInt32BE(20)).toBe(630);
+    expect(png.length).toBeLessThan(300_000);
+  }
+});

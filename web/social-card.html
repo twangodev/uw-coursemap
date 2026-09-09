@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>UW Courses social card artwork</title>
+<style>
+  @font-face { font-family: Overused; src: url('../static/fonts/OverusedGrotesk-VF.woff2'); font-weight: 300 900; }
+  * { box-sizing: border-box; }
+  body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: #f8f6f1; color: #1a1916; font-family: Overused, sans-serif; }
+  main { position: relative; height: 100%; padding: 52px 64px; }
+  header { display: flex; align-items: center; gap: 14px; font-size: 30px; letter-spacing: -.8px; }
+  header img { width: 38px; height: 38px; }
+  header span { color: #c5050c; }
+  .eyebrow { margin: 65px 0 15px; font-size: 19px; color: #777064; }
+  h1 { margin: 0; font-size: 78px; font-weight: 550; line-height: 1.01; letter-spacing: -3px; }
+  h1 span { color: #c5050c; }
+  .description { margin-top: 25px; font-size: 23px; color: #777064; }
+  footer { position: absolute; bottom: 48px; left: 64px; right: 64px; display: flex; justify-content: space-between; align-items: center; font-size: 18px; color: #777064; }
+  footer strong { color: #1a1916; font-weight: 500; }
+  .art { position: absolute; top: 138px; right: 55px; width: 355px; height: 355px; display: grid; place-items: center; }
+  .disc { width: 325px; height: 325px; border-radius: 50%; background: #f2e6df; position: absolute; }
+  .art img { width: 240px; height: 240px; transform: rotate(-12deg); position: relative; }
+  .line { position: absolute; bottom: 0; left: 0; height: 7px; width: 100%; background: #c5050c; }
+</style>
+<main>
+  <header><img src="../static/uw-coursemap-logo.svg" alt=""><div>uw <span>courses</span></div></header>
+  <p class="eyebrow">University of Wisconsin–Madison</p>
+  <h1></h1>
+  <p class="description"></p>
+  <div class="art" aria-hidden="true"><div class="disc"></div><img src="../static/uw-coursemap-logo.svg" alt=""></div>
+  <footer><strong>uwcourses.com ↗</strong><span>Independent, student-built.</span></footer>
+  <div class="line"></div>
+</main>
+<script>
+  // Open with ?kind=courses|instructors|departments|maps at 1200 × 630.
+  // The exported PNGs in static/social are served directly by Cloudflare.
+  const cards = {
+    courses: ['Find your next', 'favorite class.', 'Courses, grades & prerequisites.'],
+    instructors: ['Know your', 'professors.', 'Student reviews & teaching history.'],
+    departments: ['Explore every', 'possibility.', 'Departments, courses & connections.'],
+    maps: ['See the', 'connections.', 'Explore your prerequisite paths.'],
+  };
+  const [first, second, description] = cards[new URLSearchParams(location.search).get('kind')] || cards.courses;
+  document.querySelector('h1').append(document.createTextNode(first), document.createElement('br'));
+  const accent = document.createElement('span');
+  accent.textContent = second;
+  document.querySelector('h1').append(accent);
+  document.querySelector('.description').textContent = description;
+</script>
+</html>
