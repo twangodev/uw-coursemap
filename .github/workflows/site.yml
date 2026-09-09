@@ -42,6 +42,7 @@ jobs:
       - run: bun run test
       - run: uv run --locked python -m unittest discover -s web/tests -p 'test_*.py'
       - run: bun run build
+      - run: bun run seo:check
       - run: uv run --locked uwcourses-site assets-check
       - run: bun x playwright install --with-deps chromium
       - run: bun x playwright test

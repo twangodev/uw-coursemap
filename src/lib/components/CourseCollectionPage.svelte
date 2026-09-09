@@ -12,13 +12,6 @@
   );
 </script>
 
-<svelte:head
-  ><title
-    >{collection.title}{data.results.filters.subject
-      ? ` · ${departmentLabel(data.results.filters.subject)}`
-      : ""} · UW Courses</title
-  ><meta name="description" content={`${collection.description}${data.results.filters.subject ? ` Explore ${departmentName(data.results.filters.subject)} at UW–Madison.` : ""}`} /></svelte:head
->
 <div class="collection-heading">
   <a
     class="muted"

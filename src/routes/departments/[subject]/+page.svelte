@@ -9,11 +9,8 @@
   import DepartmentStats from "$lib/components/DepartmentStats.svelte";
   let { data } = $props();
   let name = $derived(departmentName(data.subject));
-  let title = $derived(`${departmentLabel(data.subject)} Courses, Grades & Reviews · UW Courses`);
-  let description = $derived(`Explore ${name} courses at UW–Madison. Compare historical grades, instructors and student reviews, and find the easiest and hardest courses in ${name}.`);
 </script>
 
-<svelte:head><link rel="canonical" href={`/departments/${encodeURIComponent(data.subject)}`} /><title>{title}</title><meta name="description" content={description} /><meta property="og:title" content={title} /><meta property="og:description" content={description} /></svelte:head>
 <div class="hero">
   <a class="muted" href="/departments">← Departments</a>
   <p class="mono department-code">{data.subject}</p>
@@ -21,6 +18,7 @@
   <p class="muted">Get a feel for the department. Find your next class.</p>
 </div>
 <a class="small-link" href={`/explorer/${encodeURIComponent(data.subject)}`}>Explore prerequisite map →</a>
+<p><a href={`/departments/${encodeURIComponent(data.subject)}/catalog`}>Browse all {name} courses →</a></p>
 <CourseCollections subject={data.subject} term={data.results.term} />
 <DepartmentStats stats={data.stats} />
 <div class="term-toolbar">

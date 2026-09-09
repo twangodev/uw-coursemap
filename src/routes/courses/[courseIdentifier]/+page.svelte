@@ -139,17 +139,12 @@
     { id: "evidence", label: "sources", icon: Layers },
   ];</script>
 
-<svelte:head
-  ><title>{c.course_id} · {c.title} · UW Courses</title><meta
-    name="description"
-    content={c.llm_summary || c.description?.slice(0, 160)}
-  /><link rel="canonical" href={courseUrl(c.course_id)} /></svelte:head
->
 <div class="course-page" style={`--course-navigation-height: ${navigationHeight}px`}>
 <div class="course-heading">
   <div class="row between">
     <div class="breadcrumbs mono">
-      <a href="/search">courses</a><span>/</span><span>{c.course_id}</span>
+      <a href="/departments">departments</a><span>/</span>
+      {#if c.subjects.length}<a href={`/departments/${encodeURIComponent(c.subjects[0])}`}>{departmentName(c.subjects[0])}</a><span>/</span>{/if}<span>{c.course_id}</span>
     </div>
     <span class="mono muted">{selectedGradeTerm ? termLabel : termName(c.semester)}</span>
   </div>

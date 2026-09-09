@@ -1,9 +1,11 @@
 <script lang="ts">
   import "../app.css";
+  import { pageSeo, jsonLd } from "$lib/seo";
   import { Sun, Moon, Monitor } from "@lucide/svelte";
   import { page } from "$app/state";
   import { onMount } from "svelte";
   let { data, children } = $props();
+  let seo = $derived(pageSeo(page.data, page.url.pathname, page.status));
   let theme = $state("system");
   let fullscreenMap = $derived(/^\/explorer\/[^/]+\/?$/.test(page.url.pathname));
   function apply() {
@@ -28,6 +30,23 @@
     return () => media.removeEventListener("change", apply);
   });
 </script>
+
+<svelte:head>
+  <title>{seo.title}</title>
+  <meta name="description" content={seo.description} />
+  <link rel="canonical" href={seo.canonical} />
+  <meta name="robots" content={seo.noindex ? "noindex,follow" : "index,follow,max-image-preview:large"} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="UW Courses" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content={seo.title} />
+  <meta property="og:description" content={seo.description} />
+  <meta property="og:url" content={seo.canonical} />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={seo.title} />
+  <meta name="twitter:description" content={seo.description} />
+  {@html `<script type="application/ld+json">${jsonLd(seo.structuredData)}</script>`}
+</svelte:head>
 
 <a class="skip-link" href="#main">Skip to content</a>
 {#if !fullscreenMap}<header>
