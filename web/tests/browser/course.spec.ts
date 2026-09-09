@@ -210,6 +210,7 @@ test("takeaways rotate and pause for reading sources", async ({ page }) => {
 });
 
 test("school and department comparisons stay synchronized", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/courses/COMPSCI_300");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   await page.getByRole("button", { name: "Term", exact: true }).click();
