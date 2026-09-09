@@ -63,3 +63,11 @@ These changes improve discoverability and clarify page meaning. They do not guar
 ## Incremental follow-up: hydration responses
 
 Hydration JSON now receives `X-Robots-Tag: noindex` both from static assets and dynamic responses. Instructor data requests bypass the HTML cache using SvelteKit's `isDataRequest` flag; URL suffix checks are insufficient because SvelteKit strips the suffix before invoking hooks. Four regression tests pass. A local Cloudflare assets fixture confirmed the header on root, course, and nested catalog hydration JSON, while its HTML control remained indexable. The generated-output audit now checks both hydration header rules.
+
+## Incremental follow-up: page and instructor entities
+
+Indexable pages now have a `WebPage` or `CollectionPage` entity connected to the website and, where present, their Course, ItemList, or BreadcrumbList. Named instructor pages describe a `Person` using the visible name and that record's canonical URL; equal names do not merge distinct records. The markup does not infer employment, ratings, or external identity links. Google's [ProfilePage guidelines](https://developers.google.com/search/docs/appearance/structured-data/profile-page) require affiliation with the website, so these independent instructor records use ordinary WebPage and Person markup instead.
+
+The output audit now validates page-entity links, visible instructor names, and all other generated indexable HTML pages, including prerequisite maps outside the sitemap. Unit coverage checks the page families and same-name identities; browser coverage checks instructor HTML and actual hydration responses.
+
+Final follow-up validation passed: 79 unit tests, nine browser tests, Svelte checking with zero errors or warnings, and a fresh full production build. The strict output audit verified all 15,399 sitemap URLs plus 188 additional indexable pages, 5,749 instructor Person entities, all 8,951 course catalog links, and 59 noindex HTML pages. The asset check passed for 65,673 files (largest 1,684,490 bytes). Local Cloudflare preview returned valid course/instructor HTML with connected entities, XML for the sitemap, and noindex headers on root, course, and instructor hydration JSON. These checks used the built static publication; production D1 and Google indexing remain untested.

@@ -122,3 +122,33 @@ test("course-list sources link to a real course section without JavaScript", asy
   await expect(page.locator("#evidence")).toHaveCount(1);
   await context.close();
 });
+
+test("instructor HTML describes its named person and hydration JSON stays out of search", async ({
+  request,
+}) => {
+  const response = await request.get("/instructors/HOBBES_LEGAULT");
+  expect(response.status()).toBe(200);
+  const html = await response.text();
+  const graph = JSON.parse(
+    html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)![1],
+  )["@graph"];
+  const person = graph.find((item: any) => item["@type"] === "Person");
+  expect(person).toMatchObject({
+    name: "Hobbes Legault",
+    "@id": "https://uwcourses.com/instructors/HOBBES_LEGAULT#person",
+  });
+  expect(
+    graph.find((item: any) => item["@type"] === "WebPage").mainEntity,
+  ).toEqual({ "@id": person["@id"] });
+  for (const path of [
+    "/__data.json",
+    "/courses/COMPSCI_300/__data.json",
+    "/instructors/HOBBES_LEGAULT/__data.json",
+  ]) {
+    const data = await request.get(path);
+    expect(data.status()).toBe(200);
+    expect(data.headers()["x-robots-tag"]).toBe("noindex");
+    expect(data.headers()["content-type"]).toContain("application/json");
+  }
+  expect(response.headers()["x-robots-tag"]).toBeUndefined();
+});

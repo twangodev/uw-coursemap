@@ -66,7 +66,7 @@ export function pageSeo(data: any, pathname: string, status = 200) {
   let title = "UW–Madison Courses, Grades & Prerequisites | UW Courses";
   let description =
     "Explore UW–Madison courses, prerequisites, historical grade distributions and instructor reviews. Find classes for your next semester.";
-  const graph: object[] = [];
+  const graph: Record<string, unknown>[] = [];
   const noindex =
     status >= 400 ||
     pathname === "/search" ||
@@ -102,6 +102,13 @@ export function pageSeo(data: any, pathname: string, status = 200) {
   } else if (data.instructor) {
     const i = data.instructor;
     path = i.instructor_url;
+    if (!noindex)
+      graph.push({
+        "@type": "Person",
+        "@id": absoluteUrl(path) + "#person",
+        name: i.name,
+        url: absoluteUrl(path),
+      });
     title = `${i.name || "Instructor record"} — Courses & Reviews | UW–Madison`;
     description = snippet(
       `Courses taught by ${i.name || "this instructor"} at UW–Madison. Explore student reviews, historical grades and teaching history.`,
@@ -162,6 +169,7 @@ export function pageSeo(data: any, pathname: string, status = 200) {
     if (items.length)
       graph.push({
         "@type": "ItemList",
+        "@id": absoluteUrl(path) + "#courses",
         itemListElement: items.map((c: any, i: number) => ({
           "@type": "ListItem",
           position: i + 1,
@@ -169,10 +177,32 @@ export function pageSeo(data: any, pathname: string, status = 200) {
         })),
       });
   }
+  const canonical = absoluteUrl(path);
+  if (!noindex) {
+    const entity = graph.find((item) =>
+      ["Course", "Person", "ItemList"].includes(String(item["@type"])),
+    );
+    const breadcrumb = graph.find((item) => item["@type"] === "BreadcrumbList");
+    if (breadcrumb) breadcrumb["@id"] = canonical + "#breadcrumb";
+    graph.push({
+      "@type":
+        entity?.["@type"] === "ItemList" || pathname === "/departments"
+          ? "CollectionPage"
+          : "WebPage",
+      "@id": canonical + "#webpage",
+      url: canonical,
+      name: title,
+      description,
+      inLanguage: "en",
+      isPartOf: { "@id": siteOrigin + "/#website" },
+      ...(entity ? { mainEntity: { "@id": entity["@id"] } } : {}),
+      ...(breadcrumb ? { breadcrumb: { "@id": breadcrumb["@id"] } } : {}),
+    });
+  }
   return {
     title,
     description,
-    canonical: absoluteUrl(path),
+    canonical,
     noindex,
     structuredData: { "@context": "https://schema.org", "@graph": graph },
   };

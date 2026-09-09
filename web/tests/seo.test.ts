@@ -30,7 +30,7 @@ describe("search metadata", () => {
       coursePrerequisites: "COMP SCI 200",
       provider: { name: "University of Wisconsin–Madison" },
     });
-    expect(seo.structuredData["@graph"]).toHaveLength(2);
+    expect(seo.structuredData["@graph"]).toHaveLength(3);
   });
   it("does not let preview hosts or filters define the canonical", () => {
     expect(
@@ -152,4 +152,79 @@ it("normalizes equivalent path encodings to one canonical spelling", () => {
     absoluteUrl("/departments/ANAT&PHY"),
   );
   expect(() => absoluteUrl("/bad%path")).not.toThrow();
+});
+
+it("connects instructor pages to their own Person records without asserting affiliation", () => {
+  const records = [
+    "/instructors/EXAMPLE_NAME",
+    "/instructors/EXAMPLE_NAME--other",
+  ];
+  const ids = records.map((path) => {
+    const seo = pageSeo(
+      { instructor: { name: "Example Name", instructor_url: path } },
+      path,
+    );
+    const person = seo.structuredData["@graph"].find(
+      (item) => item["@type"] === "Person",
+    )!;
+    const page = seo.structuredData["@graph"].find(
+      (item) => item["@type"] === "WebPage",
+    )!;
+    expect(person).toEqual({
+      "@type": "Person",
+      "@id": seo.canonical + "#person",
+      name: "Example Name",
+      url: seo.canonical,
+    });
+    expect(page.mainEntity).toEqual({ "@id": person["@id"] });
+    expect(page.name).toBe(seo.title);
+    expect(
+      seo.structuredData["@graph"].some(
+        (item) => item["@type"] === "ProfilePage",
+      ),
+    ).toBe(false);
+    return person["@id"];
+  });
+  expect(new Set(ids).size).toBe(2);
+});
+
+it("gives every indexable page family a connected page entity", () => {
+  for (const [path, data] of [
+    ["/", {}],
+    ["/departments", {}],
+    ["/explorer/all", {}],
+    [
+      "/courses/MATH_221",
+      {
+        course: {
+          course_id: "MATH 221",
+          title: "Calculus",
+          description: "Differential calculus",
+          subjects: ["MATH"],
+        },
+      },
+    ],
+    [
+      "/departments/MATH/catalog",
+      { subject: "MATH", catalog: [{ course_id: "MATH 221" }] },
+    ],
+  ] as const) {
+    const seo = pageSeo(data, path);
+    const graph = seo.structuredData["@graph"];
+    const page = graph.find((item) =>
+      ["WebPage", "CollectionPage"].includes(String(item["@type"])),
+    )!;
+    expect(page).toMatchObject({
+      "@id": seo.canonical + "#webpage",
+      url: seo.canonical,
+      description: seo.description,
+      isPartOf: { "@id": "https://uwcourses.com/#website" },
+    });
+    for (const relation of [page.mainEntity, page.breadcrumb])
+      if (relation)
+        expect(
+          graph.some((item) => item["@id"] === (relation as any)["@id"]),
+        ).toBe(true);
+  }
+  expect(pageSeo({}, "/missing", 404).structuredData["@graph"]).toEqual([]);
 });

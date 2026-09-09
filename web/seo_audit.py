@@ -29,6 +29,35 @@ def local_file(url, html=False):
     return root / ((path + ".html") if path and html else path or "index.html")
 
 
+def validate_page(html, url):
+    head = html.split("</head>", 1)[0]
+    canonical = re.findall(r'<link\s+rel="canonical"\s+href="([^"]+)"', head)
+    assert list(map(unescape, canonical)) == [url], (url, canonical)
+    title = re.findall(r"<title>(.*?)</title>", head, re.S)
+    assert len(title) == 1 and title[0].strip(), url
+    description = re.findall(r'<meta\s+name="description"\s+content="([^"]*)"', head)
+    assert len(description) == 1 and description[0].strip(), url
+    assert 'name="robots" content="index,follow' in head, url
+    assert len(re.findall(r"<h1(?:\s|>)", html)) == 1, url
+    blocks = re.findall(
+        r'<script type="application/ld\+json">(.*?)</script>', head, re.S
+    )
+    assert len(blocks) == 1, url
+    data = json.loads(blocks[0])
+    assert data["@context"] == "https://schema.org", url
+    graph = data["@graph"]
+    pages = [item for item in graph if item["@type"] in ("WebPage", "CollectionPage")]
+    assert len(pages) == 1, url
+    page = pages[0]
+    assert page["@id"] == url + "#webpage" and page["url"] == url, url
+    assert page["name"] == unescape(title[0]), url
+    assert page["description"] == unescape(description[0]), url
+    for relation in ("mainEntity", "breadcrumb"):
+        if relation in page:
+            assert any(item.get("@id") == page[relation]["@id"] for item in graph), url
+    return title, graph, page
+
+
 sitemaps = locations(root / "sitemap.xml")
 urls = []
 for sitemap in sitemaps:
@@ -46,27 +75,27 @@ titles = Counter()
 course_titles = set()
 course_count = 0
 course_markup_count = 0
+person_markup_count = 0
 samples = {}
+visited_files = set()
 for url in urls:
     path = local_file(url, html=True)
+    visited_files.add(path)
     html = path.read_text()
-    head = html.split("</head>", 1)[0]
-    canonical = re.findall(r'<link\s+rel="canonical"\s+href="([^"]+)"', head)
-    assert list(map(unescape, canonical)) == [url], (url, canonical)
-    title = re.findall(r"<title>(.*?)</title>", head, re.S)
-    assert len(title) == 1 and title[0].strip(), url
+    title, graph, page = validate_page(html, url)
     titles[unescape(title[0])] += 1
-    description = re.findall(r'<meta\s+name="description"\s+content="([^"]*)"', head)
-    assert len(description) == 1 and description[0].strip(), url
-    assert 'name="robots" content="index,follow' in head, url
-    assert len(re.findall(r"<h1(?:\s|>)", html)) == 1, url
-    blocks = re.findall(
-        r'<script type="application/ld\+json">(.*?)</script>', head, re.S
-    )
-    assert len(blocks) == 1, url
-    data = json.loads(blocks[0])
-    assert data["@context"] == "https://schema.org", url
-    graph = data["@graph"]
+    if urlsplit(url).path.startswith("/instructors/"):
+        people = [item for item in graph if item["@type"] == "Person"]
+        assert len(people) == 1, url
+        person = people[0]
+        assert person["@id"] == url + "#person" and person["url"] == url, url
+        h1 = re.search(r"<h1[^>]*>(.*?)</h1>", html, re.S).group(1)
+        assert unescape(re.sub(r"<[^>]*>", "", h1)).strip() == person["name"].strip(), (
+            url
+        )
+        assert page["mainEntity"] == {"@id": person["@id"]}, url
+        person_markup_count += 1
+
     course = next((item for item in graph if item["@type"] == "Course"), None)
     if urlsplit(url).path.startswith("/courses/") and not url.endswith(
         ("/easiest", "/hardest")
@@ -122,6 +151,27 @@ for ranking in [
             + quote(str(ranking.relative_to(root).with_suffix("")), safe="/")
         )
         assert url not in urls, url
+# Audit every other generated HTML page as well, including prerequisite maps.
+additional_pages = set()
+noindex_pages = 0
+for path in root.rglob("*.html"):
+    if path in visited_files:
+        continue
+    html = path.read_text()
+    head = html.split("</head>", 1)[0]
+    if '<meta http-equiv="refresh"' in head:
+        continue  # SvelteKit also publishes these redirects in _redirects.
+    if 'name="robots" content="noindex,follow"' in head:
+        noindex_pages += 1
+        continue
+    canonical = re.findall(r'<link\s+rel="canonical"\s+href="([^"]+)"', head)
+    assert len(canonical) == 1, path
+    url = unescape(canonical[0])
+    assert url.startswith(origin + "/"), (path, url)
+    validate_page(html, url)
+    if url not in urls:
+        additional_pages.add(url)
+
 if len(sys.argv) == 1:
     headers = Path(".svelte-kit/cloudflare/_headers").read_text()
     assert re.search(r"/data/\*\n[ \t]+X-Robots-Tag: noindex", headers), (
@@ -137,8 +187,11 @@ print(
         {
             "sitemaps": len(sitemaps),
             "indexable_urls": len(urls),
+            "additional_indexable_pages": len(additional_pages),
+            "noindex_html_pages": noindex_pages,
             "courses": course_count,
             "courses_with_course_markup": course_markup_count,
+            "instructors_with_person_markup": person_markup_count,
             "department_catalogs": len(catalog_urls),
             "noindex_rankings": noindex_rankings,
             "all_courses_linked": True,
