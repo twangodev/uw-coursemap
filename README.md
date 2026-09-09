@@ -48,10 +48,7 @@ bun run dev
 
 See [website setup and deployment](web/README.md) and the [local data pipeline](generation/README.md).
 
-## Moving Forward
-
-- If you would like new features or even implement them yourself, please check out our [Documentation](https://docs.uwcourses.com) and [Contributing Guide](./CONTRIBUTING.md).
-- Our datasets and endpoints are open to the public. If you're curious about how we built this, check out our [API Documentation](https://docs.uwcourses.com/concepts/data-model)
+See the [contributing guide](CONTRIBUTING.md) to help improve the project. The public API contract is generated at `/openapi.json`.
 
 ## Contributions
 
