@@ -1,15 +1,17 @@
-// See https://svelte.dev/docs/kit/types#app.d.ts
-// for information about these interfaces
 declare global {
   namespace App {
-    interface Error {
-      message: string;
+    interface Platform {
+      env: {
+        DB_A: D1Database;
+        DB_B: D1Database;
+        DATA_SLOT: string;
+        SITE_COMMIT?: string;
+        DATA_PROJECTION?: string;
+        DEPLOYED_AT?: string;
+        ASSETS: Fetcher;
+      };
+      context: ExecutionContext;
     }
-    // interface Locals {}
-    // interface PageData {}
-    // interface PageState {}
-    // interface Platform {}
   }
 }
-
 export {};

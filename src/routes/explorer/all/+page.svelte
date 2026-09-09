@@ -1,10 +1,5 @@
 <script lang="ts">
-  import Cytoscape from "$lib/components/cytoscape/cytoscape.svelte";
-
-  let { data } = $props();
-
-  let elementDefinitions = $derived(data.elementDefinitions);
-  let styleEntries = $derived(data.styleEntries);
+import ExplorerPage from "$lib/components/ExplorerPage.svelte";
+let { data } = $props();
 </script>
-
-<Cytoscape {elementDefinitions} {styleEntries} />
+<ExplorerPage {data} />

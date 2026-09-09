@@ -1,0 +1,311 @@
+{
+  "tables": {
+    "catalog_versions": {
+      "columns": {
+        "catalog_version_id": "string",
+        "course_id": "string",
+        "course_number": "int64",
+        "course_uid": "string",
+        "description": "string",
+        "requirements_text": "string",
+        "subjects": "list<item: string>",
+        "title": "string"
+      }
+    },
+    "course_aliases": {
+      "columns": {
+        "course_id": "string",
+        "course_number": "int64",
+        "course_uid": "string",
+        "observed_at": "timestamp[us, tz=UTC]",
+        "run_id": "string",
+        "subject": "string"
+      }
+    },
+    "course_entities": {
+      "columns": {
+        "course_uid": "string",
+        "first_observed_at": "timestamp[us, tz=UTC]",
+        "last_observed_at": "timestamp[us, tz=UTC]"
+      }
+    },
+    "course_observations": {
+      "columns": {
+        "catalog_version_id": "string",
+        "course_id": "string",
+        "course_uid": "string",
+        "observed_at": "timestamp[us, tz=UTC]",
+        "record_version_id": "string",
+        "run_id": "string",
+        "semester": "string"
+      }
+    },
+    "courses_current": {
+      "columns": {
+        "catalog_version_id": "string",
+        "course_id": "string",
+        "course_number": "int64",
+        "course_uid": "string",
+        "credit_offering_ids": "list<item: string>",
+        "credits_max": "double",
+        "credits_min": "double",
+        "description": "string",
+        "llm_assumed_background": "list<item: string>",
+        "llm_experience_json": "string",
+        "llm_experience_status": "string",
+        "llm_job_id": "string",
+        "llm_model": "string",
+        "llm_model_revision": "string",
+        "llm_output_id": "string",
+        "llm_requirements_ast_json": "string",
+        "llm_requirements_status": "string",
+        "llm_search_phrases": "list<item: string>",
+        "llm_search_status": "string",
+        "llm_skills": "list<item: string>",
+        "llm_student_summary_json": "string",
+        "llm_student_summary_status": "string",
+        "llm_summary": "string",
+        "llm_task_version": "string",
+        "llm_topics": "list<item: string>",
+        "observed_at": "timestamp[us, tz=UTC]",
+        "record_version_id": "string",
+        "requirements_text": "string",
+        "run_id": "string",
+        "semester": "string",
+        "subjects": "list<item: string>",
+        "title": "string"
+      }
+    },
+    "courses_history": {
+      "columns": {
+        "catalog_version_id": "string",
+        "course_id": "string",
+        "course_number": "int64",
+        "course_uid": "string",
+        "description": "string",
+        "observed_at": "timestamp[us, tz=UTC]",
+        "record_version_id": "string",
+        "requirements_text": "string",
+        "run_id": "string",
+        "semester": "string",
+        "subjects": "list<item: string>",
+        "title": "string"
+      }
+    },
+    "grade_section_instructors": {
+      "columns": {
+        "grade_section_uid": "string",
+        "instructor_uid": "string",
+        "observed_at": "timestamp[us, tz=UTC]",
+        "run_id": "string"
+      }
+    },
+    "grades_latest": {
+      "columns": {
+        "a": "int64",
+        "ab": "int64",
+        "b": "int64",
+        "bc": "int64",
+        "c": "int64",
+        "course_id": "string",
+        "course_uid": "string",
+        "credit": "int64",
+        "d": "int64",
+        "f": "int64",
+        "incomplete": "int64",
+        "instructors": "list<item: string>",
+        "no_credit": "int64",
+        "no_work": "int64",
+        "not_reported": "int64",
+        "observed_at": "timestamp[us, tz=UTC]",
+        "other": "int64",
+        "passed": "int64",
+        "run_id": "string",
+        "satisfactory": "int64",
+        "semester": "string",
+        "term_id": "string",
+        "term_name": "string",
+        "total": "int64",
+        "unsatisfactory": "int64"
+      }
+    },
+    "instructor_aliases": {
+      "columns": {
+        "instructor_uid": "string",
+        "legacy_instructor_id": "string",
+        "name": "string",
+        "observed_at": "timestamp[us, tz=UTC]",
+        "run_id": "string",
+        "source": "string"
+      }
+    },
+    "instructors": {
+      "columns": {
+        "email": "string",
+        "first_observed_at": "timestamp[us, tz=UTC]",
+        "identity_basis": "string",
+        "identity_status": "string",
+        "instructor_uid": "string",
+        "last_observed_at": "timestamp[us, tz=UTC]",
+        "name": "string",
+        "source": "string",
+        "source_instructor_id": "string"
+      }
+    },
+    "llm_results": {
+      "columns": {
+        "candidate_json": "string",
+        "catalog_version_id": "string",
+        "course_id": "string",
+        "course_uid": "string",
+        "error": "string",
+        "job_id": "string",
+        "model": "string",
+        "model_revision": "string",
+        "observed_at": "timestamp[us, tz=UTC]",
+        "output_id": "string",
+        "record_version_id": "string",
+        "run_id": "string",
+        "section": "string",
+        "selected_for_release": "bool",
+        "status": "string",
+        "value_json": "string"
+      }
+    },
+    "llm_traces": {
+      "columns": {
+        "course_id": "string",
+        "course_uid": "string",
+        "created_at": "timestamp[us, tz=UTC]",
+        "has_conversation": "bool",
+        "job_id": "string",
+        "job_spec_json": "string",
+        "model": "string",
+        "model_revision": "string",
+        "output_id": "string",
+        "output_json": "string",
+        "run_id": "string",
+        "selected_for_release": "bool",
+        "usage_json": "string"
+      }
+    },
+    "meetings_current": {
+      "columns": {
+        "building": "string",
+        "course_id": "string",
+        "course_uid": "string",
+        "ends_at": "timestamp[us, tz=UTC]",
+        "instructor_names": "list<item: string>",
+        "latitude": "double",
+        "longitude": "double",
+        "meeting_id": "string",
+        "meeting_type": "string",
+        "name": "string",
+        "observed_at": "timestamp[us, tz=UTC]",
+        "room": "string",
+        "run_id": "string",
+        "starts_at": "timestamp[us, tz=UTC]"
+      }
+    },
+    "offering_sections": {
+      "columns": {
+        "course_uid": "string",
+        "observed_at": "timestamp[us, tz=UTC]",
+        "offering_id": "string",
+        "run_id": "string",
+        "section_uid": "string"
+      }
+    },
+    "offerings_current": {
+      "columns": {
+        "course_id": "string",
+        "course_uid": "string",
+        "credits_max": "double",
+        "credits_min": "double",
+        "observed_at": "timestamp[us, tz=UTC]",
+        "offering_id": "string",
+        "run_id": "string",
+        "semester": "string",
+        "source_course_id": "string",
+        "source_subject_id": "string",
+        "term_id": "string",
+        "title": "string",
+        "typically_offered": "string"
+      }
+    },
+    "rmp_reviews": {
+      "columns": {
+        "comment": "string",
+        "course_id": "string",
+        "course_label": "string",
+        "course_uid": "string",
+        "difficulty_rating": "double",
+        "instructor_name": "string",
+        "observed_at": "timestamp[us, tz=UTC]",
+        "quality_rating": "double",
+        "review_date": "string",
+        "run_id": "string",
+        "source_instructor_id": "string",
+        "source_review_id": "string",
+        "source_url": "string"
+      }
+    },
+    "section_grades_latest": {
+      "columns": {
+        "a": "int64",
+        "ab": "int64",
+        "b": "int64",
+        "bc": "int64",
+        "c": "int64",
+        "course_id": "string",
+        "course_match_status": "string",
+        "course_uid": "string",
+        "credit": "int64",
+        "d": "int64",
+        "f": "int64",
+        "grade_section_uid": "string",
+        "incomplete": "int64",
+        "no_credit": "int64",
+        "no_work": "int64",
+        "not_reported": "int64",
+        "observed_at": "timestamp[us, tz=UTC]",
+        "other": "int64",
+        "passed": "int64",
+        "run_id": "string",
+        "satisfactory": "int64",
+        "section_number": "int64",
+        "source_course_id": "string",
+        "term_id": "string",
+        "total": "int64",
+        "unsatisfactory": "int64"
+      }
+    },
+    "section_instructors_current": {
+      "columns": {
+        "instructor_uid": "string",
+        "observed_at": "timestamp[us, tz=UTC]",
+        "run_id": "string",
+        "section_uid": "string"
+      }
+    },
+    "sections_current": {
+      "columns": {
+        "capacity": "int64",
+        "end_date": "timestamp[us, tz=UTC]",
+        "enrolled": "int64",
+        "identity_basis": "string",
+        "instruction_mode": "string",
+        "observed_at": "timestamp[us, tz=UTC]",
+        "run_id": "string",
+        "section_number": "string",
+        "section_type": "string",
+        "section_uid": "string",
+        "source_section_id": "string",
+        "start_date": "timestamp[us, tz=UTC]",
+        "term_id": "string",
+        "waitlisted": "int64"
+      }
+    }
+  },
+  "version": 6
+}

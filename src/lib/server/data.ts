@@ -1,0 +1,213 @@
+import { database, localDatabase } from "./database";
+import { metadata, courses, instructors } from "./schema";
+import { eq, sql as drizzleSql } from "drizzle-orm";
+import { withInstructorUrls } from "./instructor-urls";
+import { instructorRatingPrior, withInstructorRatings } from "./instructor-ratings";
+import { ratingPriorWeight } from "$lib/instructor-ratings";
+import { isCourseCollection } from "$lib/course-collections";
+import { building, dev } from "$app/environment";
+import { error } from "@sveltejs/kit";
+import { coursePreviews } from "./discovery";
+import { normalize } from "$lib/format";
+import type { Status } from "$lib/types";
+/** Existing FTS and aggregation queries retain bound parameters. */
+export async function query<T = any>(platform: App.Platform | undefined, statement: string, values: unknown[] = []): Promise<T[]> {
+  if (building || dev) return (await localDatabase()).prepare(statement).all(...values) as T[];
+  // All SQL templates are internal; values remain parameters in Drizzle/D1.
+  const parts = statement.split("?");
+  if (parts.length !== values.length + 1) throw new Error("SQL parameter count mismatch");
+  const chunks = parts.flatMap((part, index) => index < values.length
+    ? [drizzleSql.raw(part), drizzleSql`${values[index]}`] : [drizzleSql.raw(part)]);
+  return await database(platform).all<T>(drizzleSql.join(chunks, drizzleSql.raw(""))) as T[];
+}
+export async function status(platform?: App.Platform): Promise<Status> {
+  const [r] = await database(platform).select({ value: metadata.value }).from(metadata).where(eq(metadata.key, "status"));
+  if (!r) error(503, "Dataset not imported");
+  return {
+    ...JSON.parse(r.value),
+    deployed_at: building || dev ? null : platform?.env.DEPLOYED_AT || null,
+    slot: building || dev ? null : platform?.env.DATA_SLOT || null,
+  };
+}
+export async function pageData(
+  kind: string,
+  uid: string,
+  platform?: App.Platform,
+): Promise<any> {
+  const table = kind === "courses" ? courses : instructors;
+  const [r] = await database(platform).select({ payload: table.payload }).from(table).where(eq(table.uid, uid));
+  if (!r)
+    error(
+      404,
+      kind === "courses" ? "Course not found" : "Instructor not found",
+    );
+  return withInstructorRatings(JSON.parse(r.payload), kind, platform);
+}
+export async function assertRevision(url: URL, platform?: App.Platform) {
+  const s = await status(platform);
+  if (
+    url.searchParams.has("revision") &&
+    url.searchParams.get("revision") !== s.revision
+  )
+    error(409, "Dataset updated. Reload this page to continue.");
+  return s;
+}
+export function pageNumber(url: URL) {
+  const n = Number(url.searchParams.get("page") || 1);
+  if (!Number.isInteger(n) || n < 1 || n > 10000) error(400, "Invalid page");
+  return n;
+}
+export async function search(url: URL, platform?: App.Platform) {
+  const q = (url.searchParams.get("q") || "").trim();
+  if (q.length > 200) error(400, "Query is too long");
+  const kind =
+    url.searchParams.get("kind") === "instructor" ? "instructor" : "course";
+  const term = url.searchParams.get("term") || (await status(platform)).term;
+  if (!/^1\d{2}[246]$/.test(term)) error(400, "Invalid term");
+  const availability = url.searchParams.get("availability") || "offered";
+  if (!["offered", "all"].includes(availability))
+    error(400, "Invalid availability");
+  const searchable =
+    kind === "course"
+      ? q.replace(/\bCOMP\s+SCI\b/gi, "COMPSCI").replace(/\bCS\b/gi, "COMPSCI")
+      : q;
+  const tokens = searchable.match(/[\p{L}\p{N}]+/gu) || [];
+  const expression = tokens.map((t) => '"' + t + '"*').join(" AND ");
+  const page = pageNumber(url),
+    values: unknown[] = [];
+  let from = kind === "course" ? "courses c" : "instructors c";
+  let where = "1=1";
+  const totals = "SUM(a+ab+b+bc+c+d+f)";
+  const historySql = `WITH history AS (SELECT uid,${totals} grade_count,SUM(a*4+ab*3.5+b*3+bc*2.5+c*2+d)*1.0/NULLIF(${totals},0) history_gpa FROM grade_summaries WHERE term<=? AND CAST(term AS INTEGER)>? GROUP BY uid) `;
+  if (kind === "course") {
+    from += " LEFT JOIN history h ON h.uid=c.uid";
+    values.push(term, Number(term) - 50);
+  }
+  if (expression) {
+    from += ` JOIN (SELECT uid,bm25(search,0,0,12,6,1) score FROM search WHERE search MATCH ? AND kind=? ${kind === "course" ? "UNION ALL SELECT uid,-1000000 score FROM aliases WHERE alias=?" : ""}) m ON m.uid=c.uid`;
+    values.push(expression, kind);
+    if (kind === "course") values.push(normalize(q));
+  }
+  if (kind === "course") {
+    for (const [param, clause] of [
+      [
+        "subject",
+        "EXISTS(SELECT 1 FROM subjects s WHERE s.uid=c.uid AND s.subject=?)",
+      ],
+      [
+        "instructor",
+        "EXISTS(SELECT 1 FROM teaching t WHERE t.course_uid=c.uid AND t.instructor_uid=?)",
+      ],
+    ]) {
+      const v = url.searchParams.get(param);
+      if (v) {
+        where += " AND " + clause;
+        values.push(v);
+      }
+    }
+    if (availability === "offered") {
+      where +=
+        " AND EXISTS(SELECT 1 FROM offerings o WHERE o.uid=c.uid AND o.term=?)";
+      values.push(term);
+    }
+    const level = url.searchParams.get("level");
+    if (level) {
+      const n = Number(level);
+      if (!Number.isInteger(n) || n < 0 || n > 900 || n % 100)
+        error(400, "Invalid course level");
+      where +=
+        " AND EXISTS(SELECT 1 FROM course_numbers n WHERE n.uid=c.uid AND n.number BETWEEN ? AND ?)";
+      values.push(n, n + 99);
+    }
+    for (const [param, col, op] of [
+      ["credits_min", "credits_max", ">="],
+      ["credits_max", "credits_min", "<="],
+      ["gpa_min", "gpa", ">="],
+    ]) {
+      const v = url.searchParams.get(param);
+      if (v) {
+        const n = Number(v);
+        if (!Number.isFinite(n)) error(400, "Invalid numeric filter");
+        where += ` AND ${param === "gpa_min" ? "h.history_gpa" : `c.${col}`}${op}?`;
+        values.push(n);
+      }
+    }
+  }
+  const ranking = url.searchParams.get("ranking");
+  if (ranking && (kind !== "course" || !isCourseCollection(ranking))) error(400, "Invalid course ranking");
+  if (ranking) where += " AND h.grade_count>=100";
+  const sort = url.searchParams.get("sort");
+  const prior = kind === "instructor" ? await instructorRatingPrior(platform) : null;
+  const qualityCount = "json_extract(c.payload,'$.ratings.quality_count')";
+  const adjustedQuality = `CASE WHEN ${qualityCount}>0 THEN (json_extract(c.payload,'$.ratings.quality')*${qualityCount}+${prior ?? "NULL"}*${ratingPriorWeight})/(${qualityCount}+${ratingPriorWeight}) END`;
+  const order =
+    kind === "instructor"
+      ? `c.current DESC,${adjustedQuality} DESC,c.name`
+      : ranking
+        ? `h.history_gpa ${ranking === "hardest" ? "ASC" : "DESC"},h.grade_count DESC,c.code`
+      : sort === "gpa"
+        ? "CASE WHEN h.grade_count>=100 THEN 0 ELSE 1 END,CASE WHEN h.grade_count>=100 THEN h.history_gpa END DESC,c.code"
+        : expression
+          ? "min(m.score),c.code"
+          : "c.code";
+  const fields =
+    kind === "course"
+      ? "c.uid course_uid,c.code course_id,c.title,c.credits_min,c.credits_max,c.gpa"
+      : `c.uid instructor_uid,c.name,c.current,${adjustedQuality} bayesian_quality,${qualityCount} quality_count,json_extract(c.payload,'$.ratings.difficulty') difficulty,json_extract(c.payload,'$.ratings.difficulty_count') difficulty_count,json_extract(c.payload,'$.ratings.source_url') source_url`;
+  const [count] = await query(
+    platform,
+    `${kind === "course" ? historySql : ""}SELECT count(DISTINCT c.uid) total FROM ${from} WHERE ${where}`,
+    values,
+  );
+  const items = await query(
+    platform,
+    `${kind === "course" ? historySql : ""}SELECT ${fields} FROM ${from} WHERE ${where} GROUP BY c.uid ORDER BY ${order} LIMIT 30 OFFSET ?`,
+    [...values, (page - 1) * 30],
+  );
+  return {
+    items:
+      kind === "course" ? await coursePreviews(items, term, platform, undefined, url.searchParams.get("subject") || "school") : await withInstructorUrls(items, platform),
+    total: count.total,
+    page,
+    kind,
+    q,
+    term,
+    availability,
+    filters: Object.fromEntries(url.searchParams),
+  };
+}
+export async function gradeRows(
+  uid: string,
+  url: URL,
+  platform?: App.Platform,
+) {
+  const values: unknown[] = [uid];
+  let where = "uid=?";
+  const instructor = url.searchParams.get("instructor");
+  if (instructor) {
+    where +=
+      " AND section<>'' AND EXISTS(SELECT 1 FROM json_each(grades.instructors) WHERE value=?)";
+    values.push(instructor);
+  } else where += " AND section=''";
+  const term = url.searchParams.get("term");
+  if (term) {
+    where += " AND term=?";
+    values.push(term);
+  }
+  const page = pageNumber(url);
+  const [count] = await query(
+    platform,
+    `SELECT count(*) total FROM grades WHERE ${where}`,
+    values,
+  );
+  const data = await query(
+    platform,
+    `SELECT payload FROM grades WHERE ${where} ORDER BY term DESC,section LIMIT 100 OFFSET ?`,
+    [...values, (page - 1) * 100],
+  );
+  return {
+    items: data.map((r) => JSON.parse(r.payload)),
+    total: count.total,
+    page,
+  };
+}

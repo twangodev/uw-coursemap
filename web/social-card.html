@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <meta name="robots" content="noindex" />
+  <title>UW Courses social card artwork</title>
+  <style>
+    @font-face {
+      font-family: Overused;
+      src: url("../static/fonts/OverusedGrotesk-VF.woff2");
+      font-weight: 300 900;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: #1a1916;
+      color: #e8e5df;
+      font-family: Overused, sans-serif;
+    }
+    main {
+      height: 100%;
+      padding: 56px 64px;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 27px;
+      letter-spacing: -0.5px;
+    }
+    header img {
+      width: 30px;
+      height: 30px;
+      filter: brightness(0) saturate(100%) invert(67%) sepia(17%)
+        saturate(1322%) hue-rotate(315deg) brightness(94%) contrast(91%);
+    }
+    header span {
+      color: #e68578;
+    }
+    .content {
+      margin: auto 0;
+    }
+    .label {
+      margin: 0 0 22px;
+      font-size: 22px;
+      color: #e68578;
+    }
+    h1 {
+      margin: 0;
+      max-width: 1040px;
+      font-size: 80px;
+      font-weight: 550;
+      line-height: 1.08;
+      letter-spacing: -2px;
+      overflow-wrap: anywhere;
+    }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      font-size: 18px;
+      color: #a09a8c;
+    }
+  </style>
+  <main>
+    <header>
+      <img src="../static/uw-coursemap-logo.svg" alt="" />
+      <div>uw <span>courses</span></div>
+    </header>
+    <div class="content">
+      <p class="label"></p>
+      <h1></h1>
+    </div>
+    <footer>
+      <span>University of Wisconsin–Madison</span><span>uwcourses.com</span>
+    </footer>
+  </main>
+</html>

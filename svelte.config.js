@@ -1,20 +1,26 @@
-import adapter from "@sveltejs/adapter-node";
+import adapter from "@sveltejs/adapter-cloudflare";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
-
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
-  extensions: [".svelte", ".svx"], // Allow `.svx` for Markdown + Svelte
-
-  preprocess: [vitePreprocess()],
-  // Consult https://svelte.dev/docs/kit/integrations
-  // for more information about preprocessors
-
+import { buildSocialImages } from "./web/social-images.mjs";
+const cloudflare = adapter({
+  // Build/dev loaders use .site/site.sqlite; emulator state need not persist.
+  platformProxy: { persist: false },
+  config: process.env.WRANGLER_CONFIG || "wrangler.json",
+});
+export default {
+  preprocess: vitePreprocess(),
   kit: {
-    // adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
-    // If your environment is not supported, or you settled on a specific environment, switch out the adapter.
-    // See https://svelte.dev/docs/kit/adapters for more information about adapters.
-    adapter: adapter(),
+    adapter: {
+      ...cloudflare,
+      async adapt(builder) {
+        await cloudflare.adapt(builder);
+        await buildSocialImages();
+      },
+    },
+    prerender: {
+      concurrency: 16,
+      handleHttpError: "fail",
+      handleMissingId: "warn",
+      entries: ["/sitemap.xml", "/social/manifest.json", "/openapi.json"],
+    },
   },
 };
-
-export default config;

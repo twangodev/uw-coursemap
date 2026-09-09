@@ -1,0 +1,574 @@
+"""Compile one verified HF release into disposable website assets and SQLite/D1 data."""
+
+from __future__ import annotations
+import argparse
+from collections import defaultdict
+from datetime import datetime, timezone
+import hashlib
+import json
+from pathlib import Path
+import re
+import shutil
+import sqlite3
+import pyarrow.parquet as pq
+from .instructor_stats import attach_ratings
+from .discovery import build_discovery
+
+ROOT = Path.cwd()
+REPO = "twangodev/uw-coursemap"
+IMPORTER_VERSION = "3"
+GRADES = ["a", "ab", "b", "bc", "c", "d", "f"]
+WEIGHTS = [4, 3.5, 3, 2.5, 2, 1, 0]
+MAX_CHUNK = 1024 * 1024
+
+
+def encode(value):
+    return json.dumps(
+        value, default=str, ensure_ascii=False, separators=(",", ":"), allow_nan=False
+    )
+
+
+def write(path, value):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(encode(value))
+
+
+def normalize(value):
+    value = re.sub(r"[^A-Z0-9]", "", value.upper())
+    return re.sub(r"^CS(?=\d)", "COMPSCI", value)
+
+
+def rows(source, name):
+    for batch in pq.ParquetFile(source / "public" / f"{name}.parquet").iter_batches(
+        batch_size=4096
+    ):
+        yield from batch.to_pylist()
+
+
+def verify(source):
+    schema = json.loads((source / "public/schema.json").read_text())
+    expected = json.loads((Path(__file__).with_name("schema-v6.json")).read_text())
+    if schema["version"] != expected["version"]:
+        raise ValueError(f"Unsupported public schema: {schema['version']}")
+    manifest = json.loads((source / "manifest.json").read_text())
+    for name, table in expected["tables"].items():
+        rel = f"public/{name}.parquet"
+        path = source / rel
+        actual = pq.ParquetFile(path)
+        for col, typ in table["columns"].items():
+            if (
+                str(actual.schema_arrow.field(col).type).replace("element:", "item:")
+                != typ
+            ):
+                raise ValueError(f"Incompatible {name}.{col}")
+        if actual.metadata.num_rows != schema["tables"][name]["rows"]:
+            raise ValueError(f"Row count mismatch: {name}")
+        declared = manifest["files"][rel]
+        if (
+            path.stat().st_size != declared["bytes"]
+            or hashlib.file_digest(path.open("rb"), "sha256").hexdigest()
+            != declared["sha256"]
+        ):
+            raise ValueError(f"Checksum mismatch: {rel}")
+    return manifest
+
+
+def chunks(base, revision, kind, uid, records):
+    """Bound downloads by encoded size; large individual traces are split as text."""
+    urls, part, size = [], [], 2
+
+    def flush():
+        nonlocal part, size
+        if not part:
+            return
+        rel = f"data/{revision}/{kind}/{uid}-{len(urls)}.json"
+        write(base / rel, part)
+        urls.append("/" + rel)
+        part, size = [], 2
+
+    for row in records:
+        encoded = encode(row)
+        length = len(encoded.encode())
+        if length > MAX_CHUNK:
+            flush()
+            # Preserve full content without exceeding a single downloadable asset.
+            for offset in range(0, len(encoded), 120000):
+                part = [
+                    {
+                        "record_fragment": encoded[offset : offset + 120000],
+                        "offset": offset,
+                        "record_length": len(encoded),
+                    }
+                ]
+                flush()
+        else:
+            if size + length + 1 > MAX_CHUNK:
+                flush()
+            part.append(row)
+            size += length + 1
+    flush()
+    return urls
+
+
+def grade_stats(records):
+    counts = [sum((r.get(k) or 0) for r in records) for k in GRADES]
+    n = sum(counts)
+    return {
+        "gpa": round(sum(a * b for a, b in zip(counts, WEIGHTS)) / n, 3) if n else None,
+        "graded": n,
+        "counts": counts,
+    }
+
+
+class SqlParts:
+    """Keep Wrangler input files bounded without splitting SQL statements."""
+
+    def __init__(self, directory, max_bytes=16 * 1024 * 1024):
+        self.directory = directory
+        self.max_bytes = max_bytes
+        self.part = 0
+        self.size = 0
+        self.stream = None
+
+    def __enter__(self):
+        self.directory.mkdir(parents=True, exist_ok=True)
+        return self
+
+    def write(self, statement):
+        size = len(statement.encode())
+        if size > self.max_bytes:
+            raise ValueError("SQL statement exceeds file budget")
+        if self.stream is None or self.size + size > self.max_bytes:
+            if self.stream:
+                self.stream.close()
+            self.stream = (self.directory / f"{self.part:04d}.sql").open("w")
+            self.part += 1
+            self.size = 0
+        self.stream.write(statement)
+        self.size += size
+
+    def __exit__(self, *_):
+        if self.stream:
+            self.stream.close()
+
+
+def compile_release(source, revision, output, static, limit=0, manifest=None):
+    manifest = manifest or verify(source)
+    output.mkdir(parents=True, exist_ok=True)
+    dbpath = output / "site.sqlite"
+    dbpath.unlink(missing_ok=True)
+    db = sqlite3.connect(dbpath)
+    db.executescript("""
+    CREATE TABLE courses(uid TEXT PRIMARY KEY,code TEXT,title TEXT,description TEXT,credits_min REAL,credits_max REAL,gpa REAL,payload TEXT NOT NULL);
+    CREATE TABLE aliases(alias TEXT,uid TEXT,PRIMARY KEY(alias,uid));
+    CREATE TABLE subjects(subject TEXT,uid TEXT,PRIMARY KEY(subject,uid));
+    CREATE TABLE instructors(uid TEXT PRIMARY KEY,name TEXT,current INTEGER,payload TEXT);
+    CREATE TABLE teaching(instructor_uid TEXT,course_uid TEXT,term TEXT,PRIMARY KEY(instructor_uid,course_uid,term));
+    CREATE TABLE grades(uid TEXT,term TEXT,section TEXT,instructors TEXT,payload TEXT,PRIMARY KEY(uid,term,section));
+    CREATE TABLE metadata(key TEXT PRIMARY KEY,value TEXT);
+    CREATE VIRTUAL TABLE search USING fts5(uid UNINDEXED,kind UNINDEXED,code,title,body,tokenize='unicode61 remove_diacritics 2');
+    CREATE INDEX teaching_course ON teaching(course_uid,term,instructor_uid);
+    CREATE INDEX grades_course ON grades(uid,term);
+    CREATE INDEX subjects_course ON subjects(uid);
+    """)
+    variants = defaultdict(list)
+    for r in rows(source, "courses_current"):
+        variants[r["course_uid"]].append(r)
+    courses = {uid: dict(rs[0]) for uid, rs in variants.items()}
+    for uid, c in courses.items():
+        c["catalog_variants"] = variants[uid] if len(variants[uid]) > 1 else []
+        c["subjects"] = sorted(
+            {subject for r in variants[uid] for subject in r["subjects"]}
+        )
+    if limit:
+        pilot = [
+            r
+            for r in courses.values()
+            if r["course_number"] in (300, 400, 759) and "COMPSCI" in r["subjects"]
+        ]
+        selected = {r["course_uid"]: r for r in pilot}
+        selected.update(list(courses.items())[:limit])
+        courses = selected
+    if not courses:
+        raise ValueError("Empty course release")
+    print(f"Importing {len(courses)} courses", flush=True)
+    inst = {r["instructor_uid"]: r for r in rows(source, "instructors")}
+    attach_ratings(inst, rows(source, "rmp_reviews"))
+    section_inst = defaultdict(set)
+    for r in rows(source, "section_instructors_current"):
+        section_inst[r["section_uid"]].add(r["instructor_uid"])
+    course_inst, inst_courses, offerings, sections = (
+        defaultdict(set),
+        defaultdict(set),
+        defaultdict(list),
+        defaultdict(list),
+    )
+    section_data = {r["section_uid"]: r for r in rows(source, "sections_current")}
+    for r in rows(source, "offering_sections"):
+        uid = r["course_uid"]
+        if uid in courses:
+            section = section_data[r["section_uid"]]
+            sections[uid].append(section)
+            for iid in section_inst[r["section_uid"]]:
+                if iid not in inst:
+                    raise ValueError(f"Missing instructor {iid}")
+                course_inst[uid].add(iid)
+                inst_courses[iid].add(uid)
+                db.execute(
+                    "INSERT OR IGNORE INTO teaching VALUES(?,?,?)",
+                    (iid, uid, section["term_id"]),
+                )
+    for r in rows(source, "offerings_current"):
+        if r["course_uid"] in courses:
+            offerings[r["course_uid"]].append(r)
+    aggregates = defaultdict(list)
+    grade_conflicts = defaultdict(list)
+    grade_groups = defaultdict(list)
+    for r in rows(source, "grades_latest"):
+        if r["course_uid"] in courses:
+            grade_groups[r["course_uid"], r["term_id"]].append(r)
+    for (uid, term), rs in grade_groups.items():
+        counts = {
+            tuple((key, val) for key, val in r.items() if isinstance(val, int))
+            for r in rs
+        }
+        if len(counts) > 1:
+            grade_conflicts[uid].extend(rs)
+            continue
+        r = dict(rs[0])
+        r["source_aliases"] = sorted({source["course_id"] for source in rs})
+        r["instructors"] = sorted(
+            {name for source in rs for name in source["instructors"] if name}
+        )
+        aggregates[uid].append(r)
+        db.execute(
+            "INSERT INTO grades VALUES(?,?,?,?,?)",
+            (uid, term, "", encode(r["instructors"]), encode(r)),
+        )
+    del grade_groups
+    grade_instructors = defaultdict(set)
+    for r in rows(source, "grade_section_instructors"):
+        grade_instructors[r["grade_section_uid"]].add(r["instructor_uid"])
+    instructor_grades = defaultdict(lambda: [0] * len(GRADES))
+    instructor_sections = defaultdict(int)
+    for r in rows(source, "section_grades_latest"):
+        uid = r["course_uid"]
+        if uid in courses:
+            ids = sorted(grade_instructors[r["grade_section_uid"]])
+            r["instructor_uids"] = ids
+            db.execute(
+                "INSERT INTO grades VALUES(?,?,?,?,?)",
+                (uid, r["term_id"], r["grade_section_uid"], encode(ids), encode(r)),
+            )
+            for iid in ids:
+                if iid in inst:
+                    for index, key in enumerate(GRADES):
+                        instructor_grades[iid][index] += r.get(key) or 0
+                    instructor_sections[iid] += 1
+                db.execute(
+                    "INSERT OR IGNORE INTO teaching VALUES(?,?,?)",
+                    (iid, uid, r["term_id"]),
+                )
+    for iid, counts in instructor_grades.items():
+        inst[iid]["grade_statistics"] = {
+            **grade_stats([dict(zip(GRADES, counts))]),
+            "sections": instructor_sections[iid],
+        }
+    paths = defaultdict(dict)
+    for table, kind in [
+        ("courses_history", "history"),
+        ("llm_traces", "traces"),
+        ("rmp_reviews", "reviews"),
+        ("meetings_current", "meetings"),
+        ("llm_results", "results"),
+    ]:
+        grouped = defaultdict(list)
+        for r in rows(source, table):
+            if r["course_uid"] in courses:
+                grouped[r["course_uid"]].append(r)
+        for uid, records in grouped.items():
+            paths[uid][kind] = chunks(static, revision, kind, uid, records)
+        print(f"Packed {table}", flush=True)
+        del grouped
+    departments = defaultdict(list)
+    summaries = []
+    for uid, c in courses.items():
+        c["student_summary"] = json.loads(c["llm_student_summary_json"] or "{}")
+        c["requirements"] = json.loads(c["llm_requirements_ast_json"] or "{}")
+        if not c["requirements"].get("nodes"):
+            c["requirements"] = {
+                "root": "fallback",
+                "status": "needs_review",
+                "nodes": [
+                    {
+                        "id": "fallback",
+                        "kind": "condition",
+                        "condition": c["requirements_text"]
+                        or "No prerequisites listed.",
+                        "children": [],
+                    }
+                ],
+            }
+        c["instructors"] = [
+            inst[i] for i in sorted(course_inst[uid], key=lambda i: inst[i]["name"])
+        ]
+        c["offerings"], c["sections"] = (
+            offerings[uid],
+            list({r["section_uid"]: r for r in sections[uid]}.values()),
+        )
+        c["grade_instructors"] = [
+            inst[r[0]]
+            for r in db.execute(
+                "SELECT DISTINCT instructor_uid FROM teaching WHERE course_uid=?",
+                (uid,),
+            )
+            if r[0] in inst
+        ]
+        c["grades"] = sorted(aggregates[uid], key=lambda r: r["term_id"])
+        c["statistics"] = grade_stats(c["grades"])
+        c["grade_conflicts"] = grade_conflicts[uid]
+        c["evidence"] = paths[uid]
+        c["revision"] = revision
+        for key in (
+            "llm_student_summary_json",
+            "llm_requirements_ast_json",
+            "llm_experience_json",
+        ):
+            c.pop(key, None)
+        db.execute(
+            "INSERT INTO courses VALUES(?,?,?,?,?,?,?,?)",
+            (
+                uid,
+                c["course_id"],
+                c["title"],
+                c["description"],
+                c["credits_min"],
+                c["credits_max"],
+                c["statistics"]["gpa"],
+                encode(c),
+            ),
+        )
+        search_text = c["description"] or ""
+        if c["llm_search_status"] == "valid":
+            search_text += " " + " ".join(
+                c["llm_topics"] + c["llm_skills"] + c["llm_search_phrases"]
+            )
+        db.execute(
+            "INSERT INTO search VALUES(?,?,?,?,?)",
+            (uid, "course", c["course_id"], c["title"], search_text),
+        )
+        item = {
+            k: c[k]
+            for k in ["course_uid", "course_id", "title", "credits_min", "credits_max"]
+        }
+        item["gpa"] = c["statistics"]["gpa"]
+        summaries.append(item)
+        for subject in c["subjects"]:
+            departments[subject].append(item)
+            db.execute("INSERT OR IGNORE INTO subjects VALUES(?,?)", (subject, uid))
+            db.execute(
+                "INSERT OR IGNORE INTO aliases VALUES(?,?)",
+                (normalize(subject + str(c["course_number"])), uid),
+            )
+        db.execute(
+            "INSERT OR IGNORE INTO aliases VALUES(?,?)",
+            (normalize(c["course_id"]), uid),
+        )
+        write(output / "courses" / f"{uid}.json", c)
+    # Historical aliases stay explicit: conflicts are returned as multiple search matches.
+    for r in rows(source, "course_aliases"):
+        if r["course_uid"] in courses:
+            db.execute(
+                "INSERT OR IGNORE INTO aliases VALUES(?,?)",
+                (normalize(r["subject"] + str(r["course_number"])), r["course_uid"]),
+            )
+    summary_by_id = {c["course_uid"]: c for c in summaries}
+    for iid, i in inst.items():
+        i["current"] = bool(inst_courses.get(iid))
+        i["courses"] = [summary_by_id[uid] for uid in sorted(inst_courses.get(iid, []))]
+        i["revision"] = revision
+        db.execute(
+            "INSERT INTO instructors VALUES(?,?,?,?)",
+            (iid, i["name"], int(i["current"]), encode(i)),
+        )
+        db.execute(
+            "INSERT INTO search VALUES(?,?,?,?,?)",
+            (iid, "instructor", "", i["name"], ""),
+        )
+        if i["current"]:
+            write(output / "instructors" / f"{iid}.json", i)
+    for subject, items in departments.items():
+        write(
+            output / "subjects" / f"{subject}.json",
+            {
+                "subject": subject,
+                "courses": sorted(items, key=lambda c: c["course_id"]),
+            },
+        )
+    build_discovery(db, rows(source, "rmp_reviews"))
+    status = {
+        "revision": revision,
+        "repository": REPO,
+        "schema_version": 6,
+        "importer_version": IMPORTER_VERSION,
+        "projection_id": hashlib.sha256(
+            revision.encode()
+            + Path(__file__).read_bytes()
+            + Path(__file__).with_name("schema-v6.json").read_bytes()
+            + Path(__file__).with_name("discovery.py").read_bytes()
+        ).hexdigest(),
+        "observed_at": manifest["observed_at"],
+        "built_at": datetime.now(timezone.utc).isoformat(),
+        "courses": len(courses),
+        "current_instructors": len(inst_courses),
+        "limited": bool(limit),
+        "terms": [
+            r[0]
+            for r in db.execute(
+                "SELECT DISTINCT term FROM grades UNION SELECT term FROM teaching ORDER BY term DESC"
+            )
+        ],
+        "term": next(iter(courses.values()))["semester"],
+        "departments": [
+            {"subject": s, "count": len(v)} for s, v in sorted(departments.items())
+        ],
+    }
+    write(output / "status.json", status)
+    write(
+        output / "entries.json",
+        {
+            "courses": list(courses),
+            "instructors": sorted(inst_courses),
+            "subjects": sorted(departments),
+        },
+    )
+    db.execute("INSERT INTO metadata VALUES(?,?)", ("status", encode(status)))
+    db.commit()
+
+    # Emit portable D1 SQL; keep every statement below its 100 KB query limit.
+    def quote(v):
+        if v is None:
+            return "NULL"
+        if isinstance(v, (int, float)):
+            return str(v)
+        return "'" + str(v).replace("'", "''") + "'"
+
+    with SqlParts(output / "sql") as f:
+        f.write("DROP TABLE IF EXISTS search;\n")
+        for table in [
+            "courses",
+            "aliases",
+            "subjects",
+            "instructors",
+            "teaching",
+            "grades",
+            "metadata",
+            "course_numbers",
+            "offerings",
+            "grade_summaries",
+            "reviews",
+        ]:
+            f.write(f"DROP TABLE IF EXISTS {table};\n")
+        for (sql,) in db.execute(
+            "SELECT sql FROM sqlite_master WHERE type='table' AND name NOT LIKE 'search%' AND name NOT LIKE 'sqlite_%'"
+        ):
+            f.write(sql + ";\n")
+        for (table,) in db.execute(
+            "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'search%' AND name NOT LIKE 'sqlite_%'"
+        ):
+            cols = [r[1] for r in db.execute(f"PRAGMA table_info({table})")]
+            for row in db.execute(f"SELECT * FROM {table}"):
+                values = list(row)
+                payload_index = cols.index("payload") if "payload" in cols else None
+                payload = values[payload_index] if payload_index is not None else None
+                split = payload is not None and len(payload.encode()) > 40000
+                if payload and len(payload.encode()) > 1800000:
+                    raise ValueError(
+                        f"D1 row too large in {table}; move evidence to static assets"
+                    )
+                if split:
+                    values[payload_index] = ""
+                line = (
+                    f"INSERT INTO {table} VALUES("
+                    + ",".join(quote(v) for v in values)
+                    + ");\n"
+                )
+                if len(line.encode()) > 90000:
+                    raise ValueError(f"D1 statement too large: {table}")
+                f.write(line)
+                if split:
+                    for offset in range(0, len(payload), 8000):
+                        f.write(
+                            f"UPDATE {table} SET payload=payload||"
+                            + quote(payload[offset : offset + 8000])
+                            + f" WHERE {cols[0]}="
+                            + quote(row[0])
+                            + ";\n"
+                        )
+        f.write(
+            "CREATE VIRTUAL TABLE search USING fts5(uid UNINDEXED,kind UNINDEXED,code,title,body,tokenize='unicode61 remove_diacritics 2');\n"
+        )
+        for row in db.execute("SELECT uid,kind,code,title,body FROM search"):
+            f.write(
+                "INSERT INTO search VALUES(" + ",".join(quote(v) for v in row) + ");\n"
+            )
+        for (sql,) in db.execute(
+            "SELECT sql FROM sqlite_master WHERE type='index' AND sql IS NOT NULL AND name NOT LIKE 'search%'"
+        ):
+            f.write(sql + ";\n")
+        f.write("INSERT INTO metadata VALUES('ready','true');\n")
+    db.close()
+    print(encode(status), flush=True)
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--source", type=Path)
+    parser.add_argument("--revision")
+    parser.add_argument("--output", type=Path, default=ROOT / ".site")
+    parser.add_argument(
+        "--limit",
+        type=int,
+        default=0,
+        help="Development subset; never deploy a limited import",
+    )
+    args = parser.parse_args()
+    if args.source:
+        source = args.source
+        revision = (
+            args.revision
+            or "local-"
+            + hashlib.sha256((source / "manifest.json").read_bytes()).hexdigest()[:20]
+        )
+    else:
+        from huggingface_hub import HfApi, snapshot_download
+
+        revision = HfApi().dataset_info(REPO, revision=args.revision or "main").sha
+        source = Path(
+            snapshot_download(
+                REPO,
+                repo_type="dataset",
+                revision=revision,
+                allow_patterns=[
+                    "manifest.json",
+                    "public/*.parquet",
+                    "public/schema.json",
+                ],
+            )
+        )
+    if not re.fullmatch(r"[a-zA-Z0-9-]{8,80}", revision):
+        raise ValueError("Invalid revision")
+    manifest = verify(source)
+    # Clean only the importer-owned generated tree. Git never tracks these files.
+    static = ROOT / "static/data"
+    if static.exists():
+        shutil.rmtree(static)
+    if args.output.exists():
+        shutil.rmtree(args.output)
+    compile_release(
+        source, revision, args.output, ROOT / "static", args.limit, manifest
+    )
+
+
+if __name__ == "__main__":
+    main()

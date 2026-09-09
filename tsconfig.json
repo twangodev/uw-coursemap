@@ -1,6 +1,7 @@
 {
   "extends": "./.svelte-kit/tsconfig.json",
   "compilerOptions": {
+    "types": ["@cloudflare/workers-types", "node"],
     "allowJs": true,
     "checkJs": true,
     "esModuleInterop": true,

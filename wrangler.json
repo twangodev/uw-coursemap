@@ -1,0 +1,31 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "uw-coursemap",
+  "main": ".svelte-kit/cloudflare/_worker.js",
+  "compatibility_date": "2026-09-08",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "assets": {
+    "directory": ".svelte-kit/cloudflare",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB_A",
+      "database_name": "uw-coursemap-a",
+      "database_id": "b7218037-080d-4484-b3a7-e8027aa31050"
+    },
+    {
+      "binding": "DB_B",
+      "database_name": "uw-coursemap-b",
+      "database_id": "3efdeb2d-15f6-4240-aa79-0f6dca156f28"
+    }
+  ],
+  "vars": {
+    "DATA_SLOT": "a"
+  }
+}

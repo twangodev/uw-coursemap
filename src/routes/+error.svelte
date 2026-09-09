@@ -1,18 +1,9 @@
 <script lang="ts">
-  import { page } from "$app/stores";
-  import ContentWrapper from "$lib/components/content/content-wrapper.svelte";
-  import {
-    PageHeader,
-    PageHeaderDescription,
-    PageHeaderHeading,
-  } from "$lib/components/page-header/index.js";
-
-  let error = $derived($page.error);
+  import { page } from "$app/state";
 </script>
 
-<ContentWrapper>
-  <PageHeader>
-    <PageHeaderHeading>Error {$page.status}</PageHeaderHeading>
-    <PageHeaderDescription>{error?.message}</PageHeaderDescription>
-  </PageHeader>
-</ContentWrapper>
+<div class="hero">
+  <p class="eyebrow">{page.status}</p>
+  <h1>{page.error?.message || "Something went wrong"}</h1>
+  <a href="/search">Explore courses →</a>
+</div>
