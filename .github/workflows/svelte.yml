@@ -35,7 +35,7 @@ jobs:
           python-version: "3.12"
           enable-cache: true
       - run: bun install --frozen-lockfile
-      - run: uv run --locked uwcourses-site import --limit 8
+      - run: uv run --locked uwcourses-site import
       - run: uv run --locked python -m unittest discover -s web/tests -p 'test_*.py'
       - run: bun run check
       - run: bun run test
