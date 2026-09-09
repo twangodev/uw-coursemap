@@ -10,7 +10,7 @@ export default {
       concurrency: 16,
       handleHttpError: "fail",
       handleMissingId: "warn",
-      entries: ["/", "/subjects", "/departments", "/explorer", "/stats"],
+      entries: ["/sitemap.xml", "/", "/subjects", "/departments", "/explorer", "/stats"],
     },
   },
 };

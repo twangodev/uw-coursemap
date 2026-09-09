@@ -9,9 +9,6 @@
   );
 </script>
 
-<svelte:head
-  ><title>UW Courses — Your next semester starts here</title><meta name="description" content="Explore UW–Madison courses, professors, grades and prerequisites." /></svelte:head
->
 <section class="landing">
   <div class="landing-copy">
     <p class="semester">
@@ -19,7 +16,7 @@
     </p>
     <h1>See you<br />on the Hill<span class="period">.</span></h1>
     <p class="landing-description">
-      A little direction for your next semester. Explore courses, get to know
+      Find UW–Madison courses for your next semester. Compare grades, get to know
       your professors, and hear from the students who came before you.
     </p>
     <form action="/search" class="landing-search">
@@ -31,7 +28,7 @@
       <button aria-label="Find courses"><Search size={19} strokeWidth={1.5} /></button>
     </form>
     <div class="try-search">
-      <span>Try</span><a href="/search?q=CS%20300">CS 300</a><a
+      <span>Try</span><a href="/courses/COMPSCI_300">CS 300</a><a
         href="/search?q=climate">climate</a
       ><a href="/search?q=film">film</a>
     </div>
@@ -49,7 +46,7 @@
     <p class="muted">
       Start in your department.<br />Or somewhere entirely new.
     </p>
-    <a href="/subjects">All departments <ArrowUpRight size={14} /></a>
+    <a href="/departments">All departments <ArrowUpRight size={14} /></a>
   </div>
   <div class="department-list">
     {#each departments as d}<a

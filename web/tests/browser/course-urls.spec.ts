@@ -27,7 +27,7 @@ test("canonical course URLs render and cross-list aliases redirect without suppo
   ).toBeVisible();
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    "/courses/COMPSCI_300",
+    "https://uwcourses.com/courses/COMPSCI_300",
   );
   expect((await request.get("/courses/nonexistent-999")).status()).toBe(404);
 });

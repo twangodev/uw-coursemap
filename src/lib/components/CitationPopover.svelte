@@ -5,7 +5,7 @@
   import { citationContext, citationKey, citedReviews } from "$lib/citations";
   import { safeUrl, termName } from "$lib/format";
   import type { Citation } from "$lib/types";
-  let { citations, reviewFiles }: { citations: Citation[]; reviewFiles: string[] } = $props();
+  let { citations, reviewFiles, coursePath = "" }: { citations: Citation[]; reviewFiles: string[]; coursePath?: string } = $props();
   const numberFor = getContext<((citation: Citation) => number) | undefined>(citationContext);
   const sources = $derived(citations.filter((citation, index) => citations.findIndex((other) => citationKey(other) === citationKey(citation)) === index));
   const numbers = $derived(sources.map((citation, index) => numberFor?.(citation) || index + 1));
@@ -44,14 +44,14 @@
               {#if review}<blockquote>{review.comment}</blockquote>
               {:else if loaded}<p class="source-status">The original comment is not in this dataset snapshot.</p>{/if}
               {#if safeUrl(citation.source_url)}<a href={safeUrl(citation.source_url)} target="_blank" rel="noreferrer">View RMP profile <ArrowUpRight size={13} /></a>{/if}
-            {:else}<p class="source-status">Recorded grade distribution for this term{citation.section_number != null ? " and section" : ""}.</p><a href="#grades" onclick={() => open = false}>View grade history <ArrowUpRight size={13} /></a>{/if}
+            {:else}<p class="source-status">Recorded grade distribution for this term{citation.section_number != null ? " and section" : ""}.</p><a href={`${coursePath}#grades`} onclick={() => open = false}>View grade history <ArrowUpRight size={13} /></a>{/if}
           </article>
         {/each}
       </div>
     </Popover.Content>
   </Popover.Portal>
 </Popover.Root>
-<noscript><a href="#evidence">Sources</a></noscript>
+<noscript><a href={`${coursePath}#evidence`}>Sources</a></noscript>
 
 <style>
   :global(.citation-marker) { display: inline; padding: 3px 2px; margin-left: 4px; border: 0; background: none; color: var(--accent); font: 11px var(--font-sans); vertical-align: super; line-height: 1; white-space: nowrap; cursor: pointer; border-radius: 2px; }

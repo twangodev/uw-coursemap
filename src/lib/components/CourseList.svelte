@@ -39,7 +39,7 @@
             : `No offering record · ${termName(d.term)}`}
         </p>
         {#if d.claim}<div class="takeaway">
-            <Claims claims={[d.claim]} reviewFiles={d.reviewFiles} />
+            <Claims claims={[d.claim]} reviewFiles={d.reviewFiles} coursePath={courseUrl(c.course_id)} />
           </div>{/if}
         {#if d.instructorHistory?.count}<p class="instructor-comparison">
             <strong

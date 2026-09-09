@@ -24,10 +24,6 @@
   });
 </script>
 
-<svelte:head>
-  <title>{title} · UW Courses</title>
-  <meta name="description" content={`Explore course prerequisite relationships${data.subject ? ` in ${departmentName(data.subject)}` : " at UW–Madison"}.`} />
-</svelte:head>
 
 <div class="explorer">
   {#if Graph}<Graph data={data.graph} subject={data.subject} focus={chosen} onSelect={select} />{:else}<p class="loading" role="status">{loadError ? "Unable to load the map. Reload to try again." : "Loading prerequisite map…"}</p>{/if}

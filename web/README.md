@@ -15,6 +15,7 @@ bun run check
 bun run test
 uv run --locked python -m unittest discover -s web/tests -p 'test_*.py'
 bun run build
+bun run seo:check
 uv run --locked uwcourses-site assets-check
 bun x playwright test
 ```

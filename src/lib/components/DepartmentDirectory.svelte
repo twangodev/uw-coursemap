@@ -10,7 +10,6 @@
   );
 </script>
 
-<svelte:head><title>{map ? "UW–Madison Prerequisite Maps" : "UW–Madison Departments & Courses"} · UW Courses</title><meta name="description" content="Browse UW–Madison departments by name. Explore courses, historical grades, instructor reviews, and department rankings." /></svelte:head>
 <div class="department-heading">
   <h1>{map ? "Prerequisite maps" : "Departments"}</h1>
   <label class="sr-only" for="department-query">Find a department</label>
