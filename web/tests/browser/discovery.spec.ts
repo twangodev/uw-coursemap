@@ -64,6 +64,7 @@ test("instructor reviews show original comments, paginate and filter by course",
     .getByRole("button", { name: "Reviews for course", exact: true })
     .click();
   await page.getByRole("option", { name: "COMPSCI 300", exact: true }).click();
+  await expect(page.getByRole("listbox")).toHaveCount(0);
   await expect(reviews.locator(".student-review")).toHaveCount(6);
   await expect(reviews.locator(".review-meta").first()).toContainText(
     "COMPSCI 300",

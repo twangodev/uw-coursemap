@@ -927,7 +927,8 @@ a:hover {
     animation: surface-leave var(--motion-fast) ease forwards;
     pointer-events: none;
   }
-  .suggestions, .sticky-course-title { animation: surface-arrive var(--motion-normal) var(--motion-ease); }
+  .suggestions, .sticky-course-title, .map-results, .selected-course { animation: surface-arrive var(--motion-normal) var(--motion-ease); }
+  .student-review { animation: content-arrive var(--motion-enter) var(--motion-ease); }
   details[open] > :not(summary) { animation: disclosure-arrive var(--motion-normal) var(--motion-ease); }
   @supports (interpolate-size: allow-keywords) {
     :is(.comparison-method, .benchmark-note, .rating-method, .grade-estimate details) { interpolate-size: allow-keywords; }
