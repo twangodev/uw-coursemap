@@ -14,7 +14,7 @@
       <ul class="branches">{#each node.children as child}{@render branch(child)}{/each}</ul>
       <span class="condition">{node.kind === "all" ? "take all" : node.kind === "any" ? "take one" : node.kind === "not" ? "not eligible with" : nodeLabel(node)}</span>
     {:else if node.course}
-      <a class="course-node" href={`/search?q=${encodeURIComponent(node.course.subjects[0] + " " + node.course.course_number)}`}>{nodeLabel(node)}</a>
+      <a class="course-node" href={courseUrl(node.course.subjects[0] + " " + node.course.course_number)}>{nodeLabel(node)}</a>
     {:else}<span class="text-node">{nodeLabel(node)}</span>{/if}
   </li>
 {/snippet}

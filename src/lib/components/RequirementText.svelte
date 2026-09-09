@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Requirements } from "$lib/types";
+  import { courseUrl } from "$lib/format";
   import { nodeLabel } from "$lib/requirements";
   let { ast }: { ast: Requirements } = $props();
 </script>
@@ -7,10 +8,7 @@
 {#snippet branch(tree: Requirements, id: string, seen: string[])}{@const node =
     tree.nodes.find((n) => n.id === id)}{#if node && !seen.includes(id)}<li>
       {#if node.course}<a
-          href={"/search?q=" +
-            encodeURIComponent(
-              node.course.subjects[0] + " " + node.course.course_number,
-            )}>{nodeLabel(node)}</a
+          href={courseUrl(node.course.subjects[0] + " " + node.course.course_number)}>{nodeLabel(node)}</a
         >{:else}{nodeLabel(node)}{/if}{#if node.children?.length}<ul>
           {#each node.children as child}{@render branch(tree, child, [
               ...seen,
