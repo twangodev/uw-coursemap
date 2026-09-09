@@ -17,6 +17,7 @@ it("serves queries only while the database matches the static documents", async 
   expect(read).toHaveBeenCalledTimes(2);
   for (const state of [
     [],
+    ready.filter((row) => row.key !== "serving"),
     [{ key: "ready", value: "false" }],
     [
       ...ready.filter((row) => row.key !== "status"),
