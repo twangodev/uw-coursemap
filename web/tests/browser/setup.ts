@@ -1,37 +1,59 @@
-import { execFileSync } from "node:child_process";
-import { readdirSync } from "node:fs";
+import { DatabaseSync } from "node:sqlite";
 import { randomUUID } from "node:crypto";
+import { getPlatformProxy } from "wrangler";
 
-/** Seed the production Worker's isolated local D1 before browser tests run. */
-export default function setup() {
-  const parts = readdirSync(".site/sql")
-    .filter((file) => file.endsWith(".sql"))
-    .sort();
-  if (!parts.length)
-    throw new Error("Run the dataset import before browser tests");
-  const execute = (...args: string[]) =>
-    execFileSync(
-      "bun",
-      [
-        "x",
-        "--no-install",
-        "wrangler",
-        "d1",
-        "execute",
-        "DB",
-        "--local",
-        "--persist-to",
-        ".site/browser-state",
-        ...args,
-      ],
-      { stdio: ["ignore", "ignore", "inherit"] },
-    );
-  for (const part of parts) {
-    console.log(`Seeding browser D1: ${part}`);
-    execute("--file", `.site/sql/${part}`);
+/** Copy the full dataset into an isolated local D1, using bounded API batches. */
+export default async function setup() {
+  const source = new DatabaseSync(".site/site.sqlite", { readOnly: true });
+  const platform = await getPlatformProxy<{ DB: D1Database }>({
+    remoteBindings: false,
+    persist: { path: ".site/browser-state/v3" },
+  });
+  const db = platform.env.DB;
+  const tables = source
+    .prepare(
+      "SELECT name,sql FROM sqlite_master WHERE type='table' AND (name NOT LIKE 'search%' OR name='search') AND name NOT LIKE 'sqlite_%'",
+    )
+    .all() as { name: string; sql: string }[];
+  const identifier = (name: string) => '"' + name.replaceAll('"', '""') + '"';
+  try {
+    for (const { name, sql } of tables) {
+      console.log(`Seeding browser D1: ${name}`);
+      await db.prepare(`DROP TABLE IF EXISTS ${identifier(name)}`).run();
+      await db.prepare(sql).run();
+      const statement = source.prepare(`SELECT * FROM ${identifier(name)}`);
+      statement.setReturnArrays(true);
+      let batch: D1PreparedStatement[] = [];
+      for (const row of statement.iterate()) {
+        const values = row as unknown as (string | number | null)[];
+        batch.push(
+          db
+            .prepare(
+              `INSERT INTO ${identifier(name)} VALUES (${values.map(() => "?").join(",")})`,
+            )
+            .bind(...values),
+        );
+        if (batch.length === 100) {
+          await db.batch(batch);
+          batch = [];
+        }
+      }
+      if (batch.length) await db.batch(batch);
+    }
+    for (const { sql } of source
+      .prepare(
+        "SELECT sql FROM sqlite_master WHERE type='index' AND sql IS NOT NULL AND name NOT LIKE 'search%'",
+      )
+      .all())
+      await db.prepare(String(sql)).run();
+    await db.batch([
+      db.prepare("INSERT OR REPLACE INTO metadata VALUES ('ready', 'true')"),
+      db
+        .prepare("INSERT OR REPLACE INTO metadata VALUES ('serving', ?)")
+        .bind(randomUUID().replaceAll("-", "")),
+    ]);
+  } finally {
+    source.close();
+    await platform.dispose();
   }
-  execute(
-    "--command",
-    `INSERT OR REPLACE INTO metadata VALUES ('serving', '${randomUUID().replaceAll("-", "")}')`,
-  );
 }
