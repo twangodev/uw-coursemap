@@ -47,3 +47,5 @@ D1 SQL is emitted as ordered 16 MiB files, with each statement below 100 KB. The
 History and traces are paged static JSON. Unusually large trace records use ordered text fragments that concatenate to the original JSON. Assets are checked against 80,000 files and 20 MiB per file. Search and filtered grades use `/api`; outdated page requests return 409 and ask the student to reload.
 
 Grades use course aggregates or instructor sections, never both. Identical cross-list distributions are deduplicated; conflicting course/term distributions are preserved for inspection and excluded from calculated GPA. Co-teachers share a section's distribution. Catalog timestamps represent observations, not validity intervals. Instructor identities remain separate even when names match.
+
+Social cards use `web/social-card.html` and are generated automatically by the Cloudflare adapter after prerendering. Chromium is required (`bun x playwright install chromium`). The renderer caches unchanged titles, fonts and artwork under `.site/social-cache`; production serves static PNGs, while Vite generates preview cards on demand.

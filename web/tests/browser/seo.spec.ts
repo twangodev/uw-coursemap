@@ -176,10 +176,10 @@ test('social cards match page families and serve valid 1200 by 630 PNGs', async 
     ['/explorer/COMPSCI', 'maps'],
   ]) {
     const html = await (await request.get(path)).text();
-    expect(html).toContain(`property="og:image" content="https://uwcourses.com/social/${kind}.png"`);
+    expect(html).toContain(`property="og:image" content="https://uwcourses.com/social/pages${path}.png"`);
     expect(html).toContain('name="twitter:card" content="summary_large_image"');
     expect(html).toContain('property="og:image:alt" content="UW Courses');
-    const response = await request.get(`/social/${kind}.png`);
+    const response = await request.get(`/social/pages${path}.png`);
     expect(response.status()).toBe(200);
     expect(response.headers()['content-type']).toContain('image/png');
     const png = await response.body();

@@ -40,5 +40,5 @@ export async function load({ params, platform, setHeaders, url }) {
     instructorCourses(uid, term, platform),
     instructorReviews(uid, 1, "", platform),
   ]);
-  return { instructor, history, timeline, term, courses, reviews };
+  return { instructor, history, timeline, term, courses, reviews, socialImage: entriesData.instructors.includes(uid) };
 }

@@ -188,11 +188,12 @@ export function pageSeo(data: any, pathname: string, status = 200) {
     : data.subject && !data.course ? "departments"
     : pathname === "/departments" ? "departments" : "courses";
   const imageDescriptions = {
-    courses: "UW Courses — Find your next favorite class. Courses, grades and prerequisites.",
-    instructors: "UW Courses — Know your professors. Student reviews and teaching history.",
-    departments: "UW Courses — Explore every possibility. Departments, courses and connections.",
-    maps: "UW Courses — See the connections. Explore your prerequisite paths.",
+    courses: "UW Courses — Courses, grades and prerequisites.",
+    instructors: "UW Courses — Find a professor.",
+    departments: "UW Courses — Explore departments.",
+    maps: "UW Courses — Prerequisite maps.",
   };
+  const personalImage = !noindex && (data.course || data.subject || (data.instructor && data.socialImage));
   if (!noindex) {
     const entity = graph.find((item) =>
       ["Course", "Person", "ItemList"].includes(String(item["@type"])),
@@ -218,8 +219,8 @@ export function pageSeo(data: any, pathname: string, status = 200) {
     title,
     description,
     canonical,
-    image: absoluteUrl(`/social/${imageKind}.png`),
-    imageAlt: imageDescriptions[imageKind],
+    image: absoluteUrl(personalImage ? `/social/pages${path}.png` : `/social/${imageKind}.png`),
+    imageAlt: personalImage ? `UW Courses — ${title.replace(/\s*\|.*$/, "")}` : imageDescriptions[imageKind],
     noindex,
     structuredData: { "@context": "https://schema.org", "@graph": graph },
   };

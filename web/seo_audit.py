@@ -39,6 +39,15 @@ def validate_page(html, url):
     assert len(description) == 1 and description[0].strip(), url
     assert 'name="robots" content="index,follow' in head, url
     assert len(re.findall(r"<h1(?:\s|>)", html)) == 1, url
+    if len(sys.argv) == 1:
+        images = re.findall(r'<meta\s+property="og:image"\s+content="([^"]+)"', head)
+        assert len(images) == 1 and images[0].startswith(origin + "/social/"), url
+        image_path = Path(".svelte-kit/cloudflare") / unquote(urlsplit(images[0]).path).lstrip("/")
+        with image_path.open("rb") as image:
+            png = image.read(24)
+        assert png[:8] == b"\x89PNG\r\n\x1a\n", image_path
+        assert int.from_bytes(png[16:20], "big") == 1200, image_path
+        assert int.from_bytes(png[20:24], "big") == 630, image_path
     blocks = re.findall(
         r'<script type="application/ld\+json">(.*?)</script>', head, re.S
     )

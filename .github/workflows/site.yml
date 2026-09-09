@@ -41,10 +41,17 @@ jobs:
       - run: bun run check
       - run: bun run test
       - run: uv run --locked python -m unittest discover -s web/tests -p 'test_*.py'
+      - run: bun x playwright install --with-deps chromium
+      - name: Cache social cards
+        uses: actions/cache@v5
+        with:
+          path: .site/social-cache
+          key: ${{ runner.os }}-social-${{ hashFiles('web/social-images.mjs', 'web/social-card.html', 'static/fonts/OverusedGrotesk-VF.woff2', 'static/uw-coursemap-logo.svg') }}-${{ hashFiles('.site/status.json') }}
+          restore-keys: |
+            ${{ runner.os }}-social-${{ hashFiles('web/social-images.mjs', 'web/social-card.html', 'static/fonts/OverusedGrotesk-VF.woff2', 'static/uw-coursemap-logo.svg') }}-
       - run: bun run build
       - run: bun run seo:check
       - run: uv run --locked uwcourses-site assets-check
-      - run: bun x playwright install --with-deps chromium
       - run: bun x playwright test
       - name: Select inactive D1 database
         id: database
