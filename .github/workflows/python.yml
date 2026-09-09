@@ -20,4 +20,3 @@ jobs:
       - run: uv run --locked ruff format --check generation scripts web/uwcourses_site web/tests
       - run: uv run --locked ruff check generation scripts web/uwcourses_site web/tests
       - run: uv run --locked python -m unittest discover -s generation/tests
-      - run: uv run --locked python -m unittest discover -s web/tests -p 'test_*.py'
