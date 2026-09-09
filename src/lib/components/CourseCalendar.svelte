@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { Popover } from "bits-ui";
+  import { MediaQuery } from "svelte/reactivity";
   import {
     ChevronLeft,
     ChevronRight,
@@ -32,6 +33,7 @@
     selected = $state<Meeting | null>(null);
   let anchor = $state<HTMLElement | null>(null);
   const hourHeight = 72;
+  const mobile = new MediaQuery("(max-width: 600px)");
   function openMeeting(meeting: Meeting, target: HTMLElement) { anchor = target; selected = meeting; }
   $effect(() => { week; section; selected = null; });
   const controller = new AbortController();
@@ -247,7 +249,7 @@
       </p>{/if}
     <Popover.Root open={!!selected} onOpenChange={(open) => { if (!open) selected = null; }}>
       <Popover.Portal>
-        <Popover.Content class="meeting-popover" customAnchor={anchor} side="right" align="start" sideOffset={10} collisionPadding={12} role="dialog" aria-label="Meeting details" onCloseAutoFocus={(event) => { event.preventDefault(); anchor?.focus(); }}>
+        <Popover.Content class="meeting-popover" customAnchor={anchor} side={mobile.current ? "bottom" : "right"} align={mobile.current ? "center" : "start"} sideOffset={10} collisionPadding={12} role="dialog" aria-label="Meeting details" onCloseAutoFocus={(event) => { event.preventDefault(); anchor?.focus(); }}>
           {#if selected}
             <div class="meeting-popover-heading"><span>{selected.course_id} · {sectionName(selected.name)}</span><Popover.Close class="meeting-close" aria-label="Close meeting details"><X size={16} /></Popover.Close></div>
             <h3 class="meeting-title">{sectionName(selected.name)}</h3>
