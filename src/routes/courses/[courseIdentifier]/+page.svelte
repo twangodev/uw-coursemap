@@ -81,6 +81,7 @@
   let sourceNumbers = $derived(citationNumbers(allTimeSummary));
   setContext(citationContext, (citation: Citation) => sourceNumbers.get(citationKey(citation)));
   let active = $state("overview");
+  let navigationHeight = $state(43);
   let introduction = $derived(
     (c.llm_summary || c.description || "")
       .replace(`${c.course_id} ${c.title} `, "")
@@ -116,7 +117,7 @@
     content={c.llm_summary || c.description?.slice(0, 160)}
   /><link rel="canonical" href={courseUrl(c.course_id)} /></svelte:head
 >
-<div class="course-page">
+<div class="course-page" style={`--course-navigation-height: ${navigationHeight}px`}>
 <div class="course-heading">
   <div class="row between">
     <div class="breadcrumbs mono">
@@ -149,7 +150,7 @@
     </div>
   </div>
 </div>
-<div class="course-navigation">
+<div class="course-navigation" bind:offsetHeight={navigationHeight}>
   <nav class="course-jumps" aria-label="Course sections">
     {#each links as link}<a
         href={"#" + link.id}
