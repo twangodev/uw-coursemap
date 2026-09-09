@@ -204,8 +204,8 @@
       </div>
       <div class="fact-pair">
         <span>Subjects</span>
-        <div class="row">
-          {#each c.subjects as subject}<a
+        <div class="subject-links">
+          {#each c.subjects as subject, index}{index > 0 ? ", " : ""}<a
               href={"/departments/" + encodeURIComponent(subject)}>{departmentName(subject)}</a
             >{/each}
         </div>
