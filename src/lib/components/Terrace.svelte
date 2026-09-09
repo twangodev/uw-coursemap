@@ -119,7 +119,7 @@
   .annotation {
     color: var(--muted);
     fill: var(--muted);
-    font: 10px var(--font-mono);
+    font: 10px var(--font-sans);
     opacity: 0.7;
   }
 </style>

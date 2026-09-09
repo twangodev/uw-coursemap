@@ -71,7 +71,7 @@
     min-height: 575px;
   }
   .semester {
-    font: 12px var(--font-mono);
+    font: 12px var(--font-sans);
     color: var(--muted);
     display: flex;
     gap: 10px;
@@ -197,7 +197,7 @@
     align-items: center;
     gap: 12px;
     color: var(--muted);
-    font: 11px var(--font-mono);
+    font: 11px var(--font-sans);
     white-space: nowrap;
   }
   @media (max-width: 760px) {

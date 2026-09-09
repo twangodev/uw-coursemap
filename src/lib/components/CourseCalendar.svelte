@@ -290,7 +290,7 @@
   }
   .export,
   select {
-    font: 11px var(--font-mono);
+    font: 11px var(--font-sans);
     padding: 6px 8px;
   }
   .week-label {
@@ -309,7 +309,7 @@
     text-align: center;
     padding: 10px 0;
     border-bottom: 1px solid var(--border);
-    font: 10px var(--font-mono);
+    font: 10px var(--font-sans);
     color: var(--muted);
     display: grid;
     gap: 4px;
@@ -325,7 +325,7 @@
   .hour-axis {
     display: grid;
     grid-template-rows: repeat(var(--hours), var(--hour-height));
-    font: 9px var(--font-mono);
+    font: 9px var(--font-sans);
     color: var(--muted);
   }
   .hour-axis span {
@@ -369,7 +369,7 @@
     background: color-mix(in srgb, var(--accent) 20%, var(--bg));
   }
   .calendar-note {
-    font: 10px/1.5 var(--font-mono);
+    font: 10px/1.5 var(--font-sans);
     color: var(--muted);
     margin: 12px 0 20px;
   }
@@ -387,7 +387,7 @@
     display: none;
   }
   .agenda h3 {
-    font: 11px var(--font-mono);
+    font: 11px var(--font-sans);
     margin: 16px 0 6px;
   }
   .agenda button {

@@ -18,6 +18,6 @@ The website is SvelteKit on Cloudflare Workers Static Assets + D1. `web/uwcourse
 
 Scraping, LLM inference and HF publication remain independent local operations under `generation/uw_coursemap`. Use `uv run coursemap`; do not couple inference to website builds. Test pipeline changes with `uv run python -m unittest discover -s generation/tests`.
 
-Use the warm paper/charcoal palette and red accents from the Wisconsin reference site, with Overused Grotesk and JetBrains Mono. Use LayerChart for charts and Svelte Flow for prerequisite interaction. Preserve source identities, citations, uncertain requirement nodes and grade deduplication.
+Use the warm paper/charcoal palette and red accents from the Wisconsin reference site, with Overused Grotesk throughout. Use LayerChart for charts and Svelte Flow for prerequisite interaction. Preserve source identities, citations, uncertain requirement nodes and grade deduplication.
 
 Use focused Conventional Commits and keep main deployable. Preserve unrelated work and use isolated worktrees for changes.

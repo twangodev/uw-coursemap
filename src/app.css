@@ -5,15 +5,8 @@
   font-weight: 300 900;
   font-display: swap;
 }
-@font-face {
-  font-family: JetBrains Mono;
-  src: url("/fonts/JetBrainsMono-VF.woff2") format("woff2");
-  font-weight: 100 800;
-  font-display: swap;
-}
 @theme {
   --font-sans: "Overused Grotesk", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
   --color-primary: #c5050c;
   --color-surface-100: #efede7;
   --color-surface-content: #1a1916;
@@ -148,7 +141,7 @@ p + p {
 }
 .mono,
 .eyebrow {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.75rem;
 }
 .eyebrow {
@@ -194,7 +187,7 @@ p + p {
 .course-row .code {
   overflow-wrap: anywhere;
   color: var(--accent);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.85rem;
 }
 .course-row:hover {
@@ -240,7 +233,7 @@ details > div {
 pre {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
-  font: 12px/1.65 var(--font-mono);
+  font: 12px/1.65 var(--font-sans);
   background: var(--surface);
   padding: 1rem;
   max-height: 500px;
@@ -535,7 +528,7 @@ a:hover {
   font-size: 15px;
 }
 .panel .citations summary {
-  font: 12px var(--font-mono);
+  font: 12px var(--font-sans);
 }
 .professor-grid {
   display: grid;
@@ -576,7 +569,7 @@ a:hover {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 4px;
-  font: 12px var(--font-mono);
+  font: 12px var(--font-sans);
   color: var(--muted);
 }
 .professor-tile > p {
@@ -591,7 +584,7 @@ a:hover {
   display: grid;
   place-items: center;
   background: var(--surface);
-  font: 12px var(--font-mono);
+  font: 12px var(--font-sans);
 }
 .panel .filters {
   margin: 0 0 16px;
