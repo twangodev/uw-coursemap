@@ -2,14 +2,21 @@
   import { onMount } from "svelte";
   import { Plus, Minus, Maximize2, RotateCw } from "@lucide/svelte";
   import cytoscape, { type Core, type StylesheetStyle } from "cytoscape";
+  import ELK from "elkjs/lib/elk-api.js";
+  import elkWorkerUrl from "elkjs/lib/elk-worker.min.js?url";
+  import { layeredGraph } from "$lib/course-map-layout";
   import type { CourseMapData } from "$lib/course-map";
-  let { data, focus = "", onSelect }: { data: CourseMapData; focus?: string; onSelect: (uid: string) => void } = $props();
+  let { data, focus = "", subject, onSelect }: { data: CourseMapData; focus?: string; subject?: string | null; onSelect: (uid: string) => void } = $props();
   let container: HTMLDivElement;
   let cy = $state.raw<Core | null>(null);
   let ready = $state(false);
   let error = $state("");
-  let worker: Worker | undefined;
+  let worker: InstanceType<typeof ELK> | undefined;
 
+  function displayCode(course: CourseMapData["courses"][number]) {
+    const prefix = subject && course.subjects.includes(subject) ? subject : course.subjects[0];
+    return prefix ? `${prefix} ${course.code.split(" ").at(-1)}` : course.code;
+  }
   function styles(): StylesheetStyle[] {
     const css = getComputedStyle(document.documentElement);
     const color = (name: string) => css.getPropertyValue(name).trim();
@@ -17,14 +24,14 @@
       { selector: "node", style: {
         shape: "ellipse", width: 16, height: 16,
         "background-color": color("--bg"), "border-color": color("--accent"), "border-width": 2,
-        label: "data(code)", "font-family": "Overused Grotesk", "font-size": 13,
+        label: "data(code)", "font-family": "Overused Grotesk", "font-size": 15,
         color: color("--text"), "text-valign": "bottom", "text-margin-y": 7,
         "min-zoomed-font-size": 5, "text-background-color": color("--bg"),
         "text-background-opacity": 0.85, "text-background-padding": "2px",
       } },
       { selector: "edge", style: {
         width: 1, "line-color": color("--muted"), "target-arrow-color": color("--muted"),
-        "target-arrow-shape": "triangle", "arrow-scale": 0.65, "curve-style": "straight", opacity: 0.35,
+        "target-arrow-shape": "triangle", "arrow-scale": 0.65, "curve-style": "bezier", opacity: 0.35,
       } },
       { selector: ".faded", style: { opacity: 0.12 } },
       { selector: "node.connected", style: { "background-color": color("--accent-soft"), "min-zoomed-font-size": 0 } },
@@ -39,23 +46,36 @@
   function arrange() {
     ready = false;
     error = "";
-    worker?.terminate();
-    worker = new Worker(new URL("../course-map-layout.worker.ts", import.meta.url), { type: "module" });
-    worker.onmessage = ({ data: result }) => {
-      if (result.error) { error = result.error; worker?.terminate(); return; }
-      cy?.nodes().positions(node => result.positions[node.id()]);
+    worker?.terminateWorker();
+    const engine = new ELK({ workerUrl: elkWorkerUrl });
+    worker = engine;
+    engine.layout(layeredGraph({ courses: data.courses.map(course => ({ ...course, code: displayCode(course) })), edges: data.edges })).then(graph => {
+      if (worker !== engine || !cy) return;
+      const positions = new Map((graph.children || []).map(node => [node.id, {
+        x: (node.x || 0) + (node.width || 0) / 2, y: (node.y || 0) + 8,
+      }]));
+      cy.nodes().positions(node => positions.get(node.id())!);
       ready = true;
       fit();
-      worker?.terminate();
-    };
-    worker.onerror = () => { error = "The map could not be arranged. Try again."; worker?.terminate(); };
-    worker.postMessage({ courses: data.courses.map(course => ({ uid: course.uid })), edges: data.edges.map(({ source, target }) => ({ source, target })) });
+      // Open at a readable scale; Fit all remains available for the overview.
+      if (!focus && cy.zoom() < 0.75) {
+        const entry = data.courses.find(course => course.code === "COMPSCI 300")
+          || data.courses.find(course => cy!.getElementById(course.uid).degree() > 1);
+        if (entry) {
+          const position = cy.getElementById(entry.uid).position();
+          cy.zoom(0.75);
+          cy.pan({ x: cy.width() * 0.3 - position.x * 0.75, y: cy.height() * 0.5 - position.y * 0.75 });
+        }
+      }
+    }).catch(reason => {
+      if (worker === engine) error = reason instanceof Error ? reason.message : "The map could not be arranged. Try again.";
+    }).finally(() => engine.terminateWorker());
   }
   onMount(() => {
     cy = cytoscape({
       container,
       elements: [
-        ...data.courses.map(course => ({ data: { id: course.uid, code: course.code } })),
+        ...data.courses.map(course => ({ data: { id: course.uid, code: displayCode(course) } })),
         ...data.edges.map(edge => ({ data: { ...edge, id: `${edge.source}:${edge.target}` } })),
       ],
       style: styles(),
@@ -72,7 +92,7 @@
     const theme = new MutationObserver(() => cy?.style(styles()));
     theme.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
     arrange();
-    return () => { worker?.terminate(); resize.disconnect(); theme.disconnect(); cy?.destroy(); cy = null; };
+    return () => { worker?.terminateWorker(); resize.disconnect(); theme.disconnect(); cy?.destroy(); cy = null; };
   });
   $effect(() => {
     if (!cy || !ready) return;
@@ -88,7 +108,7 @@
     });
     if (selected.length) {
       cy.fit(selected.closedNeighborhood(), 120);
-      const level = Math.max(cy.width() < 600 ? 0.75 : 0.45, Math.min(1.3, cy.zoom()));
+      const level = Math.max(cy.width() < 600 ? 0.8 : 0.75, Math.min(1.3, cy.zoom()));
       if (cy.zoom() !== level) { cy.zoom(level); cy.center(selected); }
     }
   });

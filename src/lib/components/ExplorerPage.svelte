@@ -30,7 +30,7 @@
 </svelte:head>
 
 <div class="explorer">
-  {#if Graph}<Graph data={data.graph} focus={chosen} onSelect={select} />{:else}<p class="loading" role="status">{loadError ? "Unable to load the map. Reload to try again." : "Loading prerequisite map…"}</p>{/if}
+  {#if Graph}<Graph data={data.graph} subject={data.subject} focus={chosen} onSelect={select} />{:else}<p class="loading" role="status">{loadError ? "Unable to load the map. Reload to try again." : "Loading prerequisite map…"}</p>{/if}
   <div class="map-toolbar">
     <div class="map-heading">
       <a class="back" href={data.subject ? `/departments/${encodeURIComponent(data.subject)}` : "/departments"} aria-label="Department courses & statistics"><ArrowLeft size={17} /></a>

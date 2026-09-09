@@ -29,7 +29,7 @@ export async function courseMap(platform?: App.Platform, subject?: string) {
       .map((course) => course.uid),
   );
   const edges = data.edges.filter(
-    (edge) => subjects.has(edge.source) || subjects.has(edge.target),
+    (edge) => subjects.has(edge.target),
   );
   const visible = new Set([
     ...subjects,
