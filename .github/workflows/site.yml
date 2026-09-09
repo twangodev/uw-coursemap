@@ -66,14 +66,14 @@ jobs:
             -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
             "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/scripts/$WORKER_NAME/settings")
           if [ "$code" = 404 ] && [ "$FIRST_DEPLOYMENT" = true ]; then
-            slot=blue
+            slot=a
           else
             test "$code" = 200
             jq -e '.success == true' .site/worker-settings.json
             active=$(jq -r '[.result.bindings[] | select(.name=="DATA_SLOT") | .text][0]' .site/worker-settings.json)
             case "$active" in
-              blue) slot=green ;;
-              green) slot=blue ;;
+              a) slot=b ;;
+              b) slot=a ;;
               *) echo 'Cannot determine active D1 database; refusing to import.' >&2; exit 1 ;;
             esac
           fi

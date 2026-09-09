@@ -25,7 +25,7 @@ Production preview runs the built Cloudflare Worker with Wrangler and uses local
 ```sh
 set -e
 for part in .site/sql/*.sql; do
-  bun x wrangler d1 execute DB_BLUE --local --file="$part"
+  bun x wrangler d1 execute DB_A --local --file="$part"
 done
 bun run preview --ip 0.0.0.0 --port 4173
 ```
@@ -34,7 +34,7 @@ bun run preview --ip 0.0.0.0 --port 4173
 
 ## Cloudflare setup
 
-Create D1 databases `uw-coursemap-blue` and `uw-coursemap-green`, then put their IDs in `wrangler.jsonc`. Set GitHub secrets `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` with Workers Scripts and D1 edit permissions. `HF_TOKEN` is optional for the public dataset.
+The A/B D1 database IDs are configured in `wrangler.jsonc` as `DB_A` and `DB_B`. Set GitHub secrets `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` with Workers Scripts and D1 edit permissions. `HF_TOKEN` is optional for the public dataset.
 
 Run the nightly workflow manually with **First deployment** enabled once to create the Worker. Validate its workers.dev preview, then attach `uwcourses.com` in Cloudflare. Subsequent runs leave that option disabled.
 
