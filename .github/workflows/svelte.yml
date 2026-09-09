@@ -95,7 +95,7 @@ jobs:
       - run: bun x playwright test
       - name: Deploy verified release
         env:
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           FIRST_DEPLOYMENT: ${{ inputs.first_deployment || false }}
         run: uv run --locked uwcourses-site deploy
