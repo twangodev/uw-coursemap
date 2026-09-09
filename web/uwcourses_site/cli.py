@@ -15,8 +15,9 @@ def check_assets(root: Path):
     if not files:
         raise ValueError("No built assets found")
     largest = max(files, key=lambda p: p.stat().st_size)
-    if len(files) > 80000:
-        raise ValueError(f"Asset count {len(files)} exceeds 80,000")
+    # Keep 10,000 files of headroom below Workers Paid's 100,000-asset limit.
+    if len(files) > 90000:
+        raise ValueError(f"Asset count {len(files)} exceeds 90,000")
     if largest.stat().st_size > 20 * 1024 * 1024:
         raise ValueError(f"Asset exceeds 20 MiB: {largest}")
     report = {
