@@ -49,6 +49,13 @@ jobs:
           key: ${{ runner.os }}-social-${{ hashFiles('web/social-images.mjs', 'web/social-card.html', 'static/fonts/OverusedGrotesk-VF.woff2', 'static/uw-coursemap-logo.svg') }}-${{ hashFiles('.site/status.json') }}
           restore-keys: |
             ${{ runner.os }}-social-${{ hashFiles('web/social-images.mjs', 'web/social-card.html', 'static/fonts/OverusedGrotesk-VF.woff2', 'static/uw-coursemap-logo.svg') }}-
+      - name: Preserve sitemap modification history
+        uses: actions/cache@v5
+        with:
+          path: .site/sitemap-history.json
+          key: ${{ runner.os }}-sitemap-${{ github.workflow }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ${{ runner.os }}-sitemap-${{ github.workflow }}-
       - run: bun run build
       - run: bun run seo:check
       - run: uv run --locked uwcourses-site assets-check

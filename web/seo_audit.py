@@ -4,6 +4,7 @@ import gzip
 import json
 import re
 import sys
+from datetime import datetime
 from collections import Counter
 from html import unescape
 from pathlib import Path
@@ -71,10 +72,16 @@ sitemaps = locations(root / "sitemap.xml")
 urls = []
 for sitemap in sitemaps:
     path = local_file(sitemap)
+    for entry in ElementTree.parse(path).findall("s:url", ns):
+        datetime.fromisoformat(entry.find("s:lastmod", ns).text)
+        assert 0 <= float(entry.find("s:priority", ns).text) <= 1, sitemap
+        assert entry.find("s:changefreq", ns).text in ("always", "hourly", "daily", "weekly", "monthly", "yearly", "never"), sitemap
     entries = locations(path)
     assert len(entries) <= 5000 and path.stat().st_size < 50 * 1024 * 1024, path
     urls.extend(entries)
 assert len(set(urls)) == len(urls), "Duplicate sitemap URLs"
+for entry in ElementTree.parse(root / "sitemap.xml").findall("s:sitemap", ns):
+    datetime.fromisoformat(entry.find("s:lastmod", ns).text)
 
 course_urls = set()
 catalog_links = set()

@@ -69,6 +69,7 @@ test("sitemaps, redirects, errors and search expose the intended crawl policy", 
   expect(index.status()).toBe(200);
   expect(index.headers()["content-type"]).toContain("application/xml");
   const xml = await index.text();
+  expect(xml).toMatch(/<lastmod>\d{4}-\d{2}-\d{2}T/);
   const locations = [
     ...xml.matchAll(/<loc>https:\/\/uwcourses.com([^<]+)<\/loc>/g),
   ].map((match) => match[1]);
@@ -76,7 +77,11 @@ test("sitemaps, redirects, errors and search expose the intended crawl policy", 
   for (const location of locations) {
     const response = await request.get(location);
     expect(response.status()).toBe(200);
-    expect(await response.text()).toContain("<urlset");
+    const sitemap = await response.text();
+    expect(sitemap).toContain("<urlset");
+    expect(sitemap).toMatch(/<lastmod>\d{4}-\d{2}-\d{2}T/);
+    expect(sitemap).toContain("<priority>");
+    expect(sitemap).toContain("<changefreq>");
   }
   for (const path of ["/subjects", "/stats", "/stats/COMPSCI"]) {
     const response = await request.get(path + "?term=1264", {
