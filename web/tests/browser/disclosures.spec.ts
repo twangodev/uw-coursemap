@@ -38,3 +38,22 @@ for (const width of [1440, 390]) {
     }
   });
 }
+
+test("course reading and prerequisite hierarchy stay clear across screen sizes", async ({ page }) => {
+  for (const code of ["MATH_222", "COMPSCI_300"]) {
+    await page.goto(`/courses/${code}`);
+    await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
+    for (const width of [1440, 390]) {
+      await page.setViewportSize({ width, height: 1000 });
+      await expect(page.locator(".catalog-description p")).toBeVisible();
+      await expect(page.getByRole("complementary", { name: "Helpful background" })).toBeVisible();
+      await expect(page.locator(".course-facts details")).toHaveCount(0);
+      await expect(page.locator("#requirements > .panel-heading").getByRole("link", { name: "Course map" })).toBeVisible();
+      if (code === "MATH_222") {
+        await expect(page.locator(".requirements-source")).toHaveText("MATH 217 or 221. MATH 211 or 213 does not fulfill the requisite.");
+        await expect(page.getByRole("region", { name: "Prerequisite relationships" })).toContainText("MATH 211 or 213 does not fulfill the requisite.");
+      }
+      expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
+    }
+  }
+});

@@ -582,8 +582,23 @@ a:hover {
   font-size: 12px;
 }
 .requirements-source {
-  font-size: 13px;
-  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0 0 12px;
+}
+.prerequisite-map-link { display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0; font-size: 13px; font-weight: 400; color: var(--muted); }
+.course-reading { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 48px; margin-top: 12px; }
+.course-reading h3 { font-size: 16px; font-weight: 500; margin: 0 0 14px; }
+.course-reading p, .course-reading li { font-size: 15px; line-height: 1.75; overflow-wrap: break-word; }
+.course-reading article:only-child { grid-column: 1 / -1; }
+.helpful-background { background: var(--surface); border-radius: 8px; padding: 24px; align-self: start; }
+.helpful-background h3 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; }
+.helpful-background h3 span { font-size: 11px; font-weight: 400; color: var(--muted); }
+.helpful-background ul { list-style: disc; padding-left: 18px; }
+.helpful-background li + li { margin-top: 10px; }
+@media (max-width: 760px) {
+  .course-reading { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-top: 4px; }
+  .helpful-background { padding: 20px; }
 }
 .graph-loading {
   height: 380px;
@@ -783,8 +798,6 @@ a:hover {
   border: 0;
 }
 .course-facts .panel-body { padding: 0; }
-.course-facts .panel-body > details { grid-column: 1 / -1; padding: 0; margin: 0; border: 0; }
-.course-facts .panel-body > .small-link { align-self: start; margin: 0; }
 .course-facts .panel-body > p { grid-column: 1 / -1; }
 /* Disclosures keep their width and position when expanded. */
 .course-page details { min-width: 0; font-size: 14px; }

@@ -25,6 +25,7 @@
   import CourseContext from "$lib/components/CourseContext.svelte";
   import GradeSnapshot from "$lib/components/GradeSnapshot.svelte";
   import Grades from "$lib/components/Grades.svelte";
+  import { requirementText } from "$lib/requirements";
   import RequirementGraph from "$lib/components/RequirementGraph.svelte";
   import RequirementText from "$lib/components/RequirementText.svelte";
   import CourseCalendar from "$lib/components/CourseCalendar.svelte";
@@ -208,27 +209,26 @@
             >{/each}
         </div>
       </div>
-      <a class="small-link" href="#requirements"
-        >View prerequisites <ArrowUpRight size={14} /></a
-      >
-      <details>
-        <summary>Catalog description</summary>
-        <p>{c.description}</p>
-      </details>
-      <details>
-        <summary>Assumed background</summary>
-        <ul>
-          {#each c.llm_assumed_background as item}<li>{item}</li>{/each}
-        </ul>
-      </details>
+      <div class="course-reading">
+        <article class="catalog-description">
+          <h3>About this course</h3>
+          <p>{c.description || "No catalog description available."}</p>
+        </article>
+        {#if c.llm_assumed_background.length}
+          <aside class="helpful-background" aria-label="Helpful background">
+            <h3>Helpful background <span>AI suggested</span></h3>
+            <ul>{#each c.llm_assumed_background as item}<li>{item}</li>{/each}</ul>
+          </aside>
+        {/if}
+      </div>
     </Panel>
   </aside>
   <div class="course-content">
     <Panel title="Prerequisites" id="requirements">
-      <a class="small-link" href={`/explorer/${encodeURIComponent(c.subjects[0])}?course=${encodeURIComponent(c.course_id)}`}>Explore connected courses on the map →</a>
+      {#snippet tools()}<a class="prerequisite-map-link" href={`/explorer/${encodeURIComponent(c.subjects[0])}?course=${encodeURIComponent(c.course_id)}`}>Course map <ArrowUpRight size={15} /></a>{/snippet}
       {#if snapshotAvailable}
       <p class="requirements-source">
-        {c.requirements_text || "No prerequisites listed."}
+        {requirementText(c.requirements_text || "No prerequisites listed.")}
       </p>
       <RequirementGraph ast={c.requirements} course={c.course_id} following={data.following} />
       {#if c.requirements.status !== "valid"}<p class="muted mono">

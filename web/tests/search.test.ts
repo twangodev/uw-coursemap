@@ -7,7 +7,7 @@ import {
   status,
 } from "../../src/lib/server/data";
 import { normalize, termName, safeUrl } from "../../src/lib/format";
-import { requirementTree } from "../../src/lib/requirements";
+import { requirementTree, requirementText } from "../../src/lib/requirements";
 describe("course discovery", () => {
   it("normalizes student course aliases", () => {
     expect(normalize("CS 300")).toBe("COMPSCI300");
@@ -98,4 +98,15 @@ it("ranks eligible courses in both directions and rejects unknown collections", 
     expect(result.items.every(c => c.course_id.includes("COMPSCI"))).toBe(true);
   }
   await expect(search(new URL("http://localhost/search?ranking=unknown"))).rejects.toMatchObject({ status: 400 });
+});
+
+describe("catalog requirement typography", () => {
+  it("separates joined catalog text without altering course numbers", () => {
+    expect(requirementText("MATH 217 or221.MATH\u00a0211or213does not fulfill the requisite."))
+      .toBe("MATH 217 or 221. MATH 211 or 213 does not fulfill the requisite.");
+    expect(requirementText("COMP SCI 200,220; placement intoCOMP SCI 300; 252andE C E 203"))
+      .toBe("COMP SCI 200, 220; placement into COMP SCI 300; 252 and E C E 203");
+    expect(requirementText("GPA 2.5; MATH 221 and a grade of BC or better."))
+      .toBe("GPA 2.5; MATH 221 and a grade of BC or better.");
+  });
 });
