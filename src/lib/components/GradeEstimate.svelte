@@ -40,5 +40,5 @@
   .interval-band { position: absolute; top: -3px; height: 10px; min-width: 2px; border-radius: 3px; background: var(--text); }
   .scale-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 8px; }
   details { padding-bottom: 0; margin-top: 20px; font-size: 12px; }
-  details p { max-width: 80ch; line-height: 1.7; margin-top: 12px; }
+  details p { line-height: 1.7; margin-top: 12px; }
 </style>

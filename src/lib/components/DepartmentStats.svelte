@@ -274,6 +274,7 @@
     line-height: 1.7;
     max-width: 85ch;
   }
+  details .note { max-width: none; }
   details {
     margin-top: 24px;
   }

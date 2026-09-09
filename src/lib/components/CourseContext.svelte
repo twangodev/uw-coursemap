@@ -173,7 +173,6 @@
     margin-top: 20px;
   }
   .comparison-method p {
-    max-width: 80ch;
     margin-top: 16px;
     line-height: 1.7;
   }

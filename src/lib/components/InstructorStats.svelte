@@ -61,7 +61,7 @@
 
 <style>
   .rating-method { font-size: 12px; margin-top: 16px; padding: 0; }
-  .rating-method p { max-width: 70ch; line-height: 1.7; margin-top: 10px; color: var(--muted); }
+  .rating-method p { line-height: 1.7; margin-top: 10px; color: var(--muted); }
   .grade-coverage { display: block; color: var(--muted); font-size: 12px; margin-top: 6px; }
   .instructor-stats {
     margin: 12px 0 24px;

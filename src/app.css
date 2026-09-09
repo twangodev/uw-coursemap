@@ -220,6 +220,7 @@ p + p {
   max-width: 120px;
 }
 details {
+  min-width: 0;
   border-top: 1px solid var(--border);
   padding: 1rem 0;
 }
@@ -229,6 +230,11 @@ summary {
 }
 details > div {
   margin-top: 1rem;
+}
+details p, details ul {
+  max-width: none;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 pre {
   white-space: pre-wrap;
@@ -804,11 +810,6 @@ a:hover {
 }
 .course-page details[open] > summary::before { transform: rotate(45deg); }
 .course-page details > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-.course-page details p, .course-page details ul {
-  max-width: none;
-  white-space: normal;
-  overflow-wrap: break-word;
-}
 .course-page details > p, .course-page details > ul { margin-top: 14px; }
 @media (prefers-reduced-motion: reduce) {
   .course-page details > summary::before { transition: none; }

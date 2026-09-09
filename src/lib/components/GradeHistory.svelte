@@ -161,7 +161,6 @@
     margin-top: 24px;
   }
   .outcomes-table p {
-    max-width: 80ch;
     font-size: 12px;
     line-height: 1.7;
   }
