@@ -6,6 +6,7 @@
     termName,
   } from "$lib/format";
   import type { CourseCard } from "$lib/types";
+  import Badges from "./Badges.svelte";
   import Claims from "./Claims.svelte";
   import AnimatedNumber from "./AnimatedNumber.svelte";
   let { courses, rankStart }: { courses: CourseCard[]; rankStart?: number } = $props();
@@ -30,6 +31,7 @@
             <h3>{courseTitle(c.title)}</h3></a
           ><span class="credits">{credits(c.credits_min, c.credits_max)}</span>
         </div>
+        <Badges badges={c.badges || []} />
         {#if c.description}<p class="course-description">{c.description}</p>{/if}
         <p class="offering">
           {d.offered

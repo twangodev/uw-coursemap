@@ -1,4 +1,6 @@
 <script lang="ts">
+  import Badges from "$lib/components/Badges.svelte";
+  import { instructorBadges } from "$lib/badges";
   import StudentReviews from "$lib/components/StudentReviews.svelte";
   import Select from "$lib/components/Select.svelte";
   import { goto } from "$app/navigation";
@@ -43,6 +45,7 @@
   </p>
   <h1>{data.instructor.name || "Name unavailable"}</h1>
 </div>
+<Badges badges={instructorBadges(data.instructor.ratings)} />
 <InstructorStats ratings={data.instructor.ratings} />
 <StudentReviews
   initial={data.reviews}

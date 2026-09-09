@@ -1,4 +1,6 @@
 <script lang="ts">
+  import Badges from "$lib/components/Badges.svelte";
+  import { instructorBadges } from "$lib/badges";
   import { page } from "$app/state";
   import { Search } from "@lucide/svelte";
   import CourseCollections from "$lib/components/CourseCollections.svelte";
@@ -38,15 +40,10 @@
     /><button class="search-submit" aria-label="Search"><Search size={19} strokeWidth={1.5} /></button>
   </form>
   <p class="muted">{data.results.total} instructors</p>
-  {#each data.results.items as i}<a
-      class="course-row"
-      href={i.instructor_url}
-      ><span>{i.name || "Name unavailable"}</span><span class="muted"
-        >{#if i.bayesian_quality != null}{i.bayesian_quality.toFixed(1)}/5 adjusted · {/if}{i.current
-          ? `Teaching in ${termName(data.status.term)}`
-          : "Historical instructor"}</span
-      ></a
-    >{:else}<p class="empty">No instructors match this search.</p>{/each}
+  {#each data.results.items as i}<article class="instructor-result">
+    <a class="course-row instructor-result-link" href={i.instructor_url}><span>{i.name || "Name unavailable"}</span><span class="muted">{#if i.bayesian_quality != null}{i.bayesian_quality.toFixed(1)}/5 adjusted · {/if}{i.current ? `Teaching in ${termName(data.status.term)}` : "Historical instructor"}</span></a>
+    <Badges badges={instructorBadges(i)} />
+  </article>{:else}<p class="empty">No instructors match this search.</p>{/each}
   <nav aria-label="Results pages">
     {#if data.results.page > 1}<a href={pageLink(data.results.page - 1)}
         >← Previous</a
@@ -58,6 +55,8 @@
 {/if}
 
 <style>
+  .instructor-result { padding: 20px 0; border-bottom: 1px solid var(--border); }
+  .instructor-result-link { padding: 0; border: 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; }
   .search-submit { display: grid; place-items: center; padding: 8px 10px; border: 0; background: transparent; }
   .search-heading {
     display: flex;

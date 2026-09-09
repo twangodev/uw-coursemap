@@ -60,15 +60,12 @@ async function peers(
   });
 }
 
-export async function courseContext(course: any, platform?: App.Platform) {
+export async function courseContext(course: any, platform?: App.Platform, sharedCatalog?: Catalog) {
   const term = [...course.grades].sort((a, b) =>
     b.term_id.localeCompare(a.term_id),
   )[0]?.term_id;
   if (!term) return null;
-  const catalog =
-    building || dev
-      ? await (buildPeers ??= peers(platform).then(index))
-      : index(await peers(platform));
+  const catalog = sharedCatalog || await badgeCatalog(platform);
   const current = catalog.courses.get(course.course_uid + ":" + term);
   if (!current) return null;
   const terms = [...new Set<string>(course.grades.map((row: any) => row.term_id))].sort();
@@ -91,4 +88,13 @@ export async function courseContext(course: any, platform?: App.Platform) {
     terms: Object.fromEntries(terms.map((term) => [term, contextFor(catalog.courses.get(course.course_uid + ":" + term), catalog.groups.get(term) || [])])),
     benchmarks: { all: select(history.benchmarks), terms: Object.fromEntries(terms.map((term) => [term, select(catalog.benchmarks.get(term))])) },
   };
+}
+
+async function badgeCatalog(platform?: App.Platform) {
+  return building || dev ? await (buildPeers ??= peers(platform).then(index)) : index(await peers(platform));
+}
+export async function courseContexts(courses: any[], platform?: App.Platform) {
+  if (!courses.length) return new Map();
+  const catalog = await badgeCatalog(platform);
+  return new Map(await Promise.all(courses.map(async course => [course.course_uid, await courseContext(course, platform, catalog)] as const)));
 }

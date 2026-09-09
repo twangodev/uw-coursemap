@@ -44,3 +44,11 @@ describe('student badges', () => {
     expect(get({ term: '', context: all })[1].evidence).toContain('All recorded terms');
   });
 });
+
+import { modelFamily } from '../../src/lib/model-identity';
+it('identifies model family independently of checkpoint distributor', () => {
+  expect(modelFamily('nvidia/Qwen3.6-35B-A3B-NVFP4')).toBe('qwen');
+  expect(modelFamily('Qwen/Qwen3-32B')).toBe('qwen');
+  expect(modelFamily('unknown/model')).toBeNull();
+  expect(modelFamily(null)).toBeNull();
+});

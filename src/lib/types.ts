@@ -4,6 +4,7 @@ export interface CourseCard {
   course_id: string;
   title: string;
   description?: string | null;
+  badges?: import("./badges").Badge[];
   credits_min: number | null;
   credits_max: number | null;
   gpa: number | null;

@@ -1,3 +1,5 @@
+import { courseBadges } from "$lib/badges";
+import { courseContexts } from "./course-context";
 import { withInstructorUrls } from "./instructor-urls";
 import { instructorRatingPrior } from "./instructor-ratings";
 import { bayesianRating } from "$lib/instructor-ratings";
@@ -9,6 +11,7 @@ export async function coursePreviews(
   term: string,
   platform?: App.Platform,
   instructor?: string,
+  scope = "school",
 ) {
   if (!items.length) return [];
   if (items.length > 30) {
@@ -20,6 +23,7 @@ export async function coursePreviews(
           term,
           platform,
           instructor,
+          scope,
         ),
       );
     return chunks.flat();
@@ -55,6 +59,7 @@ export async function coursePreviews(
         [...ids, term, Number(term) - 50, instructor],
       )
     : [];
+  const contexts = await courseContexts([...payloads.values()], platform);
   return items.map((item) => {
     const course = payloads.get(item.course_uid);
     const claims = [
@@ -70,6 +75,7 @@ export async function coursePreviews(
       ?.summary?.find((row: any) => row.citations?.length);
     return {
       ...item,
+      badges: courseBadges({ course, context: contexts.get(item.course_uid), term, scope, instructors: rankedTeachers.filter(row => row.course_uid === item.course_uid).map(row => ({ name: row.name, instructor_url: row.instructor_url, terms: [{ term }], ratings: { bayesian_quality: row.quality, quality_count: row.quality_count } })) }),
       description: course.llm_summary?.replace(`${course.course_id} ${course.title} `, "").replace(/^./, (letter: string) => letter.toUpperCase()) || null,
       discovery: {
         term,

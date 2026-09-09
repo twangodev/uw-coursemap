@@ -17,6 +17,9 @@
   import { courseFitObservations } from "$lib/course-fit";
   import type { Citation } from "$lib/types";
   import Select from "$lib/components/Select.svelte";
+  import AIInfo from "$lib/components/AIInfo.svelte";
+  import Badges from "$lib/components/Badges.svelte";
+  import { courseBadges, instructorBadges } from "$lib/badges";
   import Panel from "$lib/components/Panel.svelte";
   import Claims from "$lib/components/Claims.svelte";
   import RotatingClaims from "$lib/components/RotatingClaims.svelte";
@@ -40,6 +43,10 @@
   let projectedTerm = $derived(c.grades.some((row: any) => row.term_id === c.semester && ["a", "ab", "b", "bc", "c", "d", "f"].some((key) => row[key] > 0)) ? "" : c.semester);
   let gradeTerms = $derived([...new Set<string>([c.semester, ...c.grades.map((row: any) => row.term_id), ...c.sections.map((row: any) => row.term_id)].filter(Boolean))].sort().reverse());
   let selectedGradeTerm = $derived(termSelection ?? gradeTerms[0] ?? c.semester);
+  let badgeInstructors = $derived([
+    ...c.instructors.map((i: any) => ({ ...i, terms: [{ term: c.semester }] })),
+    ...(c.grade_instructors || []).map((i: any) => ({ ...i, terms: data.instructorTrends.find((row) => row.uid === i.instructor_uid)?.terms || [] })),
+  ]);
   let gradeTermIndex = $derived(gradeTerms.indexOf(selectedGradeTerm));
   function stepTerm(direction: number) {
     const index = gradeTermIndex + direction;
@@ -130,6 +137,7 @@
   <div class="course-identity">
     <div>
       <h1 title={c.title}>{courseTitle(c.title)}</h1>
+      <Badges badges={courseBadges({ course: c, context: data.context, term: selectedGradeTerm, scope, instructors: badgeInstructors })} limit={3} />
       <p class="course-description">{introduction}</p>
       <div class="row course-meta">
         <span class:available={selectedOfferings.length}
@@ -217,7 +225,7 @@
         </article>
         {#if c.llm_assumed_background.length}
           <aside class="helpful-background" aria-label="Helpful background">
-            <h3>Helpful background <span>AI suggested</span></h3>
+            <h3>Helpful background <AIInfo model={c.llm_model} revision={c.llm_model_revision} /></h3>
             <ul>{#each c.llm_assumed_background as item}<li>{item}</li>{/each}</ul>
           </aside>
         {/if}
@@ -246,6 +254,7 @@
               (r: any) => r.instructor_uid === i.instructor_uid,
             )}
           <article class="professor-tile">
+            <div>
             <div class="professor-heading">
               <span class="avatar" aria-hidden="true"
                 >{i.name
@@ -259,6 +268,8 @@
                   >{i.name}<ArrowUpRight size={13} /></a
                 >
               </h3>
+            </div>
+            <Badges badges={instructorBadges(i.ratings)} />
             </div>
             <div>
               <InstructorStats

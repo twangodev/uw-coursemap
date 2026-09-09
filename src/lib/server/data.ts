@@ -172,7 +172,7 @@ export async function search(url: URL, platform?: App.Platform) {
   const fields =
     kind === "course"
       ? "c.uid course_uid,c.code course_id,c.title,c.credits_min,c.credits_max,c.gpa"
-      : `c.uid instructor_uid,c.name,c.current,${adjustedQuality} bayesian_quality,${qualityCount} quality_count`;
+      : `c.uid instructor_uid,c.name,c.current,${adjustedQuality} bayesian_quality,${qualityCount} quality_count,json_extract(c.payload,'$.ratings.difficulty') difficulty,json_extract(c.payload,'$.ratings.difficulty_count') difficulty_count,json_extract(c.payload,'$.ratings.source_url') source_url`;
   const [count] = await query(
     platform,
     `${kind === "course" ? historySql : ""}SELECT count(DISTINCT c.uid) total FROM ${from} WHERE ${where}`,
@@ -185,7 +185,7 @@ export async function search(url: URL, platform?: App.Platform) {
   );
   return {
     items:
-      kind === "course" ? await coursePreviews(items, term, platform) : await withInstructorUrls(items, platform),
+      kind === "course" ? await coursePreviews(items, term, platform, undefined, url.searchParams.get("subject") || "school") : await withInstructorUrls(items, platform),
     total: count.total,
     page,
     kind,
