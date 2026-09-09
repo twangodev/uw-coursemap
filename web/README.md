@@ -25,8 +25,9 @@ Production preview reads page documents from built assets. Interactive search an
 ```sh
 set -e
 for part in .site/sql/*.sql; do
-  bun x wrangler d1 execute DB_A --local --file="$part"
+  bun x wrangler d1 execute DB --local --file="$part"
 done
+bun x wrangler d1 execute DB --local --command "INSERT OR REPLACE INTO metadata VALUES('serving','00000000000000000000000000000000');"
 bun run preview --ip 0.0.0.0 --port 4173
 ```
 
@@ -34,13 +35,13 @@ bun run preview --ip 0.0.0.0 --port 4173
 
 ## Cloudflare setup
 
-The A/B D1 database IDs are configured in `wrangler.json` as `DB_A` and `DB_B`. Set `CLOUDFLARE_ACCOUNT_ID` as a GitHub variable and `CLOUDFLARE_API_TOKEN` as a secret in the `production` environment. The token needs Workers Scripts and D1 edit permissions. `HF_TOKEN` is optional for the public dataset.
+The single D1 database is configured in `wrangler.json` as `DB`. Set `CLOUDFLARE_ACCOUNT_ID` as a GitHub variable and `CLOUDFLARE_API_TOKEN` as a secret in the `production` environment. The token needs Workers Scripts and D1 edit permissions. `HF_TOKEN` is optional for the public dataset.
 
 Run the **Svelte** workflow manually with **First deployment** enabled once to create the Worker. Validate its workers.dev preview, then attach `uwcourses.com` in Cloudflare. Subsequent runs leave that option disabled.
 
-The Svelte workflow checks pushes and pull requests; its production job runs at 03:17 America/Los_Angeles and also supports **Run workflow**. It pins HF, imports locally, builds and tests, then uses native Wrangler commands to import the inactive D1 database and deploy matching code/assets with the new database selection. Only this workflow should modify these production databases. When the HF revision and importer are unchanged, the active database is reused while the site still rebuilds and redeploys. The workflow calls `uwcourses-site deploy`; database selection, ordered imports, verification and deployment live in that tested CLI command, not inline Bash. No separate deployment scripts or Cloudflare cron are needed.
+The Svelte workflow checks pushes and pull requests; its production job runs at 03:17 America/Los_Angeles and also supports **Run workflow**. It imports HF, generates and validates static JSON, builds and tests, then calls `uwcourses-site deploy`. The tested CLI imports D1 only when the database does not already match the release, verifies it, and deploys matching code/assets. No separate deployment scripts or Cloudflare cron are needed.
 
-Failures before deployment preserve the active database/site. The previous deployment can be restored using Cloudflare's Worker rollback while its database remains intact; the next import into that slot replaces it. Production jobs are serialized. GitHub stores release metadata for each run. GitHub may disable schedules after 60 days without repository activity; re-enable the workflow from Actions if needed.
+Imports temporarily disable search/filter queries. Static pages and their JSON/Markdown remain available. A verified-import marker and projection check prevent partial or mismatched query results; requests check before and after querying. Failed imports can be retried, and failed Worker publication reuses a matching completed import. Worker rollback does not restore D1; restore the matching dataset to recover queries after a data rollback. Production jobs are serialized and only this workflow should modify the production database. GitHub stores release metadata for each run.
 
 D1 SQL is emitted as ordered 16 MiB files, with each statement below 100 KB. The workflow imports them sequentially and checks a completion marker and dataset identity before deployment.
 
@@ -60,7 +61,7 @@ Append `.json` or `.md` to a page URL (`/courses/COMPSCI_300.json`, `/search.md?
 
 JSON has `schema_version`, `url`, `title`, `dataset`, and `data`. The dataset includes its pinned HF revision and projection identity. `data` is the same payload the page loader returns; nested LLM evidence and model provenance are retained. Large history/trace files remain linked from that payload rather than duplicated. Markdown renders the same records, with tables and JSON blocks for nested data. Neither format requires browser JavaScript.
 
-Public GET documents are cached for 24 hours in Cloudflare's Cache API. Keys include the deployment, data projection, database slot, URL, and query. Browser responses revalidate with ETags. Cache hits still invoke the Worker; the cache is local to each data center. Authenticated/cookie requests, navigation transport, errors, and existing `/api` endpoints bypass this document cache. Preview caching requires `SITE_COMMIT` and `DATA_PROJECTION`; without them requests render directly.
+Public GET documents are cached for 24 hours in Cloudflare's Cache API. Keys include the deployment, data projection, URL, and query. Browser responses revalidate with ETags. Cache hits still invoke the Worker; the cache is local to each data center. Authenticated/cookie requests, navigation transport, errors, and existing `/api` endpoints bypass this document cache. Preview caching requires `SITE_COMMIT` and `DATA_PROJECTION`; without them requests render directly.
 
 Canonical page loaders and public representations share generated documents. Course comparisons are computed during prerender and also emitted as compact assets for search badges. Historical instructor profiles are grouped into 4,096 deterministic buckets to bound the file count. The native SvelteKit prerender endpoint generates these assets; no separate generation script is required. HTML remains SSR and term controls remain interactive.
 

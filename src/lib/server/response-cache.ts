@@ -15,7 +15,7 @@ export async function cachedResponse(
   const env = event.platform?.env;
   const release =
     env?.SITE_COMMIT && env.DATA_PROJECTION
-      ? `${env.SITE_COMMIT}:${env.DATA_PROJECTION}:${env.DATA_SLOT}`
+      ? `${env.SITE_COMMIT}:${env.DATA_PROJECTION}`
       : null;
   // Navigation transport depends on invalidation headers. Never share it with documents.
   if (

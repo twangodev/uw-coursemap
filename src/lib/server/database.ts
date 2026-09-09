@@ -24,7 +24,7 @@ const localClient = proxy(async (statement, params, method) => {
 }, { schema });
 export function database(platform?: App.Platform): BaseSQLiteDatabase<"async", any, typeof schema> {
   if (building || dev) return localClient;
-  const binding = platform?.env.DATA_SLOT === "b" ? platform.env.DB_B : platform?.env.DB_A;
+  const binding = platform?.env.DB;
   if (!binding) error(503, "Dataset database unavailable");
   let client = clients.get(binding);
   if (!client) { client = drizzle(binding, { schema }); clients.set(binding, client); }

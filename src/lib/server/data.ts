@@ -39,7 +39,6 @@ export async function status(platform?: App.Platform): Promise<Status> {
   return {
     ...publishedStatus,
     deployed_at: building || dev ? null : platform?.env.DEPLOYED_AT || null,
-    slot: building || dev ? null : platform?.env.DATA_SLOT || null,
   };
 }
 export async function pageData(

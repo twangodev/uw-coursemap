@@ -8,7 +8,7 @@ from unittest.mock import patch
 from uwcourses_site.deployment import (
     Release,
     deploy,
-    select_slot,
+    database_matches,
     verify_database,
     worker_state,
 )
@@ -16,28 +16,6 @@ from uwcourses_site.deployment import (
 
 class DeploymentTests(unittest.TestCase):
     release = Release("a" * 40, "b" * 64, 10)
-
-    def test_first_deployment_is_explicit(self):
-        with self.assertRaises(ValueError):
-            select_slot(None, self.release, False)
-        self.assertEqual(select_slot(None, self.release, True).binding, "DB_A")
-
-    def test_only_inactive_slot_is_imported(self):
-        for active, target in (("a", "b"), ("b", "a")):
-            plan = select_slot({"DATA_SLOT": active}, self.release, False)
-            self.assertEqual(plan.slot, target)
-            self.assertTrue(plan.import_required)
-        with self.assertRaises(ValueError):
-            select_slot({"DATA_SLOT": "unknown"}, self.release, True)
-
-    def test_same_projection_reuses_active_database(self):
-        plan = select_slot(
-            {"DATA_SLOT": "b", "DATA_PROJECTION": self.release.projection},
-            self.release,
-            False,
-        )
-        self.assertEqual(plan.slot, "b")
-        self.assertFalse(plan.import_required)
 
     def report(self, **changes):
         status = {
@@ -66,7 +44,9 @@ class DeploymentTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 verify_database(self.report(**changes), self.release)
 
-    def run_deploy(self, failure=None, changed=False, reuse=False):
+    def run_deploy(
+        self, failure=None, changed=False, reuse=False, missing=False, first=False
+    ):
         with TemporaryDirectory() as directory:
             root = Path(directory)
             (root / "sql").mkdir()
@@ -88,17 +68,13 @@ class DeploymentTests(unittest.TestCase):
                     {
                         "name": "uw-coursemap",
                         "d1_databases": [
-                            {"binding": "DB_A", "database_id": "a"},
-                            {"binding": "DB_B", "database_id": "b"},
+                            {"binding": "DB", "database_id": "single"},
                         ],
                     }
                 )
             )
-            initial = {
-                "DATA_SLOT": "a",
-                "DATA_PROJECTION": self.release.projection if reuse else "old",
-            }
-            states = [initial, {"DATA_SLOT": "b"} if changed else initial]
+            initial = None if missing else {"DB": "single", "DATA_PROJECTION": "old"}
+            states = [initial, {"DB": "changed"} if changed else initial]
             calls = []
 
             def command(config, *args, **kwargs):
@@ -114,23 +90,51 @@ class DeploymentTests(unittest.TestCase):
                 ),
                 patch("uwcourses_site.deployment.worker_state", side_effect=states),
                 patch("uwcourses_site.deployment.wrangler", side_effect=command),
+                patch("uwcourses_site.deployment.database_matches", return_value=reuse),
                 patch("uwcourses_site.deployment.subprocess.run") as run,
             ):
                 run.return_value.stdout = "c" * 40
-                if failure or changed:
+                if failure or changed or (missing and not first):
                     with self.assertRaises(
                         (ValueError, RuntimeError, subprocess.CalledProcessError)
                     ):
-                        deploy(config, root)
+                        deploy(config, root, first=first)
                     self.assertFalse(any(call[0] == "deploy" for call in calls))
+                    self.assertFalse(
+                        any("VALUES('serving'" in str(call[-1]) for call in calls)
+                    )
                 else:
-                    deploy(config, root)
+                    deploy(config, root, first=first)
                     self.assertEqual(calls[-1][0], "deploy")
+                    self.assertIn("VALUES('serving'", calls[-2][-1])
                     imports = [call for call in calls if "--file" in call]
                     self.assertEqual(len(imports), 0 if reuse else 2)
                     if imports:
-                        self.assertTrue(all(call[2] == "DB_B" for call in imports))
+                        self.assertTrue(all(call[2] == "DB" for call in imports))
+                        self.assertIn("VALUES('ready','false')", calls[0][-1])
+                        self.assertLess(calls.index(calls[0]), calls.index(imports[0]))
                         self.assertTrue(imports[0][-1].endswith("0001.sql"))
+
+    def test_first_deployment_is_explicit(self):
+        self.run_deploy(missing=True)
+        self.run_deploy(missing=True, first=True)
+
+    @patch("uwcourses_site.deployment.wrangler")
+    def test_database_readiness_controls_reuse_after_failed_publication(self, command):
+        tables = json.dumps([{"results": [{"tables": 2}], "success": True}])
+        for report, expected in [
+            (self.report(), True),
+            (self.report(ready="false"), False),
+            (self.report(status="{}"), False),
+        ]:
+            command.side_effect = [tables, report]
+            self.assertEqual(
+                database_matches(Path("wrangler.json"), self.release), expected
+            )
+        command.side_effect = [
+            json.dumps([{"results": [{"tables": 0}], "success": True}])
+        ]
+        self.assertFalse(database_matches(Path("wrangler.json"), self.release))
 
     def test_import_verify_and_publish_order(self):
         self.run_deploy()

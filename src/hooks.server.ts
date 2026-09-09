@@ -1,3 +1,5 @@
+import { withDatabaseAvailability } from "$lib/server/database-availability";
+import { isFilteredDocument } from "$lib/server/documents/storage";
 import { ZodError } from "zod";
 import { building, dev } from "$app/environment";
 import { redirect, isHttpError, type Handle } from "@sveltejs/kit";
@@ -51,7 +53,16 @@ export const handle: Handle = async ({ event, resolve }) => {
       response.headers.append("Link", alternateLinks(path, event.url.search));
     return response;
   };
+  const documentUrl = new URL(event.url);
+  documentUrl.pathname = requested?.path || path;
+  const needsDatabase =
+    (path.startsWith("/api/") && path !== "/api/status") ||
+    isFilteredDocument(documentUrl);
+  const serve =
+    !building && !dev && needsDatabase
+      ? () => withDatabaseAvailability(event.platform, render)
+      : render;
   return !building && !dev && (requested || isDocument(path))
-    ? cachedResponse(event, render)
-    : render();
+    ? cachedResponse(event, serve)
+    : serve();
 };

@@ -31,7 +31,7 @@ function platform(files: Record<string, unknown>) {
     { ASSETS: { fetch } },
     {
       get(target, key) {
-        if (key === "DB_A" || key === "DB_B")
+        if (key === "DB")
           throw new Error("Page attempted a database read");
         return Reflect.get(target, key);
       },
@@ -87,6 +87,19 @@ describe("static page documents", () => {
     expect(await readDocument(context(path, env).url, env)).toEqual(profile);
     expect(instructorBucket(path)).toMatch(/^[0-9a-f]{3}$/);
     expect(documentAsset("/instructors/by-rating-count")).toContain("/pages/");
+  });
+  it("normalizes equivalent URL encodings before selecting a document", async () => {
+    const path = "/departments/ANAT%26PHY";
+    const { platform: env } = platform({ [documentAsset(path)]: document });
+    for (const input of [
+      path,
+      "/departments/ANAT&PHY",
+      "/departments/ANAT%26PHY",
+    ]) {
+      expect(await readDocument(context(input, env).url, env)).toEqual(
+        document,
+      );
+    }
   });
   it("preserves aliases and unknown-page errors without a database fallback", async () => {
     const { platform: env } = platform({

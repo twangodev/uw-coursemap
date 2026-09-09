@@ -30,7 +30,6 @@ export interface CourseCard {
 }
 export interface Status {
   deployed_at?: string | null;
-  slot?: string | null;
   revision: string;
   repository: string;
   observed_at: string;
