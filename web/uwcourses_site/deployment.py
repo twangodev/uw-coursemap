@@ -173,6 +173,7 @@ def database_matches(config: Path, release: Release) -> bool:
         "--json",
         "--command",
         "SELECT count(*) tables FROM sqlite_master WHERE type='table' AND name IN ('metadata','courses')",
+        capture=True,
     )
     if json.loads(output)[0]["results"][0]["tables"] != 2:
         return False
@@ -187,6 +188,7 @@ def database_matches(config: Path, release: Release) -> bool:
         "SELECT (SELECT value FROM metadata WHERE key='ready') ready, "
         "(SELECT value FROM metadata WHERE key='status') status, "
         "(SELECT count(*) FROM courses) courses",
+        capture=True,
     )
     try:
         verify_database(output, release)

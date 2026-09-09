@@ -119,6 +119,32 @@ class DeploymentTests(unittest.TestCase):
         self.run_deploy(missing=True)
         self.run_deploy(missing=True, first=True)
 
+    def test_readiness_queries_capture_json_from_the_subprocess(self):
+        for tables in (0, 2):
+            with self.subTest(tables=tables):
+                outputs = iter(
+                    [
+                        json.dumps(
+                            [{"results": [{"tables": tables}], "success": True}]
+                        ),
+                        self.report(),
+                    ]
+                )
+
+                def run(args, **kwargs):
+                    self.assertIn("--json", args)
+                    self.assertIs(kwargs.get("stdout"), subprocess.PIPE)
+                    return subprocess.CompletedProcess(args, 0, stdout=next(outputs))
+
+                with patch(
+                    "uwcourses_site.deployment.subprocess.run", side_effect=run
+                ) as command:
+                    self.assertEqual(
+                        database_matches(Path("wrangler.json"), self.release),
+                        tables == 2,
+                    )
+                    self.assertEqual(command.call_count, 1 if tables == 0 else 2)
+
     @patch("uwcourses_site.deployment.wrangler")
     def test_database_readiness_controls_reuse_after_failed_publication(self, command):
         tables = json.dumps([{"results": [{"tables": 2}], "success": True}])
