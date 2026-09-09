@@ -1,4 +1,10 @@
-import { aggregateTerms, cohortBenchmarks, type Benchmarks } from "$lib/grade-benchmarks";
+import { error } from "@sveltejs/kit";
+import { readAsset } from "./documents/storage";
+import {
+  aggregateTerms,
+  cohortBenchmarks,
+  type Benchmarks,
+} from "$lib/grade-benchmarks";
 import { building, dev } from "$app/environment";
 import { query } from "./data";
 import { compareCourse, type PeerCourse } from "$lib/course-context";
@@ -21,7 +27,14 @@ function index(rows: PeerCourse[]): Catalog {
     groups.set(key, group);
     courses.set(row.uid + ":" + row.term, row);
   }
-  return { groups, courses, benchmarks: new Map([...groups].map(([term, rows]) => [term, cohortBenchmarks(rows)])), histories: new Map() };
+  return {
+    groups,
+    courses,
+    benchmarks: new Map(
+      [...groups].map(([term, rows]) => [term, cohortBenchmarks(rows)]),
+    ),
+    histories: new Map(),
+  };
 }
 async function peers(
   platform: App.Platform | undefined,
@@ -53,48 +66,104 @@ async function peers(
         term: row.term,
         gpa,
         count,
-        topShare: 100 * (counts[0] + counts[1]) / count,
+        topShare: (100 * (counts[0] + counts[1])) / count,
         subjects: JSON.parse(row.subjects),
       },
     ];
   });
 }
 
-export async function courseContext(course: any, platform?: App.Platform, sharedCatalog?: Catalog) {
+export async function courseContext(
+  course: any,
+  platform?: App.Platform,
+  sharedCatalog?: Catalog,
+) {
+  if (!building && !dev) {
+    const stored = await readAsset<{ context: any }>(
+      `/__documents/contexts/${course.course_uid}.json`,
+      platform,
+    );
+    if (!stored) error(503, "Published course comparisons unavailable");
+    return stored.context;
+  }
   const term = [...course.grades].sort((a, b) =>
     b.term_id.localeCompare(a.term_id),
   )[0]?.term_id;
   if (!term) return null;
-  const catalog = sharedCatalog || await badgeCatalog(platform);
+  const catalog = sharedCatalog || (await badgeCatalog(platform));
   const current = catalog.courses.get(course.course_uid + ":" + term);
   if (!current) return null;
-  const terms = [...new Set<string>(course.grades.map((row: any) => row.term_id))].sort();
+  const terms = [
+    ...new Set<string>(course.grades.map((row: any) => row.term_id)),
+  ].sort();
   const historyKey = terms.join(",");
   let history = catalog.histories.get(historyKey);
   if (!history) {
-    const rows = aggregateTerms(terms.flatMap((term) => catalog.groups.get(term) || [])).map((row) => ({ ...row, term: "", code: "" }));
+    const rows = aggregateTerms(
+      terms.flatMap((term) => catalog.groups.get(term) || []),
+    ).map((row) => ({ ...row, term: "", code: "" }));
     history = { benchmarks: cohortBenchmarks(rows), rows };
-    if (catalog.histories.size >= 128) catalog.histories.delete(catalog.histories.keys().next().value!);
+    if (catalog.histories.size >= 128)
+      catalog.histories.delete(catalog.histories.keys().next().value!);
     catalog.histories.set(historyKey, history);
   }
-  const select = (values: Benchmarks = {}) => Object.fromEntries(["school", ...current.subjects].map((key) => [key, values[key] || null]));
-  const contextFor = (current: PeerCourse | undefined, rows: PeerCourse[]) => current ? {
-    term: current.term, gpa: current.gpa, count: current.count,
-    university: compareCourse(current, rows),
-    departments: current.subjects.map((subject) => ({ subject, comparison: compareCourse(current, rows, subject) })),
-  } : null;
+  const select = (values: Benchmarks = {}) =>
+    Object.fromEntries(
+      ["school", ...current.subjects].map((key) => [key, values[key] || null]),
+    );
+  const contextFor = (current: PeerCourse | undefined, rows: PeerCourse[]) =>
+    current
+      ? {
+          term: current.term,
+          gpa: current.gpa,
+          count: current.count,
+          university: compareCourse(current, rows),
+          departments: current.subjects.map((subject) => ({
+            subject,
+            comparison: compareCourse(current, rows, subject),
+          })),
+        }
+      : null;
   return {
-    all: contextFor(history.rows.find((row) => row.uid === course.course_uid), history.rows),
-    terms: Object.fromEntries(terms.map((term) => [term, contextFor(catalog.courses.get(course.course_uid + ":" + term), catalog.groups.get(term) || [])])),
-    benchmarks: { all: select(history.benchmarks), terms: Object.fromEntries(terms.map((term) => [term, select(catalog.benchmarks.get(term))])) },
+    all: contextFor(
+      history.rows.find((row) => row.uid === course.course_uid),
+      history.rows,
+    ),
+    terms: Object.fromEntries(
+      terms.map((term) => [
+        term,
+        contextFor(
+          catalog.courses.get(course.course_uid + ":" + term),
+          catalog.groups.get(term) || [],
+        ),
+      ]),
+    ),
+    benchmarks: {
+      all: select(history.benchmarks),
+      terms: Object.fromEntries(
+        terms.map((term) => [term, select(catalog.benchmarks.get(term))]),
+      ),
+    },
   };
 }
 
 async function badgeCatalog(platform?: App.Platform) {
-  return building || dev ? await (buildPeers ??= peers(platform).then(index)) : index(await peers(platform));
+  return building || dev
+    ? await (buildPeers ??= peers(platform).then(index))
+    : index(await peers(platform));
 }
 export async function courseContexts(courses: any[], platform?: App.Platform) {
   if (!courses.length) return new Map();
-  const catalog = await badgeCatalog(platform);
-  return new Map(await Promise.all(courses.map(async course => [course.course_uid, await courseContext(course, platform, catalog)] as const)));
+  const catalog = building || dev ? await badgeCatalog(platform) : undefined;
+  return new Map(
+    await Promise.all(
+      courses.map(
+        async (course) =>
+          [
+            course.course_uid,
+            await courseContext(course, platform, catalog),
+          ] as const,
+      ),
+    ),
+  );
 }

@@ -1,3 +1,5 @@
+import { building, dev } from "$app/environment";
+import { readDocument, isFilteredDocument } from "./storage";
 import { documentSchemas, documentKind } from "$lib/api/schemas";
 import { isRedirect } from "@sveltejs/kit";
 import { loadDocument } from "./index";
@@ -29,31 +31,11 @@ export async function documentResponse(
   const url = new URL(event.url);
   url.pathname = requested.path;
   try {
-    const [data, dataset] = await Promise.all([
-      loadDocument({
-        url,
-        platform: event.platform,
-        params: {},
-        setHeaders: () => {},
-      }),
-      status(event.platform),
-    ]);
-    const seo = pageSeo({ ...data, status: dataset }, url.pathname);
-    const canonical = new URL(
-      url.pathname + url.search,
-      "https://uwcourses.com",
-    ).href;
-    const document = documentSchemas[documentKind(url.pathname)].parse(
-      JSON.parse(
-        JSON.stringify({
-          schema_version: 1,
-          url: canonical,
-          title: seo.title,
-          dataset,
-          data,
-        }),
-      ),
-    );
+    const document =
+      !building && !dev && !isFilteredDocument(url)
+        ? await readDocument(url, event.platform)
+        : await liveDocument(event, url);
+    const canonical = document.url;
     const body =
       requested.format === "json"
         ? JSON.stringify(document)
@@ -87,4 +69,27 @@ export async function documentResponse(
     }
     throw cause;
   }
+}
+
+async function liveDocument(event: RequestEvent, url: URL) {
+  const [data, dataset] = await Promise.all([
+    loadDocument({
+      url,
+      platform: event.platform,
+      params: {},
+      setHeaders: () => {},
+    }),
+    status(event.platform),
+  ]);
+  const document = JSON.parse(
+    JSON.stringify({
+      schema_version: 1,
+      url: new URL(url.pathname + url.search, "https://uwcourses.com").href,
+      title: pageSeo({ ...data, status: dataset }, url.pathname).title,
+      dataset,
+      data,
+    }),
+  );
+  documentSchemas[documentKind(url.pathname)].parse(document);
+  return document;
 }

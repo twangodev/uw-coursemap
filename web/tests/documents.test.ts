@@ -89,7 +89,7 @@ it("caches successful documents, revalidates, and bypasses navigation and creden
       url: new URL("https://uwcourses.com/search.json?q=java"),
       request: new Request("https://uwcourses.com/search.json?q=java"),
       platform: {
-        env: { SITE_COMMIT: "a", DATA_PROJECTION: "b", DATA_SLOT: "a" },
+        env: { SITE_COMMIT: "a", DATA_PROJECTION: "b" },
         context: { waitUntil: (p: Promise<unknown>) => writes.push(p) },
       },
       isDataRequest: false,

@@ -1,1 +1,3 @@
-export { search as load } from "$lib/server/documents/search";
+import { search } from "$lib/server/documents/search";
+import { pageDocument } from "$lib/server/documents/page";
+export const load = pageDocument(search);

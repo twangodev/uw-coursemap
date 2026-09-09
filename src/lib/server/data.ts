@@ -1,8 +1,12 @@
+import publishedStatus from "../../../.site/status.json";
 import { database, localDatabase } from "./database";
-import { metadata, courses, instructors } from "./schema";
+import { courses, instructors } from "./schema";
 import { eq, sql as drizzleSql } from "drizzle-orm";
 import { withInstructorUrls } from "./instructor-urls";
-import { instructorRatingPrior, withInstructorRatings } from "./instructor-ratings";
+import {
+  instructorRatingPrior,
+  withInstructorRatings,
+} from "./instructor-ratings";
 import { ratingPriorWeight } from "$lib/instructor-ratings";
 import { isCourseCollection } from "$lib/course-collections";
 import { building, dev } from "$app/environment";
@@ -11,22 +15,30 @@ import { coursePreviews } from "./discovery";
 import { normalize } from "$lib/format";
 import type { Status } from "$lib/types";
 /** Existing FTS and aggregation queries retain bound parameters. */
-export async function query<T = any>(platform: App.Platform | undefined, statement: string, values: unknown[] = []): Promise<T[]> {
-  if (building || dev) return (await localDatabase()).prepare(statement).all(...values) as T[];
+export async function query<T = any>(
+  platform: App.Platform | undefined,
+  statement: string,
+  values: unknown[] = [],
+): Promise<T[]> {
+  if (building || dev)
+    return (await localDatabase()).prepare(statement).all(...values) as T[];
   // All SQL templates are internal; values remain parameters in Drizzle/D1.
   const parts = statement.split("?");
-  if (parts.length !== values.length + 1) throw new Error("SQL parameter count mismatch");
-  const chunks = parts.flatMap((part, index) => index < values.length
-    ? [drizzleSql.raw(part), drizzleSql`${values[index]}`] : [drizzleSql.raw(part)]);
-  return await database(platform).all<T>(drizzleSql.join(chunks, drizzleSql.raw(""))) as T[];
+  if (parts.length !== values.length + 1)
+    throw new Error("SQL parameter count mismatch");
+  const chunks = parts.flatMap((part, index) =>
+    index < values.length
+      ? [drizzleSql.raw(part), drizzleSql`${values[index]}`]
+      : [drizzleSql.raw(part)],
+  );
+  return (await database(platform).all<T>(
+    drizzleSql.join(chunks, drizzleSql.raw("")),
+  )) as T[];
 }
 export async function status(platform?: App.Platform): Promise<Status> {
-  const [r] = await database(platform).select({ value: metadata.value }).from(metadata).where(eq(metadata.key, "status"));
-  if (!r) error(503, "Dataset not imported");
   return {
-    ...JSON.parse(r.value),
+    ...publishedStatus,
     deployed_at: building || dev ? null : platform?.env.DEPLOYED_AT || null,
-    slot: building || dev ? null : platform?.env.DATA_SLOT || null,
   };
 }
 export async function pageData(
@@ -35,7 +47,10 @@ export async function pageData(
   platform?: App.Platform,
 ): Promise<any> {
   const table = kind === "courses" ? courses : instructors;
-  const [r] = await database(platform).select({ payload: table.payload }).from(table).where(eq(table.uid, uid));
+  const [r] = await database(platform)
+    .select({ payload: table.payload })
+    .from(table)
+    .where(eq(table.uid, uid));
   if (!r)
     error(
       404,
@@ -134,10 +149,12 @@ export async function search(url: URL, platform?: App.Platform) {
     }
   }
   const ranking = url.searchParams.get("ranking");
-  if (ranking && (kind !== "course" || !isCourseCollection(ranking))) error(400, "Invalid course ranking");
+  if (ranking && (kind !== "course" || !isCourseCollection(ranking)))
+    error(400, "Invalid course ranking");
   if (ranking) where += " AND h.grade_count>=100";
   const sort = url.searchParams.get("sort");
-  const prior = kind === "instructor" ? await instructorRatingPrior(platform) : null;
+  const prior =
+    kind === "instructor" ? await instructorRatingPrior(platform) : null;
   const qualityCount = "json_extract(c.payload,'$.ratings.quality_count')";
   const adjustedQuality = `CASE WHEN ${qualityCount}>0 THEN (json_extract(c.payload,'$.ratings.quality')*${qualityCount}+${prior ?? "NULL"}*${ratingPriorWeight})/(${qualityCount}+${ratingPriorWeight}) END`;
   const order =
@@ -145,11 +162,11 @@ export async function search(url: URL, platform?: App.Platform) {
       ? `c.current DESC,${adjustedQuality} DESC,c.name`
       : ranking
         ? `h.history_gpa ${ranking === "hardest" ? "ASC" : "DESC"},h.grade_count DESC,c.code`
-      : sort === "gpa"
-        ? "CASE WHEN h.grade_count>=100 THEN 0 ELSE 1 END,CASE WHEN h.grade_count>=100 THEN h.history_gpa END DESC,c.code"
-        : expression
-          ? "min(m.score),c.code"
-          : "c.code";
+        : sort === "gpa"
+          ? "CASE WHEN h.grade_count>=100 THEN 0 ELSE 1 END,CASE WHEN h.grade_count>=100 THEN h.history_gpa END DESC,c.code"
+          : expression
+            ? "min(m.score),c.code"
+            : "c.code";
   const fields =
     kind === "course"
       ? "c.uid course_uid,c.code course_id,c.title,c.credits_min,c.credits_max,c.gpa"
@@ -166,7 +183,15 @@ export async function search(url: URL, platform?: App.Platform) {
   );
   return {
     items:
-      kind === "course" ? await coursePreviews(items, term, platform, undefined, url.searchParams.get("subject") || "school") : await withInstructorUrls(items, platform),
+      kind === "course"
+        ? await coursePreviews(
+            items,
+            term,
+            platform,
+            undefined,
+            url.searchParams.get("subject") || "school",
+          )
+        : await withInstructorUrls(items, platform),
     total: count.total,
     page,
     kind,

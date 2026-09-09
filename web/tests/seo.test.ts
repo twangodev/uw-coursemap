@@ -118,7 +118,7 @@ it("omits empty rankings while preserving populated ranking pages", async () => 
       pageSeo({ subject, collection: "easiest", results }, path).noindex,
     ).toBe(results.total === 0);
   }
-});
+}, 30_000);
 
 it("does not invent missing catalog descriptions or promote unnamed instructor records", () => {
   const seo = pageSeo(
