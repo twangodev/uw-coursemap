@@ -758,7 +758,6 @@ a:hover {
 .course-content > .panel {
   background: transparent;
   border: 0;
-  border-top: 1px solid var(--border);
   border-radius: 0;
 }
 .course-content > .panel > .panel-heading {
@@ -777,8 +776,7 @@ a:hover {
 }
 .course-facts .panel-heading {
   padding: 24px 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 0;
+  border: 0;
 }
 .course-facts .panel-body { padding: 0; }
 .course-facts .panel-body > details { padding: 0; margin: 0; border: 0; }
