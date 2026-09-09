@@ -1,13 +1,25 @@
 name: Svelte
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "17 3 * * *"
+      timezone: America/Los_Angeles
+  workflow_dispatch:
+    inputs:
+      first_deployment:
+        description: First deployment (Worker does not exist yet)
+        type: boolean
+        default: false
 permissions:
   contents: read
-concurrency:
-  group: svelte-${{ github.ref }}
-  cancel-in-progress: true
 jobs:
   check:
     name: Svelte
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    concurrency:
+      group: svelte-${{ github.ref }}
+      cancel-in-progress: true
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -38,3 +50,59 @@ jobs:
       - run: bun run seo:check
       - run: uv run --locked uwcourses-site assets-check
       - run: bun x playwright test
+  deploy:
+    name: Deploy
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    concurrency:
+      group: website-production
+      cancel-in-progress: false
+    environment:
+      name: production
+      url: https://uwcourses.com
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 25
+      - uses: astral-sh/setup-uv@v7
+        with:
+          python-version: "3.12"
+          enable-cache: true
+      - run: bun install --frozen-lockfile
+      - run: uv run --locked uwcourses-site import
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      - run: uv run --locked uwcourses-site release-check
+      - run: bun run check
+      - run: bun run test
+      - run: uv run --locked python -m unittest discover -s web/tests -p 'test_*.py'
+      - run: bun x playwright install --with-deps chromium
+      - name: Cache social cards
+        uses: actions/cache@v5
+        with:
+          path: .site/social-cache
+          key: ${{ runner.os }}-social-${{ hashFiles('web/social-images.mjs', 'web/social-card.html', 'static/fonts/OverusedGrotesk-VF.woff2', 'static/uw-coursemap-logo.svg') }}-${{ hashFiles('.site/status.json') }}
+          restore-keys: |
+            ${{ runner.os }}-social-${{ hashFiles('web/social-images.mjs', 'web/social-card.html', 'static/fonts/OverusedGrotesk-VF.woff2', 'static/uw-coursemap-logo.svg') }}-
+      - run: bun run build
+      - run: bun run seo:check
+      - run: bun x playwright test
+      - name: Deploy verified release
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          FIRST_DEPLOYMENT: ${{ inputs.first_deployment || false }}
+        run: uv run --locked uwcourses-site deploy
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: website-release
+          path: |
+            .site/status.json
+            .site/d1-check.json
+          retention-days: 30
