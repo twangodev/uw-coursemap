@@ -1,3 +1,6 @@
+import { database, localDatabase } from "./database";
+import { metadata, courses, instructors } from "./schema";
+import { eq, sql as drizzleSql } from "drizzle-orm";
 import { withInstructorUrls } from "./instructor-urls";
 import { instructorRatingPrior, withInstructorRatings } from "./instructor-ratings";
 import { ratingPriorWeight } from "$lib/instructor-ratings";
@@ -7,36 +10,18 @@ import { error } from "@sveltejs/kit";
 import { coursePreviews } from "./discovery";
 import { normalize } from "$lib/format";
 import type { Status } from "$lib/types";
-let local: any;
-export async function query<T = any>(
-  platform: App.Platform | undefined,
-  sql: string,
-  values: unknown[] = [],
-): Promise<T[]> {
-  if (!building && !dev) {
-    const database =
-      platform?.env.DATA_SLOT === "green"
-        ? platform.env.DB_GREEN
-        : platform?.env.DB_BLUE;
-    if (!database) error(503, "Dataset database unavailable");
-    const result = await database
-      .prepare(sql)
-      .bind(...values)
-      .all<T>();
-    return result.results;
-  }
-  if (!local) {
-    const moduleName = "node:sqlite";
-    const { DatabaseSync } = await import(/* @vite-ignore */ moduleName);
-    local = new DatabaseSync(".site/site.sqlite", { readOnly: true });
-  }
-  return local.prepare(sql).all(...values) as T[];
+/** Existing FTS and aggregation queries retain bound parameters. */
+export async function query<T = any>(platform: App.Platform | undefined, statement: string, values: unknown[] = []): Promise<T[]> {
+  if (building || dev) return (await localDatabase()).prepare(statement).all(...values) as T[];
+  // All SQL templates are internal; values remain parameters in Drizzle/D1.
+  const parts = statement.split("?");
+  if (parts.length !== values.length + 1) throw new Error("SQL parameter count mismatch");
+  const chunks = parts.flatMap((part, index) => index < values.length
+    ? [drizzleSql.raw(part), drizzleSql`${values[index]}`] : [drizzleSql.raw(part)]);
+  return await database(platform).all<T>(drizzleSql.join(chunks, drizzleSql.raw(""))) as T[];
 }
 export async function status(platform?: App.Platform): Promise<Status> {
-  const [r] = await query(
-    platform,
-    "SELECT value FROM metadata WHERE key='status'",
-  );
+  const [r] = await database(platform).select({ value: metadata.value }).from(metadata).where(eq(metadata.key, "status"));
   if (!r) error(503, "Dataset not imported");
   return {
     ...JSON.parse(r.value),
@@ -49,18 +34,14 @@ export async function pageData(
   uid: string,
   platform?: App.Platform,
 ): Promise<any> {
-  const table = kind === "courses" ? "courses" : "instructors";
-  const [r] = await query(
-    platform,
-    `SELECT payload FROM ${table} WHERE uid=?`,
-    [uid],
-  );
+  const table = kind === "courses" ? courses : instructors;
+  const [r] = await database(platform).select({ payload: table.payload }).from(table).where(eq(table.uid, uid));
   if (!r)
     error(
       404,
       kind === "courses" ? "Course not found" : "Instructor not found",
     );
-  return withInstructorRatings(JSON.parse(r.payload), table, platform);
+  return withInstructorRatings(JSON.parse(r.payload), kind, platform);
 }
 export async function assertRevision(url: URL, platform?: App.Platform) {
   const s = await status(platform);
