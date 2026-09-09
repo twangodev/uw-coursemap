@@ -88,24 +88,43 @@
   setContext(citationContext, (citation: Citation) => sourceNumbers.get(citationKey(citation)));
   let active = $state("overview");
   let navigationHeight = $state(43);
+  let sectionNav: HTMLElement;
+  let indicator = $state({ left: 0, width: 0 });
   let introduction = $derived(
     (c.llm_summary || c.description || "")
       .replace(`${c.course_id} ${c.title} `, "")
       .replace(/^./, (letter: string) => letter.toUpperCase()),
   );
   onMount(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries)
-          if (entry.isIntersecting) active = entry.target.id;
-      },
-      { rootMargin: "-10% 0px -65% 0px" },
-    );
-    for (const link of links) {
-      const section = document.getElementById(link.id);
-      if (section) observer.observe(section);
+    let frame = 0;
+    let stopped = false;
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    function update() {
+      frame = 0;
+      const sections = links.map(link => document.getElementById(link.id)).filter((el): el is HTMLElement => !!el);
+      const threshold = navigationHeight + 64;
+      let next = sections[0]?.id || "overview";
+      for (const section of sections) if (section.getBoundingClientRect().top <= threshold) next = section.id;
+      if (window.scrollY > 0 && window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) next = sections.at(-1)?.id || next;
+      const changed = next !== active;
+      active = next;
+      const link = sectionNav.querySelector<HTMLAnchorElement>(`a[href="#${next}"]`);
+      if (!link) return;
+      indicator = { left: link.offsetLeft, width: link.offsetWidth };
+      // Scroll only the horizontal navigation, never the document.
+      if (changed && (link.offsetLeft < sectionNav.scrollLeft || link.offsetLeft + link.offsetWidth > sectionNav.scrollLeft + sectionNav.clientWidth)) {
+        sectionNav.scrollTo({ left: link.offsetLeft - (sectionNav.clientWidth - link.offsetWidth) / 2, behavior: motion.matches ? "instant" : "smooth" });
+      }
     }
-    return () => observer.disconnect();
+    function schedule() { if (!frame && !stopped) frame = requestAnimationFrame(update); }
+    window.addEventListener("scroll", schedule, { passive: true });
+    const resize = new ResizeObserver(schedule);
+    resize.observe(sectionNav);
+    resize.observe(sectionNav.firstElementChild!);
+    resize.observe(document.querySelector(".course-workspace")!);
+    document.fonts.ready.then(schedule);
+    schedule();
+    return () => { stopped = true; cancelAnimationFrame(frame); resize.disconnect(); window.removeEventListener("scroll", schedule); };
   });
   const links = [
     { id: "overview", label: "overview", icon: BookOpen },
@@ -158,12 +177,15 @@
   </div>
 </div>
 <div class="course-navigation" bind:offsetHeight={navigationHeight}>
-  <nav class="course-jumps" aria-label="Course sections">
+  <nav bind:this={sectionNav} class="course-jumps" class:has-indicator={indicator.width > 0} aria-label="Course sections">
+    <div class="section-links">
     {#each links as link}<a
         href={"#" + link.id}
         aria-current={active === link.id ? "location" : undefined}
         ><link.icon size={14} strokeWidth={1.5} />{link.label}</a
       >{/each}
+      <span class="section-indicator" aria-hidden="true" style:width={`${indicator.width}px`} style:transform={`translateX(${indicator.left}px)`}></span>
+    </div>
   </nav>
   <div class="navigation-filters">
     {#if data.context}
@@ -484,6 +506,10 @@
   .term-step:hover:not(:disabled) { background: var(--border); color: var(--text); }
   .term-step:disabled { opacity: 0.3; cursor: default; }
   .term-step:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .section-links { position: relative; display: flex; flex: 0 0 auto; width: max-content; gap: 5px; }
+  .section-indicator { position: absolute; left: 0; bottom: 0; height: 2px; background: var(--accent); border-radius: 2px; pointer-events: none; transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), width 320ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .has-indicator a[aria-current="location"] { box-shadow: none; }
+  @media (prefers-reduced-motion: reduce) { .section-indicator { transition: none; } }
   .navigation-filters { display: flex; gap: 10px; flex-shrink: 0; }
   .navigation-filter { display: grid; gap: 2px; min-width: 0; }
   @media (max-width: 1000px) {
