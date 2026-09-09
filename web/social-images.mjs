@@ -1,6 +1,6 @@
 /** Build-time social cards; the dev middleware uses the same renderer on demand. */
 import { chromium } from "playwright";
-import { readFile, writeFile, mkdir, readdir, rename } from "node:fs/promises";
+import { readFile, writeFile, mkdir, rename } from "node:fs/promises";
 import { resolve, dirname, join } from "node:path";
 import { pathToFileURL } from "node:url";
 import { createHash, randomUUID } from "node:crypto";
@@ -121,21 +121,13 @@ export async function createCardRenderer() {
   };
 }
 
-/** @param {string} root @returns {AsyncGenerator<string>} */
-async function* files(root) {
-  for (const entry of await readdir(root, { withFileTypes: true })) {
-    const path = join(root, entry.name);
-    if (entry.isDirectory()) yield* files(path);
-    else if (path.endsWith(".html")) yield path;
-  }
-}
-
 export async function buildSocialImages(output = ".svelte-kit/cloudflare") {
-  const cards = new Map();
-  for await (const file of files(".svelte-kit/output/prerendered/pages")) {
-    const card = cardFromHtml(await readFile(file, "utf8"));
-    if (card) cards.set(card.path, card);
-  }
+  const manifest = JSON.parse(
+    await readFile(join(output, "social/manifest.json"), "utf8"),
+  );
+  const cards = new Map(
+    manifest.map((/** @type {{path: string}} */ card) => [card.path, card]),
+  );
   const renderer = await createCardRenderer();
   const pending = [...cards.values()];
   let completed = 0;

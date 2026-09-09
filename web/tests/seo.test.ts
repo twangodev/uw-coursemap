@@ -92,10 +92,10 @@ it("publishes every canonical course exactly once in bounded XML sitemaps", asyn
       .sort(),
   ).toEqual(courses.map((c) => courseUrl(c.code)).sort());
   expect(
-    urls.some((path) =>
-      /[?#]|^\/search|^\/stats|^\/subjects|course_/.test(path),
-    ),
+    urls.some((path) => /[?#]|^\/stats|^\/subjects|course_/.test(path)),
   ).toBe(false);
+  expect(urls).toContain("/search");
+  expect(urls).toContain("/instructors/by-rating-count");
   for (const paths of pages.values())
     expect(Buffer.byteLength(sitemapXml(paths))).toBeLessThan(50 * 1024 * 1024);
   expect(sitemapXml(["/courses/A%26B_100"])).toContain(
@@ -229,14 +229,20 @@ it("gives every indexable page family a connected page entity", () => {
   expect(pageSeo({}, "/missing", 404).structuredData["@graph"]).toEqual([]);
 });
 
-it('indexes clean discovery pages with distinct metadata, but excludes filtered results', () => {
-  for (const path of ['/search', '/instructors/by-rating-count']) {
+it("indexes clean discovery pages with distinct metadata, but excludes filtered results", () => {
+  for (const path of ["/search", "/instructors/by-rating-count"]) {
     const seo = pageSeo({ discoveryFiltered: false }, path);
     expect(seo.noindex).toBe(false);
-    expect(seo.canonical).toBe('https://uwcourses.com' + path);
-    expect(seo.structuredData['@graph'].some(item => item['@type'] === 'CollectionPage')).toBe(true);
+    expect(seo.canonical).toBe("https://uwcourses.com" + path);
+    expect(
+      seo.structuredData["@graph"].some(
+        (item) => item["@type"] === "CollectionPage",
+      ),
+    ).toBe(true);
     expect(pageSeo({ discoveryFiltered: true }, path).noindex).toBe(true);
     expect(pageSeo({ discoveryFiltered: false }, path, 404).noindex).toBe(true);
   }
-  expect(pageSeo({ discoveryFiltered: false }, '/search').title).not.toBe(pageSeo({ discoveryFiltered: false }, '/instructors/by-rating-count').title);
+  expect(pageSeo({ discoveryFiltered: false }, "/search").title).not.toBe(
+    pageSeo({ discoveryFiltered: false }, "/instructors/by-rating-count").title,
+  );
 });

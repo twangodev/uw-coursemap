@@ -14,10 +14,10 @@ export function escapeXml(value: string) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&apos;");
 }
-export function sitemapXml(paths: string[], index = false) {
+export function sitemapXml(paths: string[], index = false, lastmod?: string) {
   const root = index ? "sitemapindex" : "urlset";
   const item = index ? "sitemap" : "url";
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<${root} xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${paths.map((path) => `<${item}><loc>${escapeXml(absoluteUrl(path))}</loc></${item}>`).join("")}</${root}>`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<${root} xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${paths.map((path) => `<${item}><loc>${escapeXml(absoluteUrl(path))}</loc>${lastmod ? `<lastmod>${escapeXml(lastmod)}</lastmod>` : ""}${index ? "" : `<changefreq>${path === "/" ? "weekly" : "monthly"}</changefreq><priority>${path === "/" ? "1.0" : path.startsWith("/courses/") ? "0.8" : path.startsWith("/instructors/") ? "0.6" : "0.7"}</priority>`}</${item}>`).join("")}</${root}>`;
 }
 let cached: Promise<Map<string, string[]>> | undefined;
 // These endpoints are prerendered alongside the same imported dataset as pages.
@@ -55,6 +55,8 @@ export function sitemapPages() {
         "/",
         "/departments",
         "/explorer",
+        "/search",
+        "/instructors/by-rating-count",
         ...(rankedSubjects.size ? collections.map((c) => `/courses/${c}`) : []),
         ...entries.subjects.flatMap((subject) => {
           const path = `/departments/${encodeURIComponent(subject)}`;

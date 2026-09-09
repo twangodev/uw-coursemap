@@ -1,7 +1,10 @@
 import { expect, it, vi } from "vitest";
 vi.mock("$app/environment", () => ({ building: true, dev: true }));
 import { instructorSlug } from "../../src/lib/format";
-import { instructorUrls, resolveInstructorUid } from "../../src/lib/server/instructor-urls";
+import {
+  instructorUrls,
+  resolveInstructorUid,
+} from "../../src/lib/server/instructor-urls";
 import { query } from "../../src/lib/server/data";
 
 it("matches original name sanitization, including transliteration", () => {
@@ -24,12 +27,8 @@ it("keeps every instructor identity addressable without URL collisions", async (
   );
 });
 
-it("prerenders the release selection and resolves historical profiles dynamically", async () => {
-  const { entries } = await import("../../src/routes/instructors/[uid]/+page.server");
+it("resolves both current and historical profiles on demand", async () => {
   const release = await import("../../.site/entries.json");
-  const pages = await entries();
-  expect(pages).toHaveLength(release.instructors.length);
-  expect(new Set(pages.map(page => page.uid)).size).toBe(pages.length);
   const urls = await instructorUrls();
   const selected = new Set(release.instructors);
   const historical = [...urls].find(([uid]) => !selected.has(uid))!;

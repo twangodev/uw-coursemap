@@ -1,3 +1,4 @@
+import { status } from "$lib/server/data";
 import { sitemapPages, sitemapXml, xmlHeaders } from "$lib/server/sitemap";
 export const prerender = true;
 export async function GET() {
@@ -5,6 +6,7 @@ export async function GET() {
     sitemapXml(
       [...(await sitemapPages()).keys()].map((page) => `/sitemaps/${page}`),
       true,
+      (await status()).observed_at,
     ),
     { headers: xmlHeaders },
   );

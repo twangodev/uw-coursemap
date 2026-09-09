@@ -6,6 +6,7 @@ declare global {
         DB_GREEN: D1Database;
         DATA_SLOT: string;
         SITE_COMMIT?: string;
+        DATA_PROJECTION?: string;
         DEPLOYED_AT?: string;
         ASSETS: Fetcher;
       };

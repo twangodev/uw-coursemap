@@ -1,7 +1,6 @@
 import adapter from "@sveltejs/adapter-cloudflare";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import { buildSocialImages } from "./web/social-images.mjs";
-import { finalizeSitemaps } from "./web/sitemap-metadata.mjs";
 const cloudflare = adapter({
   config: process.env.WRANGLER_CONFIG || "wrangler.jsonc",
 });
@@ -13,21 +12,13 @@ export default {
       async adapt(builder) {
         await cloudflare.adapt(builder);
         await buildSocialImages();
-        await finalizeSitemaps();
       },
     },
     prerender: {
       concurrency: 16,
       handleHttpError: "fail",
       handleMissingId: "warn",
-      entries: [
-        "/sitemap.xml",
-        "/",
-        "/subjects",
-        "/departments",
-        "/explorer",
-        "/stats",
-      ],
+      entries: ["/sitemap.xml", "/social/manifest.json", "/openapi.json"],
     },
   },
 };

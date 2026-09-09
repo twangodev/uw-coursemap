@@ -1,0 +1,121 @@
+import { expect, test } from "@playwright/test";
+import { documentSchemas, documentKind } from "../../../src/lib/api/schemas";
+
+test("JSON document families satisfy the published contracts", async ({
+  request,
+}) => {
+  for (const path of [
+    "/index",
+    "/courses/COMPSCI_300",
+    "/courses/COMPSCI_400",
+    "/courses/COMPSCI_759",
+    "/instructors/HOBBES_LEGAULT",
+    "/instructors/by-rating-count",
+    "/departments",
+    "/departments/COMPSCI",
+    "/departments/COMPSCI/catalog",
+    "/departments/COMPSCI/easiest",
+    "/courses/hardest",
+    "/explorer/COMPSCI",
+    "/search",
+  ]) {
+    const response = await request.get(path + ".json");
+    expect(
+      response.status(),
+      path + ": " + (response.ok() ? "" : await response.text()),
+    ).toBe(200);
+    const document = await response.json();
+    expect(
+      documentSchemas[documentKind(path === "/index" ? "/" : path)].safeParse(
+        document,
+      ).success,
+      path,
+    ).toBe(true);
+    expect(response.headers()["x-robots-tag"]).toBe("noindex");
+    expect(response.headers()["access-control-allow-origin"]).toBe("*");
+  }
+});
+
+test("HTML advertises representations; Markdown preserves model and citations", async ({
+  request,
+}) => {
+  const path = "/courses/COMPSCI_300";
+  const html = await request.get(path);
+  expect(html.headers().link).toContain(path + ".md");
+  const body = await html.text();
+  expect(body).toContain('rel="alternate" type="application/json"');
+  expect(body).toContain('rel="service-desc"');
+  const json = await (await request.get(path + ".json")).json();
+  const markdown = await request.get(path + ".md");
+  expect(markdown.headers()["content-type"]).toContain("text/markdown");
+  const text = await markdown.text();
+  expect(text).toContain("Programming II");
+  expect(text).toContain(json.data.course.llm_model);
+  expect(text).toContain(json.dataset.revision);
+  expect(text).toContain("requirements");
+  const head = await request.head(path + ".md");
+  expect(head.status()).toBe(200);
+  expect(await head.text()).toBe("");
+});
+
+test("API discovery, aliases, query handling, errors and transport remain distinct", async ({
+  request,
+}) => {
+  const spec = await (await request.get("/openapi.json")).json();
+  expect(spec.openapi).toBe("3.1.0");
+  expect(Object.keys(spec.paths)).toHaveLength(36);
+  expect(spec.components.schemas.Course.properties.requirements).toBeTruthy();
+  const query = await (await request.get("/search.json?q=java")).json();
+  expect(query.data.results.q).toBe("java");
+  const alias = await request.get("/courses/cs300.json", { maxRedirects: 0 });
+  expect(alias.status()).toBe(308);
+  expect(alias.headers().location).toBe("/courses/COMPSCI_300.json");
+  for (const path of [
+    "/courses/no-such-course.json",
+    "/departments/NO_SUCH_DEPARTMENT.md",
+  ]) {
+    const response = await request.get(path);
+    expect(response.status()).toBe(404);
+    expect(response.headers()["cache-control"]).toBe("no-store");
+  }
+  expect((await request.get("/search.json?page=0")).status()).toBe(400);
+  expect((await request.post("/search.json")).status()).toBe(405);
+  const data = await request.get("/courses/COMPSCI_300/__data.json");
+  expect(data.status()).toBe(200);
+  expect((await data.json()).schema_version).toBeUndefined();
+});
+
+test("the existing interaction APIs satisfy their published schemas", async ({
+  request,
+}) => {
+  const { interactionSchemas } = await import("../../../src/lib/api/schemas");
+  const course = await (await request.get("/courses/COMPSCI_300.json")).json();
+  const instructor = await (
+    await request.get("/instructors/HOBBES_LEGAULT.json")
+  ).json();
+  const c = course.data.course.course_uid,
+    i = instructor.data.instructor.instructor_uid;
+  for (const [path, name] of [
+    ["/api/status", "Status"],
+    ["/api/search?q=java", "Search"],
+    [`/api/courses/${c}/grades`, "Grades"],
+    [`/api/instructors/${i}/history`, "InstructorHistory"],
+    [`/api/instructors/${i}/reviews`, "InstructorReviews"],
+    [`/api/instructors/${i}/courses`, "InstructorCourses"],
+  ] as const) {
+    const response = await request.get(path);
+    expect(response.status(), path).toBe(200);
+    expect(
+      interactionSchemas[name].safeParse(await response.json()).success,
+      path,
+    ).toBe(true);
+  }
+  expect((await request.get("/api/search?revision=wrong")).status()).toBe(409);
+  const options = await request.fetch("/courses/COMPSCI_300.json", {
+    method: "OPTIONS",
+  });
+  expect(options.status()).toBe(204);
+  expect(options.headers()["access-control-allow-headers"]).toContain(
+    "If-None-Match",
+  );
+});

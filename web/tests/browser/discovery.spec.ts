@@ -126,8 +126,8 @@ test("department names appear in search, headings and SEO metadata", async ({ pa
   await expect(link).toContainText("Computer Sciences");
   await link.click();
   await expect(page.getByRole("heading", { name: "Computer Sciences", exact: true })).toBeVisible();
-  await expect(page).toHaveTitle("Computer Sciences (COMPSCI) Courses, Grades & Reviews · UW Courses");
-  await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /Explore Computer Sciences courses at UW–Madison/);
+  await expect(page).toHaveTitle("Computer Sciences Courses, Grades & Reviews | UW–Madison");
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /Browse Computer Sciences \(COMPSCI\) courses at UW–Madison/);
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

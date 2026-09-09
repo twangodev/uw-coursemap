@@ -1,6 +1,6 @@
 # Website
 
-SvelteKit on Cloudflare Workers Static Assets + D1. HF is the source of truth.
+SvelteKit SSR on Cloudflare Workers, with cached responses, static assets, and Drizzle + D1. HF is the source of truth.
 
 ```sh
 bun install --frozen-lockfile
@@ -48,6 +48,18 @@ History and traces are paged static JSON. Unusually large trace records use orde
 
 Grades use course aggregates or instructor sections, never both. Identical cross-list distributions are deduplicated; conflicting course/term distributions are preserved for inspection and excluded from calculated GPA. Co-teachers share a section's distribution. Catalog timestamps represent observations, not validity intervals. Instructor identities remain separate even when names match.
 
-Social cards use `web/social-card.html` and are generated automatically by the Cloudflare adapter after prerendering. Chromium is required (`bun x playwright install chromium`). The renderer caches unchanged titles, fonts and artwork under `.site/social-cache`; production serves static PNGs, while Vite generates preview cards on demand.
+Social cards use `web/social-card.html` and are generated automatically from dataset metadata by the Cloudflare adapter, without rendering the website pages. Chromium is required (`bun x playwright install chromium`). The renderer caches unchanged titles, fonts and artwork under `.site/social-cache`; production serves static PNGs, while Vite generates preview cards on demand.
 
-Sitemap `lastmod` dates track changes to rendered content and structured data. GitHub Actions preserves `.site/sitemap-history.json`; without history, the first build establishes the baseline. Priority and change-frequency values are hints, not ranking controls.
+Sitemaps remain build-time assets. Their `lastmod` is the dataset observation timestamp, not the deployment timestamp; priorities and change frequencies are included.
+
+## Public representations
+
+Append `.json` or `.md` to a page URL (`/courses/COMPSCI_300.json`, `/search.md?q=java`); the homepage uses `/index.json` and `/index.md`. HTML advertises both via HTTP `Link` and `<link rel="alternate">`. These are public, read-only APIs with CORS enabled; alternate formats are noindex.
+
+`/openapi.json` serves OpenAPI 3.1, generated from the same Zod schemas used to validate document responses. TypeScript consumers can import inferred types from `src/lib/api/schemas.ts` or generate a client from the spec. Core entities have named fields; additional source fields use the recursive `JsonValue` schema. The existing `/api` interaction endpoints are also documented and validated.
+
+JSON has `schema_version`, `url`, `title`, `dataset`, and `data`. The dataset includes its pinned HF revision and projection identity. `data` is the same payload the page loader returns; nested LLM evidence and model provenance are retained. Large history/trace files remain linked from that payload rather than duplicated. Markdown renders the same records, with tables and JSON blocks for nested data. Neither format requires browser JavaScript.
+
+Public GET documents are cached for 24 hours in Cloudflare's Cache API. Keys include the deployment, data projection, database slot, URL, and query. Browser responses revalidate with ETags. Cache hits still invoke the Worker; the cache is local to each data center. Authenticated/cookie requests, navigation transport, errors, and existing `/api` endpoints bypass this document cache. Preview caching requires `SITE_COMMIT` and `DATA_PROJECTION`; without them requests render directly.
+
+Drizzle owns website reads; the Python importer owns the read-model schema and ordered SQL import. Complex FTS and grade aggregations use bound SQL through Drizzle on D1. Development reads the imported local SQLite database.

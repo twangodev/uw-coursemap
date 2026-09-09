@@ -1,5 +1,6 @@
 <script lang="ts">
   import "../app.css";
+  import { representationUrl, isDocument } from "$lib/documents";
   import { pageSeo, jsonLd } from "$lib/seo";
   import { Sun, Moon, Monitor } from "@lucide/svelte";
   import { page } from "$app/state";
@@ -32,9 +33,14 @@
 </script>
 
 <svelte:head>
+  <link rel="service-desc" type="application/vnd.oai.openapi+json" href="https://uwcourses.com/openapi.json" />
   <title>{seo.title}</title>
   <meta name="description" content={seo.description} />
   <link rel="canonical" href={seo.canonical} />
+  {#if page.status === 200 && isDocument(page.url.pathname)}
+    <link rel="alternate" type="text/markdown" href={'https://uwcourses.com' + representationUrl(page.url.pathname, 'md', page.url.search)} />
+    <link rel="alternate" type="application/json" href={'https://uwcourses.com' + representationUrl(page.url.pathname, 'json', page.url.search)} />
+  {/if}
   <meta name="robots" content={seo.noindex ? "noindex,follow" : "index,follow,max-image-preview:large"} />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="UW Courses" />
