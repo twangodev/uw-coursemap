@@ -25,6 +25,7 @@
   import CourseContext from "$lib/components/CourseContext.svelte";
   import GradeSnapshot from "$lib/components/GradeSnapshot.svelte";
   import Grades from "$lib/components/Grades.svelte";
+  import { departmentName } from "$lib/departments";
   import { requirementText } from "$lib/requirements";
   import RequirementGraph from "$lib/components/RequirementGraph.svelte";
   import RequirementText from "$lib/components/RequirementText.svelte";
@@ -205,7 +206,7 @@
         <span>Subjects</span>
         <div class="row">
           {#each c.subjects as subject}<a
-              href={"/departments/" + encodeURIComponent(subject)}>{subject}</a
+              href={"/departments/" + encodeURIComponent(subject)}>{departmentName(subject)}</a
             >{/each}
         </div>
       </div>
@@ -231,9 +232,6 @@
         {requirementText(c.requirements_text || "No prerequisites listed.")}
       </p>
       <RequirementGraph ast={c.requirements} course={c.course_id} following={data.following} />
-      {#if c.requirements.status !== "valid"}<p class="muted mono">
-          Best-effort interpretation · check the original requirements above.
-        </p>{/if}
       <details>
         <summary>Prerequisite text tree</summary><RequirementText
           ast={c.requirements}
@@ -329,7 +327,10 @@
           >
         </table>
       </div>
-      {#if selectedSections.length}<p class="muted mono">Enrollment at scan time.</p>{/if}
+      {#if selectedSections.length || snapshotAvailable}<p class="section-note">
+        {#if snapshotAvailable}Times are Central. Select a meeting for details; export includes recorded dates for the selected sections. {/if}
+        {#if selectedSections.length}Enrollment reflects scan time.{/if}
+      </p>{/if}
       {#if snapshotAvailable}<Evidence
         title="Meeting source records"
         files={c.evidence.meetings || []}

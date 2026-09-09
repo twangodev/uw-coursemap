@@ -262,10 +262,6 @@
         </Popover.Content>
       </Popover.Portal>
     </Popover.Root>
-    <p class="calendar-note">
-      America/Chicago · Select a meeting for details. Export includes all
-      recorded dates for the selected sections.
-    </p>
   {/if}
 </div>
 
@@ -367,11 +363,6 @@
   }
   .meeting:hover {
     background: color-mix(in srgb, var(--accent) 20%, var(--bg));
-  }
-  .calendar-note {
-    font: 10px/1.5 var(--font-sans);
-    color: var(--muted);
-    margin: 12px 0 20px;
   }
   :global(.meeting-popover) { z-index: 100; width: min(360px, calc(100vw - 24px)); max-height: min(520px, var(--bits-popover-content-available-height)); overflow: auto; padding: 22px; border: 1px solid var(--border); border-radius: 9px; background: var(--bg); color: var(--text); box-shadow: 0 12px 40px #0002; }
   .meeting-popover-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 12px; color: var(--muted); }

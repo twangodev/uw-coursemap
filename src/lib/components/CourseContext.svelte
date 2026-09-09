@@ -87,9 +87,6 @@
             ><AnimatedNumber value={comparison.medianCount} decimals={1} /></strong
           > letter grades.
         </p>
-        <p class="chart-caption">
-          A sense of course scale, not unique students or typical section size.
-        </p>
       </div>
     </div>
     <details class="comparison-method">
@@ -98,7 +95,7 @@
         {comparison.size} courses over {term ? "the same term" : "the course’s recorded terms"}, each with at least 30
         recorded letter grades. Cross-listed courses count once. GPA is not a measure
         of difficulty or teaching quality. The typical course is the median by recorded
-        grade count; tied values are not counted as lower.
+        grade count; tied values are not counted as lower. Grade counts describe course scale, not unique students or typical section size.
       </p>
       <p>Descriptions compare GPA with this group’s average: at least 0.20 higher or lower; otherwise close to average. Section size uses median recorded enrollment: small up to 30, mid-sized 31–99, large 100+. Lectures and discussion/lab sections are described separately.</p>
     </details>{/if}

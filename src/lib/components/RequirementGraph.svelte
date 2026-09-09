@@ -34,7 +34,10 @@
     {/if}
   </div>
 </div>
-<p class="tree-note">“Used by” includes alternative prerequisites; each course may have other requirements.</p>
+{#if following.length || ast.status !== "valid"}<p class="section-note">
+  {#if following.length}“Used by” includes alternatives; linked courses may have other requirements. {/if}
+  {#if ast.status !== "valid"}This is a best-effort interpretation; check the catalog requirements above.{/if}
+</p>{/if}
 
 <style>
   /* Tree arrangement inspired by NUSMods ModuleTree; see NUSMods.LICENSE. */
@@ -56,5 +59,4 @@
   .following .branch::before { left: 0; right: auto; }
   .following .branch::after { left: 0; right: auto; }
   .more-courses { padding: 5px 10px; border: 0; font-size: 12px; color: var(--muted); background: transparent; }
-  .tree-note { margin: 4px 0 16px; color: var(--muted); font-size: 12px; }
 </style>
