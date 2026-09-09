@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { Popover } from "bits-ui";
   import {
     ChevronLeft,
     ChevronRight,
@@ -7,6 +8,8 @@
     X,
     MapPin,
     Users,
+    Clock,
+    ArrowUpRight,
   } from "@lucide/svelte";
   import {
     localTime,
@@ -27,6 +30,10 @@
   let week = $state(""),
     section = $state(""),
     selected = $state<Meeting | null>(null);
+  let anchor = $state<HTMLElement | null>(null);
+  const hourHeight = 72;
+  function openMeeting(meeting: Meeting, target: HTMLElement) { anchor = target; selected = meeting; }
+  $effect(() => { week; section; selected = null; });
   const controller = new AbortController();
   let filtered = $derived(
     meetings.filter((m) => !section || sectionName(m.name) === section),
@@ -196,7 +203,7 @@
     </div>
     <div
       class="week-grid"
-      style={`--days:${shownDays.length};--hours:${hours.length}`}
+      style={`--days:${shownDays.length};--hours:${hours.length};--hour-height:${hourHeight}px`}
     >
       <div class="day-header time-zone">CT</div>
       {#each shownDays as day, i}<div class="day-header">
@@ -209,13 +216,14 @@
       {#each shownDays as day}<div class="day-column">
           {#each placeMeetings(filtered, day) as event}<button
               class="meeting"
-              style={`top:${((event.start - startHour * 60) / 60) * 48}px;height:${Math.max(25, ((event.end - event.start) / 60) * 48)}px;left:calc(${(event.lane / event.lanes) * 100}% + 2px);width:calc(${100 / event.lanes}% - 4px)`}
-              onclick={() => (selected = event.meeting)}
+              style={`top:${((event.start - startHour * 60) / 60) * hourHeight}px;height:${Math.max(28, ((event.end - event.start) / 60) * hourHeight)}px;left:calc(${(event.lane / event.lanes) * 100}% + 2px);width:calc(${100 / event.lanes}% - 4px)`}
+              onclick={(eventClick) => openMeeting(event.meeting, eventClick.currentTarget)}
+              aria-haspopup="dialog"
               title={`${sectionName(event.meeting.name)} · ${timeLabel(event.start)}–${timeLabel(event.end)} · ${event.meeting.building || ""} ${event.meeting.room || ""}`}
-              ><strong>{sectionName(event.meeting.name)}</strong><span
-                >{timeLabel(event.start)}</span
-              ><span>{event.meeting.room} {event.meeting.building}</span
-              ></button
+              ><strong>{sectionName(event.meeting.name)}</strong>
+              {#if event.end - event.start >= 30}<span>{timeLabel(event.start)}–{timeLabel(event.end)}</span>{/if}
+              {#if event.end - event.start >= 45}<span class="meeting-location">{event.meeting.room} {event.meeting.building}</span>{/if}
+              </button
             >{/each}
         </div>{/each}
     </div>
@@ -225,7 +233,8 @@
           day,
         )}{#if entries.length}<h3>{dayLabel(day)}</h3>
           {#each entries as event}<button
-              onclick={() => (selected = event.meeting)}
+              onclick={(eventClick) => openMeeting(event.meeting, eventClick.currentTarget)}
+              aria-haspopup="dialog"
               ><span class="mono">{timeLabel(event.start)}</span><strong
                 >{sectionName(event.meeting.name)}</strong
               ><span class="muted"
@@ -236,32 +245,21 @@
     {#if !visible.length}<p class="empty">
         No meetings recorded this week.
       </p>{/if}
-    {#if selected}<div
-        class="meeting-detail"
-        role="region"
-        aria-label="Meeting details"
-      >
-        <div class="row between">
-          <strong>{selected.name}</strong><button
-            aria-label="Close meeting details"
-            onclick={() => (selected = null)}><X size={14} /></button
-          >
-        </div>
-        <p>
-          {dayLabel(localTime(selected.starts_at).date)} · {timeLabel(
-            localTime(selected.starts_at).minute,
-          )}–{timeLabel(localTime(selected.ends_at).minute)}
-        </p>
-        <p>
-          <MapPin size={13} />{[selected.building, selected.room]
-            .filter(Boolean)
-            .join(" ") || "Location unavailable"}
-        </p>
-        <p>
-          <Users size={13} />{selected.instructor_names?.join(", ") ||
-            "Instructor not recorded"}
-        </p>
-      </div>{/if}
+    <Popover.Root open={!!selected} onOpenChange={(open) => { if (!open) selected = null; }}>
+      <Popover.Portal>
+        <Popover.Content class="meeting-popover" customAnchor={anchor} side="right" align="start" sideOffset={10} collisionPadding={12} role="dialog" aria-label="Meeting details" onCloseAutoFocus={(event) => { event.preventDefault(); anchor?.focus(); }}>
+          {#if selected}
+            <div class="meeting-popover-heading"><span>{selected.course_id} · {sectionName(selected.name)}</span><Popover.Close class="meeting-close" aria-label="Close meeting details"><X size={16} /></Popover.Close></div>
+            <h3 class="meeting-title">{sectionName(selected.name)}</h3>
+            <div class="meeting-detail-row"><Clock size={17} /><div><strong>{dayLabel(localTime(selected.starts_at).date)}</strong><p>{timeLabel(localTime(selected.starts_at).minute)}–{timeLabel(localTime(selected.ends_at).minute)} · Central time</p></div></div>
+            <div class="meeting-detail-row"><MapPin size={17} /><div><strong>{selected.building || "Location unavailable"}</strong>{#if selected.room}<p>Room {selected.room}</p>{/if}
+              {#if selected.building}<a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selected.building + " University of Wisconsin Madison")}`} target="_blank" rel="noreferrer">Open in Google Maps <ArrowUpRight size={13} /></a>{/if}
+            </div></div>
+            <div class="meeting-detail-row"><Users size={17} /><div>{selected.instructor_names?.join(", ") || "Instructor not recorded"}</div></div>
+          {/if}
+        </Popover.Content>
+      </Popover.Portal>
+    </Popover.Root>
     <p class="calendar-note">
       America/Chicago · Select a meeting for details. Export includes all
       recorded dates for the selected sections.
@@ -324,7 +322,7 @@
   }
   .hour-axis {
     display: grid;
-    grid-template-rows: repeat(var(--hours), 48px);
+    grid-template-rows: repeat(var(--hours), var(--hour-height));
     font: 9px var(--font-mono);
     color: var(--muted);
   }
@@ -333,14 +331,14 @@
   }
   .day-column {
     position: relative;
-    height: calc(var(--hours) * 48px);
+    height: calc(var(--hours) * var(--hour-height));
     border-left: 1px solid var(--border);
     background: repeating-linear-gradient(
       to bottom,
       transparent 0,
-      transparent 47px,
-      var(--border) 47px,
-      var(--border) 48px
+      transparent calc(var(--hour-height) - 1px),
+      var(--border) calc(var(--hour-height) - 1px),
+      var(--border) var(--hour-height)
     );
   }
   .meeting {
@@ -353,7 +351,7 @@
     border-left: 2px solid var(--accent);
     border-radius: 3px;
     background: var(--accent-soft);
-    padding: 3px 5px;
+    padding: 4px 6px;
     text-align: left;
     font: 11px/1.4 var(--font-sans);
     color: var(--text);
@@ -361,6 +359,7 @@
   .meeting strong {
     font-weight: 550;
   }
+  .meeting strong, .meeting span { width: 100%; min-height: 14px; line-height: 14px; flex-shrink: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .meeting span {
     font-size: 11px;
   }
@@ -372,19 +371,16 @@
     color: var(--muted);
     margin: 12px 0 20px;
   }
-  .meeting-detail {
-    border: 1px solid var(--border);
-    padding: 12px;
-    margin-top: 12px;
-    border-radius: 4px;
-    font-size: 12px;
-  }
-  .meeting-detail p {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    margin-top: 5px;
-  }
+  :global(.meeting-popover) { z-index: 100; width: min(360px, calc(100vw - 24px)); max-height: min(520px, var(--bits-popover-content-available-height)); overflow: auto; padding: 22px; border: 1px solid var(--border); border-radius: 9px; background: var(--bg); color: var(--text); box-shadow: 0 12px 40px #0002; }
+  .meeting-popover-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 12px; color: var(--muted); }
+  :global(.meeting-close) { display: grid; place-items: center; padding: 4px; border: 0; background: transparent; color: var(--muted); }
+  .meeting-title { font-size: 20px; font-weight: 500; line-height: 1.35; margin: 12px 0 24px; overflow-wrap: anywhere; }
+  .meeting-detail-row { display: flex; align-items: start; gap: 12px; margin-top: 20px; font-size: 14px; line-height: 1.5; }
+  .meeting-detail-row :global(svg) { flex-shrink: 0; margin-top: 2px; color: var(--muted); }
+  .meeting-detail-row > div { min-width: 0; overflow-wrap: anywhere; }
+  .meeting-detail-row strong { font-weight: 500; }
+  .meeting-detail-row p { margin: 3px 0 0; color: var(--muted); font-size: 13px; }
+  .meeting-detail-row a { display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; font-size: 13px; }
   .agenda {
     display: none;
   }
