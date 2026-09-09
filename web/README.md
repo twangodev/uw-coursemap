@@ -1,6 +1,6 @@
 # Website
 
-SvelteKit SSR on Cloudflare Workers, with cached responses, static assets, and Drizzle + D1. HF is the source of truth.
+SvelteKit SSR reads build-generated JSON through Cloudflare Static Assets. HF is the source of truth; Drizzle + D1 serves search, filters, and paginated records.
 
 ```sh
 bun install --frozen-lockfile
@@ -20,7 +20,7 @@ uv run --locked uwcourses-site assets-check
 bun x playwright test
 ```
 
-Production preview runs the built Cloudflare Worker with Wrangler and uses local D1, not `.site/site.sqlite`. After importing a new dataset, stop the preview and refresh its database before restarting:
+Production preview reads page documents from built assets. Interactive search and pagination use local D1, not `.site/site.sqlite`. After importing a new dataset, stop the preview and refresh its database before restarting:
 
 ```sh
 set -e
@@ -56,10 +56,12 @@ Sitemaps remain build-time assets. Their `lastmod` is the dataset observation ti
 
 Append `.json` or `.md` to a page URL (`/courses/COMPSCI_300.json`, `/search.md?q=java`); the homepage uses `/index.json` and `/index.md`. HTML advertises both via HTTP `Link` and `<link rel="alternate">`. These are public, read-only APIs with CORS enabled; alternate formats are noindex.
 
-`/openapi.json` serves OpenAPI 3.1, generated from the same Zod schemas used to validate document responses. TypeScript consumers can import inferred types from `src/lib/api/schemas.ts` or generate a client from the spec. Core entities have named fields; additional source fields use the recursive `JsonValue` schema. The existing `/api` interaction endpoints are also documented and validated.
+`/openapi.json` serves OpenAPI 3.1, generated from the same Zod schemas used to validate document responses. TypeScript consumers can import inferred types from `src/lib/api/schemas.ts` or generate a client from the spec. Documents are validated during the build; query-dependent responses are validated at runtime. Core entities have named fields; additional source fields use the recursive `JsonValue` schema. The existing `/api` interaction endpoints are also documented and validated.
 
 JSON has `schema_version`, `url`, `title`, `dataset`, and `data`. The dataset includes its pinned HF revision and projection identity. `data` is the same payload the page loader returns; nested LLM evidence and model provenance are retained. Large history/trace files remain linked from that payload rather than duplicated. Markdown renders the same records, with tables and JSON blocks for nested data. Neither format requires browser JavaScript.
 
 Public GET documents are cached for 24 hours in Cloudflare's Cache API. Keys include the deployment, data projection, database slot, URL, and query. Browser responses revalidate with ETags. Cache hits still invoke the Worker; the cache is local to each data center. Authenticated/cookie requests, navigation transport, errors, and existing `/api` endpoints bypass this document cache. Preview caching requires `SITE_COMMIT` and `DATA_PROJECTION`; without them requests render directly.
 
-Drizzle owns website reads; the Python importer owns the read-model schema and ordered SQL import. Complex FTS and grade aggregations use bound SQL through Drizzle on D1. Development reads the imported local SQLite database.
+Canonical page loaders and public representations share generated documents. Course comparisons are computed during prerender and also emitted as compact assets for search badges. Historical instructor profiles are grouped into 4,096 deterministic buckets to bound the file count. The native SvelteKit prerender endpoint generates these assets; no separate generation script is required. HTML remains SSR and term controls remain interactive.
+
+Drizzle owns interactive database reads; the Python importer owns the read-model schema and ordered SQL import. Complex FTS and grade aggregations use bound SQL through Drizzle on D1. Development reads the imported local SQLite database.

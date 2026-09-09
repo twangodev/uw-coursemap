@@ -12,7 +12,12 @@ export interface CourseCard {
     term: string;
     offered: boolean;
     history: ReturnType<typeof import("./discovery").gradeSummary>;
-    instructors: { instructor_url?: string; uid: string; name: string | null; quality: number | null }[];
+    instructors: {
+      instructor_url?: string;
+      uid: string;
+      name: string | null;
+      quality: number | null;
+    }[];
     claim: Claim | null;
     reviewFiles: string[];
     instructorHistory?: ReturnType<
@@ -24,6 +29,8 @@ export interface CourseCard {
   };
 }
 export interface Status {
+  deployed_at?: string | null;
+  slot?: string | null;
   revision: string;
   repository: string;
   observed_at: string;

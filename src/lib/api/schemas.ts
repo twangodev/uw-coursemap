@@ -209,7 +209,7 @@ export const courseDataSchema = named(
   "CourseData",
   z.object({
     course: courseSchema,
-    context: record,
+    context: record.nullable(),
     instructorTrends: z.array(record),
     following: z.array(z.object({ code: z.string(), title: z.string() })),
     projection: projectionSchema.nullable(),

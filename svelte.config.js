@@ -17,10 +17,10 @@ export default {
       },
     },
     prerender: {
-      concurrency: 16,
+      concurrency: 4,
       handleHttpError: "fail",
       handleMissingId: "warn",
-      entries: ["/sitemap.xml", "/social/manifest.json", "/openapi.json"],
+      entries: ["*", "/sitemap.xml", "/social/manifest.json", "/openapi.json"],
     },
   },
 };

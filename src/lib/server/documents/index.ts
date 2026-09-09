@@ -1,3 +1,5 @@
+import { building, dev } from "$app/environment";
+import { readDocument, isFilteredDocument } from "./storage";
 import { error } from "@sveltejs/kit";
 import { home } from "./home";
 import { course } from "./course";
@@ -13,7 +15,7 @@ import { maps } from "./maps";
 import type { DocumentContext } from "./types";
 
 /** Same loaders as +page.server.ts; no HTML scraping or Svelte transport decoding. */
-export async function loadDocument(context: DocumentContext) {
+export async function loadSourceDocument(context: DocumentContext) {
   const parts = context.url.pathname
     .split("/")
     .filter(Boolean)
@@ -44,4 +46,10 @@ export async function loadDocument(context: DocumentContext) {
       ? maps(context)
       : map({ ...context, params: { subject: id } });
   error(404, "Document not found");
+}
+
+export async function loadDocument(context: DocumentContext) {
+  if (building || dev || isFilteredDocument(context.url))
+    return loadSourceDocument(context);
+  return (await readDocument(context.url, context.platform)).data;
 }
