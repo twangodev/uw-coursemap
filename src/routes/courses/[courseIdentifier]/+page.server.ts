@@ -3,6 +3,7 @@ import { redirect, error } from "@sveltejs/kit";
 import { pageData, query } from "$lib/server/data";
 import { gradeKeys, projectGrades } from "$lib/grade-projection";
 import { instructorGradeTrends } from "$lib/server/instructor-trends";
+import { courseFollowers } from "$lib/server/course-map";
 import { courseContext } from "$lib/server/course-context";
 import { normalize, courseUrl, courseSlug } from "$lib/format";
 export const prerender = "auto";
@@ -42,14 +43,16 @@ export async function load({ params, platform, url }) {
     (row: any) =>
       row.term_id === target && gradeKeys.some((key) => Number(row[key]) > 0),
   );
-  const [context, instructorTrends] = await Promise.all([
+  const [context, instructorTrends, following] = await Promise.all([
     courseContext(course, platform),
     instructorGradeTrends(course, platform),
+    courseFollowers(uid, platform),
   ]);
   return {
     course,
     context,
     instructorTrends,
+    following,
     projection:
       target && !gradesReleased ? projectGrades(course.grades, target) : null,
   };

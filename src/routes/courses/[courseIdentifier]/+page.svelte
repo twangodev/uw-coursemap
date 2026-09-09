@@ -25,6 +25,7 @@
   import CourseContext from "$lib/components/CourseContext.svelte";
   import GradeSnapshot from "$lib/components/GradeSnapshot.svelte";
   import Grades from "$lib/components/Grades.svelte";
+  import RequirementGraph from "$lib/components/RequirementGraph.svelte";
   import RequirementText from "$lib/components/RequirementText.svelte";
   import CourseCalendar from "$lib/components/CourseCalendar.svelte";
   import { credits,  termName, courseTitle, courseUrl } from "$lib/format";
@@ -79,8 +80,6 @@
   let summary = $derived(!selectedGradeTerm || selectedGradeTerm === c.student_summary?.term_id ? c.student_summary : {});
   let sourceNumbers = $derived(citationNumbers(allTimeSummary));
   setContext(citationContext, (citation: Citation) => sourceNumbers.get(citationKey(citation)));
-  let Graph = $state<any>(null);
-  let graphError = $state("");
   let active = $state("overview");
   let introduction = $derived(
     (c.llm_summary || c.description || "")
@@ -100,14 +99,6 @@
       if (section) observer.observe(section);
     }
     return () => observer.disconnect();
-  });
-  onMount(() => {
-    import("$lib/components/RequirementGraph.svelte")
-      .then((m) => (Graph = m.default))
-      .catch(
-        () =>
-          (graphError = "Graph unavailable. The complete text tree is below."),
-      );
   });
   const links = [
     { id: "overview", label: "overview", icon: BookOpen },
@@ -386,11 +377,7 @@
       <p class="requirements-source">
         {c.requirements_text || "No prerequisites listed."}
       </p>
-      {#if Graph}<Graph ast={c.requirements} />{:else}<div
-          class="graph-loading"
-        >
-          {graphError || "Loading prerequisite tree…"}
-        </div>{/if}
+      <RequirementGraph ast={c.requirements} course={c.course_id} following={data.following} />
       {#if c.requirements.status !== "valid"}<p class="muted mono">
           Best-effort interpretation · check the original requirements above.
         </p>{/if}

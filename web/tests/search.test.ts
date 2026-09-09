@@ -7,7 +7,7 @@ import {
   status,
 } from "../../src/lib/server/data";
 import { normalize, termName, safeUrl } from "../../src/lib/format";
-import { visibleTree } from "../../src/lib/requirements";
+import { requirementTree } from "../../src/lib/requirements";
 describe("course discovery", () => {
   it("normalizes student course aliases", () => {
     expect(normalize("CS 300")).toBe("COMPSCI300");
@@ -81,9 +81,9 @@ describe("presentation integrity", () => {
         },
       ],
     };
-    const graph = visibleTree(ast, new Set(["r"]));
-    expect(graph.nodes).toHaveLength(2);
-    expect(graph.edges).toHaveLength(1);
+    const tree = requirementTree(ast);
+    expect(tree?.children).toHaveLength(1);
+    expect(tree?.children[0].condition).toBe("Standing required");
   });
 });
 

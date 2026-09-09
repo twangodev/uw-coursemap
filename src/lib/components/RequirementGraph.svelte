@@ -1,60 +1,60 @@
 <script lang="ts">
-  import { SvelteFlow, Controls, Background } from "@xyflow/svelte";
-  import "@xyflow/svelte/dist/style.css";
-  import RequirementNode from "./RequirementNode.svelte";
-  import { visibleTree } from "$lib/requirements";
   import type { Requirements } from "$lib/types";
-  let { ast }: { ast: Requirements } = $props();
-  let expanded = $state(new Set<string>());
-  $effect(() => {
-    expanded = new Set(ast.nodes.map((n) => n.id));
-  });
-  let graph = $derived(visibleTree(ast, expanded));
-  const nodeTypes = { requirement: RequirementNode };
-  function toggle(id: string) {
-    const next = new Set(expanded);
-    if (next.has(id)) next.delete(id);
-    else next.add(id);
-    expanded = next;
-  }
+  import { nodeLabel, requirementTree, type RequirementBranch } from "$lib/requirements";
+  import { courseUrl, courseTitle } from "$lib/format";
+  let { ast, course, following = [] }: { ast: Requirements; course: string; following?: { code: string; title: string }[] } = $props();
+  let tree = $derived(requirementTree(ast));
+  let showAll = $state(false);
+  let visibleFollowing = $derived(showAll ? following : following.slice(0, 8));
 </script>
 
-<div
-  class="graph"
-  style:height={`${Math.max(480, Math.min(1100, ast.nodes.filter((node) => !node.children?.length).length * 85 + 100))}px`}
->
-  <SvelteFlow
-    nodes={graph.nodes}
-    edges={graph.edges}
-    {nodeTypes}
-    fitView
-    fitViewOptions={{ minZoom: 0.65, maxZoom: 1, padding: 0.12 }}
-    zoomOnScroll={false}
-    preventScrolling={false}
-    minZoom={0.15}
-    nodesDraggable={false}
-    nodesConnectable={false}
-    onnodeclick={({ node }) => toggle(node.id)}
-    ><Background /><Controls /></SvelteFlow
-  >
+{#snippet branch(node: RequirementBranch)}
+  <li class="branch">
+    {#if node.children.length}
+      <ul class="branches">{#each node.children as child}{@render branch(child)}{/each}</ul>
+      <span class="condition">{node.kind === "all" ? "take all" : node.kind === "any" ? "take one" : node.kind === "not" ? "not eligible with" : nodeLabel(node)}</span>
+    {:else if node.course}
+      <a class="course-node" href={`/search?q=${encodeURIComponent(node.course.subjects[0] + " " + node.course.course_number)}`}>{nodeLabel(node)}</a>
+    {:else}<span class="text-node">{nodeLabel(node)}</span>{/if}
+  </li>
+{/snippet}
+
+<!-- The overflowing tree is keyboard-scrollable. -->
+<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
+<div class="requirement-tree" role="region" aria-label="Prerequisite relationships" tabindex="0">
+  <div class="tree-layout">
+    {#if tree}<ul class="branches prerequisites">{@render branch(tree)}</ul>{/if}
+    <span class="current-course">{course}</span>
+    {#if following.length}
+      <span class="following-label">used by</span>
+      <ul class="branches following">
+        {#each visibleFollowing as next}<li class="branch"><a class="course-node" href={courseUrl(next.code)} title={courseTitle(next.title)}>{next.code}</a></li>{/each}
+        {#if following.length > 8}<li class="branch"><button class="more-courses" onclick={() => showAll = !showAll}>{showAll ? "Show fewer" : `+${following.length - 8} more courses`}</button></li>{/if}
+      </ul>
+    {/if}
+  </div>
 </div>
-<p class="muted mono">
-  Drag to explore. Select a group to expand or collapse. Course links are also
-  available in the text tree.
-</p>
+<p class="tree-note">“Used by” includes alternative prerequisites; each course may have other requirements.</p>
 
 <style>
-  :global(.svelte-flow) {
-    --xy-controls-button-background-color: var(--bg);
-    --xy-controls-button-color: var(--text);
-    --xy-controls-button-border-color: var(--border);
-    --xy-attribution-background-color: var(--bg);
-    --xy-background-color: var(--surface);
-    --xy-edge-stroke: var(--muted);
-  }
-  .graph {
-    border: 1px solid var(--border);
-    border-radius: 5px;
-    background: var(--surface);
-  }
+  /* Tree arrangement inspired by NUSMods ModuleTree; see NUSMods.LICENSE. */
+  .requirement-tree { max-width: 100%; overflow-x: auto; padding: 28px 0; }
+  .tree-layout { display: flex; align-items: center; width: max-content; min-width: 100%; justify-content: center; padding: 0 12px; }
+  .branches { list-style: none; padding: 0; margin: 0; flex-shrink: 0; }
+  .branch { position: relative; display: flex; align-items: center; justify-content: flex-end; padding: 5px 20px 5px 0; }
+  .branch::before { content: ""; position: absolute; right: 0; top: 0; bottom: 0; border-right: 1px solid var(--border); }
+  .branch:first-child::before { top: 50%; }
+  .branch:last-child::before { bottom: 50%; }
+  .branch::after { content: ""; position: absolute; right: 0; top: 50%; width: 20px; border-top: 1px solid var(--border); }
+  .condition { position: relative; flex-shrink: 0; margin-left: 20px; padding: 3px 8px; max-width: 150px; font-size: 12px; color: var(--muted); text-align: center; }
+  .condition::before { content: ""; position: absolute; left: -20px; top: 50%; width: 20px; border-top: 1px solid var(--border); }
+  .course-node { display: block; border-radius: 999px; padding: 5px 10px; background: var(--accent-soft); color: var(--accent); font-size: 13px; line-height: 1.4; max-width: 230px; text-align: center; }
+  .text-node { display: block; max-width: 190px; padding: 4px 8px; font-size: 13px; line-height: 1.5; text-align: right; }
+  .current-course { flex-shrink: 0; padding: 9px 15px; border-radius: 999px; background: var(--accent); color: var(--bg); font-size: 15px; font-weight: 550; max-width: 220px; text-align: center; }
+  .following-label { padding: 0 14px; flex-shrink: 0; font-size: 12px; color: var(--muted); }
+  .following .branch { justify-content: flex-start; padding: 5px 0 5px 20px; }
+  .following .branch::before { left: 0; right: auto; }
+  .following .branch::after { left: 0; right: auto; }
+  .more-courses { padding: 5px 10px; border: 0; font-size: 12px; color: var(--muted); background: transparent; }
+  .tree-note { margin: 4px 0 16px; color: var(--muted); font-size: 12px; }
 </style>

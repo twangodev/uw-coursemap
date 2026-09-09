@@ -40,3 +40,22 @@ export async function courseMap(platform?: App.Platform, subject?: string) {
     edges,
   };
 }
+
+const followerIndexes = new WeakMap<CourseMapData, Map<string, { code: string; title: string }[]>>();
+export async function courseFollowers(uid: string, platform?: App.Platform) {
+  const data = await courseMap(platform);
+  let index = followerIndexes.get(data);
+  if (!index) {
+    index = new Map();
+    const courses = new Map(data.courses.map(course => [course.uid, course]));
+    for (const edge of data.edges) {
+      const course = courses.get(edge.target);
+      if (!course) continue;
+      if (!index.has(edge.source)) index.set(edge.source, []);
+      index.get(edge.source)!.push({ code: course.code, title: course.title });
+    }
+    for (const courses of index.values()) courses.sort((a, b) => a.code.localeCompare(b.code, "en", { numeric: true }));
+    followerIndexes.set(data, index);
+  }
+  return index.get(uid) || [];
+}

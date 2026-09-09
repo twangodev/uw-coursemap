@@ -12,7 +12,7 @@ test("course reading, citations, graph and theme", async ({ page }) => {
   ).toBeVisible();
   await expect(page.getByText("Java", { exact: false }).first()).toBeVisible();
   await page.locator("#requirements").scrollIntoViewIfNeeded();
-  await expect(page.locator(".svelte-flow")).toBeVisible();
+  await expect(page.getByRole("region", { name: "Prerequisite relationships" })).toBeVisible();
   await page.getByLabel("Color theme").selectOption("dark");
   await expect(page.locator("html")).toHaveClass("dark");
   await page.getByText("Full model traces", { exact: true }).click();
@@ -126,8 +126,11 @@ test("calendar filters meetings, exposes details and exports dates", async ({
   ).toHaveCount(0);
   await schedule.locator(".meeting").first().click();
   await expect(
-    page.getByRole("region", { name: "Meeting details" }),
+    page.getByRole("dialog", { name: "Meeting details" }),
   ).toBeVisible();
+  await expect(page.getByRole("link", { name: "Open in Google Maps" })).toHaveAttribute("href", /google\.com\/maps\/search/);
+  await page.keyboard.press("Escape");
+  await expect(page.getByRole("dialog", { name: "Meeting details" })).toHaveCount(0);
   const download = page.waitForEvent("download");
   await page.getByRole("button", { name: "Export", exact: true }).click();
   const file = await download;
@@ -146,6 +149,12 @@ test("calendar filters meetings, exposes details and exports dates", async ({
   expect(
     await page.evaluate(() => document.documentElement.scrollWidth),
   ).toBeLessThanOrEqual(390);
+  await schedule.locator(".agenda button").first().click();
+  const meetingCard = page.getByRole("dialog", { name: "Meeting details" });
+  await expect(meetingCard).toBeVisible();
+  await expect.poll(() => meetingCard.evaluate(el => { const r = el.getBoundingClientRect(); return r.left >= 0 && r.right <= innerWidth; })).toBe(true);
+  await page.getByRole("button", { name: "Close meeting details" }).click();
+  await expect(meetingCard).toHaveCount(0);
   await page.screenshot({ path: "test-results/calendar-mobile.png" });
 });
 
