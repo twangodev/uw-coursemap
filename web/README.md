@@ -34,7 +34,7 @@ bun run preview --ip 0.0.0.0 --port 4173
 
 ## Cloudflare setup
 
-The A/B D1 database IDs are configured in `wrangler.json` as `DB_A` and `DB_B`. Set `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` as secrets in the GitHub `production` environment with Workers Scripts and D1 edit permissions. `HF_TOKEN` is optional for the public dataset.
+The A/B D1 database IDs are configured in `wrangler.json` as `DB_A` and `DB_B`. Set `CLOUDFLARE_ACCOUNT_ID` as a GitHub variable and `CLOUDFLARE_API_TOKEN` as a secret in the `production` environment. The token needs Workers Scripts and D1 edit permissions. `HF_TOKEN` is optional for the public dataset.
 
 Run the **Svelte** workflow manually with **First deployment** enabled once to create the Worker. Validate its workers.dev preview, then attach `uwcourses.com` in Cloudflare. Subsequent runs leave that option disabled.
 
