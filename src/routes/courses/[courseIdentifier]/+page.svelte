@@ -87,6 +87,7 @@
   let sourceNumbers = $derived(citationNumbers(allTimeSummary));
   setContext(citationContext, (citation: Citation) => sourceNumbers.get(citationKey(citation)));
   let active = $state("overview");
+  let stickyTitle = $state(false);
   let navigationHeight = $state(43);
   let sectionNav: HTMLElement;
   let indicator = $state({ left: 0, width: 0 });
@@ -101,6 +102,7 @@
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
     function update() {
       frame = 0;
+      stickyTitle = (document.querySelector(".course-heading")?.getBoundingClientRect().bottom ?? 1) <= 0;
       const sections = links.map(link => document.getElementById(link.id)).filter((el): el is HTMLElement => !!el);
       const threshold = navigationHeight + 64;
       let next = sections[0]?.id || "overview";
@@ -120,6 +122,7 @@
     window.addEventListener("scroll", schedule, { passive: true });
     const resize = new ResizeObserver(schedule);
     resize.observe(sectionNav);
+    resize.observe(sectionNav.closest(".course-navigation")!);
     resize.observe(sectionNav.firstElementChild!);
     resize.observe(document.querySelector(".course-workspace")!);
     document.fonts.ready.then(schedule);
@@ -177,6 +180,8 @@
   </div>
 </div>
 <div class="course-navigation" bind:offsetHeight={navigationHeight}>
+  {#if stickyTitle}<div class="sticky-course-title" aria-hidden="true"><span class="sticky-course-code" title={c.course_id}>{c.course_id}</span><span class="sticky-course-name" title={courseTitle(c.title)}>{courseTitle(c.title)}</span></div>{/if}
+  <div class="navigation-row">
   <nav bind:this={sectionNav} class="course-jumps" class:has-indicator={indicator.width > 0} aria-label="Course sections">
     <div class="section-links">
     {#each links as link}<a
@@ -198,6 +203,7 @@
       <Select label="Term" value={selectedGradeTerm} onChange={(value) => termSelection = value} options={[{ value: "", label: "All recorded terms" }, ...gradeTerms.map((term) => ({ value: term, label: termName(term) + (term === projectedTerm && data.projection?.interval ? " · Projected" : "") }))]} />
       <button class="term-step" aria-label="Next term" disabled={gradeTermIndex <= 0} onclick={() => stepTerm(-1)}><ChevronRight size={14} /></button>
     </div>
+  </div>
   </div>
 </div>
 <section class="course-overview" id="overview" aria-label="Course overview">
@@ -493,7 +499,12 @@
     width: 100%;
   }
   .course-topics { margin-top: 28px; }
-  .course-navigation { display: flex; align-items: center; gap: 20px; position: sticky; top: 0; z-index: 20; background: var(--bg); border-bottom: 1px solid var(--border); padding: 6px 0; }
+  .course-navigation { position: sticky; top: 0; z-index: 20; background: var(--bg); border-bottom: 1px solid var(--border); }
+  .navigation-row { display: flex; align-items: center; gap: 20px; padding: 6px 0; }
+  .sticky-course-title { display: flex; align-items: baseline; gap: 12px; min-width: 0; padding: 10px 8px 4px; }
+  .sticky-course-code { flex-shrink: 0; max-width: 45%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--muted); font-size: 12px; }
+  .sticky-course-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 15px; font-weight: 500; }
+  .course-overview, .course-workspace :global(section) { scroll-margin-top: calc(var(--course-navigation-height, 43px) + 32px); }
   .course-navigation .course-jumps { position: static; flex: 1; min-width: 0; border: 0; margin: 0; padding: 0; }
   .course-navigation .course-jumps a { height: 30px; box-sizing: border-box; font-size: 12px; padding: 0 8px; gap: 5px; }
   .navigation-filter :global(.course-select-trigger) { height: 30px; box-sizing: border-box; padding-block: 0; }
@@ -513,11 +524,10 @@
   .navigation-filters { display: flex; gap: 10px; flex-shrink: 0; }
   .navigation-filter { display: grid; gap: 2px; min-width: 0; }
   @media (max-width: 1000px) {
-    .course-navigation { flex-wrap: wrap; gap: 10px; }
+    .navigation-row { flex-wrap: wrap; gap: 10px; }
     .course-navigation .course-jumps { flex-basis: 100%; }
     .navigation-filters { width: 100%; }
     .navigation-filter { flex: 1; }
-    .course-overview, .course-workspace :global(section) { scroll-margin-top: 145px; }
   }
 
   .course-tag-groups {
