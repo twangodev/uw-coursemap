@@ -171,7 +171,9 @@ test("calendar filters meetings, exposes details and exports dates", async ({
 test("course context, projection and captured instructor ratings remain distinct", async ({
   page,
 }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/courses/COMPSCI_300");
+  await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   await expect(
     page.locator(".grade-snapshot .grade-percentages").getByRole("img", { name: "34.1%", exact: true }),
   ).toBeVisible();

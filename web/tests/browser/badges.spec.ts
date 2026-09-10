@@ -60,6 +60,7 @@ test('badge evidence opens on touch and fits mobile and dark layouts', async ({ 
 });
 
 test('all AI disclaimers share HF publisher attribution', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
   let requests = 0;
   await page.route('https://huggingface.co/api/organizations/nvidia/overview', route => {
     requests++;
