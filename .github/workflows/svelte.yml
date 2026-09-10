@@ -13,15 +13,46 @@ on:
         default: false
 permissions:
   contents: read
+concurrency:
+  group: ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && 'website-production' || format('svelte-{0}', github.ref) }}
+  cancel-in-progress: ${{ github.event_name == 'push' || github.event_name == 'pull_request' }}
 jobs:
-  check:
-    name: Svelte
-    if: github.event_name == 'push' || github.event_name == 'pull_request'
-    concurrency:
-      group: svelte-${{ github.ref }}
-      cancel-in-progress: true
+  data:
+    name: Import dataset
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: astral-sh/setup-uv@v7
+        with:
+          python-version: "3.12"
+          enable-cache: true
+      - run: uv run --locked uwcourses-site import
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      - run: uv run --locked uwcourses-site release-check
+      # One pinned dataset is shared by every check and the deployment.
+      - run: tar -czf website-data.tar.gz .site
+      - uses: actions/upload-artifact@v4
+        with:
+          name: website-data
+          path: website-data.tar.gz
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: error
+      - run: tar -czf website-static.tar.gz static/data
+      - uses: actions/upload-artifact@v4
+        with:
+          name: website-static
+          path: website-static.tar.gz
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: error
+  tests:
+    name: Types and unit tests
+    needs: data
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6
       - uses: oven-sh/setup-bun@v2
@@ -35,10 +66,42 @@ jobs:
           python-version: "3.12"
           enable-cache: true
       - run: bun install --frozen-lockfile
-      - run: uv run --locked uwcourses-site import
-      - run: uv run --locked python -m unittest discover -s web/tests -p 'test_*.py'
+      - uses: actions/download-artifact@v4
+        with:
+          name: website-data
+      - run: tar -xzf website-data.tar.gz
+      - run: rm website-data.tar.gz
       - run: bun run check
       - run: bun run test
+      - run: uv run --locked python -m unittest discover -s web/tests -p 'test_*.py'
+  build:
+    name: Build and audit
+    needs: data
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 25
+      - uses: astral-sh/setup-uv@v7
+        with:
+          python-version: "3.12"
+          enable-cache: true
+      - run: bun install --frozen-lockfile
+      - uses: actions/download-artifact@v4
+        with:
+          name: website-data
+      - run: tar -xzf website-data.tar.gz
+      - run: rm website-data.tar.gz
+      - uses: actions/download-artifact@v4
+        with:
+          name: website-static
+      - run: tar -xzf website-static.tar.gz
+      - run: rm website-static.tar.gz
       - run: bun x playwright install --with-deps chromium
       - name: Restore social cards
         id: social-cache
@@ -57,24 +120,102 @@ jobs:
           key: ${{ steps.social-cache.outputs.cache-primary-key }}
       - run: bun run seo:check
       - run: uv run --locked uwcourses-site assets-check
+      # Tar preserves hidden Worker files and avoids uploading 70,000 entries individually.
+      - run: tar -czf website-build.tar.gz .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp .svelte-kit/output/server
+      - uses: actions/upload-artifact@v4
+        with:
+          name: website-build
+          path: website-build.tar.gz
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: error
+  browser-data:
+    name: Prepare browser database
+    needs: data
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 25
+      - run: bun install --frozen-lockfile
+      - uses: actions/download-artifact@v4
+        with:
+          name: website-data
+      - run: tar -xzf website-data.tar.gz
+      - run: rm website-data.tar.gz
+      - run: bun run test:browser:setup
+      - run: tar -czf website-browser-data.tar.gz .site/browser-state
+      - uses: actions/upload-artifact@v4
+        with:
+          name: website-browser-data
+          path: website-browser-data.tar.gz
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: error
+  browser:
+    name: Browser tests
+    needs: [build, browser-data]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 25
+      - run: bun install --frozen-lockfile
+      - uses: actions/download-artifact@v4
+        with:
+          name: website-data
+      - run: tar -xzf website-data.tar.gz
+      - run: rm website-data.tar.gz
+      - uses: actions/download-artifact@v4
+        with:
+          name: website-build
+      - run: tar -xzf website-build.tar.gz
+      - run: rm website-build.tar.gz
+      - run: bun x playwright install --with-deps chromium
+      - uses: actions/download-artifact@v4
+        with:
+          name: website-browser-data
+      - run: tar -xzf website-browser-data.tar.gz
+      - run: rm website-browser-data.tar.gz
       - run: bun x playwright test
+        env:
+          BROWSER_DB_PREPARED: "1"
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
-          name: browser-failures-${{ github.job }}
+          name: browser-failures
           path: test-results/
           retention-days: 7
+  check:
+    name: Svelte
+    if: always()
+    needs: [data, tests, build, browser-data, browser]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Require all checks
+        env:
+          PASSED: ${{ needs.data.result == 'success' && needs.tests.result == 'success' && needs.build.result == 'success' && needs.browser-data.result == 'success' && needs.browser.result == 'success' }}
+        run: test "$PASSED" = true
   deploy:
     name: Deploy
+    needs: check
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-    concurrency:
-      group: website-production
-      cancel-in-progress: false
     environment:
       name: production
       url: https://uwcourses.com
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v6
       - uses: oven-sh/setup-bun@v2
@@ -88,37 +229,16 @@ jobs:
           python-version: "3.12"
           enable-cache: true
       - run: bun install --frozen-lockfile
-      - run: uv run --locked uwcourses-site import
-        env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
-      - run: uv run --locked uwcourses-site release-check
-      - run: bun run check
-      - run: bun run test
-      - run: uv run --locked python -m unittest discover -s web/tests -p 'test_*.py'
-      - run: bun x playwright install --with-deps chromium
-      - name: Restore social cards
-        id: social-cache
-        uses: actions/cache/restore@v5
+      - uses: actions/download-artifact@v4
         with:
-          path: .site/social-cache
-          key: ${{ runner.os }}-social-${{ hashFiles('web/social-images.mjs', 'web/social-card.html', 'static/fonts/OverusedGrotesk-VF.woff2', 'static/uwcourses-logo.svg') }}-${{ hashFiles('.site/status.json') }}
-          restore-keys: |
-            ${{ runner.os }}-social-${{ hashFiles('web/social-images.mjs', 'web/social-card.html', 'static/fonts/OverusedGrotesk-VF.woff2', 'static/uwcourses-logo.svg') }}-
-      - run: bun run build
-      - name: Save social cards
-        if: steps.social-cache.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v5
+          name: website-data
+      - run: tar -xzf website-data.tar.gz
+      - run: rm website-data.tar.gz
+      - uses: actions/download-artifact@v4
         with:
-          path: .site/social-cache
-          key: ${{ steps.social-cache.outputs.cache-primary-key }}
-      - run: bun run seo:check
-      - run: bun x playwright test
-      - uses: actions/upload-artifact@v4
-        if: failure()
-        with:
-          name: browser-failures-${{ github.job }}
-          path: test-results/
-          retention-days: 7
+          name: website-build
+      - run: tar -xzf website-build.tar.gz
+      - run: rm website-build.tar.gz
       - name: Deploy verified release
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
@@ -132,4 +252,5 @@ jobs:
           path: |
             .site/status.json
             .site/d1-check.json
+          include-hidden-files: true
           retention-days: 30

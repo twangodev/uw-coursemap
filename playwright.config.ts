@@ -6,7 +6,10 @@ export default defineConfig({
   testDir: "web/tests/browser",
   // Local workerd serves every browser from one process; avoid saturating it.
   workers: preview ? 2 : undefined,
-  globalSetup: preview ? "./web/tests/browser/setup.ts" : undefined,
+  globalSetup:
+    preview && process.env.BROWSER_DB_PREPARED !== "1"
+      ? "./web/tests/browser/setup.ts"
+      : undefined,
   use: { baseURL, trace: "retain-on-failure", screenshot: "only-on-failure" },
   webServer: {
     command: preview
