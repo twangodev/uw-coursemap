@@ -36,11 +36,11 @@
       <a href="/openapi.json">OpenAPI JSON ↗</a>
     </header>
     <div id="fallback"><a href="/openapi.json">Read the OpenAPI specification</a> if the interactive viewer is unavailable.</div>
-    <div id="api-reference"></div>
+    <div id="openapi-viewer"></div>
     <script src="https://cdn.jsdelivr.net/npm/@scalar/api-reference@1.68.0/dist/browser/standalone.js"></script>
     <script>
       if (window.Scalar) {
-        Scalar.createApiReference('#api-reference', {
+        Scalar.createApiReference('#openapi-viewer', {
           url: '/openapi.json',
           theme: 'none',
           darkMode: true,
