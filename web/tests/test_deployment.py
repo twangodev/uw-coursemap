@@ -11,6 +11,7 @@ from uwcourses_site.deployment import (
     database_matches,
     verify_database,
     worker_state,
+    current_commit,
 )
 
 
@@ -45,7 +46,13 @@ class DeploymentTests(unittest.TestCase):
                 verify_database(self.report(**changes), self.release)
 
     def run_deploy(
-        self, failure=None, changed=False, reuse=False, missing=False, first=False
+        self,
+        failure=None,
+        changed=False,
+        reuse=False,
+        missing=False,
+        first=False,
+        stale=False,
     ):
         with TemporaryDirectory() as directory:
             root = Path(directory)
@@ -88,13 +95,22 @@ class DeploymentTests(unittest.TestCase):
                     "os.environ",
                     {"CLOUDFLARE_ACCOUNT_ID": "a" * 32, "CLOUDFLARE_API_TOKEN": "test"},
                 ),
-                patch("uwcourses_site.deployment.worker_state", side_effect=states),
+                patch(
+                    "uwcourses_site.deployment.current_commit", return_value=not stale
+                ),
+                patch(
+                    "uwcourses_site.deployment.worker_state", side_effect=states
+                ) as state,
                 patch("uwcourses_site.deployment.wrangler", side_effect=command),
                 patch("uwcourses_site.deployment.database_matches", return_value=reuse),
                 patch("uwcourses_site.deployment.subprocess.run") as run,
             ):
                 run.return_value.stdout = "c" * 40
-                if failure or changed or (missing and not first):
+                if stale:
+                    deploy(config, root, first=first)
+                    self.assertEqual(calls, [])
+                    state.assert_not_called()
+                elif failure or changed or (missing and not first):
                     with self.assertRaises(
                         (ValueError, RuntimeError, subprocess.CalledProcessError)
                     ):
@@ -192,3 +208,21 @@ class DeploymentTests(unittest.TestCase):
         get.return_value.raise_for_status.side_effect = RuntimeError("Forbidden")
         with self.assertRaises(RuntimeError):
             worker_state("account", "token", "worker")
+
+    def test_superseded_build_cannot_touch_production(self):
+        self.run_deploy(stale=True)
+
+    @patch.dict(
+        "os.environ",
+        {"GITHUB_REPOSITORY": "twangodev/uwcourses", "GITHUB_TOKEN": "test"},
+    )
+    @patch("uwcourses_site.deployment.requests.get")
+    def test_main_guard_fails_closed(self, get):
+        get.return_value.json.return_value = {"sha": "new"}
+        self.assertFalse(current_commit("old"))
+        self.assertTrue(current_commit("new"))
+        get.return_value.raise_for_status.side_effect = RuntimeError(
+            "GitHub unavailable"
+        )
+        with self.assertRaises(RuntimeError):
+            current_commit("new")
