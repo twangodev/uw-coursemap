@@ -9,7 +9,6 @@
     campusDaySchema,
     campusFacts,
     madisonDate,
-    madisonZone,
     type CampusCoverage,
     type CampusDay,
     type Weather,
@@ -139,15 +138,6 @@
           ><i></i>≈ <AnimatedNumber value={Number(students.value)} /> students scheduled
           now</span
         >{/if}
-      <time
-        >{now
-          ? new Intl.DateTimeFormat("en-US", {
-              timeZone: madisonZone,
-              hour: "numeric",
-              minute: "2-digit",
-            }).format(now)
-          : "Central time"}</time
-      >
     </div>
   </div>
   <div class="fact-stage" aria-live="off">
@@ -232,10 +222,6 @@
     background: var(--accent);
     border-radius: 50%;
     margin-right: 3px;
-  }
-  time {
-    white-space: nowrap;
-    font-variant-numeric: tabular-nums;
   }
   .fact-stage {
     position: relative;

@@ -63,13 +63,6 @@ test("campus facts show estimated enrollment over a local map, with accessible c
   await mockCampus(page);
   await page.goto("/");
   const scene = page.locator(".campus-scene");
-  await expect(scene).toContainText(
-    new Intl.DateTimeFormat("en-US", {
-      timeZone: "America/Chicago",
-      hour: "numeric",
-      minute: "2-digit",
-    }).format(now),
-  );
   await expect(scene).toContainText("students scheduled in class right now");
   await expect(
     scene
@@ -135,7 +128,6 @@ test("out-of-coverage dates use solar facts without inventing attendance", async
   await page.route("**/api/weather", (route) => route.abort());
   await page.goto("/");
   const scene = page.locator(".campus-scene");
-  await expect(scene).toContainText("12:00 AM");
   await expect(scene).toContainText("sunrise over Madison");
   await expect(scene).not.toContainText("students");
   await expect(scene).not.toContainText("class meetings");
