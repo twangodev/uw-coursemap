@@ -2,7 +2,9 @@
   import { ArrowUpRight, Search } from "@lucide/svelte";
   import SearchInput from "$lib/components/SearchInput.svelte";
   import CampusScene from "$lib/components/CampusScene.svelte";
-  import campusMap from "$lib/assets/campus-map.svg";
+  import CampusMap from "$lib/components/CampusMap.svelte";
+  import type { CampusDay } from "$lib/campus";
+  let activity = $state<{ day: CampusDay | null; now: number } | null>(null);
   let { data } = $props();
   let departments = $derived(
     [...data.status.departments].sort((a, b) => b.count - a.count).slice(0, 8),
@@ -11,8 +13,11 @@
 
 <section class="landing" aria-labelledby="landing-title">
   <h1 id="landing-title" class="sr-only">UW–Madison courses</h1>
-  <img class="campus-map" src={campusMap} alt="" width="900" height="505" />
-  <CampusScene coverage={data.campus} />
+  <CampusMap day={activity?.day} now={activity?.now} />
+  <CampusScene
+    coverage={data.campus}
+    onactivity={(day, now) => (activity = { day, now })}
+  />
   <div class="landing-copy">
     <form action="/search" class="landing-search">
       <SearchInput
@@ -30,9 +35,15 @@
       ><a href="/search?q=film">film</a>
     </div>
   </div>
-  <a class="map-credit" href="https://www.openstreetmap.org/copyright"
-    >© OpenStreetMap contributors</a
-  >
+  <div class="map-caption">
+    <span
+      title="Heat shows concurrent scheduled class meetings at buildings with recorded coordinates, not live attendance. Missing locations are omitted."
+      ><i></i>Scheduled classes by building</span
+    >
+    <a class="map-credit" href="https://www.openstreetmap.org/copyright"
+      >© OpenStreetMap contributors</a
+    >
+  </div>
 </section>
 <div class="campus-strip">
   <span
@@ -73,21 +84,27 @@
     clip-path: inset(50%);
     white-space: nowrap;
   }
-  .campus-map {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 48%;
-    z-index: -1;
-    opacity: 0.35;
-    pointer-events: none;
-    mask-image: linear-gradient(transparent, #000 20%, #000 70%, transparent);
+  .map-caption {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+    color: var(--muted);
+    font-size: 10px;
   }
-  :global(.dark) .campus-map {
-    filter: invert(1);
-    opacity: 0.24;
+  .map-caption > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .map-caption i {
+    display: inline-block;
+    width: 28px;
+    height: 5px;
+    border-radius: 3px;
+    background: linear-gradient(to right, #c4292b22, #e64b38, #ff925c);
   }
   .landing-copy {
     position: relative;
@@ -97,7 +114,7 @@
   .map-credit {
     display: block;
     width: fit-content;
-    margin: 24px 0 0 auto;
+    margin: 0 0 0 auto;
     font-size: 9px;
     color: var(--muted);
     text-decoration: none;
@@ -203,10 +220,6 @@
   @media (max-width: 760px) {
     .landing {
       padding: 20px 0 24px;
-    }
-    .campus-map {
-      object-position: 58% center;
-      opacity: 0.35;
     }
     .campus-strip {
       font-size: 13px;

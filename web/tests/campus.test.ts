@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  campusHeat,
   campusFacts,
   type CampusDay,
   campusCount,
@@ -108,5 +109,32 @@ describe("rotating campus facts", () => {
     expect(
       campusFacts(day, new Date("2026-09-11T15:00:00Z"), null).map((f) => f.id),
     ).toEqual(["sun"]);
+  });
+});
+
+describe("building heat", () => {
+  it("projects buildings onto the same map and ends activity at the meeting boundary", () => {
+    const now = Date.parse("2026-09-10T15:00:00Z");
+    const building = {
+      name: "Science",
+      latitude: 43.075,
+      longitude: -89.408,
+      events: [
+        [now, 3, 0],
+        [now + 60000, 0, 3],
+      ] as [number, number, number][],
+    };
+    const day: CampusDay = {
+      date: "2026-09-10",
+      events: [],
+      buildings: [building, { ...building, name: "Off map", longitude: -90 }],
+    };
+    expect(campusHeat(day, now)).toHaveLength(1);
+    expect(campusHeat(day, now)[0].x).toBeCloseTo(450);
+    expect(campusHeat(day, now)[0].y).toBeCloseTo(252.5);
+    expect(campusHeat(day, now)[0].count).toBe(3);
+    expect(campusHeat(day, now - 1)).toEqual([]);
+    expect(campusHeat(day, now + 60000)).toEqual([]);
+    expect(campusHeat(day, now + 86400000)).toEqual([]);
   });
 });

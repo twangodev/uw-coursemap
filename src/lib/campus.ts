@@ -14,7 +14,20 @@ export interface CampusCoverage {
   through: string | null;
   assetBase: string;
 }
+const buildingSchema = z.object({
+  name: z.string(),
+  latitude: z.number().finite().min(-90).max(90),
+  longitude: z.number().finite().min(-180).max(180),
+  events: z.array(
+    z.tuple([
+      z.number().finite(),
+      z.number().int().nonnegative(),
+      z.number().int().nonnegative(),
+    ]),
+  ),
+});
 export const campusDaySchema = z.object({
+  buildings: z.array(buildingSchema).optional(),
   date: z.string(),
   enrollmentEvents: z
     .array(
@@ -209,4 +222,20 @@ export function campusFacts(
       detail: `${weather.description ?? "Temperature"} · Fahrenheit · ${weather.source} · observed ${weather.observedAt}`,
     });
   return facts;
+}
+
+// Same geographic bounds and linear projection as campus-map.svg.
+export function campusHeat(day: CampusDay | null, now: number) {
+  if (!day || day.date !== madisonDate(new Date(now))) return [];
+  return (day.buildings ?? []).flatMap((building) => {
+    const x = ((building.longitude + 89.425) / 0.034) * 900;
+    const y = ((43.082 - building.latitude) / 0.014) * 505;
+    if (x < 0 || x > 900 || y < 0 || y > 505) return [];
+    let count = 0;
+    for (const [at, starts, ends] of building.events) {
+      if (at > now) break;
+      count += starts - ends;
+    }
+    return count > 0 ? [{ name: building.name, x, y, count }] : [];
+  });
 }

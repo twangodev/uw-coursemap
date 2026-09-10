@@ -2,7 +2,6 @@
   import { weatherSchema } from "$lib/api/schemas";
   import { onMount } from "svelte";
   import { Tooltip } from "bits-ui";
-  import { fade } from "svelte/transition";
   import { ArrowRight, Info, Pause, Play } from "@lucide/svelte";
   import AnimatedNumber from "./AnimatedNumber.svelte";
   import {
@@ -14,7 +13,13 @@
     type CampusDay,
     type Weather,
   } from "$lib/campus";
-  let { coverage }: { coverage: CampusCoverage } = $props();
+  let {
+    coverage,
+    onactivity,
+  }: {
+    coverage: CampusCoverage;
+    onactivity?: (day: CampusDay | null, now: number) => void;
+  } = $props();
   let now = $state<Date | null>(null);
   let weather = $state<Weather | null>(null);
   let day = $state<CampusDay | null>(null);
@@ -26,6 +31,9 @@
   let reducedMotion = $state(false);
   let facts = $derived(now ? campusFacts(day, now, weather) : []);
   let fact = $derived(facts[index % Math.max(1, facts.length)]);
+  $effect(() => {
+    if (now) onactivity?.(day, +now);
+  });
   onMount(() => {
     const controller = new AbortController();
     const motion = matchMedia("(prefers-reduced-motion: reduce)");
@@ -137,48 +145,39 @@
     >
   </div>
   <div class="fact-stage" aria-live="off">
-    {#key fact?.id}
-      <div
-        class="fact"
-        in:fade={{
-          duration: reducedMotion ? 0 : 300,
-          delay: reducedMotion ? 0 : 120,
-        }}
-        out:fade={{ duration: reducedMotion ? 0 : 120 }}
-      >
-        {#if fact}
-          <span class="qualifier">{fact.prefix ?? "\u00a0"}</span>
-          <div class="fact-value">
-            {#if typeof fact.value === "number"}<AnimatedNumber
-                value={fact.value}
-                suffix={fact.suffix}
-              />{:else}{fact.value}{/if}
-          </div>
-          <p>{fact.label}</p>
-          <Tooltip.Provider delayDuration={150}
-            ><Tooltip.Root bind:open={infoOpen} disableCloseOnTriggerClick>
-              <Tooltip.Trigger
-                class="campus-fact-info"
-                aria-label="About this campus fact"
-                onclick={() => (infoOpen = true)}
-                ><Info size={14} /></Tooltip.Trigger
-              >
-              <Tooltip.Portal
-                ><Tooltip.Content
-                  class="campus-fact-tooltip"
-                  role="tooltip"
-                  sideOffset={6}
-                  collisionPadding={12}>{fact.detail}</Tooltip.Content
-                ></Tooltip.Portal
-              >
-            </Tooltip.Root></Tooltip.Provider
-          >
-        {:else}
-          <span class="qualifier">Between lakes. Between classes.</span>
-          <div class="fact-value welcome">Campus,<br />in motion.</div>
-        {/if}
-      </div>
-    {/key}
+    <div class="fact">
+      {#if fact}
+        <span class="qualifier">{fact.prefix ?? "\u00a0"}</span>
+        <div class="fact-value">
+          {#if typeof fact.value === "number"}<AnimatedNumber
+              value={fact.value}
+              suffix={fact.suffix}
+            />{:else}{fact.value}{/if}
+        </div>
+        <p>{fact.label}</p>
+        <Tooltip.Provider delayDuration={150}
+          ><Tooltip.Root bind:open={infoOpen} disableCloseOnTriggerClick>
+            <Tooltip.Trigger
+              class="campus-fact-info"
+              aria-label="About this campus fact"
+              onclick={() => (infoOpen = true)}
+              ><Info size={14} /></Tooltip.Trigger
+            >
+            <Tooltip.Portal
+              ><Tooltip.Content
+                class="campus-fact-tooltip"
+                role="tooltip"
+                sideOffset={6}
+                collisionPadding={12}>{fact.detail}</Tooltip.Content
+              ></Tooltip.Portal
+            >
+          </Tooltip.Root></Tooltip.Provider
+        >
+      {:else}
+        <span class="qualifier">Between lakes. Between classes.</span>
+        <div class="fact-value welcome">Campus,<br />in motion.</div>
+      {/if}
+    </div>
   </div>
   <div class="scene-footer">
     <div class="fact-controls">

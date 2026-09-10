@@ -8,6 +8,17 @@ async function mockCampus(page: import("@playwright/test").Page) {
     route.fulfill({
       json: {
         date,
+        buildings: [
+          {
+            name: "Science",
+            latitude: 43.075,
+            longitude: -89.408,
+            events: [
+              [+now - 60000, 12, 0],
+              [+now + 3600000, 0, 12],
+            ],
+          },
+        ],
         events: [
           [+now - 60000, 100, 0],
           [+now + 600000, 20, 0],
@@ -54,11 +65,20 @@ test("campus facts show estimated enrollment over a local map, with accessible c
     scene.getByRole("img", { name: "20,350", exact: true }),
   ).toBeVisible();
   await expect(page.locator(".campus-map")).toBeVisible();
+  await expect(
+    page.locator('.building-heat[data-building="Science"]'),
+  ).toHaveAttribute("data-meetings", "12");
+  const number = await scene.locator(".fact-value").elementHandle();
   await scene.getByRole("button", { name: "About this campus fact" }).click();
   await expect(page.getByRole("tooltip")).toContainText("not live attendance");
   await page.keyboard.press("Escape");
   await scene.getByRole("button", { name: "Next campus fact" }).click();
   await expect(scene).toContainText("classes in session right now");
+  expect(
+    await number!.evaluate(
+      (el) => el === document.querySelector(".fact-value"),
+    ),
+  ).toBe(true);
   await page.setViewportSize({ width: 390, height: 844 });
   expect(
     await page.evaluate(
