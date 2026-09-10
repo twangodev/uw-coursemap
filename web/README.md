@@ -8,27 +8,26 @@ uv run --locked uwcourses-site import --limit 8
 bun run dev
 ```
 
-Omit `--limit` for the complete dataset. `--source /path/to/release` reads a local release; `--revision HF_COMMIT` pins a remote release. The importer is the `uwcourses_site` Python package, installed by uv. Generated `.site/` and `static/data/` are disposable and ignored by Git.
+Omit `--limit` for the complete dataset. `--source /path/to/release` reads a local release; `--revision HF_COMMIT` pins a remote release. The importer is the `uwcourses_site` Python package, installed by uv. Generated `.site/` outputs are disposable and ignored by Git. The importer owns `.site/import`; serving documents, social cards, and browser D1 have separate directories.
 
 ```sh
 bun run check
 bun run test
 uv run --locked python -m unittest discover -s web/tests -p 'test_*.py'
+bun run site:data
+bun x playwright install chromium
+bun run site:social
 bun run build
 bun run seo:check
 uv run --locked uwcourses-site assets-check
 bun x playwright test
 ```
 
-Production preview reads page documents from built assets. Interactive search and pagination use local D1, not `.site/site.sqlite`. After importing a new dataset, stop the preview and refresh its database before restarting:
+Production preview reads the prepared assets and uses a local D1 for interactive queries. After importing a dataset, prepare its browser database before starting preview:
 
 ```sh
-set -e
-for part in .site/sql/*.sql; do
-  bun x wrangler d1 execute DB --local --file="$part"
-done
-bun x wrangler d1 execute DB --local --command "INSERT OR REPLACE INTO metadata VALUES('serving','00000000000000000000000000000000');"
-bun run preview --ip 0.0.0.0 --port 4173
+bun run test:browser:setup
+bun run preview --ip 0.0.0.0 --port 4173 --persist-to .site/browser-state
 ```
 
 `TEST_PREVIEW=1 bun x playwright test` runs browser checks against the production preview. Set `TEST_PORT` to use a different port.
@@ -39,7 +38,9 @@ The single D1 database is configured in `wrangler.json` as `DB`. Set `CLOUDFLARE
 
 Run the **Svelte** workflow manually with **First deployment** enabled once to create the Worker. Validate its workers.dev preview, then attach `uwcourses.com` in Cloudflare. Subsequent runs leave that option disabled.
 
-The Svelte workflow checks pushes and pull requests; its production job runs at 03:17 America/Los_Angeles and also supports **Run workflow**. It imports HF, generates and validates static JSON, builds and tests, then calls `uwcourses-site deploy`. The tested CLI imports D1 only when the database does not already match the release, verifies it, and deploys matching code/assets. No separate deployment scripts or Cloudflare cron are needed.
+The Svelte workflow checks pushes and pull requests and deploys successful main pushes, manual runs, and nightly runs at 03:17 America/Los_Angeles. Each run resolves HF once to a pinned revision. Import, serving documents, social cards, and browser D1 use separate input-hashed caches with file-integrity manifests; artifacts carry the exact outputs between jobs. App builds reuse those outputs. A nightly run skips when both the deployed website commit and HF revision are unchanged.
+
+Only production deployment is serialized. Before production writes, `uwcourses-site deploy` rejects superseded commits, imports D1 only when its projection differs, verifies the database, and publishes matching code/assets. Scraping, inference, and HF publication remain local; no Cloudflare cron is needed.
 
 Imports temporarily disable search/filter queries. Static pages and their JSON/Markdown remain available. A verified-import marker and projection check prevent partial or mismatched query results; requests check before and after querying. Failed imports can be retried, and failed Worker publication reuses a matching completed import. Worker rollback does not restore D1; restore the matching dataset to recover queries after a data rollback. Production jobs are serialized and only this workflow should modify the production database. GitHub stores release metadata for each run.
 
@@ -63,6 +64,6 @@ JSON has `schema_version`, `url`, `title`, `dataset`, and `data`. The dataset in
 
 Public GET documents are cached for 24 hours in Cloudflare's Cache API. Keys include the deployment, data projection, URL, and query. Browser responses revalidate with ETags. Cache hits still invoke the Worker; the cache is local to each data center. Authenticated/cookie requests, navigation transport, errors, and existing `/api` endpoints bypass this document cache. Preview caching requires `SITE_COMMIT` and `DATA_PROJECTION`; without them requests render directly.
 
-Canonical page loaders and public representations share generated documents. Course comparisons are computed during prerender and also emitted as compact assets for search badges. Historical instructor profiles are grouped into 4,096 deterministic buckets to bound the file count. The native SvelteKit prerender endpoint generates these assets; no separate generation script is required. HTML remains SSR and term controls remain interactive.
+Canonical page loaders and public representations share generated documents. Course comparisons are computed during data preparation and also emitted as compact assets for search badges. Historical instructor profiles are grouped into 4,096 deterministic buckets to bound the file count. `bun run site:data` generates these assets using the shared typed data readers. `bun run site:social` renders social cards; `bun run build` compiles the app and assembles their completed outputs. Rerun the relevant preparation command when its data or generator changes. HTML remains SSR and term controls remain interactive.
 
 Drizzle owns interactive database reads; the Python importer owns the read-model schema and ordered SQL import. Complex FTS and grade aggregations use bound SQL through Drizzle on D1. Development reads the imported local SQLite database.
