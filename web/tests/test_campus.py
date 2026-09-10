@@ -31,7 +31,7 @@ class CampusTests(unittest.TestCase):
         with TemporaryDirectory() as root:
             manifest = schedule.write(Path(root), "release")
             day = json.loads(
-                (Path(root) / "data/release/campus/v2/2026-09-09.json").read_text()
+                (Path(root) / "data/release/campus/v3/2026-09-09.json").read_text()
             )
             self.assertEqual(
                 day["events"],
@@ -102,7 +102,7 @@ class CampusTests(unittest.TestCase):
         with TemporaryDirectory() as root:
             schedule.write(Path(root), "release")
             day = json.loads(
-                (Path(root) / "data/release/campus/v2/2026-09-09.json").read_text()
+                (Path(root) / "data/release/campus/v3/2026-09-09.json").read_text()
             )
         self.assertEqual(day["events"][0][1], 2)
         self.assertEqual(
@@ -135,6 +135,43 @@ class CampusTests(unittest.TestCase):
         with TemporaryDirectory() as root:
             schedule.write(Path(root), "release")
             day = json.loads(
-                (Path(root) / "data/release/campus/v2/2026-09-09.json").read_text()
+                (Path(root) / "data/release/campus/v3/2026-09-09.json").read_text()
             )
         self.assertEqual(day["enrollmentEvents"][0][1:], [40, 0, 1, 0])
+
+    def test_building_heat_uses_deduplicated_sessions_without_requiring_enrollment(
+        self,
+    ):
+        schedule = CampusSchedule()
+        row = self.row(latitude=43.075, longitude=-89.405)
+        schedule.add(row)
+        schedule.add({**row, "meeting_id": "crosslist"})
+        schedule.add({**row, "room": "200", "meeting_id": "other-room"})
+        schedule.add(self.row(building="Missing location", room="1"))
+        schedule.add(
+            self.row(
+                building="Invalid location",
+                room="1",
+                latitude=float("nan"),
+                longitude=-89.4,
+            )
+        )
+        with TemporaryDirectory() as root:
+            schedule.write(Path(root), "release")
+            day = json.loads(
+                (Path(root) / "data/release/campus/v3/2026-09-09.json").read_text()
+            )
+        self.assertEqual(len(day["buildings"]), 1)
+        self.assertEqual(
+            day["buildings"][0],
+            {
+                "name": "Science",
+                "latitude": 43.075,
+                "longitude": -89.405,
+                "events": [
+                    [stamp("2026-09-09T14:00:00+00:00"), 2, 0],
+                    [stamp("2026-09-09T15:00:00+00:00"), 0, 2],
+                ],
+            },
+        )
+        self.assertEqual(day["enrollmentEvents"], [])

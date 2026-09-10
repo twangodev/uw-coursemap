@@ -3,6 +3,7 @@
 from collections import defaultdict
 from datetime import datetime, timedelta, time
 import json
+import math
 import re
 from zoneinfo import ZoneInfo
 
@@ -40,6 +41,22 @@ class CampusSchedule:
         session = self.sessions.setdefault(
             key, {"start": start, "end": end, "sections": {}, "unknown": False}
         )
+        latitude, longitude = row.get("latitude"), row.get("longitude")
+        if (
+            building
+            and isinstance(latitude, (int, float))
+            and isinstance(longitude, (int, float))
+            and math.isfinite(latitude)
+            and math.isfinite(longitude)
+            and -90 <= latitude <= 90
+            and -180 <= longitude <= 180
+        ):
+            session["building"] = (
+                building,
+                str(row["building"]).strip(),
+                latitude,
+                longitude,
+            )
         match = re.fullmatch(r"([A-Z]+)\s+(\S+)\s+#\d+", str(row.get("name", "")))
         candidates = []
         if match:
@@ -86,7 +103,7 @@ class CampusSchedule:
             start = stop
 
     def write(self, static, revision):
-        base = f"/data/{revision}/campus/v2"
+        base = f"/data/{revision}/campus/v3"
         manifest = {
             "timezone": "America/Chicago",
             "from": None,
@@ -97,9 +114,9 @@ class CampusSchedule:
             return manifest
         manifest.update({"from": min(self.days), "through": max(self.days)})
         enrollment = defaultdict(lambda: defaultdict(lambda: [0, 0, 0, 0]))
+        buildings = defaultdict(dict)
         for session in self.sessions.values():
-            if session["unknown"] or not session["sections"]:
-                continue
+            known = not session["unknown"] and bool(session["sections"])
             start, end = session["start"], session["end"]
             seats = sum(session["sections"].values())
             while start.timestamp() < end.timestamp():
@@ -107,11 +124,30 @@ class CampusSchedule:
                     start.date() + timedelta(days=1), time(), ZONE
                 )
                 stop = min(end, midnight, key=lambda value: value.timestamp())
-                events = enrollment[start.date().isoformat()]
-                events[int(start.timestamp() * 1000)][0] += seats
-                events[int(start.timestamp() * 1000)][2] += 1
-                events[int(stop.timestamp() * 1000)][1] += seats
-                events[int(stop.timestamp() * 1000)][3] += 1
+                day = start.date().isoformat()
+                first, last = (
+                    int(start.timestamp() * 1000),
+                    int(stop.timestamp() * 1000),
+                )
+                if known:
+                    events = enrollment[day]
+                    events[first][0] += seats
+                    events[first][2] += 1
+                    events[last][1] += seats
+                    events[last][3] += 1
+                if "building" in session:
+                    key, name, latitude, longitude = session["building"]
+                    place = buildings[day].setdefault(
+                        key,
+                        {
+                            "name": name,
+                            "latitude": latitude,
+                            "longitude": longitude,
+                            "events": defaultdict(lambda: [0, 0]),
+                        },
+                    )
+                    place["events"][first][0] += 1
+                    place["events"][last][1] += 1
                 start = stop
         date = datetime.fromisoformat(manifest["from"]).date()
         last = datetime.fromisoformat(manifest["through"]).date()
@@ -128,6 +164,16 @@ class CampusSchedule:
                     {
                         "date": key,
                         "events": events,
+                        "buildings": [
+                            {
+                                **place,
+                                "events": [
+                                    [at, *counts]
+                                    for at, counts in sorted(place["events"].items())
+                                ],
+                            }
+                            for _, place in sorted(buildings.get(key, {}).items())
+                        ],
                         "enrollmentEvents": [
                             [at, *counts]
                             for at, counts in sorted(enrollment.get(key, {}).items())
