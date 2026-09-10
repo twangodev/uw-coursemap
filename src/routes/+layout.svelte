@@ -42,7 +42,7 @@
 </script>
 
 <svelte:head>
-  {#if !dev && ["https://uwcourses.com", "https://www.uwcourses.com", "https://uwcourses.twango.workers.dev"].includes(page.url.origin)}
+  {#if !dev && page.url.origin === "https://uwcourses.com"}
     <script src="https://rybbit.twango.dev/api/script.js" data-site-id="1" defer></script>
   {/if}
   <link rel="service-desc" type="application/vnd.oai.openapi+json" href="https://uwcourses.com/openapi.json" />
