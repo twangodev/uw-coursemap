@@ -65,8 +65,8 @@
 {#if !fullscreenMap}<header>
   <nav aria-label="Main navigation">
     <a class="brand" href="/"
-      ><img src="/uw-coursemap-logo.svg" alt="" width="28" height="28" />uw<span
-        >courses</span
+      ><img src="/uw-coursemap-logo.svg" alt="" width="28" height="28" /><span
+        >uwcourses</span
       ></a
     >
     <div class="row">
@@ -92,6 +92,7 @@
 </main>
 {#if !fullscreenMap}<footer class="page row between">
   <div>
+    <p class="site-credit">Made by <a href="https://twango.dev/?ref=uwcourses">James Ding</a> and <a href="https://github.com/twangodev/uw-coursemap/graphs/contributors">contributors</a>.</p>
     <p class="muted">
       Not affiliated with or endorsed by the University of Wisconsin–Madison.
     </p>
@@ -140,9 +141,6 @@
     letter-spacing: -0.05em;
     color: var(--text);
   }
-  .brand span {
-    font-weight: 400;
-  }
   .brand img {
     margin-right: 9px;
   }
@@ -173,6 +171,8 @@
   nav .row {
     flex-wrap: nowrap;
   }
+
+  .site-credit { margin: 0 0 6px; }
 
   footer.page {
     border-top: 1px solid var(--border);
