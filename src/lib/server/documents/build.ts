@@ -1,7 +1,11 @@
 import { building } from "$app/environment";
 import { error } from "@sveltejs/kit";
 import { query, status } from "$lib/server/data";
-import { instructorUrls } from "$lib/server/instructor-urls";
+import {
+  instructorUrls,
+  instructorUrlAsset,
+} from "$lib/server/instructor-urls";
+import { instructorRatingPrior } from "$lib/server/instructor-ratings";
 import { courseContext } from "$lib/server/course-context";
 import { courseUrl } from "$lib/format";
 import { documentKind, documentSchemas } from "$lib/api/schemas";
@@ -47,6 +51,13 @@ async function createInventory() {
     assets.set(asset, group);
   }
   const courseAliases: Record<string, string> = {};
+  const instructorUrlShards = new Map<string, Record<string, string>>();
+  for (const [uid, url] of instructors) {
+    const path = instructorUrlAsset(uid).slice("/__documents/".length);
+    const shard = instructorUrlShards.get(path) || {};
+    shard[uid] = url;
+    instructorUrlShards.set(path, shard);
+  }
   for (const row of aliases) {
     const target = courseUrl(row.code);
     courseAliases[row.alias] =
@@ -57,6 +68,7 @@ async function createInventory() {
   return {
     assets,
     courses,
+    instructorUrlShards,
     redirects: {
       courses: courseAliases,
       instructors: Object.fromEntries(instructors),
@@ -69,10 +81,12 @@ function getInventory() {
   return (inventory ??= createInventory());
 }
 export async function documentEntries() {
-  const { assets, courses } = await getInventory();
+  const { assets, courses, instructorUrlShards } = await getInventory();
   return [
     ...assets.keys(),
     "redirects.json",
+    "search-metadata.json",
+    ...instructorUrlShards.keys(),
     ...courses.map((c) => `contexts/${c.uid}.json`),
   ].map((path) => ({ path }));
 }
@@ -97,7 +111,10 @@ export async function generateDocument(path: string) {
   return serialized;
 }
 export async function buildDocumentAsset(asset: string) {
-  const { assets, redirects } = await getInventory();
+  const { assets, redirects, instructorUrlShards } = await getInventory();
+  if (asset === "search-metadata.json")
+    return { mean: await instructorRatingPrior() };
+  if (instructorUrlShards.has(asset)) return instructorUrlShards.get(asset);
   if (asset === "redirects.json") return redirects;
   if (asset.startsWith("contexts/") && asset.endsWith(".json")) {
     const uid = asset.slice("contexts/".length, -5);

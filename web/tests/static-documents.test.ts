@@ -148,3 +148,18 @@ describe("static page documents", () => {
     ).rejects.toMatchObject({ status: 503 });
   });
 });
+
+it("resolves only the requested instructor URL shards and rating prior without D1", async () => {
+  const { withInstructorUrls, instructorUrlAsset } = await import("../../src/lib/server/instructor-urls");
+  const { instructorRatingPrior } = await import("../../src/lib/server/instructor-ratings");
+  const uid = "instructor_example";
+  const { platform: env, fetch } = platform({
+    [instructorUrlAsset(uid)]: {[uid]: "/instructors/EXAMPLE--instructor_example"},
+    "/__documents/search-metadata.json": {mean: 3.7},
+  });
+  const rows = await withInstructorUrls([{instructor_uid: uid}], env);
+  expect(rows[0].instructor_url).toBe("/instructors/EXAMPLE--instructor_example");
+  expect(await instructorRatingPrior(env)).toBe(3.7);
+  expect(fetch).toHaveBeenCalledTimes(2);
+  await expect(withInstructorUrls([{instructor_uid: "missing"}], env)).rejects.toMatchObject({status: 503});
+});

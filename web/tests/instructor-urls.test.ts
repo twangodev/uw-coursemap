@@ -34,3 +34,29 @@ it("resolves both current and historical profiles on demand", async () => {
   const historical = [...urls].find(([uid]) => !selected.has(uid))!;
   expect(await resolveInstructorUid(historical[1])).toBe(historical[0]);
 });
+
+it("publishes the same collision-safe URLs in bounded lookup shards", async () => {
+  const { instructorUrlAsset } =
+    await import("../../src/lib/server/instructor-urls");
+  const { buildDocumentAsset, documentEntries } =
+    await import("../../src/lib/server/documents/build");
+  const entries = await documentEntries();
+  const paths = entries.filter(({ path }) =>
+    path.startsWith("instructor-urls/"),
+  );
+  expect(paths.length).toBeLessThanOrEqual(256);
+  const shards = new Map(
+    await Promise.all(
+      paths.map(
+        async ({ path }) => [path, await buildDocumentAsset(path)] as const,
+      ),
+    ),
+  );
+  for (const [uid, url] of await instructorUrls()) {
+    const path = instructorUrlAsset(uid).slice("/__documents/".length);
+    expect(shards.get(path)[uid]).toBe(url);
+  }
+  expect(await buildDocumentAsset("search-metadata.json")).toHaveProperty(
+    "mean",
+  );
+});

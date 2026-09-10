@@ -1,5 +1,12 @@
 import { instructorSlug } from "$lib/format";
 import { query, status } from "./data";
+import { building, dev } from "$app/environment";
+import { error } from "@sveltejs/kit";
+import { instructorBucket, readAsset } from "./documents/storage";
+
+export function instructorUrlAsset(uid: string) {
+  return `/__documents/instructor-urls/${instructorBucket(uid).slice(0, 2)}.json`;
+}
 
 let cached:
   | { revision: string; index: Promise<Map<string, string>> }
@@ -37,6 +44,27 @@ export async function withInstructorUrls<
   T extends { uid?: string; instructor_uid?: string },
 >(rows: T[], platform?: App.Platform) {
   if (!rows.length) return [];
+  if (!building && !dev) {
+    const assets = await Promise.all(
+      [
+        ...new Set(
+          rows.map((row) =>
+            instructorUrlAsset(row.instructor_uid || row.uid || ""),
+          ),
+        ),
+      ].map(async (path) => {
+        const urls = await readAsset<Record<string, string>>(path, platform);
+        if (!urls) error(503, "Published instructor URLs unavailable");
+        return urls;
+      }),
+    );
+    const urls = Object.assign({}, ...assets) as Record<string, string>;
+    return rows.map((row) => {
+      const url = urls[row.instructor_uid || row.uid || ""];
+      if (!url) error(503, "Published instructor URL unavailable");
+      return { ...row, instructor_url: url };
+    });
+  }
   const urls = await instructorUrls(platform);
   return rows.map((row) => ({
     ...row,

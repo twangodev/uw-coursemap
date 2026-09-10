@@ -1,8 +1,19 @@
 import { instructorUrls } from "./instructor-urls";
 import { query } from "./data";
 import { adjustInstructorRating } from "$lib/instructor-ratings";
+import { building, dev } from "$app/environment";
+import { error } from "@sveltejs/kit";
+import { readAsset } from "./documents/storage";
 let cached: { revision: string; mean: Promise<number | null> } | undefined;
 export async function instructorRatingPrior(platform?: App.Platform) {
+  if (!building && !dev) {
+    const stored = await readAsset<{ mean: number | null }>(
+      "/__documents/search-metadata.json",
+      platform,
+    );
+    if (!stored) error(503, "Published search metadata unavailable");
+    return stored.mean;
+  }
   const [metadata] = await query(
     platform,
     "SELECT json_extract(value,'$.revision') revision FROM metadata WHERE key='status'",

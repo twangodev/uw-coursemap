@@ -72,7 +72,11 @@ export function pageNumber(url: URL) {
   if (!Number.isInteger(n) || n < 1 || n > 10000) error(400, "Invalid page");
   return n;
 }
-export async function search(url: URL, platform?: App.Platform) {
+export async function search(
+  url: URL,
+  platform?: App.Platform,
+  suggestions = false,
+) {
   const q = (url.searchParams.get("q") || "").trim();
   if (q.length > 200) error(400, "Query is too long");
   const kind =
@@ -92,9 +96,14 @@ export async function search(url: URL, platform?: App.Platform) {
     values: unknown[] = [];
   let from = kind === "course" ? "courses c" : "instructors c";
   let where = "1=1";
+  const needsHistory =
+    kind === "course" &&
+    (url.searchParams.has("gpa_min") ||
+      url.searchParams.has("ranking") ||
+      url.searchParams.get("sort") === "gpa");
   const totals = "SUM(a+ab+b+bc+c+d+f)";
   const historySql = `WITH history AS (SELECT uid,${totals} grade_count,SUM(a*4+ab*3.5+b*3+bc*2.5+c*2+d)*1.0/NULLIF(${totals},0) history_gpa FROM grade_summaries WHERE term<=? AND CAST(term AS INTEGER)>? GROUP BY uid) `;
-  if (kind === "course") {
+  if (needsHistory) {
     from += " LEFT JOIN history h ON h.uid=c.uid";
     values.push(term, Number(term) - 50);
   }
@@ -171,26 +180,30 @@ export async function search(url: URL, platform?: App.Platform) {
     kind === "course"
       ? "c.uid course_uid,c.code course_id,c.title,c.credits_min,c.credits_max,c.gpa"
       : `c.uid instructor_uid,c.name,c.current,${adjustedQuality} bayesian_quality,${qualityCount} quality_count,json_extract(c.payload,'$.ratings.difficulty') difficulty,json_extract(c.payload,'$.ratings.difficulty_count') difficulty_count,json_extract(c.payload,'$.ratings.source_url') source_url`;
-  const [count] = await query(
-    platform,
-    `${kind === "course" ? historySql : ""}SELECT count(DISTINCT c.uid) total FROM ${from} WHERE ${where}`,
-    values,
-  );
+  const [count] = suggestions
+    ? [{ total: 0 }]
+    : await query(
+        platform,
+        `${needsHistory ? historySql : ""}SELECT count(DISTINCT c.uid) total FROM ${from} WHERE ${where}`,
+        values,
+      );
   const items = await query(
     platform,
-    `${kind === "course" ? historySql : ""}SELECT ${fields} FROM ${from} WHERE ${where} GROUP BY c.uid ORDER BY ${order} LIMIT 30 OFFSET ?`,
-    [...values, (page - 1) * 30],
+    `${needsHistory ? historySql : ""}SELECT ${fields} FROM ${from} WHERE ${where} GROUP BY c.uid ORDER BY ${order} LIMIT ? OFFSET ?`,
+    [...values, suggestions ? 6 : 30, suggestions ? 0 : (page - 1) * 30],
   );
   return {
     items:
       kind === "course"
-        ? await coursePreviews(
-            items,
-            term,
-            platform,
-            undefined,
-            url.searchParams.get("subject") || "school",
-          )
+        ? suggestions
+          ? items
+          : await coursePreviews(
+              items,
+              term,
+              platform,
+              undefined,
+              url.searchParams.get("subject") || "school",
+            )
         : await withInstructorUrls(items, platform),
     total: count.total,
     page,
