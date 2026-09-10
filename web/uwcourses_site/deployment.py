@@ -91,7 +91,10 @@ def current_commit(commit: str) -> bool:
         return True
     response = requests.get(
         f"https://api.github.com/repos/{repository}/commits/main",
-        headers={"Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}"},
+        headers={
+            "Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}",
+            "Cache-Control": "no-cache",
+        },
         timeout=30,
     )
     response.raise_for_status()
