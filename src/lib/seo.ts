@@ -69,7 +69,8 @@ export function pageSeo(data: any, pathname: string, status = 200) {
   const graph: Record<string, unknown>[] = [];
   const noindex =
     status >= 400 ||
-    ((pathname === "/search" || pathname === "/instructors/by-rating-count") && data.discoveryFiltered !== false) ||
+    ((pathname === "/search" || pathname === "/instructors/by-rating-count") &&
+      data.discoveryFiltered !== false) ||
     Boolean(data.collection && data.results?.total === 0) ||
     Boolean(data.instructor && !data.instructor.name?.trim());
   if (status >= 400) {
@@ -154,15 +155,19 @@ export function pageSeo(data: any, pathname: string, status = 200) {
       ? "Find UW–Madison professors and compare student reviews, instructor ratings, courses taught and historical grades."
       : "Discover UW–Madison courses for your next semester. Compare prerequisites, historical grades and instructors, and explore courses by department.";
   }
-  if (pathname === "/" && status < 400)
+  if (pathname === "/" && status < 400) {
+    title = "Search UW–Madison Courses, Grades & Reviews | uwcourses";
+    description =
+      "Search UW–Madison courses and compare historical grade distributions, prerequisites, class schedules, and professor ratings and reviews.";
     graph.push({
       "@type": "WebSite",
       "@id": siteOrigin + "/#website",
-      name: "UW Courses",
+      name: "uwcourses",
       alternateName: "UW Courses",
       url: siteOrigin + "/",
       description,
     });
+  }
   // Only annotate links present in the rendered list, never unseen result pages.
   const courses = data.catalog || data.results?.items;
   if (
@@ -183,17 +188,24 @@ export function pageSeo(data: any, pathname: string, status = 200) {
       });
   }
   const canonical = absoluteUrl(path);
-  const imageKind = pathname.startsWith("/explorer") ? "maps"
-    : pathname.startsWith("/instructors") ? "instructors"
-    : data.subject && !data.course ? "departments"
-    : pathname === "/departments" ? "departments" : "courses";
+  const imageKind = pathname.startsWith("/explorer")
+    ? "maps"
+    : pathname.startsWith("/instructors")
+      ? "instructors"
+      : data.subject && !data.course
+        ? "departments"
+        : pathname === "/departments"
+          ? "departments"
+          : "courses";
   const imageDescriptions = {
     courses: "UW Courses — Courses, grades and prerequisites.",
     instructors: "UW Courses — Find a professor.",
     departments: "UW Courses — Explore departments.",
     maps: "UW Courses — Prerequisite maps.",
   };
-  const personalImage = !noindex && (data.course || data.subject || (data.instructor && data.socialImage));
+  const personalImage =
+    !noindex &&
+    (data.course || data.subject || (data.instructor && data.socialImage));
   if (!noindex) {
     const entity = graph.find((item) =>
       ["Course", "Person", "ItemList"].includes(String(item["@type"])),
@@ -202,7 +214,10 @@ export function pageSeo(data: any, pathname: string, status = 200) {
     if (breadcrumb) breadcrumb["@id"] = canonical + "#breadcrumb";
     graph.push({
       "@type":
-        entity?.["@type"] === "ItemList" || pathname === "/departments" || pathname === "/search" || pathname === "/instructors/by-rating-count"
+        entity?.["@type"] === "ItemList" ||
+        pathname === "/departments" ||
+        pathname === "/search" ||
+        pathname === "/instructors/by-rating-count"
           ? "CollectionPage"
           : "WebPage",
       "@id": canonical + "#webpage",
@@ -219,8 +234,12 @@ export function pageSeo(data: any, pathname: string, status = 200) {
     title,
     description,
     canonical,
-    image: absoluteUrl(personalImage ? `/social/pages${path}.png` : `/social/${imageKind}.png`),
-    imageAlt: personalImage ? `UW Courses — ${title.replace(/\s*\|.*$/, "")}` : imageDescriptions[imageKind],
+    image: absoluteUrl(
+      personalImage ? `/social/pages${path}.png` : `/social/${imageKind}.png`,
+    ),
+    imageAlt: personalImage
+      ? `UW Courses — ${title.replace(/\s*\|.*$/, "")}`
+      : imageDescriptions[imageKind],
     noindex,
     structuredData: { "@context": "https://schema.org", "@graph": graph },
   };

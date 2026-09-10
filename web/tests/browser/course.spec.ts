@@ -15,7 +15,8 @@ test("course reading, citations, graph and theme", async ({ page }) => {
   await expect(page.getByText("Java", { exact: false }).first()).toBeVisible();
   await page.locator("#requirements").scrollIntoViewIfNeeded();
   await expect(page.getByRole("region", { name: "Prerequisite relationships" })).toBeVisible();
-  await page.getByLabel("Color theme").selectOption("dark");
+  await page.getByRole("button", { name: "Color theme: system. Switch to light" }).click();
+  await page.getByRole("button", { name: "Color theme: light. Switch to dark" }).click();
   await expect(page.locator("html")).toHaveClass("dark");
   const technical = page.locator(".technical-sources");
   await technical.locator(":scope > summary").click();
@@ -110,7 +111,7 @@ test("home and cross-listed course render on desktop", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto("/");
   await expect(
-    page.getByRole("heading", { name: /on the Hill/ }),
+    page.getByRole("region", { name: "Campus activity" }),
   ).toBeVisible();
   await page.screenshot({ path: "test-results/home.png", fullPage: true });
   await page.goto("/courses/cs-759");
@@ -170,7 +171,9 @@ test("calendar filters meetings, exposes details and exports dates", async ({
 test("course context, projection and captured instructor ratings remain distinct", async ({
   page,
 }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/courses/COMPSCI_300");
+  await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   await expect(
     page.locator(".grade-snapshot .grade-percentages").getByRole("img", { name: "34.1%", exact: true }),
   ).toBeVisible();

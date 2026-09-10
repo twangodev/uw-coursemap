@@ -2,22 +2,25 @@
   import { ArrowUpRight, Search } from "@lucide/svelte";
   import SearchInput from "$lib/components/SearchInput.svelte";
   import CampusScene from "$lib/components/CampusScene.svelte";
-  import { termName } from "$lib/format";
+  import CampusMap from "$lib/components/CampusMap.svelte";
+  import type { CampusDay } from "$lib/campus";
+  let activity = $state<{ day: CampusDay | null; now: number } | null>(null);
   let { data } = $props();
   let departments = $derived(
     [...data.status.departments].sort((a, b) => b.count - a.count).slice(0, 8),
   );
 </script>
 
-<section class="landing">
+<section class="landing" aria-labelledby="landing-title">
+  <CampusMap day={activity?.day} now={activity?.now} />
+  <CampusScene
+    coverage={data.campus}
+    onactivity={(day, now) => (activity = { day, now })}
+  />
   <div class="landing-copy">
-    <p class="semester">
-      <span></span>{termName(data.status.term)} · UW–Madison
-    </p>
-    <h1>See you<br />on the Hill<span class="period">.</span></h1>
-    <p class="landing-description">
-      Find UW–Madison courses for your next semester. Compare grades, get to
-      know your professors, and hear from the students who came before you.
+    <h1 id="landing-title">Search UW–Madison courses</h1>
+    <p class="search-description">
+      Compare grades, prerequisites, and professor reviews.
     </p>
     <form action="/search" class="landing-search">
       <SearchInput
@@ -35,7 +38,15 @@
       ><a href="/search?q=film">film</a>
     </div>
   </div>
-  <div class="landing-art"><CampusScene coverage={data.campus} /></div>
+  <div class="map-caption">
+    <span
+      title="Heat shows concurrent scheduled class meetings at buildings with recorded coordinates, not live attendance. Missing locations and ambiguous building matches are omitted."
+      ><i></i>Scheduled classes by building</span
+    >
+    <a class="map-credit" href="https://www.openstreetmap.org/copyright"
+      >© OpenStreetMap contributors</a
+    >
+  </div>
 </section>
 <div class="campus-strip">
   <span
@@ -44,10 +55,7 @@
 </div>
 <section class="discover" aria-labelledby="discover-title">
   <div class="discover-intro">
-    <h2 id="discover-title">Follow your curiosity.</h2>
-    <p class="muted">
-      Start in your department.<br />Or somewhere entirely new.
-    </p>
+    <h2 id="discover-title">Browse departments</h2>
     <a href="/departments">All departments <ArrowUpRight size={14} /></a>
   </div>
   <div class="department-list">
@@ -62,42 +70,61 @@
 
 <style>
   .landing {
-    display: grid;
-    grid-template-columns: 1.05fr 1fr;
-    align-items: center;
-    gap: 20px;
-    padding: 58px 0 60px;
-    min-height: 575px;
-  }
-  .semester {
-    font: 12px var(--font-sans);
-    color: var(--muted);
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin-bottom: 28px;
-  }
-  .semester span {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
+    position: relative;
+    isolation: isolate;
+    padding: 30px 0 40px;
   }
   h1 {
-    font-size: clamp(54px, 6.8vw, 88px);
-    line-height: 0.98;
-    font-weight: 550;
-    letter-spacing: -0.045em;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.035em;
   }
-  .period {
-    color: var(--accent);
-  }
-  .landing-description {
-    font-size: 18px;
-    line-height: 1.55;
-    max-width: 445px;
-    margin-top: 26px;
+  .search-description {
+    font-size: 13px;
     color: var(--muted);
+    margin-top: 6px;
+  }
+  .map-caption {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+    color: var(--muted);
+    font-size: 10px;
+  }
+  .map-caption > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .map-caption i {
+    display: inline-block;
+    width: 28px;
+    height: 5px;
+    border-radius: 3px;
+    background: linear-gradient(
+      to right,
+      color-mix(in srgb, var(--accent) 15%, transparent),
+      var(--accent)
+    );
+  }
+  .landing-copy {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 580px);
+    margin: 0;
+  }
+  .map-credit {
+    display: block;
+    width: fit-content;
+    margin: 0 0 0 auto;
+    font-size: 9px;
+    color: var(--muted);
+    text-decoration: none;
   }
   .landing-search {
     display: flex;
@@ -106,9 +133,9 @@
     padding: 7px 7px 7px 16px;
     border: 1px solid var(--border);
     border-radius: 6px;
-    margin-top: 30px;
+    margin-top: 12px;
     background: var(--bg);
-    max-width: 530px;
+    width: 100%;
   }
   .landing-search:focus-within {
     border-color: var(--accent);
@@ -116,7 +143,7 @@
   button {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 8px;
     flex-shrink: 0;
     min-height: 42px;
@@ -131,6 +158,7 @@
   }
   .try-search {
     display: flex;
+    justify-content: flex-start;
     gap: 18px;
     margin-top: 14px;
     font-size: 13px;
@@ -142,9 +170,6 @@
     text-decoration: underline;
     text-decoration-color: var(--border);
     text-underline-offset: 4px;
-  }
-  .landing-art {
-    padding-top: 28px;
   }
   .campus-strip {
     display: flex;
@@ -168,10 +193,6 @@
   }
   .discover h2 {
     font-size: 25px;
-  }
-  .discover-intro p {
-    margin-top: 12px;
-    line-height: 1.6;
   }
   .discover-intro a {
     margin-top: 24px;
@@ -201,20 +222,7 @@
   }
   @media (max-width: 760px) {
     .landing {
-      grid-template-columns: 1fr;
-      padding: 22px 0 28px;
-      gap: 8px;
-    }
-    h1 {
-      font-size: 64px;
-    }
-    .landing-description {
-      font-size: 16px;
-    }
-    .landing-art {
-      width: min(100%, 410px);
-      margin: 0 auto;
-      padding: 0;
+      padding: 20px 0 24px;
     }
     .campus-strip {
       font-size: 13px;
@@ -237,9 +245,6 @@
   @media (prefers-reduced-motion: no-preference) {
     .landing-copy {
       animation: landing-arrive var(--motion-travel) var(--motion-ease) both;
-    }
-    .landing-art {
-      animation: landing-arrive 420ms 40ms var(--motion-ease) both;
     }
     .landing-search button :global(svg) {
       transition: transform 180ms ease;

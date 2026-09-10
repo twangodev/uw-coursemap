@@ -17,7 +17,7 @@ from .campus import CampusSchedule
 
 ROOT = Path.cwd()
 REPO = "twangodev/uwcourses"
-IMPORTER_VERSION = "4"
+IMPORTER_VERSION = "7"
 GRADES = ["a", "ab", "b", "bc", "c", "d", "f"]
 WEIGHTS = [4, 3.5, 3, 2.5, 2, 1, 0]
 MAX_CHUNK = 1024 * 1024
@@ -275,7 +275,7 @@ def compile_release(source, revision, output, static, limit=0, manifest=None):
             **grade_stats([dict(zip(GRADES, counts))]),
             "sections": instructor_sections[iid],
         }
-    campus = CampusSchedule()
+    campus = CampusSchedule(sections)
     paths = defaultdict(dict)
     for table, kind in [
         ("courses_history", "history"),
