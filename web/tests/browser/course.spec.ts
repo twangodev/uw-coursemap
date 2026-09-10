@@ -15,6 +15,7 @@ test("course reading, citations, graph and theme", async ({ page }) => {
   await expect(page.getByRole("region", { name: "Prerequisite relationships" })).toBeVisible();
   await page.getByLabel("Color theme").selectOption("dark");
   await expect(page.locator("html")).toHaveClass("dark");
+  await page.getByText("Model outputs & technical records", { exact: true }).click();
   await page.getByText("Full model traces", { exact: true }).click();
   await expect(page.getByText("Download part 1").last()).toBeVisible();
   await page.screenshot({

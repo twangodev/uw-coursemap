@@ -1,11 +1,14 @@
 <script lang="ts">
+  import { safeUrl } from "$lib/format";
   let {
     title,
     files = [],
     description = "",
-  }: { title: string; files: string[]; description?: string } = $props();
+    downloadOnly = false,
+  }: { title: string; files: string[]; description?: string; downloadOnly?: boolean } = $props();
   let records = $state<any[]>([]);
   let next = $state(0);
+  let visible = $state(8);
   let loading = $state(false);
   let failure = $state("");
   async function load() {
@@ -30,7 +33,7 @@
 
 <details
   ontoggle={(e) => {
-    if (e.currentTarget.open && next === 0) load();
+    if (e.currentTarget.open && next === 0 && !downloadOnly) load();
   }}
 >
   <summary>{title}</summary>
@@ -39,9 +42,9 @@
         {description}
       </p>{/if}{#if !files.length}<p class="empty">
         No records available.
-      </p>{/if}{#each records as r}<details>
+      </p>{/if}{#each records.slice(0, visible) as r}<details>
         <summary
-          >{r.course_id || r.instructor_name || r.section || "Record"} · {r.observed_at?.slice(
+          >{r.instructor_name || r.course_id || r.section || "Record"} · {r.review_date?.slice(0, 10) || r.observed_at?.slice(
             0,
             10,
           ) ||
@@ -51,11 +54,12 @@
             ""}</summary
         >{#if r.title}<h3>{r.title}</h3>{/if}{#if r.description}<p>
             {r.description}
-          </p>{/if}{#if r.comment}<p>{r.comment}</p>{/if}
+          </p>{/if}{#if r.comment}<blockquote>{r.comment}</blockquote>{/if}
+        {#if safeUrl(r.source_url)}<a href={safeUrl(r.source_url)} target="_blank" rel="noreferrer">View original source ↗</a>{/if}
         <details class="raw-record"><summary>Raw record</summary><pre>{JSON.stringify(r, null, 2)}</pre></details>
       </details>{/each}{#if failure}<p role="alert">
         {failure}
-      </p>{/if}{#if next < files.length}<button
+      </p>{/if}{#if records.length > visible}<button onclick={() => visible += 8}>Show more records</button>{:else if !downloadOnly && next < files.length}<button
         onclick={load}
         disabled={loading}
         >{loading
@@ -75,5 +79,6 @@
 <style>
   .raw-record { margin-top: 16px; }
   .raw-record summary { color: var(--muted); font-size: 12px; }
+  blockquote { margin: 16px 0; font-size: 14px; line-height: 1.7; white-space: pre-line; overflow-wrap: anywhere; }
   pre { max-height: 360px; overflow: auto; }
 </style>
