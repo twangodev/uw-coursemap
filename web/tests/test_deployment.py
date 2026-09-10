@@ -66,7 +66,7 @@ class DeploymentTests(unittest.TestCase):
             config.write_text(
                 json.dumps(
                     {
-                        "name": "uw-coursemap",
+                        "name": "uwcourses",
                         "d1_databases": [
                             {"binding": "DB", "database_id": "single"},
                         ],

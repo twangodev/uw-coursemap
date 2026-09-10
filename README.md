@@ -4,11 +4,6 @@
     <h1>uwcourses</h1>
   </a>
   <p>
-    <img
-      align="center"
-      src="https://kener.twango.dev/badge/uw-coursemap/dot?animate=ping"
-      alt="Live Status"
-    />
     Check it out live at <a href="https://uwcourses.com/?utm_source=github.com">uwcourses.com</a>
   </p>
 </div>

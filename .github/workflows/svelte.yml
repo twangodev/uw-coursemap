@@ -7,10 +7,6 @@ on:
       timezone: America/Los_Angeles
   workflow_dispatch:
     inputs:
-      provision_database:
-        description: Inspect the uwcourses search database (one-time migration)
-        type: boolean
-        default: false
       first_deployment:
         description: First deployment (Worker does not exist yet)
         type: boolean
@@ -63,7 +59,7 @@ jobs:
           retention-days: 7
   deploy:
     name: Deploy
-    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && !inputs.provision_database)
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     concurrency:
       group: website-production
       cancel-in-progress: false
@@ -123,22 +119,3 @@ jobs:
             .site/status.json
             .site/d1-check.json
           retention-days: 30
-  provision:
-    name: Inspect uwcourses search database
-    if: github.event_name == 'workflow_dispatch' && inputs.provision_database
-    runs-on: ubuntu-latest
-    environment: production
-    concurrency:
-      group: website-production
-      cancel-in-progress: false
-    steps:
-      - uses: actions/checkout@v6
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: 1.4.0
-      - run: bun install --frozen-lockfile
-      - name: Inspect existing Worker domains
-        run: curl --fail --silent --show-error "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/domains?service=uw-coursemap" --header "Authorization:Bearer $CLOUDFLARE_API_TOKEN"
-        env:
-          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

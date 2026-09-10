@@ -170,7 +170,7 @@ test("course context, projection and captured instructor ratings remain distinct
   await expect(page.locator("#grades .grade-estimate")).toContainText("Fall 2026");
   await expect(page.locator("#grades .grade-estimate")).toContainText("prediction interval");
   await expect(page.locator(".projection")).toHaveCount(0);
-  await page.locator("#grades").screenshot({ path: "/tmp/uw-coursemap-design-audit/projected-grades.png" });
+  await page.locator("#grades").screenshot({ path: "/tmp/uwcourses-design-audit/projected-grades.png" });
   const hobbes = page
     .locator("#professors article")
     .filter({ hasText: "Hobbes Legault" });
@@ -300,13 +300,13 @@ test("grade history fits curved instructor lines and identifies them on hover", 
   await chart.locator(".chart").hover();
   await expect(page.locator(".lc-tooltip-root")).toContainText("Course average");
   await expect(page.locator(".lc-tooltip-root")).not.toContainText("total");
-  await chart.screenshot({ path: "/tmp/uw-coursemap-design-audit/all-instructor-trends.png" });
+  await chart.screenshot({ path: "/tmp/uwcourses-design-audit/all-instructor-trends.png" });
 });
 
 test("term selection updates context, roster, history and snapshot availability", async ({ page }) => {
   await page.goto("/courses/COMPSCI_300");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
-  await page.locator(".course-facts").screenshot({ path: "/tmp/uw-coursemap-design-audit/course-details-spaced.png" });
+  await page.locator(".course-facts").screenshot({ path: "/tmp/uwcourses-design-audit/course-details-spaced.png" });
   const term = page.getByRole("button", { name: "Term", exact: true });
   await expect(term).toContainText("Fall 2026");
   const rosterCount = await page.locator("#professors .professor-tile").count();
@@ -410,7 +410,7 @@ test("course-fit charts remain visible for unreleased terms and heading comparis
   await page.getByRole("button", { name: "Comparison group", exact: true }).click();
   await page.getByRole("option", { name: "School · UW–Madison", exact: true }).click();
   await expect(context.getByRole("button", { name: "Course fit comparison", exact: true })).toContainText("UW–Madison");
-  await context.screenshot({ path: "/tmp/uw-coursemap-design-audit/course-fit-comparison.png" });
+  await context.screenshot({ path: "/tmp/uwcourses-design-audit/course-fit-comparison.png" });
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
