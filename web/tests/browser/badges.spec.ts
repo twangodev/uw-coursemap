@@ -68,7 +68,8 @@ test('all AI disclaimers share HF publisher attribution', async ({ page }) => {
   await page.goto('/courses/COMPSCI_300');
   await expect(page.locator('html')).toHaveAttribute('data-hydrated', 'true');
   expect(requests).toBe(0);
-  await expect(page.locator('.ai-disclaimer')).toHaveCount(3);
+  await expect(page.locator('.ai-disclaimer:visible')).toHaveCount(3);
+  await expect(page.locator('.ai-disclaimer')).toHaveCount(4);
   for (const label of ['About this summary', 'About AI suggestions', 'About student experience']) {
     await page.getByRole('button', { name: label, exact: true }).hover();
     const tooltip = page.getByRole('tooltip').filter({ hasText: 'nvidia/Qwen3.6-35B-A3B-NVFP4' });
