@@ -1,5 +1,6 @@
 <script lang="ts">
   import { weatherSchema } from "$lib/api/schemas";
+  import { fade, fly } from "svelte/transition";
   import { onMount } from "svelte";
   import { Tooltip } from "bits-ui";
   import { Info } from "@lucide/svelte";
@@ -24,11 +25,14 @@
   let weather = $state<Weather | null>(null);
   let day = $state<CampusDay | null>(null);
   let index = $state(0);
+  let introElapsed = $state(false);
+  let scheduleReady = $state(false);
   let infoOpen = $state(false);
   let interacting = $state(false);
   let focused = $state(false);
   let reducedMotion = $state(false);
   let facts = $derived(now ? campusFacts(day, now, weather) : []);
+  let showStats = $derived(introElapsed && scheduleReady && facts.length > 0);
   let students = $derived(facts.find((f) => f.id === "students"));
   let fact = $derived(facts[index % Math.max(1, facts.length)]);
   $effect(() => {
@@ -83,6 +87,7 @@
           }
         }
       }
+      scheduleReady = true;
       if (+current - weatherAt >= 900000) {
         weatherAt = +current;
         try {
@@ -97,10 +102,14 @@
         }
       }
     }
+    const introTimer = setTimeout(() => {
+      introElapsed = true;
+    }, 1600);
     void tick();
     const interval = setInterval(() => void tick(), 60000);
     const rotate = setInterval(() => {
       if (
+        showStats &&
         !document.hidden &&
         !interacting &&
         !focused &&
@@ -113,6 +122,7 @@
     document.addEventListener("visibilitychange", visible);
     return () => {
       controller.abort();
+      clearTimeout(introTimer);
       clearInterval(interval);
       clearInterval(rotate);
       document.removeEventListener("visibilitychange", visible);
@@ -141,8 +151,15 @@
     </div>
   </div>
   <div class="fact-stage" aria-live="off">
-    <div class="fact">
-      {#if fact}
+    {#if showStats && fact}
+      <div
+        class="fact"
+        in:fly={{
+          y: reducedMotion ? 0 : 4,
+          duration: reducedMotion ? 0 : 420,
+          delay: reducedMotion ? 0 : 120,
+        }}
+      >
         <span class="qualifier">{fact.prefix ?? "\u00a0"}</span>
         <div class="fact-value">
           <CampusFactValue {fact} />
@@ -169,11 +186,13 @@
             </Tooltip.Root></Tooltip.Provider
           >
         </p>
-      {:else}
-        <span class="qualifier">Between lakes. Between classes.</span>
-        <div class="fact-value welcome">Campus,<br />in motion.</div>
-      {/if}
-    </div>
+      </div>
+    {:else}
+      <div class="fact intro" out:fade={{ duration: reducedMotion ? 0 : 240 }}>
+        <h2 class="welcome"><span>UW–Madison</span> courses</h2>
+        <p>Find your next class.</p>
+      </div>
+    {/if}
   </div>
 </section>
 
@@ -192,6 +211,7 @@
   .qualifier,
   .fact p,
   .scene-header {
+    min-height: 16px;
     width: fit-content;
     pointer-events: auto;
   }
@@ -251,7 +271,17 @@
     white-space: nowrap;
   }
   .welcome {
-    font-size: 54px;
+    font-size: clamp(48px, 5.5vw, 72px);
+    font-weight: 500;
+    letter-spacing: -0.055em;
+    line-height: 1.06;
+    margin: 0;
+  }
+  .welcome span {
+    display: block;
+  }
+  .intro p {
+    color: var(--muted);
   }
   p {
     font-size: 20px;

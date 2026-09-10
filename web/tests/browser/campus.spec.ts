@@ -190,3 +190,28 @@ test("landing course-search content and SEO are present in server HTML", async (
   expect(html).toContain('"@type":"WebSite"');
   expect(html).toContain('href="/departments"');
 });
+
+test("course-search intro fades into the first statistic without moving search", async ({
+  page,
+}) => {
+  await page.clock.install({ time: now });
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await mockCampus(page);
+  await page.goto("/");
+  await page.evaluate(() => document.fonts.ready);
+  await expect(page.locator(".intro .welcome")).toContainText("UW–Madison");
+  // Let the existing page-entry motion settle before measuring the stat handoff.
+  await page
+    .locator(".landing-copy")
+    .evaluate((el) =>
+      Promise.all(el.getAnimations().map((animation) => animation.finished)),
+    );
+  const search = page.locator(".landing-search");
+  const before = await search.boundingBox();
+  await page.clock.fastForward(1800);
+  await expect(page.locator(".fact-value")).toBeVisible();
+  await page.clock.fastForward(600);
+  await expect(page.locator(".intro")).toHaveCount(0);
+  const after = await search.boundingBox();
+  expect(Math.abs(after!.y - before!.y)).toBeLessThan(1);
+});
