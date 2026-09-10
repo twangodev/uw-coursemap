@@ -87,26 +87,73 @@ describe("presentation integrity", () => {
   });
 });
 
-
 it("ranks eligible courses in both directions and rejects unknown collections", async () => {
   for (const ranking of ["easiest", "hardest"]) {
-    const result = await search(new URL(`http://localhost/search?ranking=${ranking}&subject=COMPSCI&sort=gpa`));
+    const result = await search(
+      new URL(
+        `http://localhost/search?ranking=${ranking}&subject=COMPSCI&sort=gpa`,
+      ),
+    );
     expect(result.items.length).toBeGreaterThan(2);
-    expect(result.items.every(c => c.discovery.history.count >= 100)).toBe(true);
-    const gpas = result.items.map(c => c.discovery.history.gpa);
-    expect(gpas).toEqual([...gpas].sort((a, b) => ranking === "easiest" ? b - a : a - b));
-    expect(result.items.every(c => c.course_id.includes("COMPSCI"))).toBe(true);
+    expect(result.items.every((c) => c.discovery.history.count >= 100)).toBe(
+      true,
+    );
+    const gpas = result.items.map((c) => c.discovery.history.gpa);
+    expect(gpas).toEqual(
+      [...gpas].sort((a, b) => (ranking === "easiest" ? b - a : a - b)),
+    );
+    expect(result.items.every((c) => c.course_id.includes("COMPSCI"))).toBe(
+      true,
+    );
   }
-  await expect(search(new URL("http://localhost/search?ranking=unknown"))).rejects.toMatchObject({ status: 400 });
+  await expect(
+    search(new URL("http://localhost/search?ranking=unknown")),
+  ).rejects.toMatchObject({ status: 400 });
 });
 
 describe("catalog requirement typography", () => {
   it("separates joined catalog text without altering course numbers", () => {
-    expect(requirementText("MATH 217 or221.MATH\u00a0211or213does not fulfill the requisite."))
-      .toBe("MATH 217 or 221. MATH 211 or 213 does not fulfill the requisite.");
-    expect(requirementText("COMP SCI 200,220; placement intoCOMP SCI 300; 252andE C E 203"))
-      .toBe("COMP SCI 200, 220; placement into COMP SCI 300; 252 and E C E 203");
-    expect(requirementText("GPA 2.5; MATH 221 and a grade of BC or better."))
-      .toBe("GPA 2.5; MATH 221 and a grade of BC or better.");
+    expect(
+      requirementText(
+        "MATH 217 or221.MATH\u00a0211or213does not fulfill the requisite.",
+      ),
+    ).toBe("MATH 217 or 221. MATH 211 or 213 does not fulfill the requisite.");
+    expect(
+      requirementText(
+        "COMP SCI 200,220; placement intoCOMP SCI 300; 252andE C E 203",
+      ),
+    ).toBe("COMP SCI 200, 220; placement into COMP SCI 300; 252 and E C E 203");
+    expect(
+      requirementText("GPA 2.5; MATH 221 and a grade of BC or better."),
+    ).toBe("GPA 2.5; MATH 221 and a grade of BC or better.");
   });
+});
+
+it("keeps autocomplete bounded and avoids grade/history enrichment", async () => {
+  const { localDatabase } = await import("../../src/lib/server/database");
+  const { interactionSchemas } = await import("../../src/lib/api/schemas");
+  const db = await localDatabase();
+  const prepare = vi.spyOn(db, "prepare");
+  try {
+    const result = await search(
+      new URL("http://localhost/api/suggest?q=CS%20300&subject=COMPSCI"),
+      undefined,
+      true,
+    );
+    expect(result.items[0].course_id).toBe("COMPSCI 300");
+    expect(result.items.length).toBeLessThanOrEqual(6);
+    expect(result.items[0]).not.toHaveProperty("discovery");
+    const statements = prepare.mock.calls
+      .map(([sql]) => String(sql))
+      .join("\n");
+    expect(statements).not.toMatch(/grade_summaries|COUNT\(|SELECT.*payload/i);
+    expect(
+      interactionSchemas.Suggestions.parse({
+        items: result.items,
+        revision: "test",
+      }).items[0],
+    ).not.toHaveProperty("gpa");
+  } finally {
+    prepare.mockRestore();
+  }
 });

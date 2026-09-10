@@ -47,7 +47,7 @@ test("finder suggestions retain filters and work on mobile", async ({
   });
   const request = page.waitForRequest(
     (r) =>
-      r.url().includes("/api/search?") &&
+      r.url().includes("/api/suggest?") &&
       new URL(r.url()).searchParams.get("q") === "300",
   );
   await input.fill("300");
@@ -79,7 +79,7 @@ test("autocomplete ignores stale responses and preserves regular search on error
 }) => {
   await page.goto("/");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
-  await page.route("**/api/search?**", async (route) => {
+  await page.route("**/api/suggest?**", async (route) => {
     const q = new URL(route.request().url()).searchParams.get("q");
     if (q === "old") await new Promise((resolve) => setTimeout(resolve, 500));
     if (q === "broken")
@@ -95,7 +95,7 @@ test("autocomplete ignores stale responses and preserves regular search on error
   const input = page.getByRole("combobox", {
     name: "Search courses or topics",
   });
-  const old = page.waitForRequest("**/api/search?*q=old*");
+  const old = page.waitForRequest("**/api/suggest?*q=old*");
   await input.fill("old");
   await old;
   await input.fill("new");
@@ -130,7 +130,8 @@ test("autocomplete includes instructors with distinct icons and opens their prof
   const teacher = page
     .getByRole("listbox", { name: "Search suggestions" })
     .getByRole("option")
-    .filter({ hasText: "Hobbes Legault" }).filter({ hasText: "current teaching" });
+    .filter({ hasText: "Hobbes Legault" })
+    .filter({ hasText: "current teaching" });
   await expect(teacher).toContainText("Instructor");
   await expect(teacher.locator(".suggestion-icon svg")).toBeVisible();
   await teacher.getByRole("button").click();
@@ -138,4 +139,40 @@ test("autocomplete includes instructors with distinct icons and opens their prof
   await expect(
     page.getByRole("heading", { name: "Hobbes Legault", exact: true }),
   ).toBeVisible();
+});
+
+test("course suggestions appear while instructor search is still pending", async ({
+  page,
+}) => {
+  let release!: () => void;
+  const waiting = new Promise<void>((resolve) => {
+    release = resolve;
+  });
+  await page.route("**/api/suggest?**", async (route) => {
+    if (
+      new URL(route.request().url()).searchParams.get("kind") === "instructor"
+    ) {
+      await waiting;
+      return route.fulfill({ json: { items: [] } });
+    }
+    return route.fulfill({
+      json: {
+        items: [
+          {
+            course_uid: "example",
+            course_id: "COMPSCI 300",
+            title: "Programming II",
+          },
+        ],
+      },
+    });
+  });
+  try {
+    await page.goto("/");
+    await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
+    await page.getByRole("combobox").first().fill("CS 300");
+    await expect(page.getByRole("option")).toContainText("COMPSCI 300");
+  } finally {
+    release();
+  }
 });

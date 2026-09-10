@@ -341,6 +341,28 @@ export const weatherSchema = named(
 );
 
 export const interactionSchemas = {
+  Suggestions: named(
+    "SuggestionsResponse",
+    z.object({
+      revision: z.string(),
+      items: z.array(
+        z.union([
+          z.object({
+            course_uid: z.string(),
+            course_id: z.string(),
+            title: z.string(),
+          }),
+          z.object({
+            instructor_uid: z.string(),
+            name: z.string(),
+            instructor_url: z.string(),
+            current: z.coerce.boolean(),
+            bayesian_quality: z.number().nullable(),
+          }),
+        ]),
+      ),
+    }),
+  ),
   Status: datasetSchema,
   Search: named(
     "SearchResponse",
@@ -392,3 +414,7 @@ export const interactionSchemas = {
     }),
   ),
 };
+
+export type SuggestionsResponse = z.infer<
+  typeof interactionSchemas.Suggestions
+>;

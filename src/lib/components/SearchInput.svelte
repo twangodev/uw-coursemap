@@ -1,5 +1,6 @@
 <script lang="ts">
   import { untrack } from "svelte";
+  import type { SuggestionsResponse } from "$lib/api/schemas";
   import { goto } from "$app/navigation";
   import { BookOpen, UserRound } from "@lucide/svelte";
   import { courseTitle, courseUrl } from "$lib/format";
@@ -57,30 +58,23 @@
     const controller = new AbortController();
     const timer = setTimeout(async () => {
       try {
+        const groups: Record<string, Suggestion[]> = {
+          course: [],
+          instructor: [],
+        };
         const results = await Promise.allSettled(
           ["course", "instructor"].map(async (kind) => {
             const query =
               kind === "course"
                 ? params
                 : new URLSearchParams({ q: text, revision, kind });
-            const response = await fetch(`/api/search?${query}`, {
+            const response = await fetch(`/api/suggest?${query}`, {
               signal: controller.signal,
             });
             if (!response.ok) throw new Error("Search unavailable");
-            const data = (await response.json()) as {
-              items: {
-                course_uid?: string;
-                course_id?: string;
-                title?: string;
-                instructor_uid?: string;
-                instructor_url?: string;
-                name?: string;
-                current?: boolean;
-                bayesian_quality?: number | null;
-              }[];
-            };
-            return data.items.flatMap((row): Suggestion[] => {
-              if (kind === "course" && row.course_uid && row.course_id)
+            const data = (await response.json()) as SuggestionsResponse;
+            const suggestions = data.items.flatMap((row): Suggestion[] => {
+              if (kind === "course" && "course_uid" in row)
                 return [
                   {
                     uid: row.course_uid,
@@ -90,7 +84,7 @@
                     href: courseUrl(row.course_id),
                   },
                 ];
-              if (kind === "instructor" && row.instructor_uid)
+              if (kind === "instructor" && "instructor_uid" in row)
                 return [
                   {
                     uid: row.instructor_uid,
@@ -102,19 +96,23 @@
                 ];
               return [];
             });
+            if (!controller.signal.aborted) {
+              groups[kind] = suggestions;
+              const selected = items[active]?.uid;
+              items = [
+                ...groups.course.slice(0, groups.instructor.length ? 4 : 6),
+                ...groups.instructor.slice(0, 4),
+              ];
+              active = selected
+                ? items.findIndex((item) => item.uid === selected)
+                : -1;
+            }
+            return suggestions;
           }),
         );
         if (controller.signal.aborted) return;
         if (results.every((result) => result.status === "rejected"))
           throw new Error("Search unavailable");
-        const courses =
-          results[0].status === "fulfilled" ? results[0].value : [];
-        const instructors =
-          results[1].status === "fulfilled" ? results[1].value : [];
-        items = [
-          ...courses.slice(0, instructors.length ? 4 : 6),
-          ...instructors.slice(0, 4),
-        ];
         message = items.length
           ? `${items.length} suggestions available`
           : results.some((result) => result.status === "rejected")

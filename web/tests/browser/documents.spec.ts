@@ -100,6 +100,7 @@ test("the existing interaction APIs satisfy their published schemas", async ({
   for (const [path, name] of [
     ["/api/status", "Status"],
     ["/api/search?q=java", "Search"],
+    ["/api/suggest?q=java", "Suggestions"],
     [`/api/courses/${c}/grades`, "Grades"],
     [`/api/instructors/${i}/history`, "InstructorHistory"],
     [`/api/instructors/${i}/reviews`, "InstructorReviews"],

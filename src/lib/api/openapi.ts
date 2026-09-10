@@ -116,6 +116,7 @@ export function openapiSpec() {
   const interactions = [
     ["/api/status", "Status", "Dataset"],
     ["/api/search", "Search", "SearchResponse"],
+    ["/api/suggest", "Suggestions", "SuggestionsResponse"],
     ["/api/courses/{uid}/grades", "Grades", "GradesResponse"],
     [
       "/api/instructors/{uid}/history",
@@ -149,9 +150,11 @@ export function openapiSpec() {
       parameters.push(
         query("revision", "Optional pinned HF revision; mismatch returns 409."),
       );
-    if (name === "Search")
+    if (name === "Search" || name === "Suggestions")
       parameters.push(
-        ...searchParameters,
+        ...searchParameters.filter(
+          (parameter) => name !== "Suggestions" || parameter.name !== "page",
+        ),
         query("kind", "Entity type.", {
           type: "string",
           enum: ["course", "instructor"],
