@@ -37,7 +37,7 @@
   </div>
   <div class="map-caption">
     <span
-      title="Heat shows concurrent scheduled class meetings at buildings with recorded coordinates, not live attendance. Missing locations are omitted."
+      title="Heat shows concurrent scheduled class meetings at buildings with recorded coordinates, not live attendance. Missing locations and ambiguous building matches are omitted."
       ><i></i>Scheduled classes by building</span
     >
     <a class="map-credit" href="https://www.openstreetmap.org/copyright"
@@ -104,7 +104,11 @@
     width: 28px;
     height: 5px;
     border-radius: 3px;
-    background: linear-gradient(to right, #c4292b22, #e64b38, #ff925c);
+    background: linear-gradient(
+      to right,
+      color-mix(in srgb, var(--accent) 15%, transparent),
+      var(--accent)
+    );
   }
   .landing-copy {
     position: relative;

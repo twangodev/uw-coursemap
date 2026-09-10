@@ -1,3 +1,4 @@
+import { buildingOutlines } from "../../src/lib/campus-buildings";
 import { describe, expect, it } from "vitest";
 import {
   campusHeat,
@@ -136,5 +137,61 @@ describe("building heat", () => {
     expect(campusHeat(day, now - 1)).toEqual([]);
     expect(campusHeat(day, now + 60000)).toEqual([]);
     expect(campusHeat(day, now + 86400000)).toEqual([]);
+  });
+});
+
+describe("campus building footprints", () => {
+  const footprints = [
+    {
+      id: "a",
+      name: "Science Hall",
+      points: [
+        [0, 0],
+        [10, 0],
+        [10, 10],
+        [0, 10],
+        [0, 0],
+      ],
+    },
+    {
+      id: "b",
+      name: "Library",
+      points: [
+        [20, 0],
+        [30, 0],
+        [30, 10],
+        [20, 10],
+        [20, 0],
+      ],
+    },
+  ];
+  it("uses containing geometry and combines activity mapped to the same footprint", () => {
+    const outlines = buildingOutlines(
+      [
+        { name: "Science", x: 5, y: 5, count: 3 },
+        { name: "Science annex", x: 6, y: 5, count: 2 },
+      ],
+      footprints,
+    );
+    expect(outlines).toHaveLength(1);
+    expect(outlines[0]).toMatchObject({
+      id: "a",
+      count: 5,
+      path: "M0,0L10,0L10,10L0,10L0,0Z",
+    });
+  });
+  it("does not guess between equally close buildings or highlight distant footprints", () => {
+    expect(
+      buildingOutlines(
+        [{ name: "Unknown", x: 15, y: 5, count: 3 }],
+        footprints,
+      ),
+    ).toEqual([]);
+    expect(
+      buildingOutlines(
+        [{ name: "Science Hall", x: 300, y: 300, count: 3 }],
+        footprints,
+      ),
+    ).toEqual([]);
   });
 });
