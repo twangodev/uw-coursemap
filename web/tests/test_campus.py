@@ -31,7 +31,7 @@ class CampusTests(unittest.TestCase):
         with TemporaryDirectory() as root:
             manifest = schedule.write(Path(root), "release")
             day = json.loads(
-                (Path(root) / "data/release/campus/v3/2026-09-09.json").read_text()
+                (Path(root) / "data/release/campus/v4/2026-09-09.json").read_text()
             )
             self.assertEqual(
                 day["events"],
@@ -102,7 +102,7 @@ class CampusTests(unittest.TestCase):
         with TemporaryDirectory() as root:
             schedule.write(Path(root), "release")
             day = json.loads(
-                (Path(root) / "data/release/campus/v3/2026-09-09.json").read_text()
+                (Path(root) / "data/release/campus/v4/2026-09-09.json").read_text()
             )
         self.assertEqual(day["events"][0][1], 2)
         self.assertEqual(
@@ -135,7 +135,7 @@ class CampusTests(unittest.TestCase):
         with TemporaryDirectory() as root:
             schedule.write(Path(root), "release")
             day = json.loads(
-                (Path(root) / "data/release/campus/v3/2026-09-09.json").read_text()
+                (Path(root) / "data/release/campus/v4/2026-09-09.json").read_text()
             )
         self.assertEqual(day["enrollmentEvents"][0][1:], [40, 0, 1, 0])
 
@@ -159,11 +159,11 @@ class CampusTests(unittest.TestCase):
         with TemporaryDirectory() as root:
             schedule.write(Path(root), "release")
             day = json.loads(
-                (Path(root) / "data/release/campus/v3/2026-09-09.json").read_text()
+                (Path(root) / "data/release/campus/v4/2026-09-09.json").read_text()
             )
         self.assertEqual(len(day["buildings"]), 1)
         self.assertEqual(
-            day["buildings"][0],
+            {k: v for k, v in day["buildings"][0].items() if k != "sessions"},
             {
                 "name": "Science",
                 "latitude": 43.075,
@@ -175,3 +175,42 @@ class CampusTests(unittest.TestCase):
             },
         )
         self.assertEqual(day["enrollmentEvents"], [])
+
+    def test_building_details_preserve_course_links_room_and_instructors(self):
+        section = {
+            "section_uid": "one",
+            "section_type": "LEC",
+            "section_number": "001",
+            "enrolled": 35,
+            "start_date": "2026-09-01T05:00:00Z",
+            "end_date": "2026-12-10T06:00:00Z",
+        }
+        schedule = CampusSchedule({"a": [section], "b": [section]})
+        common = self.row(
+            latitude=43.075,
+            longitude=-89.405,
+            name="LEC 001 #1",
+            instructor_names=["A Professor"],
+        )
+        schedule.add({**common, "course_uid": "a", "course_id": "COMPSCI 300"})
+        schedule.add(
+            {
+                **common,
+                "course_uid": "b",
+                "course_id": "ECE 300",
+                "meeting_id": "crosslist",
+            }
+        )
+        with TemporaryDirectory() as root:
+            schedule.write(Path(root), "release")
+            day = json.loads(
+                (Path(root) / "data/release/campus/v4/2026-09-09.json").read_text()
+            )
+        sessions = day["buildings"][0]["sessions"]
+        self.assertEqual(len(sessions), 1)
+        self.assertEqual(sessions[0]["enrolled"], 35)
+        self.assertEqual(sessions[0]["room"], "100")
+        self.assertEqual(sessions[0]["instructors"], ["A Professor"])
+        self.assertEqual(
+            [c["code"] for c in sessions[0]["courses"]], ["COMPSCI 300", "ECE 300"]
+        )

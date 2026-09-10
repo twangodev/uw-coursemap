@@ -17,7 +17,7 @@ from .campus import CampusSchedule
 
 ROOT = Path.cwd()
 REPO = "twangodev/uwcourses"
-IMPORTER_VERSION = "6"
+IMPORTER_VERSION = "7"
 GRADES = ["a", "ab", "b", "bc", "c", "d", "f"]
 WEIGHTS = [4, 3.5, 3, 2.5, 2, 1, 0]
 MAX_CHUNK = 1024 * 1024

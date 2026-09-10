@@ -41,6 +41,13 @@ class CampusSchedule:
         session = self.sessions.setdefault(
             key, {"start": start, "end": end, "sections": {}, "unknown": False}
         )
+        session.setdefault("courses", {})[
+            (str(row.get("course_id") or ""), str(row.get("name") or "").split(" #")[0])
+        ] = True
+        session.setdefault("instructors", set()).update(
+            row.get("instructor_names") or []
+        )
+        session["room"] = str(row.get("room") or "")
         latitude, longitude = row.get("latitude"), row.get("longitude")
         if (
             building
@@ -103,7 +110,7 @@ class CampusSchedule:
             start = stop
 
     def write(self, static, revision):
-        base = f"/data/{revision}/campus/v3"
+        base = f"/data/{revision}/campus/v4"
         manifest = {
             "timezone": "America/Chicago",
             "from": None,
@@ -144,10 +151,25 @@ class CampusSchedule:
                             "latitude": latitude,
                             "longitude": longitude,
                             "events": defaultdict(lambda: [0, 0]),
+                            "sessions": [],
                         },
                     )
                     place["events"][first][0] += 1
                     place["events"][last][1] += 1
+                    place["sessions"].append(
+                        {
+                            "startsAt": int(session["start"].timestamp() * 1000),
+                            "endsAt": int(session["end"].timestamp() * 1000),
+                            "room": session["room"],
+                            "enrolled": seats if known else None,
+                            "courses": [
+                                {"code": code, "section": section}
+                                for code, section in sorted(session["courses"])
+                                if code
+                            ],
+                            "instructors": sorted(session["instructors"]),
+                        }
+                    )
                 start = stop
         date = datetime.fromisoformat(manifest["from"]).date()
         last = datetime.fromisoformat(manifest["through"]).date()
