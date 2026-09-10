@@ -123,3 +123,14 @@ test("the existing interaction APIs satisfy their published schemas", async ({
     "If-None-Match",
   );
 });
+
+test("weather remains readable after the Worker cache is populated", async ({
+  request,
+}) => {
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const response = await request.get("/api/weather");
+    expect(response.status()).toBe(200);
+    expect(response.headers()["x-robots-tag"]).toBe("noindex");
+    expect(typeof (await response.json()).available).toBe("boolean");
+  }
+});
