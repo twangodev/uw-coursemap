@@ -52,7 +52,7 @@
         >{#if r.title}<h3>{r.title}</h3>{/if}{#if r.description}<p>
             {r.description}
           </p>{/if}{#if r.comment}<p>{r.comment}</p>{/if}
-        <pre>{JSON.stringify(r, null, 2)}</pre>
+        <details class="raw-record"><summary>Raw record</summary><pre>{JSON.stringify(r, null, 2)}</pre></details>
       </details>{/each}{#if failure}<p role="alert">
         {failure}
       </p>{/if}{#if next < files.length}<button
@@ -71,3 +71,9 @@
     </div>
   </div>
 </details>
+
+<style>
+  .raw-record { margin-top: 16px; }
+  .raw-record summary { color: var(--muted); font-size: 12px; }
+  pre { max-height: 360px; overflow: auto; }
+</style>
