@@ -13,10 +13,11 @@ import sqlite3
 import pyarrow.parquet as pq
 from .instructor_stats import attach_ratings
 from .discovery import build_discovery
+from .campus import CampusSchedule
 
 ROOT = Path.cwd()
-REPO = "twangodev/uw-coursemap"
-IMPORTER_VERSION = "3"
+REPO = "twangodev/uwcourses"
+IMPORTER_VERSION = "4"
 GRADES = ["a", "ab", "b", "bc", "c", "d", "f"]
 WEIGHTS = [4, 3.5, 3, 2.5, 2, 1, 0]
 MAX_CHUNK = 1024 * 1024
@@ -274,6 +275,7 @@ def compile_release(source, revision, output, static, limit=0, manifest=None):
             **grade_stats([dict(zip(GRADES, counts))]),
             "sections": instructor_sections[iid],
         }
+    campus = CampusSchedule()
     paths = defaultdict(dict)
     for table, kind in [
         ("courses_history", "history"),
@@ -286,10 +288,13 @@ def compile_release(source, revision, output, static, limit=0, manifest=None):
         for r in rows(source, table):
             if r["course_uid"] in courses:
                 grouped[r["course_uid"]].append(r)
+                if kind == "meetings":
+                    campus.add(r)
         for uid, records in grouped.items():
             paths[uid][kind] = chunks(static, revision, kind, uid, records)
         print(f"Packed {table}", flush=True)
         del grouped
+    write(output / "campus.json", campus.write(static, revision))
     departments = defaultdict(list)
     summaries = []
     for uid, c in courses.items():
@@ -416,6 +421,7 @@ def compile_release(source, revision, output, static, limit=0, manifest=None):
             + Path(__file__).read_bytes()
             + Path(__file__).with_name("schema-v6.json").read_bytes()
             + Path(__file__).with_name("discovery.py").read_bytes()
+            + Path(__file__).with_name("campus.py").read_bytes()
         ).hexdigest(),
         "observed_at": manifest["observed_at"],
         "built_at": datetime.now(timezone.utc).isoformat(),

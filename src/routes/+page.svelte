@@ -1,7 +1,7 @@
 <script lang="ts">
   import { ArrowUpRight, Search } from "@lucide/svelte";
   import SearchInput from "$lib/components/SearchInput.svelte";
-  import Terrace from "$lib/components/Terrace.svelte";
+  import CampusScene from "$lib/components/CampusScene.svelte";
   import { termName } from "$lib/format";
   let { data } = $props();
   let departments = $derived(
@@ -16,8 +16,8 @@
     </p>
     <h1>See you<br />on the Hill<span class="period">.</span></h1>
     <p class="landing-description">
-      Find UW–Madison courses for your next semester. Compare grades, get to know
-      your professors, and hear from the students who came before you.
+      Find UW–Madison courses for your next semester. Compare grades, get to
+      know your professors, and hear from the students who came before you.
     </p>
     <form action="/search" class="landing-search">
       <SearchInput
@@ -25,7 +25,9 @@
         label="Search courses or topics"
         placeholder="A course, professor, or topic…"
       />
-      <button aria-label="Find courses"><Search size={19} strokeWidth={1.5} /></button>
+      <button aria-label="Find courses"
+        ><Search size={19} strokeWidth={1.5} /></button
+      >
     </form>
     <div class="try-search">
       <span>Try</span><a href="/courses/COMPSCI_300">CS 300</a><a
@@ -33,7 +35,7 @@
       ><a href="/search?q=film">film</a>
     </div>
   </div>
-  <div class="landing-art"><Terrace /></div>
+  <div class="landing-art"><CampusScene coverage={data.campus} /></div>
 </section>
 <div class="campus-strip">
   <span

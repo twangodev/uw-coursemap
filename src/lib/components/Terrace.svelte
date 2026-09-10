@@ -1,125 +1,174 @@
 <script lang="ts">
-  const spokes = Array.from({ length: 16 }, (_, i) => i * 22.5);
+  let { phase = "day" } = $props<{ phase?: string }>();
+  const id = $props.id();
+  const spokes = Array.from({ length: 28 }, (_, i) => (i * 360) / 28);
 </script>
 
-<svg viewBox="0 0 560 440" role="img" aria-labelledby="terrace-title">
-  <title id="terrace-title"
-    >A red sunburst Terrace chair overlooking Lake Mendota</title
-  >
+<svg
+  viewBox="0 0 600 470"
+  role="img"
+  aria-label="A red sunburst Terrace chair by Lake Mendota"
+  class:night={phase === "night"}
+  class:golden={phase === "sunset" || phase === "dawn"}
+>
   <defs>
-    <pattern
-      id="lake-lines"
-      width="24"
-      height="14"
-      patternUnits="userSpaceOnUse"
-      ><path d="M0 7h14" stroke="currentColor" stroke-width=".6" /></pattern
+    <linearGradient id={`${id}-sky`} x2="0" y2="1"
+      ><stop stop-color="var(--sky-top)" /><stop
+        offset="1"
+        stop-color="var(--sky-bottom)"
+      /></linearGradient
     >
-    <clipPath id="lake-clip"
-      ><path d="M22 196Q130 174 258 193T542 183V340H22Z" /></clipPath
+    <linearGradient id={`${id}-water`} x2="0" y2="1"
+      ><stop stop-color="var(--water-top)" /><stop
+        offset="1"
+        stop-color="var(--water-bottom)"
+      /></linearGradient
+    >
+    <linearGradient id={`${id}-chair`} x2="1" y2="1"
+      ><stop stop-color="#ed5546" /><stop
+        offset="1"
+        stop-color="#981e29"
+      /></linearGradient
+    >
+    <clipPath id={`${id}-frame`}
+      ><rect x="18" y="18" width="564" height="422" rx="160" /></clipPath
     >
   </defs>
-  <g class="lake">
+  <g clip-path={`url(#${id}-frame)`}>
+    <rect x="18" y="18" width="564" height="422" fill={`url(#${id}-sky)`} />
+    <circle class="sun" cx="436" cy="148" r="32" fill="var(--sun)" />
+    <g class="stars" fill="#e9e3d5"
+      ><circle cx="160" cy="68" r="1.3" /><circle
+        cx="346"
+        cy="48"
+        r="1"
+      /><circle cx="484" cy="91" r="1.5" /><circle cx="281" cy="112" r="1" /></g
+    >
     <path
-      d="M22 196Q130 174 258 193T542 183"
+      d="M0 229Q65 211 100 219L130 205 155 213 174 207 201 219 236 208 258 216 285 209 311 218 346 202 370 212 390 203 429 216 455 211 486 223 528 208 560 215 600 206V264H0Z"
+      fill="var(--shore)"
+    />
+    <path d="M0 231Q220 225 600 230V395H0Z" fill={`url(#${id}-water)`} />
+    <g class="ripples" fill="none" stroke="var(--glint)" stroke-linecap="round">
+      <path
+        d="M387 248h63m-82 11h106m-73 13h36m-76 13h117m-57 13h42"
+        opacity=".65"
+      />
+      <path
+        d="M58 254h46m25 20h51m-98 23h78m346-41h32M299 245h24m-59 64h63m171 14h39M46 328h77"
+        opacity=".4"
+      />
+    </g>
+    <g class="boat" transform="translate(345 261)"
+      ><path d="M-16 0h35l-7 7H-9Z" fill="var(--shore)" /><path
+        d="M2-43V-5H-19Z"
+        fill="#e9e2ce"
+      /><path d="M7-31V-5h14Z" fill="#bdbba9" /></g
+    >
+    <path d="M0 365Q240 331 600 366V470H0Z" fill="var(--ground)" />
+    <path
+      d="M0 392Q240 351 600 389M125 351 62 470M361 350 427 470"
       fill="none"
-      stroke="currentColor"
+      stroke="var(--ground-line)"
     />
-    <rect
-      x="22"
-      y="180"
-      width="520"
-      height="160"
-      fill="url(#lake-lines)"
-      clip-path="url(#lake-clip)"
-      opacity=".65"
-    />
-    <path
-      d="M20 182q50-14 87-4t86-4q28-7 69 2t95-4q72-10 181 2"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.5"
-    />
-    <path
-      d="M430 221h32l-7 6h-19zM446 173v44h-27zM451 185v31h15z"
-      fill="var(--bg)"
-      stroke="currentColor"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M78 249h22l-5 4H83zM90 218v27H75z"
-      fill="var(--bg)"
-      stroke="currentColor"
-    />
+    <ellipse cx="236" cy="411" rx="104" ry="12" fill="#101715" opacity=".14" />
+    <g stroke-linecap="round" stroke-linejoin="round">
+      <path
+        d="M195 307 173 410M276 304 303 407M191 346 159 404M292 342 322 405M181 385h115"
+        fill="none"
+        stroke="#8c2429"
+        stroke-width="7"
+      />
+      <path
+        d="M182 333Q233 315 291 332L302 348Q244 370 169 349Z"
+        fill={`url(#${id}-chair)`}
+        stroke="#a82b31"
+        stroke-width="4"
+      />
+      <path
+        d="m190 333-6 18m20-23-3 26m19-28-1 31m19-31 1 32m17-30 3 28m14-25 5 22"
+        stroke="#73252b"
+        opacity=".45"
+        stroke-width="2"
+      />
+      <path d="m191 334 9-81m82 79-13-76" stroke="#b33035" stroke-width="7" />
+      <g transform="translate(233 252) rotate(-8) scale(.87 1)">
+        <circle r="76" fill="none" stroke="#8e272e" stroke-width="10" />
+        <circle r="76" fill="none" stroke="#d74640" stroke-width="6" />
+        {#each spokes as angle}<path
+            d="M0-14V-72"
+            transform={`rotate(${angle})`}
+            stroke="#dc4941"
+            stroke-width="3.8"
+          />{/each}
+        <circle r="16" fill="#d74640" /><circle r="9" fill="#e35145" />
+      </g>
+    </g>
   </g>
-  <text x="401" y="142" class="lake-label">Lake Mendota</text>
-  <path
-    class="ground"
-    d="M40 378q173-17 446 0"
-    fill="none"
-    stroke="currentColor"
-  />
-  <g
-    class="chair"
-    fill="none"
-    stroke="currentColor"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  >
-    <path
-      d="M187 213l-17 159M307 213l25 159M183 297l-27 83M312 297l34 83"
-      stroke-width="7"
-    />
-    <path d="M168 346h163M181 282h130" stroke-width="4" />
-    <path
-      d="M173 279Q246 262 318 279L326 300Q246 316 164 300Z"
-      fill="var(--bg)"
-      stroke-width="5"
-    />
-    <path
-      d="M172 289q75 16 147 0M181 279l-5 18M195 276l-4 24M210 274l-2 28M225 273v31M241 273v32M257 273v32M273 274l2 29M288 276l4 25M303 278l5 20"
-      stroke-width="2"
-    />
-    <circle cx="246" cy="178" r="86" fill="var(--bg)" stroke-width="6" />
-    <circle cx="246" cy="178" r="72" stroke-width="2" />
-    {#each spokes as angle}<path
-        d="M246 162V94"
-        transform={`rotate(${angle} 246 178)`}
-        stroke-width="3"
-      />{/each}
-    <circle cx="246" cy="178" r="17" fill="currentColor" stroke-width="2" />
-    <path d="M198 246l-7 29M293 249l7 26" stroke-width="6" />
-  </g>
-  <g class="annotation"
-    ><path d="M363 321h47" stroke="currentColor" /><text x="363" y="343"
-      >43.0766° N</text
-    ><text x="363" y="360">89.3995° W</text></g
-  >
 </svg>
 
 <style>
   svg {
     width: 100%;
     height: auto;
-    overflow: visible;
+    --sky-top: #a6c0c0;
+    --sky-bottom: #e1dcca;
+    --water-top: #688f91;
+    --water-bottom: #8da6a0;
+    --shore: #4f6b63;
+    --sun: #f4e4ad;
+    --glint: #d7d9b6;
+    --ground: #b7ad97;
+    --ground-line: #a19b88;
   }
-  .chair {
-    color: var(--accent);
+  .golden {
+    --sky-top: #78888f;
+    --sky-bottom: #e9b887;
+    --water-top: #858e8a;
+    --water-bottom: #b0a794;
+    --sun: #ffd497;
+    --glint: #efd3a0;
+    --ground: #a99c8c;
   }
-  .lake {
-    color: var(--muted);
-    opacity: 0.45;
+  .night {
+    --sky-top: #182b3b;
+    --sky-bottom: #425664;
+    --water-top: #304f5b;
+    --water-bottom: #42616a;
+    --shore: #233e40;
+    --sun: #eee6cc;
+    --glint: #7e9b9d;
+    --ground: #565c56;
+    --ground-line: #4b524d;
   }
-  .ground {
-    color: var(--border);
+  .stars {
+    opacity: 0;
   }
-  .lake-label {
-    fill: var(--muted);
-    font: italic 14px var(--font-sans);
+  .night .stars {
+    opacity: 0.8;
   }
-  .annotation {
-    color: var(--muted);
-    fill: var(--muted);
-    font: 10px var(--font-sans);
-    opacity: 0.7;
+  .ripples {
+    animation: drift 9s ease-in-out infinite alternate;
+  }
+  .boat {
+    animation: bob 6s ease-in-out infinite alternate;
+    transform-origin: 345px 261px;
+  }
+  @keyframes drift {
+    to {
+      transform: translateX(5px);
+    }
+  }
+  @keyframes bob {
+    to {
+      translate: 0 2px;
+      rotate: 0.6deg;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ripples,
+    .boat {
+      animation: none;
+    }
   }
 </style>

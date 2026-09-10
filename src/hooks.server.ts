@@ -56,7 +56,7 @@ export const handle: Handle = async ({ event, resolve }) => {
   const documentUrl = new URL(event.url);
   documentUrl.pathname = requested?.path || path;
   const needsDatabase =
-    (path.startsWith("/api/") && path !== "/api/status") ||
+    (path.startsWith("/api/") && !["/api/status", "/api/weather"].includes(path)) ||
     isFilteredDocument(documentUrl);
   const serve =
     !building && !dev && needsDatabase
