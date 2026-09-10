@@ -11,7 +11,8 @@ export const GET: RequestHandler = async ({ platform, url }) => {
       : null;
   const key = new Request(new URL("/api/weather", url.origin));
   const hit = await cache?.match(key);
-  if (hit) return hit;
+  // Cache API responses have immutable headers; hooks add transport metadata.
+  if (hit) return new Response(hit.body, hit);
   const data = await madisonWeather();
   const response = apiJson(weatherSchema, data, {
     headers: {
