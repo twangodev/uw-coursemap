@@ -38,7 +38,31 @@
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    mask-image: linear-gradient(transparent, #000 20%, #000 70%, transparent);
+    /* Feather both axes, including the cropped sides on narrow screens. */
+    mask-image:
+      linear-gradient(
+        to right,
+        transparent,
+        #0004 4%,
+        #000b 9%,
+        #000 16%,
+        #000 84%,
+        #000b 91%,
+        #0004 96%,
+        transparent
+      ),
+      linear-gradient(
+        to bottom,
+        transparent,
+        #0004 9%,
+        #000b 17%,
+        #000 26%,
+        #000 66%,
+        #000b 78%,
+        #0004 90%,
+        transparent
+      );
+    mask-composite: intersect;
   }
   svg {
     display: block;
