@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>API Reference | uwcourses</title>
+    <meta name="description" content="Explore and try the uwcourses API for UW–Madison courses, instructors, departments, and historical grades." />
+    <link rel="canonical" href="https://uwcourses.com/openapi" />
+    <link rel="service-desc" type="application/vnd.oai.openapi+json" href="/openapi.json" />
+    <link rel="icon" href="/favicon.ico" />
+    <style>
+      @font-face {
+        font-family: "Overused Grotesk";
+        src: url("/fonts/OverusedGrotesk-VF.woff2") format("woff2");
+        font-weight: 300 900;
+        font-display: swap;
+      }
+      :root {
+        color-scheme: dark;
+        --scalar-font: "Overused Grotesk", system-ui, sans-serif;
+        --scalar-font-code: ui-monospace, monospace;
+      }
+      body { margin: 0; background: #1a1916; color: #f8f6f1; font-family: var(--scalar-font); }
+      header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.5rem; border-bottom: 1px solid #393731; }
+      header a { color: inherit; text-decoration: none; }
+      .brand { display: flex; align-items: center; gap: 0.5rem; font-size: 1.4rem; font-weight: 650; letter-spacing: -0.05em; }
+      .dark-mode { --scalar-color-accent: #e68578; --scalar-background-1: #1a1916; --scalar-background-2: #24221e; --scalar-background-3: #302d28; }
+      .light-mode { --scalar-color-accent: #c5050c; --scalar-background-1: #f8f6f1; }
+      #fallback { padding: 1.5rem; }
+      #fallback a { color: #e68578; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/"><img src="/uwcourses-logo.svg" width="28" height="28" alt="" />uwcourses</a>
+      <a href="/openapi.json">OpenAPI JSON ↗</a>
+    </header>
+    <div id="fallback"><a href="/openapi.json">Read the OpenAPI specification</a> if the interactive viewer is unavailable.</div>
+    <div id="api-reference"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@scalar/api-reference@1.68.0/dist/browser/standalone.js"></script>
+    <script>
+      if (window.Scalar) {
+        Scalar.createApiReference('#api-reference', {
+          url: '/openapi.json',
+          theme: 'none',
+          darkMode: true,
+          withDefaultFonts: false,
+          persistAuth: false,
+          showDeveloperTools: 'never',
+          agent: { disabled: true },
+        });
+        document.getElementById('fallback').hidden = true;
+      }
+    </script>
+  </body>
+</html>
