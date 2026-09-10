@@ -52,7 +52,8 @@ test('badge evidence opens on touch and fits mobile and dark layouts', async ({ 
   await expect.poll(() => evidence.evaluate(e => { const r = e.getBoundingClientRect(); return r.left >= 0 && r.right <= innerWidth; })).toBe(true);
   await page.getByRole('button', { name: 'Close badge evidence' }).tap();
   await expect(evidence).toHaveCount(0);
-  await page.getByLabel('Color theme').selectOption('dark');
+  await page.getByRole("button", { name: "Color theme: system. Switch to light" }).click();
+  await page.getByRole("button", { name: "Color theme: light. Switch to dark" }).click();
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
   await page.screenshot({ path: 'test-results/badges-mobile-dark.png' });
   await context.close();

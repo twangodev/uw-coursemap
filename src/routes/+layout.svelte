@@ -7,7 +7,14 @@
   import { onMount } from "svelte";
   let { data, children } = $props();
   let seo = $derived(pageSeo(page.data, page.url.pathname, page.status));
-  let theme = $state("system");
+  const themes = ["system", "light", "dark"] as const;
+  let theme = $state<(typeof themes)[number]>("system");
+  let nextTheme = $derived(themes[(themes.indexOf(theme) + 1) % themes.length]);
+  let themeLabel = $derived(`Color theme: ${theme}. Switch to ${nextTheme}`);
+  function cycleTheme() {
+    theme = nextTheme;
+    apply();
+  }
   let fullscreenMap = $derived(/^\/explorer\/[^/]+\/?$/.test(page.url.pathname));
   function apply() {
     document.documentElement.classList.toggle(
@@ -24,7 +31,8 @@
   onMount(() => {
     document.documentElement.dataset.hydrated = "true";
     try {
-      theme = localStorage.getItem("theme") || "system";
+      const saved = localStorage.getItem("theme");
+      theme = saved === "light" || saved === "dark" ? saved : "system";
     } catch {}
     const media = matchMedia("(prefers-color-scheme: dark)");
     media.addEventListener("change", apply);
@@ -71,17 +79,9 @@
     >
     <div class="row">
       <a href="/search">courses</a><a href="/departments">departments</a><a href="/instructors/by-rating-count">instructors</a>
-      <div class="theme-control">
-        {#if theme === "dark"}<Moon size={16} />{:else if theme === "light"}<Sun
-            size={16}
-          />{:else}<Monitor size={16} />{/if}
-        <label class="sr-only" for="theme">Color theme</label>
-        <select id="theme" bind:value={theme} onchange={apply}
-          ><option value="system">System</option><option value="light"
-            >Light</option
-          ><option value="dark">Dark</option></select
-        >
-      </div>
+      <button class="theme-control" type="button" aria-label={themeLabel} title={themeLabel} onclick={cycleTheme}>
+        {#if theme === "dark"}<Moon size={16} />{:else if theme === "light"}<Sun size={16} />{:else}<Monitor size={16} />{/if}
+      </button>
     </div>
   </nav>
 </header>{/if}
@@ -148,25 +148,22 @@
     font: 14px var(--font-sans);
   }
   .theme-control {
-    position: relative;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 4px;
     width: 32px;
     height: 32px;
     display: grid;
     place-items: center;
     color: var(--muted);
   }
-  .theme-control:focus-within {
+  .theme-control:hover { color: var(--text); }
+  .theme-control:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
     border-radius: 4px;
-  }
-  select {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    padding: 0;
   }
   nav .row {
     flex-wrap: nowrap;

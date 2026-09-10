@@ -15,7 +15,8 @@ test("course reading, citations, graph and theme", async ({ page }) => {
   await expect(page.getByText("Java", { exact: false }).first()).toBeVisible();
   await page.locator("#requirements").scrollIntoViewIfNeeded();
   await expect(page.getByRole("region", { name: "Prerequisite relationships" })).toBeVisible();
-  await page.getByLabel("Color theme").selectOption("dark");
+  await page.getByRole("button", { name: "Color theme: system. Switch to light" }).click();
+  await page.getByRole("button", { name: "Color theme: light. Switch to dark" }).click();
   await expect(page.locator("html")).toHaveClass("dark");
   const technical = page.locator(".technical-sources");
   await technical.locator(":scope > summary").click();
