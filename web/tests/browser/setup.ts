@@ -24,15 +24,24 @@ export default async function setup() {
       const statement = source.prepare(`SELECT * FROM ${identifier(name)}`);
       statement.setReturnArrays(true);
       let rows: (string | number | null)[][] = [];
+      let batch: D1PreparedStatement[] = [];
+      const flushBatch = async () => {
+        if (!batch.length) return;
+        await db.batch(batch);
+        batch = [];
+      };
       const flush = async () => {
         if (!rows.length) return;
-        await db
-          .prepare(
-            `INSERT INTO ${identifier(name)} VALUES ${rows.map((row) => `(${row.map(() => "?").join(",")})`).join(",")}`,
-          )
-          .bind(...rows.flat())
-          .run();
+        batch.push(
+          db
+            .prepare(
+              `INSERT INTO ${identifier(name)} VALUES ${rows.map((row) => `(${row.map(() => "?").join(",")})`).join(",")}`,
+            )
+            .bind(...rows.flat()),
+        );
         rows = [];
+        // Amortize local Worker round trips while keeping memory bounded.
+        if (batch.length >= 100) await flushBatch();
       };
       for (const row of statement.iterate()) {
         const values = row as unknown as (string | number | null)[];
@@ -41,6 +50,7 @@ export default async function setup() {
         rows.push(values);
       }
       await flush();
+      await flushBatch();
     }
     for (const { sql } of source
       .prepare(
