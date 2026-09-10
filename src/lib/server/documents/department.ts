@@ -1,9 +1,9 @@
 import type { DocumentContext } from "./types";
-import { building } from "$app/environment";
+import { building } from "$lib/server/runtime";
 import { error, redirect } from "@sveltejs/kit";
 import { query, search } from "$lib/server/data";
 import { departmentStats } from "$lib/server/departments";
-import entriesData from "../../../../.site/entries.json";
+import entriesData from "../../../../.site/import/entries.json";
 
 export async function department({ params, platform, url }: DocumentContext) {
   if (params.subject !== params.subject.toUpperCase())

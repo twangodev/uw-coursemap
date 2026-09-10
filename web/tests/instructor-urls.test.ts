@@ -28,7 +28,7 @@ it("keeps every instructor identity addressable without URL collisions", async (
 });
 
 it("resolves both current and historical profiles on demand", async () => {
-  const release = await import("../../.site/entries.json");
+  const release = await import("../../.site/import/entries.json");
   const urls = await instructorUrls();
   const selected = new Set(release.instructors);
   const historical = [...urls].find(([uid]) => !selected.has(uid))!;

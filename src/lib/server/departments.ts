@@ -1,4 +1,4 @@
-import { building, dev } from "$app/environment";
+import { building, dev } from "$lib/server/runtime";
 import { query } from "./data";
 import { gradeKeys, gradeSummary } from "$lib/discovery";
 let cached: Promise<any[]> | undefined;

@@ -5,7 +5,7 @@ import {
   courseCollections,
   type CourseCollection,
 } from "$lib/course-collections";
-import entriesData from "../../../../.site/entries.json";
+import entriesData from "../../../../.site/import/entries.json";
 export async function department_collection({ params, platform }: DocumentContext) {
   if (
     !(

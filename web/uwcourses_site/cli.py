@@ -31,6 +31,31 @@ def check_assets(root: Path):
 
 
 def main():
+    if len(sys.argv) > 1 and sys.argv[1] in {
+        "resolve",
+        "cache-check",
+        "cache-seal",
+        "cache-verify",
+    }:
+        from . import build_cache
+
+        parser = argparse.ArgumentParser(description=__doc__)
+        parser.add_argument("command")
+        parser.add_argument("--stage", choices=list(build_cache.STAGES))
+        parser.add_argument("--revision")
+        args = parser.parse_args()
+        if args.command == "resolve":
+            build_cache.resolve(args.revision)
+        elif not args.stage:
+            parser.error("--stage is required")
+        elif args.command == "cache-seal":
+            build_cache.seal(args.stage)
+        elif args.command == "cache-verify":
+            if not build_cache.valid(args.stage):
+                raise ValueError(f"Invalid {args.stage} cache")
+        else:
+            build_cache.outputs({"valid": build_cache.valid(args.stage)})
+        return
     if len(sys.argv) > 1 and sys.argv[1] == "import":
         from .importer import main as import_main
 
@@ -42,7 +67,7 @@ def main():
             "command", choices=["assets-check", "release-check", "deploy"]
         )
         parser.add_argument("--root", type=Path, default=Path(".svelte-kit/cloudflare"))
-        parser.add_argument("--site", type=Path, default=Path(".site"))
+        parser.add_argument("--site", type=Path, default=Path(".site/import"))
         parser.add_argument("--config", type=Path, default=Path("wrangler.json"))
         parser.add_argument("--first-deployment", action="store_true")
         args = parser.parse_args()

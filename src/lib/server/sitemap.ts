@@ -3,7 +3,7 @@ import { instructorUrls } from "$lib/server/instructor-urls";
 import { absoluteUrl } from "$lib/seo";
 import { courseUrl } from "$lib/format";
 import { courseCollections } from "$lib/course-collections";
-import entries from "../../../.site/entries.json";
+import entries from "../../../.site/import/entries.json";
 
 export const sitemapSize = 5000;
 export function escapeXml(value: string) {
@@ -20,7 +20,7 @@ export function sitemapXml(paths: string[], index = false, lastmod?: string) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<${root} xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${paths.map((path) => `<${item}><loc>${escapeXml(absoluteUrl(path))}</loc>${lastmod ? `<lastmod>${escapeXml(lastmod)}</lastmod>` : ""}${index ? "" : `<changefreq>${path === "/" ? "weekly" : "monthly"}</changefreq><priority>${path === "/" ? "1.0" : path.startsWith("/courses/") ? "0.8" : path.startsWith("/instructors/") ? "0.6" : "0.7"}</priority>`}</${item}>`).join("")}</${root}>`;
 }
 let cached: Promise<Map<string, string[]>> | undefined;
-// These endpoints are prerendered alongside the same imported dataset as pages.
+// Prepared alongside serving documents from the same pinned import.
 export function sitemapPages() {
   return (cached ??= (async () => {
     const [courses, instructors, named] = await Promise.all([

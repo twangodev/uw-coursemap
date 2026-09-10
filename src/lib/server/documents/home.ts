@@ -1,5 +1,5 @@
 import type { DocumentContext } from "./types";
-import campus from "../../../../.site/campus.json";
+import campus from "../../../../.site/import/campus.json";
 import { query } from "$lib/server/data";
 export async function home({ platform }: DocumentContext) {
   return {

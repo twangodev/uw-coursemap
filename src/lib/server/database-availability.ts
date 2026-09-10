@@ -2,7 +2,7 @@ import { error } from "@sveltejs/kit";
 import { inArray } from "drizzle-orm";
 import { database } from "./database";
 import { metadata } from "./schema";
-import publishedStatus from "../../../.site/status.json";
+import publishedStatus from "../../../.site/import/status.json";
 
 /** Page documents stay available while a single D1 is replaced in place. */
 export async function withDatabaseAvailability<T>(

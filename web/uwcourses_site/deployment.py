@@ -84,6 +84,23 @@ def verify_database(output: str, release: Release) -> Any:
     return results
 
 
+def current_commit(commit: str) -> bool:
+    """Check main after acquiring the deployment lock, before any production writes."""
+    repository = os.environ.get("GITHUB_REPOSITORY")
+    if not repository:
+        return True
+    response = requests.get(
+        f"https://api.github.com/repos/{repository}/commits/main",
+        headers={
+            "Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}",
+            "Cache-Control": "no-cache",
+        },
+        timeout=30,
+    )
+    response.raise_for_status()
+    return response.json()["sha"] == commit
+
+
 def deploy(config: Path, site: Path, first: bool = False) -> None:
     release = Release.read(site / "status.json")
     settings = json.loads(config.read_text())
@@ -100,6 +117,9 @@ def deploy(config: Path, site: Path, first: bool = False) -> None:
     commit = subprocess.run(
         ["git", "rev-parse", "HEAD"], check=True, capture_output=True, text=True
     ).stdout.strip()
+    if not current_commit(commit):
+        print(f"Skipping superseded release {commit}", flush=True)
+        return
     state = worker_state(account, token, worker)
     if state is None and not first:
         raise ValueError("Worker does not exist; enable first deployment explicitly")

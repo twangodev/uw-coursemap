@@ -1,4 +1,4 @@
-import { building, dev } from "$app/environment";
+import { building, dev } from "$lib/server/runtime";
 import { readDocument, isFilteredDocument } from "./storage";
 import { documentSchemas, documentKind } from "$lib/api/schemas";
 import { isRedirect } from "@sveltejs/kit";

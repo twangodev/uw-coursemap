@@ -1,4 +1,4 @@
-import { building, dev } from "$app/environment";
+import { building, dev } from "$lib/server/runtime";
 import { error } from "@sveltejs/kit";
 import { drizzle } from "drizzle-orm/d1";
 import { drizzle as proxy } from "drizzle-orm/sqlite-proxy";
@@ -10,7 +10,7 @@ export async function localDatabase() {
   if (!local) {
     const moduleName = "node:sqlite";
     const { DatabaseSync } = await import(/* @vite-ignore */ moduleName);
-    local = new DatabaseSync(".site/site.sqlite", { readOnly: true });
+    local = new DatabaseSync(".site/import/site.sqlite", { readOnly: true });
   }
   return local;
 }

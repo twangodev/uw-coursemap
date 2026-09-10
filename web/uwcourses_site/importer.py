@@ -531,7 +531,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path)
     parser.add_argument("--revision")
-    parser.add_argument("--output", type=Path, default=ROOT / ".site")
+    parser.add_argument("--output", type=Path, default=ROOT / ".site/import")
     parser.add_argument(
         "--limit",
         type=int,
@@ -565,14 +565,11 @@ def main():
     if not re.fullmatch(r"[a-zA-Z0-9-]{8,80}", revision):
         raise ValueError("Invalid revision")
     manifest = verify(source)
-    # Clean only the importer-owned generated tree. Git never tracks these files.
-    static = ROOT / "static/data"
-    if static.exists():
-        shutil.rmtree(static)
+    # Only this stage's directory is owned by the importer.
     if args.output.exists():
         shutil.rmtree(args.output)
     compile_release(
-        source, revision, args.output, ROOT / "static", args.limit, manifest
+        source, revision, args.output, args.output / "assets", args.limit, manifest
     )
 
 

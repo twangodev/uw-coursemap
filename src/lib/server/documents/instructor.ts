@@ -1,6 +1,6 @@
 import type { DocumentContext } from "./types";
-import { building } from "$app/environment";
-import entriesData from "../../../../.site/entries.json";
+import { building } from "$lib/server/runtime";
+import entriesData from "../../../../.site/import/entries.json";
 import {
   instructorUrls,
   resolveInstructorUid,

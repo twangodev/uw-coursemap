@@ -11,6 +11,8 @@
     "test": "vitest run",
     "test:browser:setup": "tsx -e \"import setup from './web/tests/browser/setup.ts'; setup()\"",
     "seo:check": "python3 web/seo_audit.py",
+    "site:data": "vite build --config web/data.config.ts && node --max-old-space-size=6144 .site/compiler/generate-data.mjs",
+    "site:social": "node web/generate-social.mjs",
     "data:import": "uv run --locked uwcourses-site import",
     "assets:check": "uv run --locked uwcourses-site assets-check"
   },

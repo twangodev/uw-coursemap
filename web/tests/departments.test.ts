@@ -1,6 +1,6 @@
 import { expect, it } from "vitest";
 import { departmentName, departmentLabel } from "../../src/lib/departments";
-import entries from "../../.site/entries.json";
+import entries from "../../.site/import/entries.json";
 it("has an official full name for every imported department", () => {
   expect(departmentName("COMPSCI")).toBe("Computer Sciences");
   expect(departmentLabel("ECE")).toBe(
