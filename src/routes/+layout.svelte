@@ -65,7 +65,7 @@
 {#if !fullscreenMap}<header>
   <nav aria-label="Main navigation">
     <a class="brand" href="/"
-      ><img src="/uw-coursemap-logo.svg" alt="" width="28" height="28" /><span
+      ><img src="/uwcourses-logo.svg" alt="" width="28" height="28" /><span
         >uwcourses</span
       ></a
     >

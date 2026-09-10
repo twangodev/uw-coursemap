@@ -28,15 +28,15 @@ def plain(value):
 
 
 def reconcile(store, run):
-    from uw_coursemap.course import Course
-    from uw_coursemap.enrollment import apply_enrollment
-    from uw_coursemap.enrollment_data import EnrollmentData, MadgradesData, TermData
-    from uw_coursemap.instructors import FullInstructor, RMPData, merge_instructors
-    from uw_coursemap.name_matcher import (
+    from uwcourses.course import Course
+    from uwcourses.enrollment import apply_enrollment
+    from uwcourses.enrollment_data import EnrollmentData, MadgradesData, TermData
+    from uwcourses.instructors import FullInstructor, RMPData, merge_instructors
+    from uwcourses.name_matcher import (
         find_best_name_match,
         find_best_structured_match,
     )
-    from uw_coursemap.sanitization import sanitize_instructor_id
+    from uwcourses.sanitization import sanitize_instructor_id
 
     EnrollmentData.MeetingLocation._all_locations.clear()
     courses = {

@@ -1,7 +1,7 @@
 from logging import getLogger
 
-from uw_coursemap.json_serializable import JsonSerializable
-from uw_coursemap.safe_parse import safe_int
+from uwcourses.json_serializable import JsonSerializable
+from uwcourses.safe_parse import safe_int
 
 logger = getLogger(__name__)
 
@@ -162,7 +162,7 @@ class EnrollmentData(JsonSerializable):
         def from_json(cls, data) -> "EnrollmentData.Meeting":
             course_reference = None
             if data.get("course_reference"):
-                from uw_coursemap.course import Course
+                from uwcourses.course import Course
 
                 course_reference = Course.Reference.from_json(data["course_reference"])
 

@@ -30,7 +30,7 @@
   <div class="map-toolbar">
     <div class="map-heading">
       <a class="back" href={data.subject ? `/departments/${encodeURIComponent(data.subject)}` : "/departments"} aria-label="Department courses & statistics"><ArrowLeft size={17} /></a>
-      <a class="map-brand" href="/" aria-label="UW Courses home"><img src="/uw-coursemap-logo.svg" alt="" width="24" height="24" /></a>
+      <a class="map-brand" href="/" aria-label="UW Courses home"><img src="/uwcourses-logo.svg" alt="" width="24" height="24" /></a>
       <div><h1>{title}</h1><p>{data.graph.courses.length.toLocaleString()} courses · {data.graph.edges.length.toLocaleString()} connections</p></div>
     </div>
     <div class="map-search">

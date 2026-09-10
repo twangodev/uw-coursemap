@@ -1,7 +1,7 @@
 import re
 from typing import Union
 
-from uw_coursemap.json_serializable import JsonSerializable
+from uwcourses.json_serializable import JsonSerializable
 
 token_specs = [
     (r"\(", "LPAREN"),
@@ -209,7 +209,7 @@ def filter_tokens(tokens):
 
 
 def tokenize_requisites(linked_requisite_text):
-    from uw_coursemap.course import Course
+    from uwcourses.course import Course
 
     linked_requisite_text = wrap_sentences(linked_requisite_text)
     tokens = []
@@ -249,7 +249,7 @@ class Leaf(JsonSerializable):
 
     @classmethod
     def from_json(cls, json_data) -> "Leaf":
-        from uw_coursemap.course import Course
+        from uwcourses.course import Course
 
         if isinstance(json_data, str):
             return cls(json_data)

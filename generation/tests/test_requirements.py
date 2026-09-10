@@ -5,9 +5,9 @@ import unittest
 
 import jsonschema
 
-from uw_coursemap.requirements import restore_quotes, validate_graph, graph_diagnostics
-from uw_coursemap.requirements_eval import expression, matches, normalize
-from uw_coursemap.tasks import load_task
+from uwcourses.requirements import restore_quotes, validate_graph, graph_diagnostics
+from uwcourses.requirements_eval import expression, matches, normalize
+from uwcourses.tasks import load_task
 
 
 class RequirementsTests(unittest.TestCase):
@@ -148,7 +148,7 @@ class RequirementsTests(unittest.TestCase):
         validate_graph(value, self.payload)
 
     def test_generation_grammar_keeps_full_validation_contract(self):
-        from uw_coursemap.jobs import generation_schema
+        from uwcourses.jobs import generation_schema
 
         original = {
             "type": "object",
@@ -274,7 +274,7 @@ class RequirementsTests(unittest.TestCase):
         from pydantic_ai.messages import ModelResponse, TextPart
         from pydantic_ai.models.function import FunctionModel
         from pydantic_ai import ModelMessagesTypeAdapter
-        from uw_coursemap.agents import generate_generic
+        from uwcourses.agents import generate_generic
 
         calls = []
 

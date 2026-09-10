@@ -3,9 +3,9 @@ from logging import Logger
 
 from bs4 import NavigableString
 
-from uw_coursemap.enrollment_data import GradeData, TermData
-from uw_coursemap.json_serializable import JsonSerializable
-from uw_coursemap.requirement_ast import (
+from uwcourses.enrollment_data import GradeData, TermData
+from uwcourses.json_serializable import JsonSerializable
+from uwcourses.requirement_ast import (
     RequirementAbstractSyntaxTree,
     tokenize_requisites,
     RequirementParser,

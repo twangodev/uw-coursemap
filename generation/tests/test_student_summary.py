@@ -1,15 +1,15 @@
 import copy
 import unittest
 from pathlib import Path
-from uw_coursemap.tasks import load_task
-from uw_coursemap.student_context import (
+from uwcourses.tasks import load_task
+from uwcourses.student_context import (
     grade_sentence,
     match_name,
     teaching_history,
     select_course_grades,
     review_course_correction,
 )
-from uw_coursemap.student_summary import generate_student, validate_claims
+from uwcourses.student_summary import generate_student, validate_claims
 
 
 def grade(term, a, b, section=1):
@@ -383,7 +383,7 @@ class StudentSummaryTests(unittest.TestCase):
                 section["value"]["current_instructors"],
             )
         before = len(calls)
-        from uw_coursemap.models import digest
+        from uwcourses.models import digest
 
         old_profile = {
             "model": "test",
@@ -533,7 +533,7 @@ class StudentSummaryTests(unittest.TestCase):
         self.assertEqual(result["sections"]["search_profile"], base["search_profile"])
 
     def test_current_roster_uses_term_and_deduplicates_cross_listings(self):
-        from uw_coursemap.student_context import StudentContext
+        from uwcourses.student_context import StudentContext
 
         class DB:
             def execute(self, *args):

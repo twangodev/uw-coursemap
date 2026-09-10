@@ -3,8 +3,8 @@
 import argparse
 import json
 
-from uw_coursemap.legacy import git, import_revision
-from uw_coursemap.store import Store
+from uwcourses.legacy import git, import_revision
+from uwcourses.store import Store
 
 
 def main():

@@ -1,7 +1,7 @@
 [project]
-name = "uw-coursemap-generation"
+name = "uwcourses-generation"
 version = "0.1.0"
-description = "UW Course Map Data Generation Service"
+description = "uwcourses data pipeline"
 readme = "generation/README.md"
 requires-python = "==3.12.*"
 dependencies = [
@@ -37,12 +37,12 @@ requires = ["setuptools>=75"]
 build-backend = "setuptools.build_meta"
 
 [project.scripts]
-coursemap = "uw_coursemap.cli:main"
+uwcourses = "uwcourses.cli:main"
 uwcourses-site = "uwcourses_site.cli:main"
 
 [tool.setuptools]
 package-dir = {"" = "generation", "uwcourses_site" = "web/uwcourses_site"}
-packages = ["uw_coursemap", "uwcourses_site"]
+packages = ["uwcourses", "uwcourses_site"]
 
 [tool.setuptools.package-data]
 uwcourses_site = ["schema-v6.json"]

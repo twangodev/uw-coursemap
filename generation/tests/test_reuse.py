@@ -3,10 +3,10 @@ import json
 import unittest
 
 import test_unified
-from uw_coursemap.reuse import ReuseIndex
-from uw_coursemap.unified import validate_section
-from uw_coursemap.agents import evidence_view, output_budget
-from uw_coursemap.requirements import restore_quotes, shared_subject_references
+from uwcourses.reuse import ReuseIndex
+from uwcourses.unified import validate_section
+from uwcourses.agents import evidence_view, output_budget
+from uwcourses.requirements import restore_quotes, shared_subject_references
 
 
 class ReuseTests(unittest.TestCase):
@@ -78,7 +78,7 @@ class ReuseTests(unittest.TestCase):
 
     def test_unchanged_course_without_reviews_makes_no_model_request(self):
         from pydantic_ai.models.function import FunctionModel
-        from uw_coursemap.agents import generate_unified
+        from uwcourses.agents import generate_unified
 
         def forbidden(*args):
             raise AssertionError("Unchanged accepted evidence needs no inference")

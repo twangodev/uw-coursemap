@@ -2,7 +2,7 @@ import json
 import sqlite3
 import unittest
 
-from uw_coursemap.review_data import review_rows
+from uwcourses.review_data import review_rows
 
 
 class ReviewDataTests(unittest.TestCase):

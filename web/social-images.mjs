@@ -60,7 +60,7 @@ export async function createCardRenderer() {
     [
       "web/social-card.html",
       "static/fonts/OverusedGrotesk-VF.woff2",
-      "static/uw-coursemap-logo.svg",
+      "static/uwcourses-logo.svg",
     ].map((path) => readFile(path)),
   );
   const version = createHash("sha256")

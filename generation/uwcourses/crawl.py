@@ -134,7 +134,7 @@ def crawl(root, run, source, offline=False):
 
     store = Store(root)
     store.reset_source(run, source)
-    from uw_coursemap.http_utils import get_user_agent
+    from uwcourses.http_utils import get_user_agent
 
     config = json.loads(store.run(run)["config_json"])
     settings = {
@@ -153,8 +153,8 @@ def crawl(root, run, source, offline=False):
         "PIPELINE_RUN": run,
         "PIPELINE_SOURCE": source,
         "PIPELINE_OFFLINE": offline,
-        "DOWNLOADER_MIDDLEWARES": {"uw_coursemap.crawl.ArchiveMiddleware": 560},
-        "ITEM_PIPELINES": {"uw_coursemap.crawl.DatabasePipeline": 100},
+        "DOWNLOADER_MIDDLEWARES": {"uwcourses.crawl.ArchiveMiddleware": 560},
+        "ITEM_PIPELINES": {"uwcourses.crawl.DatabasePipeline": 100},
     }
     process = CrawlerProcess(settings)
     crawler = process.create_crawler(SPIDERS[source])

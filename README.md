@@ -1,9 +1,7 @@
 <div align="center">
   <a href="https://uwcourses.com" target="_blank">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./static/uw-coursemap-tagline-light.svg">
-      <img alt="uw-coursemap" src="./static/uw-coursemap-tagline-dark.svg" width="75%">
-    </picture>
+    <img alt="uwcourses" src="./static/uwcourses-logo.svg" width="64">
+    <h1>uwcourses</h1>
   </a>
   <p>
     <img
@@ -46,7 +44,7 @@ uv run --locked uwcourses-site import --limit 8
 bun run dev
 ```
 
-See [website setup and deployment](web/README.md) and the [local data pipeline](generation/README.md).
+See the [local data pipeline](generation/README.md).
 
 See the [contributing guide](CONTRIBUTING.md) to help improve the project. The public API contract is generated at `/openapi.json`.
 

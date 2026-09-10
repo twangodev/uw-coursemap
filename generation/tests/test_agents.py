@@ -18,8 +18,8 @@ from pydantic_ai.models.function import FunctionModel
 from pydantic_ai.usage import RequestUsage
 
 import test_unified
-from uw_coursemap.agents import generate_unified, generate_repair, generate_generic
-from uw_coursemap.unified import validate_section
+from uwcourses.agents import generate_unified, generate_repair, generate_generic
+from uwcourses.unified import validate_section
 
 
 class AgentTests(unittest.TestCase):
@@ -368,7 +368,7 @@ class AgentTests(unittest.TestCase):
 
     def test_context_overflow_compacts_history_and_preserves_trace(self):
         from pydantic_ai.exceptions import ModelHTTPError
-        from uw_coursemap.agents import serialize_messages
+        from uwcourses.agents import serialize_messages
 
         f = self.fixture
         calls = []
@@ -664,7 +664,7 @@ class AgentTests(unittest.TestCase):
         self.assertEqual(json.dumps(history, sort_keys=True), original)
 
     def test_grounding_feedback_repairs_draft_and_keeps_both_traces(self):
-        from uw_coursemap.tasks import load_task
+        from uwcourses.tasks import load_task
 
         task = load_task(
             Path(__file__).resolve().parents[2] / "inference/tasks/student_summary.json"

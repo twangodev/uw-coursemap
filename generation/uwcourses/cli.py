@@ -14,11 +14,16 @@ from .store import SOURCES, Store
 
 
 def parser():
-    root = argparse.ArgumentParser(prog="coursemap")
+    root = argparse.ArgumentParser(prog="uwcourses")
     root.add_argument(
         "--workspace",
         type=Path,
-        default=Path(os.environ.get("COURSEMAP_WORKSPACE", "./.coursemap")),
+        default=Path(
+            os.environ.get(
+                "UWCOURSES_WORKSPACE",
+                os.environ.get("COURSEMAP_WORKSPACE", "./.coursemap"),
+            )
+        ),
     )
     commands = root.add_subparsers(
         dest="command",
@@ -150,7 +155,7 @@ def execute_source(store, run, source, offline=False):
     command = [
         sys.executable,
         "-m",
-        "uw_coursemap.cli",
+        "uwcourses.cli",
         "--workspace",
         str(store.root),
         "_crawl",
@@ -351,7 +356,7 @@ def main(argv=None):
                     raise ValueError(
                         "At least 10 GiB free is required for a new run; model downloads may require more"
                     )
-                from uw_coursemap.http_utils import get_user_agent
+                from uwcourses.http_utils import get_user_agent
 
                 config = {
                     "http": {

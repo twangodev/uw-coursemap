@@ -5,11 +5,11 @@ from concurrent.futures import ThreadPoolExecutor
 import json
 from pathlib import Path
 
-from uw_coursemap.jobs import WORKER_VERSION, check_server, generate
-from uw_coursemap.models import digest
-from uw_coursemap.profiles import load_profile
-from uw_coursemap.tasks import load_task
-from uw_coursemap.requirements_eval import expression, matches
+from uwcourses.jobs import WORKER_VERSION, check_server, generate
+from uwcourses.models import digest
+from uwcourses.profiles import load_profile
+from uwcourses.tasks import load_task
+from uwcourses.requirements_eval import expression, matches
 
 
 def main():

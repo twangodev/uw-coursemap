@@ -3,8 +3,8 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from uw_coursemap.models import digest
-from uw_coursemap.tasks import load_task
+from uwcourses.models import digest
+from uwcourses.tasks import load_task
 
 
 class TaskTests(unittest.TestCase):
@@ -71,7 +71,7 @@ class TaskTests(unittest.TestCase):
 
     def test_bundled_tasks_resolve_and_runtime_prompt_does_not_accumulate(self):
         import jsonschema
-        from uw_coursemap.agents import native_prompt
+        from uwcourses.agents import native_prompt
 
         root = Path(__file__).resolve().parents[2] / "inference/tasks"
         for path in root.glob("*.json"):

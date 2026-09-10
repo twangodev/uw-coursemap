@@ -1,6 +1,6 @@
 import unittest
 
-from uw_coursemap.course_context import sample_reviews
+from uwcourses.course_context import sample_reviews
 
 
 def review(i, instructor="current", year=2026):

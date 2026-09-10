@@ -7,9 +7,9 @@ from bs4 import BeautifulSoup
 from diskcache import Cache
 from tqdm.asyncio import tqdm
 
-from uw_coursemap.course import Course
-from uw_coursemap.enrollment_data import GradeData
-from uw_coursemap.json_serializable import JsonSerializable
+from uwcourses.course import Course
+from uwcourses.enrollment_data import GradeData
+from uwcourses.json_serializable import JsonSerializable
 
 
 logger = getLogger(__name__)
@@ -232,8 +232,8 @@ async def merge_instructors(
                 for instr in term_data.grade_data.instructors:
                     instructor_appearances[instr].append((course_ref, term))
 
-    from uw_coursemap.name_matcher import iter_name_matches
-    from uw_coursemap.models import digest
+    from uwcourses.name_matcher import iter_name_matches
+    from uwcourses.models import digest
 
     # Stable ordering preserves reproducible tie-breaking. Candidate identity is
     # part of the cache key so changed rosters cannot reuse stale matches.

@@ -521,7 +521,7 @@ def write_public(database, destination, release_id, source_run, registry_path=No
 
 
 def dataset_card(
-    source_run, public_counts, archive_counts=None, repo_id="twangodev/uw-coursemap"
+    source_run, public_counts, archive_counts=None, repo_id="twangodev/uwcourses"
 ):
     import yaml
     from urllib.parse import urlencode
@@ -537,7 +537,7 @@ def dataset_card(
                 config["default"] = True
             configs.append(config)
     metadata = {
-        "pretty_name": "UW Course Map",
+        "pretty_name": "uwcourses",
         "language": ["en"],
         "multilinguality": ["monolingual"],
         "annotations_creators": ["machine-generated"],
@@ -561,7 +561,7 @@ def dataset_card(
                 "url": f"https://huggingface.co/datasets/{repo_id}/raw/main/sync.json",
                 "query": query,
                 "label": label,
-                "color": "blue",
+                "color": "red",
                 "cacheSeconds": 3600,
             }
         )
@@ -573,7 +573,7 @@ def dataset_card(
         + "---\n\n"
         + "\n".join(
             [
-                "# UW Course Map",
+                "# uwcourses",
                 "",
                 badge("last scan", "$.last_scan_utc"),
                 badge("courses", "$.courses"),

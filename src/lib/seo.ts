@@ -159,7 +159,7 @@ export function pageSeo(data: any, pathname: string, status = 200) {
       "@type": "WebSite",
       "@id": siteOrigin + "/#website",
       name: "UW Courses",
-      alternateName: "UW Course Map",
+      alternateName: "UW Courses",
       url: siteOrigin + "/",
       description,
     });

@@ -2,7 +2,7 @@ import tempfile
 from pathlib import Path
 import unittest
 
-from uw_coursemap.identities import CourseIdentities
+from uwcourses.identities import CourseIdentities
 
 
 class IdentityTests(unittest.TestCase):
@@ -28,7 +28,7 @@ class IdentityTests(unittest.TestCase):
         self.assertEqual(registry.identify("ECE 300"), ece)
 
     def test_instructor_ids_are_source_scoped_and_not_name_matches(self):
-        from uw_coursemap.dataset_shape import instructor_identity
+        from uwcourses.dataset_shape import instructor_identity
 
         def uid(source, record):
             return instructor_identity(source, record, "scope")["instructor_uid"]
