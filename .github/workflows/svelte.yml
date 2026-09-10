@@ -31,6 +31,7 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
       - run: uv run --locked uwcourses-site release-check
+      - run: uv run --locked python -m unittest discover -s web/tests -p 'test_*.py'
       # One pinned dataset is shared by every check and the deployment.
       - run: tar -czf website-data.tar.gz .site
       - uses: actions/upload-artifact@v4
@@ -73,7 +74,6 @@ jobs:
       - run: rm website-data.tar.gz
       - run: bun run check
       - run: bun run test
-      - run: uv run --locked python -m unittest discover -s web/tests -p 'test_*.py'
   build:
     name: Build and audit
     needs: data
