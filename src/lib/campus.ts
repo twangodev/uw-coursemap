@@ -15,6 +15,18 @@ export interface CampusCoverage {
   assetBase: string;
 }
 const buildingSchema = z.object({
+  sessions: z
+    .array(
+      z.object({
+        startsAt: z.number().finite(),
+        endsAt: z.number().finite(),
+        room: z.string(),
+        enrolled: z.number().int().nonnegative().nullable(),
+        courses: z.array(z.object({ code: z.string(), section: z.string() })),
+        instructors: z.array(z.string()),
+      }),
+    )
+    .optional(),
   name: z.string(),
   latitude: z.number().finite().min(-90).max(90),
   longitude: z.number().finite().min(-180).max(180),
@@ -228,7 +240,11 @@ export function campusFacts(
 }
 
 // Same geographic bounds and linear projection as campus-map.svg.
-export function campusHeat(day: CampusDay | null, now: number) {
+export function campusHeat(
+  day: CampusDay | null,
+  now: number,
+  includeIdle = false,
+) {
   if (!day || day.date !== madisonDate(new Date(now))) return [];
   return (day.buildings ?? []).flatMap((building) => {
     const x = ((building.longitude + 89.425) / 0.034) * 900;
@@ -239,6 +255,8 @@ export function campusHeat(day: CampusDay | null, now: number) {
       if (at > now) break;
       count += starts - ends;
     }
-    return count > 0 ? [{ name: building.name, x, y, count }] : [];
+    return count > 0 || includeIdle
+      ? [{ name: building.name, x, y, count: Math.max(0, count) }]
+      : [];
   });
 }

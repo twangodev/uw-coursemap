@@ -47,7 +47,7 @@ export function buildingOutlines(
 ) {
   const result = new Map<
     string,
-    { id: string; name: string; count: number; path: string }
+    { id: string; name: string; names: string[]; count: number; path: string }
   >();
   for (const building of activity) {
     const candidates = footprints.map((footprint) => ({
@@ -77,11 +77,14 @@ export function buildingOutlines(
     if (!match) continue;
     const footprint = match.footprint;
     const existing = result.get(footprint.id);
-    if (existing) existing.count += building.count;
-    else
+    if (existing) {
+      existing.count += building.count;
+      existing.names.push(building.name);
+    } else
       result.set(footprint.id, {
         id: footprint.id,
         name: building.name,
+        names: [building.name],
         count: building.count,
         path: "M" + footprint.points.map((p) => p.join(",")).join("L") + "Z",
       });

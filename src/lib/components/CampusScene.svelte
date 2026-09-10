@@ -2,7 +2,7 @@
   import { weatherSchema } from "$lib/api/schemas";
   import { onMount } from "svelte";
   import { Tooltip } from "bits-ui";
-  import { ArrowRight, Info, Pause, Play } from "@lucide/svelte";
+  import { Info } from "@lucide/svelte";
   import CampusFactValue from "./CampusFactValue.svelte";
   import AnimatedNumber from "./AnimatedNumber.svelte";
   import {
@@ -25,7 +25,6 @@
   let weather = $state<Weather | null>(null);
   let day = $state<CampusDay | null>(null);
   let index = $state(0);
-  let paused = $state(false);
   let infoOpen = $state(false);
   let interacting = $state(false);
   let focused = $state(false);
@@ -104,7 +103,6 @@
     const rotate = setInterval(() => {
       if (
         !document.hidden &&
-        !paused &&
         !interacting &&
         !focused &&
         !infoOpen &&
@@ -160,62 +158,56 @@
         <div class="fact-value">
           <CampusFactValue {fact} />
         </div>
-        <p>{fact.label}</p>
-        <Tooltip.Provider delayDuration={150}
-          ><Tooltip.Root bind:open={infoOpen} disableCloseOnTriggerClick>
-            <Tooltip.Trigger
-              class="campus-fact-info"
-              aria-label="About this campus fact"
-              onclick={() => (infoOpen = true)}
-              ><Info size={14} /></Tooltip.Trigger
-            >
-            <Tooltip.Portal
-              ><Tooltip.Content
-                class="campus-fact-tooltip"
-                role="tooltip"
-                sideOffset={6}
-                collisionPadding={12}>{fact.detail}</Tooltip.Content
-              ></Tooltip.Portal
-            >
-          </Tooltip.Root></Tooltip.Provider
-        >
+        <p>
+          {fact.label}
+
+          <Tooltip.Provider delayDuration={150}
+            ><Tooltip.Root bind:open={infoOpen} disableCloseOnTriggerClick>
+              <Tooltip.Trigger
+                class="campus-fact-info"
+                aria-label="About this campus fact"
+                onclick={() => (infoOpen = true)}
+                ><Info size={14} /></Tooltip.Trigger
+              >
+              <Tooltip.Portal
+                ><Tooltip.Content
+                  class="campus-fact-tooltip"
+                  role="tooltip"
+                  sideOffset={6}
+                  collisionPadding={12}>{fact.detail}</Tooltip.Content
+                ></Tooltip.Portal
+              >
+            </Tooltip.Root></Tooltip.Provider
+          >
+        </p>
       {:else}
         <span class="qualifier">Between lakes. Between classes.</span>
         <div class="fact-value welcome">Campus,<br />in motion.</div>
       {/if}
     </div>
   </div>
-  <div class="scene-footer">
-    <div class="fact-controls">
-      <button
-        aria-label={paused ? "Resume campus facts" : "Pause campus facts"}
-        aria-pressed={paused}
-        onclick={() => (paused = !paused)}
-        >{#if paused}<Play size={13} />{:else}<Pause size={13} />{/if}</button
-      >
-      <span class="position"
-        >{facts.length ? (index % facts.length) + 1 : 1} / {facts.length ||
-          1}</span
-      >
-      <button
-        aria-label="Next campus fact"
-        onclick={() => (index = (index + 1) % Math.max(1, facts.length))}
-        ><ArrowRight size={16} /></button
-      >
-    </div>
-  </div>
 </section>
 
 <style>
   .campus-scene {
+    pointer-events: none;
+    z-index: 1;
     position: relative;
-    min-height: 340px;
+    min-height: 300px;
     display: flex;
     flex-direction: column;
     isolation: isolate;
     padding: 0;
   }
+  .fact-value,
+  .qualifier,
+  .fact p,
   .scene-header {
+    width: fit-content;
+    pointer-events: auto;
+  }
+  .scene-header {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     gap: 12px;
@@ -260,8 +252,8 @@
     inset: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
     justify-content: center;
   }
   .qualifier {
@@ -289,7 +281,10 @@
     text-wrap: balance;
   }
   :global(.campus-fact-info) {
+    pointer-events: auto;
     display: inline-flex;
+    vertical-align: middle;
+    margin-left: 5px;
     padding: 2px;
     border: 0;
     background: transparent;
@@ -306,41 +301,16 @@
     color: var(--text);
     font: 12px/1.6 var(--font-sans);
   }
-  .scene-footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-  }
-  .fact-controls {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  button {
-    display: grid;
-    place-items: center;
-    width: 32px;
-    height: 32px;
-    border: 0;
-    background: transparent;
-    color: var(--muted);
-    border-radius: 50%;
-    cursor: pointer;
-  }
-  button:hover {
-    color: var(--text);
-    background: var(--border);
-  }
-  .position {
-    min-width: 36px;
-    text-align: center;
-    font-size: 10px;
-    color: var(--muted);
-    font-variant-numeric: tabular-nums;
-  }
   @media (max-width: 700px) {
+    .fact-value,
+    .qualifier,
+    .fact p,
     .scene-header {
+      width: fit-content;
+      pointer-events: auto;
+    }
+    .scene-header {
+      width: 100%;
       flex-wrap: wrap;
     }
     .live-context {
@@ -349,7 +319,9 @@
     }
 
     .campus-scene {
-      min-height: 300px;
+      pointer-events: none;
+      z-index: 1;
+      min-height: 275px;
       padding: 0;
     }
     .fact-stage {

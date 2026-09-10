@@ -12,13 +12,16 @@
 </script>
 
 <section class="landing" aria-labelledby="landing-title">
-  <h1 id="landing-title" class="sr-only">UW–Madison courses</h1>
   <CampusMap day={activity?.day} now={activity?.now} />
   <CampusScene
     coverage={data.campus}
     onactivity={(day, now) => (activity = { day, now })}
   />
   <div class="landing-copy">
+    <h1 id="landing-title">Search UW–Madison courses</h1>
+    <p class="search-description">
+      Compare grades, prerequisites, and professor reviews.
+    </p>
     <form action="/search" class="landing-search">
       <SearchInput
         revision={data.status.revision}
@@ -74,17 +77,19 @@
     isolation: isolate;
     padding: 30px 0 40px;
   }
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
+  h1 {
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.035em;
+  }
+  .search-description {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 6px;
   }
   .map-caption {
+    position: relative;
+    z-index: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -112,8 +117,9 @@
   }
   .landing-copy {
     position: relative;
-    width: min(100%, 640px);
-    margin: 0 auto;
+    z-index: 1;
+    width: min(100%, 580px);
+    margin: 0;
   }
   .map-credit {
     display: block;
@@ -140,7 +146,7 @@
   button {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 8px;
     flex-shrink: 0;
     min-height: 42px;
@@ -155,7 +161,7 @@
   }
   .try-search {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 18px;
     margin-top: 14px;
     font-size: 13px;
