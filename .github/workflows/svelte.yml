@@ -137,7 +137,8 @@ jobs:
         with:
           bun-version: 1.4.0
       - run: bun install --frozen-lockfile
-      - run: bun x wrangler d1 info uwcourses --json
+      - name: Inspect existing Worker domains
+        run: curl --fail --silent --show-error "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/domains?service=uw-coursemap" --header "Authorization:Bearer $CLOUDFLARE_API_TOKEN"
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
