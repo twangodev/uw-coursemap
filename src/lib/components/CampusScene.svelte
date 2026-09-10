@@ -3,6 +3,7 @@
   import { onMount } from "svelte";
   import { Tooltip } from "bits-ui";
   import { ArrowRight, Info, Pause, Play } from "@lucide/svelte";
+  import CampusFactValue from "./CampusFactValue.svelte";
   import AnimatedNumber from "./AnimatedNumber.svelte";
   import {
     campusDaySchema,
@@ -30,6 +31,7 @@
   let focused = $state(false);
   let reducedMotion = $state(false);
   let facts = $derived(now ? campusFacts(day, now, weather) : []);
+  let students = $derived(facts.find((f) => f.id === "students"));
   let fact = $derived(facts[index % Math.max(1, facts.length)]);
   $effect(() => {
     if (now) onactivity?.(day, +now);
@@ -134,25 +136,29 @@
   }}
 >
   <div class="scene-header">
-    <span>Meanwhile, in Madison</span><time
-      >{now
-        ? new Intl.DateTimeFormat("en-US", {
-            timeZone: madisonZone,
-            hour: "numeric",
-            minute: "2-digit",
-          }).format(now)
-        : "Central time"}</time
-    >
+    <span>Meanwhile, in Madison</span>
+    <div class="live-context">
+      {#if students}<span class="live-students" title={students.detail}
+          ><i></i>≈ <AnimatedNumber value={Number(students.value)} /> students scheduled
+          now</span
+        >{/if}
+      <time
+        >{now
+          ? new Intl.DateTimeFormat("en-US", {
+              timeZone: madisonZone,
+              hour: "numeric",
+              minute: "2-digit",
+            }).format(now)
+          : "Central time"}</time
+      >
+    </div>
   </div>
   <div class="fact-stage" aria-live="off">
     <div class="fact">
       {#if fact}
         <span class="qualifier">{fact.prefix ?? "\u00a0"}</span>
         <div class="fact-value">
-          {#if typeof fact.value === "number"}<AnimatedNumber
-              value={fact.value}
-              suffix={fact.suffix}
-            />{:else}{fact.value}{/if}
+          <CampusFactValue {fact} />
         </div>
         <p>{fact.label}</p>
         <Tooltip.Provider delayDuration={150}
@@ -215,6 +221,26 @@
     gap: 12px;
     font-size: 11px;
     color: var(--muted);
+  }
+  .live-context {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+  }
+  .live-students {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+  }
+  .live-students i {
+    width: 5px;
+    height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: 3px;
   }
   .scene-header > span {
     letter-spacing: 0.06em;
@@ -314,6 +340,14 @@
     font-variant-numeric: tabular-nums;
   }
   @media (max-width: 700px) {
+    .scene-header {
+      flex-wrap: wrap;
+    }
+    .live-context {
+      width: 100%;
+      justify-content: space-between;
+    }
+
     .campus-scene {
       min-height: 300px;
       padding: 0;

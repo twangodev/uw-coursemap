@@ -108,6 +108,7 @@ export function madisonLight(now: Date) {
   };
 }
 export interface CampusFact {
+  at?: number;
   id: string;
   value: number | string;
   label: string;
@@ -198,6 +199,7 @@ export function campusFacts(
       facts.push({
         id: "peak",
         value: time(peakAt),
+        at: peakAt,
         label: "today’s busiest moment on the timetable",
         detail: `${peak.toLocaleString()} class meetings scheduled simultaneously. Earliest time is shown if tied.`,
       });
@@ -207,6 +209,7 @@ export function campusFacts(
     facts.push({
       id: "sun",
       value: time(+light.event),
+      at: +light.event,
       label:
         light.eventName === "Sunset"
           ? "sunset over Madison. See you by the lake."

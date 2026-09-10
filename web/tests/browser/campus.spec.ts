@@ -62,7 +62,9 @@ test("campus facts show estimated enrollment over a local map, with accessible c
   );
   await expect(scene).toContainText("students scheduled in class right now");
   await expect(
-    scene.getByRole("img", { name: "20,350", exact: true }),
+    scene
+      .locator(".fact-value")
+      .getByRole("img", { name: "20,350", exact: true }),
   ).toBeVisible();
   await expect(page.locator(".campus-map")).toBeVisible();
   await expect(
@@ -79,6 +81,14 @@ test("campus facts show estimated enrollment over a local map, with accessible c
       (el) => el === document.querySelector(".fact-value"),
     ),
   ).toBe(true);
+  await expect(scene.locator(".live-students")).toContainText(
+    "students scheduled now",
+  );
+  for (let i = 0; i < 3; i++)
+    await scene.getByRole("button", { name: "Next campus fact" }).click();
+  await expect(scene.locator(".fact-value .period")).toHaveText("AM");
+  await expect(scene.locator(".fact-value .colon")).toHaveText(":");
+  await expect(scene.locator(".live-students")).toBeVisible();
   await page.setViewportSize({ width: 390, height: 844 });
   expect(
     await page.evaluate(
