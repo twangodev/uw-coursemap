@@ -275,6 +275,14 @@ test("inline citations show original comments without expanding the page", async
   await expect(sources.getByRole("link", { name: "View RMP profile" }).first()).toHaveAttribute("href", /^https:\/\/www.ratemyprofessors.com\/professor\//);
   expect((await page.locator("#overview").boundingBox())?.height).toBe(before?.height);
   await expect(sources.locator("pre")).toHaveCount(0);
+  const firstComment = await sources.locator("blockquote").textContent();
+  await expect(sources.locator(".source-entry")).toHaveCount(1);
+  await expect(sources.getByRole("button", { name: "Previous source", exact: true })).toBeDisabled();
+  await sources.getByRole("button", { name: "Next source", exact: true }).click();
+  await expect(sources.locator("blockquote")).not.toHaveText(firstComment!);
+  await sources.getByRole("button", { name: "Previous source", exact: true }).click();
+  await expect(sources.locator("blockquote")).toHaveText(firstComment!);
+  await expect(sources.getByRole("link", { name: "All sources", exact: true })).toBeInViewport();
   await page.keyboard.press("Escape");
   await expect(sources).toHaveCount(0);
   await expect(trigger).toBeFocused();
