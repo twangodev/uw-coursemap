@@ -92,7 +92,7 @@
 </main>
 {#if !fullscreenMap}<footer class="page row between">
   <div>
-    <p class="site-credit">Made by <a href="https://twango.dev/?ref=uwcourses">James Ding</a> and <a href="https://github.com/twangodev/uw-coursemap/graphs/contributors">contributors</a>.</p>
+    <p class="site-credit">Made by <a href="https://twango.dev/?utm_source=uwcourses.com">James Ding</a> and <a href="https://github.com/twangodev/uwcourses/graphs/contributors">contributors</a>.</p>
     <p class="muted">
       Not affiliated with or endorsed by the University of Wisconsin–Madison.
     </p>
