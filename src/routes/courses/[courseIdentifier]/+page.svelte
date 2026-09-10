@@ -21,6 +21,7 @@
   import Panel from "$lib/components/Panel.svelte";
   import Claims from "$lib/components/Claims.svelte";
   import RotatingClaims from "$lib/components/RotatingClaims.svelte";
+  import CourseSources from "$lib/components/CourseSources.svelte";
   import Evidence from "$lib/components/Evidence.svelte";
   import InstructorStats from "$lib/components/InstructorStats.svelte";
   import CourseContext from "$lib/components/CourseContext.svelte";
@@ -440,49 +441,7 @@
     </Panel>
     {#if data.context}<CourseContext context={data.context} subjects={c.subjects} {scope} onScopeChange={(value) => comparisonScope = value} term={selectedGradeTerm} />{/if}
     <Panel title="Sources & history" id="evidence">
-      <details>
-        <summary>Selected offering source records</summary>
-        <pre>{JSON.stringify(selectedOfferings, null, 2)}</pre>
-      </details>
-      <Evidence
-        title="Catalog observation history"
-        files={c.evidence.history || []}
-        description="These are observations at scan time, not inferred catalog validity periods."
-      /><Evidence
-        title="Student reviews"
-        files={c.evidence.reviews || []}
-      /><Evidence
-        title="LLM outputs across runs"
-        files={c.evidence.results || []}
-      /><Evidence
-        title="Full model traces"
-        files={c.evidence.traces || []}
-        description="Includes the recorded model configuration, reasoning and tool conversation where available."
-      />{#if c.catalog_variants?.length}<details>
-          <summary>Cross-listed catalog records</summary>
-          <pre>{JSON.stringify(c.catalog_variants, null, 2)}</pre>
-        </details>{/if}
-      <details>
-        <summary>Model & dataset provenance</summary>
-        <pre>{JSON.stringify(
-            {
-              model: c.llm_model,
-              model_revision: c.llm_model_revision,
-              task_version: c.llm_task_version,
-              output_id: c.llm_output_id,
-              requirements_status: c.llm_requirements_status,
-              dataset_revision: c.revision,
-              observed_at: c.observed_at,
-            },
-            null,
-            2,
-          )}</pre>
-      </details>
-      <a
-        class="mono"
-        href={`https://huggingface.co/datasets/${data.status.repository}/tree/${c.revision}`}
-        >Download the original dataset ↗</a
-      >
+      <CourseSources course={c} offerings={selectedOfferings} repository={data.status.repository} />
     </Panel>
   </div>
 </div>

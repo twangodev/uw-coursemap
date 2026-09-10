@@ -9,9 +9,9 @@ import unittest
 import pyarrow as pa
 import pyarrow.parquet as pq
 
-from uw_coursemap.history import ENRICHMENT_SCHEMA, write_course
-from uw_coursemap.models import canonical
-from uw_coursemap.public_data import (
+from uwcourses.history import ENRICHMENT_SCHEMA, write_course
+from uwcourses.models import canonical
+from uwcourses.public_data import (
     SCHEMAS,
     catalog_record,
     dataset_card,
@@ -20,7 +20,7 @@ from uw_coursemap.public_data import (
     write_rows,
     selected_enrichments,
 )
-from uw_coursemap.release import PUBLIC_SCHEMA, write_parquet
+from uwcourses.release import PUBLIC_SCHEMA, write_parquet
 
 
 class PublicDataTests(unittest.TestCase):
@@ -233,7 +233,7 @@ class PublicDataTests(unittest.TestCase):
         self.assertIsNone(row["llm_summary"])
 
     def test_empty_and_missing_trees_always_have_a_display_node(self):
-        from uw_coursemap.public_data import display_requirements_ast
+        from uwcourses.public_data import display_requirements_ast
 
         for raw in (None, canonical({"status": "none", "nodes": [], "root": None})):
             for text in ("", "Instructor consent"):
@@ -252,7 +252,7 @@ class PublicDataTests(unittest.TestCase):
                     self.assertTrue(ast["nodes"][0]["condition"])
 
     def test_slim_release_is_verified_repeatable_and_references_archive(self):
-        from uw_coursemap.release import checksum, verify_release
+        from uwcourses.release import checksum, verify_release
         import shutil
 
         archive = self.root / "releases" / "archive-test"

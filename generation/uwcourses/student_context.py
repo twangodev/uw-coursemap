@@ -5,7 +5,7 @@ from functools import lru_cache
 import json
 import re
 
-from uw_coursemap.name_matcher import (
+from uwcourses.name_matcher import (
     find_best_name_match,
     HumanName,
     normalize_name_component,

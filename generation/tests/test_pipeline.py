@@ -14,22 +14,22 @@ from types import SimpleNamespace
 import pyarrow.parquet as pq
 from scrapy.http import Request, Response
 
-from uw_coursemap.models import canonical
-from uw_coursemap.store import SOURCES, Store
-from uw_coursemap.spiders import (
+from uwcourses.models import canonical
+from uwcourses.store import SOURCES, Store
+from uwcourses.spiders import (
     CatalogSpider,
     EnrollmentSpider,
     MadgradesSpider,
     InstructorSpider,
 )
-from uw_coursemap.release import (
+from uwcourses.release import (
     validate,
     write_database,
     write_parquet,
     verify_release,
     publish,
 )
-from uw_coursemap.reconcile import reconcile, encode_state
+from uwcourses.reconcile import reconcile, encode_state
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
@@ -277,10 +277,10 @@ class PipelineTests(unittest.TestCase):
             "payload": value,
             "source_url": "https://example.org",
         }
-        with patch("uw_coursemap.store.now", return_value="2026-01-01T00:00:00+00:00"):
+        with patch("uwcourses.store.now", return_value="2026-01-01T00:00:00+00:00"):
             self.store.put(self.run, "catalog", item)
         value["description"] = "Updated catalog description"
-        with patch("uw_coursemap.store.now", return_value="2026-02-01T00:00:00+00:00"):
+        with patch("uwcourses.store.now", return_value="2026-02-01T00:00:00+00:00"):
             self.store.put(self.run, "catalog", item)
         row = self.store.db.execute(
             "SELECT observed_at,payload_json FROM observations WHERE run_id=? AND source='catalog' AND kind='courses' AND entity_id=?",
@@ -486,8 +486,8 @@ class PipelineTests(unittest.TestCase):
         url = f"http://127.0.0.1:{server.server_port}/courses/comp_sci/"
         code = """
 import sys
-from uw_coursemap.spiders import CatalogSpider, SPIDERS
-from uw_coursemap.crawl import crawl
+from uwcourses.spiders import CatalogSpider, SPIDERS
+from uwcourses.crawl import crawl
 class FixtureSpider(CatalogSpider):
     allowed_domains = ["127.0.0.1"]
     custom_settings = {"AUTOTHROTTLE_ENABLED": False, "DOWNLOAD_DELAY": 0}
@@ -536,8 +536,8 @@ crawl(sys.argv[1], sys.argv[2], "catalog", offline=len(sys.argv) > 4)
 
     def test_real_scrapy_offline_resume(self):
         from scrapy.settings import Settings
-        from uw_coursemap.crawl import ArchiveMiddleware
-        from uw_coursemap.cli import execute_source
+        from uwcourses.crawl import ArchiveMiddleware
+        from uwcourses.cli import execute_source
 
         crawler = SimpleNamespace(
             pipeline_store=self.store,
@@ -570,7 +570,7 @@ crawl(sys.argv[1], sys.argv[2], "catalog", offline=len(sys.argv) > 4)
 
     def test_archive_reuses_body_without_request_credentials(self):
         from scrapy.settings import Settings
-        from uw_coursemap.crawl import ArchiveMiddleware
+        from uwcourses.crawl import ArchiveMiddleware
 
         crawler = SimpleNamespace(
             pipeline_store=self.store,

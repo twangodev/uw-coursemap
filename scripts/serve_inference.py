@@ -18,7 +18,7 @@ def main():
     parser.add_argument("--profile", default="enrichment")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
-    from uw_coursemap.profiles import load_profile
+    from uwcourses.profiles import load_profile
     from urllib.parse import urlparse
 
     try:

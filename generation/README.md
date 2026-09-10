@@ -4,17 +4,17 @@ Run from the project root with Python 3.12 and `uv sync --locked`. Scraping,
 processing, and publication are independent commands with persistent checkpoints.
 Run these manually on the local machine each semester; GitHub Actions does not
 scrape or publish datasets. Published data lives on
-[Hugging Face](https://huggingface.co/datasets/twangodev/uw-coursemap).
+[Hugging Face](https://huggingface.co/datasets/twangodev/uwcourses).
 
 ```sh
-export COURSEMAP_WORKSPACE=/path/to/persistent/coursemap
+export UWCOURSES_WORKSPACE=/path/to/persistent/uwcourses
 export MADGRADES_API_KEY=...
-uv run coursemap scrape --semester 1272
-uv run coursemap status RUN_ID
-uv run coursemap resume RUN_ID
-uv run coursemap release RUN_ID
+uv run uwcourses scrape --semester 1272
+uv run uwcourses status RUN_ID
+uv run uwcourses resume RUN_ID
+uv run uwcourses release RUN_ID
 export HF_TOKEN=...
-uv run coursemap publish RELEASE_ID --repo OWNER/DATASET
+uv run uwcourses publish RELEASE_ID --repo OWNER/DATASET
 ```
 
 Use UW's four-digit enrollment term code. Scraping collects the catalog, Madgrades
@@ -30,7 +30,7 @@ To fill instructor data for an existing snapshot without re-scraping its catalog
 grades, or enrollment, create a new snapshot:
 
 ```sh
-uv run coursemap refresh-instructors RUN_ID
+uv run uwcourses refresh-instructors RUN_ID
 ```
 
 `--source-workspace PATH` can read an existing snapshot into a separate destination
@@ -52,8 +52,8 @@ in flight, 16 per domain, with adaptive throttling targeting 8 per domain and a
 Changed parser code requires a new snapshot. To reuse archived responses:
 
 ```sh
-uv run coursemap replay OLD_RUN_ID --source catalog
-uv run coursemap resume NEW_RUN_ID
+uv run uwcourses replay OLD_RUN_ID --source catalog
+uv run uwcourses resume NEW_RUN_ID
 ```
 
 Replay runs sources up through the selected source offline; missing archived
@@ -66,16 +66,16 @@ Model profiles live in `inference/models.toml`. Pin the selected profiles once;
 both clients and server launchers use the resulting JSON file:
 
 ```sh
-uv run coursemap models-lock --models-config inference/models.toml \
+uv run uwcourses models-lock --models-config inference/models.toml \
   --profile enrichment \
-  --output "$COURSEMAP_WORKSPACE/models.lock.json"
+  --output "$UWCOURSES_WORKSPACE/models.lock.json"
 ```
 
 Start the generation server for the chosen profile:
 
 ```sh
-uv run python scripts/serve_inference.py --workspace "$COURSEMAP_WORKSPACE" \
-  --models-config "$COURSEMAP_WORKSPACE/models.lock.json" --profile enrichment
+uv run python scripts/serve_inference.py --workspace "$UWCOURSES_WORKSPACE" \
+  --models-config "$UWCOURSES_WORKSPACE/models.lock.json" --profile enrichment
 ```
 
 The separate `inference/` uv project locks vLLM and its GPU dependencies. Servers
@@ -96,10 +96,10 @@ changed defaults. Run one generation profile at a time.
 For generative enrichment, start with a stable sample of 100 courses:
 
 ```sh
-uv run coursemap enrich RUN_ID --models-config "$COURSEMAP_WORKSPACE/models.lock.json" \
+uv run uwcourses enrich RUN_ID --models-config "$UWCOURSES_WORKSPACE/models.lock.json" \
   --task inference/tasks/course_profiles.json --limit 100
-uv run coursemap job-status ENRICHMENT_ID
-uv run coursemap enrich-resume ENRICHMENT_ID
+uv run uwcourses job-status ENRICHMENT_ID
+uv run uwcourses enrich-resume ENRICHMENT_ID
 ```
 
 `--prepare-only` creates a job without contacting inference; `--limit 0` selects
@@ -118,8 +118,8 @@ the cache identity. Completed jobs cannot be silently overwritten.
 Explicitly select optional outputs for a release:
 
 ```sh
-uv run coursemap release RUN_ID --enrichment ENRICHMENT_ID
-uv run coursemap publish RELEASE_ID --repo OWNER/DATASET
+uv run uwcourses release RUN_ID --enrichment ENRICHMENT_ID
+uv run uwcourses publish RELEASE_ID --repo OWNER/DATASET
 ```
 
 Repeat `--enrichment` to attach multiple completed jobs. Partial or failed jobs
@@ -134,9 +134,9 @@ For combined search metadata, requirements, and evidence-backed student experien
 use `inference/tasks/course_enrichment.json` with the `enrichment-unified` profile:
 
 ```sh
-uv run coursemap models-lock --models-config inference/models.toml \
-  --profile enrichment-unified --output "$COURSEMAP_WORKSPACE/unified-models.lock.json"
-uv run coursemap enrich RUN_ID --models-config "$COURSEMAP_WORKSPACE/unified-models.lock.json" \
+uv run uwcourses models-lock --models-config inference/models.toml \
+  --profile enrichment-unified --output "$UWCOURSES_WORKSPACE/unified-models.lock.json"
+uv run uwcourses enrich RUN_ID --models-config "$UWCOURSES_WORKSPACE/unified-models.lock.json" \
   --profile enrichment-unified --task inference/tasks/course_enrichment.json \
   --course "CS 300" --course "CS/ECE 759"
 ```
@@ -169,13 +169,13 @@ Dataset exports include all sections and rejected candidates in
 `enrichment_sections`, with the model name and immutable revision. Full results
 retain settings, task/worker versions, lookup traces, dependencies, history, and
 source requirements. The dataset card lists the exact generation model strings.
-To select these outputs, use `coursemap release RUN_ID --enrichment JOB_ID`.
+To select these outputs, use `uwcourses release RUN_ID --enrichment JOB_ID`.
 
 Lock the `requirements` profile and launch it using the same model-server command.
 It uses Qwen3.6-35B-A3B-NVFP4 with a 16K context and 4K output budget:
 
 ```sh
-uv run coursemap enrich RUN_ID --models-config "$COURSEMAP_WORKSPACE/qwen-models.lock.json" \
+uv run uwcourses enrich RUN_ID --models-config "$UWCOURSES_WORKSPACE/qwen-models.lock.json" \
   --profile requirements --task inference/tasks/requirements.json --limit 100
 ```
 
@@ -201,8 +201,8 @@ not an estimate of catalog-wide accuracy.
 
 ```sh
 uv run python scripts/evaluate_requirements.py \
-  --models-config "$COURSEMAP_WORKSPACE/qwen-models.lock.json" \
-  --output "$COURSEMAP_WORKSPACE/audits/requirements-eval.json"
+  --models-config "$UWCOURSES_WORKSPACE/qwen-models.lock.json" \
+  --output "$UWCOURSES_WORKSPACE/audits/requirements-eval.json"
 ```
 
 ## Storage and Hugging Face
@@ -267,8 +267,8 @@ the candidate roster, and ties use stable candidate ordering.
 ## One-time backfill
 
 ```sh
-uv run python scripts/backfill_legacy.py --repository /path/to/uw-coursemap/data \
-  --workspace "$COURSEMAP_WORKSPACE" --all
+uv run python scripts/backfill_legacy.py --repository /path/to/uwcourses/data \
+  --workspace "$UWCOURSES_WORKSPACE" --all
 ```
 
 Without `--all`, imports HEAD only. Each Git commit imports atomically and is safe
@@ -312,7 +312,7 @@ To build a small public release from an existing verified archive without copyin
 its SQLite/history tables or running inference:
 
 ```bash
-uv run coursemap --workspace "$COURSEMAP_WORKSPACE" public-export RELEASE_ID
+uv run uwcourses --workspace "$UWCOURSES_WORKSPACE" public-export RELEASE_ID
 ```
 
 This writes a separate checksummed release with the archive ID and manifest hash.
@@ -323,7 +323,7 @@ does not generate static JSON shards, maps, sitemaps, or website graphs.
 Resume inference with a scheduling override (1–512 concurrent client workers):
 
 ```bash
-uv run coursemap --workspace "$COURSEMAP_WORKSPACE" enrich-resume JOB_ID --concurrency 384
+uv run uwcourses --workspace "$UWCOURSES_WORKSPACE" enrich-resume JOB_ID --concurrency 384
 ```
 
 This preserves the job's model/task configuration and completed checkpoints;
@@ -333,7 +333,7 @@ fresh outputs record `provenance.client_concurrency`. The vLLM server's
 Rejected sections can be repaired in a separate, resumable conversation job:
 
 ```bash
-uv run coursemap --workspace "$COURSEMAP_WORKSPACE" enrich-repair PARENT_JOB_ID \
+uv run uwcourses --workspace "$UWCOURSES_WORKSPACE" enrich-repair PARENT_JOB_ID \
   --models-config models.lock.json --profile enrichment-unified --limit 20 --turns 3
 ```
 
@@ -380,7 +380,7 @@ Plain JSON final submissions use PydanticAI TextOutput and the same section
 validators when vLLM does not return a tool-call envelope. This fallback never
 executes tools described in text.
 
-Use `coursemap --workspace PATH job-report JOB_ID` for a read-only snapshot of
+Use `uwcourses --workspace PATH job-report JOB_ID` for a read-only snapshot of
 completion counts, section quality, failure categories, truncation recoveries,
 recorded usage, and verification that retained sections were unchanged. A
 completed job can still contain rejected or review-required sections.
@@ -413,7 +413,7 @@ Sentiment themes include deterministic `scope` metadata (cited instructors and r
 Parquet-only HF publication
 --------------------------
 
-`uv run coursemap publish RELEASE_ID --repo twangodev/uw-coursemap --parquet-only`
+`uv run uwcourses publish RELEASE_ID --repo twangodev/uwcourses --parquet-only`
 uploads public and archive Parquet tables, the minimal dataset card, manifest, and
 `sync.json` together. It verifies remote sizes and hashes. The SQLite source archive stays local. Sync metadata identifies the release and manifest checksum,
 so it survives a later repository-history squash.

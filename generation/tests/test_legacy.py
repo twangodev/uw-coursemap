@@ -5,9 +5,9 @@ import subprocess
 import tempfile
 import unittest
 
-from uw_coursemap.legacy import import_revision
-from uw_coursemap.release import validate, write_database
-from uw_coursemap.store import Store
+from uwcourses.legacy import import_revision
+from uwcourses.release import validate, write_database
+from uwcourses.store import Store
 
 
 class LegacyTests(unittest.TestCase):

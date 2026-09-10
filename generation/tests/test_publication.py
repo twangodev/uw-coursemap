@@ -6,8 +6,8 @@ from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
-from uw_coursemap.publication import publish_parquet
-from uw_coursemap.release import checksum
+from uwcourses.publication import publish_parquet
+from uwcourses.release import checksum
 
 
 class PublicationTests(unittest.TestCase):
@@ -85,9 +85,7 @@ class PublicationTests(unittest.TestCase):
 
     def publish(self):
         with (
-            patch(
-                "uw_coursemap.publication.verify_release", return_value=self.manifest
-            ),
+            patch("uwcourses.publication.verify_release", return_value=self.manifest),
             patch("huggingface_hub.DatasetCard.validate"),
         ):
             return publish_parquet(

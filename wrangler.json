@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "uw-coursemap",
+  "name": "uwcourses",
   "main": ".svelte-kit/cloudflare/_worker.js",
   "compatibility_date": "2026-09-08",
   "compatibility_flags": [
@@ -16,7 +16,7 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "uw-coursemap",
+      "database_name": "uwcourses",
       "database_id": "acb149f1-0a7e-454e-bb38-69f0de086ba2"
     }
   ]

@@ -3,8 +3,8 @@ from logging import getLogger
 from zoneinfo import ZoneInfo
 
 
-from uw_coursemap.course import Course
-from uw_coursemap.enrollment_data import EnrollmentData, TermData
+from uwcourses.course import Course
+from uwcourses.enrollment_data import EnrollmentData, TermData
 
 
 logger = getLogger(__name__)

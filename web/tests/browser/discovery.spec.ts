@@ -18,7 +18,7 @@ test("department overview stays historical while finder and term statistics chan
   );
   await overview.screenshot({
     animations: "disabled",
-    path: "/tmp/uw-coursemap-design-audit/department-overview.png",
+    path: "/tmp/uwcourses-design-audit/department-overview.png",
   });
   await page.getByRole("button", { name: "Term", exact: true }).click();
   await page.getByRole("option", { name: "Spring 2026", exact: true }).click();
@@ -54,7 +54,7 @@ test("instructor reviews show original comments, paginate and filter by course",
   await expect(reviews).toContainText("Original student reviews");
   await reviews.screenshot({
     animations: "disabled",
-    path: "/tmp/uw-coursemap-design-audit/instructor-reviews.png",
+    path: "/tmp/uwcourses-design-audit/instructor-reviews.png",
   });
   await reviews
     .getByRole("button", { name: "Read more reviews", exact: true })

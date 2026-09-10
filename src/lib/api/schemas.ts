@@ -261,7 +261,15 @@ export const mapDataSchema = named(
 );
 export const homeDataSchema = named(
   "HomeData",
-  z.object({ courses: z.array(courseCardSchema) }),
+  z.object({
+    courses: z.array(courseCardSchema),
+    campus: z.object({
+      timezone: z.literal("America/Chicago"),
+      from: string.nullable(),
+      through: string.nullable(),
+      assetBase: string,
+    }),
+  }),
 );
 export const directoryDataSchema = named("DirectoryData", z.object({}));
 export const dataSchemas = {
@@ -319,6 +327,18 @@ export type SearchDocument = z.infer<typeof documentSchemas.Search>;
 export type PublicDocument = {
   [K in DocumentKind]: z.infer<(typeof documentSchemas)[K]>;
 }[DocumentKind];
+
+export const weatherSchema = named(
+  "Weather",
+  z.object({
+    available: z.boolean(),
+    temperatureF: z.number().nullable(),
+    description: z.string().nullable(),
+    observedAt: z.string().nullable(),
+    source: z.string(),
+    sourceUrl: z.string(),
+  }),
+);
 
 export const interactionSchemas = {
   Status: datasetSchema,

@@ -4,7 +4,7 @@ import sqlite3
 import tempfile
 import unittest
 
-from uw_coursemap.job_report import report
+from uwcourses.job_report import report
 
 
 class ReportTests(unittest.TestCase):

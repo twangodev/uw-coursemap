@@ -199,6 +199,23 @@ export function openapiSpec() {
       },
     };
   }
+  paths["/api/weather"] = {
+    get: {
+      operationId: "madisonWeather",
+      summary: "Cached Madison weather observations",
+      responses: {
+        "200": {
+          description:
+            "Current observations, or available=false when unavailable or stale.",
+          content: {
+            "application/json": {
+              schema: { $ref: "#/components/schemas/Weather" },
+            },
+          },
+        },
+      },
+    },
+  };
   const { schemas } = z.toJSONSchema(registry, {
     uri: (id) => "#/components/schemas/" + id,
   });

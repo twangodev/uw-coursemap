@@ -8,13 +8,13 @@ from unittest.mock import patch
 from scrapy import Request
 from scrapy.http import TextResponse
 
-from uw_coursemap.cli import main
-from uw_coursemap.course_context import CourseContext
-from uw_coursemap.lifecycle import prepare_instructor_refresh
-from uw_coursemap.ratings import SCHOOL_ID, course_reviews, matched_teacher
-from uw_coursemap.release import validate
-from uw_coursemap.spiders import InstructorSpider
-from uw_coursemap.store import Store, SOURCES
+from uwcourses.cli import main
+from uwcourses.course_context import CourseContext
+from uwcourses.lifecycle import prepare_instructor_refresh
+from uwcourses.ratings import SCHOOL_ID, course_reviews, matched_teacher
+from uwcourses.release import validate
+from uwcourses.spiders import InstructorSpider
+from uwcourses.store import Store, SOURCES
 import test_pipeline
 
 
@@ -70,8 +70,8 @@ class RatingTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as root:
             with (
                 patch.dict("os.environ", {"MADGRADES_API_KEY": "fixture"}),
-                patch("uw_coursemap.cli.execute", return_value={}),
-                patch("uw_coursemap.cli.shutil.disk_usage") as disk,
+                patch("uwcourses.cli.execute", return_value={}),
+                patch("uwcourses.cli.shutil.disk_usage") as disk,
             ):
                 disk.return_value.free = 20 * 1024**3
                 main(["--workspace", root, "scrape", "--semester", "1272"])

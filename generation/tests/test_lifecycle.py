@@ -6,13 +6,13 @@ import unittest
 from unittest.mock import patch
 
 import test_pipeline
-from uw_coursemap.cli import code_hash
-from uw_coursemap.jobs import Jobs
-from uw_coursemap.lifecycle import scrape, release
-from uw_coursemap.models import canonical
-from uw_coursemap.profiles import ModelProfile, load_profile, lock_profiles
-from uw_coursemap.release import verify_release, publish
-from uw_coursemap.store import Store, SOURCES
+from uwcourses.cli import code_hash
+from uwcourses.jobs import Jobs
+from uwcourses.lifecycle import scrape, release
+from uwcourses.models import canonical
+from uwcourses.profiles import ModelProfile, load_profile, lock_profiles
+from uwcourses.release import verify_release, publish
+from uwcourses.store import Store, SOURCES
 
 
 class LifecycleTests(unittest.TestCase):
@@ -69,13 +69,13 @@ class LifecycleTests(unittest.TestCase):
         return scrape(self.store, self.run)
 
     def create_job(self, jobs, run=None):
-        with patch("uw_coursemap.jobs.load_profile", return_value=self.profile):
+        with patch("uwcourses.jobs.load_profile", return_value=self.profile):
             return jobs.create(
                 run or self.run, "unused", "enrichment", self.task, limit=0
             )
 
     def test_historical_graph_state_remains_readable(self):
-        from uw_coursemap.release import snapshot_state
+        from uwcourses.release import snapshot_state
 
         self.core()
         original = snapshot_state(self.store, self.run)
@@ -88,7 +88,7 @@ class LifecycleTests(unittest.TestCase):
 
     def test_cli_has_no_website_build_commands(self):
         import io
-        from uw_coursemap.cli import parser
+        from uwcourses.cli import parser
 
         cli = parser()
         for argv in (
@@ -115,7 +115,7 @@ class LifecycleTests(unittest.TestCase):
             task["schema"] = {}
             self.task.write_text(canonical(task))
             with (
-                patch("uw_coursemap.jobs.load_profile", return_value=self.profile),
+                patch("uwcourses.jobs.load_profile", return_value=self.profile),
                 self.assertRaisesRegex(ValueError, "Reuse requires unified"),
             ):
                 jobs.create(
@@ -132,7 +132,7 @@ class LifecycleTests(unittest.TestCase):
             jobs.close()
 
     def test_explicit_repair_selection_ignores_sample_limit(self):
-        from uw_coursemap.repair import create_repair
+        from uwcourses.repair import create_repair
 
         self.core()
         jobs = Jobs(self.root)
@@ -173,7 +173,7 @@ class LifecycleTests(unittest.TestCase):
                 )
             ]
             self.assertGreater(len(selected), 1)
-            with patch("uw_coursemap.repair.load_profile", return_value=self.profile):
+            with patch("uwcourses.repair.load_profile", return_value=self.profile):
                 repair = create_repair(
                     jobs, parent, "unused", "enrichment", limit=1, course_ids=selected
                 )
@@ -188,7 +188,7 @@ class LifecycleTests(unittest.TestCase):
             jobs.close()
 
     def test_partial_summary_reuse_freezes_completed_results(self):
-        from uw_coursemap.student_summary import summary_seeds
+        from uwcourses.student_summary import summary_seeds
 
         self.core()
         jobs = Jobs(self.root)
@@ -224,8 +224,8 @@ class LifecycleTests(unittest.TestCase):
             task["workflow"] = "student_summary_v1"
             self.task.write_text(canonical(task))
             with (
-                patch("uw_coursemap.jobs.load_profile", return_value=self.profile),
-                patch("uw_coursemap.student_context.StudentContext") as context,
+                patch("uwcourses.jobs.load_profile", return_value=self.profile),
+                patch("uwcourses.student_context.StudentContext") as context,
             ):
                 context.return_value.get.return_value = {"course_id": "COMPSCI 300"}
 
@@ -315,7 +315,7 @@ class LifecycleTests(unittest.TestCase):
                 return {"summary": "Programming"}, {}
 
             with patch(
-                "uw_coursemap.jobs.ThreadPoolExecutor", wraps=ThreadPoolExecutor
+                "uwcourses.jobs.ThreadPoolExecutor", wraps=ThreadPoolExecutor
             ) as pool:
                 jobs.run(
                     job,
@@ -358,7 +358,7 @@ class LifecycleTests(unittest.TestCase):
                 raise RuntimeError("unavailable")
             store.stage(run, source, "complete")
 
-        with patch("uw_coursemap.cli.execute_source", side_effect=worker):
+        with patch("uwcourses.cli.execute_source", side_effect=worker):
             with self.assertRaisesRegex(RuntimeError, "madgrades"):
                 scrape(self.store, self.run)
         self.assertEqual(called, list(SOURCES[:3]))
@@ -368,7 +368,7 @@ class LifecycleTests(unittest.TestCase):
             called.append(source)
             store.stage(run, source, "complete")
 
-        with patch("uw_coursemap.cli.execute_source", side_effect=resume):
+        with patch("uwcourses.cli.execute_source", side_effect=resume):
             scrape(self.store, self.run)
         self.assertEqual(called, ["madgrades"])
 
@@ -429,7 +429,7 @@ class LifecycleTests(unittest.TestCase):
 
     def test_unified_dependency_cache_and_dataset_sections(self):
         from pathlib import Path
-        from uw_coursemap.course_context import CourseContext
+        from uwcourses.course_context import CourseContext
 
         task = (
             Path(__file__).resolve().parents[2]
@@ -464,7 +464,7 @@ class LifecycleTests(unittest.TestCase):
                 )
                 self.store.finish(run)
                 context = CourseContext(self.store, run)
-                with patch("uw_coursemap.jobs.load_profile", return_value=self.profile):
+                with patch("uwcourses.jobs.load_profile", return_value=self.profile):
                     job = jobs.create(
                         run, "unused", "unified", task, course_ids=["CS 300"]
                     )
@@ -562,11 +562,11 @@ class LifecycleTests(unittest.TestCase):
             jobs.close()
 
     def test_unresolved_enrollment_hit_preserves_raw_offering(self):
-        from uw_coursemap.reconcile import reconcile
+        from uwcourses.reconcile import reconcile
 
         before = self.store.records(self.run, "offerings")
         self.assertTrue(before)
-        with patch("uw_coursemap.enrollment.apply_enrollment", return_value=None):
+        with patch("uwcourses.enrollment.apply_enrollment", return_value=None):
             *_, unmatched = reconcile(self.store, self.run)
         self.assertEqual(set(unmatched["offerings"]), set(before))
         self.assertEqual(self.store.records(self.run, "offerings"), before)
@@ -580,10 +580,10 @@ class LifecycleTests(unittest.TestCase):
             job = self.create_job(jobs)
             with (
                 patch(
-                    "uw_coursemap.jobs.requests.get",
+                    "uwcourses.jobs.requests.get",
                     side_effect=requests.ConnectionError,
                 ),
-                patch("uw_coursemap.agents.generate_generic") as inference,
+                patch("uwcourses.agents.generate_generic") as inference,
             ):
                 with self.assertRaisesRegex(
                     RuntimeError, "Inference server unavailable"
@@ -595,7 +595,7 @@ class LifecycleTests(unittest.TestCase):
             jobs.close()
 
     def test_http_limits_are_configurable_and_keep_backoff(self):
-        from uw_coursemap.crawl import http_settings
+        from uwcourses.crawl import http_settings
 
         settings = http_settings({})
         self.assertEqual(settings["CONCURRENT_REQUESTS"], 32)
@@ -623,7 +623,7 @@ class LifecycleTests(unittest.TestCase):
                 http_settings({"http": limits})
 
     def test_historical_crosslisting_ambiguity_preserves_raw_grades(self):
-        from uw_coursemap.reconcile import reconcile, encode_state
+        from uwcourses.reconcile import reconcile, encode_state
 
         course = self.store.records(self.run, "courses")["COMPSCI 300"]
         course["course_reference"]["subjects"] = ["MUSIC"]
@@ -797,8 +797,8 @@ class LifecycleTests(unittest.TestCase):
             jobs.close()
 
     def test_release_rejects_enrichment_mutated_after_history_selection(self):
-        from uw_coursemap.history import select_enrichments
-        from uw_coursemap.release import write_database
+        from uwcourses.history import select_enrichments
+        from uwcourses.release import write_database
 
         self.core()
         jobs = Jobs(self.root)

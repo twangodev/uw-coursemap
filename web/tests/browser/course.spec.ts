@@ -3,6 +3,8 @@ import { readFile } from "node:fs/promises";
 const numberValues = (locator: Locator) => locator.getByRole("img").evaluateAll((nodes) => nodes.map((node) => node.getAttribute("aria-label")));
 const uid = "course_28c3390ba944d49fd17f7c72";
 test("course reading, citations, graph and theme", async ({ page }) => {
+  // Keep content assertions independent of smooth scrolling; motion has its own suite.
+  await page.emulateMedia({ reducedMotion: "reduce" });
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("/courses/COMPSCI_300");
@@ -15,8 +17,15 @@ test("course reading, citations, graph and theme", async ({ page }) => {
   await expect(page.getByRole("region", { name: "Prerequisite relationships" })).toBeVisible();
   await page.getByLabel("Color theme").selectOption("dark");
   await expect(page.locator("html")).toHaveClass("dark");
-  await page.getByText("Full model traces", { exact: true }).click();
-  await expect(page.getByText("Download part 1").last()).toBeVisible();
+  const technical = page.locator(".technical-sources");
+  await technical.locator(":scope > summary").click();
+  await expect(technical).toHaveJSProperty("open", true);
+  const traces = technical.locator("details").filter({
+    has: page.getByText("Full model traces", { exact: true }),
+  });
+  await traces.locator(":scope > summary").click();
+  await expect(traces).toHaveJSProperty("open", true);
+  await expect(traces.getByRole("link", { name: "Download part 1", exact: true })).toBeVisible();
   await page.screenshot({
     path: "test-results/cs300-dark.png",
     fullPage: true,
@@ -169,7 +178,7 @@ test("course context, projection and captured instructor ratings remain distinct
   await expect(page.locator("#grades .grade-estimate")).toContainText("Fall 2026");
   await expect(page.locator("#grades .grade-estimate")).toContainText("prediction interval");
   await expect(page.locator(".projection")).toHaveCount(0);
-  await page.locator("#grades").screenshot({ path: "/tmp/uw-coursemap-design-audit/projected-grades.png" });
+  await page.locator("#grades").screenshot({ path: "/tmp/uwcourses-design-audit/projected-grades.png" });
   const hobbes = page
     .locator("#professors article")
     .filter({ hasText: "Hobbes Legault" });
@@ -275,6 +284,14 @@ test("inline citations show original comments without expanding the page", async
   await expect(sources.getByRole("link", { name: "View RMP profile" }).first()).toHaveAttribute("href", /^https:\/\/www.ratemyprofessors.com\/professor\//);
   expect((await page.locator("#overview").boundingBox())?.height).toBe(before?.height);
   await expect(sources.locator("pre")).toHaveCount(0);
+  const firstComment = await sources.locator("blockquote").textContent();
+  await expect(sources.locator(".source-entry")).toHaveCount(1);
+  await expect(sources.getByRole("button", { name: "Previous source", exact: true })).toBeDisabled();
+  await sources.getByRole("button", { name: "Next source", exact: true }).click();
+  await expect(sources.locator("blockquote")).not.toHaveText(firstComment!);
+  await sources.getByRole("button", { name: "Previous source", exact: true }).click();
+  await expect(sources.locator("blockquote")).toHaveText(firstComment!);
+  await expect(sources.getByRole("link", { name: "All sources", exact: true })).toBeInViewport();
   await page.keyboard.press("Escape");
   await expect(sources).toHaveCount(0);
   await expect(trigger).toBeFocused();
@@ -291,13 +308,13 @@ test("grade history fits curved instructor lines and identifies them on hover", 
   await chart.locator(".chart").hover();
   await expect(page.locator(".lc-tooltip-root")).toContainText("Course average");
   await expect(page.locator(".lc-tooltip-root")).not.toContainText("total");
-  await chart.screenshot({ path: "/tmp/uw-coursemap-design-audit/all-instructor-trends.png" });
+  await chart.screenshot({ path: "/tmp/uwcourses-design-audit/all-instructor-trends.png" });
 });
 
 test("term selection updates context, roster, history and snapshot availability", async ({ page }) => {
   await page.goto("/courses/COMPSCI_300");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
-  await page.locator(".course-facts").screenshot({ path: "/tmp/uw-coursemap-design-audit/course-details-spaced.png" });
+  await page.locator(".course-facts").screenshot({ path: "/tmp/uwcourses-design-audit/course-details-spaced.png" });
   const term = page.getByRole("button", { name: "Term", exact: true });
   await expect(term).toContainText("Fall 2026");
   const rosterCount = await page.locator("#professors .professor-tile").count();
@@ -401,7 +418,7 @@ test("course-fit charts remain visible for unreleased terms and heading comparis
   await page.getByRole("button", { name: "Comparison group", exact: true }).click();
   await page.getByRole("option", { name: "School · UW–Madison", exact: true }).click();
   await expect(context.getByRole("button", { name: "Course fit comparison", exact: true })).toContainText("UW–Madison");
-  await context.screenshot({ path: "/tmp/uw-coursemap-design-audit/course-fit-comparison.png" });
+  await context.screenshot({ path: "/tmp/uwcourses-design-audit/course-fit-comparison.png" });
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

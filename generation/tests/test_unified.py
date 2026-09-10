@@ -1,11 +1,11 @@
 from pathlib import Path
 import unittest
 
-from uw_coursemap.course_context import CourseLookup, text_view
-from uw_coursemap.models import digest
-from uw_coursemap.tasks import load_task
-from uw_coursemap.requirements import graph_diagnostics
-from uw_coursemap.unified import (
+from uwcourses.course_context import CourseLookup, text_view
+from uwcourses.models import digest
+from uwcourses.tasks import load_task
+from uwcourses.requirements import graph_diagnostics
+from uwcourses.unified import (
     compare_parsers,
     source_quote,
     validate_section,
@@ -508,7 +508,7 @@ class UnifiedTests(unittest.TestCase):
             )
 
     def test_review_handles_resolve_exactly_and_retain_original_ids(self):
-        from uw_coursemap.agents import evidence_view
+        from uwcourses.agents import evidence_view
 
         self.root["reviews"] = [
             {
