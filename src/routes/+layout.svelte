@@ -4,6 +4,7 @@
   import { pageSeo, jsonLd } from "$lib/seo";
   import { Sun, Moon, Monitor } from "@lucide/svelte";
   import { page } from "$app/state";
+  import { dev } from "$app/environment";
   import { onMount } from "svelte";
   let { data, children } = $props();
   let seo = $derived(pageSeo(page.data, page.url.pathname, page.status));
@@ -41,6 +42,9 @@
 </script>
 
 <svelte:head>
+  {#if !dev && ["https://uwcourses.com", "https://www.uwcourses.com", "https://uwcourses.twango.workers.dev"].includes(page.url.origin)}
+    <script src="https://rybbit.twango.dev/api/script.js" data-site-id="1" defer></script>
+  {/if}
   <link rel="service-desc" type="application/vnd.oai.openapi+json" href="https://uwcourses.com/openapi.json" />
   <title>{seo.title}</title>
   <meta name="description" content={seo.description} />
