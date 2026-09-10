@@ -5,7 +5,6 @@
   import { fade } from "svelte/transition";
   import { ArrowRight, Info, Pause, Play } from "@lucide/svelte";
   import AnimatedNumber from "./AnimatedNumber.svelte";
-  import campusMap from "$lib/assets/campus-map.svg";
   import {
     campusDaySchema,
     campusFacts,
@@ -126,7 +125,6 @@
       focused = false;
   }}
 >
-  <img class="campus-map" src={campusMap} alt="" width="900" height="505" />
   <div class="scene-header">
     <span>Meanwhile, in Madison</span><time
       >{now
@@ -200,35 +198,17 @@
         ><ArrowRight size={16} /></button
       >
     </div>
-    <a class="map-credit" href="https://www.openstreetmap.org/copyright"
-      >© OpenStreetMap contributors</a
-    >
   </div>
 </section>
 
 <style>
   .campus-scene {
     position: relative;
-    min-height: 410px;
+    min-height: 340px;
     display: flex;
     flex-direction: column;
     isolation: isolate;
-    padding: 28px 28px 20px;
-  }
-  .campus-map {
-    position: absolute;
-    inset: -25px -65px;
-    width: calc(100% + 130px);
-    height: calc(100% + 50px);
-    object-fit: cover;
-    z-index: -1;
-    opacity: 0.55;
-    pointer-events: none;
-    mask-image: radial-gradient(ellipse at 55% 45%, #000 8%, transparent 72%);
-  }
-  :global(.dark) .campus-map {
-    filter: invert(1);
-    opacity: 0.46;
+    padding: 0;
   }
   .scene-header {
     display: flex;
@@ -248,14 +228,15 @@
   .fact-stage {
     position: relative;
     flex: 1;
-    min-height: 290px;
+    min-height: 270px;
   }
   .fact {
     position: absolute;
     inset: 0;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
     justify-content: center;
   }
   .qualifier {
@@ -264,7 +245,7 @@
     margin-bottom: 8px;
   }
   .fact-value {
-    font-size: clamp(48px, 5.2vw, 72px);
+    font-size: clamp(60px, 7vw, 96px);
     letter-spacing: -0.055em;
     font-weight: 500;
     line-height: 1.08;
@@ -278,7 +259,7 @@
     font-size: 20px;
     letter-spacing: -0.025em;
     line-height: 1.35;
-    max-width: 290px;
+    max-width: 460px;
     margin: 15px 0 12px;
     text-wrap: balance;
   }
@@ -303,7 +284,7 @@
   .scene-footer {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 14px;
   }
   .fact-controls {
@@ -333,26 +314,19 @@
     color: var(--muted);
     font-variant-numeric: tabular-nums;
   }
-  .map-credit {
-    font-size: 9px;
-    color: var(--muted);
-    text-decoration: none;
-  }
   @media (max-width: 700px) {
     .campus-scene {
-      min-height: 340px;
-      padding: 24px 10px 10px;
+      min-height: 300px;
+      padding: 0;
     }
     .fact-stage {
-      min-height: 250px;
-    }
-    .campus-map {
-      inset: 0;
-      width: 100%;
-      height: 100%;
+      min-height: 235px;
     }
     .fact-value {
-      font-size: 58px;
+      font-size: 60px;
+    }
+    p {
+      max-width: 300px;
     }
   }
 </style>

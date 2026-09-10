@@ -53,7 +53,7 @@ test("campus facts show estimated enrollment over a local map, with accessible c
   await expect(
     scene.getByRole("img", { name: "20,350", exact: true }),
   ).toBeVisible();
-  await expect(scene.locator(".campus-map")).toBeVisible();
+  await expect(page.locator(".campus-map")).toBeVisible();
   await scene.getByRole("button", { name: "About this campus fact" }).click();
   await expect(page.getByRole("tooltip")).toContainText("not live attendance");
   await page.keyboard.press("Escape");
@@ -81,7 +81,9 @@ test("campus facts rotate and can be paused", async ({ page }) => {
   await expect(scene).toContainText("classes in session right now");
   await scene.getByRole("button", { name: "Pause campus facts" }).click();
   await page.mouse.move(0, 0);
-  await page.getByRole("heading", { level: 1 }).click();
+  await page
+    .getByRole("combobox", { name: "Search courses or topics" })
+    .focus();
   await page.clock.fastForward(17000);
   await expect(scene).toContainText("classes in session right now");
 });

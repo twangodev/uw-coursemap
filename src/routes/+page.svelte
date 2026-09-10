@@ -2,23 +2,18 @@
   import { ArrowUpRight, Search } from "@lucide/svelte";
   import SearchInput from "$lib/components/SearchInput.svelte";
   import CampusScene from "$lib/components/CampusScene.svelte";
-  import { termName } from "$lib/format";
+  import campusMap from "$lib/assets/campus-map.svg";
   let { data } = $props();
   let departments = $derived(
     [...data.status.departments].sort((a, b) => b.count - a.count).slice(0, 8),
   );
 </script>
 
-<section class="landing">
+<section class="landing" aria-labelledby="landing-title">
+  <h1 id="landing-title" class="sr-only">UW–Madison courses</h1>
+  <img class="campus-map" src={campusMap} alt="" width="900" height="505" />
+  <CampusScene coverage={data.campus} />
   <div class="landing-copy">
-    <p class="semester">
-      <span></span>{termName(data.status.term)} · UW–Madison
-    </p>
-    <h1>See you<br />on the Hill<span class="period">.</span></h1>
-    <p class="landing-description">
-      Find UW–Madison courses for your next semester. Compare grades, get to
-      know your professors, and hear from the students who came before you.
-    </p>
     <form action="/search" class="landing-search">
       <SearchInput
         revision={data.status.revision}
@@ -35,7 +30,9 @@
       ><a href="/search?q=film">film</a>
     </div>
   </div>
-  <div class="landing-art"><CampusScene coverage={data.campus} /></div>
+  <a class="map-credit" href="https://www.openstreetmap.org/copyright"
+    >© OpenStreetMap contributors</a
+  >
 </section>
 <div class="campus-strip">
   <span
@@ -62,42 +59,48 @@
 
 <style>
   .landing {
-    display: grid;
-    grid-template-columns: 1.05fr 1fr;
-    align-items: center;
-    gap: 20px;
-    padding: 58px 0 60px;
-    min-height: 575px;
+    position: relative;
+    isolation: isolate;
+    padding: 30px 0 40px;
   }
-  .semester {
-    font: 12px var(--font-sans);
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .campus-map {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 48%;
+    z-index: -1;
+    opacity: 0.35;
+    pointer-events: none;
+    mask-image: linear-gradient(transparent, #000 20%, #000 70%, transparent);
+  }
+  :global(.dark) .campus-map {
+    filter: invert(1);
+    opacity: 0.24;
+  }
+  .landing-copy {
+    position: relative;
+    width: min(100%, 640px);
+    margin: 0 auto;
+  }
+  .map-credit {
+    display: block;
+    width: fit-content;
+    margin: 24px 0 0 auto;
+    font-size: 9px;
     color: var(--muted);
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin-bottom: 28px;
-  }
-  .semester span {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-  }
-  h1 {
-    font-size: clamp(54px, 6.8vw, 88px);
-    line-height: 0.98;
-    font-weight: 550;
-    letter-spacing: -0.045em;
-  }
-  .period {
-    color: var(--accent);
-  }
-  .landing-description {
-    font-size: 18px;
-    line-height: 1.55;
-    max-width: 445px;
-    margin-top: 26px;
-    color: var(--muted);
+    text-decoration: none;
   }
   .landing-search {
     display: flex;
@@ -106,9 +109,9 @@
     padding: 7px 7px 7px 16px;
     border: 1px solid var(--border);
     border-radius: 6px;
-    margin-top: 30px;
+    margin-top: 12px;
     background: var(--bg);
-    max-width: 530px;
+    width: 100%;
   }
   .landing-search:focus-within {
     border-color: var(--accent);
@@ -131,6 +134,7 @@
   }
   .try-search {
     display: flex;
+    justify-content: center;
     gap: 18px;
     margin-top: 14px;
     font-size: 13px;
@@ -142,9 +146,6 @@
     text-decoration: underline;
     text-decoration-color: var(--border);
     text-underline-offset: 4px;
-  }
-  .landing-art {
-    padding-top: 28px;
   }
   .campus-strip {
     display: flex;
@@ -201,20 +202,11 @@
   }
   @media (max-width: 760px) {
     .landing {
-      grid-template-columns: 1fr;
-      padding: 22px 0 28px;
-      gap: 8px;
+      padding: 20px 0 24px;
     }
-    h1 {
-      font-size: 64px;
-    }
-    .landing-description {
-      font-size: 16px;
-    }
-    .landing-art {
-      width: min(100%, 410px);
-      margin: 0 auto;
-      padding: 0;
+    .campus-map {
+      object-position: 58% center;
+      opacity: 0.35;
     }
     .campus-strip {
       font-size: 13px;
@@ -237,9 +229,6 @@
   @media (prefers-reduced-motion: no-preference) {
     .landing-copy {
       animation: landing-arrive var(--motion-travel) var(--motion-ease) both;
-    }
-    .landing-art {
-      animation: landing-arrive 420ms 40ms var(--motion-ease) both;
     }
     .landing-search button :global(svg) {
       transition: transform 180ms ease;

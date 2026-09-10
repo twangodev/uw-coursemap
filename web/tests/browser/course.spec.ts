@@ -110,7 +110,7 @@ test("home and cross-listed course render on desktop", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto("/");
   await expect(
-    page.getByRole("heading", { name: /on the Hill/ }),
+    page.getByRole("region", { name: "Meanwhile, in Madison" }),
   ).toBeVisible();
   await page.screenshot({ path: "test-results/home.png", fullPage: true });
   await page.goto("/courses/cs-759");
