@@ -124,7 +124,7 @@
 
 <section
   class="campus-scene"
-  aria-label="Meanwhile, in Madison"
+  aria-label="Campus activity"
   onpointerenter={() => (interacting = true)}
   onpointerleave={() => (interacting = false)}
   onfocusin={() => (focused = true)}
@@ -134,7 +134,6 @@
   }}
 >
   <div class="scene-header">
-    <span>Meanwhile, in Madison</span>
     <div class="live-context">
       {#if students}<span class="live-students" title={students.detail}
           ><i></i>≈ <AnimatedNumber value={Number(students.value)} /> students scheduled
@@ -209,7 +208,7 @@
   .scene-header {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 12px;
     font-size: 11px;
     color: var(--muted);
@@ -233,10 +232,6 @@
     background: var(--accent);
     border-radius: 50%;
     margin-right: 3px;
-  }
-  .scene-header > span {
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
   }
   time {
     white-space: nowrap;

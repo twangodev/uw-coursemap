@@ -55,10 +55,7 @@
 </div>
 <section class="discover" aria-labelledby="discover-title">
   <div class="discover-intro">
-    <h2 id="discover-title">Follow your curiosity.</h2>
-    <p class="muted">
-      Start in your department.<br />Or somewhere entirely new.
-    </p>
+    <h2 id="discover-title">Browse departments</h2>
     <a href="/departments">All departments <ArrowUpRight size={14} /></a>
   </div>
   <div class="department-list">
@@ -196,10 +193,6 @@
   }
   .discover h2 {
     font-size: 25px;
-  }
-  .discover-intro p {
-    margin-top: 12px;
-    line-height: 1.6;
   }
   .discover-intro a {
     margin-top: 24px;
