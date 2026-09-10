@@ -1,5 +1,5 @@
 import type { DocumentContext } from "./types";
-import { building } from "$app/environment";
+import { building } from "$lib/server/runtime";
 import { redirect, error } from "@sveltejs/kit";
 import { pageData, query } from "$lib/server/data";
 import { gradeKeys, projectGrades } from "$lib/grade-projection";

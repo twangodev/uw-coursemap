@@ -1,4 +1,4 @@
-import { building } from "$app/environment";
+import { building } from "$lib/server/runtime";
 import { error } from "@sveltejs/kit";
 import { query, status } from "$lib/server/data";
 import {
@@ -12,7 +12,7 @@ import { documentKind, documentSchemas } from "$lib/api/schemas";
 import { pageSeo } from "$lib/seo";
 import { loadSourceDocument } from "./index";
 import { documentAsset } from "./storage";
-import entries from "../../../../.site/entries.json";
+import entries from "../../../../.site/import/entries.json";
 
 let inventory: ReturnType<typeof createInventory> | undefined;
 async function createInventory() {

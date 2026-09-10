@@ -2,7 +2,7 @@ import { expect, it } from "vitest";
 import { DatabaseSync } from "node:sqlite";
 import { courseSchema, instructorSchema } from "../../src/lib/api/schemas";
 it("accepts every imported course and instructor in the pinned dataset", () => {
-  const db = new DatabaseSync(".site/site.sqlite", { readOnly: true });
+  const db = new DatabaseSync(".site/import/site.sqlite", { readOnly: true });
   const errors: string[] = [];
   try {
     for (const [table, schema] of [

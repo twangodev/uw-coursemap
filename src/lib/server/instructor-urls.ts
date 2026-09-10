@@ -1,6 +1,6 @@
 import { instructorSlug } from "$lib/format";
 import { query, status } from "./data";
-import { building, dev } from "$app/environment";
+import { building, dev } from "$lib/server/runtime";
 import { error } from "@sveltejs/kit";
 import { instructorBucket, readAsset } from "./documents/storage";
 

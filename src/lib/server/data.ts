@@ -1,4 +1,4 @@
-import publishedStatus from "../../../.site/status.json";
+import publishedStatus from "../../../.site/import/status.json";
 import { database, localDatabase } from "./database";
 import { courses, instructors } from "./schema";
 import { eq, sql as drizzleSql } from "drizzle-orm";
@@ -9,7 +9,7 @@ import {
 } from "./instructor-ratings";
 import { ratingPriorWeight } from "$lib/instructor-ratings";
 import { isCourseCollection } from "$lib/course-collections";
-import { building, dev } from "$app/environment";
+import { building, dev } from "$lib/server/runtime";
 import { error } from "@sveltejs/kit";
 import { coursePreviews } from "./discovery";
 import { normalize } from "$lib/format";
@@ -39,6 +39,7 @@ export async function status(platform?: App.Platform): Promise<Status> {
   return {
     ...publishedStatus,
     deployed_at: building || dev ? null : platform?.env.DEPLOYED_AT || null,
+    site_commit: building || dev ? null : platform?.env.SITE_COMMIT || null,
   };
 }
 export async function pageData(

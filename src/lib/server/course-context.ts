@@ -5,7 +5,7 @@ import {
   cohortBenchmarks,
   type Benchmarks,
 } from "$lib/grade-benchmarks";
-import { building, dev } from "$app/environment";
+import { building, dev } from "$lib/server/runtime";
 import { query } from "./data";
 import { compareCourse, type PeerCourse } from "$lib/course-context";
 

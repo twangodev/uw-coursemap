@@ -1,5 +1,5 @@
 import { expect, it, vi } from "vitest";
-import publishedStatus from "../../.site/status.json";
+import publishedStatus from "../../.site/import/status.json";
 const { read } = vi.hoisted(() => ({ read: vi.fn() }));
 vi.mock("../../src/lib/server/database", () => ({
   database: () => ({ select: () => ({ from: () => ({ where: read }) }) }),

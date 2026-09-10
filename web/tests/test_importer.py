@@ -67,7 +67,7 @@ class PublicationTests(unittest.TestCase):
                 check_assets(Path(tmp))
 
     def test_built_dataset_integrity(self):
-        db = sqlite3.connect(".site/site.sqlite")
+        db = sqlite3.connect(".site/import/site.sqlite")
         for (raw,) in db.execute("SELECT payload FROM courses"):
             c = json.loads(raw)
             self.assertTrue(c["requirements"]["nodes"])
@@ -76,7 +76,10 @@ class PublicationTests(unittest.TestCase):
             self.assertEqual(c["statistics"], grade_stats(c["grades"]))
             for urls in c["evidence"].values():
                 self.assertTrue(
-                    all((Path("static") / url.lstrip("/")).exists() for url in urls)
+                    all(
+                        (Path(".site/import/assets") / url.lstrip("/")).exists()
+                        for url in urls
+                    )
                 )
         status = json.loads(
             db.execute("SELECT value FROM metadata WHERE key='status'").fetchone()[0]
@@ -93,7 +96,7 @@ class PublicationTests(unittest.TestCase):
         restored = sqlite3.connect(":memory:")
         restored.execute("BEGIN")
         statement = ""
-        for part in sorted(Path(".site/sql").glob("*.sql")):
+        for part in sorted(Path(".site/import/sql").glob("*.sql")):
             self.assertLessEqual(part.stat().st_size, 16 * 1024 * 1024)
             with part.open() as file:
                 for line in file:
@@ -103,7 +106,7 @@ class PublicationTests(unittest.TestCase):
                         restored.execute(statement)
                         statement = ""
         self.assertFalse(statement.strip())
-        source = sqlite3.connect(".site/site.sqlite")
+        source = sqlite3.connect(".site/import/site.sqlite")
         for table in [
             "courses",
             "instructors",

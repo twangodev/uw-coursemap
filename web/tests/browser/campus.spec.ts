@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { expect, test } from "@playwright/test";
 
-const date = JSON.parse(readFileSync(".site/campus.json", "utf8")).from;
+const date = JSON.parse(readFileSync(".site/import/campus.json", "utf8")).from;
 const now = new Date(`${date}T15:00:00Z`);
 async function mockCampus(page: import("@playwright/test").Page) {
   await page.route(`**/campus/**${date}.json`, (route) =>

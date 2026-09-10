@@ -1,7 +1,7 @@
 import { instructorUrls } from "./instructor-urls";
 import { query } from "./data";
 import { adjustInstructorRating } from "$lib/instructor-ratings";
-import { building, dev } from "$app/environment";
+import { building, dev } from "$lib/server/runtime";
 import { error } from "@sveltejs/kit";
 import { readAsset } from "./documents/storage";
 let cached: { revision: string; mean: Promise<number | null> } | undefined;

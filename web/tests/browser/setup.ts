@@ -4,7 +4,7 @@ import { getPlatformProxy } from "wrangler";
 
 /** Copy the full dataset into an isolated local D1, using bounded API batches. */
 export default async function setup() {
-  const source = new DatabaseSync(".site/site.sqlite", { readOnly: true });
+  const source = new DatabaseSync(".site/import/site.sqlite", { readOnly: true });
   const platform = await getPlatformProxy<{ DB: D1Database }>({
     remoteBindings: false,
     persist: { path: ".site/browser-state/v3" },

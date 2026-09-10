@@ -15,6 +15,7 @@ const extensible = <T extends z.ZodRawShape>(shape: T) =>
 export const datasetSchema = named(
   "Dataset",
   extensible({
+    site_commit: z.string().nullable().optional(),
     revision: z.string(),
     projection_id: z.string(),
     repository: z.string(),
