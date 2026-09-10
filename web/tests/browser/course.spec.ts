@@ -3,6 +3,8 @@ import { readFile } from "node:fs/promises";
 const numberValues = (locator: Locator) => locator.getByRole("img").evaluateAll((nodes) => nodes.map((node) => node.getAttribute("aria-label")));
 const uid = "course_28c3390ba944d49fd17f7c72";
 test("course reading, citations, graph and theme", async ({ page }) => {
+  // Keep content assertions independent of smooth scrolling; motion has its own suite.
+  await page.emulateMedia({ reducedMotion: "reduce" });
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("/courses/COMPSCI_300");
@@ -15,9 +17,15 @@ test("course reading, citations, graph and theme", async ({ page }) => {
   await expect(page.getByRole("region", { name: "Prerequisite relationships" })).toBeVisible();
   await page.getByLabel("Color theme").selectOption("dark");
   await expect(page.locator("html")).toHaveClass("dark");
-  await page.getByText("Model outputs & technical records", { exact: true }).click();
-  await page.getByText("Full model traces", { exact: true }).click();
-  await expect(page.getByText("Download part 1").last()).toBeVisible();
+  const technical = page.locator(".technical-sources");
+  await technical.locator(":scope > summary").click();
+  await expect(technical).toHaveJSProperty("open", true);
+  const traces = technical.locator("details").filter({
+    has: page.getByText("Full model traces", { exact: true }),
+  });
+  await traces.locator(":scope > summary").click();
+  await expect(traces).toHaveJSProperty("open", true);
+  await expect(traces.getByRole("link", { name: "Download part 1", exact: true })).toBeVisible();
   await page.screenshot({
     path: "test-results/cs300-dark.png",
     fullPage: true,
