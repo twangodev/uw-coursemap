@@ -7,6 +7,10 @@ on:
       timezone: America/Los_Angeles
   workflow_dispatch:
     inputs:
+      provision_database:
+        description: Create the uwcourses search database (one-time migration)
+        type: boolean
+        default: false
       first_deployment:
         description: First deployment (Worker does not exist yet)
         type: boolean
@@ -44,9 +48,9 @@ jobs:
         uses: actions/cache@v5
         with:
           path: .site/social-cache
-          key: ${{ runner.os }}-social-${{ hashFiles('web/social-images.mjs', 'web/social-card.html', 'static/fonts/OverusedGrotesk-VF.woff2', 'static/uw-coursemap-logo.svg') }}-${{ hashFiles('.site/status.json') }}
+          key: ${{ runner.os }}-social-${{ hashFiles('web/social-images.mjs', 'web/social-card.html', 'static/fonts/OverusedGrotesk-VF.woff2', 'static/uwcourses-logo.svg') }}-${{ hashFiles('.site/status.json') }}
           restore-keys: |
-            ${{ runner.os }}-social-${{ hashFiles('web/social-images.mjs', 'web/social-card.html', 'static/fonts/OverusedGrotesk-VF.woff2', 'static/uw-coursemap-logo.svg') }}-
+            ${{ runner.os }}-social-${{ hashFiles('web/social-images.mjs', 'web/social-card.html', 'static/fonts/OverusedGrotesk-VF.woff2', 'static/uwcourses-logo.svg') }}-
       - run: bun run build
       - run: bun run seo:check
       - run: uv run --locked uwcourses-site assets-check
@@ -59,7 +63,7 @@ jobs:
           retention-days: 7
   deploy:
     name: Deploy
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && !inputs.provision_database)
     concurrency:
       group: website-production
       cancel-in-progress: false
@@ -93,9 +97,9 @@ jobs:
         uses: actions/cache@v5
         with:
           path: .site/social-cache
-          key: ${{ runner.os }}-social-${{ hashFiles('web/social-images.mjs', 'web/social-card.html', 'static/fonts/OverusedGrotesk-VF.woff2', 'static/uw-coursemap-logo.svg') }}-${{ hashFiles('.site/status.json') }}
+          key: ${{ runner.os }}-social-${{ hashFiles('web/social-images.mjs', 'web/social-card.html', 'static/fonts/OverusedGrotesk-VF.woff2', 'static/uwcourses-logo.svg') }}-${{ hashFiles('.site/status.json') }}
           restore-keys: |
-            ${{ runner.os }}-social-${{ hashFiles('web/social-images.mjs', 'web/social-card.html', 'static/fonts/OverusedGrotesk-VF.woff2', 'static/uw-coursemap-logo.svg') }}-
+            ${{ runner.os }}-social-${{ hashFiles('web/social-images.mjs', 'web/social-card.html', 'static/fonts/OverusedGrotesk-VF.woff2', 'static/uwcourses-logo.svg') }}-
       - run: bun run build
       - run: bun run seo:check
       - run: bun x playwright test
@@ -119,3 +123,21 @@ jobs:
             .site/status.json
             .site/d1-check.json
           retention-days: 30
+  provision:
+    name: Create uwcourses search database
+    if: github.event_name == 'workflow_dispatch' && inputs.provision_database
+    runs-on: ubuntu-latest
+    environment: production
+    concurrency:
+      group: website-production
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+      - run: bun install --frozen-lockfile
+      - run: bun x wrangler d1 create uwcourses --location enam --no-update-config
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
