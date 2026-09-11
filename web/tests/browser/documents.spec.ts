@@ -134,3 +134,29 @@ test("weather remains readable after the Worker cache is populated", async ({
     expect(typeof (await response.json()).available).toBe("boolean");
   }
 });
+
+test("canonical URLs negotiate formats without changing browser or transport responses", async ({ request }) => {
+  const path = "/courses/COMPSCI_300";
+  for (const [accept, type] of [
+    ["text/markdown", "text/markdown"],
+    ["application/json", "application/json"],
+    ["text/html", "text/html"],
+    ["text/markdown;q=0.2,text/html;q=0.9", "text/html"],
+    ["*/*", "text/html"],
+  ]) {
+    const response = await request.get(path, { headers: { Accept: accept } });
+    expect(response.status()).toBe(200);
+    expect(response.headers()["content-type"]).toContain(type);
+    expect(response.headers().vary.toLowerCase()).toContain("accept");
+    expect(await response.text()).toContain("Programming II");
+  }
+  const md = await request.get(path, { headers: { Accept: "text/markdown" } });
+  expect(await md.text()).toBe(await (await request.get(path + ".md")).text());
+  const head = await request.head(path, { headers: { Accept: "text/markdown" } });
+  expect(head.headers()["content-type"]).toContain("text/markdown");
+  expect(await head.text()).toBe("");
+  const explicit = await request.get(path + ".json", { headers: { Accept: "text/markdown" } });
+  expect(explicit.headers()["content-type"]).toContain("application/json");
+  const transport = await request.get(path + "/__data.json", { headers: { Accept: "text/markdown" } });
+  expect((await transport.json()).schema_version).toBeUndefined();
+});

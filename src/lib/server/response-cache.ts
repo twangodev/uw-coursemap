@@ -1,16 +1,17 @@
 import type { RequestEvent } from "@sveltejs/kit";
 
 /** A release-addressed key prevents serving an old projection after a deployment. */
-export function responseCacheKey(url: URL, release: string) {
+export function responseCacheKey(url: URL, release: string, format = "html") {
   const key = new URL(url);
   key.searchParams.sort();
   key.pathname =
-    "/__response-cache/" + encodeURIComponent(release) + key.pathname;
+    "/__response-cache/" + encodeURIComponent(release) + "/" + format + key.pathname;
   return new Request(key);
 }
 export async function cachedResponse(
   event: RequestEvent,
   render: () => Promise<Response>,
+  format = "html",
 ) {
   const env = event.platform?.env;
   const release =
@@ -28,7 +29,7 @@ export async function cachedResponse(
   )
     return render();
   const cache = (caches as CacheStorage & { default: Cache }).default;
-  const key = responseCacheKey(event.url, release);
+  const key = responseCacheKey(event.url, release, format);
   const hit = await cache.match(key);
   const respond = (response: Response, state: string) => {
     const headers = new Headers(response.headers);
