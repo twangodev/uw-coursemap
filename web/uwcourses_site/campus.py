@@ -10,6 +10,22 @@ from zoneinfo import ZoneInfo
 ZONE = ZoneInfo("America/Chicago")
 
 
+def peak_building_classes(buildings):
+    """Stable reference across the published schedule, excluding off-map locations."""
+    peak = 0
+    for place in buildings:
+        if not (
+            -89.425 <= place["longitude"] <= -89.391
+            and 43.068 <= place["latitude"] <= 43.082
+        ):
+            continue
+        concurrent = 0
+        for _, starts, ends in sorted(place["events"]):
+            concurrent += starts - ends
+            peak = max(peak, concurrent)
+    return peak
+
+
 class CampusSchedule:
     def __init__(self, sections=None):
         self.sections = sections or {}
@@ -116,6 +132,7 @@ class CampusSchedule:
             "from": None,
             "through": None,
             "assetBase": base,
+            "maxConcurrentClasses": 0,
         }
         if not self.days:
             return manifest
@@ -171,6 +188,14 @@ class CampusSchedule:
                         }
                     )
                 start = stop
+        manifest["maxConcurrentClasses"] = peak_building_classes(
+            {
+                **place,
+                "events": [[at, *counts] for at, counts in place["events"].items()],
+            }
+            for places in buildings.values()
+            for place in places.values()
+        )
         date = datetime.fromisoformat(manifest["from"]).date()
         last = datetime.fromisoformat(manifest["through"]).date()
         directory = static / base.lstrip("/")

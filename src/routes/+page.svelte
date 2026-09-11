@@ -3,16 +3,22 @@
   import SearchInput from "$lib/components/SearchInput.svelte";
   import CampusScene from "$lib/components/CampusScene.svelte";
   import CampusMap from "$lib/components/CampusMap.svelte";
-  import type { CampusDay } from "$lib/campus";
+  import { campusIntensity, type CampusDay } from "$lib/campus";
   let activity = $state<{ day: CampusDay | null; now: number } | null>(null);
   let { data } = $props();
+  let peak = $derived(data.campus.maxConcurrentClasses);
+  let heatTicks = $derived([...new Set([0, Math.round(peak / 4), peak])]);
   let departments = $derived(
     [...data.status.departments].sort((a, b) => b.count - a.count).slice(0, 8),
   );
 </script>
 
 <section class="landing" aria-labelledby="landing-title">
-  <CampusMap day={activity?.day} now={activity?.now} />
+  <CampusMap
+    maxConcurrentClasses={peak}
+    day={activity?.day}
+    now={activity?.now}
+  />
   <CampusScene
     coverage={data.campus}
     onactivity={(day, now) => (activity = { day, now })}
@@ -41,8 +47,19 @@
   <div class="map-caption">
     <span
       title="Heat shows concurrent scheduled class meetings at buildings with recorded coordinates, not live attendance. Missing locations and ambiguous building matches are omitted."
-      ><i></i>Scheduled classes by building</span
+      >Scheduled classes by building</span
     >
+    <div
+      class="heat-legend"
+      aria-label={`Square-root color scale: 0 to ${peak} concurrent classes per building. Reference fixed across the published schedule.`}
+    >
+      <div class="heat-ramp"></div>
+      <div class="heat-ticks">
+        {#each heatTicks as tick}<span
+            style:left={`${campusIntensity(tick, peak) * 100}%`}>{tick}</span
+          >{/each}
+      </div>
+    </div>
     <a class="map-credit" href="https://www.openstreetmap.org/copyright"
       >© OpenStreetMap contributors</a
     >
@@ -88,7 +105,7 @@
     position: relative;
     z-index: 1;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
     gap: 12px;
@@ -101,16 +118,29 @@
     align-items: center;
     gap: 8px;
   }
-  .map-caption i {
-    display: inline-block;
-    width: 28px;
+  .heat-legend {
+    width: 100px;
+    margin: 0 6px;
+  }
+  .heat-ramp {
     height: 5px;
     border-radius: 3px;
     background: linear-gradient(
       to right,
-      color-mix(in srgb, var(--accent) 15%, transparent),
-      var(--accent)
+      transparent,
+      color-mix(in srgb, var(--accent) 8%, transparent) 0.1%,
+      color-mix(in srgb, var(--accent) 38%, transparent)
     );
+  }
+  .heat-ticks {
+    position: relative;
+    height: 12px;
+    margin-top: 4px;
+    font-size: 9px;
+  }
+  .heat-ticks span {
+    position: absolute;
+    transform: translateX(-50%);
   }
   .landing-copy {
     position: relative;

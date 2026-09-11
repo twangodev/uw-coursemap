@@ -1,7 +1,8 @@
 import { readFileSync } from "node:fs";
 import { expect, test } from "@playwright/test";
 
-const date = JSON.parse(readFileSync(".site/import/campus.json", "utf8")).from;
+const coverage = JSON.parse(readFileSync(".site/import/campus.json", "utf8"));
+const date = coverage.from;
 const now = new Date(`${date}T15:00:00Z`);
 async function mockCampus(page: import("@playwright/test").Page) {
   await page.route(`**/campus/**${date}.json`, (route) =>
@@ -73,6 +74,20 @@ test("campus facts show estimated enrollment over a local map, with accessible c
   await expect(
     page.locator('.building-heat[data-building="Science"]'),
   ).toHaveAttribute("data-meetings", "1");
+  expect(
+    Number(
+      await page
+        .locator('.building-heat[data-building="Science"]')
+        .getAttribute("fill-opacity"),
+    ),
+  ).toBeCloseTo(
+    0.08 + Math.sqrt(1 / Math.max(1, coverage.maxConcurrentClasses)) * 0.3,
+  );
+  await expect(page.locator(".heat-legend")).toHaveAttribute(
+    "aria-label",
+    `Square-root color scale: 0 to ${coverage.maxConcurrentClasses} concurrent classes per building. Reference fixed across the published schedule.`,
+  );
+
   await scene.getByRole("button", { name: "About this campus fact" }).click();
   await expect(page.getByRole("tooltip")).toContainText("not live attendance");
   await page.keyboard.press("Escape");
@@ -83,11 +98,11 @@ test("campus facts show estimated enrollment over a local map, with accessible c
     scene.getByRole("button", { name: "Next campus fact" }),
   ).toHaveCount(0);
   await page.setViewportSize({ width: 390, height: 844 });
-  expect(
-    await page.evaluate(
-      () => document.documentElement.scrollWidth <= innerWidth,
-    ),
-  ).toBe(true);
+  await expect
+    .poll(() =>
+      page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
+    )
+    .toBe(true);
   await expect(
     page.getByRole("combobox", { name: "Search courses or topics" }),
   ).toBeVisible();
@@ -200,11 +215,11 @@ test("building outlines open useful class details by hover, keyboard and tap", a
   await page.setViewportSize({ width: 390, height: 844 });
   await outline.click();
   await expect(details).toBeVisible();
-  expect(
-    await page.evaluate(
-      () => document.documentElement.scrollWidth <= innerWidth,
-    ),
-  ).toBe(true);
+  await expect
+    .poll(() =>
+      page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
+    )
+    .toBe(true);
 });
 
 test("landing course-search content and SEO are present in server HTML", async ({

@@ -76,9 +76,41 @@ class CampusTests(unittest.TestCase):
         events = sorted(schedule.days["2026-11-01"].items())
         self.assertEqual([value for _, value in events], [[1, 0], [0, 1]])
 
+    def test_scale_reference_uses_peak_concurrency_across_days(self):
+        schedule = CampusSchedule()
+        row = self.row(latitude=43.075, longitude=-89.405)
+        schedule.add(row)
+        schedule.add({**row, "meeting_id": "crosslist"})
+        for room in ["100", "200", "300"]:
+            schedule.add(
+                {
+                    **row,
+                    "room": room,
+                    "starts_at": "2026-09-10T14:00:00+00:00",
+                    "ends_at": "2026-09-10T15:00:00+00:00",
+                }
+            )
+        # Adjacent classes replace those ending at the same instant.
+        schedule.add(
+            {
+                **row,
+                "starts_at": "2026-09-10T15:00:00+00:00",
+                "ends_at": "2026-09-10T16:00:00+00:00",
+            }
+        )
+        for room in range(10):
+            schedule.add(
+                {**row, "building": "Off map", "longitude": -88, "room": str(room)}
+            )
+        with TemporaryDirectory() as root:
+            manifest = schedule.write(Path(root), "release")
+        self.assertEqual(manifest["maxConcurrentClasses"], 3)
+
     def test_empty(self):
         with TemporaryDirectory() as root:
-            self.assertIsNone(CampusSchedule().write(Path(root), "release")["from"])
+            manifest = CampusSchedule().write(Path(root), "release")
+            self.assertIsNone(manifest["from"])
+            self.assertEqual(manifest["maxConcurrentClasses"], 0)
 
     def test_enrollment_deduplicates_crosslists_and_ignores_ambiguous_matches(self):
         section = {

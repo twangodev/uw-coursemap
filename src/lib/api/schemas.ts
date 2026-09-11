@@ -269,6 +269,7 @@ export const homeDataSchema = named(
       from: string.nullable(),
       through: string.nullable(),
       assetBase: string,
+      maxConcurrentClasses: z.number().int().nonnegative(),
     }),
   }),
 );

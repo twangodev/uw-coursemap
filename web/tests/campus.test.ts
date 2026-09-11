@@ -2,6 +2,7 @@ import { buildingOutlines } from "../../src/lib/campus-buildings";
 import { describe, expect, it } from "vitest";
 import {
   campusHeat,
+  campusIntensity,
   campusFacts,
   type CampusDay,
   campusCount,
@@ -194,4 +195,12 @@ describe("campus building footprints", () => {
       ),
     ).toEqual([]);
   });
+});
+
+it("uses a bounded square-root scale with a stable schedule reference", () => {
+  expect(campusIntensity(0, 100)).toBe(0);
+  expect(campusIntensity(25, 100)).toBe(0.5);
+  expect(campusIntensity(100, 100)).toBe(1);
+  expect(campusIntensity(150, 100)).toBe(1);
+  expect(campusIntensity(0, 0)).toBe(0);
 });

@@ -13,6 +13,7 @@ export interface CampusCoverage {
   from: string | null;
   through: string | null;
   assetBase: string;
+  maxConcurrentClasses: number;
 }
 const buildingSchema = z.object({
   sessions: z
@@ -259,4 +260,9 @@ export function campusHeat(
       ? [{ name: building.name, x, y, count: Math.max(0, count) }]
       : [];
   });
+}
+
+/** Shared by the building colors and legend; the reference never changes with the clock. */
+export function campusIntensity(count: number, maximum: number) {
+  return Math.sqrt(Math.max(0, Math.min(1, count / Math.max(1, maximum))));
 }

@@ -5,11 +5,16 @@
   import { madisonZone } from "$lib/campus";
   import { buildingOutlines } from "$lib/campus-buildings";
   import map from "$lib/assets/campus-map.svg";
-  import { campusHeat, type CampusDay } from "$lib/campus";
+  import { campusHeat, campusIntensity, type CampusDay } from "$lib/campus";
   let {
+    maxConcurrentClasses,
     day = null,
     now = null,
-  }: { day?: CampusDay | null; now?: number | null } = $props();
+  }: {
+    maxConcurrentClasses: number;
+    day?: CampusDay | null;
+    now?: number | null;
+  } = $props();
   let heat = $derived(
     now !== null ? buildingOutlines(campusHeat(day, now, true)) : [],
   );
@@ -118,11 +123,12 @@
           d={building.path}
           fill="var(--accent)"
           fill-opacity={building.count
-            ? 0.08 + Math.min(1, building.count / 25) * 0.3
+            ? 0.08 + campusIntensity(building.count, maxConcurrentClasses) * 0.3
             : 0}
           stroke="var(--accent)"
           stroke-opacity={building.count
-            ? 0.45 + Math.min(1, building.count / 25) * 0.55
+            ? 0.45 +
+              campusIntensity(building.count, maxConcurrentClasses) * 0.55
             : 0.14}
           stroke-width="1.25"
           stroke-linejoin="round"
