@@ -45,6 +45,39 @@ const fixtures = vi.hoisted(() => {
 vi.mock("$lib/server/data", () => ({
   status: async () => ({ term: "1272", terms: ["1272", "1264"] }),
   query: async (_: unknown, sql: string) => {
+    if (sql === "SELECT * FROM grade_summaries")
+      return [
+        {
+          uid: "c1",
+          term: "1264",
+          a: 10,
+          ab: 0,
+          b: 0,
+          bc: 0,
+          c: 0,
+          d: 0,
+          f: 0,
+        },
+      ];
+    if (sql.includes("json_group_array"))
+      return [
+        {
+          uid: "c1",
+          code: "COMPSCI 300",
+          title: "Programming II",
+          subjects: '["COMPSCI"]',
+        },
+      ];
+    if (sql.includes("section<>"))
+      return [
+        { uid: "c1", term: "1264", section: "1", total: 12 },
+        { uid: "c1", term: "1264", section: "1", total: 12 },
+        { uid: "c1", term: "1264", section: "2", total: 0 },
+        { uid: "c1", term: "1264", section: "3", total: null },
+      ];
+    if (sql.includes("COUNT(DISTINCT uid) count FROM grades"))
+      return [{ term: "1264", count: 1 }];
+    if (sql.includes("FROM grades")) return [];
     if (sql.includes("FROM offerings")) return [{ term: "1272", count: 1 }];
     if (sql.includes("FROM teaching")) return [{ term: "1272", count: 1 }];
     if (sql.includes("FROM grade_summaries"))
@@ -125,6 +158,9 @@ it("deduplicates cross-listed sections and meetings while retaining explicit enr
   expect(term.schedule.buildings[0].enrolledVisits).toBe(40);
   expect(schoolStats.terms["1264"].schedule.meetings).toBe(0);
   expect(schoolStats.terms["1264"].gpa).toBe(4);
+  expect(schoolStats.terms["1264"].gradedSections).toBe(1);
+  expect(schoolStats.terms["1264"].gradedMedian).toBe(12);
+  expect(schoolStats.terms["1264"].recordedCourses).toBe(1);
 });
 
 it("keeps grades usable when the publication contains no schedule assets", async () => {
@@ -139,6 +175,9 @@ it("keeps grades usable when the publication contains no schedule assets", async
     setHeaders: () => {},
   });
   expect(schoolStats.terms["1264"].gpa).toBe(4);
+  expect(schoolStats.terms["1264"].gradedSections).toBe(1);
+  expect(schoolStats.terms["1264"].gradedMedian).toBe(12);
+  expect(schoolStats.terms["1264"].recordedCourses).toBe(1);
   expect(schoolStats.terms["1272"].schedule.meetings).toBe(0);
   expect(readdir).not.toHaveBeenCalled();
 });

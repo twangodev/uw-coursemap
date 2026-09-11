@@ -1,7 +1,13 @@
+import { academicsSchema, gradeTotals } from "./school-academics";
 import { z } from "zod";
 
 const count = z.number().int().nonnegative();
 export const schoolTermSchema = z.object({
+  recordedCourses: count,
+  recordedInstructors: count,
+  gradedSections: count,
+  gradedMedian: z.number().nullable(),
+  gradedSizes: z.array(z.object({ label: z.string(), count })),
   courses: count,
   instructors: count,
   sections: count,
@@ -33,24 +39,13 @@ export const schoolTermSchema = z.object({
   }),
 });
 export const schoolStatsSchema = z.object({
+  academics: academicsSchema.optional(),
   selectedTerm: z.string(),
   terms: z.record(z.string(), schoolTermSchema),
 });
 export type SchoolTerm = z.infer<typeof schoolTermSchema>;
 export type SchoolStats = z.infer<typeof schoolStatsSchema>;
 export const gradeLabels = ["A", "AB", "B", "BC", "C", "D", "F"];
-export function gradeTotals(counts: number[]) {
-  const count = counts.reduce((a, b) => a + b, 0);
-  return {
-    gradeCount: count,
-    gpa: count
-      ? counts.reduce(
-          (sum, n, i) => sum + n * [4, 3.5, 3, 2.5, 2, 1, 0][i],
-          0,
-        ) / count
-      : null,
-  };
-}
 export function lectureSizes(values: number[]) {
   const sorted = values
     .filter((n) => Number.isFinite(n) && n >= 0)
@@ -72,6 +67,11 @@ export function lectureSizes(values: number[]) {
 }
 export function emptySchoolTerm(): SchoolTerm {
   return {
+    recordedCourses: 0,
+    recordedInstructors: 0,
+    gradedSections: 0,
+    gradedMedian: null,
+    gradedSizes: [],
     courses: 0,
     instructors: 0,
     sections: 0,
@@ -97,3 +97,5 @@ export function gradedTerm(stats: SchoolStats, selected: string) {
       .at(-1) ?? null
   );
 }
+
+export { gradeTotals } from "./school-academics";

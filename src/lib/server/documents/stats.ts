@@ -1,3 +1,5 @@
+import { prepareAcademics } from "./academics";
+import { selectAcademics } from "$lib/school-academics";
 import { selectStatsTerm } from "./stats-selection";
 import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
@@ -14,19 +16,27 @@ import campus from "../../../../.site/import/campus.json";
 import type { DocumentContext } from "./types";
 
 // This source loader runs only during document preparation or local development.
-let prepared: Promise<SchoolStats> | undefined;
+let prepared:
+  | Promise<{
+      stats: SchoolStats;
+      academics: Awaited<ReturnType<typeof prepareAcademics>>;
+    }>
+  | undefined;
 export async function stats(context: DocumentContext) {
+  const data = await (prepared ??= prepare().catch((error) => {
+    prepared = undefined;
+    throw error;
+  }));
+  const selected = selectStatsTerm(data.stats, context.url);
   return {
-    schoolStats: selectStatsTerm(
-      await (prepared ??= prepare().catch((error) => {
-        prepared = undefined;
-        throw error;
-      })),
-      context.url,
-    ),
+    schoolStats: {
+      ...selected,
+      academics: selectAcademics(data.academics, selected.selectedTerm),
+    },
   };
 }
-async function prepare(): Promise<SchoolStats> {
+
+async function prepare() {
   const dataset = await status();
   const terms: SchoolStats["terms"] = {};
   const term = (id: string) => (terms[id] ??= emptySchoolTerm());
@@ -199,5 +209,6 @@ async function prepare(): Promise<SchoolStats> {
         b.enrolledVisits - a.enrolledVisits || a.name.localeCompare(b.name),
     );
   }
-  return { selectedTerm: dataset.term, terms };
+  const academics = await prepareAcademics(terms);
+  return { stats: { selectedTerm: dataset.term, terms }, academics };
 }

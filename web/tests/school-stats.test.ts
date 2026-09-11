@@ -55,7 +55,7 @@ it("falls back only to earlier recorded grades and does not mutate the cached te
   ).toThrow();
 });
 
-it("serves term variants from one static document without database access", async () => {
+it("serves term variants from separate static documents without database access", async () => {
   const { readDocument } =
     await import("../../src/lib/server/documents/storage");
   const stats = {
@@ -98,7 +98,7 @@ it("serves term variants from one static document without database access", asyn
       .selectedTerm,
   ).toBe("1272");
   expect(paths).toEqual([
-    "/__documents/pages/stats.json",
+    "/__documents/statistics/1264.json",
     "/__documents/pages/stats.json",
   ]);
 });

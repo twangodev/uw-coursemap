@@ -24,10 +24,12 @@ async function createInventory() {
       "SELECT a.alias,c.code FROM aliases a JOIN courses c ON c.uid=a.uid ORDER BY a.alias,c.code",
     ),
   ]);
+  const dataset = await status();
   const paths = [
     "/",
     "/search",
     "/stats",
+    ...dataset.terms.map(term => `/stats?term=${term}`),
     "/departments",
     "/explorer",
     "/explorer/all",
@@ -102,13 +104,13 @@ export async function generateDocument(path: string) {
   const document = {
     schema_version: 1,
     url: url.href,
-    title: pageSeo({ ...data, status: dataset }, path).title,
+    title: pageSeo({ ...data, status: dataset }, url.pathname).title,
     dataset,
     data,
   };
   // Validate without stripping SSR-only fields; the public API serves these same bytes.
   const serialized = JSON.parse(JSON.stringify(document));
-  documentSchemas[documentKind(path)].parse(serialized);
+  documentSchemas[documentKind(url.pathname)].parse(serialized);
   return serialized;
 }
 export async function buildDocumentAsset(asset: string) {

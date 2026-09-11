@@ -13,6 +13,14 @@ export function instructorBucket(path: string) {
   return ((hash >>> 0) % instructorBuckets).toString(16).padStart(3, "0");
 }
 export function documentAsset(path: string) {
+  if (path.startsWith("/stats?")) {
+    const term = new URL(path,"https://uwcourses.com").searchParams.get("term");
+    if (term !== null) {
+      if (!/^1\d{2}[246]$/.test(term)) error(400,"Unknown statistics term");
+      return `/__documents/statistics/${term}.json`;
+    }
+    return "/__documents/pages/stats.json";
+  }
   return path.startsWith("/instructors/") &&
     path !== "/instructors/by-rating-count"
     ? `/__documents/instructors/${instructorBucket(path)}.json`
@@ -52,7 +60,7 @@ export async function readDocument(
   }
   const stored = await readAsset<
     PublicDocument | Record<string, PublicDocument>
-  >(documentAsset(path), platform);
+  >(documentAsset(path === "/stats" ? path + url.search : path), platform);
   const grouped =
     path.startsWith("/instructors/") && path !== "/instructors/by-rating-count";
   const document = grouped
@@ -63,6 +71,7 @@ export async function readDocument(
       return { ...document, url: new URL(path + url.search, "https://uwcourses.com").href, data: { schoolStats: selectStatsTerm(schoolStatsSchema.parse(document.data.schoolStats), url) } };
     return document;
   }
+  if (path === "/stats") error(400,"Unknown statistics term");
   // Aliases only need the small routing index on a miss; normal pages read one asset.
   const routes = await readAsset<{
     courses: Record<string, string>;
