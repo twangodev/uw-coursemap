@@ -46,3 +46,7 @@ packages = ["uwcourses", "uwcourses_site"]
 
 [tool.setuptools.package-data]
 uwcourses_site = ["schema-v6.json"]
+
+[tool.ruff.lint]
+# Keep the existing rule set explicit across Ruff default-rule changes.
+select = ["E4", "E7", "E9", "F"]
