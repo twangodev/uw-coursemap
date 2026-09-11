@@ -27,7 +27,7 @@ test("original instructor URLs retain profile identity and term filtering", asyn
 test("old directory and department addresses redirect to their canonical URLs", async ({
   page,
 }) => {
-  for (const path of ["/departments", "/stats", "/subjects"]) {
+  for (const path of ["/departments", "/subjects"]) {
     await page.goto(path);
     await expect(
       page.getByRole("heading", { name: "Departments", exact: true }),

@@ -83,7 +83,7 @@ test("sitemaps, redirects, errors and search expose the intended crawl policy", 
     expect(sitemap).toContain("<priority>");
     expect(sitemap).toContain("<changefreq>");
   }
-  for (const path of ["/subjects", "/stats", "/stats/COMPSCI"]) {
+  for (const path of ["/subjects", "/stats/COMPSCI"]) {
     const response = await request.get(path + "?term=1264", {
       maxRedirects: 0,
     });

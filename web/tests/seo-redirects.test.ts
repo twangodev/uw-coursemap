@@ -1,12 +1,10 @@
 import { expect, it, vi } from "vitest";
 vi.mock("$app/environment", () => ({ building: true, dev: false }));
 import { load as subjects } from "../../src/routes/subjects/+page.server";
-import { load as stats } from "../../src/routes/stats/+page.server";
 import { load as departmentStats } from "../../src/routes/stats/[subject]/+page.server";
 
 it.each([
   ["/subjects", "/departments", subjects],
-  ["/stats", "/departments", stats],
   ["/stats/COMPSCI", "/departments/COMPSCI", departmentStats],
 ])(
   "prerenders the %s redirect without reading query parameters",

@@ -64,25 +64,33 @@ vi.mock("$lib/server/data", () => ({
   },
 }));
 vi.mock("node:fs/promises", () => ({
-  readdir: async () => ["2026-09-08.json"],
-  readFile: async () =>
+  readdir: async () => ["2026-09-08.json", "2026-11-01.json"],
+  readFile: async (path: string) =>
     JSON.stringify({
-      date: "2026-09-08",
+      date: path.endsWith("2026-11-01.json") ? "2026-11-01" : "2026-09-08",
       buildings: [
         {
           name: "Test Hall",
           latitude: 43.07,
           longitude: -89.4,
-          sessions: [
-            fixtures.meeting,
-            fixtures.meeting,
-            {
-              ...fixtures.meeting,
-              startsAt: fixtures.meeting.startsAt + 86400000,
-              endsAt: fixtures.meeting.endsAt + 86400000,
-              courses: [{ code: "UNKNOWN 1", section: "LEC 001" }],
-            },
-          ],
+          sessions: path.endsWith("2026-11-01.json")
+            ? [
+                {
+                  ...fixtures.meeting,
+                  startsAt: Date.parse("2026-11-01T06:30:00Z"),
+                  endsAt: Date.parse("2026-11-01T07:30:00Z"),
+                },
+              ]
+            : [
+                fixtures.meeting,
+                fixtures.meeting,
+                {
+                  ...fixtures.meeting,
+                  startsAt: fixtures.meeting.startsAt + 86400000,
+                  endsAt: fixtures.meeting.endsAt + 86400000,
+                  courses: [{ code: "UNKNOWN 1", section: "LEC 001" }],
+                },
+              ],
         },
       ],
     }),
@@ -101,12 +109,13 @@ it("deduplicates cross-listed sections and meetings while retaining explicit enr
   expect(term.medianLecture).toBe(20);
   expect(term.largest).toHaveLength(1);
   expect(term.largest[0].enrolled).toBe(20);
-  expect(term.schedule.meetings).toBe(1);
+  expect(term.schedule.meetings).toBe(2);
   expect(term.schedule.cells).toEqual([
     { day: 1, hour: 8, meetings: 1 },
     { day: 1, hour: 9, meetings: 1 },
+    { day: 6, hour: 1, meetings: 1 },
   ]);
-  expect(term.schedule.buildings[0].enrolledVisits).toBe(20);
+  expect(term.schedule.buildings[0].enrolledVisits).toBe(40);
   expect(schoolStats.terms["1264"].schedule.meetings).toBe(0);
   expect(schoolStats.terms["1264"].gpa).toBe(4);
 });

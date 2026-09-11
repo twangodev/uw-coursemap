@@ -103,6 +103,7 @@
   </div>
   <div class="footer-resources">
     <nav class="footer-links" aria-label="Resources">
+      <a href="/stats">Campus stats</a>
       <a href="/openapi">API</a>
       <a href="https://github.com/twangodev/uwcourses">GitHub</a>
       <a href={`https://huggingface.co/datasets/${data.status.repository}/tree/${data.status.revision}`}>Dataset</a>

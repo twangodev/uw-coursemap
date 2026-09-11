@@ -69,6 +69,7 @@
   <span
     >{data.status.courses.toLocaleString()} courses. Plenty of possibilities.</span
   ><a href="/search">Explore all courses <ArrowUpRight size={15} /></a>
+    <a href="/stats">Campus by the numbers <ArrowUpRight size={15} /></a>
 </div>
 <section class="discover" aria-labelledby="discover-title">
   <div class="discover-intro">
