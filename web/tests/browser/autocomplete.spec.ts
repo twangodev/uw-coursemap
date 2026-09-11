@@ -176,3 +176,41 @@ test("course suggestions appear while instructor search is still pending", async
     release();
   }
 });
+
+for (const width of [390, 1280]) {
+  test(`landing suggestions cover the map caption at ${width}px`, async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.route("**/api/suggest?**", (route) =>
+      route.fulfill({
+        json: {
+          items: Array.from({ length: 4 }, (_, i) => ({
+            course_uid: String(i),
+            course_id: `COMPSCI ${300 + i}`,
+            title: "Programming",
+          })),
+        },
+      }),
+    );
+    await page.goto("/");
+    await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
+    await page
+      .getByRole("combobox", { name: "Search courses or topics" })
+      .fill("CS");
+    await expect(page.getByRole("option")).toHaveCount(4);
+    const caption = page.locator(".map-caption > span");
+    await expect
+      .poll(() =>
+        caption.evaluate((element) => {
+          const rect = element.getBoundingClientRect();
+          return Boolean(
+            document
+              .elementFromPoint(rect.x + 50, rect.y + rect.height / 2)
+              ?.closest(".suggestions"),
+          );
+        }),
+      )
+      .toBe(true);
+  });
+}

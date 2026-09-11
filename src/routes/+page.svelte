@@ -114,7 +114,7 @@
   }
   .landing-copy {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     width: min(100%, 580px);
     margin: 0;
   }
