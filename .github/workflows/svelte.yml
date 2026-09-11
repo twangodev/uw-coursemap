@@ -47,6 +47,10 @@ jobs:
           retention-days: 1
           if-no-files-found: error
   data:
+    outputs:
+      documents_key: ${{ needs.resolve.outputs.documents_key }}
+      social_key: ${{ needs.resolve.outputs.social_key }}
+      browser_key: ${{ needs.resolve.outputs.browser_key }}
     name: Data
     needs: [resolve]
     if: needs.resolve.outputs.changed == 'true'
@@ -95,9 +99,11 @@ jobs:
           retention-days: 1
           if-no-files-found: error
   documents:
+    outputs:
+      documents_key: ${{ needs.data.outputs.documents_key }}
+      social_key: ${{ needs.data.outputs.social_key }}
     name: Documents
-    needs: [resolve, data]
-    if: needs.resolve.outputs.changed == 'true'
+    needs: [data]
     runs-on: ubuntu-latest
     timeout-minutes: 30
     concurrency:
@@ -129,7 +135,7 @@ jobs:
         id: cache
         with:
           path: .site/documents
-          key: ${{ runner.os }}-documents-${{ needs.resolve.outputs.documents_key }}
+          key: ${{ runner.os }}-documents-${{ needs.data.outputs.documents_key }}
       - id: valid
         run: uv run --locked uwcourses-site cache-check --stage documents
       - if: steps.valid.outputs.valid != 'true'
@@ -152,8 +158,7 @@ jobs:
           if-no-files-found: error
   social:
     name: Social
-    needs: [resolve, documents]
-    if: needs.resolve.outputs.changed == 'true'
+    needs: [documents]
     runs-on: ubuntu-latest
     timeout-minutes: 30
     concurrency:
@@ -185,7 +190,7 @@ jobs:
         id: cache
         with:
           path: .site/social
-          key: ${{ runner.os }}-social-${{ needs.resolve.outputs.social_key }}
+          key: ${{ runner.os }}-social-${{ needs.documents.outputs.social_key }}
       - id: valid
         run: uv run --locked uwcourses-site cache-check --stage social
       - if: steps.valid.outputs.valid != 'true'
@@ -195,7 +200,7 @@ jobs:
         id: cards
         with:
           path: .site/social-cache
-          key: ${{ runner.os }}-cards-${{ hashFiles('web/*social*', 'static/fonts/*', 'static/uwcourses-logo.svg', 'bun.lock') }}-${{ needs.resolve.outputs.documents_key }}
+          key: ${{ runner.os }}-cards-${{ hashFiles('web/*social*', 'static/fonts/*', 'static/uwcourses-logo.svg', 'bun.lock') }}-${{ needs.documents.outputs.documents_key }}
           restore-keys: |
             ${{ runner.os }}-cards-${{ hashFiles('web/*social*', 'static/fonts/*', 'static/uwcourses-logo.svg', 'bun.lock') }}-
       - if: steps.valid.outputs.valid != 'true'
@@ -223,8 +228,7 @@ jobs:
           if-no-files-found: error
   tests:
     name: Tests
-    needs: [resolve, data]
-    if: needs.resolve.outputs.changed == 'true'
+    needs: [data]
     runs-on: ubuntu-latest
     timeout-minutes: 15
     concurrency:
@@ -248,8 +252,7 @@ jobs:
       - run: bun run test
   app:
     name: Build
-    needs: [resolve, data]
-    if: needs.resolve.outputs.changed == 'true'
+    needs: [data]
     runs-on: ubuntu-latest
     timeout-minutes: 15
     concurrency:
@@ -283,8 +286,7 @@ jobs:
           if-no-files-found: error
   build:
     name: Assets
-    needs: [resolve, data, documents, social, app]
-    if: needs.resolve.outputs.changed == 'true'
+    needs: [social, app]
     runs-on: ubuntu-latest
     timeout-minutes: 30
     concurrency:
@@ -344,8 +346,7 @@ jobs:
           if-no-files-found: error
   browser-data:
     name: Database
-    needs: [resolve, data]
-    if: needs.resolve.outputs.changed == 'true'
+    needs: [data]
     runs-on: ubuntu-latest
     timeout-minutes: 20
     concurrency:
@@ -377,7 +378,7 @@ jobs:
         id: cache
         with:
           path: .site/browser-state
-          key: ${{ runner.os }}-browser-${{ needs.resolve.outputs.browser_key }}
+          key: ${{ runner.os }}-browser-${{ needs.data.outputs.browser_key }}
       - id: valid
         run: uv run --locked uwcourses-site cache-check --stage browser
       - if: steps.valid.outputs.valid != 'true'
@@ -404,8 +405,7 @@ jobs:
       fail-fast: false
       matrix:
         shard: [1, 2]
-    needs: [resolve, build, browser-data]
-    if: needs.resolve.outputs.changed == 'true'
+    needs: [build, browser-data]
     runs-on: ubuntu-latest
     timeout-minutes: 30
     concurrency:
@@ -448,29 +448,20 @@ jobs:
   check:
     name: Svelte
     if: always()
-    needs:
-      [
-        resolve,
-        data,
-        documents,
-        social,
-        tests,
-        app,
-        build,
-        browser-data,
-        browser,
-      ]
+    needs: [resolve, tests, browser]
+    outputs:
+      changed: ${{ needs.resolve.outputs.changed }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - name: Check
         env:
-          PASSED: ${{ needs.resolve.result == 'success' && (needs.resolve.outputs.changed == 'false' || (needs.data.result == 'success' && needs.documents.result == 'success' && needs.social.result == 'success' && needs.tests.result == 'success' && needs.app.result == 'success' && needs.build.result == 'success' && needs.browser-data.result == 'success' && needs.browser.result == 'success')) }}
+          PASSED: ${{ needs.resolve.result == 'success' && (needs.resolve.outputs.changed == 'false' || (needs.tests.result == 'success' && needs.browser.result == 'success')) }}
         run: test "$PASSED" = true
   deploy:
     name: Deploy
-    needs: [resolve, check]
-    if: needs.resolve.outputs.changed == 'true' && github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
+    needs: [check]
+    if: needs.check.outputs.changed == 'true' && github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
     concurrency:
       group: website-production
       cancel-in-progress: false
