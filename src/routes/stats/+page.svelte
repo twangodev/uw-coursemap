@@ -5,6 +5,7 @@
   import { goto } from "$app/navigation";
   import { ArrowUpRight, ChevronLeft, ChevronRight } from "@lucide/svelte";
   import Select from "$lib/components/Select.svelte";
+  import StatsCard from "$lib/components/StatsCard.svelte";
   import StatsDisclosure from "$lib/components/StatsDisclosure.svelte";
   import AnimatedNumber from "$lib/components/AnimatedNumber.svelte";
   import SchoolAcademics from "$lib/components/SchoolAcademics.svelte";
@@ -144,106 +145,191 @@
       >
     </div>
   </header>
-  <div class="headlines">
-    <div>
-      <strong
-        ><AnimatedNumber
-          value={current.courses || current.recordedCourses || null}
-        /></strong
-      ><span
-        >{current.courses
-          ? "courses offered"
-          : "courses with recorded grades"}</span
-      >
-    </div>
-    <div>
-      <strong
-        ><AnimatedNumber
-          value={(current.courses
-            ? current.instructors
-            : current.recordedInstructors) || null}
-        /></strong
-      ><span>recorded instructors</span>
-    </div>
-    <div>
-      <strong
-        ><AnimatedNumber
-          value={current.sections || current.gradedSections || null}
-        /></strong
-      ><span
-        >{current.sections
-          ? "recorded class sections"
-          : "sections with recorded grades"}</span
-      >
-    </div>
-  </div>
-
-  <section aria-labelledby="rhythm">
-    <div class="section-heading">
-      <h2 id="rhythm">A week on campus.</h2>
-    </div>
-    {#if current.schedule.meetings}
-      <div class="story-grid">
-        <div class="heat-panel">
-          <p class="observation">
-            <strong>{weekdays[peak.day]}, {timeLabel(peak.hour)}.</strong>
-            <span class="observation-label">Campus at its busiest.</span>
-          </p>
-          <div
-            class="heatmap"
-            style={`--hours:${hours.length}`}
-            role="group"
-            aria-label="Scheduled meetings by weekday and hour"
+  <div class="bento-grid">
+    <StatsCard title="Campus activity" span={8}>
+      {#snippet preview()}
+        <SchoolBuildingMap buildings={current.schedule.buildings} preview />
+        {#if !current.schedule.meetings}<span class="preview-label"
+            >No building schedule for {termName(term)}</span
+          >{/if}
+      {/snippet}
+      {#if current.schedule.meetings}
+        <SchoolBuildingMap buildings={current.schedule.buildings} />
+        <details class="disclosure">
+          <summary>Where the teaching happens</summary>
+          <div class="building-list">
+            {#each current.schedule.buildings.slice(0, 10) as building}<div>
+                <span>{building.name}</span><span
+                  >{building.knownMeetings
+                    ? building.enrolledVisits.toLocaleString()
+                    : "—"}
+                  <small>enrollment visits</small></span
+                >
+              </div>{/each}
+          </div>
+        </details>
+      {:else}<p class="empty">
+          We don’t have a building schedule for {termName(term)} in this dataset.
+        </p>{/if}
+    </StatsCard>
+    <StatsCard title="Courses" span={4}>
+      {#snippet preview()}
+        <strong class="preview-number"
+          ><AnimatedNumber
+            value={current.courses || current.recordedCourses || null}
+          /></strong
+        >
+        <span class="preview-label"
+          >{current.courses
+            ? "courses offered"
+            : "courses with recorded grades"}</span
+        >
+        <span class="preview-term">{termName(term)}</span>
+      {/snippet}
+      <div class="headlines">
+        <div>
+          <strong
+            ><AnimatedNumber
+              value={current.courses || current.recordedCourses || null}
+            /></strong
+          ><span
+            >{current.courses
+              ? "courses offered"
+              : "courses with recorded grades"}</span
           >
-            <span></span>{#each hours as hour}<span class="hour"
-                >{hour % 3 === 1 ? timeLabel(hour) : ""}</span
-              >{/each}
-            {#each weekdays as day, d}<span class="day">{day}</span
-              >{#each hours as hour}{@const count =
+        </div>
+        <div>
+          <strong
+            ><AnimatedNumber
+              value={(current.courses
+                ? current.instructors
+                : current.recordedInstructors) || null}
+            /></strong
+          ><span>recorded instructors</span>
+        </div>
+        <div>
+          <strong
+            ><AnimatedNumber
+              value={current.sections || current.gradedSections || null}
+            /></strong
+          ><span
+            >{current.sections
+              ? "recorded class sections"
+              : "sections with recorded grades"}</span
+          >
+        </div>
+      </div>
+
+      <a class="browse-link" href="/search"
+        >Browse courses <ArrowUpRight size={14} /></a
+      >
+    </StatsCard>
+    <StatsCard title="Busiest hour" span={4}>
+      {#snippet preview()}
+        {#if peak}
+          <strong class="preview-number time"
+            >{weekdays[peak.day]}, {timeLabel(peak.hour)}.</strong
+          >
+          <div
+            class="week-preview"
+            style={`--hours:${hours.length}`}
+            aria-hidden="true"
+          >
+            {#each weekdays as day, d}{#each hours as hour}{@const count =
                   current.schedule.cells.find(
                     (c) => c.day === d && c.hour === hour,
-                  )?.meetings ?? 0}<button
-                  class="cell"
-                  style={`--intensity:${count ? 0.12 + Math.sqrt(count / peak.meetings) * 0.8 : 0.03}`}
-                  aria-label={`${day} ${timeLabel(hour)}: ${count.toLocaleString()} scheduled meetings`}
-                  onpointerenter={() => (activeCell = { day: d, hour })}
-                  onfocus={() => (activeCell = { day: d, hour })}
-                  onclick={() => (activeCell = { day: d, hour })}
-                ></button>{/each}{/each}
+                  )?.meetings ?? 0}<span
+                  style:opacity={count
+                    ? 0.12 + Math.sqrt(count / peak.meetings) * 0.88
+                    : 0.04}
+                ></span>{/each}{/each}
           </div>
-          <p class="heat-detail" aria-live="polite">
-            {#if activeCell}{weekdays[activeCell.day]} at {timeLabel(
-                activeCell.hour,
-              )} · {(cellDetail?.meetings ?? 0).toLocaleString()} meetings across
-              the recorded term{:else}Hover to explore.{/if}
-          </p>
+        {:else}<span class="preview-number">—</span><span class="preview-label"
+            >No schedule recorded</span
+          >{/if}
+      {/snippet}
+      {#if current.schedule.meetings}<div class="clock-detail">
+          <div class="heat-panel">
+            <p class="observation">
+              <strong>{weekdays[peak.day]}, {timeLabel(peak.hour)}.</strong>
+              <span class="observation-label">Campus at its busiest.</span>
+            </p>
+            <div
+              class="heatmap"
+              style={`--hours:${hours.length}`}
+              role="group"
+              aria-label="Scheduled meetings by weekday and hour"
+            >
+              <span></span>{#each hours as hour}<span class="hour"
+                  >{hour % 3 === 1 ? timeLabel(hour) : ""}</span
+                >{/each}
+              {#each weekdays as day, d}<span class="day">{day}</span
+                >{#each hours as hour}{@const count =
+                    current.schedule.cells.find(
+                      (c) => c.day === d && c.hour === hour,
+                    )?.meetings ?? 0}<button
+                    class="cell"
+                    style={`--intensity:${count ? 0.12 + Math.sqrt(count / peak.meetings) * 0.8 : 0.03}`}
+                    aria-label={`${day} ${timeLabel(hour)}: ${count.toLocaleString()} scheduled meetings`}
+                    onpointerenter={() => (activeCell = { day: d, hour })}
+                    onfocus={() => (activeCell = { day: d, hour })}
+                    onclick={() => (activeCell = { day: d, hour })}
+                  ></button>{/each}{/each}
+            </div>
+            <p class="heat-detail" aria-live="polite">
+              {#if activeCell}{weekdays[activeCell.day]} at {timeLabel(
+                  activeCell.hour,
+                )} · {(cellDetail?.meetings ?? 0).toLocaleString()} meetings across
+                the recorded term{:else}Hover to explore.{/if}
+            </p>
+          </div>
+        </div>{:else}<p class="empty">
+          No meeting schedule recorded for {termName(term)}.
+        </p>{/if}
+    </StatsCard>
+    <StatsCard title="Class sizes" span={4}>
+      {#snippet preview()}
+        <strong class="preview-number"
+          ><AnimatedNumber
+            value={classroom.medianLecture}
+            decimals={classroom.medianLecture && classroom.medianLecture % 1
+              ? 1
+              : 0}
+          /></strong
+        >
+        <span class="preview-label"
+          >{historicalClassroom
+            ? "median outcomes per graded section"
+            : "median lecture enrollment"}</span
+        >
+        <div class="preview-sizes">
+          <div
+            class="size-bubbles"
+            role="img"
+            aria-label="Section size distribution. Circle area represents the number of sections."
+          >
+            {#each classroom.sizes as size}
+              <div>
+                <svg viewBox="0 0 100 100" aria-hidden="true"
+                  ><circle
+                    cx="50"
+                    cy="50"
+                    r={Math.sqrt(
+                      size.count /
+                        Math.max(1, ...classroom.sizes.map((s) => s.count)),
+                    ) * 43}
+                    fill="var(--accent)"
+                    fill-opacity="0.7"
+                    ><title
+                      >{size.label}: {size.count.toLocaleString()} sections</title
+                    ></circle
+                  ></svg
+                ><span>{size.label}</span>
+              </div>
+            {/each}
+          </div>
         </div>
-        <div><SchoolBuildingMap buildings={current.schedule.buildings} /></div>
-      </div>
-      <details class="disclosure">
-        <summary>Where the teaching happens</summary>
-        <div class="building-list">
-          {#each current.schedule.buildings.slice(0, 10) as building}<div>
-              <span>{building.name}</span><span
-                >{building.knownMeetings
-                  ? building.enrolledVisits.toLocaleString()
-                  : "—"}
-                <small>enrollment visits</small></span
-              >
-            </div>{/each}
-        </div>
-      </details>
-    {:else}<p class="empty">
-        We don’t have a building schedule for {termName(term)} in this dataset. Try
-        the current term to explore campus activity.
-      </p>{/if}
-  </section>
-
-  <div class="campus-comparisons">
-    <section aria-labelledby="classroom">
-      <div class="section-heading">
-        <h2 id="classroom">Class sizes.</h2>
-      </div>
+      {/snippet}
       {#if classroom.knownLectures}
         <div class="story-grid classroom">
           <div>
@@ -349,18 +435,37 @@
           Lecture enrollment isn’t available for this term. Historical grades
           are shown below where available.
         </p>{/if}
-    </section>
-
-    <section aria-labelledby="report-card">
-      <div class="section-heading">
-        <h2 id="report-card">Grades.</h2>
-        <p class="grade-term">
-          {gradeTerm ? termName(gradeTerm) : "No recorded grades"}{gradeTerm &&
-          gradeTerm !== term
-            ? " · latest available"
-            : ""}
-        </p>
-      </div>
+    </StatsCard>
+    <StatsCard title="Grades" span={4}>
+      {#snippet preview()}
+        <strong class="preview-number"
+          ><AnimatedNumber value={grades?.gpa} decimals={2} /></strong
+        >
+        <span class="preview-label"
+          >average GPA · {gradeTerm
+            ? termName(gradeTerm)
+            : "no recorded grades"}</span
+        >
+        {#if grades?.gradeCount}<div class="preview-grades">
+            <div
+              class="grade-dots"
+              role="img"
+              aria-label={bars
+                .map((row) => `${row.grade}: ${row.percentage.toFixed(1)}%`)
+                .join(", ")}
+            >
+              {#each gradeDots as grade}<span
+                  style:background={gradeColors[Math.max(0, grade)]}
+                  title={`${bars[Math.max(0, grade)].grade}: ${bars[Math.max(0, grade)].percentage.toFixed(1)}%`}
+                ></span>{/each}
+            </div>
+            <div class="grade-dot-key" aria-hidden="true">
+              {#each gradeLabels as label, i}<span
+                  ><i style:background={gradeColors[i]}></i>{label}</span
+                >{/each}
+            </div>
+          </div>{/if}
+      {/snippet}
       {#if grades?.gradeCount}
         <div class="grade-headline">
           <strong><AnimatedNumber value={grades.gpa} decimals={2} /></strong>
@@ -482,12 +587,12 @@
           </StatsDisclosure>
         </div>
       {/if}
-    </section>
+    </StatsCard>
+    {#if stats.academics}{#key term}<SchoolAcademics
+          academics={stats.academics}
+          selectedTerm={term}
+        />{/key}{/if}
   </div>
-  {#if stats.academics}{#key term}<SchoolAcademics
-        academics={stats.academics}
-        selectedTerm={term}
-      />{/key}{/if}
 
   <details class="methodology">
     <summary>About these numbers</summary>
@@ -544,7 +649,7 @@
     align-items: flex-start;
   }
   h1 {
-    font-size: clamp(44px, 6vw, 80px);
+    font-size: clamp(36px, 4.5vw, 62px);
     line-height: 1.02;
     letter-spacing: -0.06em;
     font-weight: 550;
@@ -588,22 +693,6 @@
   }
   .headlines span {
     font-size: 13px;
-    color: var(--muted);
-  }
-  section {
-    margin-top: 90px;
-  }
-  .section-heading {
-    margin-bottom: 35px;
-  }
-  h2 {
-    font-size: clamp(28px, 3.5vw, 42px);
-    letter-spacing: -0.045em;
-    font-weight: 500;
-    margin: 0 0 12px;
-  }
-  .section-heading > p:last-child,
-  .coverage {
     color: var(--muted);
   }
   h3 {
@@ -830,33 +919,72 @@
     height: 5px;
     border-radius: 50%;
   }
-  .campus-comparisons {
+  .bento-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: clamp(36px, 7vw, 100px);
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 38px;
+    align-items: start;
   }
-  .campus-comparisons .story-grid {
+  .preview-number {
     display: block;
+    font-size: clamp(40px, 4.5vw, 68px);
+    letter-spacing: -0.06em;
+    font-weight: 450;
+    line-height: 1.05;
   }
-  .campus-comparisons h2 {
-    font-size: 30px;
+  .preview-number.time {
+    font-size: clamp(28px, 3vw, 44px);
   }
-  .campus-comparisons .section-heading {
-    min-height: 74px;
-    margin-bottom: 15px;
-  }
-  .grade-term {
+  .preview-label,
+  .preview-term {
+    display: block;
+    color: var(--muted);
     font-size: 12px;
-    margin: 0;
+    margin-top: 12px;
   }
-  .campus-comparisons .grade-headline {
-    min-height: 69px;
+  .preview-term {
+    margin-top: auto;
+  }
+  .week-preview {
+    display: grid;
+    grid-template-columns: repeat(var(--hours), 1fr);
+    gap: 3px;
+    margin-top: 24px;
+  }
+  .week-preview span {
+    background: var(--accent);
+    aspect-ratio: 1.4;
+    border-radius: 2px;
+  }
+  .preview-sizes .size-bubbles {
+    min-height: 0;
+    gap: 5px;
+    padding: 20px 0 0;
+  }
+  .preview-sizes .size-bubbles span {
+    font-size: 9px;
+    margin-top: 8px;
+  }
+  .preview-grades .grade-dots {
+    grid-template-columns: repeat(20, 1fr);
+    gap: 4px;
+    padding-top: 22px;
+  }
+  .preview-grades .grade-dot-key {
+    display: none;
+  }
+  .clock-detail {
+    max-width: 760px;
+  }
+  .browse-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+    font-size: 14px;
   }
   @media (max-width: 760px) {
-    .campus-comparisons {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
     .intro {
       flex-direction: column;
       gap: 15px;
@@ -864,9 +992,6 @@
     .story-grid {
       grid-template-columns: 1fr;
       gap: 35px;
-    }
-    section {
-      margin-top: 65px;
     }
     .headlines {
       gap: 25px;

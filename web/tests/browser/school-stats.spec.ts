@@ -40,7 +40,7 @@ test("statistics are readable on mobile and respond to term changes", async ({
     page.getByRole("heading", { name: "UW–Madison, by the numbers." }),
   ).toBeVisible();
   await expect(
-    page.getByRole("heading", { name: "A week on campus." }),
+    page.getByRole("heading", { name: "Campus activity" }),
   ).toBeVisible();
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   expect(
@@ -48,12 +48,20 @@ test("statistics are readable on mobile and respond to term changes", async ({
       () => document.documentElement.scrollWidth <= innerWidth,
     ),
   ).toBe(true);
+  await page
+    .locator(".stats-card > summary")
+    .filter({ hasText: /^Campus activity/ })
+    .click();
   await page.getByRole("button", { name: "Previous term" }).click();
   await expect(page).toHaveURL(/stats\?term=/);
   await expect(
     page.getByText("We don’t have a building schedule", { exact: false }),
   ).toBeVisible();
   await page.getByRole("button", { name: "Next term" }).click();
+  await page
+    .locator(".stats-card > summary")
+    .filter({ hasText: /^Busiest hour/ })
+    .click();
   await expect(page.locator(".heatmap")).toBeVisible();
   await page.locator(".heatmap button").first().focus();
   await expect(page.locator(".heat-detail")).toContainText(
@@ -84,8 +92,12 @@ test("academic charts drill into subjects, find courses, and preserve historical
     page.getByText("courses with recorded grades", { exact: true }),
   ).toBeVisible();
   await expect(
-    page.getByRole("heading", { name: "What Madison studies." }),
+    page.getByRole("heading", { name: "What Madison studies" }),
   ).toBeVisible();
+  await page
+    .locator(".stats-card > summary")
+    .filter({ hasText: /^What Madison studies/ })
+    .click();
   const tree = page.locator(".treemap");
   const first = tree.getByRole("button").first();
   await first.focus();
@@ -126,6 +138,10 @@ test("academic charts drill into subjects, find courses, and preserve historical
       page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
     )
     .toBe(true);
+  await page
+    .locator(".stats-card > summary")
+    .filter({ hasText: /^Grades/ })
+    .click();
   await page.locator("summary").filter({ hasText: "Grades over time" }).click();
   await expect(
     page.getByRole("heading", { name: "How the grade mix has changed" }),
@@ -152,7 +168,7 @@ test("grade Sankey drills into departments and retains all recorded grade volume
     .click();
   const flow = page.locator(".grade-flow");
   await expect(
-    flow.getByRole("heading", { name: "Grade flows" }),
+    page.getByRole("region", { name: "Grade flows", exact: true }),
   ).toBeVisible();
   await expect(flow.locator(".flow-chart svg")).toBeVisible();
   expect(await flow.locator(".flow-link").count()).toBeGreaterThan(0);
@@ -220,11 +236,12 @@ test("grade Sankey drills into departments and retains all recorded grade volume
   expect(await flow.locator(".flow-link").count()).toBeGreaterThan(0);
 });
 
-test("the default statistics view keeps deeper analysis behind keyboard-accessible disclosures", async ({
+test("bento cards expand with the keyboard and retain a single-column mobile layout", async ({
   page,
 }) => {
   await page.goto("/stats");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
+  await expect(page.locator(".stats-card")).toHaveCount(9);
   await expect(page.locator(".grade-dots > span")).toHaveCount(100);
   await expect(
     page.locator(".grade-flow, .dot-chart, .rank-chart"),
@@ -233,6 +250,16 @@ test("the default statistics view keeps deeper analysis behind keyboard-accessib
   await summary.focus();
   await page.keyboard.press("Enter");
   await expect(page.locator(".grade-flow")).toBeVisible();
+  const expanded = page.locator(".stats-card[open]");
+  expect(
+    await expanded.evaluate(
+      (e) =>
+        Math.abs(
+          e.getBoundingClientRect().width -
+            e.parentElement!.getBoundingClientRect().width,
+        ) < 2,
+    ),
+  ).toBe(true);
   await summary.focus();
   await page.keyboard.press("Enter");
   await expect(page.locator(".grade-flow")).toHaveCount(0);

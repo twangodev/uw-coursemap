@@ -38,10 +38,7 @@
   }
 </script>
 
-<section class="grade-flow" aria-labelledby="grade-flow-heading">
-  <div class="heading">
-    <h2 id="grade-flow-heading">Grade flows</h2>
-  </div>
+<section class="grade-flow" aria-label="Grade flows">
   <div class="toolbar">
     <Select
       value={subject}
@@ -256,15 +253,6 @@
   .grade-flow {
     margin-top: 0;
     min-width: 0;
-  }
-  .heading {
-    margin-bottom: 26px;
-  }
-  h2 {
-    font-size: 22px;
-    letter-spacing: -0.045em;
-    font-weight: 500;
-    margin: 0 0 12px;
   }
   .toolbar {
     display: flex;
