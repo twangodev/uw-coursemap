@@ -94,18 +94,21 @@
       {@render children()}
     </div>{/key}
 </main>
-{#if !fullscreenMap}<footer class="page row between">
+{#if !fullscreenMap}<footer class="page">
   <div>
     <p class="site-credit">Made by <a href="https://twango.dev/?utm_source=uwcourses.com">James Ding</a> and <a href="https://github.com/twangodev/uwcourses/graphs/contributors">contributors</a>.</p>
     <p class="muted">
       Not affiliated with or endorsed by the University of Wisconsin–Madison.
     </p>
   </div>
-  <a
-    class="mono"
-    href={`https://huggingface.co/datasets/${data.status.repository}/tree/${data.status.revision}`}
-    >Dataset · scanned {data.status.observed_at.slice(0, 10)}</a
-  >
+  <div class="footer-resources">
+    <nav class="footer-links" aria-label="Resources">
+      <a href="/openapi">API</a>
+      <a href="https://github.com/twangodev/uwcourses">GitHub</a>
+      <a href={`https://huggingface.co/datasets/${data.status.repository}/tree/${data.status.revision}`}>Dataset</a>
+    </nav>
+    <p class="muted scan-date">Scanned {data.status.observed_at.slice(0, 10)}</p>
+  </div>
 </footer>{/if}
 
 <style>
@@ -127,7 +130,7 @@
   header {
     border-bottom: 1px solid var(--border);
   }
-  nav {
+  header nav {
     max-width: 1380px;
     margin: auto;
     padding: 1rem 2.5rem;
@@ -148,7 +151,7 @@
   .brand img {
     margin-right: 9px;
   }
-  nav .row {
+  header nav .row {
     font: 14px var(--font-sans);
   }
   .theme-control {
@@ -169,24 +172,36 @@
     outline-offset: 2px;
     border-radius: 4px;
   }
-  nav .row {
+  header nav .row {
     flex-wrap: nowrap;
   }
 
   .site-credit { margin: 0 0 6px; }
 
+  .footer-resources { flex-shrink: 0; text-align: right; }
+  .footer-links { display: flex; justify-content: flex-end; gap: 1.25rem; }
+  .footer-links a { padding: 0.25rem 0; }
+  .scan-date { margin: 6px 0 0; }
+
   footer.page {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem 3rem;
     border-top: 1px solid var(--border);
     font-size: 0.8rem;
     padding-top: 1.5rem;
     padding-bottom: 2rem;
   }
   @media (max-width: 640px) {
-    nav {
+    footer.page { flex-direction: column; }
+    .footer-resources { text-align: left; }
+    .footer-links { justify-content: flex-start; }
+    header nav {
       padding: 1rem;
       flex-wrap: wrap;
     }
-    nav .row {
+    header nav .row {
       width: 100%;
       justify-content: space-between;
       gap: 12px;
