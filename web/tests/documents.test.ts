@@ -105,6 +105,13 @@ it("caches successful documents, revalidates, and bypasses navigation and creden
       "HIT",
     );
     expect(calls).toBe(1);
+    const markdown = await cachedResponse(event, async () => new Response("markdown"), "md");
+    await Promise.all(writes);
+    expect(await markdown.text()).toBe("markdown");
+    expect(markdown.headers.get("x-cache")).toBe("MISS");
+    expect(await (await cachedResponse(event, render)).text()).toBe("body");
+    expect(await (await cachedResponse(event, render, "md")).text()).toBe("markdown");
+    expect(calls).toBe(1);
     event.request = new Request(event.url, {
       headers: { "If-None-Match": miss.headers.get("etag")! },
     });

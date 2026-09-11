@@ -17,6 +17,7 @@
         "@types/cytoscape": "^3.31.0",
         "@types/d3-scale": "^4.0.9",
         "@types/d3-shape": "^3.2.0",
+        "@types/negotiator": "^0.6.5",
         "@types/node": "^24.13.4",
         "any-ascii": "^0.3.3",
         "bits-ui": "^2.19.2",
@@ -27,6 +28,7 @@
         "elkjs": "^0.12.0",
         "ics": "^3.12.0",
         "layerchart": "^2.5.0",
+        "negotiator": "^1.1.0",
         "prettier": "^3.9.6",
         "prettier-plugin-svelte": "^3.5.2",
         "remark-gfm": "^4.0.1",
@@ -352,6 +354,8 @@
 
     "@types/ms": ["@types/ms@2.1.0", "", {}, "sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA=="],
 
+    "@types/negotiator": ["@types/negotiator@0.6.5", "", {}, "sha512-MPOlB48mfWhoUlynY0ga7CFsXIPcH6vGPkjzXMn2p+4PH1QUyn2KPtw0hrLLmO6SaX4zse3X6h2x/083vveAlA=="],
+
     "@types/node": ["@types/node@24.13.4", "", { "dependencies": { "undici-types": "~7.18.0" } }, "sha512-YJ7EqCstVTzIr0fMr7qul/977en+pQHrfmuKIo6Zr9i75Be21dr3MovcfvGtyvi2HAUrRerWps5sMO9I7WaxDw=="],
 
     "@types/unist": ["@types/unist@3.0.3", "", {}, "sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q=="],
@@ -387,6 +391,8 @@
     "clsx": ["clsx@2.1.1", "", {}, "sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA=="],
 
     "commander": ["commander@7.2.0", "", {}, "sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw=="],
+
+    "content-type": ["content-type@2.1.0", "", {}, "sha512-mj7UPXE0jaqaOsukNZRUEfEi2AcL7C/vwmwcHV0O97eO1E1pxBZuyjlZrx5seTaNBg1U6+o35wpa35Qfcc+7ag=="],
 
     "cookie": ["cookie@0.6.0", "", {}, "sha512-U71cyTamuh1CRNCfpGY6to28lxvNwPG4Guz/EVjgf3Jmzv0vlDp1atT9eS5dDjMYHucpHbWns6Lwf3BKz6svdw=="],
 
@@ -635,6 +641,8 @@
     "ms": ["ms@2.1.3", "", {}, "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA=="],
 
     "nanoid": ["nanoid@3.3.19", "", { "bin": { "nanoid": "bin/nanoid.cjs" } }, "sha512-Y2tUNy4ouw6tq5oDSKeQYGOyhkUBhNOcGV/02KC+6kd9eDGqdZd++mjMiIDilrBYvjEnCYvVtsuHCuP+okSfug=="],
+
+    "negotiator": ["negotiator@1.1.0", "", { "dependencies": { "content-type": "^2.1.0" } }, "sha512-NMPBRMJgiQHjbd8phG3Vebdx4kZ1H121rbl5IkMqeOsahptB9BKo/d7oJ3zTXqTgagn2bWlNSXkh0QUGM31RYg=="],
 
     "number-flow": ["number-flow@0.6.2", "", { "dependencies": { "esm-env": "^1.1.4" } }, "sha512-MCnImG4Q5vPwhSXnov56nOuyyKn6LC+Qd7II1UiKc+ACRtug5iAtn0+CwXNxM38AC5lSowEY+oYEtZX2qMnUyw=="],
 
