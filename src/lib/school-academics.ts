@@ -1,11 +1,23 @@
 import { z } from "zod";
 
+const gradeCountSchema = z.number().int().nonnegative();
+
 export const academicCourseSchema = z.object({
   code: z.string(),
   title: z.string(),
   subjects: z.array(z.string()),
   count: z.number().int().positive(),
   gpa: z.number().nullable(),
+  // A, AB, B, BC, C, D, F: retain counts so flows never infer grades from GPA.
+  grades: z.tuple([
+    gradeCountSchema,
+    gradeCountSchema,
+    gradeCountSchema,
+    gradeCountSchema,
+    gradeCountSchema,
+    gradeCountSchema,
+    gradeCountSchema,
+  ]),
 });
 export type AcademicCourse = z.infer<typeof academicCourseSchema>;
 export const academicsSchema = z.object({
@@ -73,6 +85,7 @@ export function academicTerms(
       subjects: [...new Set(course.subjects)].sort(),
       count: gradeCount,
       gpa,
+      grades: [row.a, row.ab, row.b, row.bc, row.c, row.d, row.f],
     });
   }
   for (const term of Object.values(terms))
@@ -100,16 +113,14 @@ export function selectAcademics(
   return {
     term,
     courses: terms[term],
-    popularity: terms[term]
-      .slice(0, 8)
-      .map((c) => ({
-        code: c.code,
-        title: c.title,
-        points: window.map((t) => ({
-          term: t,
-          ...(ranks.get(t)!.get(c.code) ?? { rank: null, count: 0 }),
-        })),
+    popularity: terms[term].slice(0, 8).map((c) => ({
+      code: c.code,
+      title: c.title,
+      points: window.map((t) => ({
+        term: t,
+        ...(ranks.get(t)!.get(c.code) ?? { rank: null, count: 0 }),
       })),
+    })),
   };
 }
 /** Split cross-listed volume evenly so subject areas add up to school volume. */

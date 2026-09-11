@@ -10,7 +10,14 @@ const course = (
   code: string,
   count: number,
   subjects = ["CS"],
-): AcademicCourse => ({ code, title: code, subjects, count, gpa: 3 });
+): AcademicCourse => ({
+  code,
+  title: code,
+  subjects,
+  count,
+  gpa: 3,
+  grades: [0, 0, count, 0, 0, 0, 0],
+});
 it("does not inflate school or subject volumes for aliases and cross-listings", () => {
   const row = {
     uid: "one",
