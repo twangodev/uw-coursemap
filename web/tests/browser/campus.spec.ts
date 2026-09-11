@@ -155,6 +155,40 @@ test("building outlines open useful class details by hover, keyboard and tap", a
   await expect(panel).toContainText("Room 100");
   await expect(panel).toContainText("30 enrolled");
   await expect(panel).toContainText("Example Instructor");
+  // Pointer coordinates anchor the panel; its measured size keeps it on screen.
+  await outline.dispatchEvent("pointermove", {
+    pointerType: "mouse",
+    clientX: 300,
+    clientY: 120,
+  });
+  await expect.poll(async () => (await panel.boundingBox())?.x).toBe(316);
+  await outline.dispatchEvent("pointermove", {
+    pointerType: "mouse",
+    clientX: 340,
+    clientY: 140,
+  });
+  await expect.poll(async () => (await panel.boundingBox())?.x).toBe(356);
+  const viewport = page.viewportSize()!;
+  await outline.dispatchEvent("pointermove", {
+    pointerType: "mouse",
+    clientX: viewport.width - 4,
+    clientY: viewport.height - 4,
+  });
+  await expect
+    .poll(async () => {
+      const box = (await panel.boundingBox())!;
+      return (
+        box.x >= 12 &&
+        box.y >= 12 &&
+        box.x + box.width <= viewport.width - 12 &&
+        box.y + box.height <= viewport.height - 12
+      );
+    })
+    .toBe(true);
+  const anchored = await panel.boundingBox();
+  await panel.getByRole("link", { name: "COMPSCI 300" }).hover();
+  expect(await panel.boundingBox()).toEqual(anchored);
+
   await page.mouse.move(0, 0);
   await page.keyboard.press("Escape");
   await expect(panel).not.toBeVisible();

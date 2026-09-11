@@ -14,6 +14,48 @@
     now !== null ? buildingOutlines(campusHeat(day, now, true)) : [],
   );
   let selected = $state<string | null>(null);
+  let cursor = $state<{ x: number; y: number } | null>(null);
+  let viewportWidth = $state(0);
+  let viewportHeight = $state(0);
+  let panelWidth = $state(350);
+  let panelHeight = $state(0);
+  const gutter = 12;
+  const offset = 16;
+  let floating = $derived(cursor !== null && viewportWidth > 700);
+  let panelX = $derived(
+    cursor
+      ? Math.max(
+          gutter,
+          Math.min(
+            cursor.x + offset + panelWidth > viewportWidth - gutter
+              ? cursor.x - panelWidth - offset
+              : cursor.x + offset,
+            viewportWidth - panelWidth - gutter,
+          ),
+        )
+      : 0,
+  );
+  let panelY = $derived(
+    cursor
+      ? Math.max(
+          gutter,
+          Math.min(cursor.y + offset, viewportHeight - panelHeight - gutter),
+        )
+      : 0,
+  );
+  function followPointer(event: PointerEvent, id: string) {
+    if (
+      event.pointerType === "mouse" &&
+      matchMedia("(hover: hover) and (min-width: 701px)").matches
+    ) {
+      selected = id;
+      cursor = { x: event.clientX, y: event.clientY };
+    }
+  }
+  function selectBuilding(id: string) {
+    cursor = null;
+    selected = id;
+  }
   let building = $derived(heat.find((b) => b.id === selected));
   let sessions = $derived(
     (day?.buildings ?? [])
@@ -42,6 +84,8 @@
 </script>
 
 <svelte:window
+  bind:innerWidth={viewportWidth}
+  bind:innerHeight={viewportHeight}
   onkeydown={(event) => {
     if (event.key === "Escape") selected = null;
   }}
@@ -76,22 +120,20 @@
           tabindex="0"
           aria-label={`${building.name}: ${building.count} classes in session`}
           aria-expanded={selected === building.id}
-          onpointerenter={(event) => {
-            if (
-              event.pointerType === "mouse" &&
-              matchMedia("(hover: hover) and (min-width: 701px)").matches
-            )
-              selected = building.id;
-          }}
+          onpointerenter={(event) => followPointer(event, building.id)}
+          onpointermove={(event) => followPointer(event, building.id)}
           onfocus={(event) => {
             if (event.currentTarget.matches(":focus-visible"))
-              selected = building.id;
+              selectBuilding(building.id);
           }}
-          onclick={() => (selected = building.id)}
+          onclick={(event) => {
+            if (event.detail === 0 || !floating) selectBuilding(building.id);
+            else selected = building.id;
+          }}
           onkeydown={(event) => {
             if (event.key === "Enter" || event.key === " ") {
               event.preventDefault();
-              selected = building.id;
+              selectBuilding(building.id);
             }
           }}
           data-building={building.name}
@@ -101,7 +143,15 @@
     </svg>
   </div>
   {#if building}
-    <section class="building-panel" aria-label={`${building.name} details`}>
+    <section
+      class="building-panel"
+      class:floating
+      bind:offsetWidth={panelWidth}
+      bind:offsetHeight={panelHeight}
+      style:left={floating ? `${panelX}px` : undefined}
+      style:top={floating ? `${panelY}px` : undefined}
+      aria-label={`${building.name} details`}
+    >
       <header>
         <div>
           <span class="eyebrow">In session now</span>
@@ -249,6 +299,13 @@
     border-radius: 10px;
     background: var(--bg);
     box-shadow: 0 16px 48px #0003;
+  }
+  .building-panel.floating {
+    position: fixed;
+    right: auto;
+    width: min(350px, calc(100vw - 24px));
+    max-height: calc(100dvh - 24px);
+    overflow-y: auto;
   }
   header {
     display: flex;
