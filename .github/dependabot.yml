@@ -20,13 +20,7 @@ updates:
     schedule:
       interval: "weekly"
     groups:
-      frontend-production:
-        dependency-type: "production"
-        update-types:
-          - "minor"
-          - "patch"
-      frontend-development:
-        dependency-type: "development"
+      frontend:
         update-types:
           - "minor"
           - "patch"
