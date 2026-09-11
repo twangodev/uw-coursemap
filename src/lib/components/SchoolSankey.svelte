@@ -40,10 +40,7 @@
 
 <section class="grade-flow" aria-labelledby="grade-flow-heading">
   <div class="heading">
-    <h2 id="grade-flow-heading">Follow the grades</h2>
-    <p>
-      See each department’s grade mix. Choose one to explore all its courses.
-    </p>
+    <h2 id="grade-flow-heading">Grade flows</h2>
   </div>
   <div class="toolbar">
     <Select
@@ -257,21 +254,17 @@
 
 <style>
   .grade-flow {
-    margin-top: 65px;
+    margin-top: 0;
     min-width: 0;
   }
   .heading {
     margin-bottom: 26px;
   }
   h2 {
-    font-size: clamp(28px, 3.5vw, 42px);
+    font-size: 22px;
     letter-spacing: -0.045em;
     font-weight: 500;
     margin: 0 0 12px;
-  }
-  .heading p {
-    color: var(--muted);
-    line-height: 1.6;
   }
   .toolbar {
     display: flex;
@@ -369,7 +362,7 @@
   }
   @media (max-width: 760px) {
     .grade-flow {
-      margin-top: 50px;
+      margin-top: 0;
     }
     .toolbar > span {
       width: 100%;

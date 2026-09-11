@@ -5,6 +5,7 @@
   import { goto } from "$app/navigation";
   import { ArrowUpRight, ChevronLeft, ChevronRight } from "@lucide/svelte";
   import Select from "$lib/components/Select.svelte";
+  import StatsDisclosure from "$lib/components/StatsDisclosure.svelte";
   import AnimatedNumber from "$lib/components/AnimatedNumber.svelte";
   import SchoolAcademics from "$lib/components/SchoolAcademics.svelte";
   import SchoolBuildingMap from "$lib/components/SchoolBuildingMap.svelte";
@@ -63,6 +64,15 @@
         : 0,
     })),
   );
+  let gradeDots = $derived(
+    Array.from({ length: 100 }, (_, index) => {
+      let cumulative = 0;
+      return bars.findIndex((row) => {
+        cumulative += row.percentage;
+        return cumulative > index + 0.5;
+      });
+    }),
+  );
   let trend = $derived(
     Object.entries(stats.terms)
       .filter(([t, r]) => t <= term && r.gradeCount > 0)
@@ -104,11 +114,6 @@
         )
       : null,
   );
-  let popularGrade = $derived(
-    grades
-      ? gradeLabels[grades.grades.indexOf(Math.max(...grades.grades))]
-      : "",
-  );
   function changeTerm(value: string) {
     activeCell = null;
     goto(`/stats?term=${value}`, { noScroll: true, keepFocus: true });
@@ -118,12 +123,7 @@
 <div class="school-stats">
   <header class="intro">
     <div>
-      <p class="eyebrow">Across UW–Madison</p>
       <h1>UW–Madison,<br />by the numbers.</h1>
-      <p class="lede">
-        Find the rhythm of the week, the shape of a classroom, and the grades
-        behind it all.
-      </p>
     </div>
     <div class="term-picker">
       <button
@@ -178,23 +178,16 @@
     </div>
   </div>
 
-  {#if stats.academics}{#key term}<SchoolAcademics
-        academics={stats.academics}
-        selectedTerm={term}
-      />{/key}{/if}
-
   <section aria-labelledby="rhythm">
     <div class="section-heading">
-      <p class="eyebrow">01 / The week</p>
-      <h2 id="rhythm">The rhythm of campus</h2>
-      <p>{termName(term)} · scheduled teaching, in Madison time.</p>
+      <h2 id="rhythm">A week on campus.</h2>
     </div>
     {#if current.schedule.meetings}
       <div class="story-grid">
         <div class="heat-panel">
           <p class="observation">
-            <strong>{weekdays[peak.day]} at {timeLabel(peak.hour)}</strong> is the
-            busiest hour in the recorded schedule.
+            <strong>{weekdays[peak.day]}, {timeLabel(peak.hour)}.</strong>
+            <span class="observation-label">Campus at its busiest.</span>
           </p>
           <div
             class="heatmap"
@@ -222,12 +215,7 @@
             {#if activeCell}{weekdays[activeCell.day]} at {timeLabel(
                 activeCell.hour,
               )} · {(cellDetail?.meetings ?? 0).toLocaleString()} meetings across
-              the recorded term{:else}Explore an hour. Darker cells mean more
-              scheduled meetings.{/if}
-          </p>
-          <p class="coverage">
-            Recorded {current.schedule.from} – {current.schedule.through}.
-            Includes meetings with known buildings and a matched term.
+              the recorded term{:else}Hover to explore.{/if}
           </p>
         </div>
         <div><SchoolBuildingMap buildings={current.schedule.buildings} /></div>
@@ -251,209 +239,256 @@
       </p>{/if}
   </section>
 
-  <section aria-labelledby="classroom">
-    <div class="section-heading">
-      <p class="eyebrow">02 / The classroom</p>
-      <h2 id="classroom">Room for everyone</h2>
-      <p>
-        From a small seminar to a lecture hall. What does a UW classroom look
-        like?
-      </p>
-    </div>
-    {#if classroom.knownLectures}
-      <div class="story-grid classroom">
-        <div>
-          <p class="observation">
-            The middle of the pack? <strong
-              ><AnimatedNumber
-                value={classroom.medianLecture}
-                decimals={classroom.medianLecture! % 1 ? 1 : 0}
-              />
-              {historicalClassroom ? "recorded outcomes" : "enrolled"}</strong
-            >
-            in a {historicalClassroom ? "graded" : "lecture"} section.
-          </p>
-          <BarChart
-            data={classroom.sizes}
-            x="label"
-            y="count"
-            series={[
-              {
-                key: "count",
-                label: historicalClassroom
-                  ? "Graded sections"
-                  : "Lecture sections",
-                color: "var(--accent)",
-              },
-            ]}
-            height={270}
-            props={{ bars: { strokeWidth: 0 }, tooltip: { hideTotal: true } }}
-          />
-          <p class="coverage">
-            {#if historicalClassroom}Based on {current.gradedSections.toLocaleString()}
-              section grade records, including non-letter outcomes. These are recorded
-              outcomes, not historical enrollment snapshots; section type is unavailable.{:else}Known
-              enrollment for {current.knownLectures.toLocaleString()} of {current.lectures.toLocaleString()}
-              lecture sections. Labs and discussions excluded.{/if}
-          </p>
-          <details class="disclosure">
-            <summary>Section sizes in numbers</summary>
-            <div class="grade-table">
-              {#each classroom.sizes as size}<div>
-                  <span
-                    >{size.label}
-                    {historicalClassroom ? "outcomes" : "enrolled"}</span
-                  ><span>{size.count.toLocaleString()} sections</span>
-                </div>{/each}
-            </div>
-          </details>
-        </div>
-        {#if !historicalClassroom}<div class="course-list">
-            <h3>Big draws this term</h3>
-            <p class="muted">
-              Courses with the most recorded lecture enrollment.
-            </p>
-            {#each current.largest as course, i}<a href={courseUrl(course.code)}
-                ><span class="rank">{i + 1}</span><span class="course"
-                  ><strong>{course.code}</strong><span
-                    >{courseTitle(course.title)}</span
-                  ></span
-                ><span class="enrolled"
-                  >{course.enrolled.toLocaleString()}<ArrowUpRight
-                    size={14}
-                  /></span
-                ></a
-              >{/each}
-          </div>{:else}<div class="history-copy">
-            <h3>A look inside past classrooms</h3>
-            <p class="muted">
-              We have historical section grades even where meeting schedules
-              were not captured. The distribution shows how many outcomes were
-              recorded per section.
-            </p>
-            <p class="muted">
-              Explore course volumes, subjects, and rankings in the academic
-              landscape above.
-            </p>
-          </div>{/if}
+  <div class="campus-comparisons">
+    <section aria-labelledby="classroom">
+      <div class="section-heading">
+        <h2 id="classroom">Class sizes.</h2>
       </div>
-    {:else}<p class="empty">
-        Lecture enrollment isn’t available for this term. Historical grades are
-        shown below where available.
-      </p>{/if}
-  </section>
+      {#if classroom.knownLectures}
+        <div class="story-grid classroom">
+          <div>
+            <p class="observation">
+              <strong
+                ><AnimatedNumber
+                  value={classroom.medianLecture}
+                  decimals={classroom.medianLecture! % 1 ? 1 : 0}
+                />
+              </strong>
+              <span class="observation-label"
+                >{historicalClassroom
+                  ? "median outcomes per graded section"
+                  : "median lecture enrollment"}</span
+              >
+            </p>
+            <div
+              class="size-bubbles"
+              role="img"
+              aria-label="Section size distribution. Circle area represents the number of sections."
+            >
+              {#each classroom.sizes as size}
+                <div>
+                  <svg viewBox="0 0 100 100" aria-hidden="true"
+                    ><circle
+                      cx="50"
+                      cy="50"
+                      r={Math.sqrt(
+                        size.count /
+                          Math.max(1, ...classroom.sizes.map((s) => s.count)),
+                      ) * 43}
+                      fill="var(--accent)"
+                      fill-opacity="0.7"
+                      ><title
+                        >{size.label}: {size.count.toLocaleString()} sections</title
+                      ></circle
+                    ></svg
+                  ><span>{size.label}</span>
+                </div>
+              {/each}
+            </div>
+            <details class="disclosure">
+              <summary>Section sizes & coverage</summary>
+              <BarChart
+                data={classroom.sizes}
+                x="label"
+                y="count"
+                series={[
+                  {
+                    key: "count",
+                    label: historicalClassroom
+                      ? "Graded sections"
+                      : "Lecture sections",
+                    color: "var(--accent)",
+                  },
+                ]}
+                height={270}
+                props={{
+                  bars: { strokeWidth: 0 },
+                  tooltip: { hideTotal: true },
+                }}
+              />
 
-  <section aria-labelledby="report-card">
-    <div class="section-heading">
-      <p class="eyebrow">03 / The grades</p>
-      <h2 id="report-card">The campus report card</h2>
-      <p>
-        {#if gradeTerm}{termName(gradeTerm)}{gradeTerm !== term
-            ? ` · latest recorded grades before ${termName(term)}`
-            : " · recorded letter grades"}{:else}No recorded grades through {termName(
-            term,
-          )}.{/if}
-      </p>
-    </div>
-    {#if grades?.gradeCount}
-      <div class="grade-headline">
-        <strong><AnimatedNumber value={grades.gpa} decimals={2} /></strong>
-        <p>
-          average GPA across <span
-            >{grades.gradeCount.toLocaleString()} recorded letter grades.</span
-          ><br /><b>{popularGrade}</b> was the most common grade.
+              <p class="coverage">
+                {#if historicalClassroom}Based on {current.gradedSections.toLocaleString()}
+                  section grade records, including non-letter outcomes. These are
+                  recorded outcomes, not historical enrollment snapshots; section
+                  type is unavailable.{:else}Known enrollment for {current.knownLectures.toLocaleString()}
+                  of {current.lectures.toLocaleString()}
+                  lecture sections. Labs and discussions excluded.{/if}
+              </p>
+
+              <div class="grade-table">
+                {#each classroom.sizes as size}<div>
+                    <span
+                      >{size.label}
+                      {historicalClassroom ? "outcomes" : "enrolled"}</span
+                    ><span>{size.count.toLocaleString()} sections</span>
+                  </div>{/each}
+              </div>
+            </details>
+          </div>
+          {#if !historicalClassroom}<StatsDisclosure
+              title="Largest classes"
+              description="This term"
+              ><div class="course-list">
+                {#each current.largest as course, i}<a
+                    href={courseUrl(course.code)}
+                    ><span class="rank">{i + 1}</span><span class="course"
+                      ><strong>{course.code}</strong><span
+                        >{courseTitle(course.title)}</span
+                      ></span
+                    ><span class="enrolled"
+                      >{course.enrolled.toLocaleString()}<ArrowUpRight
+                        size={14}
+                      /></span
+                    ></a
+                  >{/each}
+              </div></StatsDisclosure
+            >{/if}
+        </div>
+      {:else}<p class="empty">
+          Lecture enrollment isn’t available for this term. Historical grades
+          are shown below where available.
+        </p>{/if}
+    </section>
+
+    <section aria-labelledby="report-card">
+      <div class="section-heading">
+        <h2 id="report-card">Grades.</h2>
+        <p class="grade-term">
+          {gradeTerm ? termName(gradeTerm) : "No recorded grades"}{gradeTerm &&
+          gradeTerm !== term
+            ? " · latest available"
+            : ""}
         </p>
       </div>
-      <div class="story-grid">
-        <div>
-          <h3>Every grade has a share</h3>
-          <BarChart
-            data={bars}
-            x="grade"
-            y="percentage"
-            series={[
-              {
-                key: "percentage",
-                label: "Percent of letter grades",
-                color: "var(--accent)",
-              },
-            ]}
-            height={280}
-            props={{ bars: { strokeWidth: 0 }, tooltip: { hideTotal: true } }}
-          />
-          <details class="disclosure">
-            <summary>Grade percentages</summary>
-            <div class="grade-table">
-              {#each bars as row}<div>
-                  <span>{row.grade}</span><span
-                    >{row.percentage.toFixed(1)}%</span
-                  >
-                </div>{/each}
-            </div>
-          </details>
+      {#if grades?.gradeCount}
+        <div class="grade-headline">
+          <strong><AnimatedNumber value={grades.gpa} decimals={2} /></strong>
+          <p>average GPA</p>
         </div>
-        <div>
-          <h3>How the grade mix has changed</h3>
-          <AreaChart
-            data={gradeMix}
-            x="term"
-            xScale={scalePoint()}
-            series={gradeLabels.map((key, i) => ({
-              key,
-              label: key,
-              color: gradeColors[i],
-            }))}
-            seriesLayout="stack"
-            height={280}
-            yDomain={[0, 100]}
-            legend={false}
-            props={{
-              xAxis: { tickOcclusion: true, tickSpacing: 90 },
-              tooltip: {
-                hideTotal: true,
-                item: { format: (value: number) => value.toFixed(1) + "%" },
-              },
-            }}
-          />
-          <div class="grade-key">
-            {#each gradeLabels as grade, i}<span
-                ><i style:background={gradeColors[i]}></i>{grade}</span
-              >{/each}
+        <div class="story-grid">
+          <div>
+            <div
+              class="grade-dots"
+              role="img"
+              aria-label={bars
+                .map((row) => `${row.grade}: ${row.percentage.toFixed(1)}%`)
+                .join(", ")}
+            >
+              {#each gradeDots as grade}<span
+                  style:background={gradeColors[Math.max(0, grade)]}
+                  title={`${bars[Math.max(0, grade)].grade}: ${bars[Math.max(0, grade)].percentage.toFixed(1)}%`}
+                ></span>{/each}
+            </div>
+            <div class="grade-dot-key" aria-hidden="true">
+              {#each gradeLabels as label, i}<span
+                  ><i style:background={gradeColors[i]}></i>{label}</span
+                >{/each}
+            </div>
+            <details class="disclosure">
+              <summary>Grade percentages</summary>
+              <p class="coverage">
+                100 dots represent the grade mix, rounded to whole percentages.
+                Based on {grades.gradeCount.toLocaleString()} letter grades.
+              </p>
+              <BarChart
+                data={bars}
+                x="grade"
+                y="percentage"
+                series={[
+                  {
+                    key: "percentage",
+                    label: "Percent of letter grades",
+                    color: "var(--accent)",
+                  },
+                ]}
+                height={280}
+                props={{
+                  bars: { strokeWidth: 0 },
+                  tooltip: { hideTotal: true },
+                }}
+              />
+
+              <div class="grade-table">
+                {#each bars as row}<div>
+                    <span>{row.grade}</span><span
+                      >{row.percentage.toFixed(1)}%</span
+                    >
+                  </div>{/each}
+              </div>
+            </details>
           </div>
-          <details class="disclosure">
-            <summary>Average GPA over time</summary>
-            <LineChart
-              data={trend}
+          <StatsDisclosure
+            title="Grades over time"
+            description="Across recorded semesters"
+          >
+            <h3>How the grade mix has changed</h3>
+            <AreaChart
+              data={gradeMix}
               x="term"
               xScale={scalePoint()}
-              yDomain={domain}
-              series={[
-                { key: "gpa", label: "School GPA", color: "var(--accent)" },
-              ]}
+              series={gradeLabels.map((key, i) => ({
+                key,
+                label: key,
+                color: gradeColors[i],
+              }))}
+              seriesLayout="stack"
               height={280}
+              yDomain={[0, 100]}
+              legend={false}
               props={{
                 xAxis: { tickOcclusion: true, tickSpacing: 90 },
-                spline: { curve: curveMonotoneX, strokeWidth: 1.8 },
-                points: { r: 2 },
                 tooltip: {
                   hideTotal: true,
-                  item: { format: (value: number) => value.toFixed(2) },
+                  item: { format: (value: number) => value.toFixed(1) + "%" },
                 },
               }}
             />
-          </details>
-          <details class="disclosure">
-            <summary>Recorded GPA by term</summary>
-            <div class="grade-table">
-              {#each [...trend].reverse() as row}<div>
-                  <span>{row.term}</span><span>{row.gpa?.toFixed(2)}</span>
-                </div>{/each}
+            <div class="grade-key">
+              {#each gradeLabels as grade, i}<span
+                  ><i style:background={gradeColors[i]}></i>{grade}</span
+                >{/each}
             </div>
-          </details>
+            <details class="disclosure">
+              <summary>Average GPA over time</summary>
+              <LineChart
+                data={trend}
+                x="term"
+                xScale={scalePoint()}
+                yDomain={domain}
+                series={[
+                  { key: "gpa", label: "School GPA", color: "var(--accent)" },
+                ]}
+                height={280}
+                props={{
+                  xAxis: { tickOcclusion: true, tickSpacing: 90 },
+                  spline: { curve: curveMonotoneX, strokeWidth: 1.8 },
+                  points: { r: 2 },
+                  tooltip: {
+                    hideTotal: true,
+                    item: { format: (value: number) => value.toFixed(2) },
+                  },
+                }}
+              />
+            </details>
+            <details class="disclosure">
+              <summary>Recorded GPA by term</summary>
+              <div class="grade-table">
+                {#each [...trend].reverse() as row}<div>
+                    <span>{row.term}</span><span>{row.gpa?.toFixed(2)}</span>
+                  </div>{/each}
+              </div>
+            </details>
+          </StatsDisclosure>
         </div>
-      </div>
-    {/if}
-  </section>
+      {/if}
+    </section>
+  </div>
+  {#if stats.academics}{#key term}<SchoolAcademics
+        academics={stats.academics}
+        selectedTerm={term}
+      />{/key}{/if}
+
   <details class="methodology">
     <summary>About these numbers</summary>
     <p>
@@ -508,24 +543,12 @@
     gap: 30px;
     align-items: flex-start;
   }
-  .eyebrow {
-    color: var(--accent);
-    font-size: 12px;
-    margin: 0 0 18px;
-    letter-spacing: 0.05em;
-  }
   h1 {
     font-size: clamp(44px, 6vw, 80px);
     line-height: 1.02;
     letter-spacing: -0.06em;
     font-weight: 550;
     margin: 0 0 24px;
-  }
-  .lede {
-    max-width: 510px;
-    font-size: 17px;
-    line-height: 1.6;
-    color: var(--muted);
   }
   .term-picker {
     display: flex;
@@ -573,9 +596,6 @@
   .section-heading {
     margin-bottom: 35px;
   }
-  .section-heading .eyebrow {
-    margin-bottom: 10px;
-  }
   h2 {
     font-size: clamp(28px, 3.5vw, 42px);
     letter-spacing: -0.045em;
@@ -593,7 +613,7 @@
   }
   .story-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
     gap: clamp(28px, 5vw, 70px);
     align-items: start;
   }
@@ -601,15 +621,22 @@
     min-width: 0;
   }
   .observation {
-    font-size: 21px;
-    line-height: 1.45;
+    font-size: 42px;
+    line-height: 1.1;
     letter-spacing: -0.02em;
     max-width: 430px;
     margin: 0 0 26px;
   }
   .observation strong {
     font-weight: 500;
-    color: var(--accent);
+    color: var(--text);
+  }
+  .observation-label {
+    display: block;
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 10px;
+    letter-spacing: 0;
   }
   .heatmap {
     display: grid;
@@ -658,11 +685,6 @@
     font-size: 12px;
     line-height: 1.6;
   }
-  .course-list > p {
-    font-size: 13px;
-    margin-top: -10px;
-    margin-bottom: 20px;
-  }
   .course-list a {
     display: flex;
     align-items: center;
@@ -700,22 +722,19 @@
     display: flex;
     gap: 24px;
     align-items: center;
-    margin-bottom: 35px;
+    margin-bottom: 26px;
+    align-items: baseline;
   }
   .grade-headline > strong {
-    font-size: 72px;
+    font-size: 42px;
     font-weight: 450;
     letter-spacing: -0.06em;
-    color: var(--accent);
+    color: var(--text);
   }
   .grade-headline p {
     color: var(--muted);
     font-size: 14px;
     line-height: 1.7;
-  }
-  .grade-headline b {
-    color: var(--text);
-    font-weight: 500;
   }
   .disclosure {
     margin-top: 25px;
@@ -758,7 +777,86 @@
     line-height: 1.7;
     max-width: 580px;
   }
+  .size-bubbles {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    align-items: end;
+    gap: 10px;
+    min-height: 180px;
+    padding-bottom: 20px;
+  }
+  .size-bubbles svg {
+    display: block;
+    width: 100%;
+  }
+  .size-bubbles span {
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 18px;
+  }
+  .grade-dots {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    gap: 7px;
+    padding-top: 14px;
+  }
+  .grade-dots > span {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    opacity: 0.9;
+    transition: transform 140ms ease;
+  }
+  .grade-dots > span:hover {
+    transform: scale(1.22);
+  }
+  .grade-dot-key {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .grade-dot-key span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .grade-dot-key i {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+  }
+  .campus-comparisons {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(36px, 7vw, 100px);
+  }
+  .campus-comparisons .story-grid {
+    display: block;
+  }
+  .campus-comparisons h2 {
+    font-size: 30px;
+  }
+  .campus-comparisons .section-heading {
+    min-height: 74px;
+    margin-bottom: 15px;
+  }
+  .grade-term {
+    font-size: 12px;
+    margin: 0;
+  }
+  .campus-comparisons .grade-headline {
+    min-height: 69px;
+  }
   @media (max-width: 760px) {
+    .campus-comparisons {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
     .intro {
       flex-direction: column;
       gap: 15px;
@@ -788,6 +886,9 @@
     }
   }
   @media (prefers-reduced-motion: reduce) {
+    .grade-dots > span {
+      transition: none;
+    }
     .cell {
       transition: none;
     }

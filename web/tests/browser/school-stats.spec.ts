@@ -40,7 +40,7 @@ test("statistics are readable on mobile and respond to term changes", async ({
     page.getByRole("heading", { name: "UW–Madison, by the numbers." }),
   ).toBeVisible();
   await expect(
-    page.getByRole("heading", { name: "The rhythm of campus" }),
+    page.getByRole("heading", { name: "A week on campus." }),
   ).toBeVisible();
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   expect(
@@ -84,7 +84,7 @@ test("academic charts drill into subjects, find courses, and preserve historical
     page.getByText("courses with recorded grades", { exact: true }),
   ).toBeVisible();
   await expect(
-    page.getByRole("heading", { name: "What does Madison study?" }),
+    page.getByRole("heading", { name: "What Madison studies." }),
   ).toBeVisible();
   const tree = page.locator(".treemap");
   const first = tree.getByRole("button").first();
@@ -98,6 +98,7 @@ test("academic charts drill into subjects, find courses, and preserve historical
     /^\/courses\//,
   );
   await page.getByRole("button", { name: "← All subjects" }).click();
+  await page.locator("summary").filter({ hasText: "Find your course" }).click();
   const dot = page.locator('.dot-chart circle[tabindex="0"]');
   await expect(dot).toHaveCount(1);
   const previousDot = await dot.getAttribute("aria-label");
@@ -110,6 +111,10 @@ test("academic charts drill into subjects, find courses, and preserve historical
     "href",
     "/courses/COMPSCI_300",
   );
+  await page
+    .locator("summary")
+    .filter({ hasText: "Popular courses over time" })
+    .click();
   await page.locator(".rank-legend button").first().click();
   await expect(page.locator(".rank-legend button").first()).toHaveAttribute(
     "aria-pressed",
@@ -121,6 +126,7 @@ test("academic charts drill into subjects, find courses, and preserve historical
       page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
     )
     .toBe(true);
+  await page.locator("summary").filter({ hasText: "Grades over time" }).click();
   await expect(
     page.getByRole("heading", { name: "How the grade mix has changed" }),
   ).toBeVisible();
@@ -140,9 +146,13 @@ test("grade Sankey drills into departments and retains all recorded grade volume
   ).toBe(true);
   await page.goto("/stats");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
+  await page
+    .locator("summary")
+    .filter({ hasText: /^Grade flows/ })
+    .click();
   const flow = page.locator(".grade-flow");
   await expect(
-    flow.getByRole("heading", { name: "Follow the grades" }),
+    flow.getByRole("heading", { name: "Grade flows" }),
   ).toBeVisible();
   await expect(flow.locator(".flow-chart svg")).toBeVisible();
   expect(await flow.locator(".flow-link").count()).toBeGreaterThan(0);
@@ -199,9 +209,37 @@ test("grade Sankey drills into departments and retains all recorded grade volume
   await firstDepartment.focus();
   await page.keyboard.press("Enter");
   await page.getByRole("button", { name: "Previous term" }).click();
+  await page
+    .locator("summary")
+    .filter({ hasText: /^Grade flows/ })
+    .click();
   await expect(
     flow.getByRole("button", { name: "← All departments", exact: true }),
   ).toHaveCount(0);
   await expect(flow.locator(".flow-chart svg")).toBeVisible();
   expect(await flow.locator(".flow-link").count()).toBeGreaterThan(0);
+});
+
+test("the default statistics view keeps deeper analysis behind keyboard-accessible disclosures", async ({
+  page,
+}) => {
+  await page.goto("/stats");
+  await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
+  await expect(page.locator(".grade-dots > span")).toHaveCount(100);
+  await expect(
+    page.locator(".grade-flow, .dot-chart, .rank-chart"),
+  ).toHaveCount(0);
+  const summary = page.locator("summary").filter({ hasText: /^Grade flows/ });
+  await summary.focus();
+  await page.keyboard.press("Enter");
+  await expect(page.locator(".grade-flow")).toBeVisible();
+  await summary.focus();
+  await page.keyboard.press("Enter");
+  await expect(page.locator(".grade-flow")).toHaveCount(0);
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
 });
