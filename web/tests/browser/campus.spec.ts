@@ -147,14 +147,11 @@ test("building outlines open useful class details by hover, keyboard and tap", a
     exact: true,
   });
   await outline.hover();
-  const panel = page.getByRole("region", { name: "Science details" });
+  const panel = page.getByRole("tooltip", { name: "Science details" });
   await expect(panel).toBeVisible();
-  await expect(
-    panel.getByRole("link", { name: "COMPSCI 300" }),
-  ).toHaveAttribute("href", "/courses/COMPSCI_300");
+  await expect(panel).toContainText("COMPSCI 300");
   await expect(panel).toContainText("Room 100");
-  await expect(panel).toContainText("30 enrolled");
-  await expect(panel).toContainText("Example Instructor");
+  await expect(panel.getByRole("link")).toHaveCount(0);
   // Pointer coordinates anchor the panel; its measured size keeps it on screen.
   await outline.dispatchEvent("pointermove", {
     pointerType: "mouse",
@@ -185,20 +182,24 @@ test("building outlines open useful class details by hover, keyboard and tap", a
       );
     })
     .toBe(true);
-  const anchored = await panel.boundingBox();
-  await panel.getByRole("link", { name: "COMPSCI 300" }).hover();
-  expect(await panel.boundingBox()).toEqual(anchored);
-
   await page.mouse.move(0, 0);
-  await page.keyboard.press("Escape");
   await expect(panel).not.toBeVisible();
   await outline.focus();
   await expect(panel).toBeVisible();
-  await panel.getByRole("button", { name: "Close building details" }).click();
+  await page.keyboard.press("Escape");
   await expect(panel).not.toBeVisible();
+  await page.keyboard.press("Enter");
+  const details = page.getByRole("region", { name: "Science details" });
+  await expect(details).toBeVisible();
+  await expect(
+    details.getByRole("link", { name: "COMPSCI 300" }),
+  ).toHaveAttribute("href", "/courses/COMPSCI_300");
+  await expect(details).toContainText("Example Instructor");
+  await details.getByRole("button", { name: "Close building details" }).click();
+  await expect(details).not.toBeVisible();
   await page.setViewportSize({ width: 390, height: 844 });
   await outline.click();
-  await expect(panel).toBeVisible();
+  await expect(details).toBeVisible();
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= innerWidth,

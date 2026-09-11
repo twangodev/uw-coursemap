@@ -14,6 +14,8 @@
     now !== null ? buildingOutlines(campusHeat(day, now, true)) : [],
   );
   let selected = $state<string | null>(null);
+  let pinned = $state(false);
+  const tooltipId = $props.id();
   let cursor = $state<{ x: number; y: number } | null>(null);
   let viewportWidth = $state(0);
   let viewportHeight = $state(0);
@@ -39,12 +41,16 @@
     cursor
       ? Math.max(
           gutter,
-          Math.min(cursor.y + offset, viewportHeight - panelHeight - gutter),
+          Math.min(
+            cursor.y + offset,
+            viewportHeight - panelHeight - gutter - 1,
+          ),
         )
       : 0,
   );
   function followPointer(event: PointerEvent, id: string) {
     if (
+      !pinned &&
       event.pointerType === "mouse" &&
       matchMedia("(hover: hover) and (min-width: 701px)").matches
     ) {
@@ -53,8 +59,13 @@
     }
   }
   function selectBuilding(id: string) {
-    cursor = null;
+    pinned = true;
     selected = id;
+  }
+  function dismiss() {
+    selected = null;
+    pinned = false;
+    cursor = null;
   }
   let building = $derived(heat.find((b) => b.id === selected));
   let sessions = $derived(
@@ -87,14 +98,14 @@
   bind:innerWidth={viewportWidth}
   bind:innerHeight={viewportHeight}
   onkeydown={(event) => {
-    if (event.key === "Escape") selected = null;
+    if (event.key === "Escape") dismiss();
   }}
   onclick={(event) => {
     if (
       event.target instanceof Element &&
       !event.target.closest(".building-panel, .building-heat")
     )
-      selected = null;
+      dismiss();
   }}
 />
 <div class="campus-map">
@@ -119,17 +130,28 @@
           role="button"
           tabindex="0"
           aria-label={`${building.name}: ${building.count} classes in session`}
-          aria-expanded={selected === building.id}
+          aria-expanded={pinned && selected === building.id}
+          aria-describedby={!pinned && selected === building.id
+            ? tooltipId
+            : undefined}
           onpointerenter={(event) => followPointer(event, building.id)}
-          onpointermove={(event) => followPointer(event, building.id)}
+          onpointermove={(event) => {
+            if (selected === building.id) followPointer(event, building.id);
+          }}
+          onpointerleave={() => {
+            if (!pinned) dismiss();
+          }}
+          onblur={() => {
+            if (!pinned) dismiss();
+          }}
           onfocus={(event) => {
-            if (event.currentTarget.matches(":focus-visible"))
-              selectBuilding(building.id);
+            if (!pinned && event.currentTarget.matches(":focus-visible")) {
+              const rect = event.currentTarget.getBoundingClientRect();
+              selected = building.id;
+              cursor = { x: rect.right, y: rect.top };
+            }
           }}
-          onclick={(event) => {
-            if (event.detail === 0 || !floating) selectBuilding(building.id);
-            else selected = building.id;
-          }}
+          onclick={() => selectBuilding(building.id)}
           onkeydown={(event) => {
             if (event.key === "Enter" || event.key === " ") {
               event.preventDefault();
@@ -146,6 +168,9 @@
     <section
       class="building-panel"
       class:floating
+      class:building-tooltip={!pinned}
+      id={!pinned ? tooltipId : undefined}
+      role={pinned ? "region" : "tooltip"}
       bind:offsetWidth={panelWidth}
       bind:offsetHeight={panelHeight}
       style:left={floating ? `${panelX}px` : undefined}
@@ -157,11 +182,11 @@
           <span class="eyebrow">In session now</span>
           <h2>{building.name}</h2>
         </div>
-        <button
-          class="close"
-          aria-label="Close building details"
-          onclick={() => (selected = null)}><X size={17} /></button
-        >
+        {#if pinned}<button
+            class="close"
+            aria-label="Close building details"
+            onclick={dismiss}><X size={17} /></button
+          >{/if}
       </header>
       <dl>
         <div>
@@ -172,56 +197,73 @@
           <dt>Recorded enrollment</dt>
           <dd><AnimatedNumber value={students} /></dd>
         </div>
-        <div>
-          <dt>Rooms in use</dt>
-          <dd><AnimatedNumber value={sessions.length ? rooms : null} /></dd>
-        </div>
-        <div>
-          <dt>Meetings today</dt>
-          <dd><AnimatedNumber value={sessions.length || null} /></dd>
-        </div>
+        {#if pinned}<div>
+            <dt>Rooms in use</dt>
+            <dd><AnimatedNumber value={sessions.length ? rooms : null} /></dd>
+          </div>
+          <div>
+            <dt>Meetings today</dt>
+            <dd><AnimatedNumber value={sessions.length || null} /></dd>
+          </div>{/if}
       </dl>
-      <div class="classes">
-        {#each active as session}
-          <article>
-            <div class="class-codes">
-              {#each session.courses as course, i}{#if i}<span> / </span>{/if}<a
-                  href={courseUrl(course.code)}>{course.code}</a
-                >{/each}
-            </div>
+      {#if !pinned}
+        <div class="tooltip-classes">
+          {#each active.slice(0, 3) as session}
             <p>
-              {[
-                session.courses[0]?.section ?? "Class",
-                session.room ? `Room ${session.room}` : null,
-              ]
-                .filter(Boolean)
-                .join(" · ")}
+              {session.courses
+                .map((course) => course.code)
+                .join(" / ")}{session.room ? ` · Room ${session.room}` : ""}
             </p>
-            <p>
-              {time(session.startsAt)}–{time(
-                session.endsAt,
-              )}{session.enrolled !== null
-                ? ` · ${session.enrolled} enrolled`
-                : ""}
-            </p>
-            {#if session.instructors.length}<p class="instructors">
-                {session.instructors.join(", ")}
-              </p>{/if}
-          </article>
-        {:else}<p class="empty">
-            {sessions.length
-              ? "No classes in session right now."
-              : "Class details are unavailable in this schedule snapshot."}
-          </p>{/each}
-      </div>
-      <p class="note">
-        Published schedule and enrollment, not live attendance.{#if known.length < active.length}{" "}
-          Enrollment is missing for {active.length - known.length} active {active.length -
-            known.length ===
-          1
-            ? "class"
-            : "classes"}.{/if}
-      </p>
+          {/each}
+          {#if active.length > 3}<p>+{active.length - 3} more classes</p>{/if}
+        </div>
+        <p class="note">Scheduled enrollment, not live attendance.</p>
+        <p class="tooltip-hint">Click for class details</p>
+      {:else}
+        <div class="classes">
+          {#each active as session}
+            <article>
+              <div class="class-codes">
+                {#each session.courses as course, i}{#if i}<span>
+                      /
+                    </span>{/if}<a href={courseUrl(course.code)}
+                    >{course.code}</a
+                  >{/each}
+              </div>
+              <p>
+                {[
+                  session.courses[0]?.section ?? "Class",
+                  session.room ? `Room ${session.room}` : null,
+                ]
+                  .filter(Boolean)
+                  .join(" · ")}
+              </p>
+              <p>
+                {time(session.startsAt)}–{time(
+                  session.endsAt,
+                )}{session.enrolled !== null
+                  ? ` · ${session.enrolled} enrolled`
+                  : ""}
+              </p>
+              {#if session.instructors.length}<p class="instructors">
+                  {session.instructors.join(", ")}
+                </p>{/if}
+            </article>
+          {:else}<p class="empty">
+              {sessions.length
+                ? "No classes in session right now."
+                : "Class details are unavailable in this schedule snapshot."}
+            </p>{/each}
+        </div>
+        <p class="note">
+          Published schedule and enrollment, not live attendance.{#if known.length < active.length}{" "}
+            Enrollment is missing for {active.length - known.length} active {active.length -
+              known.length ===
+            1
+              ? "class"
+              : "classes"}.{/if}
+        </p>
+      {/if}
     </section>
   {/if}
 </div>
@@ -306,6 +348,33 @@
     width: min(350px, calc(100vw - 24px));
     max-height: calc(100dvh - 24px);
     overflow-y: auto;
+  }
+  .building-panel.building-tooltip {
+    width: min(280px, calc(100vw - 24px));
+    padding: 14px 16px;
+    pointer-events: none;
+  }
+  .building-tooltip h2 {
+    font-size: 17px;
+  }
+  .building-tooltip dl {
+    margin: 14px 0;
+    gap: 12px;
+  }
+  .building-tooltip dd {
+    font-size: 21px;
+  }
+  .tooltip-classes {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .tooltip-hint {
+    margin-top: 8px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .building-tooltip .note {
+    margin-top: 10px;
   }
   header {
     display: flex;
