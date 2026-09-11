@@ -119,7 +119,7 @@ async function prepare(): Promise<SchoolStats> {
   });
   const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   const base = join(process.cwd(), ".site/import/assets", campus.assetBase);
-  const files = (await readdir(base))
+  const files = (campus.from ? await readdir(base) : [])
     .filter((name) => /^\d{4}-\d{2}-\d{2}\.json$/.test(name))
     .sort();
   const meetingsSeen = new Set<string>();

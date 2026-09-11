@@ -36,7 +36,11 @@ const fixtures = vi.hoisted(() => {
     ],
     instructors: [],
   };
-  return { sections, meeting };
+  return {
+    sections,
+    meeting,
+    coverage: { from: "2026-09-08" as string | null, assetBase: "/campus" },
+  };
 });
 vi.mock("$lib/server/data", () => ({
   status: async () => ({ term: "1272", terms: ["1272", "1264"] }),
@@ -63,8 +67,11 @@ vi.mock("$lib/server/data", () => ({
     return [{ alias: "CS300", uid: "c1" }];
   },
 }));
+vi.mock("../../.site/import/campus.json", () => ({
+  default: fixtures.coverage,
+}));
 vi.mock("node:fs/promises", () => ({
-  readdir: async () => ["2026-09-08.json", "2026-11-01.json"],
+  readdir: vi.fn(async () => ["2026-09-08.json", "2026-11-01.json"]),
   readFile: async (path: string) =>
     JSON.stringify({
       date: path.endsWith("2026-11-01.json") ? "2026-11-01" : "2026-09-08",
@@ -118,4 +125,20 @@ it("deduplicates cross-listed sections and meetings while retaining explicit enr
   expect(term.schedule.buildings[0].enrolledVisits).toBe(40);
   expect(schoolStats.terms["1264"].schedule.meetings).toBe(0);
   expect(schoolStats.terms["1264"].gpa).toBe(4);
+});
+
+it("keeps grades usable when the publication contains no schedule assets", async () => {
+  vi.resetModules();
+  fixtures.coverage.from = null;
+  const { readdir } = await import("node:fs/promises");
+  vi.mocked(readdir).mockClear();
+  const { stats: load } = await import("../../src/lib/server/documents/stats");
+  const { schoolStats } = await load({
+    url: new URL("https://example.com/stats"),
+    params: {},
+    setHeaders: () => {},
+  });
+  expect(schoolStats.terms["1264"].gpa).toBe(4);
+  expect(schoolStats.terms["1272"].schedule.meetings).toBe(0);
+  expect(readdir).not.toHaveBeenCalled();
 });
