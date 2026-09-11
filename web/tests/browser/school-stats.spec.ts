@@ -170,7 +170,21 @@ test("grade Sankey drills into departments and retains all recorded grade volume
     .click();
   await expect(
     flow.getByRole("button", { name: /^Explore .* grade flow$/ }),
-  ).toHaveCount(6);
+  ).toHaveCount(12);
+  await expect(
+    flow.getByText("Other departments", { exact: true }),
+  ).toHaveCount(0);
+  const count = new Set(
+    academics.courses.flatMap((c: { subjects: string[] }) => c.subjects),
+  ).size;
+  await expect(flow.locator(".pagination")).toContainText(
+    `Departments 1–12 of ${count}`,
+  );
+  await flow.getByRole("button", { name: "Next grade flows" }).click();
+  await expect(flow.locator(".pagination")).toContainText(
+    `Departments 13–24 of ${count}`,
+  );
+  await flow.getByRole("button", { name: "Previous grade flows" }).click();
   await page.setViewportSize({ width: 390, height: 844 });
   expect(
     await page.evaluate(

@@ -1,6 +1,6 @@
 import { expect, it } from "vitest";
 import { academicTerms } from "../../src/lib/school-academics";
-import { gradeFlow } from "../../src/lib/school-sankey";
+import { gradeFlow, flowPage } from "../../src/lib/school-sankey";
 
 const rows = Array.from({ length: 12 }, (_, i) => ({
   uid: `${i}`,
@@ -23,13 +23,13 @@ const courses = academicTerms(
   })),
 )["1264"];
 
-it("retains actual grade bins and conserves volume through grouped and cross-listed flows", () => {
+it("retains actual grade bins and conserves volume through complete and cross-listed flows", () => {
   expect(courses.find((c) => c.code === "COURSE 0")!.grades).toEqual([
     1, 2, 3, 4, 5, 6, 7,
   ]);
   const graph = gradeFlow(courses);
-  expect(graph.nodes.filter((n) => n.kind === "subject")).toHaveLength(7);
-  expect(graph.nodes.filter((n) => n.kind === "course")).toHaveLength(9);
+  expect(graph.nodes.filter((n) => n.kind === "subject")).toHaveLength(13);
+  expect(graph.nodes.filter((n) => n.kind === "course")).toHaveLength(0);
   expect(graph.total).toBe(courses.reduce((sum, c) => sum + c.count, 0));
   const total = (kind: string) =>
     graph.nodes
@@ -45,7 +45,7 @@ it("retains actual grade bins and conserves volume through grouped and cross-lis
         0,
       );
   expect(total("subject")).toBeCloseTo(graph.total);
-  expect(total("course")).toBeCloseTo(graph.total);
+  expect(graph.nodes.some((n) => n.label.startsWith("Other "))).toBe(false);
   expect(total("grade")).toBeCloseTo(graph.total);
   for (const node of graph.nodes.filter((n) => n.kind === "course")) {
     const incoming = graph.links
@@ -104,4 +104,52 @@ it("does not invent zero-grade bands", () => {
       "OTHER",
     ).total,
   ).toBe(5);
+});
+
+it("includes every course when drilling into a large department", () => {
+  const all = courses.map((c) => ({ ...c, subjects: ["CS"] }));
+  const graph = gradeFlow(all, "CS");
+  expect(graph.nodes.filter((n) => n.kind === "course")).toHaveLength(
+    all.length,
+  );
+  for (const node of graph.nodes.filter((n) => n.kind === "course")) {
+    const incoming = graph.links
+      .filter((l) => l.target === node.id)
+      .reduce((s, l) => s + l.value, 0);
+    const outgoing = graph.links
+      .filter((l) => l.source === node.id)
+      .reduce((s, l) => s + l.value, 0);
+    expect(incoming).toBeCloseTo(outgoing);
+  }
+});
+
+it("pages every named flow without hiding volume in an aggregate", () => {
+  for (const subject of ["", "CS"]) {
+    const graph = gradeFlow(
+      subject ? courses.map((c) => ({ ...c, subjects: ["CS"] })) : courses,
+      subject,
+    );
+    const first = flowPage(graph, subject, 0, 5);
+    let total = 0;
+    const names = [];
+    for (let p = 0; p < first.pages; p++) {
+      const view = flowPage(graph, subject, p, 5);
+      total += view.total;
+      names.push(
+        ...view.nodes
+          .filter((n) => n.kind === (subject ? "course" : "subject"))
+          .map((n) => n.id),
+      );
+      expect(
+        view.links.every(
+          (l) =>
+            view.nodes.some((n) => n.id === l.source) &&
+            view.nodes.some((n) => n.id === l.target),
+        ),
+      ).toBe(true);
+    }
+    expect(total).toBeCloseTo(graph.total);
+    expect(new Set(names).size).toBe(names.length);
+    expect(names.length).toBe(first.count);
+  }
 });

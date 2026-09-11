@@ -1,5 +1,4 @@
 import type { AcademicCourse } from "./school-academics";
-import { subjectVolumes } from "./school-academics";
 
 export const gradeBands = [
   { label: "A / AB", color: "#3f927c", indices: [0, 1] },
@@ -30,14 +29,6 @@ export function gradeFlow(courses: AcademicCourse[], subject = "") {
     (a, b) =>
       b.count * weight(b) - a.count * weight(a) || a.code.localeCompare(b.code),
   );
-  const featuredCourses = new Set(ranked.slice(0, 8).map((c) => c.code));
-  const featuredSubjects = new Set(
-    subject
-      ? [subject]
-      : subjectVolumes(courses)
-          .slice(0, 6)
-          .map((s) => s.subject),
-  );
   const nodes = new Map<string, FlowNode>();
   const links = new Map<string, FlowLink>();
   const add = (node: FlowNode) => {
@@ -52,45 +43,89 @@ export function gradeFlow(courses: AcademicCourse[], subject = "") {
     links.set(key, edge);
   };
   for (const c of ranked) {
-    const featured = featuredCourses.has(c.code);
-    const courseId = add({
-      id: featured ? `course:${c.code}` : "courses:other",
-      label: featured ? c.code : "Other courses",
-      kind: "course",
-      code: featured ? c.code : undefined,
-      color: "#a58b82",
-    });
+    const courseId = subject
+      ? add({
+          id: `course:${c.code}`,
+          label: c.code,
+          kind: "course",
+          code: c.code,
+          color: "#a58b82",
+        })
+      : null;
     const subjects = c.subjects.length ? c.subjects : ["OTHER"];
     for (const s of subjects) {
       if (subject && s !== subject) continue;
-      const featured = featuredSubjects.has(s);
       const id = add({
-        id: featured ? `subject:${s}` : "subjects:other",
-        label: featured ? s : "Other departments",
+        id: `subject:${s}`,
+        label: s,
         kind: "subject",
-        subject: featured ? s : undefined,
+        subject: s,
         color: "#bd5047",
       });
-      link(id, courseId, c.count / subjects.length);
-    }
-    gradeBands.forEach((band, i) => {
-      const count =
-        band.indices.reduce((sum, index) => sum + c.grades[index], 0) *
-        weight(c);
-      if (!count) return;
-      const id = add({
-        id: `grade:${i}`,
-        label: band.label,
-        kind: "grade",
-        color: band.color,
+      if (courseId) link(id, courseId, c.count / subjects.length);
+      gradeBands.forEach((band, i) => {
+        const count =
+          band.indices.reduce((sum, index) => sum + c.grades[index], 0) /
+          subjects.length;
+        if (!count) return;
+        const gradeId = add({
+          id: `grade:${i}`,
+          label: band.label,
+          kind: "grade",
+          color: band.color,
+        });
+        link(courseId ?? id, gradeId, count);
       });
-      link(courseId, id, count);
-    });
+    }
   }
   return {
     nodes: [...nodes.values()],
     links: [...links.values()],
     total: ranked.reduce((sum, c) => sum + c.count * weight(c), 0),
     courseCount: ranked.length,
+  };
+}
+
+/** A visible slice, never an “Other” aggregate; rebuild shared totals from its edges. */
+export function flowPage(
+  graph: ReturnType<typeof gradeFlow>,
+  subject: string,
+  page: number,
+  size = 12,
+) {
+  const kind = subject ? "course" : "subject";
+  const values = new Map<string, number>();
+  for (const link of graph.links)
+    values.set(link.source, (values.get(link.source) ?? 0) + link.value);
+  const rows = graph.nodes
+    .filter((n) => n.kind === kind)
+    .sort(
+      (a, b) =>
+        (values.get(b.id) ?? 0) - (values.get(a.id) ?? 0) ||
+        a.id.localeCompare(b.id),
+    );
+  const pages = Math.max(1, Math.ceil(rows.length / size));
+  const current = Math.max(0, Math.min(page, pages - 1));
+  const start = current * size;
+  const selected = new Set(rows.slice(start, start + size).map((n) => n.id));
+  const links = graph.links.filter(
+    (l) => selected.has(l.source) || selected.has(l.target),
+  );
+  const used = new Set(links.flatMap((l) => [l.source, l.target]));
+  const nodes = graph.nodes.filter((n) => used.has(n.id));
+  const grades = new Set(
+    nodes.filter((n) => n.kind === "grade").map((n) => n.id),
+  );
+  return {
+    nodes,
+    links,
+    pages,
+    current,
+    start,
+    end: Math.min(start + size, rows.length),
+    count: rows.length,
+    total: links
+      .filter((l) => grades.has(l.target))
+      .reduce((s, l) => s + l.value, 0),
   };
 }

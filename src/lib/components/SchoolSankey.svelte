@@ -4,7 +4,7 @@
   import { departmentName } from "$lib/departments";
   import { courseUrl, termName } from "$lib/format";
   import { subjectVolumes, type Academics } from "$lib/school-academics";
-  import { gradeFlow, type FlowNode } from "$lib/school-sankey";
+  import { gradeFlow, flowPage, type FlowNode } from "$lib/school-sankey";
   import Select from "./Select.svelte";
 
   let {
@@ -14,7 +14,9 @@
   let subject = $state("");
   let active = $state("");
   let detail = $state("");
+  let page = $state(0);
   let graph = $derived(gradeFlow(academics.courses, subject));
+  let visible = $derived(flowPage(graph, subject, page));
   let groups = $derived(subjectVolumes(academics.courses));
   const number = (value: number) =>
     value.toLocaleString(undefined, { maximumFractionDigits: 1 });
@@ -22,6 +24,7 @@
     node.subject ? departmentName(node.subject) : node.label;
   function select(value: string) {
     subject = value;
+    page = 0;
     active = "";
     detail = "";
   }
@@ -38,7 +41,9 @@
 <section class="grade-flow" aria-labelledby="grade-flow-heading">
   <div class="heading">
     <h2 id="grade-flow-heading">Follow the grades</h2>
-    <p>From departments, through courses, to the grades students received.</p>
+    <p>
+      See each department’s grade mix. Choose one to explore all its courses.
+    </p>
   </div>
   <div class="toolbar">
     <Select
@@ -70,15 +75,17 @@
       class="flow-scroll"
       tabindex="0"
       role="region"
-      aria-label="Department to course to grade-band Sankey. Scroll horizontally on narrow screens."
+      aria-label="Department grade flows. Scroll horizontally on narrow screens."
     >
       <div class="flow-chart">
         <div class="columns" aria-hidden="true">
-          <span>Department</span><span>Course</span><span>Grade band</span>
+          <span>Department</span>{#if subject}<span>Course</span>{/if}<span
+            >Grade band</span
+          >
         </div>
         <Chart
-          data={graph}
-          height={440}
+          data={visible}
+          height={480}
           padding={{ left: 12, right: 65, top: 8, bottom: 8 }}
           axis={false}
           grid={false}
@@ -88,9 +95,11 @@
             <Sankey
               nodeId={(n) => n.id}
               nodeWidth={8}
-              nodePadding={19}
+              nodePadding={17}
               nodeSort={(a, b) =>
-                a.kind === "grade" ? a.id.localeCompare(b.id) : undefined}
+                a.kind === "grade"
+                  ? a.id.localeCompare(b.id)
+                  : (b.value ?? 0) - (a.value ?? 0) || a.id.localeCompare(b.id)}
             >
               {#snippet children({ nodes, links })}
                 <g>
@@ -130,7 +139,9 @@
                         fill={node.color}
                       />
                       <text x={node.x1! + 7} {y} dominant-baseline="middle"
-                        >{node.label}</text
+                        >{node.subject
+                          ? departmentName(node.subject)
+                          : node.label}</text
                       >
                     {/snippet}
                     {#if node.subject}
@@ -202,18 +213,42 @@
         </Chart>
       </div>
     </div>
+    <div class="pagination">
+      <span
+        >{subject ? "Courses" : "Departments"}
+        {visible.start + 1}–{visible.end} of {visible.count}</span
+      >
+      <div>
+        <button
+          aria-label="Previous grade flows"
+          disabled={visible.current === 0}
+          onclick={() => {
+            page = visible.current - 1;
+            clear();
+          }}>←</button
+        >
+        <button
+          aria-label="Next grade flows"
+          disabled={visible.current + 1 >= visible.pages}
+          onclick={() => {
+            page = visible.current + 1;
+            clear();
+          }}>→</button
+        >
+      </div>
+    </div>
     <p class="flow-detail" aria-live="polite">
       {detail ||
-        `${number(graph.total)} attributed letter grades across ${number(graph.courseCount)} courses`}
+        `${number(visible.total)} attributed letter grades in this view · ${number(graph.total)} across ${subject ? departmentName(subject) : "UW–Madison"}`}
     </p>
     <p class="note">
       Width represents recorded letter grades, not unique students. Cross-listed
-      courses split their weight evenly across departments. The eight largest
-      courses{subject ? "" : " and six largest departments"} are shown individually;
-      “Other” retains the rest. Choose a department to explore, or a course to open
-      it.<span class="mobile-note">
-        Swipe the chart to see all three columns.</span
-      >
+      courses split their weight evenly across departments. Every {subject
+        ? "course"
+        : "department"}
+      is available in groups of twelve, ordered by recorded grade count. The flows
+      show only the named {subject ? "courses" : "departments"} in this view. Choose
+      a department to see its courses.
     </p>
   {:else}
     <p class="note">No recorded letter grades for this selection.</p>
@@ -267,7 +302,7 @@
   .columns {
     display: flex;
     justify-content: space-between;
-    padding: 0 10px 12px;
+    padding: 8px 10px 12px;
     color: var(--muted);
     font-size: 11px;
   }
@@ -294,6 +329,32 @@
   .flow-link {
     transition: opacity 160ms ease;
   }
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 16px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  .pagination > div {
+    display: flex;
+    gap: 6px;
+  }
+  .pagination button {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    border-radius: 5px;
+    width: 32px;
+    height: 28px;
+    cursor: pointer;
+  }
+  .pagination button:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
   .flow-detail {
     font-size: 13px;
     margin: 18px 0 8px;
@@ -306,9 +367,6 @@
     line-height: 1.7;
     max-width: 850px;
   }
-  .mobile-note {
-    display: none;
-  }
   @media (max-width: 760px) {
     .grade-flow {
       margin-top: 50px;
@@ -316,9 +374,6 @@
     .toolbar > span {
       width: 100%;
       margin-left: 0;
-    }
-    .mobile-note {
-      display: inline;
     }
   }
   @media (prefers-reduced-motion: reduce) {
