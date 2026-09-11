@@ -70,3 +70,58 @@ test("statistics are readable on mobile and respond to term changes", async ({
     "https://uwcourses.com/stats",
   );
 });
+
+test("academic charts drill into subjects, find courses, and preserve historical labels", async ({
+  page,
+  request,
+}) => {
+  await page.setViewportSize({ width: 1280, height: 1000 });
+  const doc = await (await request.get("/stats.json")).json();
+  const term = doc.data.schoolStats.academics.term;
+  await page.goto(`/stats?term=${term}`);
+  await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
+  await expect(
+    page.getByText("courses with recorded grades", { exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "What does Madison study?" }),
+  ).toBeVisible();
+  const tree = page.locator(".treemap");
+  const first = tree.getByRole("button").first();
+  await first.focus();
+  await page.keyboard.press("Enter");
+  await expect(
+    page.getByRole("button", { name: "← All subjects" }),
+  ).toBeVisible();
+  await expect(tree.locator("a").first()).toHaveAttribute(
+    "href",
+    /^\/courses\//,
+  );
+  await page.getByRole("button", { name: "← All subjects" }).click();
+  const dot = page.locator('.dot-chart circle[tabindex="0"]');
+  await expect(dot).toHaveCount(1);
+  const previousDot = await dot.getAttribute("aria-label");
+  await dot.focus();
+  await page.keyboard.press("ArrowRight");
+  await expect(dot).not.toHaveAttribute("aria-label", previousDot!);
+  await page.getByLabel("Find a course in the dot plot").fill("CS 300");
+  await expect(page.locator(".dot-detail")).toContainText("COMPSCI 300");
+  await expect(page.locator(".dot-detail a")).toHaveAttribute(
+    "href",
+    "/courses/COMPSCI_300",
+  );
+  await page.locator(".rank-legend button").first().click();
+  await expect(page.locator(".rank-legend button").first()).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect
+    .poll(() =>
+      page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
+    )
+    .toBe(true);
+  await expect(
+    page.getByRole("heading", { name: "How the grade mix has changed" }),
+  ).toBeVisible();
+});

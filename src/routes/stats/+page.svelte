@@ -1,11 +1,12 @@
 <script lang="ts">
-  import { BarChart, LineChart } from "layerchart";
+  import { BarChart, LineChart, AreaChart } from "layerchart";
   import { scalePoint } from "d3-scale";
   import { curveMonotoneX } from "d3-shape";
   import { goto } from "$app/navigation";
   import { ArrowUpRight, ChevronLeft, ChevronRight } from "@lucide/svelte";
   import Select from "$lib/components/Select.svelte";
   import AnimatedNumber from "$lib/components/AnimatedNumber.svelte";
+  import SchoolAcademics from "$lib/components/SchoolAcademics.svelte";
   import SchoolBuildingMap from "$lib/components/SchoolBuildingMap.svelte";
   import { termName, courseUrl, courseTitle } from "$lib/format";
   import { gradedTerm, gradeLabels, type SchoolStats } from "$lib/school-stats";
@@ -14,6 +15,43 @@
   let term = $derived(stats.selectedTerm);
   let terms = $derived(Object.keys(stats.terms).sort().reverse());
   let current = $derived(stats.terms[term]);
+  let historicalClassroom = $derived(
+    !current.knownLectures && current.gradedSections > 0,
+  );
+  let classroom = $derived(
+    historicalClassroom
+      ? {
+          ...current,
+          knownLectures: current.gradedSections,
+          lectures: current.gradedSections,
+          medianLecture: current.gradedMedian,
+          sizes: current.gradedSizes,
+        }
+      : current,
+  );
+  const gradeColors = [
+    "#38734d",
+    "#68976d",
+    "#91a77d",
+    "#b3b38d",
+    "#bc9a73",
+    "#ba6958",
+    "var(--accent)",
+  ];
+  let gradeMix = $derived(
+    Object.entries(stats.terms)
+      .filter(([t, r]) => t <= term && r.gradeCount > 0)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([t, r]) =>
+        Object.assign(
+          { term: termName(t) },
+          ...gradeLabels.map((g, i) => ({
+            [g]: (r.grades[i] / r.gradeCount) * 100,
+          })),
+        ),
+      ),
+  );
+
   let index = $derived(terms.indexOf(term));
   let gradeTerm = $derived(gradedTerm(stats, term));
   let grades = $derived(gradeTerm ? stats.terms[gradeTerm] : null);
@@ -108,20 +146,42 @@
   </header>
   <div class="headlines">
     <div>
-      <strong><AnimatedNumber value={current.courses || null} /></strong><span
-        >courses offered</span
+      <strong
+        ><AnimatedNumber
+          value={current.courses || current.recordedCourses || null}
+        /></strong
+      ><span
+        >{current.courses
+          ? "courses offered"
+          : "courses with recorded grades"}</span
       >
     </div>
     <div>
-      <strong><AnimatedNumber value={current.instructors || null} /></strong
+      <strong
+        ><AnimatedNumber
+          value={(current.courses
+            ? current.instructors
+            : current.recordedInstructors) || null}
+        /></strong
       ><span>recorded instructors</span>
     </div>
     <div>
-      <strong><AnimatedNumber value={current.sections || null} /></strong><span
-        >recorded class sections</span
+      <strong
+        ><AnimatedNumber
+          value={current.sections || current.gradedSections || null}
+        /></strong
+      ><span
+        >{current.sections
+          ? "recorded class sections"
+          : "sections with recorded grades"}</span
       >
     </div>
   </div>
+
+  {#if stats.academics}{#key term}<SchoolAcademics
+        academics={stats.academics}
+        selectedTerm={term}
+      />{/key}{/if}
 
   <section aria-labelledby="rhythm">
     <div class="section-heading">
@@ -200,25 +260,29 @@
         like?
       </p>
     </div>
-    {#if current.knownLectures}
+    {#if classroom.knownLectures}
       <div class="story-grid classroom">
         <div>
           <p class="observation">
             The middle of the pack? <strong
               ><AnimatedNumber
-                value={current.medianLecture}
-                decimals={current.medianLecture! % 1 ? 1 : 0}
-              /> enrolled</strong
-            > in a lecture section.
+                value={classroom.medianLecture}
+                decimals={classroom.medianLecture! % 1 ? 1 : 0}
+              />
+              {historicalClassroom ? "recorded outcomes" : "enrolled"}</strong
+            >
+            in a {historicalClassroom ? "graded" : "lecture"} section.
           </p>
           <BarChart
-            data={current.sizes}
+            data={classroom.sizes}
             x="label"
             y="count"
             series={[
               {
                 key: "count",
-                label: "Lecture sections",
+                label: historicalClassroom
+                  ? "Graded sections"
+                  : "Lecture sections",
                 color: "var(--accent)",
               },
             ]}
@@ -226,37 +290,52 @@
             props={{ bars: { strokeWidth: 0 }, tooltip: { hideTotal: true } }}
           />
           <p class="coverage">
-            Known enrollment for {current.knownLectures.toLocaleString()} of {current.lectures.toLocaleString()}
-            lecture sections. Labs and discussions excluded.
+            {#if historicalClassroom}Based on {current.gradedSections.toLocaleString()}
+              section grade records, including non-letter outcomes. These are recorded
+              outcomes, not historical enrollment snapshots; section type is unavailable.{:else}Known
+              enrollment for {current.knownLectures.toLocaleString()} of {current.lectures.toLocaleString()}
+              lecture sections. Labs and discussions excluded.{/if}
           </p>
           <details class="disclosure">
-            <summary>Lecture sizes in numbers</summary>
+            <summary>Section sizes in numbers</summary>
             <div class="grade-table">
-              {#each current.sizes as size}<div>
-                  <span>{size.label} enrolled</span><span
-                    >{size.count.toLocaleString()} sections</span
-                  >
+              {#each classroom.sizes as size}<div>
+                  <span
+                    >{size.label}
+                    {historicalClassroom ? "outcomes" : "enrolled"}</span
+                  ><span>{size.count.toLocaleString()} sections</span>
                 </div>{/each}
             </div>
           </details>
         </div>
-        <div class="course-list">
-          <h3>Big draws this term</h3>
-          <p class="muted">
-            Courses with the most recorded lecture enrollment.
-          </p>
-          {#each current.largest as course, i}<a href={courseUrl(course.code)}
-              ><span class="rank">{i + 1}</span><span class="course"
-                ><strong>{course.code}</strong><span
-                  >{courseTitle(course.title)}</span
-                ></span
-              ><span class="enrolled"
-                >{course.enrolled.toLocaleString()}<ArrowUpRight
-                  size={14}
-                /></span
-              ></a
-            >{/each}
-        </div>
+        {#if !historicalClassroom}<div class="course-list">
+            <h3>Big draws this term</h3>
+            <p class="muted">
+              Courses with the most recorded lecture enrollment.
+            </p>
+            {#each current.largest as course, i}<a href={courseUrl(course.code)}
+                ><span class="rank">{i + 1}</span><span class="course"
+                  ><strong>{course.code}</strong><span
+                    >{courseTitle(course.title)}</span
+                  ></span
+                ><span class="enrolled"
+                  >{course.enrolled.toLocaleString()}<ArrowUpRight
+                    size={14}
+                  /></span
+                ></a
+              >{/each}
+          </div>{:else}<div class="history-copy">
+            <h3>A look inside past classrooms</h3>
+            <p class="muted">
+              We have historical section grades even where meeting schedules
+              were not captured. The distribution shows how many outcomes were
+              recorded per section.
+            </p>
+            <p class="muted">
+              Explore course volumes, subjects, and rankings in the academic
+              landscape above.
+            </p>
+          </div>{/if}
       </div>
     {:else}<p class="empty">
         Lecture enrollment isn’t available for this term. Historical grades are
@@ -314,26 +393,55 @@
           </details>
         </div>
         <div>
-          <h3>How grades have changed</h3>
-          <LineChart
-            data={trend}
+          <h3>How the grade mix has changed</h3>
+          <AreaChart
+            data={gradeMix}
             x="term"
             xScale={scalePoint()}
-            yDomain={domain}
-            series={[
-              { key: "gpa", label: "School GPA", color: "var(--accent)" },
-            ]}
+            series={gradeLabels.map((key, i) => ({
+              key,
+              label: key,
+              color: gradeColors[i],
+            }))}
+            seriesLayout="stack"
             height={280}
+            yDomain={[0, 100]}
+            legend={false}
             props={{
               xAxis: { tickOcclusion: true, tickSpacing: 90 },
-              spline: { curve: curveMonotoneX, strokeWidth: 1.8 },
-              points: { r: 2 },
               tooltip: {
                 hideTotal: true,
-                item: { format: (value: number) => value.toFixed(2) },
+                item: { format: (value: number) => value.toFixed(1) + "%" },
               },
             }}
           />
+          <div class="grade-key">
+            {#each gradeLabels as grade, i}<span
+                ><i style:background={gradeColors[i]}></i>{grade}</span
+              >{/each}
+          </div>
+          <details class="disclosure">
+            <summary>Average GPA over time</summary>
+            <LineChart
+              data={trend}
+              x="term"
+              xScale={scalePoint()}
+              yDomain={domain}
+              series={[
+                { key: "gpa", label: "School GPA", color: "var(--accent)" },
+              ]}
+              height={280}
+              props={{
+                xAxis: { tickOcclusion: true, tickSpacing: 90 },
+                spline: { curve: curveMonotoneX, strokeWidth: 1.8 },
+                points: { r: 2 },
+                tooltip: {
+                  hideTotal: true,
+                  item: { format: (value: number) => value.toFixed(2) },
+                },
+              }}
+            />
+          </details>
           <details class="disclosure">
             <summary>Recorded GPA by term</summary>
             <div class="grade-table">
@@ -375,6 +483,22 @@
 </div>
 
 <style>
+  .grade-key {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    margin: 12px 0;
+  }
+  .grade-key span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .grade-key i {
+    width: 12px;
+    height: 3px;
+  }
   .school-stats {
     padding: 30px 0 10px;
   }
