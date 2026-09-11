@@ -5,6 +5,7 @@
   import { departmentName } from "$lib/departments";
   import { termName, courseUrl } from "$lib/format";
   import { subjectVolumes, type Academics } from "$lib/school-academics";
+  import SchoolSankey from "./SchoolSankey.svelte";
   import SchoolTreemap from "./SchoolTreemap.svelte";
   import SchoolCourseDots from "./SchoolCourseDots.svelte";
   import Select from "./Select.svelte";
@@ -82,6 +83,7 @@
         </p>
       </div>
     </div>
+    <SchoolSankey {academics} {selectedTerm} />
     <div class="heading subheading">
       <h2>Every course is a dot</h2>
       <p>Find a familiar course—or something you’ve never heard of.</p>

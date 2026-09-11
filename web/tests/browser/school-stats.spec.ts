@@ -125,3 +125,69 @@ test("academic charts drill into subjects, find courses, and preserve historical
     page.getByRole("heading", { name: "How the grade mix has changed" }),
   ).toBeVisible();
 });
+
+test("grade Sankey drills into departments and retains all recorded grade volume", async ({
+  page,
+  request,
+}) => {
+  const doc = await (await request.get("/stats.json")).json();
+  const academics = doc.data.schoolStats.academics;
+  expect(
+    academics.courses.every(
+      (c: { count: number; grades: number[] }) =>
+        c.grades.reduce((s, v) => s + v, 0) === c.count,
+    ),
+  ).toBe(true);
+  await page.goto("/stats");
+  await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
+  const flow = page.locator(".grade-flow");
+  await expect(
+    flow.getByRole("heading", { name: "Follow the grades" }),
+  ).toBeVisible();
+  await expect(flow.locator(".flow-chart svg")).toBeVisible();
+  expect(await flow.locator(".flow-link").count()).toBeGreaterThan(0);
+  const firstDepartment = flow
+    .getByRole("button", { name: /^Explore .* grade flow$/ })
+    .first();
+  await firstDepartment.focus();
+  await expect(flow.locator(".flow-detail")).toContainText(
+    "attributed letter grades",
+  );
+  await page.keyboard.press("Enter");
+  await expect(
+    flow.getByRole("button", { name: "← All departments", exact: true }),
+  ).toBeVisible();
+  await expect(
+    flow.getByRole("button", { name: /^Explore .* grade flow$/ }),
+  ).toHaveCount(1);
+  await expect(flow.locator("a").first()).toBeVisible();
+  await expect(flow.locator("a").first()).toHaveAttribute(
+    "href",
+    /^\/courses\//,
+  );
+  await flow
+    .getByRole("button", { name: "← All departments", exact: true })
+    .click();
+  await expect(
+    flow.getByRole("button", { name: /^Explore .* grade flow$/ }),
+  ).toHaveCount(6);
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+  expect(
+    await flow
+      .locator(".flow-scroll")
+      .evaluate((e) => e.scrollWidth > e.clientWidth),
+  ).toBe(true);
+  await firstDepartment.focus();
+  await page.keyboard.press("Enter");
+  await page.getByRole("button", { name: "Previous term" }).click();
+  await expect(
+    flow.getByRole("button", { name: "← All departments", exact: true }),
+  ).toHaveCount(0);
+  await expect(flow.locator(".flow-chart svg")).toBeVisible();
+  expect(await flow.locator(".flow-link").count()).toBeGreaterThan(0);
+});
