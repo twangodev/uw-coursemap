@@ -1,3 +1,4 @@
+import { schoolStatsSchema } from "$lib/school-stats";
 import { z } from "zod";
 
 export const registry = z.registry<{ id: string }>();
@@ -275,6 +276,7 @@ export const homeDataSchema = named(
 );
 export const directoryDataSchema = named("DirectoryData", z.object({}));
 export const dataSchemas = {
+  Statistics: named("StatisticsData", z.object({ schoolStats: schoolStatsSchema })),
   Course: courseDataSchema,
   Instructor: instructorDataSchema,
   Department: departmentDataSchema,
@@ -311,6 +313,7 @@ export const documentSchemas = Object.fromEntries(
 };
 export function documentKind(path: string): DocumentKind {
   if (path === "/") return "Home";
+  if (path === "/stats") return "Statistics";
   if (path === "/search" || path === "/instructors/by-rating-count")
     return "Search";
   if (path === "/departments" || path === "/explorer") return "Directory";

@@ -19,7 +19,7 @@ export function representation(path: string) {
     : null;
 }
 export function isDocument(path: string) {
-  return /^(\/|\/search|\/departments(?:\/[^/.]+(?:\/(?:catalog|easiest|hardest))?)?|\/courses\/[^/.]+|\/instructors\/[^/.]+|\/explorer(?:\/[^/.]+)?)$/.test(
+  return /^(\/|\/search|\/stats|\/departments(?:\/[^/.]+(?:\/(?:catalog|easiest|hardest))?)?|\/courses\/[^/.]+|\/instructors\/[^/.]+|\/explorer(?:\/[^/.]+)?)$/.test(
     path,
   );
 }

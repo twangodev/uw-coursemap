@@ -92,9 +92,10 @@ it("publishes every canonical course exactly once in bounded XML sitemaps", asyn
       .sort(),
   ).toEqual(courses.map((c) => courseUrl(c.code)).sort());
   expect(
-    urls.some((path) => /[?#]|^\/stats|^\/subjects|course_/.test(path)),
+    urls.some((path) => /[?#]|^\/stats\/|^\/subjects|course_/.test(path)),
   ).toBe(false);
   expect(urls).toContain("/search");
+  expect(urls).toContain("/stats");
   expect(urls).toContain("/instructors/by-rating-count");
   for (const paths of pages.values())
     expect(Buffer.byteLength(sitemapXml(paths))).toBeLessThan(50 * 1024 * 1024);

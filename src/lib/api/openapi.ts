@@ -38,6 +38,7 @@ const searchParameters = [
 ];
 const routes: [string, DocumentKind, string[]][] = [
   ["/index", "Home", []],
+  ["/stats", "Statistics", ["term"]],
   ["/courses/{course}", "Course", []],
   ["/courses/easiest", "Collection", []],
   ["/courses/hardest", "Collection", []],
@@ -80,7 +81,7 @@ export function openapiSpec() {
           tags: [kind],
           parameters: [
             ...parameters,
-            ...(filters.length ? searchParameters : []),
+            ...(filters.includes("search") ? searchParameters : filters.includes("term") ? searchParameters.filter(p => p.name === "term") : []),
           ],
           responses: {
             "200": {

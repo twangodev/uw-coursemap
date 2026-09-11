@@ -20,6 +20,7 @@ export async function socialManifest() {
   });
   const selected = new Set(entries.instructors);
   return [
+    card("/stats", "UW–Madison by the numbers", "Campus stats"),
     ...courses.map((c) =>
       card(courseUrl(c.code), courseTitle(c.title), c.code),
     ),

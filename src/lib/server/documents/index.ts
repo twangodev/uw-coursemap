@@ -1,6 +1,7 @@
 import { building, dev } from "$lib/server/runtime";
 import { readDocument, isFilteredDocument } from "./storage";
 import { error } from "@sveltejs/kit";
+import { stats } from "./stats";
 import { home } from "./home";
 import { course } from "./course";
 import { course_collection } from "./course-collection";
@@ -22,6 +23,7 @@ export async function loadSourceDocument(context: DocumentContext) {
     .map(decodeURIComponent);
   const [kind, id, child] = parts;
   if (!kind) return home(context);
+  if (kind === "stats" && parts.length === 1) return stats(context);
   if (kind === "search" && parts.length === 1) return search(context);
   if ((kind === "departments" || kind === "explorer") && parts.length === 1)
     return {};

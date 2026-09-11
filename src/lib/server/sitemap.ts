@@ -54,6 +54,7 @@ export function sitemapPages() {
       pages: [
         "/",
         "/departments",
+        "/stats",
         "/explorer",
         "/search",
         "/instructors/by-rating-count",

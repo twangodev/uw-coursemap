@@ -1,3 +1,5 @@
+import { schoolStatsSchema } from "$lib/school-stats";
+import { selectStatsTerm } from "./stats-selection";
 import { error, redirect } from "@sveltejs/kit";
 import type { PublicDocument } from "$lib/api/schemas";
 import { normalize } from "$lib/format";
@@ -56,7 +58,11 @@ export async function readDocument(
   const document = grouped
     ? (stored as Record<string, PublicDocument> | null)?.[path]
     : (stored as PublicDocument | null);
-  if (document) return document;
+  if (document) {
+    if (path === "/stats" && "schoolStats" in document.data)
+      return { ...document, url: new URL(path + url.search, "https://uwcourses.com").href, data: { schoolStats: selectStatsTerm(schoolStatsSchema.parse(document.data.schoolStats), url) } };
+    return document;
+  }
   // Aliases only need the small routing index on a miss; normal pages read one asset.
   const routes = await readAsset<{
     courses: Record<string, string>;

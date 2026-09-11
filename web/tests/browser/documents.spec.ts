@@ -64,7 +64,7 @@ test("API discovery, aliases, query handling, errors and transport remain distin
 }) => {
   const spec = await (await request.get("/openapi.json")).json();
   expect(spec.openapi).toBe("3.1.0");
-  expect(Object.keys(spec.paths)).toHaveLength(38);
+  expect(Object.keys(spec.paths)).toHaveLength(40);
   expect(spec.paths["/api/suggest"].get.operationId).toBe("apiSuggestions");
   expect(spec.paths["/api/weather"].get.operationId).toBe("madisonWeather");
   expect(spec.components.schemas.Course.properties.requirements).toBeTruthy();

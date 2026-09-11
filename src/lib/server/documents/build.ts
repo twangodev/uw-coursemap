@@ -27,6 +27,7 @@ async function createInventory() {
   const paths = [
     "/",
     "/search",
+    "/stats",
     "/departments",
     "/explorer",
     "/explorer/all",

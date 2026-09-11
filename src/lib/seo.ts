@@ -77,6 +77,10 @@ export function pageSeo(data: any, pathname: string, status = 200) {
     title = `${status === 404 ? "Page not found" : "Page unavailable"} | UW Courses`;
     description =
       "This page is unavailable. Browse UW–Madison courses by department.";
+  } else if (pathname === "/stats") {
+    graph.push(breadcrumbs([{ name: "Home", path: "/" }, { name: "Campus stats", path: "/stats" }]));
+    title = "UW–Madison Statistics: Classes, Campus & Grades | UW Courses";
+    description = "Explore UW–Madison by the numbers: campus schedules, classroom sizes, popular courses and historical grade distributions.";
   } else if (data.course) {
     const c = data.course;
     path = courseUrl(c.course_id);
@@ -205,7 +209,7 @@ export function pageSeo(data: any, pathname: string, status = 200) {
   };
   const personalImage =
     !noindex &&
-    (data.course || data.subject || (data.instructor && data.socialImage));
+    (pathname === "/stats" || data.course || data.subject || (data.instructor && data.socialImage));
   if (!noindex) {
     const entity = graph.find((item) =>
       ["Course", "Person", "ItemList"].includes(String(item["@type"])),
