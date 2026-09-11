@@ -1,3 +1,4 @@
+import { pathToFileURL } from "node:url";
 import { cp, readdir, appendFile, readFile } from "node:fs/promises";
 
 /** Only completed stage outputs are copied; cache metadata never becomes public. */
@@ -35,3 +36,6 @@ export async function assembleAssets(
     "\n/__documents/*\n  X-Robots-Tag: noindex\n/social/manifest.json\n  X-Robots-Tag: noindex\n",
   );
 }
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href)
+  await assembleAssets();

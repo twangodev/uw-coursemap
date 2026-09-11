@@ -15,7 +15,7 @@ permissions:
   contents: read
 jobs:
   resolve:
-    name: Resolve dataset revision
+    name: Resolve
     runs-on: ubuntu-latest
     timeout-minutes: 10
     concurrency:
@@ -47,7 +47,7 @@ jobs:
           retention-days: 1
           if-no-files-found: error
   data:
-    name: Import dataset
+    name: Data
     needs: [resolve]
     if: needs.resolve.outputs.changed == 'true'
     runs-on: ubuntu-latest
@@ -85,17 +85,17 @@ jobs:
         with:
           path: .site/import
           key: ${{ steps.cache.outputs.cache-primary-key }}
-      - run: tar -czf website-data.tar.gz .site/import
+      - run: tar -I 'zstd -T0' -cf website-data.tar.zst .site/import
       - uses: actions/upload-artifact@v4
         with:
           name: website-data
-          path: website-data.tar.gz
+          path: website-data.tar.zst
           include-hidden-files: true
           compression-level: 0
           retention-days: 1
           if-no-files-found: error
   documents:
-    name: Prepare serving documents
+    name: Documents
     needs: [resolve, data]
     if: needs.resolve.outputs.changed == 'true'
     runs-on: ubuntu-latest
@@ -123,8 +123,8 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: website-data
-      - run: tar -xzf website-data.tar.gz
-      - run: rm website-data.tar.gz
+      - run: tar --zstd -xf website-data.tar.zst
+      - run: rm website-data.tar.zst
       - uses: actions/cache/restore@v5
         id: cache
         with:
@@ -141,17 +141,17 @@ jobs:
         with:
           path: .site/documents
           key: ${{ steps.cache.outputs.cache-primary-key }}
-      - run: tar -czf website-documents.tar.gz .site/documents
+      - run: tar -I 'zstd -T0' -cf website-documents.tar.zst .site/documents
       - uses: actions/upload-artifact@v4
         with:
           name: website-documents
-          path: website-documents.tar.gz
+          path: website-documents.tar.zst
           include-hidden-files: true
           compression-level: 0
           retention-days: 1
           if-no-files-found: error
   social:
-    name: Prepare social cards
+    name: Social
     needs: [resolve, documents]
     if: needs.resolve.outputs.changed == 'true'
     runs-on: ubuntu-latest
@@ -179,8 +179,8 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: website-documents
-      - run: tar -xzf website-documents.tar.gz
-      - run: rm website-documents.tar.gz
+      - run: tar --zstd -xf website-documents.tar.zst
+      - run: rm website-documents.tar.zst
       - uses: actions/cache/restore@v5
         id: cache
         with:
@@ -212,17 +212,17 @@ jobs:
         with:
           path: .site/social-cache
           key: ${{ steps.cards.outputs.cache-primary-key }}
-      - run: tar -czf website-social.tar.gz .site/social
+      - run: tar -I 'zstd -T0' -cf website-social.tar.zst .site/social
       - uses: actions/upload-artifact@v4
         with:
           name: website-social
-          path: website-social.tar.gz
+          path: website-social.tar.zst
           include-hidden-files: true
           compression-level: 0
           retention-days: 1
           if-no-files-found: error
   tests:
-    name: Types and unit tests
+    name: Tests
     needs: [resolve, data]
     if: needs.resolve.outputs.changed == 'true'
     runs-on: ubuntu-latest
@@ -242,13 +242,48 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: website-data
-      - run: tar -xzf website-data.tar.gz
-      - run: rm website-data.tar.gz
+      - run: tar --zstd -xf website-data.tar.zst
+      - run: rm website-data.tar.zst
       - run: bun run check
       - run: bun run test
+  app:
+    name: Build
+    needs: [resolve, data]
+    if: needs.resolve.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: svelte-app-${{ github.ref }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 25
+      - run: bun install --frozen-lockfile
+      - uses: actions/download-artifact@v4
+        with:
+          name: website-data
+      - run: tar --zstd -xf website-data.tar.zst
+      - run: rm website-data.tar.zst
+      - run: bun run build
+        env:
+          SITE_ASSETS: deferred
+      - run: tar -I 'zstd -T0' -cf website-app.tar.zst .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp .svelte-kit/output/server
+      - uses: actions/upload-artifact@v4
+        with:
+          name: website-app
+          path: website-app.tar.zst
+          include-hidden-files: true
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: error
   build:
-    name: Build and audit
-    needs: [resolve, data, documents, social]
+    name: Assets
+    needs: [resolve, data, documents, social, app]
     if: needs.resolve.outputs.changed == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -275,35 +310,40 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: website-data
-      - run: tar -xzf website-data.tar.gz
-      - run: rm website-data.tar.gz
+      - run: tar --zstd -xf website-data.tar.zst
+      - run: rm website-data.tar.zst
       - uses: actions/download-artifact@v4
         with:
           name: website-documents
-      - run: tar -xzf website-documents.tar.gz
-      - run: rm website-documents.tar.gz
+      - run: tar --zstd -xf website-documents.tar.zst
+      - run: rm website-documents.tar.zst
       - uses: actions/download-artifact@v4
         with:
           name: website-social
-      - run: tar -xzf website-social.tar.gz
-      - run: rm website-social.tar.gz
+      - run: tar --zstd -xf website-social.tar.zst
+      - run: rm website-social.tar.zst
       - run: uv run --locked uwcourses-site cache-verify --stage import
       - run: uv run --locked uwcourses-site cache-verify --stage documents
       - run: uv run --locked uwcourses-site cache-verify --stage social
-      - run: bun run build
+      - uses: actions/download-artifact@v4
+        with:
+          name: website-app
+      - run: tar --zstd -xf website-app.tar.zst
+      - run: rm website-app.tar.zst
+      - run: bun run site:assemble
       - run: bun run seo:check
       - run: uv run --locked uwcourses-site assets-check
-      - run: tar -czf website-build.tar.gz .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp .svelte-kit/output/server
+      - run: tar -I 'zstd -T0' -cf website-build.tar.zst .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp .svelte-kit/output/server
       - uses: actions/upload-artifact@v4
         with:
           name: website-build
-          path: website-build.tar.gz
+          path: website-build.tar.zst
           include-hidden-files: true
           compression-level: 0
           retention-days: 1
           if-no-files-found: error
   browser-data:
-    name: Prepare browser database
+    name: Database
     needs: [resolve, data]
     if: needs.resolve.outputs.changed == 'true'
     runs-on: ubuntu-latest
@@ -331,8 +371,8 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: website-data
-      - run: tar -xzf website-data.tar.gz
-      - run: rm website-data.tar.gz
+      - run: tar --zstd -xf website-data.tar.zst
+      - run: rm website-data.tar.zst
       - uses: actions/cache/restore@v5
         id: cache
         with:
@@ -349,23 +389,27 @@ jobs:
         with:
           path: .site/browser-state
           key: ${{ steps.cache.outputs.cache-primary-key }}
-      - run: tar -czf website-browser-data.tar.gz .site/browser-state
+      - run: tar -I 'zstd -T0' -cf website-browser-data.tar.zst .site/browser-state
       - uses: actions/upload-artifact@v4
         with:
           name: website-browser-data
-          path: website-browser-data.tar.gz
+          path: website-browser-data.tar.zst
           include-hidden-files: true
           compression-level: 0
           retention-days: 1
           if-no-files-found: error
   browser:
-    name: Browser tests
+    name: Browser ${{ matrix.shard }}
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2]
     needs: [resolve, build, browser-data]
     if: needs.resolve.outputs.changed == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     concurrency:
-      group: svelte-browser-${{ github.ref }}
+      group: svelte-browser-${{ github.ref }}-${{ matrix.shard }}
       cancel-in-progress: true
     steps:
       - uses: actions/checkout@v6
@@ -379,39 +423,49 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: website-data
-      - run: tar -xzf website-data.tar.gz
-      - run: rm website-data.tar.gz
+      - run: tar --zstd -xf website-data.tar.zst
+      - run: rm website-data.tar.zst
       - uses: actions/download-artifact@v4
         with:
           name: website-build
-      - run: tar -xzf website-build.tar.gz
-      - run: rm website-build.tar.gz
+      - run: tar --zstd -xf website-build.tar.zst
+      - run: rm website-build.tar.zst
       - uses: actions/download-artifact@v4
         with:
           name: website-browser-data
-      - run: tar -xzf website-browser-data.tar.gz
-      - run: rm website-browser-data.tar.gz
+      - run: tar --zstd -xf website-browser-data.tar.zst
+      - run: rm website-browser-data.tar.zst
       - run: bun x playwright install --with-deps chromium
-      - run: bun x playwright test
+      - run: bun x playwright test --shard=${{ matrix.shard }}/2
         env:
           BROWSER_DB_PREPARED: "1"
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
-          name: browser-failures
+          name: browser-failures-${{ matrix.shard }}
           path: test-results/
           retention-days: 7
   check:
     name: Svelte
     if: always()
     needs:
-      [resolve, data, documents, social, tests, build, browser-data, browser]
+      [
+        resolve,
+        data,
+        documents,
+        social,
+        tests,
+        app,
+        build,
+        browser-data,
+        browser,
+      ]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Require all checks or an unchanged nightly release
+      - name: Check
         env:
-          PASSED: ${{ needs.resolve.result == 'success' && (needs.resolve.outputs.changed == 'false' || (needs.data.result == 'success' && needs.documents.result == 'success' && needs.social.result == 'success' && needs.tests.result == 'success' && needs.build.result == 'success' && needs.browser-data.result == 'success' && needs.browser.result == 'success')) }}
+          PASSED: ${{ needs.resolve.result == 'success' && (needs.resolve.outputs.changed == 'false' || (needs.data.result == 'success' && needs.documents.result == 'success' && needs.social.result == 'success' && needs.tests.result == 'success' && needs.app.result == 'success' && needs.build.result == 'success' && needs.browser-data.result == 'success' && needs.browser.result == 'success')) }}
         run: test "$PASSED" = true
   deploy:
     name: Deploy
@@ -441,14 +495,14 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: website-data
-      - run: tar -xzf website-data.tar.gz
-      - run: rm website-data.tar.gz
+      - run: tar --zstd -xf website-data.tar.zst
+      - run: rm website-data.tar.zst
       - uses: actions/download-artifact@v4
         with:
           name: website-build
-      - run: tar -xzf website-build.tar.gz
-      - run: rm website-build.tar.gz
-      - name: Deploy verified release
+      - run: tar --zstd -xf website-build.tar.zst
+      - run: rm website-build.tar.zst
+      - name: Deploy
         env:
           GITHUB_TOKEN: ${{ github.token }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}

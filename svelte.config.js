@@ -13,7 +13,8 @@ export default {
       ...cloudflare,
       async adapt(builder) {
         await cloudflare.adapt(builder);
-        await assembleAssets();
+        // CI compiles in parallel with data preparation, then assembles before auditing.
+        if (process.env.SITE_ASSETS !== "deferred") await assembleAssets();
       },
     },
     prerender: {

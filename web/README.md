@@ -38,7 +38,7 @@ The single D1 database is configured in `wrangler.json` as `DB`. Set `CLOUDFLARE
 
 Run the **Svelte** workflow manually with **First deployment** enabled once to create the Worker. Validate its workers.dev preview, then attach `uwcourses.com` in Cloudflare. Subsequent runs leave that option disabled.
 
-The Svelte workflow checks pushes and pull requests and deploys successful main pushes, manual runs, and nightly runs at 03:17 America/Los_Angeles. Each run resolves HF once to a pinned revision. Import, serving documents, social cards, and browser D1 use separate input-hashed caches with file-integrity manifests; artifacts carry the exact outputs between jobs. App builds reuse those outputs. A nightly run skips when both the deployed website commit and HF revision are unchanged.
+The Svelte workflow checks pushes and pull requests and deploys successful main pushes, manual runs, and nightly runs at 03:17 America/Los_Angeles. Each run resolves HF once to a pinned revision. Import, serving documents, social cards, and browser D1 use separate input-hashed caches with file-integrity manifests; artifacts carry the exact outputs between jobs. App compilation runs alongside document and social-card preparation; `bun run site:assemble` joins their outputs before auditing. Browser tests run on two independent runners. A nightly run skips when both the deployed website commit and HF revision are unchanged.
 
 Only production deployment is serialized. Before production writes, `uwcourses-site deploy` rejects superseded commits, imports D1 only when its projection differs, verifies the database, and publishes matching code/assets. Scraping, inference, and HF publication remain local; no Cloudflare cron is needed.
 
