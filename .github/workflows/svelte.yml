@@ -29,7 +29,7 @@ jobs:
       social_key: ${{ steps.resolve.outputs.social_key }}
       browser_key: ${{ steps.resolve.outputs.browser_key }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: astral-sh/setup-uv@v7
         with:
           python-version: "3.12"
@@ -38,7 +38,7 @@ jobs:
         run: uv run --locked uwcourses-site resolve
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: website-plan
           path: .site/plan.json
@@ -60,16 +60,16 @@ jobs:
       group: svelte-data-${{ github.ref }}
       cancel-in-progress: true
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: astral-sh/setup-uv@v7
         with:
           python-version: "3.12"
           enable-cache: true
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: website-plan
           path: .site
-      - uses: actions/cache/restore@v5
+      - uses: actions/cache/restore@v6
         id: cache
         with:
           path: .site/import
@@ -84,13 +84,13 @@ jobs:
       - run: uv run --locked python -m unittest discover -s web/tests -p 'test_*.py'
       - if: steps.valid.outputs.valid != 'true'
         run: uv run --locked uwcourses-site cache-seal --stage import
-      - uses: actions/cache/save@v5
+      - uses: actions/cache/save@v6
         if: steps.cache.outputs.cache-hit != 'true'
         with:
           path: .site/import
           key: ${{ steps.cache.outputs.cache-primary-key }}
       - run: tar -I 'zstd -T0' -cf website-data.tar.zst .site/import
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: website-data
           path: website-data.tar.zst
@@ -110,7 +110,7 @@ jobs:
       group: svelte-documents-${{ github.ref }}
       cancel-in-progress: true
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: astral-sh/setup-uv@v7
         with:
           python-version: "3.12"
@@ -118,20 +118,20 @@ jobs:
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: 1.4.0
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 25
       - run: bun install --frozen-lockfile
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: website-plan
           path: .site
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: website-data
       - run: tar --zstd -xf website-data.tar.zst
       - run: rm website-data.tar.zst
-      - uses: actions/cache/restore@v5
+      - uses: actions/cache/restore@v6
         id: cache
         with:
           path: .site/documents
@@ -142,13 +142,13 @@ jobs:
         run: bun run site:data
       - if: steps.valid.outputs.valid != 'true'
         run: uv run --locked uwcourses-site cache-seal --stage documents
-      - uses: actions/cache/save@v5
+      - uses: actions/cache/save@v6
         if: steps.cache.outputs.cache-hit != 'true'
         with:
           path: .site/documents
           key: ${{ steps.cache.outputs.cache-primary-key }}
       - run: tar -I 'zstd -T0' -cf website-documents.tar.zst .site/documents
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: website-documents
           path: website-documents.tar.zst
@@ -165,7 +165,7 @@ jobs:
       group: svelte-social-${{ github.ref }}
       cancel-in-progress: true
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: astral-sh/setup-uv@v7
         with:
           python-version: "3.12"
@@ -173,20 +173,20 @@ jobs:
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: 1.4.0
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 25
       - run: bun install --frozen-lockfile
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: website-plan
           path: .site
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: website-documents
       - run: tar --zstd -xf website-documents.tar.zst
       - run: rm website-documents.tar.zst
-      - uses: actions/cache/restore@v5
+      - uses: actions/cache/restore@v6
         id: cache
         with:
           path: .site/social
@@ -195,7 +195,7 @@ jobs:
         run: uv run --locked uwcourses-site cache-check --stage social
       - if: steps.valid.outputs.valid != 'true'
         run: bun x playwright install --with-deps chromium
-      - uses: actions/cache/restore@v5
+      - uses: actions/cache/restore@v6
         if: steps.valid.outputs.valid != 'true'
         id: cards
         with:
@@ -207,18 +207,18 @@ jobs:
         run: bun run site:social
       - if: steps.valid.outputs.valid != 'true'
         run: uv run --locked uwcourses-site cache-seal --stage social
-      - uses: actions/cache/save@v5
+      - uses: actions/cache/save@v6
         if: steps.cache.outputs.cache-hit != 'true'
         with:
           path: .site/social
           key: ${{ steps.cache.outputs.cache-primary-key }}
-      - uses: actions/cache/save@v5
+      - uses: actions/cache/save@v6
         if: steps.valid.outputs.valid != 'true' && steps.cards.outputs.cache-hit != 'true'
         with:
           path: .site/social-cache
           key: ${{ steps.cards.outputs.cache-primary-key }}
       - run: tar -I 'zstd -T0' -cf website-social.tar.zst .site/social
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: website-social
           path: website-social.tar.zst
@@ -235,15 +235,15 @@ jobs:
       group: svelte-tests-${{ github.ref }}
       cancel-in-progress: true
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: 1.4.0
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 25
       - run: bun install --frozen-lockfile
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: website-data
       - run: tar --zstd -xf website-data.tar.zst
@@ -259,15 +259,15 @@ jobs:
       group: svelte-app-${{ github.ref }}
       cancel-in-progress: true
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: 1.4.0
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 25
       - run: bun install --frozen-lockfile
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: website-data
       - run: tar --zstd -xf website-data.tar.zst
@@ -276,7 +276,7 @@ jobs:
         env:
           SITE_ASSETS: deferred
       - run: tar -I 'zstd -T0' -cf website-app.tar.zst .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp .svelte-kit/output/server
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: website-app
           path: website-app.tar.zst
@@ -293,7 +293,7 @@ jobs:
       group: svelte-build-${{ github.ref }}
       cancel-in-progress: true
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: astral-sh/setup-uv@v7
         with:
           python-version: "3.12"
@@ -301,25 +301,25 @@ jobs:
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: 1.4.0
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 25
       - run: bun install --frozen-lockfile
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: website-plan
           path: .site
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: website-data
       - run: tar --zstd -xf website-data.tar.zst
       - run: rm website-data.tar.zst
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: website-documents
       - run: tar --zstd -xf website-documents.tar.zst
       - run: rm website-documents.tar.zst
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: website-social
       - run: tar --zstd -xf website-social.tar.zst
@@ -327,7 +327,7 @@ jobs:
       - run: uv run --locked uwcourses-site cache-verify --stage import
       - run: uv run --locked uwcourses-site cache-verify --stage documents
       - run: uv run --locked uwcourses-site cache-verify --stage social
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: website-app
       - run: tar --zstd -xf website-app.tar.zst
@@ -336,7 +336,7 @@ jobs:
       - run: bun run seo:check
       - run: uv run --locked uwcourses-site assets-check
       - run: tar -I 'zstd -T0' -cf website-build.tar.zst .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp .svelte-kit/output/server
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: website-build
           path: website-build.tar.zst
@@ -353,7 +353,7 @@ jobs:
       group: svelte-browser-data-${{ github.ref }}
       cancel-in-progress: true
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: astral-sh/setup-uv@v7
         with:
           python-version: "3.12"
@@ -361,20 +361,20 @@ jobs:
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: 1.4.0
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 25
       - run: bun install --frozen-lockfile
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: website-plan
           path: .site
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: website-data
       - run: tar --zstd -xf website-data.tar.zst
       - run: rm website-data.tar.zst
-      - uses: actions/cache/restore@v5
+      - uses: actions/cache/restore@v6
         id: cache
         with:
           path: .site/browser-state
@@ -385,13 +385,13 @@ jobs:
         run: bun run test:browser:setup
       - if: steps.valid.outputs.valid != 'true'
         run: uv run --locked uwcourses-site cache-seal --stage browser
-      - uses: actions/cache/save@v5
+      - uses: actions/cache/save@v6
         if: steps.cache.outputs.cache-hit != 'true'
         with:
           path: .site/browser-state
           key: ${{ steps.cache.outputs.cache-primary-key }}
       - run: tar -I 'zstd -T0' -cf website-browser-data.tar.zst .site/browser-state
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: website-browser-data
           path: website-browser-data.tar.zst
@@ -412,25 +412,25 @@ jobs:
       group: svelte-browser-${{ github.ref }}-${{ matrix.shard }}
       cancel-in-progress: true
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: 1.4.0
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 25
       - run: bun install --frozen-lockfile
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: website-data
       - run: tar --zstd -xf website-data.tar.zst
       - run: rm website-data.tar.zst
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: website-build
       - run: tar --zstd -xf website-build.tar.zst
       - run: rm website-build.tar.zst
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: website-browser-data
       - run: tar --zstd -xf website-browser-data.tar.zst
@@ -439,7 +439,7 @@ jobs:
       - run: bun x playwright test --shard=${{ matrix.shard }}/2
         env:
           BROWSER_DB_PREPARED: "1"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: browser-failures-${{ matrix.shard }}
@@ -471,7 +471,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: astral-sh/setup-uv@v7
         with:
           python-version: "3.12"
@@ -479,16 +479,16 @@ jobs:
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: 1.4.0
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 25
       - run: bun install --frozen-lockfile
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: website-data
       - run: tar --zstd -xf website-data.tar.zst
       - run: rm website-data.tar.zst
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: website-build
       - run: tar --zstd -xf website-build.tar.zst
@@ -500,7 +500,7 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           FIRST_DEPLOYMENT: ${{ inputs.first_deployment || false }}
         run: uv run --locked uwcourses-site deploy
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: website-release
