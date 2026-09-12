@@ -1,5 +1,4 @@
 <script lang="ts">
-  import GradeHistory from "./GradeHistory.svelte";
   import { gradeDisplay } from "$lib/grade-display";
   import GradeEstimate from "./GradeEstimate.svelte";
   import type { GradeProjection } from "$lib/grade-projection";
@@ -248,7 +247,13 @@
   <details class="more-grade-details" bind:open={moreDetailsOpen}>
     <summary>More grade details <span>Grade mix, volume & source data</span></summary>
     {#if moreDetailsOpen}
-    <GradeHistory grades={source} through={selectedTerm} />
+    {#await import("./GradeHistory.svelte")}
+      <p class="muted" role="status">Loading grade history…</p>
+    {:then module}
+      <module.default grades={source} through={selectedTerm} />
+    {:catch}
+      <p role="alert">Could not load the history charts. Close and reopen this section to retry.</p>
+    {/await}
   {#if selected.length}<details>
     <summary>Grade data</summary>
     <div class="table-scroll">

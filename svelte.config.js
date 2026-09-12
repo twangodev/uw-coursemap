@@ -9,6 +9,8 @@ const cloudflare = adapter({
 export default {
   preprocess: vitePreprocess(),
   kit: {
+    // Inline route styles to avoid blocking first paint on many small CSS requests.
+    inlineStyleThreshold: 32768,
     adapter: {
       ...cloudflare,
       async adapt(builder) {

@@ -7,6 +7,7 @@ test("course metadata and catalog facts are in HTML before JavaScript runs", asy
   const response = await request.get("/courses/COMPSCI_300?term=1264");
   expect(response.status()).toBe(200);
   const html = await response.text();
+  expect(html).toMatch(/<link[^>]+rel="preload"[^>]+href="\/fonts\/OverusedGrotesk-VF\.woff2"[^>]+as="font"[^>]+crossorigin/);
   expect(html).toContain("COMPSCI 300: Programming II | UW–Madison");
   const scripts = [
     ...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs),

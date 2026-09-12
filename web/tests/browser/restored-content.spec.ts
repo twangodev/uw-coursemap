@@ -23,6 +23,8 @@ test("course history charts expand on demand for an ungraded current term", asyn
   await expect(page.locator(".outcomes-table")).toContainText("Spring 2026");
   await page.locator(".more-grade-details > summary").click();
   await expect(history).toHaveCount(0);
+  await page.locator(".more-grade-details > summary").click();
+  await expect(history.locator("svg").first()).toBeVisible();
 });
 test("departments and prerequisite maps serve distinct purposes", async ({
   page,
