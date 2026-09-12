@@ -12,15 +12,6 @@
 <section class="error-page" aria-labelledby="error-title">
   <div class="error-art" aria-hidden="true">
     <span class="error-number">{problem.status}</span>
-    <svg viewBox="0 0 600 400" fill="none">
-      <path class="route-active" pathLength="1" d="M80 70H125Q145 70 145 50H195" />
-      <circle cx="80" cy="70" r="6" />
-      <circle cx="195" cy="50" r="8" />
-      <circle class="pulse" cx="195" cy="50" r="14" />
-      <path class="route-muted" d="M405 350H450Q470 350 470 330H520" />
-      <circle class="destination" cx="405" cy="350" r="6" />
-      <circle cx="520" cy="330" r="8" />
-    </svg>
   </div>
   <div class="error-copy">
     <p class="error-label"><span></span>{problem.status} / {problem.label}</p>
@@ -79,34 +70,6 @@
     line-height: 1;
     color: var(--text);
     opacity: 0.08;
-  }
-  svg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    stroke-width: 2;
-  }
-  .route-muted {
-    stroke: var(--border);
-  }
-  .route-active {
-    stroke: var(--accent);
-    stroke-dasharray: 1;
-    animation: draw 1.4s var(--motion-ease) both;
-  }
-  circle {
-    fill: var(--bg);
-    stroke: var(--accent);
-  }
-  .destination {
-    stroke: var(--muted);
-  }
-  .pulse {
-    opacity: 0.3;
-    animation: pulse 3s ease-out infinite;
-    transform-box: fill-box;
-    transform-origin: center;
   }
   .error-label {
     display: flex;
@@ -199,24 +162,6 @@
   .retry:hover {
     color: var(--accent);
   }
-  @keyframes draw {
-    from {
-      stroke-dashoffset: 1;
-    }
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
-  @keyframes pulse {
-    0% {
-      transform: scale(0.7);
-      opacity: 0.4;
-    }
-    100% {
-      transform: scale(1.8);
-      opacity: 0;
-    }
-  }
   @media (max-width: 760px) {
     .error-page {
       grid-template-columns: 1fr;
@@ -231,12 +176,6 @@
     }
     .error-copy {
       max-width: 480px;
-    }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .route-active,
-    .pulse {
-      animation: none;
     }
   }
 </style>
