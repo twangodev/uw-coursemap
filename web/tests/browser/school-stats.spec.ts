@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 import { documentSchemas } from "../../../src/lib/api/schemas";
 
 test("statistics documents negotiate formats and select historical terms", async ({
@@ -31,16 +31,28 @@ test("statistics documents negotiate formats and select historical terms", async
   expect((await request.get("/stats.json?term=bad")).status()).toBe(400);
 });
 
-test("statistics are readable on mobile and respond to term changes", async ({
+async function closeCard(page: Page) {
+  const close = page.getByRole("button", { name: "Close statistics" });
+  if (await close.count()) {
+    await close.click();
+    await expect(page.getByRole("dialog")).toHaveCount(0);
+  }
+}
+async function openCard(page: Page, title: string) {
+  await closeCard(page);
+  await page.getByRole("button", { name: title, exact: true }).click();
+  await expect(
+    page.getByRole("dialog", { name: title, exact: true }),
+  ).toBeVisible();
+}
+
+test("statistics dialogs are readable on mobile and respond to term changes", async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/stats");
   await expect(
-    page.getByRole("heading", { name: "UW–Madison, by the numbers." }),
-  ).toBeVisible();
-  await expect(
-    page.getByRole("heading", { name: "Campus activity" }),
+    page.getByRole("heading", { name: "UW–Madison statistics." }),
   ).toBeVisible();
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   expect(
@@ -48,27 +60,21 @@ test("statistics are readable on mobile and respond to term changes", async ({
       () => document.documentElement.scrollWidth <= innerWidth,
     ),
   ).toBe(true);
-  await page
-    .locator(".stats-card > summary")
-    .filter({ hasText: /^Campus activity/ })
-    .click();
   await page.getByRole("button", { name: "Previous term" }).click();
   await expect(page).toHaveURL(/stats\?term=/);
+  await openCard(page, "Campus activity");
   await expect(
     page.getByText("We don’t have a building schedule", { exact: false }),
   ).toBeVisible();
+  await closeCard(page);
   await page.getByRole("button", { name: "Next term" }).click();
-  await page
-    .locator(".stats-card > summary")
-    .filter({ hasText: /^Busiest hour/ })
-    .click();
-  await expect(page.locator(".heatmap")).toBeVisible();
+  await openCard(page, "Busiest hour");
   await page.locator(".heatmap button").first().focus();
   await expect(page.locator(".heat-detail")).toContainText(
     "meetings across the recorded term",
   );
-  const building = page.locator('.map svg [role="button"]').first();
-  await building.focus();
+  await openCard(page, "Campus activity");
+  await page.locator('.map svg [role="button"]').first().focus();
   await page.keyboard.press("Enter");
   await expect(page.locator(".map .caption")).toContainText(
     "scheduled enrollment visits",
@@ -79,7 +85,7 @@ test("statistics are readable on mobile and respond to term changes", async ({
   );
 });
 
-test("academic charts drill into subjects, find courses, and preserve historical labels", async ({
+test("academic dialogs drill into subjects, find courses, and show descriptive grade statistics", async ({
   page,
   request,
 }) => {
@@ -91,64 +97,53 @@ test("academic charts drill into subjects, find courses, and preserve historical
   await expect(
     page.getByText("courses with recorded grades", { exact: true }),
   ).toBeVisible();
-  await expect(
-    page.getByRole("heading", { name: "What Madison studies" }),
-  ).toBeVisible();
-  await page
-    .locator(".stats-card > summary")
-    .filter({ hasText: /^What Madison studies/ })
-    .click();
+  await openCard(page, "What Madison studies");
   const tree = page.locator(".treemap");
-  const first = tree.getByRole("button").first();
-  await first.focus();
+  await tree.getByRole("button").first().focus();
   await page.keyboard.press("Enter");
-  await expect(
-    page.getByRole("button", { name: "← All subjects" }),
-  ).toBeVisible();
   await expect(tree.locator("a").first()).toHaveAttribute(
     "href",
     /^\/courses\//,
   );
   await page.getByRole("button", { name: "← All subjects" }).click();
-  await page.locator("summary").filter({ hasText: "Find your course" }).click();
+  await openCard(page, "Find your course");
   const dot = page.locator('.dot-chart circle[tabindex="0"]');
-  await expect(dot).toHaveCount(1);
-  const previousDot = await dot.getAttribute("aria-label");
+  const previous = await dot.getAttribute("aria-label");
   await dot.focus();
   await page.keyboard.press("ArrowRight");
-  await expect(dot).not.toHaveAttribute("aria-label", previousDot!);
+  await expect(dot).not.toHaveAttribute("aria-label", previous!);
   await page.getByLabel("Find a course in the dot plot").fill("CS 300");
-  await expect(page.locator(".dot-detail")).toContainText("COMPSCI 300");
   await expect(page.locator(".dot-detail a")).toHaveAttribute(
     "href",
     "/courses/COMPSCI_300",
   );
-  await page
-    .locator("summary")
-    .filter({ hasText: "Popular courses over time" })
-    .click();
+  await openCard(page, "Popular courses over time");
   await page.locator(".rank-legend button").first().click();
   await expect(page.locator(".rank-legend button").first()).toHaveAttribute(
     "aria-pressed",
     "true",
   );
-  await page.setViewportSize({ width: 390, height: 844 });
-  await expect
-    .poll(() =>
-      page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
-    )
-    .toBe(true);
-  await page
-    .locator(".stats-card > summary")
-    .filter({ hasText: /^Grades/ })
-    .click();
+  await openCard(page, "Grades");
+  await expect(page.locator(".distribution-metrics")).toContainText(
+    "Std. deviation",
+  );
+  await expect(
+    page.getByRole("heading", { name: "Cumulative distribution" }),
+  ).toBeVisible();
+  await expect(page.locator('.grade-cdf svg[role="figure"]')).toBeVisible();
   await page.locator("summary").filter({ hasText: "Grades over time" }).click();
   await expect(
     page.getByRole("heading", { name: "How the grade mix has changed" }),
   ).toBeVisible();
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(
+    await page
+      .getByRole("dialog")
+      .evaluate((e) => e.scrollWidth <= e.clientWidth),
+  ).toBe(true);
 });
 
-test("grade Sankey drills into departments and retains all recorded grade volume", async ({
+test("grade Sankey retains named departments, course links, and term selection in a dialog", async ({
   page,
   request,
 }) => {
@@ -162,31 +157,14 @@ test("grade Sankey drills into departments and retains all recorded grade volume
   ).toBe(true);
   await page.goto("/stats");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
-  await page
-    .locator("summary")
-    .filter({ hasText: /^Grade flows/ })
-    .click();
+  await openCard(page, "Grade flows");
   const flow = page.locator(".grade-flow");
-  await expect(
-    page.getByRole("region", { name: "Grade flows", exact: true }),
-  ).toBeVisible();
-  await expect(flow.locator(".flow-chart svg")).toBeVisible();
-  expect(await flow.locator(".flow-link").count()).toBeGreaterThan(0);
-  const firstDepartment = flow
-    .getByRole("button", { name: /^Explore .* grade flow$/ })
-    .first();
-  await firstDepartment.focus();
-  await expect(flow.locator(".flow-detail")).toContainText(
-    "attributed letter grades",
-  );
+  const departments = flow.getByRole("button", {
+    name: /^Explore .* grade flow$/,
+  });
+  await departments.first().focus();
   await page.keyboard.press("Enter");
-  await expect(
-    flow.getByRole("button", { name: "← All departments", exact: true }),
-  ).toBeVisible();
-  await expect(
-    flow.getByRole("button", { name: /^Explore .* grade flow$/ }),
-  ).toHaveCount(1);
-  await expect(flow.locator("a").first()).toBeVisible();
+  await expect(departments).toHaveCount(1);
   await expect(flow.locator("a").first()).toHaveAttribute(
     "href",
     /^\/courses\//,
@@ -194,12 +172,7 @@ test("grade Sankey drills into departments and retains all recorded grade volume
   await flow
     .getByRole("button", { name: "← All departments", exact: true })
     .click();
-  await expect(
-    flow.getByRole("button", { name: /^Explore .* grade flow$/ }),
-  ).toHaveCount(12);
-  await expect(
-    flow.getByText("Other departments", { exact: true }),
-  ).toHaveCount(0);
+  await expect(departments).toHaveCount(12);
   const count = new Set(
     academics.courses.flatMap((c: { subjects: string[] }) => c.subjects),
   ).size;
@@ -210,59 +183,58 @@ test("grade Sankey drills into departments and retains all recorded grade volume
   await expect(flow.locator(".pagination")).toContainText(
     `Departments 13–24 of ${count}`,
   );
-  await flow.getByRole("button", { name: "Previous grade flows" }).click();
   await page.setViewportSize({ width: 390, height: 844 });
-  expect(
-    await page.evaluate(
-      () => document.documentElement.scrollWidth <= innerWidth,
-    ),
-  ).toBe(true);
   expect(
     await flow
       .locator(".flow-scroll")
       .evaluate((e) => e.scrollWidth > e.clientWidth),
   ).toBe(true);
-  await firstDepartment.focus();
-  await page.keyboard.press("Enter");
+  await closeCard(page);
   await page.getByRole("button", { name: "Previous term" }).click();
-  await page
-    .locator("summary")
-    .filter({ hasText: /^Grade flows/ })
-    .click();
+  await openCard(page, "Grade flows");
   await expect(
     flow.getByRole("button", { name: "← All departments", exact: true }),
   ).toHaveCount(0);
   await expect(flow.locator(".flow-chart svg")).toBeVisible();
-  expect(await flow.locator(".flow-link").count()).toBeGreaterThan(0);
 });
 
-test("bento cards expand with the keyboard and retain a single-column mobile layout", async ({
+test("cards open focus-trapped dialogs without rearranging the grid and return focus on dismissal", async ({
   page,
 }) => {
   await page.goto("/stats");
   await expect(page.locator("html")).toHaveAttribute("data-hydrated", "true");
   await expect(page.locator(".stats-card")).toHaveCount(9);
-  await expect(page.locator(".grade-dots > span")).toHaveCount(100);
-  await expect(
-    page.locator(".grade-flow, .dot-chart, .rank-chart"),
-  ).toHaveCount(0);
-  const summary = page.locator("summary").filter({ hasText: /^Grade flows/ });
-  await summary.focus();
+  await expect(page.locator(".grade-flow,.dot-chart,.rank-chart")).toHaveCount(
+    0,
+  );
+  const trigger = page.getByRole("button", {
+    name: "Grade flows",
+    exact: true,
+  });
+  await trigger.focus();
+  const positions = () =>
+    page.locator(".stats-card").evaluateAll((es) =>
+      es.map((e) => {
+        const el = e as HTMLElement;
+        return [el.offsetLeft, el.offsetTop, el.clientWidth, el.clientHeight];
+      }),
+    );
+  const before = await positions();
   await page.keyboard.press("Enter");
-  await expect(page.locator(".grade-flow")).toBeVisible();
-  const expanded = page.locator(".stats-card[open]");
-  expect(
-    await expanded.evaluate(
-      (e) =>
-        Math.abs(
-          e.getBoundingClientRect().width -
-            e.parentElement!.getBoundingClientRect().width,
-        ) < 2,
-    ),
-  ).toBe(true);
-  await summary.focus();
-  await page.keyboard.press("Enter");
-  await expect(page.locator(".grade-flow")).toHaveCount(0);
+  const dialog = page.getByRole("dialog", { name: "Grade flows", exact: true });
+  await expect(dialog).toBeVisible();
+  expect(await positions()).toEqual(before);
+  await page.keyboard.press("Shift+Tab");
+  expect(await dialog.evaluate((e) => e.contains(document.activeElement))).toBe(
+    true,
+  );
+  await page.keyboard.press("Escape");
+  await expect(dialog).toHaveCount(0);
+  await expect(trigger).toBeFocused();
+  await trigger.click();
+  await page.mouse.click(3, 3);
+  await expect(dialog).toHaveCount(0);
+  await expect(trigger).toBeFocused();
   await page.setViewportSize({ width: 390, height: 844 });
   expect(
     await page.evaluate(

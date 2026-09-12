@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { ArrowUpRight, Minus } from "@lucide/svelte";
+  import { Dialog } from "bits-ui";
+  import { ArrowUpRight, X } from "@lucide/svelte";
   import type { Snippet } from "svelte";
   let {
     title,
@@ -15,19 +16,33 @@
   let open = $state(false);
 </script>
 
-<details class="stats-card" style={`--span:${span}`} bind:open>
-  <summary>
-    <div class="card-heading">
-      <h2>{title}</h2>
-      {#if open}<Minus size={18} strokeWidth={1.4} />{:else}<ArrowUpRight
+<div class="stats-card" style={`--span:${span}`}>
+  <Dialog.Root bind:open>
+    <Dialog.Trigger class="stats-card-trigger" aria-label={title}>
+      <span class="card-heading"
+        ><span role="heading" aria-level="2">{title}</span><ArrowUpRight
           size={18}
           strokeWidth={1.4}
-        />{/if}
-    </div>
-    {#if !open}<div class="card-preview">{@render preview()}</div>{/if}
-  </summary>
-  {#if open}<div class="card-body">{@render children()}</div>{/if}
-</details>
+        /></span
+      >
+      <div class="card-preview">{@render preview()}</div>
+    </Dialog.Trigger>
+    <Dialog.Portal>
+      <Dialog.Overlay class="stats-dialog-overlay" />
+      <Dialog.Content class="stats-dialog">
+        <div class="dialog-heading">
+          <Dialog.Title class="stats-dialog-title">{title}</Dialog.Title
+          ><Dialog.Close
+            class="stats-dialog-close"
+            aria-label="Close statistics"
+            ><X size={20} strokeWidth={1.5} /></Dialog.Close
+          >
+        </div>
+        <div class="card-body">{@render children()}</div>
+      </Dialog.Content>
+    </Dialog.Portal>
+  </Dialog.Root>
+</div>
 
 <style>
   .stats-card {
@@ -37,26 +52,23 @@
     border: 1px solid var(--border);
     border-radius: 12px;
     overflow: clip;
-    transition:
-      border-color 180ms ease,
-      background 180ms ease;
-  }
-  .stats-card[open] {
-    grid-column: 1 / -1;
+    transition: border-color 180ms ease;
   }
   .stats-card:hover {
     border-color: color-mix(in srgb, var(--muted) 50%, var(--border));
   }
-  summary {
+  :global(.stats-card-trigger) {
     display: block;
-    list-style: none;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: 0;
+    color: var(--text);
+    font: inherit;
     cursor: pointer;
     padding: 28px;
   }
-  summary::-webkit-details-marker {
-    display: none;
-  }
-  summary:focus-visible {
+  :global(.stats-card-trigger:focus-visible) {
     outline: 2px solid var(--accent);
     outline-offset: -3px;
     border-radius: 12px;
@@ -66,13 +78,9 @@
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-  }
-  h2 {
-    margin: 0;
     font-size: 16px;
     font-weight: 450;
     letter-spacing: -0.025em;
-    color: var(--text);
   }
   .card-heading :global(svg) {
     color: var(--muted);
@@ -81,7 +89,7 @@
       transform 180ms ease,
       color 180ms ease;
   }
-  summary:hover .card-heading :global(svg) {
+  :global(.stats-card-trigger:hover) .card-heading :global(svg) {
     transform: translate(2px, -2px);
     color: var(--accent);
   }
@@ -93,18 +101,79 @@
     justify-content: center;
     pointer-events: none;
   }
-  .card-body {
-    padding: 4px 28px 30px;
-    animation: enter 180ms ease-out;
+  :global(.stats-dialog-overlay) {
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    background: #0008;
+    backdrop-filter: blur(4px);
+    animation: overlay-in 160ms ease-out;
   }
-  @keyframes enter {
+  :global(.stats-dialog) {
+    position: fixed;
+    z-index: 80;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(1160px, calc(100vw - 48px));
+    max-height: calc(100dvh - 48px);
+    overflow: auto;
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 24px 100px #0005;
+    animation: dialog-in 180ms ease-out;
+  }
+  .dialog-heading {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 22px 28px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  :global(.stats-dialog-title) {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 450;
+    letter-spacing: -0.03em;
+  }
+  :global(.stats-dialog-close) {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    border-radius: 5px;
+    background: var(--surface);
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .card-body {
+    padding: 28px;
+  }
+  @keyframes overlay-in {
     from {
       opacity: 0;
-      transform: translateY(5px);
     }
     to {
       opacity: 1;
-      transform: none;
+    }
+  }
+  @keyframes dialog-in {
+    from {
+      opacity: 0;
+      transform: translate(-50%, calc(-50% + 6px));
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%);
     }
   }
   @media (max-width: 900px) {
@@ -116,14 +185,19 @@
     .stats-card {
       grid-column: 1 / -1;
     }
-    summary {
+    :global(.stats-card-trigger) {
       padding: 22px;
     }
     .card-preview {
       height: 220px;
     }
+    :global(.stats-dialog) {
+      width: calc(100vw - 20px);
+      max-height: calc(100dvh - 20px);
+    }
+    .dialog-heading,
     .card-body {
-      padding: 4px 22px 24px;
+      padding: 20px;
     }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -131,7 +205,8 @@
     .card-heading :global(svg) {
       transition: none;
     }
-    .card-body {
+    :global(.stats-dialog),
+    :global(.stats-dialog-overlay) {
       animation: none;
     }
   }

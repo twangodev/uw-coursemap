@@ -1,9 +1,10 @@
 <script lang="ts">
   import { BarChart, LineChart, AreaChart } from "layerchart";
   import { scalePoint } from "d3-scale";
-  import { curveMonotoneX } from "d3-shape";
+  import { curveMonotoneX, curveStepAfter } from "d3-shape";
   import { goto } from "$app/navigation";
   import { ArrowUpRight, ChevronLeft, ChevronRight } from "@lucide/svelte";
+  import { gradeStatistics } from "$lib/grade-statistics";
   import Select from "$lib/components/Select.svelte";
   import StatsCard from "$lib/components/StatsCard.svelte";
   import StatsDisclosure from "$lib/components/StatsDisclosure.svelte";
@@ -57,6 +58,14 @@
   let index = $derived(terms.indexOf(term));
   let gradeTerm = $derived(gradedTerm(stats, term));
   let grades = $derived(gradeTerm ? stats.terms[gradeTerm] : null);
+  let distribution = $derived(gradeStatistics(grades?.grades ?? []));
+  let under50 = $derived(
+    classroom.knownLectures
+      ? (classroom.sizes.slice(0, 2).reduce((n, s) => n + s.count, 0) /
+          classroom.knownLectures) *
+          100
+      : null,
+  );
   let bars = $derived(
     gradeLabels.map((grade, i) => ({
       grade,
@@ -124,7 +133,7 @@
 <div class="school-stats">
   <header class="intro">
     <div>
-      <h1>UW–Madison,<br />by the numbers.</h1>
+      <h1>UW–Madison statistics.</h1>
     </div>
     <div class="term-picker">
       <button
@@ -329,6 +338,9 @@
             {/each}
           </div>
         </div>
+        {#if under50 !== null}<span class="preview-math"
+            >{under50.toFixed(1)}% of sections under 50</span
+          >{/if}
       {/snippet}
       {#if classroom.knownLectures}
         <div class="story-grid classroom">
@@ -346,53 +358,28 @@
                   : "median lecture enrollment"}</span
               >
             </p>
-            <div
-              class="size-bubbles"
-              role="img"
-              aria-label="Section size distribution. Circle area represents the number of sections."
-            >
-              {#each classroom.sizes as size}
-                <div>
-                  <svg viewBox="0 0 100 100" aria-hidden="true"
-                    ><circle
-                      cx="50"
-                      cy="50"
-                      r={Math.sqrt(
-                        size.count /
-                          Math.max(1, ...classroom.sizes.map((s) => s.count)),
-                      ) * 43}
-                      fill="var(--accent)"
-                      fill-opacity="0.7"
-                      ><title
-                        >{size.label}: {size.count.toLocaleString()} sections</title
-                      ></circle
-                    ></svg
-                  ><span>{size.label}</span>
-                </div>
-              {/each}
-            </div>
+            <BarChart
+              data={classroom.sizes}
+              x="label"
+              y="count"
+              series={[
+                {
+                  key: "count",
+                  label: historicalClassroom
+                    ? "Graded sections"
+                    : "Lecture sections",
+                  color: "var(--accent)",
+                },
+              ]}
+              height={270}
+              props={{
+                bars: { strokeWidth: 0 },
+                tooltip: { hideTotal: true },
+              }}
+            />
+
             <details class="disclosure">
               <summary>Section sizes & coverage</summary>
-              <BarChart
-                data={classroom.sizes}
-                x="label"
-                y="count"
-                series={[
-                  {
-                    key: "count",
-                    label: historicalClassroom
-                      ? "Graded sections"
-                      : "Lecture sections",
-                    color: "var(--accent)",
-                  },
-                ]}
-                height={270}
-                props={{
-                  bars: { strokeWidth: 0 },
-                  tooltip: { hideTotal: true },
-                }}
-              />
-
               <p class="coverage">
                 {#if historicalClassroom}Based on {current.gradedSections.toLocaleString()}
                   section grade records, including non-letter outcomes. These are
@@ -442,7 +429,7 @@
           ><AnimatedNumber value={grades?.gpa} decimals={2} /></strong
         >
         <span class="preview-label"
-          >average GPA · {gradeTerm
+          >μ · mean grade points · {gradeTerm
             ? termName(gradeTerm)
             : "no recorded grades"}</span
         >
@@ -465,127 +452,154 @@
                 >{/each}
             </div>
           </div>{/if}
+        {#if distribution.count}<span class="preview-math"
+            >σ = {distribution.sd?.toFixed(2)} · n = {distribution.count.toLocaleString()}</span
+          >{/if}
       {/snippet}
       {#if grades?.gradeCount}
-        <div class="grade-headline">
-          <strong><AnimatedNumber value={grades.gpa} decimals={2} /></strong>
-          <p>average GPA</p>
-        </div>
-        <div class="story-grid">
-          <div>
-            <div
-              class="grade-dots"
-              role="img"
-              aria-label={bars
-                .map((row) => `${row.grade}: ${row.percentage.toFixed(1)}%`)
-                .join(", ")}
+        <p class="period">
+          {termName(gradeTerm!)} · recorded letter-grade distribution
+        </p>
+        <dl class="distribution-metrics">
+          {#each [{ label: "Mean · μ", value: distribution.mean }, { label: "Std. deviation · σ", value: distribution.sd }, { label: "25th percentile", value: distribution.q25 }, { label: "Median", value: distribution.median }, { label: "75th percentile", value: distribution.q75 }] as metric}<div
             >
-              {#each gradeDots as grade}<span
-                  style:background={gradeColors[Math.max(0, grade)]}
-                  title={`${bars[Math.max(0, grade)].grade}: ${bars[Math.max(0, grade)].percentage.toFixed(1)}%`}
-                ></span>{/each}
-            </div>
-            <div class="grade-dot-key" aria-hidden="true">
-              {#each gradeLabels as label, i}<span
-                  ><i style:background={gradeColors[i]}></i>{label}</span
-                >{/each}
-            </div>
-            <details class="disclosure">
-              <summary>Grade percentages</summary>
-              <p class="coverage">
-                100 dots represent the grade mix, rounded to whole percentages.
-                Based on {grades.gradeCount.toLocaleString()} letter grades.
-              </p>
-              <BarChart
-                data={bars}
-                x="grade"
-                y="percentage"
-                series={[
-                  {
-                    key: "percentage",
-                    label: "Percent of letter grades",
-                    color: "var(--accent)",
-                  },
-                ]}
-                height={280}
-                props={{
-                  bars: { strokeWidth: 0 },
-                  tooltip: { hideTotal: true },
-                }}
-              />
-
-              <div class="grade-table">
-                {#each bars as row}<div>
-                    <span>{row.grade}</span><span
-                      >{row.percentage.toFixed(1)}%</span
-                    >
-                  </div>{/each}
-              </div>
-            </details>
+              <dt>{metric.label}</dt>
+              <dd><AnimatedNumber value={metric.value} decimals={2} /></dd>
+            </div>{/each}
+          <div>
+            <dt>Grade records · n</dt>
+            <dd><AnimatedNumber value={distribution.count} /></dd>
           </div>
-          <StatsDisclosure
-            title="Grades over time"
-            description="Across recorded semesters"
-          >
-            <h3>How the grade mix has changed</h3>
-            <AreaChart
-              data={gradeMix}
-              x="term"
-              xScale={scalePoint()}
-              series={gradeLabels.map((key, i) => ({
-                key,
-                label: key,
-                color: gradeColors[i],
-              }))}
-              seriesLayout="stack"
-              height={280}
-              yDomain={[0, 100]}
-              legend={false}
+        </dl>
+        <div class="distribution-charts">
+          <div>
+            <h3>Grade probabilities</h3>
+            <BarChart
+              data={bars}
+              x="grade"
+              y="percentage"
+              series={[
+                {
+                  key: "percentage",
+                  label: "Share of letter grades",
+                  color: "var(--accent)",
+                },
+              ]}
+              height={290}
               props={{
-                xAxis: { tickOcclusion: true, tickSpacing: 90 },
+                bars: { strokeWidth: 0 },
+                yAxis: { label: "Percent" },
                 tooltip: {
                   hideTotal: true,
-                  item: { format: (value: number) => value.toFixed(1) + "%" },
+                  item: { format: (v: number) => `${v.toFixed(1)}%` },
                 },
               }}
             />
-            <div class="grade-key">
-              {#each gradeLabels as grade, i}<span
-                  ><i style:background={gradeColors[i]}></i>{grade}</span
-                >{/each}
-            </div>
-            <details class="disclosure">
-              <summary>Average GPA over time</summary>
-              <LineChart
-                data={trend}
-                x="term"
-                xScale={scalePoint()}
-                yDomain={domain}
-                series={[
-                  { key: "gpa", label: "School GPA", color: "var(--accent)" },
-                ]}
-                height={280}
-                props={{
-                  xAxis: { tickOcclusion: true, tickSpacing: 90 },
-                  spline: { curve: curveMonotoneX, strokeWidth: 1.8 },
-                  points: { r: 2 },
-                  tooltip: {
-                    hideTotal: true,
-                    item: { format: (value: number) => value.toFixed(2) },
-                  },
-                }}
-              />
-            </details>
-            <details class="disclosure">
-              <summary>Recorded GPA by term</summary>
-              <div class="grade-table">
-                {#each [...trend].reverse() as row}<div>
-                    <span>{row.term}</span><span>{row.gpa?.toFixed(2)}</span>
-                  </div>{/each}
-              </div>
-            </details>
-          </StatsDisclosure>
+          </div>
+          <div class="grade-cdf">
+            <h3>Cumulative distribution</h3>
+            <LineChart
+              data={distribution.cdf}
+              x="score"
+              yDomain={[0, 100]}
+              xDomain={[0, 4]}
+              series={[
+                {
+                  key: "cumulative",
+                  label: "Grades at or below this score",
+                  color: "#68976d",
+                },
+              ]}
+              height={290}
+              props={{
+                xAxis: { label: "Grade points" },
+                yAxis: { label: "Percent" },
+                spline: { curve: curveStepAfter },
+                points: { r: 3 },
+                tooltip: {
+                  hideTotal: true,
+                  item: { format: (v: number) => `${v.toFixed(1)}%` },
+                },
+              }}
+            />
+            <p class="coverage">F(x) = P(grade points ≤ x)</p>
+          </div>
         </div>
+        <p class="coverage">
+          σ describes the spread of recorded letter grades. Quartiles use linear
+          interpolation between ordered grade records.
+        </p>
+        <details class="disclosure">
+          <summary>Grade percentages</summary>
+          <div class="grade-table">
+            {#each bars as row}<div>
+                <span>{row.grade}</span><span>{row.percentage.toFixed(2)}%</span
+                >
+              </div>{/each}
+          </div>
+        </details>
+        <StatsDisclosure
+          title="Grades over time"
+          description="Across recorded semesters"
+        >
+          <h3>How the grade mix has changed</h3>
+          <AreaChart
+            data={gradeMix}
+            x="term"
+            xScale={scalePoint()}
+            series={gradeLabels.map((key, i) => ({
+              key,
+              label: key,
+              color: gradeColors[i],
+            }))}
+            seriesLayout="stack"
+            height={280}
+            yDomain={[0, 100]}
+            legend={false}
+            props={{
+              xAxis: { tickOcclusion: true, tickSpacing: 90 },
+              tooltip: {
+                hideTotal: true,
+                item: { format: (value: number) => value.toFixed(1) + "%" },
+              },
+            }}
+          />
+          <div class="grade-key">
+            {#each gradeLabels as grade, i}<span
+                ><i style:background={gradeColors[i]}></i>{grade}</span
+              >{/each}
+          </div>
+          <details class="disclosure">
+            <summary>Average GPA over time</summary>
+            <LineChart
+              data={trend}
+              x="term"
+              xScale={scalePoint()}
+              yDomain={domain}
+              series={[
+                { key: "gpa", label: "School GPA", color: "var(--accent)" },
+              ]}
+              height={280}
+              props={{
+                xAxis: { tickOcclusion: true, tickSpacing: 90 },
+                spline: { curve: curveMonotoneX, strokeWidth: 1.8 },
+                points: { r: 2 },
+                tooltip: {
+                  hideTotal: true,
+                  item: { format: (value: number) => value.toFixed(2) },
+                },
+              }}
+            />
+          </details>
+          <details class="disclosure">
+            <summary>Recorded GPA by term</summary>
+            <div class="grade-table">
+              {#each [...trend].reverse() as row}<div>
+                  <span>{row.term}</span><span>{row.gpa?.toFixed(2)}</span>
+                </div>{/each}
+            </div>
+          </details>
+        </StatsDisclosure>
       {/if}
     </StatsCard>
     {#if stats.academics}{#key term}<SchoolAcademics
@@ -771,6 +785,7 @@
     margin-top: 18px;
   }
   .coverage {
+    color: var(--muted);
     font-size: 12px;
     line-height: 1.6;
   }
@@ -806,24 +821,6 @@
     gap: 10px;
     align-items: center;
     font-size: 14px;
-  }
-  .grade-headline {
-    display: flex;
-    gap: 24px;
-    align-items: center;
-    margin-bottom: 26px;
-    align-items: baseline;
-  }
-  .grade-headline > strong {
-    font-size: 42px;
-    font-weight: 450;
-    letter-spacing: -0.06em;
-    color: var(--text);
-  }
-  .grade-headline p {
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.7;
   }
   .disclosure {
     margin-top: 25px;
@@ -919,6 +916,54 @@
     height: 5px;
     border-radius: 50%;
   }
+  .preview-math {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 14px;
+    font-variant-numeric: tabular-nums;
+  }
+  .distribution-metrics {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 20px;
+    margin: 28px 0 36px;
+  }
+  .distribution-metrics dt {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .distribution-metrics dd {
+    margin: 8px 0 0;
+    font-size: 28px;
+    letter-spacing: -0.04em;
+  }
+  .grade-cdf .coverage {
+    margin-top: 18px;
+  }
+  .distribution-charts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+  }
+  .period {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 0;
+  }
+  @media (max-width: 760px) {
+    .distribution-metrics {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .distribution-charts {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 500px) {
+    .distribution-metrics {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
   .bento-grid {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -1002,12 +1047,6 @@
     }
     .school-stats {
       padding-top: 15px;
-    }
-    .grade-headline {
-      gap: 20px;
-    }
-    .grade-headline > strong {
-      font-size: 60px;
     }
   }
   @media (prefers-reduced-motion: reduce) {
