@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+    <title>%sveltekit.status% · Something went wrong | uwcourses</title>
+    <style>
+      @font-face {
+        font-family: Grotesk;
+        src: url("/fonts/OverusedGrotesk-VF.woff2") format("woff2");
+        font-display: swap;
+      }
+      :root {
+        color-scheme: light dark;
+        --bg: #f8f6f1;
+        --text: #1a1916;
+        --muted: #777064;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #1a1916;
+          --text: #efede7;
+          --muted: #a29c90;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font:
+          18px Grotesk,
+          system-ui,
+          sans-serif;
+      }
+      main {
+        max-width: 900px;
+        margin: auto;
+        padding: clamp(32px, 8vw, 100px) 24px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 600;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        width: 28px;
+        height: 28px;
+      }
+      .code {
+        font-size: clamp(120px, 28vw, 240px);
+        letter-spacing: -0.08em;
+        line-height: 1;
+        color: #c5050c;
+        margin: 64px 0 24px;
+        opacity: 0.8;
+      }
+      h1 {
+        font-size: clamp(32px, 6vw, 56px);
+        font-weight: 500;
+        letter-spacing: -0.04em;
+        margin: 0;
+      }
+      p {
+        color: var(--muted);
+        line-height: 1.6;
+        max-width: 40ch;
+      }
+      nav {
+        display: flex;
+        gap: 28px;
+        margin-top: 32px;
+      }
+      nav a {
+        border-bottom: 1px solid var(--muted);
+        padding-bottom: 6px;
+      }
+      a:focus-visible {
+        outline: 2px solid #c5050c;
+        outline-offset: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="brand" href="/"
+        ><img src="/uwcourses-logo.svg" alt="" />uwcourses</a
+      >
+      <div class="code" aria-hidden="true">%sveltekit.status%</div>
+      <h1>We couldn’t load this page.</h1>
+      <p>
+        Please try again shortly. You can also start again from the homepage or
+        course directory.
+      </p>
+      <nav aria-label="Recovery">
+        <a href="/">Back home ↗</a><a href="/search">Explore courses ↗</a>
+      </nav>
+    </main>
+  </body>
+</html>
