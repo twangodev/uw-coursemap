@@ -46,6 +46,7 @@
     <script src="https://rybbit.twango.dev/api/script.js" data-site-id="1" defer></script>
   {/if}
   <link rel="service-desc" type="application/vnd.oai.openapi+json" href="https://uwcourses.com/openapi.json" />
+  <link rel="api-catalog" type="application/linkset+json" href="https://uwcourses.com/.well-known/api-catalog" />
   <title>{seo.title}</title>
   <meta name="description" content={seo.description} />
   <link rel="canonical" href={seo.canonical} />
