@@ -109,7 +109,7 @@
       <a href="/stats">Stats</a>
       <a href="/openapi">API</a>
       <a href="https://github.com/twangodev/uwcourses">GitHub</a>
-      <a href={`https://huggingface.co/datasets/${data.status.repository}/tree/${data.status.revision}`}>Dataset</a>
+      <a href={`https://huggingface.co/datasets/${data.status.repository}`}>Dataset</a>
     </nav>
     <p class="muted scan-date">Scanned {data.status.observed_at.slice(0, 10)}</p>
   </div>

@@ -38,7 +38,7 @@
 </div>
 <div class="dataset-footer">
   <div class="dataset-description"><span>Dataset & model</span><p>{course.observed_at ? `Recorded ${course.observed_at.slice(0, 10)}` : "Versioned course records"}</p></div>
-  <a href={`https://huggingface.co/datasets/${repository}/tree/${course.revision}`}>Download the original dataset <ArrowUpRight size={14} /></a>
+  <a href={`https://huggingface.co/datasets/${repository}`}>View the dataset on Hugging Face <ArrowUpRight size={14} /></a>
 </div>
 <details class="technical-sources">
   <summary>Model outputs & technical records</summary>
