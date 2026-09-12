@@ -12,23 +12,21 @@
 <section class="error-page" aria-labelledby="error-title">
   <div class="error-art" aria-hidden="true">
     <span class="error-number">{problem.status}</span>
-    <svg viewBox="0 0 600 340" fill="none">
+    <svg viewBox="0 0 600 400" fill="none">
       <path
         class="route-muted"
-        d="M-20 260H105Q145 260 145 220V190Q145 150 185 150H245M365 150H415Q455 150 455 110V85Q455 45 495 45H620"
+        d="M345 30H530Q575 30 575 75V325Q575 370 530 370H90"
       />
       <path
         class="route-active"
-        d="M-20 260H105Q145 260 145 220V190Q145 150 185 150H245"
+        pathLength="1"
+        d="M-20 370H-10Q25 370 25 335V75Q25 30 70 30H255"
       />
-      <path class="gap" d="M265 150H345" />
-      <circle cx="145" cy="240" r="8" /><circle cx="245" cy="150" r="10" />
-      <circle class="destination" cx="365" cy="150" r="10" /><circle
-        cx="455"
-        cy="65"
-        r="8"
-      />
-      <circle class="pulse" cx="245" cy="150" r="20" />
+      <path class="gap" d="M275 30H325" />
+      <circle cx="90" cy="30" r="8" /><circle cx="255" cy="30" r="10" />
+      <circle class="destination" cx="345" cy="30" r="10" />
+      <circle cx="510" cy="370" r="8" />
+      <circle class="pulse" cx="255" cy="30" r="20" />
     </svg>
   </div>
   <div class="error-copy">
@@ -105,7 +103,7 @@
   }
   .route-active {
     stroke: var(--accent);
-    stroke-dasharray: 450;
+    stroke-dasharray: 1;
     animation: draw 1.4s var(--motion-ease) both;
   }
   circle {
@@ -214,7 +212,7 @@
   }
   @keyframes draw {
     from {
-      stroke-dashoffset: 450;
+      stroke-dashoffset: 1;
     }
     to {
       stroke-dashoffset: 0;
