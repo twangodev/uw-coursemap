@@ -123,6 +123,8 @@
     gap: 24px;
   }
   .card-heading a {
+    min-width: 0;
+    overflow-wrap: anywhere;
     color: var(--text);
     text-decoration: none;
   }

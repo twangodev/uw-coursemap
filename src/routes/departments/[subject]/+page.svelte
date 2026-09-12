@@ -38,6 +38,7 @@
   />
 </div>
 <DepartmentStats stats={data.stats} term={data.results.term} />
+<DepartmentStats stats={data.stats} term={data.results.term} detail />
 <div class="department-finder">
   <CourseFinder
     showTerm={false}
@@ -47,8 +48,6 @@
     path={page.url.pathname}
   />
 </div>
-
-<DepartmentStats stats={data.stats} term={data.results.term} detail />
 
 <style>
   .department-code { margin: 22px 0 10px; color: var(--accent); font-size: 13px; }

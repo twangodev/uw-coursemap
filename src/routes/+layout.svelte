@@ -82,7 +82,9 @@
       ></a
     >
     <div class="row">
-      <a href="/search">courses</a><a href="/departments">departments</a><a href="/instructors/by-rating-count">instructors</a>
+      {#each [{ href: "/search", label: "courses", active: /^\/(search|courses)(\/|$)/.test(page.url.pathname) }, { href: "/departments", label: "departments", active: page.url.pathname.startsWith("/departments") }, { href: "/instructors/by-rating-count", label: "instructors", active: page.url.pathname.startsWith("/instructors") }] as link}
+        <a href={link.href} aria-current={link.active ? "page" : undefined}>{link.label}</a>
+      {/each}
       <button class="theme-control" type="button" aria-label={themeLabel} title={themeLabel} onclick={cycleTheme}>
         {#if theme === "dark"}<Moon size={16} />{:else if theme === "light"}<Sun size={16} />{:else}<Monitor size={16} />{/if}
       </button>
@@ -140,6 +142,7 @@
     align-items: center;
     gap: 1rem;
   }
+  header nav a[aria-current="page"] { color: var(--accent); }
   .brand {
     display: inline-flex;
     align-items: center;

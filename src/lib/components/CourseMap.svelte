@@ -57,16 +57,6 @@
       cy.nodes().positions(node => positions.get(node.id())!);
       ready = true;
       fit();
-      // Open at a readable scale; Fit all remains available for the overview.
-      if (!focus && cy.zoom() < 0.75) {
-        const entry = data.courses.find(course => course.code === "COMPSCI 300")
-          || data.courses.find(course => cy!.getElementById(course.uid).degree() > 1);
-        if (entry) {
-          const position = cy.getElementById(entry.uid).position();
-          cy.zoom(0.75);
-          cy.pan({ x: cy.width() * 0.3 - position.x * 0.75, y: cy.height() * 0.5 - position.y * 0.75 });
-        }
-      }
     }).catch(reason => {
       if (worker === engine) error = reason instanceof Error ? reason.message : "The map could not be arranged. Try again.";
     }).finally(() => engine.terminateWorker());

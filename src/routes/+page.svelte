@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { departmentName } from "$lib/departments";
   import { ArrowUpRight, Search } from "@lucide/svelte";
   import SearchInput from "$lib/components/SearchInput.svelte";
   import CampusScene from "$lib/components/CampusScene.svelte";
@@ -79,7 +80,7 @@
   <div class="department-list">
     {#each departments as d}<a
         href={"/departments/" + encodeURIComponent(d.subject)}
-        ><span>{d.subject}</span><span class="department-count"
+        ><span>{departmentName(d.subject)}</span><span class="department-count"
           >{d.count} courses <ArrowUpRight size={14} /></span
         ></a
       >{/each}

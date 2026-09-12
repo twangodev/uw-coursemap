@@ -131,3 +131,11 @@ test("department names appear in search, headings and SEO metadata", async ({ pa
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
+
+test('cross-listed course headings stay within a narrow viewport', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/search?availability=all');
+  const heading = page.locator('.card-heading a').first();
+  await heading.locator('.code').evaluate(e => e.textContent = 'AAE/ANTHRO/C&ESOC/GEOG/HISTORY/LACIS/POLISCI/PORTUG/SOC/SPANISH 982');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+});
