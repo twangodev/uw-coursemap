@@ -13,20 +13,13 @@
   <div class="error-art" aria-hidden="true">
     <span class="error-number">{problem.status}</span>
     <svg viewBox="0 0 600 400" fill="none">
-      <path
-        class="route-muted"
-        d="M345 30H530Q575 30 575 75V325Q575 370 530 370H90"
-      />
-      <path
-        class="route-active"
-        pathLength="1"
-        d="M-20 370H-10Q25 370 25 335V75Q25 30 70 30H255"
-      />
-      <path class="gap" d="M275 30H325" />
-      <circle cx="90" cy="30" r="8" /><circle cx="255" cy="30" r="10" />
-      <circle class="destination" cx="345" cy="30" r="10" />
-      <circle cx="510" cy="370" r="8" />
-      <circle class="pulse" cx="255" cy="30" r="20" />
+      <path class="route-active" pathLength="1" d="M80 70H125Q145 70 145 50H195" />
+      <circle cx="80" cy="70" r="6" />
+      <circle cx="195" cy="50" r="8" />
+      <circle class="pulse" cx="195" cy="50" r="14" />
+      <path class="route-muted" d="M405 350H450Q470 350 470 330H520" />
+      <circle class="destination" cx="405" cy="350" r="6" />
+      <circle cx="520" cy="330" r="8" />
     </svg>
   </div>
   <div class="error-copy">
@@ -94,12 +87,8 @@
     height: 100%;
     stroke-width: 2;
   }
-  .route-muted,
-  .gap {
+  .route-muted {
     stroke: var(--border);
-  }
-  .gap {
-    stroke-dasharray: 3 9;
   }
   .route-active {
     stroke: var(--accent);
