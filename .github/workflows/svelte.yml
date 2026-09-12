@@ -436,6 +436,7 @@ jobs:
       - run: tar --zstd -xf website-browser-data.tar.zst
       - run: rm website-browser-data.tar.zst
       - run: bun x playwright install --with-deps chromium
+      - run: bun x svelte-kit sync
       - run: bun x playwright test --shard=${{ matrix.shard }}/2
         env:
           BROWSER_DB_PREPARED: "1"
