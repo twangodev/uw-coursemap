@@ -1,108 +1,24 @@
 <script lang="ts">
   import { BarChart, LineChart, AreaChart } from "layerchart";
   import { scalePoint } from "d3-scale";
-  import { curveMonotoneX, curveStepAfter } from "d3-shape";
+  import { curveMonotoneX } from "d3-shape";
   import { goto } from "$app/navigation";
-  import { ArrowUpRight, ChevronLeft, ChevronRight } from "@lucide/svelte";
-  import { gradeStatistics } from "$lib/grade-statistics";
-  import Select from "$lib/components/Select.svelte";
+  import { ArrowUpRight } from "@lucide/svelte";
+  import SchoolGrades from "$lib/components/SchoolGrades.svelte";
+  import SchoolClassrooms from "$lib/components/SchoolClassrooms.svelte";
+  import TermPicker from "$lib/components/TermPicker.svelte";
   import StatsCard from "$lib/components/StatsCard.svelte";
-  import StatsDisclosure from "$lib/components/StatsDisclosure.svelte";
+  import Disclosure from "$lib/components/Disclosure.svelte";
   import AnimatedNumber from "$lib/components/AnimatedNumber.svelte";
   import SchoolAcademics from "$lib/components/SchoolAcademics.svelte";
   import SchoolBuildingMap from "$lib/components/SchoolBuildingMap.svelte";
   import { termName, courseUrl, courseTitle } from "$lib/format";
-  import { gradedTerm, gradeLabels, type SchoolStats } from "$lib/school-stats";
+  import { type SchoolStats } from "$lib/school-stats";
   let { data } = $props();
   let stats: SchoolStats = $derived(data.schoolStats);
   let term = $derived(stats.selectedTerm);
   let terms = $derived(Object.keys(stats.terms).sort().reverse());
   let current = $derived(stats.terms[term]);
-  let historicalClassroom = $derived(
-    !current.knownLectures && current.gradedSections > 0,
-  );
-  let classroom = $derived(
-    historicalClassroom
-      ? {
-          ...current,
-          knownLectures: current.gradedSections,
-          lectures: current.gradedSections,
-          medianLecture: current.gradedMedian,
-          sizes: current.gradedSizes,
-        }
-      : current,
-  );
-  const gradeColors = [
-    "#38734d",
-    "#68976d",
-    "#91a77d",
-    "#b3b38d",
-    "#bc9a73",
-    "#ba6958",
-    "var(--accent)",
-  ];
-  let gradeMix = $derived(
-    Object.entries(stats.terms)
-      .filter(([t, r]) => t <= term && r.gradeCount > 0)
-      .sort(([a], [b]) => a.localeCompare(b))
-      .map(([t, r]) =>
-        Object.assign(
-          { term: termName(t) },
-          ...gradeLabels.map((g, i) => ({
-            [g]: (r.grades[i] / r.gradeCount) * 100,
-          })),
-        ),
-      ),
-  );
-
-  let index = $derived(terms.indexOf(term));
-  let gradeTerm = $derived(gradedTerm(stats, term));
-  let grades = $derived(gradeTerm ? stats.terms[gradeTerm] : null);
-  let distribution = $derived(gradeStatistics(grades?.grades ?? []));
-  let under50 = $derived(
-    classroom.knownLectures
-      ? (classroom.sizes.slice(0, 2).reduce((n, s) => n + s.count, 0) /
-          classroom.knownLectures) *
-          100
-      : null,
-  );
-  let bars = $derived(
-    gradeLabels.map((grade, i) => ({
-      grade,
-      percentage: grades?.gradeCount
-        ? (grades.grades[i] / grades.gradeCount) * 100
-        : 0,
-    })),
-  );
-  let gradeDots = $derived(
-    Array.from({ length: 100 }, (_, index) => {
-      let cumulative = 0;
-      return bars.findIndex((row) => {
-        cumulative += row.percentage;
-        return cumulative > index + 0.5;
-      });
-    }),
-  );
-  let trend = $derived(
-    Object.entries(stats.terms)
-      .filter(([t, r]) => t <= term && r.gradeCount > 0)
-      .sort(([a], [b]) => a.localeCompare(b))
-      .map(([t, r]) => ({ term: termName(t), gpa: r.gpa })),
-  );
-  let domain = $derived(
-    trend.length
-      ? [
-          Math.max(
-            0,
-            Math.floor((Math.min(...trend.map((r) => r.gpa!)) - 0.1) * 10) / 10,
-          ),
-          Math.min(
-            4,
-            Math.ceil((Math.max(...trend.map((r) => r.gpa!)) + 0.1) * 10) / 10,
-          ),
-        ]
-      : [0, 4],
-  );
   const weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   const timeLabel = (h: number) => `${h % 12 || 12}${h < 12 ? "am" : "pm"}`;
   let peak = $derived(
@@ -135,24 +51,7 @@
     <div>
       <h1>UW–Madison statistics.</h1>
     </div>
-    <div class="term-picker">
-      <button
-        aria-label="Previous term"
-        disabled={index === terms.length - 1}
-        onclick={() => changeTerm(terms[index + 1])}
-        ><ChevronLeft size={15} /></button
-      ><Select
-        value={term}
-        options={terms.map((t) => ({ value: t, label: termName(t) }))}
-        label="Statistics term"
-        onChange={changeTerm}
-      /><button
-        aria-label="Next term"
-        disabled={index === 0}
-        onclick={() => changeTerm(terms[index - 1])}
-        ><ChevronRight size={15} /></button
-      >
-    </div>
+    <TermPicker {terms} value={term} label="Statistics term" onChange={changeTerm} />
   </header>
   <div class="bento-grid">
     <StatsCard title="Campus activity" span={8}>
@@ -181,7 +80,7 @@
           We don’t have a building schedule for {termName(term)} in this dataset.
         </p>{/if}
     </StatsCard>
-    <StatsCard title="Courses" span={4}>
+    <StatsCard compact title="Courses" span={4}>
       {#snippet preview()}
         <strong class="preview-number"
           ><AnimatedNumber
@@ -296,312 +195,8 @@
           No meeting schedule recorded for {termName(term)}.
         </p>{/if}
     </StatsCard>
-    <StatsCard title="Class sizes" span={4}>
-      {#snippet preview()}
-        <strong class="preview-number"
-          ><AnimatedNumber
-            value={classroom.medianLecture}
-            decimals={classroom.medianLecture && classroom.medianLecture % 1
-              ? 1
-              : 0}
-          /></strong
-        >
-        <span class="preview-label"
-          >{historicalClassroom
-            ? "median outcomes per graded section"
-            : "median lecture enrollment"}</span
-        >
-        <div class="preview-sizes">
-          <div
-            class="size-bubbles"
-            role="img"
-            aria-label="Section size distribution. Circle area represents the number of sections."
-          >
-            {#each classroom.sizes as size}
-              <div>
-                <svg viewBox="0 0 100 100" aria-hidden="true"
-                  ><circle
-                    cx="50"
-                    cy="50"
-                    r={Math.sqrt(
-                      size.count /
-                        Math.max(1, ...classroom.sizes.map((s) => s.count)),
-                    ) * 43}
-                    fill="var(--accent)"
-                    fill-opacity="0.7"
-                    ><title
-                      >{size.label}: {size.count.toLocaleString()} sections</title
-                    ></circle
-                  ></svg
-                ><span>{size.label}</span>
-              </div>
-            {/each}
-          </div>
-        </div>
-        {#if under50 !== null}<span class="preview-math"
-            >{under50.toFixed(1)}% of sections under 50</span
-          >{/if}
-      {/snippet}
-      {#if classroom.knownLectures}
-        <div class="story-grid classroom">
-          <div>
-            <p class="observation">
-              <strong
-                ><AnimatedNumber
-                  value={classroom.medianLecture}
-                  decimals={classroom.medianLecture! % 1 ? 1 : 0}
-                />
-              </strong>
-              <span class="observation-label"
-                >{historicalClassroom
-                  ? "median outcomes per graded section"
-                  : "median lecture enrollment"}</span
-              >
-            </p>
-            <BarChart
-              data={classroom.sizes}
-              x="label"
-              y="count"
-              series={[
-                {
-                  key: "count",
-                  label: historicalClassroom
-                    ? "Graded sections"
-                    : "Lecture sections",
-                  color: "var(--accent)",
-                },
-              ]}
-              height={270}
-              props={{
-                bars: { strokeWidth: 0 },
-                tooltip: { hideTotal: true },
-              }}
-            />
-
-            <details class="disclosure">
-              <summary>Section sizes & coverage</summary>
-              <p class="coverage">
-                {#if historicalClassroom}Based on {current.gradedSections.toLocaleString()}
-                  section grade records, including non-letter outcomes. These are
-                  recorded outcomes, not historical enrollment snapshots; section
-                  type is unavailable.{:else}Known enrollment for {current.knownLectures.toLocaleString()}
-                  of {current.lectures.toLocaleString()}
-                  lecture sections. Labs and discussions excluded.{/if}
-              </p>
-
-              <div class="grade-table">
-                {#each classroom.sizes as size}<div>
-                    <span
-                      >{size.label}
-                      {historicalClassroom ? "outcomes" : "enrolled"}</span
-                    ><span>{size.count.toLocaleString()} sections</span>
-                  </div>{/each}
-              </div>
-            </details>
-          </div>
-          {#if !historicalClassroom}<StatsDisclosure
-              title="Largest classes"
-              description="This term"
-              ><div class="course-list">
-                {#each current.largest as course, i}<a
-                    href={courseUrl(course.code)}
-                    ><span class="rank">{i + 1}</span><span class="course"
-                      ><strong>{course.code}</strong><span
-                        >{courseTitle(course.title)}</span
-                      ></span
-                    ><span class="enrolled"
-                      >{course.enrolled.toLocaleString()}<ArrowUpRight
-                        size={14}
-                      /></span
-                    ></a
-                  >{/each}
-              </div></StatsDisclosure
-            >{/if}
-        </div>
-      {:else}<p class="empty">
-          Lecture enrollment isn’t available for this term. Historical grades
-          are shown below where available.
-        </p>{/if}
-    </StatsCard>
-    <StatsCard title="Grades" span={4}>
-      {#snippet preview()}
-        <strong class="preview-number"
-          ><AnimatedNumber value={grades?.gpa} decimals={2} /></strong
-        >
-        <span class="preview-label"
-          >μ · mean grade points · {gradeTerm
-            ? termName(gradeTerm)
-            : "no recorded grades"}</span
-        >
-        {#if grades?.gradeCount}<div class="preview-grades">
-            <div
-              class="grade-dots"
-              role="img"
-              aria-label={bars
-                .map((row) => `${row.grade}: ${row.percentage.toFixed(1)}%`)
-                .join(", ")}
-            >
-              {#each gradeDots as grade}<span
-                  style:background={gradeColors[Math.max(0, grade)]}
-                  title={`${bars[Math.max(0, grade)].grade}: ${bars[Math.max(0, grade)].percentage.toFixed(1)}%`}
-                ></span>{/each}
-            </div>
-            <div class="grade-dot-key" aria-hidden="true">
-              {#each gradeLabels as label, i}<span
-                  ><i style:background={gradeColors[i]}></i>{label}</span
-                >{/each}
-            </div>
-          </div>{/if}
-        {#if distribution.count}<span class="preview-math"
-            >σ = {distribution.sd?.toFixed(2)} · n = {distribution.count.toLocaleString()}</span
-          >{/if}
-      {/snippet}
-      {#if grades?.gradeCount}
-        <p class="period">
-          {termName(gradeTerm!)} · recorded letter-grade distribution
-        </p>
-        <dl class="distribution-metrics">
-          {#each [{ label: "Mean · μ", value: distribution.mean }, { label: "Std. deviation · σ", value: distribution.sd }, { label: "25th percentile", value: distribution.q25 }, { label: "Median", value: distribution.median }, { label: "75th percentile", value: distribution.q75 }] as metric}<div
-            >
-              <dt>{metric.label}</dt>
-              <dd><AnimatedNumber value={metric.value} decimals={2} /></dd>
-            </div>{/each}
-          <div>
-            <dt>Grade records · n</dt>
-            <dd><AnimatedNumber value={distribution.count} /></dd>
-          </div>
-        </dl>
-        <div class="distribution-charts">
-          <div>
-            <h3>Grade probabilities</h3>
-            <BarChart
-              data={bars}
-              x="grade"
-              y="percentage"
-              series={[
-                {
-                  key: "percentage",
-                  label: "Share of letter grades",
-                  color: "var(--accent)",
-                },
-              ]}
-              height={290}
-              props={{
-                bars: { strokeWidth: 0 },
-                yAxis: { label: "Percent" },
-                tooltip: {
-                  hideTotal: true,
-                  item: { format: (v: number) => `${v.toFixed(1)}%` },
-                },
-              }}
-            />
-          </div>
-          <div class="grade-cdf">
-            <h3>Cumulative distribution</h3>
-            <LineChart
-              data={distribution.cdf}
-              x="score"
-              yDomain={[0, 100]}
-              xDomain={[0, 4]}
-              series={[
-                {
-                  key: "cumulative",
-                  label: "Grades at or below this score",
-                  color: "#68976d",
-                },
-              ]}
-              height={290}
-              props={{
-                xAxis: { label: "Grade points" },
-                yAxis: { label: "Percent" },
-                spline: { curve: curveStepAfter },
-                points: { r: 3 },
-                tooltip: {
-                  hideTotal: true,
-                  item: { format: (v: number) => `${v.toFixed(1)}%` },
-                },
-              }}
-            />
-            <p class="coverage">F(x) = P(grade points ≤ x)</p>
-          </div>
-        </div>
-        <p class="coverage">
-          σ describes the spread of recorded letter grades. Quartiles use linear
-          interpolation between ordered grade records.
-        </p>
-        <details class="disclosure">
-          <summary>Grade percentages</summary>
-          <div class="grade-table">
-            {#each bars as row}<div>
-                <span>{row.grade}</span><span>{row.percentage.toFixed(2)}%</span
-                >
-              </div>{/each}
-          </div>
-        </details>
-        <StatsDisclosure
-          title="Grades over time"
-          description="Across recorded semesters"
-        >
-          <h3>How the grade mix has changed</h3>
-          <AreaChart
-            data={gradeMix}
-            x="term"
-            xScale={scalePoint()}
-            series={gradeLabels.map((key, i) => ({
-              key,
-              label: key,
-              color: gradeColors[i],
-            }))}
-            seriesLayout="stack"
-            height={280}
-            yDomain={[0, 100]}
-            legend={false}
-            props={{
-              xAxis: { tickOcclusion: true, tickSpacing: 90 },
-              tooltip: {
-                hideTotal: true,
-                item: { format: (value: number) => value.toFixed(1) + "%" },
-              },
-            }}
-          />
-          <div class="grade-key">
-            {#each gradeLabels as grade, i}<span
-                ><i style:background={gradeColors[i]}></i>{grade}</span
-              >{/each}
-          </div>
-          <details class="disclosure">
-            <summary>Average GPA over time</summary>
-            <LineChart
-              data={trend}
-              x="term"
-              xScale={scalePoint()}
-              yDomain={domain}
-              series={[
-                { key: "gpa", label: "School GPA", color: "var(--accent)" },
-              ]}
-              height={280}
-              props={{
-                xAxis: { tickOcclusion: true, tickSpacing: 90 },
-                spline: { curve: curveMonotoneX, strokeWidth: 1.8 },
-                points: { r: 2 },
-                tooltip: {
-                  hideTotal: true,
-                  item: { format: (value: number) => value.toFixed(2) },
-                },
-              }}
-            />
-          </details>
-          <details class="disclosure">
-            <summary>Recorded GPA by term</summary>
-            <div class="grade-table">
-              {#each [...trend].reverse() as row}<div>
-                  <span>{row.term}</span><span>{row.gpa?.toFixed(2)}</span>
-                </div>{/each}
-            </div>
-          </details>
-        </StatsDisclosure>
-      {/if}
-    </StatsCard>
+    <SchoolClassrooms {current} />
+    <SchoolGrades {stats} {term} />
     {#if stats.academics}{#key term}<SchoolAcademics
           academics={stats.academics}
           selectedTerm={term}
@@ -637,22 +232,6 @@
 </div>
 
 <style>
-  .grade-key {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    font-size: 12px;
-    margin: 12px 0;
-  }
-  .grade-key span {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .grade-key i {
-    width: 12px;
-    height: 3px;
-  }
   .school-stats {
     padding: 30px 0 10px;
   }
@@ -661,34 +240,6 @@
     justify-content: space-between;
     gap: 30px;
     align-items: flex-start;
-  }
-  h1 {
-    font-size: clamp(36px, 4.5vw, 62px);
-    line-height: 1.02;
-    letter-spacing: -0.06em;
-    font-weight: 550;
-    margin: 0 0 24px;
-  }
-  .term-picker {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-    margin-top: 4px;
-  }
-  .term-picker button {
-    display: grid;
-    place-items: center;
-    width: 28px;
-    height: 28px;
-    border: 1px solid var(--border);
-    border-radius: 5px;
-    background: var(--surface);
-    color: var(--text);
-    cursor: pointer;
-  }
-  .term-picker button:disabled {
-    opacity: 0.3;
-    cursor: default;
   }
   .headlines {
     display: flex;
@@ -708,20 +259,6 @@
   .headlines span {
     font-size: 13px;
     color: var(--muted);
-  }
-  h3 {
-    font-size: 17px;
-    font-weight: 500;
-    margin: 0 0 20px;
-  }
-  .story-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
-    gap: clamp(28px, 5vw, 70px);
-    align-items: start;
-  }
-  .story-grid > div {
-    min-width: 0;
   }
   .observation {
     font-size: 42px;
@@ -784,67 +321,20 @@
     min-height: 36px;
     margin-top: 18px;
   }
-  .coverage {
-    color: var(--muted);
-    font-size: 12px;
-    line-height: 1.6;
-  }
-  .course-list a {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 15px 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .rank {
-    font-size: 12px;
-    color: var(--muted);
-  }
-  .course {
-    display: flex;
-    flex: 1;
-    min-width: 0;
-    flex-direction: column;
-    gap: 5px;
-  }
-  .course strong {
-    font-size: 13px;
-    font-weight: 500;
-  }
-  .course > span {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.4;
-  }
-  .enrolled {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    font-size: 14px;
-  }
   .disclosure {
     margin-top: 25px;
     font-size: 13px;
   }
-  summary {
-    cursor: pointer;
-    color: var(--muted);
-  }
-  .building-list,
-  .grade-table {
+.building-list{
     margin-top: 16px;
     max-height: 320px;
     overflow: auto;
   }
-  .building-list > div,
-  .grade-table > div {
+.building-list > div{
     display: flex;
     justify-content: space-between;
     gap: 20px;
     padding: 8px 0;
-  }
-  small {
-    color: var(--muted);
   }
   .methodology {
     margin: 65px 0 35px;
@@ -862,107 +352,6 @@
     color: var(--muted);
     line-height: 1.7;
     max-width: 580px;
-  }
-  .size-bubbles {
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    align-items: end;
-    gap: 10px;
-    min-height: 180px;
-    padding-bottom: 20px;
-  }
-  .size-bubbles svg {
-    display: block;
-    width: 100%;
-  }
-  .size-bubbles span {
-    display: block;
-    text-align: center;
-    font-size: 11px;
-    color: var(--muted);
-    margin-top: 18px;
-  }
-  .grade-dots {
-    display: grid;
-    grid-template-columns: repeat(20, 1fr);
-    gap: 7px;
-    padding-top: 14px;
-  }
-  .grade-dots > span {
-    width: 100%;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    opacity: 0.9;
-    transition: transform 140ms ease;
-  }
-  .grade-dots > span:hover {
-    transform: scale(1.22);
-  }
-  .grade-dot-key {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    font-size: 11px;
-    color: var(--muted);
-  }
-  .grade-dot-key span {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  .grade-dot-key i {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-  }
-  .preview-math {
-    display: block;
-    color: var(--muted);
-    font-size: 11px;
-    margin-top: 14px;
-    font-variant-numeric: tabular-nums;
-  }
-  .distribution-metrics {
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 20px;
-    margin: 28px 0 36px;
-  }
-  .distribution-metrics dt {
-    font-size: 12px;
-    color: var(--muted);
-  }
-  .distribution-metrics dd {
-    margin: 8px 0 0;
-    font-size: 28px;
-    letter-spacing: -0.04em;
-  }
-  .grade-cdf .coverage {
-    margin-top: 18px;
-  }
-  .distribution-charts {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 32px;
-  }
-  .period {
-    color: var(--muted);
-    font-size: 13px;
-    margin: 0;
-  }
-  @media (max-width: 760px) {
-    .distribution-metrics {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-    .distribution-charts {
-      grid-template-columns: 1fr;
-    }
-  }
-  @media (max-width: 500px) {
-    .distribution-metrics {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
   }
   .bento-grid {
     display: grid;
@@ -1002,23 +391,6 @@
     aspect-ratio: 1.4;
     border-radius: 2px;
   }
-  .preview-sizes .size-bubbles {
-    min-height: 0;
-    gap: 5px;
-    padding: 20px 0 0;
-  }
-  .preview-sizes .size-bubbles span {
-    font-size: 9px;
-    margin-top: 8px;
-  }
-  .preview-grades .grade-dots {
-    grid-template-columns: repeat(20, 1fr);
-    gap: 4px;
-    padding-top: 22px;
-  }
-  .preview-grades .grade-dot-key {
-    display: none;
-  }
   .clock-detail {
     max-width: 760px;
   }
@@ -1034,10 +406,6 @@
       flex-direction: column;
       gap: 15px;
     }
-    .story-grid {
-      grid-template-columns: 1fr;
-      gap: 35px;
-    }
     .headlines {
       gap: 25px;
       justify-content: space-between;
@@ -1047,14 +415,9 @@
     }
     .school-stats {
       padding-top: 15px;
-    }
-  }
+    }}
   @media (prefers-reduced-motion: reduce) {
-    .grade-dots > span {
-      transition: none;
-    }
     .cell {
       transition: none;
-    }
-  }
+    }}
 </style>

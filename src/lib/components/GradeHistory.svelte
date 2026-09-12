@@ -1,18 +1,10 @@
 <script lang="ts">
+  import { gradeColors as colors } from "$lib/chart-theme";
   import { AreaChart, BarChart } from "layerchart";
   import { scalePoint } from "d3-scale";
   import { gradeHistory, letterGrades, otherGrades } from "$lib/grade-history";
   let { grades, through = "" }: { grades: any[]; through?: string } = $props();
   let rows = $derived(gradeHistory(grades, through));
-  const colors = [
-    "#38734d",
-    "#68976d",
-    "#91a77d",
-    "#b3b38d",
-    "#bc9a73",
-    "#ba6958",
-    "var(--accent)",
-  ];
   const series = [
     ...letterGrades.map((key, i) => ({
       key: key + "Share",

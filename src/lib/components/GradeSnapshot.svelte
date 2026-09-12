@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { gradeColors } from "$lib/chart-theme";
   import AnimatedNumber from "./AnimatedNumber.svelte";
   import { termName } from "$lib/format";
   import { BarChart } from "layerchart";
@@ -46,15 +47,7 @@
         y="percentage"
         c="grade"
         cDomain={keys.map((key) => key.toUpperCase())}
-        cRange={[
-          "var(--positive)",
-          "var(--positive)",
-          "var(--grade-mid)",
-          "var(--grade-mid)",
-          "var(--grade-mid)",
-          "var(--negative)",
-          "var(--negative)",
-        ]}
+        cRange={gradeColors}
         series={[{ key: "percentage" }]}
         height={90}
         axis={false}

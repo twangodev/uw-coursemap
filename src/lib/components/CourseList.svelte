@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { gradeColors as colors } from "$lib/chart-theme";
   import {
     courseUrl,
     credits,
@@ -10,15 +11,6 @@
   import Claims from "./Claims.svelte";
   import AnimatedNumber from "./AnimatedNumber.svelte";
   let { courses, rankStart }: { courses: CourseCard[]; rankStart?: number } = $props();
-  const colors = [
-    "var(--positive)",
-    "var(--positive)",
-    "var(--muted)",
-    "var(--muted)",
-    "var(--negative)",
-    "var(--negative)",
-    "var(--negative)",
-  ];
 </script>
 
 <div class="course-results">

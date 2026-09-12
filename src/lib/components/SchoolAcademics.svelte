@@ -52,7 +52,7 @@
       ...academics.popularity.flatMap((c) => c.points.map((p) => p.rank ?? 0)),
     ),
   );
-  type SubjectTile = { count: number; children?: SubjectTile[] };
+  type SubjectTile = { subject?: string; count: number; children?: SubjectTile[] };
   let tiles = $derived(
     treemap<SubjectTile>()
       .size([720, 220])
@@ -105,7 +105,7 @@
             height={tile.y1 - tile.y0}
             rx="2"
             fill={`color-mix(in srgb, var(--accent) ${25 + (i % 6) * 10}%, var(--surface))`}
-          />{/each}
+          />{#if i < 5 && tile.x1 - tile.x0 > 78 && tile.y1 - tile.y0 > 30}<text x={tile.x0 + 8} y={tile.y0 + 20} class="tile-label">{tile.data.subject}</text>{/if}{/each}
       </svg>
       <span class="preview-caption"
         >{groups.length} subjects · {termName(academics.term!)}</span
@@ -126,7 +126,7 @@
             stroke-width="2"
           />{/each}</svg
       >
-      <span class="preview-caption">{history.length} recorded semesters</span>
+      <span class="preview-caption">{academics.popularity[0]?.code} leads · {history.length} terms</span>
     {/snippet}
     <p class="period">
       The eight largest courses in {termName(academics.term!)} across the last {history.length}
@@ -190,7 +190,7 @@
             opacity="0.7"
           />{/each}
       </svg>
-      <span class="preview-caption">Departments → courses → grades</span>
+      <span class="preview-caption">{total ? ((bands[0].count / total) * 100).toFixed(1) : "—"}% A / AB · explore department flows</span>
     {/snippet}
     <SchoolSankey {academics} {selectedTerm} />
   </StatsCard>
@@ -198,12 +198,12 @@
     {#snippet preview()}
       <svg class="mini-chart" viewBox="0 0 420 200" aria-hidden="true"
         >{#each dots as course}<circle
-            cx={10 + (course.gpa! / 4) * 400}
-            cy={188 - (Math.log1p(course.count) / Math.log1p(largest)) * 175}
+            cx={30 + (course.gpa! / 4) * 370}
+            cy={172 - (Math.log1p(course.count) / Math.log1p(largest)) * 150}
             r="1.4"
             fill="var(--accent)"
             opacity="0.55"
-          />{/each}</svg
+          />{/each}<path d="M30,12 V174 H405" class="preview-axis" /><text x="30" y="193" class="axis-label">0</text><text x="400" y="193" text-anchor="end" class="axis-label">4 GPA</text><text x="32" y="12" class="axis-label">{largest.toLocaleString()} grades</text></svg
       >
       <span class="preview-caption"
         >{dots.length.toLocaleString()} courses with 30+ letter grades</span
@@ -229,6 +229,9 @@
 {/if}
 
 <style>
+  .tile-label { font: 14px var(--font-sans); fill: var(--text); }
+  .axis-label { font: 11px var(--font-sans); fill: var(--muted); }
+  .preview-axis { fill: none; stroke: var(--border); }
   .tile-preview {
     width: 100%;
     flex: 1;

@@ -1,10 +1,10 @@
 import type { AcademicCourse } from "./school-academics";
 
 export const gradeBands = [
-  { label: "A / AB", color: "#3f927c", indices: [0, 1] },
-  { label: "B / BC", color: "#799a62", indices: [2, 3] },
-  { label: "C", color: "#cd923e", indices: [4] },
-  { label: "D / F", color: "#bd5047", indices: [5, 6] },
+  { label: "A / AB", color: "var(--grade-ab)", indices: [0, 1] },
+  { label: "B / BC", color: "var(--grade-b)", indices: [2, 3] },
+  { label: "C", color: "var(--grade-c)", indices: [4] },
+  { label: "D / F", color: "var(--grade-f)", indices: [5, 6] },
 ];
 export type FlowNode = {
   id: string;
@@ -60,7 +60,7 @@ export function gradeFlow(courses: AcademicCourse[], subject = "") {
         label: s,
         kind: "subject",
         subject: s,
-        color: "#bd5047",
+        color: "var(--grade-f)",
       });
       if (courseId) link(id, courseId, c.count / subjects.length);
       gradeBands.forEach((band, i) => {

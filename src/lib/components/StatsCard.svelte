@@ -4,11 +4,13 @@
   import type { Snippet } from "svelte";
   let {
     title,
+    compact = false,
     span = 4,
     preview,
     children,
   }: {
     title: string;
+    compact?: boolean;
     span?: number;
     preview: Snippet;
     children: Snippet;
@@ -16,7 +18,7 @@
   let open = $state(false);
 </script>
 
-<div class="stats-card" style={`--span:${span}`}>
+<div class="stats-card" class:compact style={`--span:${span}`}>
   <Dialog.Root bind:open>
     <Dialog.Trigger class="stats-card-trigger" aria-label={title}>
       <span class="card-heading"
@@ -210,4 +212,5 @@
       animation: none;
     }
   }
+  @media (max-width: 760px) { .compact .card-preview { height: 165px; } }
 </style>
