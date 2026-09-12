@@ -62,6 +62,22 @@ test("client navigation replaces metadata without duplicate tags", async ({
     .toContain('"courseCode":"COMPSCI 300"');
 });
 
+test("robots permits search, AI answers and training", async ({ request }) => {
+  const response = await request.get("/robots.txt");
+  expect(response.status()).toBe(200);
+  expect(response.headers()["content-type"]).toContain("text/plain");
+  const directives = (await response.text())
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => line && !line.startsWith("#"));
+  expect(directives).toEqual([
+    "User-agent: *",
+    "Content-Signal: search=yes, ai-input=yes, ai-train=yes",
+    "Allow: /",
+    "Sitemap: https://uwcourses.com/sitemap.xml",
+  ]);
+});
+
 test("sitemaps, redirects, errors and search expose the intended crawl policy", async ({
   request,
 }) => {
