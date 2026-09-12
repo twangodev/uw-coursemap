@@ -2,7 +2,7 @@
   import { page } from "$app/state";
   import { departmentName, departmentLabel } from "$lib/departments";
   import CourseCollections from "$lib/components/CourseCollections.svelte";
-  import Select from "$lib/components/Select.svelte";
+  import TermPicker from "$lib/components/TermPicker.svelte";
   import { goto } from "$app/navigation";
   import { termName } from "$lib/format";
   import CourseFinder from "$lib/components/CourseFinder.svelte";
@@ -22,13 +22,10 @@
 <CourseCollections subject={data.subject} term={data.results.term} />
 <DepartmentStats stats={data.stats} />
 <div class="term-toolbar">
-  <Select
+  <TermPicker
     label="Term"
     value={data.results.term}
-    options={data.status.terms.map((term: string) => ({
-      value: term,
-      label: termName(term),
-    }))}
+    terms={data.status.terms}
     onChange={(term) => {
       const query = new URLSearchParams(location.search);
       query.set("term", term);

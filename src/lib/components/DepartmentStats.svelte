@@ -1,17 +1,19 @@
 <script lang="ts">
+  import type { DepartmentStatistics } from "$lib/view-models";
   import { BarChart, LineChart } from "layerchart";
   import { scalePoint } from "d3-scale";
   import { curveMonotoneX } from "d3-shape";
   import { gradeTrendDomain } from "$lib/instructor-trends";
   import { termName } from "$lib/format";
   import { metricColor } from "$lib/grade-benchmarks";
+  import Disclosure from "./Disclosure.svelte";
   import AnimatedNumber from "./AnimatedNumber.svelte";
   import MetricComparison from "./MetricComparison.svelte";
   let {
     stats,
     term = "",
     detail = false,
-  }: { stats: any; term?: string; detail?: boolean } = $props();
+  }: { stats: DepartmentStatistics; term?: string; detail?: boolean } = $props();
   let current = $derived(term ? stats.terms[term] : stats.all);
   let bars = $derived(
     ["A", "AB", "B", "BC", "C", "D", "F"].map((grade, i) => ({
@@ -25,7 +27,7 @@
     })),
   );
   let offerings = $derived(
-    Object.entries<any>(stats.terms)
+    Object.entries(stats.terms)
       .filter(([t, r]) => (!term || t <= term) && r.courses != null)
       .map(([t, r]) => ({ term: termName(t), courses: r.courses })),
   );
@@ -36,7 +38,7 @@
       .at(-1),
   );
   let trends = $derived(
-    Object.entries<any>(stats.terms)
+    Object.entries(stats.terms)
       .filter(([t, r]) => (!term || t <= term) && r.count)
       .map(([t, r]) => ({
         term: termName(t),
@@ -68,8 +70,8 @@
     {#if current?.levels?.length}<div class="level-chart">
         <BarChart
           data={current.levels
-            .filter((row: any) => row.count >= 30)
-            .map((row: any) => ({
+            .filter((row) => row.count >= 30)
+            .map((row) => ({
               ...row,
               universityGpa:
                 row.university.count >= 30 ? row.university.gpa : null,
@@ -203,8 +205,7 @@
         </p>{/if}
     </div>{/if}
   {#if !term}<p class="note">Red: department · Gray: UW–Madison</p>
-    <details>
-      <summary>About these statistics</summary>
+    <Disclosure title="About these statistics" variant="compact" lazy={false}>
       <p class="note">
         GPA and percentages are weighted by recorded letter grades. UW
         comparisons use the same terms. Cross-listed courses count once within
@@ -212,7 +213,7 @@
         added together. Grade counts are not unique students. Offering counts
         reflect captured records, not a complete historical schedule.
       </p>
-    </details>{/if}
+    </Disclosure>{/if}
 </section>
 
 <style>
@@ -273,14 +274,6 @@
     color: var(--muted);
     line-height: 1.7;
     max-width: 85ch;
-  }
-  details .note { max-width: none; }
-  details {
-    margin-top: 24px;
-  }
-  summary {
-    font-size: 12px;
-    color: var(--muted);
   }
   @media (max-width: 760px) {
     .charts {

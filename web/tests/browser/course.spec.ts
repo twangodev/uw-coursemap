@@ -129,7 +129,8 @@ test("calendar filters meetings, exposes details and exports dates", async ({
   const schedule = page.locator("#schedule");
   await schedule.scrollIntoViewIfNeeded();
   await expect(schedule.locator(".week-grid")).toBeVisible();
-  await page.getByLabel("Calendar section").selectOption("LEC 001");
+  await page.getByRole("button", { name: "Calendar section", exact: true }).click();
+  await page.getByRole("option", { name: "LEC 001", exact: true }).click();
   await expect(schedule.locator(".meeting").first()).toContainText("LEC 001");
   await expect(
     schedule.locator(".meeting").filter({ hasText: "LEC 002" }),
@@ -433,10 +434,10 @@ test("Bayesian instructor ratings show their source and sort the course roster c
   expect(scores).toEqual([...scores].sort((a, b) => b - a));
   const hobbes = page.locator("#professors article").filter({ hasText: "Hobbes Legault" });
   await expect(hobbes.locator(".rating-values")).toContainText("Adjusted rating");
-  await expect(hobbes.locator(".rating-values").getByRole("img", { name: "4.4", exact: true })).toBeVisible();
+  await expect(hobbes.locator(".rating-values").getByRole("img", { name: "4.4/5", exact: true })).toBeVisible();
   await hobbes.getByText("About this rating", { exact: true }).click();
   await expect(hobbes.locator(".rating-method")).toContainText("Raw average: 4.54/5 from 93 quality ratings");
   await expect(hobbes.locator(".rating-method")).toContainText("20 additional ratings");
   await hobbes.getByRole("link", { name: "Hobbes Legault" }).click();
-  await expect(page.locator(".rating-values").getByRole("img", { name: "4.4", exact: true })).toBeVisible();
+  await expect(page.locator(".rating-values").getByRole("img", { name: "4.4/5", exact: true })).toBeVisible();
 });

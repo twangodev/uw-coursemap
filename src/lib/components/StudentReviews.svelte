@@ -1,4 +1,5 @@
 <script lang="ts">
+  import type { ReviewPage } from "$lib/view-models";
   import { onDestroy } from "svelte";
   import Select from "./Select.svelte";
   import { safeUrl, courseUrl } from "$lib/format";
@@ -6,8 +7,8 @@
     initial,
     uid,
     revision,
-  }: { initial: any; uid: string; revision: string } = $props();
-  let loaded = $state<any>(null),
+  }: { initial: ReviewPage; uid: string; revision: string } = $props();
+  let loaded = $state<ReviewPage | null>(null),
     selectedCourse = $state(""),
     loading = $state(false),
     failure = $state("");
@@ -43,7 +44,7 @@
             ? "Dataset updated. Reload this page."
             : "Reviews could not be loaded. Try again.",
         );
-      const next: any = await response.json();
+      const next = await response.json() as ReviewPage;
       if (!Array.isArray(next.items))
         throw new Error("Invalid review response. Try again.");
       if (!request.signal.aborted)
@@ -71,7 +72,7 @@
       onChange={(v) => load(v)}
       options={[
         { value: "", label: "All courses" },
-        ...initial.courses.map((c: any) => ({
+        ...initial.courses.map((c) => ({
           value: c.course_uid,
           label: c.course_id,
         })),
@@ -88,13 +89,13 @@
   <div class="review-list">
     {#each result.items as review (`${review.source_instructor_id}:${review.source_review_id}`)}
       {@const course = initial.courses.find(
-        (c: any) => c.course_uid === review.course_uid,
+        (c) => c.course_uid === review.course_uid,
       )}
       <article class="student-review">
         <div class="review-meta">
           {#if course}<a href={courseUrl(course.course_id)}
               >{initial.courses.find(
-                (c: any) => c.course_uid === review.course_uid,
+                (c) => c.course_uid === review.course_uid,
               )?.course_id ||
                 review.course_label ||
                 "Course"}</a
@@ -115,7 +116,7 @@
               >Difficulty <strong>{review.difficulty_rating}/5</strong></span
             >{/if}
         </div>
-        {#if review.comment?.length > 350}<details>
+        {#if review.comment && review.comment.length > 350}<details>
             <summary
               ><span class="excerpt">{review.comment.slice(0, 240)}…</span>
               <span class="read-more">Read full review</span><span

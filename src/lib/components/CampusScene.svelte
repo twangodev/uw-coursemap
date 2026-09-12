@@ -2,8 +2,7 @@
   import { weatherSchema } from "$lib/api/schemas";
   import { fade, fly } from "svelte/transition";
   import { onMount } from "svelte";
-  import { Tooltip } from "bits-ui";
-  import { Info } from "@lucide/svelte";
+  import InfoTooltip from "./InfoTooltip.svelte";
   import CampusFactValue from "./CampusFactValue.svelte";
   import AnimatedNumber from "./AnimatedNumber.svelte";
   import {
@@ -167,24 +166,7 @@
         <p>
           {fact.label}
 
-          <Tooltip.Provider delayDuration={150}
-            ><Tooltip.Root bind:open={infoOpen} disableCloseOnTriggerClick>
-              <Tooltip.Trigger
-                class="campus-fact-info"
-                aria-label="About this campus fact"
-                onclick={() => (infoOpen = true)}
-                ><Info size={14} /></Tooltip.Trigger
-              >
-              <Tooltip.Portal
-                ><Tooltip.Content
-                  class="campus-fact-tooltip"
-                  role="tooltip"
-                  sideOffset={6}
-                  collisionPadding={12}>{fact.detail}</Tooltip.Content
-                ></Tooltip.Portal
-              >
-            </Tooltip.Root></Tooltip.Provider
-          >
+          <InfoTooltip label="About this campus fact" bind:open={infoOpen} contentClass="campus-fact-tooltip">{fact.detail}</InfoTooltip>
         </p>
       </div>
     {:else}
@@ -290,27 +272,6 @@
     max-width: 460px;
     margin: 15px 0 12px;
     text-wrap: balance;
-  }
-  :global(.campus-fact-info) {
-    pointer-events: auto;
-    display: inline-flex;
-    vertical-align: middle;
-    margin-left: 5px;
-    padding: 2px;
-    border: 0;
-    background: transparent;
-    color: var(--muted);
-    cursor: help;
-  }
-  :global(.campus-fact-tooltip) {
-    z-index: 100;
-    max-width: min(300px, calc(100vw - 24px));
-    padding: 12px 14px;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    background: var(--bg);
-    color: var(--text);
-    font: 12px/1.6 var(--font-sans);
   }
   @media (max-width: 700px) {
     .fact-value,

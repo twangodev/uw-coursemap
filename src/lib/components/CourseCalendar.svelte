@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Select from "./Select.svelte";
   import { onMount } from "svelte";
   import { Popover } from "bits-ui";
   import { MediaQuery } from "svelte/reactivity";
@@ -193,12 +194,8 @@
         >
       </div>
       <div class="row">
-        <select aria-label="Calendar section" bind:value={section}
-          ><option value="">All sections</option
-          >{#each [...new Set(meetings.map( (m) => sectionName(m.name), ))].sort() as name}<option
-              >{name}</option
-            >{/each}</select
-        ><button class="export" onclick={download}
+        <Select label="Calendar section" bind:value={section} options={[{ value: "", label: "All sections" }, ...[...new Set(meetings.map(m => sectionName(m.name)))].sort().map(name => ({ value: name, label: name }))]} />
+        <button class="export" onclick={download}
           ><Download size={13} /> Export</button
         >
       </div>
@@ -249,7 +246,7 @@
       </p>{/if}
     <Popover.Root open={!!selected} onOpenChange={(open) => { if (!open) selected = null; }}>
       <Popover.Portal>
-        <Popover.Content class="meeting-popover" customAnchor={anchor} side={mobile.current ? "bottom" : "right"} align={mobile.current ? "center" : "start"} sideOffset={10} collisionPadding={12} role="dialog" aria-label="Meeting details" onCloseAutoFocus={(event) => { event.preventDefault(); anchor?.focus(); }}>
+        <Popover.Content class="floating-surface meeting-popover" customAnchor={anchor} side={mobile.current ? "bottom" : "right"} align={mobile.current ? "center" : "start"} sideOffset={10} collisionPadding={12} role="dialog" aria-label="Meeting details" onCloseAutoFocus={(event) => { event.preventDefault(); anchor?.focus(); }}>
           {#if selected}
             <div class="meeting-popover-heading"><span>{selected.course_id} · {sectionName(selected.name)}</span><Popover.Close class="meeting-close" aria-label="Close meeting details"><X size={16} /></Popover.Close></div>
             <h3 class="meeting-title">{sectionName(selected.name)}</h3>
@@ -284,8 +281,7 @@
     border: 0;
     background: transparent;
   }
-  .export,
-  select {
+  .export {
     font: 11px var(--font-sans);
     padding: 6px 8px;
   }
@@ -364,7 +360,7 @@
   .meeting:hover {
     background: color-mix(in srgb, var(--accent) 20%, var(--bg));
   }
-  :global(.meeting-popover) { z-index: 100; width: min(360px, calc(100vw - 24px)); max-height: min(520px, var(--bits-popover-content-available-height)); overflow: auto; padding: 22px; border: 1px solid var(--border); border-radius: 9px; background: var(--bg); color: var(--text); box-shadow: 0 12px 40px #0002; }
+  :global(.meeting-popover) {width: min(360px, calc(100vw - 24px)); max-height: min(520px, var(--bits-popover-content-available-height)); overflow: auto; padding: 22px; }
   .meeting-popover-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 12px; color: var(--muted); }
   :global(.meeting-close) { display: grid; place-items: center; padding: 4px; border: 0; background: transparent; color: var(--muted); }
   .meeting-title { font-size: 20px; font-weight: 500; line-height: 1.35; margin: 12px 0 24px; overflow-wrap: anywhere; }

@@ -1,3 +1,4 @@
+import type { DepartmentStatistics } from "$lib/view-models";
 import { building, dev } from "$lib/server/runtime";
 import { query } from "./data";
 import { gradeKeys, gradeSummary } from "$lib/discovery";
@@ -12,7 +13,7 @@ async function catalog(platform?: App.Platform) {
 export async function departmentStats(
   subject: string,
   platform?: App.Platform,
-) {
+): Promise<DepartmentStatistics> {
   const [catalogRows, own, offeringRows, teachingRows] = await Promise.all([
     catalog(platform),
     query(

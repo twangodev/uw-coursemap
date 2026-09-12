@@ -1,4 +1,6 @@
 <script lang="ts">
+  import type { CourseResults } from "$lib/view-models";
+  import type { Status } from "$lib/types";
   import { departmentLabel } from "$lib/departments";
   import { Search } from "@lucide/svelte";
   import { goto } from "$app/navigation";
@@ -14,8 +16,8 @@
     showTerm = true,
     ranked = false,
   }: {
-    results: any;
-    status: any;
+    results: CourseResults;
+    status: Status;
     subject?: string;
     path?: string;
     showTerm?: boolean;
@@ -62,7 +64,7 @@
         value={urlParams.subject || ""}
         options={[
           { value: "", label: "All departments" },
-          ...status.departments.map((d: any) => ({
+          ...status.departments.map((d) => ({
             value: d.subject,
             label: departmentLabel(d.subject),
           })),

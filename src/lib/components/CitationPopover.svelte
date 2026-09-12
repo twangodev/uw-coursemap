@@ -33,7 +33,7 @@
     [{marker}]
   </Popover.Trigger>
   <Popover.Portal>
-    <Popover.Content class="citation-preview" role="dialog" aria-label="Sources" sideOffset={10} collisionPadding={12}>
+    <Popover.Content class="floating-surface citation-preview" role="dialog" aria-label="Sources" sideOffset={10} collisionPadding={12}>
       <header class="preview-heading">
         <span>Sources</span>
         <div class="preview-controls">
@@ -80,7 +80,7 @@
   :global(.citation-marker) { display: inline; padding: 3px 2px; margin-left: 4px; border: 0; background: none; color: var(--accent); font: 11px var(--font-sans); vertical-align: super; line-height: 1; white-space: nowrap; cursor: pointer; border-radius: 2px; }
   :global(.citation-marker:hover) { background: var(--accent-soft); }
   :global(.citation-marker:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
-  :global(.citation-preview) { z-index: 100; width: min(380px, calc(100vw - 24px)); max-height: min(520px, var(--bits-popover-content-available-height)); overflow: hidden; display: flex; flex-direction: column; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 12px 40px #0002; font-family: var(--font-sans); }
+  :global(.citation-preview) {width: min(380px, calc(100vw - 24px)); max-height: min(520px, var(--bits-popover-content-available-height)); overflow: hidden; display: flex; flex-direction: column; font-family: var(--font-sans); padding: 0; }
   .preview-heading { flex-shrink: 0; display: flex; justify-content: space-between; align-items: center; padding: 10px 14px 10px 20px; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--border); }
   .preview-controls { display: flex; align-items: center; gap: 2px; }
   .source-position { font-size: 11px; font-variant-numeric: tabular-nums; margin-right: 8px; }

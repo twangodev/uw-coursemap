@@ -12,6 +12,10 @@
   --color-surface-content: #1a1916;
 }
 :root {
+  --radius-control: 5px;
+  --radius-surface: 8px;
+  --space-section: clamp(40px, 5vw, 72px);
+  --surface-shadow: 0 12px 32px #0002;
   --motion-fast: 120ms;
   --motion-normal: 180ms;
   --motion-enter: 240ms;
@@ -26,6 +30,8 @@
   --positive: #36745a;
   --negative: #ba3938;
   --grade-mid: #a59168;
+  --grade-a: #38734d; --grade-ab: #68976d; --grade-b: #91a77d;
+  --grade-bc: #b3b38d; --grade-c: #bc9a73; --grade-d: #ba6958; --grade-f: #c5050c;
   --accent-mark: #d35545;
   --accent-soft: #f7e4e1;
   color-scheme: light;
@@ -40,6 +46,8 @@
   --positive: #82bf99;
   --negative: #ee8d85;
   --grade-mid: #c5b487;
+  --grade-a: #82bf99; --grade-ab: #98c6a0; --grade-b: #abbc94;
+  --grade-bc: #c5c49e; --grade-c: #d0b18b; --grade-d: #de9b8c; --grade-f: #ee8d85;
   --accent-mark: #e68578;
   --accent-soft: #3f1f1b;
   --color-primary: #e68578;
@@ -58,14 +66,6 @@ body {
   font-size: 15px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-}
-a {
-  color: var(--accent);
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-  text-underline-offset: 4px;
 }
 button,
 input,
@@ -153,11 +153,6 @@ p + p {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--muted);
-}
-.hero {
-  padding: 2rem 0 3rem;
-  display: grid;
-  gap: 1.5rem;
 }
 .section {
   border-top: 1px solid var(--border);
@@ -330,65 +325,12 @@ th {
 }
 a {
   color: inherit;
+  text-decoration: none;
 }
 a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
   color: var(--accent);
-}
-.panel {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: color-mix(in srgb, var(--surface) 18%, var(--bg));
-  min-width: 0;
-  scroll-margin-top: 74px;
-  overflow: hidden;
-}
-.panel-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  padding: 14px var(--space-panel);
-  border-bottom: 1px solid var(--border);
-}
-.panel-heading h2 {
-  font-size: 19px;
-  font-weight: 550;
-  letter-spacing: -0.01em;
-}
-.panel-heading .mono {
-  font-size: 12px;
-}
-.panel-body {
-  padding: var(--space-panel);
-}
-.panel-body > details:last-child {
-  padding-bottom: 0;
-}
-.panel .stack {
-  gap: 12px;
-}
-.panel details {
-  font-size: 12px;
-  padding: 12px 0;
-}
-.panel p {
-  line-height: 1.6;
-}
-.panel summary {
-  font-weight: 450;
-  color: var(--muted);
-}
-.course-heading {
-  padding: 8px 0 24px;
-  display: grid;
-  gap: 15px;
-}
-.course-heading h1 {
-  font-size: clamp(25px, 3vw, 36px);
-  font-weight: 520;
-  max-width: 1000px;
-  line-height: 1.15;
-  letter-spacing: -0.035em;
 }
 .breadcrumbs {
   display: flex;
@@ -416,33 +358,6 @@ a:hover {
 .course-meta .available i {
   background: var(--positive);
 }
-.course-jumps {
-  display: flex;
-  gap: 5px;
-  padding: 10px 0;
-  margin-bottom: 18px;
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-  overflow-x: auto;
-}
-.course-jumps a {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  font: 14px var(--font-sans);
-  padding: 9px 12px;
-  border-radius: 4px;
-  white-space: nowrap;
-  color: var(--muted);
-}
-.course-jumps a:hover {
-  background: var(--surface);
-  color: var(--text);
-  text-decoration: none;
-}
 .course-workspace {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -451,17 +366,11 @@ a:hover {
 }
 .course-content {
   display: grid;
-  gap: 72px;
+  gap: var(--space-section);
   min-width: 0;
 }
 .course-facts {
   position: static;
-}
-.course-facts .panel-body {
-  font-size: 13px;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px 48px;
 }
 .course-intro {
   margin-bottom: 18px;
@@ -535,12 +444,6 @@ a:hover {
   padding-top: 28px;
   border-top: 1px solid var(--border);
 }
-.panel .claim {
-  font-size: 15px;
-}
-.panel .citations summary {
-  font: 12px var(--font-sans);
-}
 .professor-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -611,17 +514,6 @@ a:hover {
   background: var(--surface);
   font: 12px var(--font-sans);
 }
-.panel .filters {
-  margin: 0 0 16px;
-}
-.panel .filters select {
-  font-size: 13px;
-  padding: 5px 8px;
-  max-width: 260px;
-}
-.panel .filters label {
-  font: 13px var(--font-sans);
-}
 .metric-strip {
   display: flex;
   gap: 32px;
@@ -663,10 +555,6 @@ a:hover {
   .page {
     padding: 20px 16px;
   }
-  .course-jumps {
-    margin-inline: -16px;
-    padding-inline: 12px;
-  }
   .experience-grid {
     grid-template-columns: 1fr;
     gap: 18px;
@@ -682,16 +570,6 @@ a:hover {
   .metric-value {
     font-size: 23px;
   }
-  .panel-heading {
-    padding: 12px 16px;
-  }
-  .panel-body {
-    padding: 16px;
-  }
-}
-.course-jumps a[aria-current="location"] {
-  color: var(--accent);
-  background: var(--accent-soft);
 }
 
 /* Course overview: identity, people, and outcomes before the detailed record. */
@@ -703,11 +581,14 @@ a:hover {
 }
 .course-heading {
   padding: 8px 0 24px;
+  display: grid;
   gap: 16px;
 }
 .course-heading h1 {
   font-size: clamp(28px, 3.2vw, 40px);
   font-weight: 550;
+  max-width: 1000px;
+  line-height: 1.15;
   letter-spacing: -0.045em;
 }
 .course-description {
@@ -773,47 +654,17 @@ a:hover {
   font-size: 13px;
   margin-top: 24px;
 }
-.course-content > .panel {
-  overflow: visible;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-}
-.course-content > .panel > .panel-heading {
-  position: sticky;
-  top: var(--course-navigation-height, 43px);
-  z-index: 10;
-  background: var(--bg);
-  border: 0;
-  padding: 20px 0;
-  align-items: baseline;
-}
-.course-content > .panel > .panel-heading h2 { font-size: 28px; font-weight: 500; }
-.course-content > .panel > .panel-body {
-  padding: 0;
-}
-.course-content > .panel > .panel-body > :last-child { margin-bottom: 0; }
-.course-facts > .panel {
-  background: transparent;
-  border: 0;
-}
-.course-facts .panel-heading {
-  padding: 24px 0;
-  border: 0;
-}
-.course-facts .panel-body { padding: 0; }
-.course-facts .panel-body > p { grid-column: 1 / -1; }
 /* Disclosures keep their width and position when expanded. */
-.course-page details { min-width: 0; font-size: 14px; }
-.course-page details > summary {
+.course-page details:not(.disclosure) { min-width: 0; font-size: 14px; }
+.course-page details:not(.disclosure) > summary {
   position: relative;
   list-style: none;
   padding-left: 22px;
   line-height: 1.6;
   color: var(--text);
 }
-.course-page details > summary::-webkit-details-marker { display: none; }
-.course-page details > summary::before {
+.course-page details:not(.disclosure) > summary::-webkit-details-marker { display: none; }
+.course-page details:not(.disclosure) > summary::before {
   content: "";
   position: absolute;
   left: 3px;
@@ -825,11 +676,11 @@ a:hover {
   transform: rotate(-45deg);
   transition: transform 150ms ease;
 }
-.course-page details[open] > summary::before { transform: rotate(45deg); }
-.course-page details > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-.course-page details > p, .course-page details > ul { margin-top: 14px; }
+.course-page details:not(.disclosure)[open] > summary::before { transform: rotate(45deg); }
+.course-page details:not(.disclosure) > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.course-page details:not(.disclosure) > p, .course-page details:not(.disclosure) > ul { margin-top: 14px; }
 @media (prefers-reduced-motion: reduce) {
-  .course-page details > summary::before { transition: none; }
+  .course-page details:not(.disclosure) > summary::before { transition: none; }
 }
 
 .course-facts .tags {
@@ -838,12 +689,6 @@ a:hover {
 }
 .course-facts .fact-block p {
   font-size: 14px;
-}
-.course-jumps a[aria-current="location"] {
-  background: transparent;
-  color: var(--accent);
-  box-shadow: inset 0 -2px var(--accent);
-  border-radius: 0;
 }
 @media (max-width: 760px) {
   .course-identity {
@@ -879,9 +724,7 @@ a:hover {
   }
   .course-workspace { gap: 40px; }
   .course-content { gap: 48px; }
-  .course-facts .panel-body { grid-template-columns: 1fr; gap: 20px; }
   .course-facts .fact-pair { grid-template-columns: 120px minmax(0, 1fr); gap: 16px; }
-  .course-content > .panel > .panel-heading h2 { font-size: 24px; }
   .professor-tile {
     grid-template-columns: 1fr;
     gap: 6px;
@@ -900,6 +743,7 @@ a:hover {
 }
 .hero {
   padding: 14px 0 32px;
+  display: grid;
   gap: 18px;
 }
 
@@ -918,12 +762,12 @@ a:hover {
   .course-select-trigger svg { transition: transform var(--motion-normal) var(--motion-ease); }
   .course-select-trigger[data-state="open"] svg { transform: rotate(180deg); }
 
-  :is(.course-select-content, .badge-evidence, .meeting-popover, .citation-preview, .ai-disclaimer-tooltip, .metric-tooltip) {
+  :is(.course-select-content, .badge-evidence, .meeting-popover, .citation-preview, .ai-disclaimer-tooltip, .metric-tooltip, .campus-fact-tooltip, .info-tooltip) {
     --enter-y: -3px;
     animation: surface-arrive var(--motion-normal) var(--motion-ease);
   }
-  :is(.course-select-content, .badge-evidence, .meeting-popover, .citation-preview, .ai-disclaimer-tooltip, .metric-tooltip)[data-side="top"] { --enter-y: 3px; }
-  :is(.course-select-content, .badge-evidence, .meeting-popover, .citation-preview, .ai-disclaimer-tooltip, .metric-tooltip)[data-state="closed"] {
+  :is(.course-select-content, .badge-evidence, .meeting-popover, .citation-preview, .ai-disclaimer-tooltip, .metric-tooltip, .campus-fact-tooltip, .info-tooltip)[data-side="top"] { --enter-y: 3px; }
+  :is(.course-select-content, .badge-evidence, .meeting-popover, .citation-preview, .ai-disclaimer-tooltip, .metric-tooltip, .campus-fact-tooltip, .info-tooltip)[data-state="closed"] {
     animation: surface-leave var(--motion-fast) ease forwards;
     pointer-events: none;
   }
@@ -959,3 +803,16 @@ a:hover {
 }
 
 .section-note { margin: 12px 0 16px; color: var(--muted); font-size: 12px; line-height: 1.65; }
+
+/* Floating UI shares geometry and contrast; content owns its layout. */
+.floating-surface {
+  z-index: 100;
+  width: min(var(--surface-width, 340px), calc(100vw - 24px));
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-surface);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--surface-shadow);
+  font: 13px/1.65 var(--font-sans);
+}

@@ -2,7 +2,7 @@
   import Badges from "$lib/components/Badges.svelte";
   import { instructorBadges } from "$lib/badges";
   import StudentReviews from "$lib/components/StudentReviews.svelte";
-  import Select from "$lib/components/Select.svelte";
+  import TermPicker from "$lib/components/TermPicker.svelte";
   import { goto } from "$app/navigation";
   import InstructorStats from "$lib/components/InstructorStats.svelte";
   import TeachingTimeline from "$lib/components/TeachingTimeline.svelte";
@@ -54,18 +54,10 @@
 <section class="section">
   <div class="teaching-heading">
     <h2>Classes with {data.instructor.name || "this instructor"}</h2>
-    <Select
+    <TermPicker
       label="Teaching term"
       value={data.term}
-      options={[
-        ...new Set([
-          data.status.term,
-          ...data.timeline.map((row: any) => row.term),
-        ]),
-      ]
-        .sort()
-        .reverse()
-        .map((term) => ({ value: term, label: termName(term) }))}
+      terms={[data.status.term, ...data.timeline.map((row: { term: string }) => row.term)]}
       onChange={(term) =>
         goto(`?term=${term}`, { noScroll: true, keepFocus: true })}
     />

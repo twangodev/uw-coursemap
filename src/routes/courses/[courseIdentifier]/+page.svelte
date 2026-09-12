@@ -1,24 +1,18 @@
 <script lang="ts">
-  import { onMount, setContext } from "svelte";
+  import { setContext } from "svelte";
   import {
     ArrowUpRight,
-    ChevronLeft,
-    ChevronRight,
-    BookOpen,
-    GitBranch,
-    CalendarDays,
-    Users,
-    ChartColumn,
-    Layers,
   } from "@lucide/svelte";
   import { citationContext, citationKey, citationNumbers } from "$lib/citations";
   import { courseFitObservations } from "$lib/course-fit";
   import type { Citation } from "$lib/types";
+  import CourseNavigation from "$lib/components/CourseNavigation.svelte";
+  import TermPicker from "$lib/components/TermPicker.svelte";
   import Select from "$lib/components/Select.svelte";
   import AIDisclaimer from "$lib/components/AIDisclaimer.svelte";
   import Badges from "$lib/components/Badges.svelte";
   import { courseBadges, instructorBadges } from "$lib/badges";
-  import Panel from "$lib/components/Panel.svelte";
+  import CourseSection from "$lib/components/CourseSection.svelte";
   import Claims from "$lib/components/Claims.svelte";
   import RotatingClaims from "$lib/components/RotatingClaims.svelte";
   import CourseSources from "$lib/components/CourseSources.svelte";
@@ -45,11 +39,6 @@
     ...c.instructors.map((i: any) => ({ ...i, terms: [{ term: c.semester }] })),
     ...(c.grade_instructors || []).map((i: any) => ({ ...i, terms: data.instructorTrends.find((row) => row.uid === i.instructor_uid)?.terms || [] })),
   ]);
-  let gradeTermIndex = $derived(gradeTerms.indexOf(selectedGradeTerm));
-  function stepTerm(direction: number) {
-    const index = gradeTermIndex + direction;
-    if (index >= 0 && index < gradeTerms.length) termSelection = gradeTerms[index];
-  }
   let termLabel = $derived(selectedGradeTerm ? termName(selectedGradeTerm) : "All recorded terms");
   let snapshotAvailable = $derived(!selectedGradeTerm || selectedGradeTerm === c.semester);
   let selectedSections = $derived(c.sections.filter((section: any) => !selectedGradeTerm || section.term_id === selectedGradeTerm));
@@ -87,61 +76,18 @@
   let summary = $derived(!selectedGradeTerm || selectedGradeTerm === c.student_summary?.term_id ? c.student_summary : {});
   let sourceNumbers = $derived(citationNumbers(allTimeSummary));
   setContext(citationContext, (citation: Citation) => sourceNumbers.get(citationKey(citation)));
-  let active = $state("overview");
-  let stickyTitle = $state(false);
   let navigationHeight = $state(43);
-  let sectionNav: HTMLElement;
-  let indicator = $state({ left: 0, width: 0 });
+  let courseHeading = $state<HTMLDivElement>();
+  let courseWorkspace = $state<HTMLDivElement>();
   let introduction = $derived(
     (c.llm_summary || c.description || "")
       .replace(`${c.course_id} ${c.title} `, "")
       .replace(/^./, (letter: string) => letter.toUpperCase()),
   );
-  onMount(() => {
-    let frame = 0;
-    let stopped = false;
-    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    function update() {
-      frame = 0;
-      stickyTitle = (document.querySelector(".course-heading")?.getBoundingClientRect().bottom ?? 1) <= 0;
-      const sections = links.map(link => document.getElementById(link.id)).filter((el): el is HTMLElement => !!el);
-      const threshold = navigationHeight + 64;
-      let next = sections[0]?.id || "overview";
-      for (const section of sections) if (section.getBoundingClientRect().top <= threshold) next = section.id;
-      if (window.scrollY > 0 && window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) next = sections.at(-1)?.id || next;
-      const changed = next !== active;
-      active = next;
-      const link = sectionNav.querySelector<HTMLAnchorElement>(`a[href="#${next}"]`);
-      if (!link) return;
-      indicator = { left: link.offsetLeft, width: link.offsetWidth };
-      // Scroll only the horizontal navigation, never the document.
-      if (changed && (link.offsetLeft < sectionNav.scrollLeft || link.offsetLeft + link.offsetWidth > sectionNav.scrollLeft + sectionNav.clientWidth)) {
-        sectionNav.scrollTo({ left: link.offsetLeft - (sectionNav.clientWidth - link.offsetWidth) / 2, behavior: motion.matches ? "instant" : "smooth" });
-      }
-    }
-    function schedule() { if (!frame && !stopped) frame = requestAnimationFrame(update); }
-    window.addEventListener("scroll", schedule, { passive: true });
-    const resize = new ResizeObserver(schedule);
-    resize.observe(sectionNav);
-    resize.observe(sectionNav.closest(".course-navigation")!);
-    resize.observe(sectionNav.firstElementChild!);
-    resize.observe(document.querySelector(".course-workspace")!);
-    document.fonts.ready.then(schedule);
-    schedule();
-    return () => { stopped = true; cancelAnimationFrame(frame); resize.disconnect(); window.removeEventListener("scroll", schedule); };
-  });
-  const links = [
-    { id: "overview", label: "overview", icon: BookOpen },
-    { id: "requirements", label: "prerequisites", icon: GitBranch },
-    { id: "professors", label: "professors", icon: Users },
-    { id: "schedule", label: "calendar", icon: CalendarDays },
-    { id: "experience", label: "student experience", icon: BookOpen },
-    { id: "grades", label: "grades", icon: ChartColumn },
-    { id: "evidence", label: "sources", icon: Layers },
-  ];</script>
+</script>
 
 <div class="course-page" style={`--course-navigation-height: ${navigationHeight}px`}>
-<div class="course-heading">
+<div class="course-heading" bind:this={courseHeading}>
   <div class="row between">
     <nav class="breadcrumbs mono" aria-label="Breadcrumb">
       <a href="/departments">departments</a><span>/</span>
@@ -175,33 +121,16 @@
     </div>
   </div>
 </div>
-<div class="course-navigation" bind:offsetHeight={navigationHeight}>
-  {#if stickyTitle}<div class="sticky-course-title" aria-hidden="true"><span class="sticky-course-code" title={c.course_id}>{c.course_id}</span><span class="sticky-course-name" title={courseTitle(c.title)}>{courseTitle(c.title)}</span></div>{/if}
-  <div class="navigation-row">
-  <nav bind:this={sectionNav} class="course-jumps" class:has-indicator={indicator.width > 0} aria-label="Course sections">
-    <div class="section-links">
-    {#each links as link}<a
-        href={"#" + link.id}
-        aria-current={active === link.id ? "location" : undefined}
-        ><link.icon size={14} strokeWidth={1.5} />{link.label}</a
-      >{/each}
-      <span class="section-indicator" aria-hidden="true" style:width={`${indicator.width}px`} style:transform={`translateX(${indicator.left}px)`}></span>
-    </div>
-  </nav>
-  <div class="navigation-filters">
+<CourseNavigation code={c.course_id} title={courseTitle(c.title)} heading={courseHeading} content={courseWorkspace} bind:navigationHeight>
+
     {#if data.context}
       <div class="navigation-filter">
         <Select label="Comparison group" value={scope} onChange={(value) => comparisonScope = value} options={[{ value: "school", label: "School · UW–Madison" }, ...c.subjects.map((subject: string) => ({ value: subject, label: `Department · ${subject}` }))]} />
       </div>
     {/if}
-    <div class="navigation-filter term-picker" role="group" aria-label="Grade term">
-      <button class="term-step" aria-label={selectedGradeTerm ? "Previous term" : "Latest term"} disabled={!gradeTerms.length || gradeTermIndex >= gradeTerms.length - 1} onclick={() => stepTerm(1)}><ChevronLeft size={14} /></button>
-      <Select label="Term" value={selectedGradeTerm} onChange={(value) => termSelection = value} options={[{ value: "", label: "All recorded terms" }, ...gradeTerms.map((term) => ({ value: term, label: termName(term) + (term === projectedTerm && data.projection?.interval ? " · Projected" : "") }))]} />
-      <button class="term-step" aria-label="Next term" disabled={gradeTermIndex <= 0} onclick={() => stepTerm(-1)}><ChevronRight size={14} /></button>
-    </div>
-  </div>
-  </div>
-</div>
+    <TermPicker terms={gradeTerms} value={selectedGradeTerm} groupLabel="Grade term" all projected={data.projection?.interval ? projectedTerm : ""} onChange={(value) => termSelection = value} />
+
+</CourseNavigation>
 <section class="course-overview" id="overview" aria-label="Course overview">
   <div class="overview-take">
     {#if overviewClaims.length}
@@ -215,9 +144,9 @@
   </div>
   <GradeSnapshot grades={c.grades} benchmark={data.context?.benchmarks.all[scope]} group={scope === "school" ? "UW–Madison" : scope} />
 </section>
-<div class="course-workspace">
+<div class="course-workspace" bind:this={courseWorkspace}>
   <aside class="course-facts" aria-label="Course details">
-    <Panel title="Course details">
+    <CourseSection title="Course details" layout="facts">
       {#if !snapshotAvailable}<p class="muted">Catalog details below are from {termName(c.semester)}; no catalog snapshot for {termLabel}.</p>{/if}
       <div class="fact-pair">
         <span>Credits</span><strong
@@ -253,10 +182,10 @@
           </aside>
         {/if}
       </div>
-    </Panel>
+    </CourseSection>
   </aside>
   <div class="course-content">
-    <Panel title="Prerequisites" id="requirements">
+    <CourseSection title="Prerequisites" id="requirements">
       {#snippet tools()}<a class="prerequisite-map-link" href={`/explorer/${encodeURIComponent(c.subjects[0])}?course=${encodeURIComponent(c.course_id)}`}>Course map <ArrowUpRight size={15} /></a>{/snippet}
       {#if snapshotAvailable}
       <p class="requirements-source">
@@ -269,8 +198,8 @@
         />
       </details>
       {:else}<p class="muted">No prerequisite snapshot for {termLabel}. The available prerequisite tree is from {termName(c.semester)}.</p>{/if}
-    </Panel>
-    <Panel title="Professors" id="professors" label={termLabel}>
+    </CourseSection>
+    <CourseSection title="Professors" id="professors" label={termLabel}>
       <div class="professor-grid">
         {#each professors as i}{@const feedback =
             summary.current_instructors?.find(
@@ -330,8 +259,8 @@
           </p>
         </div>
       </details>
-    </Panel>
-    <Panel
+    </CourseSection>
+    <CourseSection
       title="Calendar & sections"
       id="schedule"
       label={selectedGradeTerm ? termLabel : termName(c.semester)}
@@ -369,8 +298,8 @@
         title="Meeting source records"
         files={c.evidence.meetings || []}
       />{/if}
-    </Panel>
-    <Panel
+    </CourseSection>
+    <CourseSection
       title="Student experience"
       id="experience"
     >
@@ -418,8 +347,8 @@
       </section>
     {/if}
     {:else}<p class="muted">No student-experience summary for {termLabel}. Reviews are not reliably assigned to teaching terms.</p>{/if}
-    </Panel>
-    <Panel title="Grades" id="grades">
+    </CourseSection>
+    <CourseSection title="Grades" id="grades">
       <Grades
         grades={c.grades}
         projection={data.projection}
@@ -438,11 +367,11 @@
           <p class="muted">Excluded from calculated GPA.</p>
           <pre>{JSON.stringify(c.grade_conflicts, null, 2)}</pre>
         </details>{/if}
-    </Panel>
+    </CourseSection>
     {#if data.context}<CourseContext context={data.context} subjects={c.subjects} {scope} onScopeChange={(value) => comparisonScope = value} term={selectedGradeTerm} />{/if}
-    <Panel title="Sources & history" id="evidence">
+    <CourseSection title="Sources & history" id="evidence">
       <CourseSources course={c} offerings={selectedOfferings} repository={data.status.repository} />
-    </Panel>
+    </CourseSection>
   </div>
 </div>
 
@@ -453,37 +382,10 @@
     width: 100%;
   }
   .course-topics { margin-top: 28px; }
-  .course-navigation { position: sticky; top: 0; z-index: 20; background: var(--bg); border-bottom: 1px solid var(--border); }
-  .navigation-row { display: flex; align-items: center; gap: 20px; padding: 6px 0; }
-  .sticky-course-title { display: flex; align-items: baseline; gap: 12px; min-width: 0; padding: 10px 8px 4px; }
-  .sticky-course-code { flex-shrink: 0; max-width: 45%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--muted); font-size: 12px; }
-  .sticky-course-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 15px; font-weight: 500; }
   .course-overview, .course-workspace :global(section) { scroll-margin-top: calc(var(--course-navigation-height, 43px) + 32px); }
-  .course-navigation .course-jumps { position: static; flex: 1; min-width: 0; border: 0; margin: 0; padding: 0; }
-  .course-navigation .course-jumps a { height: 30px; box-sizing: border-box; font-size: 12px; padding: 0 8px; gap: 5px; }
   .navigation-filter :global(.course-select-trigger) { height: 30px; box-sizing: border-box; padding-block: 0; }
-  .navigation-filter.term-picker { grid-template-columns: 28px minmax(0, 1fr) 28px; gap: 0; height: 30px; box-sizing: border-box; border: 1px solid var(--border); border-radius: 5px; background: var(--surface); }
-  .term-picker :global(.course-select-trigger) { height: 28px; border: 0; border-inline: 1px solid var(--border); border-radius: 0; background: transparent; }
-  .term-picker .term-step { width: 28px; height: 28px; border-radius: 0; }
-  .term-picker .term-step:first-child { border-radius: 4px 0 0 4px; }
-  .term-picker .term-step:last-child { border-radius: 0 4px 4px 0; }
-  .term-step { display: grid; place-items: center; width: 26px; height: 30px; padding: 0; border: 0; border-radius: 4px; background: transparent; color: var(--muted); cursor: pointer; }
-  .term-step:hover:not(:disabled) { background: var(--border); color: var(--text); }
-  .term-step:disabled { opacity: 0.3; cursor: default; }
-  .term-step:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .section-links { position: relative; display: flex; flex: 0 0 auto; width: max-content; gap: 5px; }
-  .section-indicator { position: absolute; left: 0; bottom: 0; height: 2px; background: var(--accent); border-radius: 2px; pointer-events: none; transition: transform var(--motion-travel) var(--motion-ease), width var(--motion-travel) var(--motion-ease); }
-  .has-indicator a[aria-current="location"] { box-shadow: none; }
-  @media (prefers-reduced-motion: reduce) { .section-indicator { transition: none; } }
-  .navigation-filters { display: flex; gap: 10px; flex-shrink: 0; }
   .navigation-filter { display: grid; gap: 2px; min-width: 0; }
-  @media (max-width: 1000px) {
-    .navigation-row { flex-wrap: wrap; gap: 10px; }
-    .course-navigation .course-jumps { flex-basis: 100%; }
-    .navigation-filters { width: 100%; }
-    .navigation-filter { flex: 1; }
-  }
-
+  @media (max-width: 1000px) { .navigation-filter { flex: 1; } }
   .course-tag-groups {
     display: grid;
     gap: 14px;

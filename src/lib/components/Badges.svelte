@@ -32,7 +32,7 @@
 </div>
 <Popover.Root open={!!selected} onOpenChange={(open) => { if (!open) active = null; }}>
   <Popover.Portal>
-    <Popover.Content bind:ref={content} customAnchor={trigger} class="badge-evidence" role="dialog" aria-label={`${selected?.label} evidence`} sideOffset={6} collisionPadding={12}
+    <Popover.Content bind:ref={content} customAnchor={trigger} class="floating-surface badge-evidence" role="dialog" aria-label={`${selected?.label} evidence`} sideOffset={6} collisionPadding={12}
       onInteractOutside={(e) => { if (e.target instanceof Node && group?.contains(e.target)) e.preventDefault(); }}
       onOpenAutoFocus={(e) => e.preventDefault()}
       onCloseAutoFocus={(e) => { e.preventDefault(); if (content?.contains(document.activeElement)) { restoringFocus = true; trigger?.focus({ preventScroll: true }); queueMicrotask(() => restoringFocus = false); } }}
@@ -53,7 +53,7 @@
   .negative { color: var(--negative); background: color-mix(in srgb, var(--negative) 8%, var(--bg)); }
   .caution { color: light-dark(#805b0b, #e4bc62); background: light-dark(#f2ead8, #3a3020); }
   .evidence-badge:focus-visible { outline: 1px solid currentColor; outline-offset: 2px; }
-  :global(.badge-evidence) { z-index: 100; width: min(340px, calc(100vw - 24px)); max-height: var(--bits-popover-content-available-height); overflow: auto; background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 8px; padding: 16px; box-shadow: 0 8px 30px #0002; font: 13px/1.65 var(--font-sans); }
+  :global(.badge-evidence) {width: min(340px, calc(100vw - 24px)); max-height: var(--bits-popover-content-available-height); overflow: auto; padding: 16px; font: 13px/1.65 var(--font-sans); }
   .badge-evidence-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
   :global(.badge-close) { padding: 3px; border: 0; background: transparent; color: var(--muted); }
   .badge-evidence-heading strong { font-weight: 500; }
