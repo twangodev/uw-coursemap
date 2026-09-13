@@ -71,48 +71,58 @@
 
 <StatsCard title="Grades" span={4}>
   {#snippet preview()}
-    <strong class="preview-number"
+    <strong
+      class="block text-[clamp(40px,_4.5vw,_68px)] tracking-[-0.06em] font-[450] leading-[1.05] preview-number"
       ><AnimatedNumber value={grades?.gpa} decimals={2} /></strong
     >
-    <span class="preview-label"
+    <span class="block text-muted text-[12px] mt-3 preview-label"
       >μ · mean grade points · {gradeTerm
         ? termName(gradeTerm)
         : "no recorded grades"}</span
     >
     {#if grades?.gradeCount}<div class="preview-grades">
         <div
-          class="grade-dots"
+          class="grid grid-cols-[repeat(20,_1fr)] gap-1 pt-5.5 grade-dots"
           role="img"
           aria-label={bars
             .map((row) => `${row.grade}: ${row.percentage.toFixed(1)}%`)
             .join(", ")}
         >
           {#each gradeDots as grade}<span
+              class="w-full aspect-square rounded-[50%] opacity-[0.9]"
               style:background={gradeColors[Math.max(0, grade)]}
               title={`${bars[Math.max(0, grade)].grade}: ${bars[Math.max(0, grade)].percentage.toFixed(1)}%`}
             ></span>{/each}
         </div>
-        <div class="grade-dot-key" aria-hidden="true">
+        <div
+          class="hidden gap-4 flex-wrap mt-5 text-[11px] text-muted grade-dot-key"
+          aria-hidden="true"
+        >
           {#each gradeLabels as label, i}<span
-              ><i style:background={gradeColors[i]}></i>{label}</span
+              class="flex items-center gap-[5px]"
+              ><i
+                class="w-[5px] h-[5px] rounded-[50%]"
+                style:background={gradeColors[i]}
+              ></i>{label}</span
             >{/each}
         </div>
       </div>{/if}
-    {#if distribution.count}<span class="preview-math"
+    {#if distribution.count}<span
+        class="block text-muted text-[11px] mt-3.5 tabular-nums preview-math"
         >σ = {distribution.sd?.toFixed(2)} · n = {distribution.count.toLocaleString()}</span
       >{/if}
   {/snippet}
   {#if grades?.gradeCount}
-    <p class="period">
+    <p class="text-muted text-[13px] m-0 period">
       {termName(gradeTerm!)} · recorded letter-grade distribution
     </p>
-    <div class="distribution-metrics">
+    <div class="grid grid-cols-6 gap-5 mt-7 mb-9 distribution-metrics mx-0">
       {#each [{ label: "Mean · μ", value: distribution.mean }, { label: "Std. deviation · σ", value: distribution.sd }, { label: "25th percentile", value: distribution.q25 }, { label: "Median", value: distribution.median }, { label: "75th percentile", value: distribution.q75 }] as metric}
         <Metric {...metric} decimals={2} labelFirst />
       {/each}
       <Metric label="Grade records · n" value={distribution.count} labelFirst />
     </div>
-    <div class="distribution-charts">
+    <div class="grid grid-cols-2 gap-8 distribution-charts">
       <ChartFrame title="Grade probabilities">
         <BarChart
           data={bars}
@@ -166,14 +176,14 @@
         </ChartFrame>
       </div>
     </div>
-    <p class="coverage">
+    <p class="text-muted text-[12px] leading-[1.6] coverage">
       σ describes the spread of recorded letter grades. Quartiles use linear
       interpolation between ordered grade records.
     </p>
-    <details class="disclosure">
+    <details class="mt-[25px] text-[13px] disclosure">
       <summary>Grade percentages</summary>
-      <div class="grade-table">
-        {#each bars as row}<div>
+      <div class="mt-4 max-h-80 overflow-auto grade-table">
+        {#each bars as row}<div class="flex justify-between gap-5 py-2 px-0">
             <span>{row.grade}</span><span>{row.percentage.toFixed(2)}%</span>
           </div>{/each}
       </div>
@@ -204,12 +214,13 @@
           },
         }}
       />
-      <div class="grade-key">
-        {#each gradeLabels as grade, i}<span
-            ><i style:background={gradeColors[i]}></i>{grade}</span
+      <div class="flex gap-4 flex-wrap text-[12px] grade-key my-3 mx-0">
+        {#each gradeLabels as grade, i}<span class="flex items-center gap-1.5"
+            ><i class="w-3 h-[3px]" style:background={gradeColors[i]}
+            ></i>{grade}</span
           >{/each}
       </div>
-      <details class="disclosure">
+      <details class="mt-[25px] text-[13px] disclosure">
         <summary>Average GPA over time</summary>
         <LineChart
           data={trend}
@@ -229,10 +240,12 @@
           }}
         />
       </details>
-      <details class="disclosure">
+      <details class="mt-[25px] text-[13px] disclosure">
         <summary>Recorded GPA by term</summary>
-        <div class="grade-table">
-          {#each [...trend].reverse() as row}<div>
+        <div class="mt-4 max-h-80 overflow-auto grade-table">
+          {#each [...trend].reverse() as row}<div
+              class="flex justify-between gap-5 py-2 px-0"
+            >
               <span>{row.term}</span><span>{row.gpa?.toFixed(2)}</span>
             </div>{/each}
         </div>
@@ -242,101 +255,11 @@
 </StatsCard>
 
 <style>
-  .grade-key {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    font-size: 12px;
-    margin: 12px 0;
-  }
-  .grade-key span {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .grade-key i {
-    width: 12px;
-    height: 3px;
-  }
-  .coverage {
-    color: var(--muted);
-    font-size: 12px;
-    line-height: 1.6;
-  }
-  .disclosure {
-    margin-top: 25px;
-    font-size: 13px;
-  }
-
-  .grade-table {
-    margin-top: 16px;
-    max-height: 320px;
-    overflow: auto;
-  }
-
-  .grade-table > div {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 8px 0;
-  }
-  .grade-dots {
-    display: grid;
-    grid-template-columns: repeat(20, 1fr);
-    gap: 7px;
-    padding-top: 14px;
-  }
   .grade-dots > span {
-    width: 100%;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    opacity: 0.9;
     transition: transform 140ms ease;
   }
   .grade-dots > span:hover {
     transform: scale(1.22);
-  }
-  .grade-dot-key {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    font-size: 11px;
-    color: var(--muted);
-  }
-  .grade-dot-key span {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  .grade-dot-key i {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-  }
-  .preview-math {
-    display: block;
-    color: var(--muted);
-    font-size: 11px;
-    margin-top: 14px;
-    font-variant-numeric: tabular-nums;
-  }
-  .distribution-metrics {
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 20px;
-    margin: 28px 0 36px;
-  }
-
-  .distribution-charts {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 32px;
-  }
-  .period {
-    color: var(--muted);
-    font-size: 13px;
-    margin: 0;
   }
   @media (max-width: 760px) {
     .distribution-metrics {
@@ -350,27 +273,6 @@
     .distribution-metrics {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-  }
-  .preview-number {
-    display: block;
-    font-size: clamp(40px, 4.5vw, 68px);
-    letter-spacing: -0.06em;
-    font-weight: 450;
-    line-height: 1.05;
-  }
-  .preview-label {
-    display: block;
-    color: var(--muted);
-    font-size: 12px;
-    margin-top: 12px;
-  }
-  .preview-grades .grade-dots {
-    grid-template-columns: repeat(20, 1fr);
-    gap: 4px;
-    padding-top: 22px;
-  }
-  .preview-grades .grade-dot-key {
-    display: none;
   }
   @media (prefers-reduced-motion: reduce) {
     .grade-dots > span {

@@ -113,13 +113,22 @@
       dismiss();
   }}
 />
-<div class="campus-map">
-  <div class="map-art">
-    <svg viewBox="0 0 900 505" preserveAspectRatio="xMidYMid slice">
-      <image class="base-map" href={map} width="900" height="505" />
+<div class="absolute inset-0 pointer-events-none campus-map">
+  <div class="absolute inset-0 map-art">
+    <svg
+      class="block w-full h-full"
+      viewBox="0 0 900 505"
+      preserveAspectRatio="xMidYMid slice"
+    >
+      <image
+        class="opacity-[0.35] base-map"
+        href={map}
+        width="900"
+        height="505"
+      />
       {#each heat as building (building.id)}
         <path
-          class="building-heat"
+          class="pointer-events-auto cursor-pointer opacity-[0.75] building-heat"
           d={building.path}
           fill="var(--accent)"
           fill-opacity={building.count
@@ -172,7 +181,7 @@
   </div>
   {#if building}
     <section
-      class="building-panel"
+      class="absolute z-4 top-17 right-5 w-[min(350px,_calc(100%_-_32px))] pointer-events-auto p-5 border border-border rounded-[10px] bg-canvas shadow-[0_16px_48px_#0003] building-panel"
       class:floating
       class:building-tooltip={!pinned}
       id={!pinned ? tooltipId : undefined}
@@ -183,37 +192,47 @@
       style:top={floating ? `${panelY}px` : undefined}
       aria-label={`${building.name} details`}
     >
-      <header>
+      <header class="flex justify-between items-start gap-4">
         <div>
-          <span class="eyebrow">In session now</span>
-          <h2>{building.name}</h2>
+          <span class="text-[10px] text-muted eyebrow">In session now</span>
+          <h2 class="text-[21px] font-medium tracking-[-0.035em] mt-1">
+            {building.name}
+          </h2>
         </div>
         {#if pinned}<button
-            class="close"
+            class="grid place-items-center border-0 bg-transparent text-muted w-7 h-7 cursor-pointer close"
             aria-label="Close building details"
             onclick={dismiss}><X size={17} /></button
           >{/if}
       </header>
-      <dl>
+      <dl class="grid grid-cols-[1fr_1fr] gap-[15px] my-5.5 mx-0">
         <div>
-          <dt>Classes now</dt>
-          <dd><AnimatedNumber value={building.count} /></dd>
+          <dt class="text-muted text-[11px]">Classes now</dt>
+          <dd class="text-[25px] tracking-[-0.04em] mt-1 mb-0 mx-0">
+            <AnimatedNumber value={building.count} />
+          </dd>
         </div>
         <div>
-          <dt>Recorded enrollment</dt>
-          <dd><AnimatedNumber value={students} /></dd>
+          <dt class="text-muted text-[11px]">Recorded enrollment</dt>
+          <dd class="text-[25px] tracking-[-0.04em] mt-1 mb-0 mx-0">
+            <AnimatedNumber value={students} />
+          </dd>
         </div>
         {#if pinned}<div>
-            <dt>Rooms in use</dt>
-            <dd><AnimatedNumber value={sessions.length ? rooms : null} /></dd>
+            <dt class="text-muted text-[11px]">Rooms in use</dt>
+            <dd class="text-[25px] tracking-[-0.04em] mt-1 mb-0 mx-0">
+              <AnimatedNumber value={sessions.length ? rooms : null} />
+            </dd>
           </div>
           <div>
-            <dt>Meetings today</dt>
-            <dd><AnimatedNumber value={sessions.length || null} /></dd>
+            <dt class="text-muted text-[11px]">Meetings today</dt>
+            <dd class="text-[25px] tracking-[-0.04em] mt-1 mb-0 mx-0">
+              <AnimatedNumber value={sessions.length || null} />
+            </dd>
           </div>{/if}
       </dl>
       {#if !pinned}
-        <div class="tooltip-classes">
+        <div class="text-[12px] leading-[1.7] tooltip-classes">
           {#each active.slice(0, 3) as session}
             <p>
               {session.courses
@@ -223,20 +242,25 @@
           {/each}
           {#if active.length > 3}<p>+{active.length - 3} more classes</p>{/if}
         </div>
-        <p class="note">Scheduled enrollment, not live attendance.</p>
-        <p class="tooltip-hint">Click for class details</p>
+        <p class="text-muted text-[11px] leading-[1.5] mt-4 note">
+          Scheduled enrollment, not live attendance.
+        </p>
+        <p class="mt-2 text-[11px] text-muted tooltip-hint">
+          Click for class details
+        </p>
       {:else}
-        <div class="classes">
+        <div class="max-h-52.5 overflow-auto overscroll-contain classes">
           {#each active as session}
-            <article>
-              <div class="class-codes">
+            <article class="border-t border-t-border py-3 px-0">
+              <div class="wrap-anywhere text-[13px] class-codes">
                 {#each session.courses as course, i}{#if i}<span>
                       /
-                    </span>{/if}<a href={courseUrl(course.code)}
-                    >{course.code}</a
+                    </span>{/if}<a
+                    class="text-foreground [text-underline-offset:3px]"
+                    href={courseUrl(course.code)}>{course.code}</a
                   >{/each}
               </div>
-              <p>
+              <p class="mt-1 mb-0 text-muted text-[11px] leading-[1.5] mx-0">
                 {[
                   session.courses[0]?.section ?? "Class",
                   session.room ? `Room ${session.room}` : null,
@@ -244,24 +268,26 @@
                   .filter(Boolean)
                   .join(" · ")}
               </p>
-              <p>
+              <p class="mt-1 mb-0 text-muted text-[11px] leading-[1.5] mx-0">
                 {time(session.startsAt)}–{time(
                   session.endsAt,
                 )}{session.enrolled !== null
                   ? ` · ${session.enrolled} enrolled`
                   : ""}
               </p>
-              {#if session.instructors.length}<p class="instructors">
+              {#if session.instructors.length}<p
+                  class="mt-1 mb-0 text-muted text-[11px] leading-[1.5] text-pretty instructors mx-0"
+                >
                   {session.instructors.join(", ")}
                 </p>{/if}
             </article>
-          {:else}<p class="empty">
+          {:else}<p class="text-muted text-[11px] leading-[1.5] empty">
               {sessions.length
                 ? "No classes in session right now."
                 : "Class details are unavailable in this schedule snapshot."}
             </p>{/each}
         </div>
-        <p class="note">
+        <p class="text-muted text-[11px] leading-[1.5] mt-4 note">
           Published schedule and enrollment, not live attendance.{#if known.length < active.length}{" "}
             Enrollment is missing for {active.length - known.length} active {active.length -
               known.length ===
@@ -275,16 +301,8 @@
 </div>
 
 <style>
-  .campus-map {
-    position: absolute;
-    inset: 0;
-
-    pointer-events: none;
-  }
   /* Feather the map without fading the interactive details panel. */
   .map-art {
-    position: absolute;
-    inset: 0;
     mask-image:
       linear-gradient(
         to right,
@@ -310,22 +328,9 @@
       );
     mask-composite: intersect;
   }
-  svg {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-  .base-map {
-    opacity: 0.35;
-  }
   :global(.dark) .base-map {
     filter: invert(1);
     opacity: 0.24;
-  }
-  .building-heat {
-    pointer-events: auto;
-    cursor: pointer;
-    opacity: 0.75;
   }
 
   .building-heat:hover,
@@ -334,19 +339,6 @@
     stroke-width: 2;
     fill-opacity: 0.4;
     outline: none;
-  }
-  .building-panel {
-    position: absolute;
-    z-index: 4;
-    top: 68px;
-    right: 20px;
-    width: min(350px, calc(100% - 32px));
-    pointer-events: auto;
-    padding: 20px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    background: var(--bg);
-    box-shadow: 0 16px 48px #0003;
   }
   .building-panel.floating {
     position: fixed;
@@ -370,93 +362,8 @@
   .building-tooltip dd {
     font-size: 21px;
   }
-  .tooltip-classes {
-    font-size: 12px;
-    line-height: 1.7;
-  }
-  .tooltip-hint {
-    margin-top: 8px;
-    font-size: 11px;
-    color: var(--muted);
-  }
   .building-tooltip .note {
     margin-top: 10px;
-  }
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 16px;
-  }
-  .eyebrow {
-    font-size: 10px;
-    color: var(--muted);
-  }
-  h2 {
-    font-size: 21px;
-    font-weight: 500;
-    letter-spacing: -0.035em;
-    margin-top: 4px;
-  }
-  .close {
-    display: grid;
-    place-items: center;
-    border: 0;
-    background: transparent;
-    color: var(--muted);
-    width: 28px;
-    height: 28px;
-    cursor: pointer;
-  }
-  dl {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin: 22px 0;
-  }
-  dt {
-    color: var(--muted);
-    font-size: 11px;
-  }
-  dd {
-    font-size: 25px;
-    letter-spacing: -0.04em;
-    margin: 4px 0 0;
-  }
-  .classes {
-    max-height: 210px;
-    overflow: auto;
-    overscroll-behavior: contain;
-  }
-  article {
-    padding: 12px 0;
-    border-top: 1px solid var(--border);
-  }
-  .class-codes {
-    overflow-wrap: anywhere;
-    font-size: 13px;
-  }
-  .class-codes a {
-    color: var(--text);
-    text-underline-offset: 3px;
-  }
-  article p {
-    margin: 4px 0 0;
-    color: var(--muted);
-    font-size: 11px;
-    line-height: 1.5;
-  }
-  .instructors {
-    text-wrap: pretty;
-  }
-  .empty,
-  .note {
-    color: var(--muted);
-    font-size: 11px;
-    line-height: 1.5;
-  }
-  .note {
-    margin-top: 16px;
   }
   @media (max-width: 700px) {
     .building-panel {

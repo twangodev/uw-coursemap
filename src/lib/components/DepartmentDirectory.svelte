@@ -5,59 +5,43 @@
   let query = $state("");
   let departments = $derived(
     data.status.departments.filter((department: any) =>
-      `${department.subject} ${departmentName(department.subject)}`.toLowerCase().includes(query.trim().toLowerCase()),
+      `${department.subject} ${departmentName(department.subject)}`
+        .toLowerCase()
+        .includes(query.trim().toLowerCase()),
     ),
   );
 </script>
 
-<div class="department-heading">
-  <h1>{map ? "Prerequisite maps" : "Departments"}</h1>
+<div
+  class="flex items-center justify-between gap-6 pt-3.5 pb-8 department-heading px-0"
+>
+  <h1 class="text-[36px]">{map ? "Prerequisite maps" : "Departments"}</h1>
   <label class="sr-only" for="department-query">Find a department</label>
   <input
+    class="w-70"
     id="department-query"
     bind:value={query}
     type="search"
     placeholder="Find a department…"
   />
 </div>
-{#if map}<p class="muted">Explore how courses connect, by department.</p><a href="/explorer/all">Explore all course connections →</a>{:else}<CourseCollections />{/if}
-<div class="department-grid">
-  {#each departments as d}<a href={(map ? "/explorer/" : "/departments/") + encodeURIComponent(d.subject)}
-      ><span class="department-name">{departmentName(d.subject)}<small class="mono muted">{d.subject}</small></span><span class="mono muted">{d.count} courses</span
-      ></a
+{#if map}<p class="muted">Explore how courses connect, by department.</p>
+  <a href="/explorer/all">Explore all course connections →</a
+  >{:else}<CourseCollections />{/if}
+<div class="grid grid-cols-4 gap-x-9 department-grid">
+  {#each departments as d}<a
+      class="flex justify-between gap-3 items-center border-t border-t-border py-6 px-0"
+      href={(map ? "/explorer/" : "/departments/") +
+        encodeURIComponent(d.subject)}
+      ><span class="grid gap-2 leading-[1.4] department-name"
+        >{departmentName(d.subject)}<small class="text-[11px] mono muted"
+          >{d.subject}</small
+        ></span
+      ><span class="shrink-0 text-[11px] mono muted">{d.count} courses</span></a
     >{:else}<p class="muted">No matching departments.</p>{/each}
 </div>
 
 <style>
-  .department-name { display: grid; gap: 8px; line-height: 1.4; }
-  .department-name small { font-size: 11px; }
-  .department-grid a > .mono { flex-shrink: 0; font-size: 11px; }
-  .department-heading {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    padding: 14px 0 32px;
-  }
-  h1 {
-    font-size: 36px;
-  }
-  input {
-    width: 280px;
-  }
-  .department-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    column-gap: 36px;
-  }
-  .department-grid a {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    padding: 24px 0;
-    border-top: 1px solid var(--border);
-  }
   @media (max-width: 900px) {
     .department-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));

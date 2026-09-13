@@ -9,6 +9,7 @@
   import TermPicker from "$lib/components/TermPicker.svelte";
   import StatsCard from "$lib/components/StatsCard.svelte";
   import Disclosure from "$lib/components/Disclosure.svelte";
+  import Metric from "$lib/components/Metric.svelte";
   import AnimatedNumber from "$lib/components/AnimatedNumber.svelte";
   import SchoolAcademics from "$lib/components/SchoolAcademics.svelte";
   import SchoolBuildingMap from "$lib/components/SchoolBuildingMap.svelte";
@@ -46,27 +47,35 @@
   }
 </script>
 
-<div class="school-stats">
-  <header class="intro">
+<div class="pt-7.5 pb-2.5 school-stats px-0">
+  <header class="flex justify-between gap-7.5 items-start intro">
     <div>
       <h1>UW–Madison statistics.</h1>
     </div>
-    <TermPicker {terms} value={term} label="Statistics term" onChange={changeTerm} />
+    <TermPicker
+      {terms}
+      value={term}
+      label="Statistics term"
+      onChange={changeTerm}
+    />
   </header>
-  <div class="bento-grid">
+  <div class="grid grid-cols-12 gap-5 mt-9.5 items-start bento-grid">
     <StatsCard title="Campus activity" span={8}>
       {#snippet preview()}
         <SchoolBuildingMap buildings={current.schedule.buildings} preview />
-        {#if !current.schedule.meetings}<span class="preview-label"
+        {#if !current.schedule.meetings}<span
+            class="block text-muted text-[12px] mt-3 preview-label"
             >No building schedule for {termName(term)}</span
           >{/if}
       {/snippet}
       {#if current.schedule.meetings}
         <SchoolBuildingMap buildings={current.schedule.buildings} />
-        <details class="disclosure">
+        <details class="mt-[25px] text-[13px] disclosure">
           <summary>Where the teaching happens</summary>
-          <div class="building-list">
-            {#each current.schedule.buildings.slice(0, 10) as building}<div>
+          <div class="mt-4 max-h-80 overflow-auto building-list">
+            {#each current.schedule.buildings.slice(0, 10) as building}<div
+                class="flex justify-between gap-5 py-2 px-0"
+              >
                 <span>{building.name}</span><span
                   >{building.knownMeetings
                     ? building.enrolledVisits.toLocaleString()
@@ -76,70 +85,67 @@
               </div>{/each}
           </div>
         </details>
-      {:else}<p class="empty">
+      {:else}<p class="text-muted leading-[1.7] max-w-145 empty py-7.5 px-0">
           We don’t have a building schedule for {termName(term)} in this dataset.
         </p>{/if}
     </StatsCard>
     <StatsCard compact title="Courses" span={4}>
       {#snippet preview()}
-        <strong class="preview-number"
+        <strong
+          class="block text-[clamp(40px,_4.5vw,_68px)] tracking-[-0.06em] font-[450] leading-[1.05] preview-number"
           ><AnimatedNumber
             value={current.courses || current.recordedCourses || null}
           /></strong
         >
-        <span class="preview-label"
+        <span class="block text-muted text-[12px] mt-3 preview-label"
           >{current.courses
             ? "courses offered"
             : "courses with recorded grades"}</span
         >
-        <span class="preview-term">{termName(term)}</span>
+        <span class="block text-muted text-[12px] mt-auto preview-term"
+          >{termName(term)}</span
+        >
       {/snippet}
-      <div class="headlines">
-        <div>
-          <strong
-            ><AnimatedNumber
-              value={current.courses || current.recordedCourses || null}
-            /></strong
-          ><span
-            >{current.courses
-              ? "courses offered"
-              : "courses with recorded grades"}</span
-          >
-        </div>
-        <div>
-          <strong
-            ><AnimatedNumber
-              value={(current.courses
-                ? current.instructors
-                : current.recordedInstructors) || null}
-            /></strong
-          ><span>recorded instructors</span>
-        </div>
-        <div>
-          <strong
-            ><AnimatedNumber
-              value={current.sections || current.gradedSections || null}
-            /></strong
-          ><span
-            >{current.sections
-              ? "recorded class sections"
-              : "sections with recorded grades"}</span
-          >
-        </div>
+      <div
+        class="flex gap-[clamp(30px,_8vw,_120px)] pt-8.5 pb-2.5 headlines px-0"
+      >
+        <Metric
+          variant="headline"
+          value={current.courses || current.recordedCourses || null}
+          label={current.courses
+            ? "courses offered"
+            : "courses with recorded grades"}
+        />
+        <Metric
+          variant="headline"
+          value={(current.courses
+            ? current.instructors
+            : current.recordedInstructors) || null}
+          label="recorded instructors"
+        />
+        <Metric
+          variant="headline"
+          value={current.sections || current.gradedSections || null}
+          label={current.sections
+            ? "recorded class sections"
+            : "sections with recorded grades"}
+        />
       </div>
 
-      <a class="browse-link" href="/search"
-        >Browse courses <ArrowUpRight size={14} /></a
+      <a
+        class="inline-flex items-center gap-2.5 mt-6 text-[14px] browse-link"
+        href="/search">Browse courses <ArrowUpRight size={14} /></a
       >
     </StatsCard>
     <StatsCard title="Busiest hour" span={4}>
       {#snippet preview()}
         {#if peak}
-          <strong class="preview-number time"
+          <strong
+            class="block text-[clamp(28px,_3vw,_44px)] tracking-[-0.06em] font-[450] leading-[1.05] preview-number time"
             >{weekdays[peak.day]}, {timeLabel(peak.hour)}.</strong
           >
           <div
-            class="week-preview"
+            class="grid grid-cols-[repeat(var(--hours),_1fr)] gap-[3px] mt-6 week-preview"
             style={`--hours:${hours.length}`}
             aria-hidden="true"
           >
@@ -147,36 +153,49 @@
                   current.schedule.cells.find(
                     (c) => c.day === d && c.hour === hour,
                   )?.meetings ?? 0}<span
+                  class="bg-accent [aspect-ratio:1.4] rounded-[2px]"
                   style:opacity={count
                     ? 0.12 + Math.sqrt(count / peak.meetings) * 0.88
                     : 0.04}
                 ></span>{/each}{/each}
           </div>
-        {:else}<span class="preview-number">—</span><span class="preview-label"
+        {:else}<span
+            class="block text-[clamp(40px,_4.5vw,_68px)] tracking-[-0.06em] font-[450] leading-[1.05] preview-number"
+            >—</span
+          ><span class="block text-muted text-[12px] mt-3 preview-label"
             >No schedule recorded</span
           >{/if}
       {/snippet}
-      {#if current.schedule.meetings}<div class="clock-detail">
+      {#if current.schedule.meetings}<div class="max-w-190 clock-detail">
           <div class="heat-panel">
-            <p class="observation">
-              <strong>{weekdays[peak.day]}, {timeLabel(peak.hour)}.</strong>
-              <span class="observation-label">Campus at its busiest.</span>
+            <p
+              class="text-[42px] leading-[1.1] tracking-[-0.02em] max-w-107.5 mt-0 mb-6.5 observation mx-0"
+            >
+              <strong class="font-medium text-foreground"
+                >{weekdays[peak.day]}, {timeLabel(peak.hour)}.</strong
+              >
+              <span
+                class="block text-[13px] text-muted mt-2.5 tracking-[0] observation-label"
+                >Campus at its busiest.</span
+              >
             </p>
             <div
-              class="heatmap"
+              class="grid grid-cols-[30px_repeat(var(--hours),_minmax(0,_1fr))] gap-1 items-center heatmap"
               style={`--hours:${hours.length}`}
               role="group"
               aria-label="Scheduled meetings by weekday and hour"
             >
-              <span></span>{#each hours as hour}<span class="hour"
+              <span></span>{#each hours as hour}<span
+                  class="text-[9px] text-muted h-5.5 whitespace-nowrap hour"
                   >{hour % 3 === 1 ? timeLabel(hour) : ""}</span
                 >{/each}
-              {#each weekdays as day, d}<span class="day">{day}</span
+              {#each weekdays as day, d}<span class="text-[11px] text-muted day"
+                  >{day}</span
                 >{#each hours as hour}{@const count =
                     current.schedule.cells.find(
                       (c) => c.day === d && c.hour === hour,
                     )?.meetings ?? 0}<button
-                    class="cell"
+                    class="p-0 w-full min-w-0 aspect-square border-0 rounded-[3px] cursor-pointer bg-[color-mix(_in_srgb,_var(--accent)_calc(var(--intensity)_*_100%),_var(--surface)_)] cell"
                     style={`--intensity:${count ? 0.12 + Math.sqrt(count / peak.meetings) * 0.8 : 0.03}`}
                     aria-label={`${day} ${timeLabel(hour)}: ${count.toLocaleString()} scheduled meetings`}
                     onpointerenter={() => (activeCell = { day: d, hour })}
@@ -184,14 +203,19 @@
                     onclick={() => (activeCell = { day: d, hour })}
                   ></button>{/each}{/each}
             </div>
-            <p class="heat-detail" aria-live="polite">
+            <p
+              class="text-[12px] text-muted min-h-9 mt-4.5 heat-detail"
+              aria-live="polite"
+            >
               {#if activeCell}{weekdays[activeCell.day]} at {timeLabel(
                   activeCell.hour,
                 )} · {(cellDetail?.meetings ?? 0).toLocaleString()} meetings across
                 the recorded term{:else}Hover to explore.{/if}
             </p>
           </div>
-        </div>{:else}<p class="empty">
+        </div>{:else}<p
+          class="text-muted leading-[1.7] max-w-145 empty py-7.5 px-0"
+        >
           No meeting schedule recorded for {termName(term)}.
         </p>{/if}
     </StatsCard>
@@ -203,21 +227,23 @@
         />{/key}{/if}
   </div>
 
-  <details class="methodology">
+  <details
+    class="mt-[65px] mb-[35px] pt-[25px] border-t border-t-border text-[13px] leading-[1.7] methodology mx-0"
+  >
     <summary>About these numbers</summary>
-    <p>
+    <p class="max-w-195 text-muted">
       Derived from the published dataset, scanned {data.status.observed_at.slice(
         0,
         10,
       )}. Coverage varies by term. Missing records are not treated as zero.
     </p>
-    <p>
+    <p class="max-w-195 text-muted">
       Meetings count once per occupied hour, including partial hours. The map
       counts recorded enrollment for each scheduled meeting: the same enrollment
       is counted again when a class meets again. These are enrollment visits,
       not unique students or actual attendance.
     </p>
-    <p>
+    <p class="max-w-195 text-muted">
       Course identities and section IDs are deduplicated across listings.
       Lecture totals exclude labs and discussions; building enrollment excludes
       meetings with unknown enrollment. Grades use the import’s reconciled
@@ -225,88 +251,14 @@
       section totals again. Trends reflect the courses and grades recorded each
       term, not changes in the same students.
     </p>
-    <p>
+    <p class="max-w-195 text-muted">
       All observations are calculated from the data, not generated by an LLM.
     </p>
   </details>
 </div>
 
 <style>
-  .school-stats {
-    padding: 30px 0 10px;
-  }
-  .intro {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    align-items: flex-start;
-  }
-  .headlines {
-    display: flex;
-    gap: clamp(30px, 8vw, 120px);
-    padding: 34px 0 10px;
-  }
-  .headlines > div {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-  }
-  .headlines strong {
-    font-size: clamp(28px, 4vw, 48px);
-    font-weight: 500;
-    letter-spacing: -0.04em;
-  }
-  .headlines span {
-    font-size: 13px;
-    color: var(--muted);
-  }
-  .observation {
-    font-size: 42px;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    max-width: 430px;
-    margin: 0 0 26px;
-  }
-  .observation strong {
-    font-weight: 500;
-    color: var(--text);
-  }
-  .observation-label {
-    display: block;
-    font-size: 13px;
-    color: var(--muted);
-    margin-top: 10px;
-    letter-spacing: 0;
-  }
-  .heatmap {
-    display: grid;
-    grid-template-columns: 30px repeat(var(--hours), minmax(0, 1fr));
-    gap: 4px;
-    align-items: center;
-  }
-  .hour {
-    font-size: 9px;
-    color: var(--muted);
-    height: 22px;
-    white-space: nowrap;
-  }
-  .day {
-    font-size: 11px;
-    color: var(--muted);
-  }
   .cell {
-    padding: 0;
-    width: 100%;
-    min-width: 0;
-    aspect-ratio: 1;
-    border: 0;
-    border-radius: 3px;
-    cursor: pointer;
-    background: color-mix(
-      in srgb,
-      var(--accent) calc(var(--intensity) * 100%),
-      var(--surface)
-    );
     transition: transform 150ms;
   }
   .cell:hover,
@@ -314,92 +266,6 @@
     outline: 2px solid var(--text);
     outline-offset: 1px;
     transform: scale(1.1);
-  }
-  .heat-detail {
-    font-size: 12px;
-    color: var(--muted);
-    min-height: 36px;
-    margin-top: 18px;
-  }
-  .disclosure {
-    margin-top: 25px;
-    font-size: 13px;
-  }
-.building-list{
-    margin-top: 16px;
-    max-height: 320px;
-    overflow: auto;
-  }
-.building-list > div{
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 8px 0;
-  }
-  .methodology {
-    margin: 65px 0 35px;
-    padding-top: 25px;
-    border-top: 1px solid var(--border);
-    font-size: 13px;
-    line-height: 1.7;
-  }
-  .methodology p {
-    max-width: 780px;
-    color: var(--muted);
-  }
-  .empty {
-    padding: 30px 0;
-    color: var(--muted);
-    line-height: 1.7;
-    max-width: 580px;
-  }
-  .bento-grid {
-    display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    gap: 20px;
-    margin-top: 38px;
-    align-items: start;
-  }
-  .preview-number {
-    display: block;
-    font-size: clamp(40px, 4.5vw, 68px);
-    letter-spacing: -0.06em;
-    font-weight: 450;
-    line-height: 1.05;
-  }
-  .preview-number.time {
-    font-size: clamp(28px, 3vw, 44px);
-  }
-  .preview-label,
-  .preview-term {
-    display: block;
-    color: var(--muted);
-    font-size: 12px;
-    margin-top: 12px;
-  }
-  .preview-term {
-    margin-top: auto;
-  }
-  .week-preview {
-    display: grid;
-    grid-template-columns: repeat(var(--hours), 1fr);
-    gap: 3px;
-    margin-top: 24px;
-  }
-  .week-preview span {
-    background: var(--accent);
-    aspect-ratio: 1.4;
-    border-radius: 2px;
-  }
-  .clock-detail {
-    max-width: 760px;
-  }
-  .browse-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 24px;
-    font-size: 14px;
   }
   @media (max-width: 760px) {
     .intro {
@@ -410,14 +276,13 @@
       gap: 25px;
       justify-content: space-between;
     }
-    .headlines span {
-      font-size: 11px;
-    }
     .school-stats {
       padding-top: 15px;
-    }}
+    }
+  }
   @media (prefers-reduced-motion: reduce) {
     .cell {
       transition: none;
-    }}
+    }
+  }
 </style>

@@ -16,20 +16,32 @@
 </script>
 
 {#if rows.length}
-  <section class="history-charts" aria-label="Historical grade outcomes">
-    <div class="history-row">
-      <div class="history-copy">
-        <h3>Grade mix over time</h3>
-        <p class="muted">
+  <section
+    class="grid grid-cols-[minmax(0,_1fr)] gap-16 mb-7 history-charts"
+    aria-label="Historical grade outcomes"
+  >
+    <div
+      class="grid grid-cols-[minmax(180px,_0.8fr)_minmax(0,_2fr)] gap-12 items-start history-row"
+    >
+      <div class="max-w-[30ch] history-copy">
+        <h3 class="text-[18px] font-medium mt-0 mb-2 mx-0">
+          Grade mix over time
+        </h3>
+        <p class="text-[13px] leading-[1.6] mb-6 muted">
           Share of all recorded outcomes, including non-letter grades.
         </p>
-        <div class="mix-legend">
-          {#each series as item}<span
-              ><i style:background={item.color}></i>{item.label}</span
+        <div
+          class="flex gap-3 flex-wrap mb-4 text-[11px] text-muted mix-legend"
+        >
+          {#each series as item}<span class="inline-flex items-center gap-[5px]"
+              ><i
+                class="w-[7px] h-[7px] rounded-[2px]"
+                style:background={item.color}
+              ></i>{item.label}</span
             >{/each}
         </div>
       </div>
-      <div class="history-plot">
+      <div class="min-w-0 history-plot">
         {#if rows.length > 1}<AreaChart
             data={rows}
             x="label"
@@ -46,17 +58,23 @@
                 item: { format: (value: number) => value.toFixed(1) + "%" },
               },
             }}
-          />{:else}<p class="muted">
+          />{:else}<p class="text-[13px] leading-[1.6] mb-6 muted">
             One term recorded; more terms are needed to show a trend.
           </p>{/if}
       </div>
     </div>
-    <div class="history-row">
-      <div class="history-copy">
-        <h3>Recorded grades by term</h3>
-        <p class="muted">Recorded outcomes across all sections.</p>
+    <div
+      class="grid grid-cols-[minmax(180px,_0.8fr)_minmax(0,_2fr)] gap-12 items-start history-row"
+    >
+      <div class="max-w-[30ch] history-copy">
+        <h3 class="text-[18px] font-medium mt-0 mb-2 mx-0">
+          Recorded grades by term
+        </h3>
+        <p class="text-[13px] leading-[1.6] mb-6 muted">
+          Recorded outcomes across all sections.
+        </p>
       </div>
-      <div class="history-plot">
+      <div class="min-w-0 history-plot">
         <BarChart
           data={rows}
           x="label"
@@ -77,7 +95,7 @@
       </div>
     </div>
   </section>
-  <details class="outcomes-table">
+  <details class="mt-6 outcomes-table">
     <summary>Grade counts & non-letter outcomes</summary>
     <div class="table-scroll">
       <table>
@@ -94,7 +112,7 @@
         >
       </table>
     </div>
-    <p class="muted">
+    <p class="text-[12px] leading-[1.7] muted">
       Other outcomes include {otherGrades
         .map((key) => key.replaceAll("_", " "))
         .join(", ")}. These records do not establish a course completion rate.
@@ -103,59 +121,6 @@
 {/if}
 
 <style>
-  .mix-legend {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
-    font-size: 11px;
-    color: var(--muted);
-  }
-  .mix-legend span {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-  }
-  .mix-legend i {
-    width: 7px;
-    height: 7px;
-    border-radius: 2px;
-  }
-  .history-charts {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 64px;
-    margin-bottom: 28px;
-  }
-  .history-row {
-    display: grid;
-    grid-template-columns: minmax(180px, 0.8fr) minmax(0, 2fr);
-    gap: 48px;
-    align-items: start;
-  }
-  .history-copy {
-    max-width: 30ch;
-  }
-  .history-plot {
-    min-width: 0;
-  }
-  h3 {
-    font-size: 18px;
-    font-weight: 500;
-    margin: 0 0 8px;
-  }
-  .history-charts p {
-    font-size: 13px;
-    line-height: 1.6;
-    margin-bottom: 24px;
-  }
-  .outcomes-table {
-    margin-top: 24px;
-  }
-  .outcomes-table p {
-    font-size: 12px;
-    line-height: 1.7;
-  }
   @media (max-width: 720px) {
     .history-row {
       grid-template-columns: 1fr;

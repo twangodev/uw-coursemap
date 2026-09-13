@@ -1,39 +1,59 @@
 <script lang="ts">
   import { gradeColors as colors } from "$lib/chart-theme";
-  import {
-    courseUrl,
-    credits,
-    courseTitle,
-    termName,
-  } from "$lib/format";
+  import { courseUrl, credits, courseTitle, termName } from "$lib/format";
   import type { CourseCard } from "$lib/types";
   import Badges from "./Badges.svelte";
   import Claims from "./Claims.svelte";
   import AnimatedNumber from "./AnimatedNumber.svelte";
-  let { courses, rankStart }: { courses: CourseCard[]; rankStart?: number } = $props();
+  let { courses, rankStart }: { courses: CourseCard[]; rankStart?: number } =
+    $props();
 </script>
 
-<div class="course-results">
+<div class="grid gap-6 course-results">
   {#each courses as c, index}
     {#if c.discovery}{@const d = c.discovery}
-      <article class="discovery-card">
-        <div class="card-heading">
-          <a href={courseUrl(c.course_id)}
-            ><span class="code">{#if rankStart}<span class="muted">#{rankStart + index} · </span>{/if}{c.course_id}</span>
-            <h3>{courseTitle(c.title)}</h3></a
-          ><span class="credits">{credits(c.credits_min, c.credits_max)}</span>
+      <article
+        class="border-b border-b-border min-w-0 discovery-card py-6.5 px-0"
+      >
+        <div class="flex justify-between items-start gap-6 card-heading">
+          <a
+            class="min-w-0 wrap-anywhere text-foreground no-underline"
+            href={courseUrl(c.course_id)}
+            ><span class="text-accent text-[12px] code"
+              >{#if rankStart}<span class="muted"
+                  >#{rankStart + index} ·
+                </span>{/if}{c.course_id}</span
+            >
+            <h3
+              class="text-[23px] font-medium mt-[7px] mb-0 leading-[1.25] mx-0"
+            >
+              {courseTitle(c.title)}
+            </h3></a
+          ><span class="text-[12px] text-muted whitespace-nowrap credits"
+            >{credits(c.credits_min, c.credits_max)}</span
+          >
         </div>
         <Badges badges={c.badges || []} />
-        {#if c.description}<p class="course-description">{c.description}</p>{/if}
-        <p class="offering">
+        {#if c.description}<p
+            class="overflow-hidden max-w-[75ch] mt-3.5 mb-0 text-muted text-[14px] font-normal leading-[1.65] course-description mx-0"
+          >
+            {c.description}
+          </p>{/if}
+        <p class="text-[12px] text-muted mt-2.5 offering">
           {d.offered
             ? `Offering recorded · ${termName(d.term)}`
             : `No offering record · ${termName(d.term)}`}
         </p>
-        {#if d.claim}<div class="takeaway">
-            <Claims claims={[d.claim]} reviewFiles={d.reviewFiles} coursePath={courseUrl(c.course_id)} />
+        {#if d.claim}<div class="max-w-[70ch] text-[14px] takeaway my-5 mx-0">
+            <Claims
+              claims={[d.claim]}
+              reviewFiles={d.reviewFiles}
+              coursePath={courseUrl(c.course_id)}
+            />
           </div>{/if}
-        {#if d.instructorHistory?.count}<p class="instructor-comparison">
+        {#if d.instructorHistory?.count}<p
+            class="text-[12px] text-muted mt-5 instructor-comparison"
+          >
             <strong
               ><AnimatedNumber
                 value={d.instructorHistory.gpa}
@@ -45,17 +65,19 @@
               decimals={2}
             /> course overall, matching historical terms
           </p>{/if}
-        <div class="card-bottom">
-          <div class="teachers">
+        <div class="flex justify-between items-end gap-6 mt-5.5 card-bottom">
+          <div class="flex flex-wrap gap-y-2 gap-x-4 text-[13px] teachers">
             {#each d.instructors.slice(0, 2) as i}<a href={i.instructor_url}
                 >{courseTitle(i.name || "Unknown instructor")}</a
               >{/each}{#if d.instructors.length > 2}<span class="muted"
                 >+{d.instructors.length - 2} more</span
               >{/if}
           </div>
-          {#if d.history.count}<div class="history">
+          {#if d.history.count}<div
+              class="shrink-0 text-[12px] min-w-52.5 history"
+            >
               <div
-                class="grade-strip"
+                class="flex gap-0.5 h-[5px] rounded-[3px] overflow-hidden opacity-[0.75] grade-strip"
                 role="img"
                 aria-label={d.history.counts
                   .map(
@@ -69,13 +91,13 @@
                     style:background={colors[i]}
                   ></span>{/each}
               </div>
-              <p>
+              <p class="mt-2 mb-1 mx-0">
                 <strong
                   ><AnimatedNumber value={d.history.gpa} decimals={2} /></strong
                 >
                 historical GPA · <AnimatedNumber value={d.history.count} /> grades
               </p>
-              <small
+              <small class="text-muted text-[11px]"
                 >{termName(d.history.firstTerm)}–{termName(
                   d.history.lastTerm,
                 )}{d.history.count < 100 ? " · limited sample" : ""}</small
@@ -84,9 +106,13 @@
         </div>
       </article>
     {:else}<a class="course-row" href={courseUrl(c.course_id)}
-        ><span class="code">{c.course_id}</span><span
+        ><span class="text-accent text-[12px] code">{c.course_id}</span><span
           class="course-title"
-          title={c.title}>{courseTitle(c.title)}{#if c.description}<span class="course-description">{c.description}</span>{/if}</span
+          title={c.title}
+          >{courseTitle(c.title)}{#if c.description}<span
+              class="overflow-hidden max-w-[75ch] mt-3.5 mb-0 text-muted text-[14px] font-normal leading-[1.65] course-description mx-0"
+              >{c.description}</span
+            >{/if}</span
         ><span class="muted mono"
           >{credits(c.credits_min, c.credits_max)}{c.gpa != null
             ? ` · ${c.gpa.toFixed(2)} GPA`
@@ -99,91 +125,11 @@
 </div>
 
 <style>
-  .course-results {
-    display: grid;
-    gap: 24px;
-  }
-  .discovery-card {
-    padding: 26px 0;
-    border-bottom: 1px solid var(--border);
-    min-width: 0;
-  }
-  .card-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    gap: 24px;
-  }
-  .card-heading a {
-    min-width: 0;
-    overflow-wrap: anywhere;
-    color: var(--text);
-    text-decoration: none;
-  }
-  .code {
-    color: var(--accent);
-    font-size: 12px;
-  }
-  h3 {
-    font-size: 23px;
-    font-weight: 500;
-    margin: 7px 0 0;
-    line-height: 1.25;
-  }
-  .course-description { display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; max-width: 75ch; margin: 14px 0 0; color: var(--muted); font-size: 14px; font-weight: 400; line-height: 1.65; }
-  .credits,
-  .offering {
-    font-size: 12px;
-    color: var(--muted);
-  }
-  .credits {
-    white-space: nowrap;
-  }
-  .offering {
-    margin-top: 10px;
-  }
-  .takeaway {
-    margin: 20px 0;
-    max-width: 70ch;
-    font-size: 14px;
-  }
-  .instructor-comparison {
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 20px;
-  }
-  .card-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    gap: 24px;
-    margin-top: 22px;
-  }
-  .teachers {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 16px;
-    font-size: 13px;
-  }
-  .history {
-    flex-shrink: 0;
-    font-size: 12px;
-    min-width: 210px;
-  }
-  .history p {
-    margin: 8px 0 4px;
-  }
-  .history small {
-    color: var(--muted);
-    font-size: 11px;
-  }
-  .grade-strip {
-    display: flex;
-    gap: 2px;
-    height: 5px;
-    border-radius: 3px;
-    overflow: hidden;
-    opacity: 0.75;
+  .course-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
   }
   @media (max-width: 600px) {
     .card-bottom {

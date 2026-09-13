@@ -12,16 +12,23 @@
   );
 </script>
 
-<div class="collection-heading">
+<div class="pt-5 pb-6 max-w-190 collection-heading px-0">
   <a
     class="muted"
     href={data.results.filters.subject
       ? `/departments/${encodeURIComponent(data.results.filters.subject)}`
-      : "/search"}>← {data.results.filters.subject ? departmentLabel(data.results.filters.subject) : "Explore courses"}</a
+      : "/search"}
+    >← {data.results.filters.subject
+      ? departmentLabel(data.results.filters.subject)
+      : "Explore courses"}</a
   >
-  <h1>{collection.title}{data.subject ? ` in ${departmentName(data.subject)}` : ""}</h1>
-  <p>{collection.description}</p>
-  <p class="muted method">
+  <h1 class="mt-5 mb-4 mx-0">
+    {collection.title}{data.subject
+      ? ` in ${departmentName(data.subject)}`
+      : ""}
+  </h1>
+  <p class="leading-[1.7]">{collection.description}</p>
+  <p class="leading-[1.7] text-[13px] mt-4 muted method">
     {collection.method} At least 100 letter grades over the five years through the
     selected term. Grades reflect past outcomes, not workload or a guaranteed result.
   </p>
@@ -40,20 +47,3 @@
     : `/courses/${data.collection}`}
   ranked
 />
-
-<style>
-  .collection-heading {
-    padding: 20px 0 24px;
-    max-width: 760px;
-  }
-  h1 {
-    margin: 20px 0 16px;
-  }
-  p {
-    line-height: 1.7;
-  }
-  .method {
-    font-size: 13px;
-    margin-top: 16px;
-  }
-</style>

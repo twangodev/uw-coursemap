@@ -38,8 +38,8 @@
   }
 </script>
 
-<section class="grade-flow" aria-label="Grade flows">
-  <div class="toolbar">
+<section class="mt-0 min-w-0 grade-flow" aria-label="Grade flows">
+  <div class="flex items-center flex-wrap gap-3 mb-6.5 toolbar">
     <Select
       value={subject}
       options={[
@@ -52,10 +52,11 @@
       label="Grade flow department"
       onChange={select}
     />
-    {#if subject}<button class="reset" onclick={() => select("")}
-        >← All departments</button
+    {#if subject}<button
+        class="border-0 bg-transparent text-muted cursor-pointer reset py-1 px-0"
+        onclick={() => select("")}>← All departments</button
       >{/if}
-    <span
+    <span class="ml-auto text-[12px] text-muted"
       >{academics.term
         ? termName(academics.term)
         : "No recorded term"}{academics.term !== selectedTerm
@@ -66,13 +67,16 @@
   {#if graph.links.length}
     <!-- svelte-ignore a11y_no_noninteractive_tabindex (Keyboard users must be able to scroll this chart.) -->
     <div
-      class="flow-scroll"
+      class="overflow-x-auto flow-scroll"
       tabindex="0"
       role="region"
       aria-label="Department grade flows. Scroll horizontally on narrow screens."
     >
-      <div class="flow-chart">
-        <div class="columns" aria-hidden="true">
+      <div class="min-w-167.5 flow-chart">
+        <div
+          class="flex justify-between pt-2 pb-3 text-muted text-[11px] columns px-2.5"
+          aria-hidden="true"
+        >
           <span>Department</span>{#if subject}<span>Course</span>{/if}<span
             >Grade band</span
           >
@@ -207,13 +211,16 @@
         </Chart>
       </div>
     </div>
-    <div class="pagination">
+    <div
+      class="flex items-center justify-between gap-4 mt-4 text-muted text-[12px] pagination"
+    >
       <span
         >{subject ? "Courses" : "Departments"}
         {visible.start + 1}–{visible.end} of {visible.count}</span
       >
-      <div>
+      <div class="flex gap-1.5">
         <button
+          class="border border-border bg-surface text-foreground rounded-control w-8 h-7 cursor-pointer"
           aria-label="Previous grade flows"
           disabled={visible.current === 0}
           onclick={() => {
@@ -222,6 +229,7 @@
           }}>←</button
         >
         <button
+          class="border border-border bg-surface text-foreground rounded-control w-8 h-7 cursor-pointer"
           aria-label="Next grade flows"
           disabled={visible.current + 1 >= visible.pages}
           onclick={() => {
@@ -231,11 +239,14 @@
         >
       </div>
     </div>
-    <p class="flow-detail" aria-live="polite">
+    <p
+      class="text-[13px] mt-4.5 mb-2 min-h-[1.6em] leading-[1.6] flow-detail mx-0"
+      aria-live="polite"
+    >
       {detail ||
         `${number(visible.total)} attributed letter grades in this view · ${number(graph.total)} across ${subject ? departmentName(subject) : "UW–Madison"}`}
     </p>
-    <p class="note">
+    <p class="text-muted text-[12px] leading-[1.7] max-w-212.5 note">
       Width represents recorded letter grades, not unique students. Cross-listed
       courses split their weight evenly across departments. Every {subject
         ? "course"
@@ -245,47 +256,15 @@
       a department to see its courses.
     </p>
   {:else}
-    <p class="note">No recorded letter grades for this selection.</p>
+    <p class="text-muted text-[12px] leading-[1.7] max-w-212.5 note">
+      No recorded letter grades for this selection.
+    </p>
   {/if}
 </section>
 
 <style>
-  .grade-flow {
-    margin-top: 0;
-    min-width: 0;
-  }
-  .toolbar {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 26px;
-  }
-  .toolbar > span {
-    margin-left: auto;
-    font-size: 12px;
-    color: var(--muted);
-  }
   .reset {
-    border: 0;
-    background: none;
-    color: var(--muted);
     font: 12px var(--font-sans);
-    padding: 4px 0;
-    cursor: pointer;
-  }
-  .flow-scroll {
-    overflow-x: auto;
-  }
-  .flow-chart {
-    min-width: 670px;
-  }
-  .columns {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 10px 12px;
-    color: var(--muted);
-    font-size: 11px;
   }
   .columns span:nth-child(2) {
     transform: translateX(-15px);
@@ -310,43 +289,9 @@
   .flow-link {
     transition: opacity 160ms ease;
   }
-  .pagination {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    margin-top: 16px;
-    color: var(--muted);
-    font-size: 12px;
-  }
-  .pagination > div {
-    display: flex;
-    gap: 6px;
-  }
-  .pagination button {
-    border: 1px solid var(--border);
-    background: var(--surface);
-    color: var(--text);
-    border-radius: 5px;
-    width: 32px;
-    height: 28px;
-    cursor: pointer;
-  }
   .pagination button:disabled {
     opacity: 0.3;
     cursor: default;
-  }
-  .flow-detail {
-    font-size: 13px;
-    margin: 18px 0 8px;
-    min-height: 1.6em;
-    line-height: 1.6;
-  }
-  .note {
-    color: var(--muted);
-    font-size: 12px;
-    line-height: 1.7;
-    max-width: 850px;
   }
   @media (max-width: 760px) {
     .grade-flow {

@@ -32,7 +32,11 @@
   };
 </script>
 
-<span class="value" role="img" aria-label={label}>
+<span
+  class="inline-flex items-baseline tabular-nums value"
+  role="img"
+  aria-label={label}
+>
   <NumberFlow
     aria-hidden="true"
     value={parts ? hour : Number(fact.value)}
@@ -42,30 +46,22 @@
     {transformTiming}
     respectMotionPreference={true}
   />
-  {#if parts}<span class="colon" aria-hidden="true">:</span><NumberFlow
+  {#if parts}<span class="mx-[0.02em] colon" aria-hidden="true">:</span
+    ><NumberFlow
       aria-hidden="true"
       value={minute}
       locales="en-US"
       format={{ minimumIntegerDigits: 2, useGrouping: false }}
       {transformTiming}
       respectMotionPreference={true}
-    /><span class="period" aria-hidden="true">{period}</span>{/if}
+    /><span
+      class="text-[0.25em] tracking-[0.015em] ml-[0.45em] text-muted period"
+      aria-hidden="true">{period}</span
+    >{/if}
 </span>
 
 <style>
   .value {
-    display: inline-flex;
-    align-items: baseline;
-    font-variant-numeric: tabular-nums;
     --number-flow-mask-height: 0.08em;
-  }
-  .colon {
-    margin-inline: 0.02em;
-  }
-  .period {
-    font-size: 0.25em;
-    letter-spacing: 0.015em;
-    margin-left: 0.45em;
-    color: var(--muted);
   }
 </style>

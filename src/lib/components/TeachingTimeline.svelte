@@ -7,7 +7,7 @@
   );
 </script>
 
-{#if data.length > 1}<div class="chart">
+{#if data.length > 1}<div class="h-57.5 chart my-4 mx-0">
     <BarChart
       {data}
       props={{ xAxis: { tickOcclusion: true, tickSpacing: 90 } }}
@@ -18,10 +18,3 @@
     />
   </div>
   <p class="mono muted">Distinct courses recorded per term</p>{/if}
-
-<style>
-  .chart {
-    height: 230px;
-    margin: 1rem 0;
-  }
-</style>

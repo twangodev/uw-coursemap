@@ -40,9 +40,12 @@
   let selected = $state("");
 </script>
 
-<div class="tree-toolbar">
+<div
+  class="flex justify-between gap-4 text-[13px] mt-0 mb-4.5 min-h-[25px] items-center tree-toolbar mx-0"
+>
   <span>{subject ? departmentName(subject) : "All subjects"}</span
   >{#if subject}<button
+      class="bg-transparent border-0 text-accent cursor-pointer p-0"
       onclick={() => {
         subject = "";
         selected = "";
@@ -50,7 +53,7 @@
     >{/if}
 </div>
 <div
-  class="treemap"
+  class="w-full min-w-0 treemap"
   aria-label="Subjects sized by recorded letter-grade volume"
 >
   <Chart
@@ -131,32 +134,17 @@
     {/snippet}
   </Chart>
 </div>
-<p class="tree-detail" aria-live="polite">
+<p
+  class="text-[12px] text-muted min-h-[3em] leading-[1.5] mt-4 mb-0 tree-detail mx-0"
+  aria-live="polite"
+>
   {selected ||
     "Select a subject to zoom into its courses. Larger tiles mean more recorded letter grades."}
 </p>
 
 <style>
-  .tree-toolbar {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    font-size: 13px;
-    margin: 0 0 18px;
-    min-height: 25px;
-    align-items: center;
-  }
   .tree-toolbar button {
-    background: none;
-    border: 0;
-    color: var(--accent);
-    cursor: pointer;
-    padding: 0;
     font: inherit;
-  }
-  .treemap {
-    width: 100%;
-    min-width: 0;
   }
   .treemap :global(text) {
     font: 12px var(--font-sans);
@@ -181,13 +169,6 @@
   .treemap :global(a:hover rect) {
     stroke: var(--text);
     stroke-width: 2;
-  }
-  .tree-detail {
-    font-size: 12px;
-    color: var(--muted);
-    min-height: 3em;
-    line-height: 1.5;
-    margin: 16px 0 0;
   }
   @media (prefers-reduced-motion: reduce) {
     .treemap :global(rect) {

@@ -25,19 +25,22 @@
   );
 </script>
 
-<div class="dot-controls">
-  <label
+<div class="flex justify-between gap-5 items-end mb-[15px] dot-controls">
+  <label class="flex flex-col gap-2 text-[12px]"
     >Find a course<input
+      class="text-foreground bg-surface border border-border rounded-control max-w-full w-65 py-2 px-2.5"
       type="search"
       bind:value={search}
       placeholder="CS, calculus, music…"
       aria-label="Find a course in the dot plot"
     /></label
-  ><span>{filtered.length.toLocaleString()} courses · 30+ letter grades</span>
+  ><span class="text-[12px] text-muted"
+    >{filtered.length.toLocaleString()} courses · 30+ letter grades</span
+  >
 </div>
 {#if filtered.length}
   <div
-    class="dot-chart"
+    class="min-w-0 dot-chart"
     aria-label="Course GPA versus recorded letter-grade count"
   >
     <Chart
@@ -107,55 +110,30 @@
       {/snippet}
     </Chart>
   </div>
-  <div class="dot-detail" aria-live="polite">
+  <div
+    class="flex flex-col gap-2 min-h-[65px] text-[14px] mt-4 dot-detail"
+    aria-live="polite"
+  >
     {#if focus}<a href={courseUrl(focus.code)}
-        ><strong>{focus.code}</strong> {courseTitle(focus.title)} ↗</a
-      ><span
+        ><strong class="font-[550] mr-2">{focus.code}</strong>
+        {courseTitle(focus.title)} ↗</a
+      ><span class="text-[12px] text-muted"
         >{focus.gpa?.toFixed(2)} GPA · {focus.count.toLocaleString()} recorded letter
         grades</span
       >{/if}
   </div>
-{:else}<p class="empty">
+{:else}<p class="text-[12px] text-muted empty">
     No matching courses with at least 30 letter grades.
   </p>{/if}
-<p class="note">
+<p class="text-[12px] text-muted leading-[1.6] mt-2 note">
   Each dot is one course. The vertical scale is compressed so smaller courses
   remain visible. Select a dot, then follow its course link. Arrow keys move
   between focused dots.
 </p>
 
 <style>
-  .dot-controls {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    align-items: end;
-    margin-bottom: 15px;
-  }
-  .dot-controls label {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    font-size: 12px;
-  }
   .dot-controls input {
     font: 14px var(--font-sans);
-    color: var(--text);
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 5px;
-    padding: 8px 10px;
-    max-width: 100%;
-    width: 260px;
-  }
-  .dot-controls > span,
-  .note,
-  .empty {
-    font-size: 12px;
-    color: var(--muted);
-  }
-  .dot-chart {
-    min-width: 0;
   }
   .dot-chart :global(circle) {
     cursor: pointer;
@@ -164,26 +142,6 @@
     outline: none;
     stroke: var(--text);
     stroke-width: 2;
-  }
-  .dot-detail {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    min-height: 65px;
-    font-size: 14px;
-    margin-top: 16px;
-  }
-  .dot-detail strong {
-    font-weight: 550;
-    margin-right: 8px;
-  }
-  .dot-detail > span {
-    font-size: 12px;
-    color: var(--muted);
-  }
-  .note {
-    line-height: 1.6;
-    margin-top: 8px;
   }
   @media (max-width: 640px) {
     .dot-controls {

@@ -99,52 +99,52 @@
 </script>
 
 <div
-  class="course-navigation"
+  class="sticky top-0 z-20 bg-canvas border-b border-b-border course-navigation"
   bind:offsetHeight={navigationHeight}
   bind:this={container}
 >
-  {#if stickyTitle}<div class="sticky-course-title" aria-hidden="true">
-      <span class="sticky-course-code" title={code}>{code}</span><span
-        class="sticky-course-name"
+  {#if stickyTitle}<div
+      class="flex items-baseline gap-3 min-w-0 pt-2.5 pb-1 sticky-course-title px-2"
+      aria-hidden="true"
+    >
+      <span
+        class="shrink-0 max-w-[45%] overflow-hidden text-ellipsis whitespace-nowrap text-muted text-[12px] sticky-course-code"
+        title={code}>{code}</span
+      ><span
+        class="min-w-0 overflow-hidden text-ellipsis whitespace-nowrap text-[15px] font-medium sticky-course-name"
         {title}>{title}</span
       >
     </div>{/if}
-  <div class="navigation-row">
+  <div class="flex items-center gap-5 navigation-row py-1.5 px-0">
     <nav
       bind:this={sectionNav}
-      class="course-jumps"
+      class="flex gap-[5px] overflow-x-auto static min-w-0 border-0 m-0 p-0 course-jumps"
       class:has-indicator={indicator.width > 0}
       aria-label="Course sections"
     >
-      <div class="section-links">
+      <div class="relative flex w-[max-content] gap-[5px] section-links">
         {#each links as link}<a
+            class="flex items-center whitespace-nowrap text-muted h-7.5 box-border gap-[5px] py-0 px-2"
             href={"#" + link.id}
             aria-current={active === link.id ? "location" : undefined}
             ><link.icon size={14} strokeWidth={1.5} />{link.label}</a
           >{/each}
         <span
-          class="section-indicator"
+          class="absolute left-0 bottom-0 h-0.5 bg-accent rounded-[2px] pointer-events-none section-indicator"
           aria-hidden="true"
           style:width={`${indicator.width}px`}
           style:transform={`translateX(${indicator.left}px)`}
         ></span>
       </div>
     </nav>
-    <div class="navigation-filters">{@render children()}</div>
+    <div class="flex gap-2.5 shrink-0 navigation-filters">
+      {@render children()}
+    </div>
   </div>
 </div>
 
 <style>
-  .course-jumps {
-    display: flex;
-    gap: 5px;
-    overflow-x: auto;
-  }
   .course-jumps a {
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-    color: var(--muted);
     font: 14px var(--font-sans);
   }
   .course-jumps a:hover {
@@ -154,75 +154,18 @@
   .course-jumps a[aria-current="location"] {
     color: var(--accent);
   }
-  .course-navigation {
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-  }
-  .navigation-row {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 6px 0;
-  }
-  .sticky-course-title {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    min-width: 0;
-    padding: 10px 8px 4px;
-  }
-  .sticky-course-code {
-    flex-shrink: 0;
-    max-width: 45%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    color: var(--muted);
-    font-size: 12px;
-  }
-  .sticky-course-name {
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: 15px;
-    font-weight: 500;
-  }
 
   .course-navigation .course-jumps {
-    position: static;
     flex: 1;
-    min-width: 0;
-    border: 0;
-    margin: 0;
-    padding: 0;
   }
   .course-navigation .course-jumps a {
-    height: 30px;
-    box-sizing: border-box;
     font-size: 12px;
-    padding: 0 8px;
-    gap: 5px;
   }
 
   .section-links {
-    position: relative;
-    display: flex;
     flex: 0 0 auto;
-    width: max-content;
-    gap: 5px;
   }
   .section-indicator {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 2px;
-    background: var(--accent);
-    border-radius: 2px;
-    pointer-events: none;
     transition:
       transform var(--motion-travel) var(--motion-ease),
       width var(--motion-travel) var(--motion-ease);
@@ -234,11 +177,6 @@
     .section-indicator {
       transition: none;
     }
-  }
-  .navigation-filters {
-    display: flex;
-    gap: 10px;
-    flex-shrink: 0;
   }
 
   @media (max-width: 1000px) {

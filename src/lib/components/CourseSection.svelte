@@ -19,43 +19,23 @@
   } = $props();
 </script>
 
-<section {id} class={`panel ${className}`} class:facts={layout === "facts"}>
-  <div class="panel-heading">
-    <h2>{title}</h2>
-    {#if tools}{@render tools()}{:else if label}<span class="mono muted"
-        >{label}</span
+<section
+  {id}
+  class={`min-w-0 [scroll-margin-top:calc(var(--course-navigation-height,_43px)_+_32px)] panel ${className}`}
+  class:facts={layout === "facts"}
+>
+  <div
+    class="flex justify-between items-baseline gap-3 sticky top-[var(--course-navigation-height,_43px)] z-10 bg-canvas panel-heading py-5 px-0"
+  >
+    <h2 class="text-[28px] font-medium tracking-[-0.01em]">{title}</h2>
+    {#if tools}{@render tools()}{:else if label}<span
+        class="text-[12px] mono muted">{label}</span
       >{/if}
   </div>
-  <div class="panel-body">{@render children()}</div>
+  <div class="min-w-0 panel-body">{@render children()}</div>
 </section>
 
 <style>
-  .panel {
-    min-width: 0;
-    scroll-margin-top: calc(var(--course-navigation-height, 43px) + 32px);
-  }
-  .panel-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 12px;
-    position: sticky;
-    top: var(--course-navigation-height, 43px);
-    z-index: 10;
-    padding: 20px 0;
-    background: var(--bg);
-  }
-  h2 {
-    font-size: 28px;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-  }
-  .panel-heading .mono {
-    font-size: 12px;
-  }
-  .panel-body {
-    min-width: 0;
-  }
   .panel-body > :global(:last-child) {
     margin-bottom: 0;
   }

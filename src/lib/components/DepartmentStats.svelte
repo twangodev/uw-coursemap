@@ -13,7 +13,11 @@
     stats,
     term = "",
     detail = false,
-  }: { stats: DepartmentStatistics; term?: string; detail?: boolean } = $props();
+  }: {
+    stats: DepartmentStatistics;
+    term?: string;
+    detail?: boolean;
+  } = $props();
   let current = $derived(term ? stats.terms[term] : stats.all);
   let bars = $derived(
     ["A", "AB", "B", "BC", "C", "D", "F"].map((grade, i) => ({
@@ -49,20 +53,20 @@
 </script>
 
 <section
-  class="department-stats"
+  class="border-t border-t-border department-stats py-7 px-0"
   aria-label={term
     ? "Selected-term department statistics"
     : "Department overview"}
 >
-  <div class="heading">
-    <h2>
+  <div class="flex justify-between items-baseline gap-5 mb-7 heading">
+    <h2 class="text-[26px] font-medium m-0">
       {detail
         ? "Across course levels"
         : term
           ? termName(term)
           : "The department at a glance"}
     </h2>
-    <span class="muted"
+    <span class="text-[12px] muted"
       >{term ? "Recorded this term" : "All recorded grades"}</span
     >
   </div>
@@ -92,16 +96,19 @@
           height={260}
         />
       </div>
-      <p class="note">
+      <p class="text-[12px] text-muted leading-[1.7] max-w-[85ch] note">
         Course-number ranges · at least 30 letter grades per range. Levels
         describe course numbers, not how difficult a class is.
       </p>{:else}<p class="muted">No released grades for this term.</p>{/if}
   {:else}
-    <div class="numbers">
+    <div class="flex flex-wrap gap-y-7 gap-x-12 mb-7 numbers">
       {#if !term || current?.count}
         {#each [{ label: "average GPA", value: current?.gpa, reference: current?.university.gpa, kind: "gpa", decimals: 2 }, { label: "A / AB grades", value: current?.topShare, reference: current?.university.topShare, kind: "share", decimals: 0 }, { label: "letter grades", value: current?.count || null, reference: null, kind: "count", decimals: 0 }] as m}<div
+            class="grid gap-[9px]"
           >
-            <strong style:color={metricColor(m.value ?? null, m.reference)}
+            <strong
+              class="text-[38px] font-medium tracking-[-0.04em]"
+              style:color={metricColor(m.value ?? null, m.reference)}
               ><MetricComparison
                 value={m.value ?? null}
                 reference={m.reference}
@@ -116,22 +123,25 @@
                   suffix={m.kind === "share" ? "%" : ""}
                 /></MetricComparison
               ></strong
-            ><span>{m.label}</span>
+            ><span class="text-[12px] text-muted">{m.label}</span>
           </div>{/each}
       {/if}
-      {#if term}<div>
-          <strong><AnimatedNumber value={current?.courses ?? null} /></strong
-          ><span>courses with offerings</span>
+      {#if term}<div class="grid gap-[9px]">
+          <strong class="text-[38px] font-medium tracking-[-0.04em]"
+            ><AnimatedNumber value={current?.courses ?? null} /></strong
+          ><span class="text-[12px] text-muted">courses with offerings</span>
         </div>
-        <div>
-          <strong
+        <div class="grid gap-[9px]">
+          <strong class="text-[38px] font-medium tracking-[-0.04em]"
             ><AnimatedNumber value={current?.instructors ?? null} /></strong
-          ><span>instructors recorded</span>
+          ><span class="text-[12px] text-muted">instructors recorded</span>
         </div>{/if}
     </div>
-    {#if !term}<div class="charts">
-        <div>
-          <h3>How grades break down</h3>
+    {#if !term}<div class="grid grid-cols-[1fr_1fr] gap-10 charts">
+        <div class="min-w-0">
+          <h3 class="text-[13px] font-normal text-muted mb-5">
+            How grades break down
+          </h3>
           <BarChart
             data={bars}
             seriesLayout="group"
@@ -155,8 +165,10 @@
             }}
           />
         </div>
-        <div>
-          <h3>Grades over time</h3>
+        <div class="min-w-0">
+          <h3 class="text-[13px] font-normal text-muted mb-5">
+            Grades over time
+          </h3>
           <LineChart
             data={trends}
             x="term"
@@ -181,7 +193,9 @@
           />
         </div>
       </div>
-    {:else if !current?.count}<p class="note">
+    {:else if !current?.count}<p
+        class="text-[12px] text-muted leading-[1.7] max-w-[85ch] note"
+      >
         Grades have not been recorded for this term. Historical results remain
         in the overview above.
       </p>{/if}
@@ -199,14 +213,18 @@
             },
           ]}
           height={180}
-        />{:else}<p class="note">
+        />{:else}<p
+          class="text-[12px] text-muted leading-[1.7] max-w-[85ch] note"
+        >
           Offering snapshots currently cover {offerings[0].term}. Earlier grade
           records do not provide a complete offering history.
         </p>{/if}
     </div>{/if}
-  {#if !term}<p class="note">Red: department · Gray: UW–Madison</p>
+  {#if !term}<p class="text-[12px] text-muted leading-[1.7] max-w-[85ch] note">
+      Red: department · Gray: UW–Madison
+    </p>
     <Disclosure title="About these statistics" variant="compact" lazy={false}>
-      <p class="note">
+      <p class="text-[12px] text-muted leading-[1.7] max-w-[85ch] note">
         GPA and percentages are weighted by recorded letter grades. UW
         comparisons use the same terms. Cross-listed courses count once within
         this department and once across UW; department totals should not be
@@ -217,64 +235,6 @@
 </section>
 
 <style>
-  .department-stats {
-    padding: 28px 0;
-    border-top: 1px solid var(--border);
-  }
-  .heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 20px;
-    margin-bottom: 28px;
-  }
-  .heading h2 {
-    font-size: 26px;
-    font-weight: 500;
-    margin: 0;
-  }
-  .heading span {
-    font-size: 12px;
-  }
-  .numbers {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 28px 48px;
-    margin-bottom: 28px;
-  }
-  .numbers > div {
-    display: grid;
-    gap: 9px;
-  }
-  .numbers strong {
-    font-size: 38px;
-    font-weight: 500;
-    letter-spacing: -0.04em;
-  }
-  .numbers span {
-    font-size: 12px;
-    color: var(--muted);
-  }
-  .charts {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-  }
-  .charts > div {
-    min-width: 0;
-  }
-  .charts h3 {
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--muted);
-    margin-bottom: 20px;
-  }
-  .note {
-    font-size: 12px;
-    color: var(--muted);
-    line-height: 1.7;
-    max-width: 85ch;
-  }
   @media (max-width: 760px) {
     .charts {
       grid-template-columns: 1fr;

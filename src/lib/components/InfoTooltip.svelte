@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { floatingSurface } from "./floating-surface";
   import { Tooltip } from "bits-ui";
   import { Info } from "@lucide/svelte";
   import type { Snippet } from "svelte";
@@ -30,7 +31,7 @@
     </Tooltip.Trigger>
     <Tooltip.Portal>
       <Tooltip.Content
-        class={`floating-surface ${contentClass}`}
+        class={`${floatingSurface} px-4 py-3.5 ${contentClass}`}
         role="tooltip"
         sideOffset={8}
         collisionPadding={12}

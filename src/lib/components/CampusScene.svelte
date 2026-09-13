@@ -131,7 +131,7 @@
 </script>
 
 <section
-  class="campus-scene"
+  class="pointer-events-none z-1 relative min-h-75 flex flex-col isolate p-0 campus-scene"
   aria-label="Campus activity"
   onpointerenter={() => (interacting = true)}
   onpointerleave={() => (interacting = false)}
@@ -141,137 +141,75 @@
       focused = false;
   }}
 >
-  <div class="scene-header">
-    <div class="live-context">
-      {#if students}<span class="live-students" title={students.detail}
-          ><i></i>≈ <AnimatedNumber value={Number(students.value)} /> students scheduled
-          now</span
+  <div
+    class="min-h-4 w-full pointer-events-auto flex justify-end gap-3 text-[11px] text-muted scene-header"
+  >
+    <div
+      class="flex items-center justify-end flex-wrap gap-y-2 gap-x-4.5 live-context"
+    >
+      {#if students}<span
+          class="inline-flex items-center gap-1 text-[11px] live-students"
+          title={students.detail}
+          ><i class="w-[5px] h-[5px] bg-accent rounded-[50%] mr-[3px]"></i>≈ <AnimatedNumber
+            value={Number(students.value)}
+          /> students scheduled now</span
         >{/if}
     </div>
   </div>
-  <div class="fact-stage" aria-live="off">
+  <div class="relative min-h-67.5 fact-stage" aria-live="off">
     {#if showStats && fact}
       <div
-        class="fact"
+        class="absolute inset-0 flex flex-col items-start text-left justify-center fact"
         in:fly={{
           y: reducedMotion ? 0 : 4,
           duration: reducedMotion ? 0 : 420,
           delay: reducedMotion ? 0 : 120,
         }}
       >
-        <span class="qualifier">{fact.prefix ?? "\u00a0"}</span>
-        <div class="fact-value">
+        <span
+          class="min-h-4 w-fit pointer-events-auto text-[12px] text-muted mb-2 qualifier"
+          >{fact.prefix ?? "\u00a0"}</span
+        >
+        <div
+          class="min-h-4 w-fit pointer-events-auto text-[clamp(60px,_7vw,_96px)] tracking-[-0.055em] font-medium leading-[1.08] text-foreground whitespace-nowrap fact-value"
+        >
           <CampusFactValue {fact} />
         </div>
-        <p>
+        <p
+          class="text-[20px] tracking-[-0.025em] leading-[1.35] max-w-115 mt-[15px] mb-3 text-balance min-h-4 w-fit pointer-events-auto mx-0"
+        >
           {fact.label}
 
-          <InfoTooltip label="About this campus fact" bind:open={infoOpen} contentClass="campus-fact-tooltip">{fact.detail}</InfoTooltip>
+          <InfoTooltip
+            label="About this campus fact"
+            bind:open={infoOpen}
+            contentClass="campus-fact-tooltip">{fact.detail}</InfoTooltip
+          >
         </p>
       </div>
     {:else}
-      <div class="fact intro" out:fade={{ duration: reducedMotion ? 0 : 240 }}>
-        <h2 class="welcome"><span>UW–Madison</span> courses</h2>
-        <p>Find your next class.</p>
+      <div
+        class="absolute inset-0 flex flex-col items-start text-left justify-center fact intro"
+        out:fade={{ duration: reducedMotion ? 0 : 240 }}
+      >
+        <h2
+          class="text-[clamp(48px,_5.5vw,_72px)] font-medium tracking-[-0.055em] leading-[1.06] m-0 welcome"
+        >
+          <span class="block">UW–Madison</span> courses
+        </h2>
+        <p
+          class="text-[20px] tracking-[-0.025em] leading-[1.35] max-w-115 mt-[15px] mb-3 text-balance min-h-4 w-fit pointer-events-auto text-muted mx-0"
+        >
+          Find your next class.
+        </p>
       </div>
     {/if}
   </div>
 </section>
 
 <style>
-  .campus-scene {
-    pointer-events: none;
-    z-index: 1;
-    position: relative;
-    min-height: 300px;
-    display: flex;
-    flex-direction: column;
-    isolation: isolate;
-    padding: 0;
-  }
-  .fact-value,
-  .qualifier,
-  .fact p,
-  .scene-header {
-    min-height: 16px;
-    width: fit-content;
-    pointer-events: auto;
-  }
-  .scene-header {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    gap: 12px;
-    font-size: 11px;
-    color: var(--muted);
-  }
-  .live-context {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-    gap: 8px 18px;
-  }
-  .live-students {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 11px;
-  }
-  .live-students i {
-    width: 5px;
-    height: 5px;
-    background: var(--accent);
-    border-radius: 50%;
-    margin-right: 3px;
-  }
   .fact-stage {
-    position: relative;
     flex: 1;
-    min-height: 270px;
-  }
-  .fact {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    justify-content: center;
-  }
-  .qualifier {
-    font-size: 12px;
-    color: var(--muted);
-    margin-bottom: 8px;
-  }
-  .fact-value {
-    font-size: clamp(60px, 7vw, 96px);
-    letter-spacing: -0.055em;
-    font-weight: 500;
-    line-height: 1.08;
-    color: var(--text);
-    white-space: nowrap;
-  }
-  .welcome {
-    font-size: clamp(48px, 5.5vw, 72px);
-    font-weight: 500;
-    letter-spacing: -0.055em;
-    line-height: 1.06;
-    margin: 0;
-  }
-  .welcome span {
-    display: block;
-  }
-  .intro p {
-    color: var(--muted);
-  }
-  p {
-    font-size: 20px;
-    letter-spacing: -0.025em;
-    line-height: 1.35;
-    max-width: 460px;
-    margin: 15px 0 12px;
-    text-wrap: balance;
   }
   @media (max-width: 700px) {
     .fact-value,

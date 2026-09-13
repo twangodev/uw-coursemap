@@ -20,53 +20,29 @@
 </script>
 
 <details
-  class={`disclosure ${className}`}
+  class={`border-t border-t-border p-0 disclosure ${className}`}
   class:compact={variant === "compact"}
   bind:open
 >
   <summary
-    ><span
-      >{title}{#if description}<small>{description}</small>{/if}</span
+    class="list-none flex justify-between gap-6 items-center text-foreground cursor-pointer text-[17px] font-[450] py-6 px-0"
+    ><span class="flex flex-wrap items-baseline gap-y-2 gap-x-6"
+      >{title}{#if description}<small class="text-[12px] font-normal text-muted"
+          >{description}</small
+        >{/if}</span
     >{#if open}<Minus size={17} strokeWidth={1.4} />{:else}<Plus
         size={17}
         strokeWidth={1.4}
       />{/if}</summary
   >
-  {#if open || !lazy}<div class="disclosure-body">
+  {#if open || !lazy}<div class="pt-2 pb-9 disclosure-body px-0">
       {@render children()}
     </div>{/if}
 </details>
 
 <style>
-  .disclosure {
-    border-top: 1px solid var(--border);
-    padding: 0;
-  }
-  summary {
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    gap: 24px;
-    align-items: center;
-    padding: 24px 0;
-    color: var(--text);
-    cursor: pointer;
-    font-size: 17px;
-    font-weight: 450;
-  }
   summary::-webkit-details-marker {
     display: none;
-  }
-  summary > span {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 8px 24px;
-  }
-  summary small {
-    font-size: 12px;
-    font-weight: 400;
-    color: var(--muted);
   }
   summary :global(svg) {
     color: var(--muted);
@@ -76,7 +52,6 @@
     color: var(--accent);
   }
   .disclosure-body {
-    padding: 8px 0 36px;
     animation: reveal 180ms ease-out;
   }
   .compact summary {

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import PopoverSurface from "./PopoverSurface.svelte";
   import Select from "./Select.svelte";
   import { onMount } from "svelte";
   import { Popover } from "bits-ui";
@@ -35,8 +36,15 @@
   let anchor = $state<HTMLElement | null>(null);
   const hourHeight = 72;
   const mobile = new MediaQuery("(max-width: 600px)");
-  function openMeeting(meeting: Meeting, target: HTMLElement) { anchor = target; selected = meeting; }
-  $effect(() => { week; section; selected = null; });
+  function openMeeting(meeting: Meeting, target: HTMLElement) {
+    anchor = target;
+    selected = meeting;
+  }
+  $effect(() => {
+    week;
+    section;
+    selected = null;
+  });
   const controller = new AbortController();
   let filtered = $derived(
     meetings.filter((m) => !section || sectionName(m.name) === section),
@@ -162,7 +170,10 @@
 
 <div bind:this={host} class="course-calendar">
   {#if failure}<p role="alert">{failure}</p>
-    {#if !loaded}<button onclick={load}>Retry schedule</button>{/if}{/if}
+    {#if !loaded}<button
+        class="inline-flex items-center gap-1.5 p-[5px] border-0 bg-transparent"
+        onclick={load}>Retry schedule</button
+      >{/if}{/if}
   {#if !loaded}<p class="empty">
       {loading ? "Loading schedule…" : "Schedule loads here as you scroll."}
     </p>
@@ -176,67 +187,101 @@
       No scheduled meetings recorded.
     </p>
   {:else}
-    <div class="calendar-tools">
-      <div class="row">
+    <div class="flex justify-between gap-3 flex-wrap mb-4.5 calendar-tools">
+      <div class="gap-1.5 row">
         <button
+          class="inline-flex items-center gap-1.5 p-[5px] border-0 bg-transparent"
           aria-label="Previous week"
           onclick={() => (week = addDays(week, -7))}
           ><ChevronLeft size={15} /></button
-        ><span class="mono week-label"
+        ><span class="text-[11px] min-w-40 text-center mono week-label"
           >{dayLabel(week)} – {dayLabel(addDays(week, 6))}, {week.slice(
             0,
             4,
           )}</span
         ><button
+          class="inline-flex items-center gap-1.5 p-[5px] border-0 bg-transparent"
           aria-label="Next week"
           onclick={() => (week = addDays(week, 7))}
           ><ChevronRight size={15} /></button
         >
       </div>
-      <div class="row">
-        <Select label="Calendar section" bind:value={section} options={[{ value: "", label: "All sections" }, ...[...new Set(meetings.map(m => sectionName(m.name)))].sort().map(name => ({ value: name, label: name }))]} />
-        <button class="export" onclick={download}
-          ><Download size={13} /> Export</button
+      <div class="gap-1.5 row">
+        <Select
+          label="Calendar section"
+          bind:value={section}
+          options={[
+            { value: "", label: "All sections" },
+            ...[...new Set(meetings.map((m) => sectionName(m.name)))]
+              .sort()
+              .map((name) => ({ value: name, label: name })),
+          ]}
+        />
+        <button
+          class="inline-flex items-center gap-1.5 border-0 bg-transparent export py-1.5 px-2"
+          onclick={download}><Download size={13} /> Export</button
         >
       </div>
     </div>
     <div
-      class="week-grid"
+      class="grid grid-cols-[40px_repeat(var(--days),_minmax(0,_1fr))] border border-border rounded-[4px] overflow-hidden week-grid"
       style={`--days:${shownDays.length};--hours:${hours.length};--hour-height:${hourHeight}px`}
     >
-      <div class="day-header time-zone">CT</div>
-      {#each shownDays as day, i}<div class="day-header">
-          <span>{["mon", "tue", "wed", "thu", "fri", "sat", "sun"][i]}</span
-          ><strong>{Number(day.slice(-2))}</strong>
-        </div>{/each}
-      <div class="hour-axis">
-        {#each hours as hour}<span>{timeLabel(hour * 60)}</span>{/each}
+      <div
+        class="text-center border-b border-b-border text-muted grid gap-1 day-header time-zone py-2.5 px-0"
+      >
+        CT
       </div>
-      {#each shownDays as day}<div class="day-column">
+      {#each shownDays as day, i}<div
+          class="text-center border-b border-b-border text-muted grid gap-1 day-header py-2.5 px-0"
+        >
+          <span>{["mon", "tue", "wed", "thu", "fri", "sat", "sun"][i]}</span
+          ><strong class="text-[15px] text-foreground font-[450]"
+            >{Number(day.slice(-2))}</strong
+          >
+        </div>{/each}
+      <div class="grid text-muted hour-axis">
+        {#each hours as hour}<span class="p-[3px]">{timeLabel(hour * 60)}</span
+          >{/each}
+      </div>
+      {#each shownDays as day}<div
+          class="relative h-[calc(var(--hours)_*_var(--hour-height))] border-l border-l-border day-column"
+        >
           {#each placeMeetings(filtered, day) as event}<button
-              class="meeting"
+              class="flex items-start gap-0 border-0 bg-accent-soft absolute flex-col overflow-hidden rounded-[3px] text-left text-foreground meeting py-1 px-1.5"
               style={`top:${((event.start - startHour * 60) / 60) * hourHeight}px;height:${Math.max(28, ((event.end - event.start) / 60) * hourHeight)}px;left:calc(${(event.lane / event.lanes) * 100}% + 2px);width:calc(${100 / event.lanes}% - 4px)`}
-              onclick={(eventClick) => openMeeting(event.meeting, eventClick.currentTarget)}
+              onclick={(eventClick) =>
+                openMeeting(event.meeting, eventClick.currentTarget)}
               aria-haspopup="dialog"
               title={`${sectionName(event.meeting.name)} · ${timeLabel(event.start)}–${timeLabel(event.end)} · ${event.meeting.building || ""} ${event.meeting.room || ""}`}
-              ><strong>{sectionName(event.meeting.name)}</strong>
-              {#if event.end - event.start >= 30}<span>{timeLabel(event.start)}–{timeLabel(event.end)}</span>{/if}
-              {#if event.end - event.start >= 45}<span class="meeting-location">{event.meeting.room} {event.meeting.building}</span>{/if}
-              </button
-            >{/each}
+              ><strong
+                class="font-[550] w-full min-h-3.5 leading-[14px] shrink-0 whitespace-nowrap overflow-hidden text-ellipsis"
+                >{sectionName(event.meeting.name)}</strong
+              >
+              {#if event.end - event.start >= 30}<span
+                  class="w-full min-h-3.5 leading-[14px] shrink-0 whitespace-nowrap overflow-hidden text-ellipsis text-[11px]"
+                  >{timeLabel(event.start)}–{timeLabel(event.end)}</span
+                >{/if}
+              {#if event.end - event.start >= 45}<span
+                  class="w-full min-h-3.5 leading-[14px] shrink-0 whitespace-nowrap overflow-hidden text-ellipsis text-[11px] meeting-location"
+                  >{event.meeting.room} {event.meeting.building}</span
+                >{/if}
+            </button>{/each}
         </div>{/each}
     </div>
-    <div class="agenda">
+    <div class="hidden agenda">
       {#each shownDays as day}{@const entries = placeMeetings(
           filtered,
           day,
-        )}{#if entries.length}<h3>{dayLabel(day)}</h3>
+        )}{#if entries.length}<h3 class="mt-4 mb-1.5 mx-0">{dayLabel(day)}</h3>
           {#each entries as event}<button
-              onclick={(eventClick) => openMeeting(event.meeting, eventClick.currentTarget)}
+              class="grid items-center gap-1.5 border-0 bg-transparent grid-cols-[65px_1fr] text-left border-t border-t-border w-full text-[12px] py-2.5 px-0"
+              onclick={(eventClick) =>
+                openMeeting(event.meeting, eventClick.currentTarget)}
               aria-haspopup="dialog"
               ><span class="mono">{timeLabel(event.start)}</span><strong
                 >{sectionName(event.meeting.name)}</strong
-              ><span class="muted"
+              ><span class="[grid-column:2] muted"
                 >{event.meeting.building} {event.meeting.room}</span
               ></button
             >{/each}{/if}{/each}
@@ -244,89 +289,109 @@
     {#if !visible.length}<p class="empty">
         No meetings recorded this week.
       </p>{/if}
-    <Popover.Root open={!!selected} onOpenChange={(open) => { if (!open) selected = null; }}>
-      <Popover.Portal>
-        <Popover.Content class="floating-surface meeting-popover" customAnchor={anchor} side={mobile.current ? "bottom" : "right"} align={mobile.current ? "center" : "start"} sideOffset={10} collisionPadding={12} role="dialog" aria-label="Meeting details" onCloseAutoFocus={(event) => { event.preventDefault(); anchor?.focus(); }}>
-          {#if selected}
-            <div class="meeting-popover-heading"><span>{selected.course_id} · {sectionName(selected.name)}</span><Popover.Close class="meeting-close" aria-label="Close meeting details"><X size={16} /></Popover.Close></div>
-            <h3 class="meeting-title">{sectionName(selected.name)}</h3>
-            <div class="meeting-detail-row"><Clock size={17} /><div><strong>{dayLabel(localTime(selected.starts_at).date)}</strong><p>{timeLabel(localTime(selected.starts_at).minute)}–{timeLabel(localTime(selected.ends_at).minute)} · Central time</p></div></div>
-            <div class="meeting-detail-row"><MapPin size={17} /><div><strong>{selected.building || "Location unavailable"}</strong>{#if selected.room}<p>Room {selected.room}</p>{/if}
-              {#if selected.building}<a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selected.building + " University of Wisconsin Madison")}`} target="_blank" rel="noreferrer">Open in Google Maps <ArrowUpRight size={13} /></a>{/if}
-            </div></div>
-            <div class="meeting-detail-row"><Users size={17} /><div>{selected.instructor_names?.join(", ") || "Instructor not recorded"}</div></div>
-          {/if}
-        </Popover.Content>
-      </Popover.Portal>
+    <Popover.Root
+      open={!!selected}
+      onOpenChange={(open) => {
+        if (!open) selected = null;
+      }}
+    >
+      <PopoverSurface
+        width={360}
+        padding="roomy"
+        class="max-h-[min(520px,_var(--bits-popover-content-available-height))] overflow-auto meeting-popover"
+        customAnchor={anchor}
+        side={mobile.current ? "bottom" : "right"}
+        align={mobile.current ? "center" : "start"}
+        sideOffset={10}
+        collisionPadding={12}
+        role="dialog"
+        aria-label="Meeting details"
+        onCloseAutoFocus={(event) => {
+          event.preventDefault();
+          anchor?.focus();
+        }}
+      >
+        {#if selected}
+          <div
+            class="flex items-center justify-between gap-4 text-[12px] text-muted meeting-popover-heading"
+          >
+            <span>{selected.course_id} · {sectionName(selected.name)}</span
+            ><Popover.Close
+              class="grid place-items-center p-1 border-0 bg-transparent text-muted meeting-close"
+              aria-label="Close meeting details"><X size={16} /></Popover.Close
+            >
+          </div>
+          <h3
+            class="text-[20px] font-medium leading-[1.35] mt-3 mb-6 wrap-anywhere meeting-title mx-0"
+          >
+            {sectionName(selected.name)}
+          </h3>
+          <div
+            class="flex items-start gap-3 mt-5 text-[14px] leading-[1.5] meeting-detail-row"
+          >
+            <Clock size={17} />
+            <div class="min-w-0 wrap-anywhere">
+              <strong class="font-medium"
+                >{dayLabel(localTime(selected.starts_at).date)}</strong
+              >
+              <p class="mt-[3px] mb-0 text-muted text-[13px] mx-0">
+                {timeLabel(localTime(selected.starts_at).minute)}–{timeLabel(
+                  localTime(selected.ends_at).minute,
+                )} · Central time
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex items-start gap-3 mt-5 text-[14px] leading-[1.5] meeting-detail-row"
+          >
+            <MapPin size={17} />
+            <div class="min-w-0 wrap-anywhere">
+              <strong class="font-medium"
+                >{selected.building || "Location unavailable"}</strong
+              >{#if selected.room}<p
+                  class="mt-[3px] mb-0 text-muted text-[13px] mx-0"
+                >
+                  Room {selected.room}
+                </p>{/if}
+              {#if selected.building}<a
+                  class="inline-flex items-center gap-1 mt-2 text-[13px]"
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selected.building + " University of Wisconsin Madison")}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  >Open in Google Maps <ArrowUpRight size={13} /></a
+                >{/if}
+            </div>
+          </div>
+          <div
+            class="flex items-start gap-3 mt-5 text-[14px] leading-[1.5] meeting-detail-row"
+          >
+            <Users size={17} />
+            <div class="min-w-0 wrap-anywhere">
+              {selected.instructor_names?.join(", ") ||
+                "Instructor not recorded"}
+            </div>
+          </div>
+        {/if}
+      </PopoverSurface>
     </Popover.Root>
   {/if}
 </div>
 
 <style>
-  .calendar-tools {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 18px;
-  }
-  .calendar-tools .row {
-    gap: 6px;
-  }
-  button {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 5px;
-    border: 0;
-    background: transparent;
-  }
   .export {
     font: 11px var(--font-sans);
-    padding: 6px 8px;
-  }
-  .week-label {
-    font-size: 11px;
-    min-width: 160px;
-    text-align: center;
-  }
-  .week-grid {
-    display: grid;
-    grid-template-columns: 40px repeat(var(--days), minmax(0, 1fr));
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    overflow: hidden;
   }
   .day-header {
-    text-align: center;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border);
     font: 10px var(--font-sans);
-    color: var(--muted);
-    display: grid;
-    gap: 4px;
-  }
-  .day-header strong {
-    font-size: 15px;
-    color: var(--text);
-    font-weight: 450;
   }
   .time-zone {
     place-content: center;
   }
   .hour-axis {
-    display: grid;
     grid-template-rows: repeat(var(--hours), var(--hour-height));
     font: 9px var(--font-sans);
-    color: var(--muted);
-  }
-  .hour-axis span {
-    padding: 3px;
   }
   .day-column {
-    position: relative;
-    height: calc(var(--hours) * var(--hour-height));
-    border-left: 1px solid var(--border);
     background: repeating-linear-gradient(
       to bottom,
       transparent 0,
@@ -336,58 +401,19 @@
     );
   }
   .meeting {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 0;
-    overflow: hidden;
     border-left: 2px solid var(--accent);
-    border-radius: 3px;
-    background: var(--accent-soft);
-    padding: 4px 6px;
-    text-align: left;
     font: 11px/1.4 var(--font-sans);
-    color: var(--text);
-  }
-  .meeting strong {
-    font-weight: 550;
-  }
-  .meeting strong, .meeting span { width: 100%; min-height: 14px; line-height: 14px; flex-shrink: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .meeting span {
-    font-size: 11px;
   }
   .meeting:hover {
     background: color-mix(in srgb, var(--accent) 20%, var(--bg));
   }
-  :global(.meeting-popover) {width: min(360px, calc(100vw - 24px)); max-height: min(520px, var(--bits-popover-content-available-height)); overflow: auto; padding: 22px; }
-  .meeting-popover-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 12px; color: var(--muted); }
-  :global(.meeting-close) { display: grid; place-items: center; padding: 4px; border: 0; background: transparent; color: var(--muted); }
-  .meeting-title { font-size: 20px; font-weight: 500; line-height: 1.35; margin: 12px 0 24px; overflow-wrap: anywhere; }
-  .meeting-detail-row { display: flex; align-items: start; gap: 12px; margin-top: 20px; font-size: 14px; line-height: 1.5; }
-  .meeting-detail-row :global(svg) { flex-shrink: 0; margin-top: 2px; color: var(--muted); }
-  .meeting-detail-row > div { min-width: 0; overflow-wrap: anywhere; }
-  .meeting-detail-row strong { font-weight: 500; }
-  .meeting-detail-row p { margin: 3px 0 0; color: var(--muted); font-size: 13px; }
-  .meeting-detail-row a { display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; font-size: 13px; }
-  .agenda {
-    display: none;
+  .meeting-detail-row :global(svg) {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--muted);
   }
   .agenda h3 {
     font: 11px var(--font-sans);
-    margin: 16px 0 6px;
-  }
-  .agenda button {
-    display: grid;
-    grid-template-columns: 65px 1fr;
-    text-align: left;
-    border-top: 1px solid var(--border);
-    width: 100%;
-    padding: 10px 0;
-    font-size: 12px;
-  }
-  .agenda button > .muted {
-    grid-column: 2;
   }
   @media (max-width: 600px) {
     .week-grid {

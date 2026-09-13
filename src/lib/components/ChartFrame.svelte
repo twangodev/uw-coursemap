@@ -17,36 +17,17 @@
   } = $props();
 </script>
 
-<section class="chart-frame" aria-label={title}>
-  <div class="chart-heading">
-    <h3>{title}</h3>
-    {#if period}<p>{period}</p>{/if}
+<section class="min-w-0 chart-frame" aria-label={title}>
+  <div class="mb-4 chart-heading">
+    <h3 class="text-[17px] font-medium">{title}</h3>
+    {#if period}<p class="text-[12px] leading-[1.65] text-muted mt-[5px]">
+        {period}
+      </p>{/if}
   </div>
   {#if empty}<p class="empty">{emptyLabel}</p>{:else}{@render children()}{/if}
-  {#if note}<div class="chart-note">{@render note()}</div>{/if}
+  {#if note}<div
+      class="text-[12px] leading-[1.65] text-muted mt-4.5 chart-note"
+    >
+      {@render note()}
+    </div>{/if}
 </section>
-
-<style>
-  .chart-frame {
-    min-width: 0;
-  }
-  .chart-heading {
-    margin-bottom: 16px;
-  }
-  h3 {
-    font-size: 17px;
-    font-weight: 500;
-  }
-  .chart-heading p,
-  .chart-note {
-    font-size: 12px;
-    line-height: 1.65;
-    color: var(--muted);
-  }
-  .chart-heading p {
-    margin-top: 5px;
-  }
-  .chart-note {
-    margin-top: 18px;
-  }
-</style>

@@ -32,15 +32,21 @@
   ]);
 </script>
 
-<div class="term-picker" role="group" aria-label={groupLabel}>
+<div
+  class="inline-grid grid-cols-[28px_minmax(0,_1fr)_28px] max-w-full h-7.5 border border-border rounded-[var(--radius-control,_5px)] bg-surface term-picker"
+  role="group"
+  aria-label={groupLabel}
+>
   <button
+    class="grid place-items-center w-7 h-7 p-0 border-0 rounded-none bg-transparent text-muted"
     aria-label={value ? "Previous term" : "Latest term"}
     disabled={!ordered.length || index >= ordered.length - 1}
     onclick={() => onChange(ordered[index + 1])}
     ><ChevronLeft size={14} /></button
   >
-  <Select {label} {value} {options} {onChange} />
+  <Select variant="segmented" {label} {value} {options} {onChange} />
   <button
+    class="grid place-items-center w-7 h-7 p-0 border-0 rounded-none bg-transparent text-muted"
     aria-label="Next term"
     disabled={index <= 0}
     onclick={() => onChange(ordered[index - 1])}
@@ -49,34 +55,6 @@
 </div>
 
 <style>
-  .term-picker {
-    display: inline-grid;
-    grid-template-columns: 28px minmax(0, 1fr) 28px;
-    max-width: 100%;
-    height: 30px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-control, 5px);
-    background: var(--surface);
-  }
-  .term-picker :global(.course-select-trigger) {
-    height: 28px;
-    border: 0;
-    border-inline: 1px solid var(--border);
-    border-radius: 0;
-    background: transparent;
-    padding-block: 0;
-  }
-  button {
-    display: grid;
-    place-items: center;
-    width: 28px;
-    height: 28px;
-    padding: 0;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-    color: var(--muted);
-  }
   button:first-child {
     border-radius: 4px 0 0 4px;
   }

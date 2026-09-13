@@ -156,8 +156,9 @@
   }
 </script>
 
-<div class="search-input">
+<div class="relative min-w-0 search-input">
   <input
+    class="w-full min-w-0 border-0 bg-transparent text-foreground py-2.5 px-0"
     name="q"
     bind:value={query}
     aria-label={label}
@@ -182,8 +183,11 @@
   />
   <span class="sr-only" role="status">{pending ? "Searching…" : message}</span>
   {#if open}
-    <div class="suggestions">
+    <div
+      class="absolute z-50 top-[calc(100%_+_12px)] left-0 right-0 min-w-[min(320px,_75vw)] border border-border rounded-[6px] bg-canvas shadow-[0_12px_28px_#00000012] overflow-hidden max-h-[min(420px,_60vh)] overflow-y-auto suggestions"
+    >
       <ul
+        class="list-none m-0 p-1.5"
         id={`${id}-suggestions`}
         role="listbox"
         aria-label="Search suggestions"
@@ -196,44 +200,48 @@
             aria-selected={active === index}
           >
             <button
+              class="flex items-center gap-3 w-full p-3 text-left border-0 bg-transparent text-foreground rounded-[3px]"
               type="button"
               tabindex="-1"
               onpointerdown={(event) => event.preventDefault()}
               onclick={() => choose(item)}
             >
-              <span class="suggestion-icon" aria-hidden="true"
+              <span
+                class="text-[13px] text-muted flex shrink-0 suggestion-icon"
+                aria-hidden="true"
                 >{#if item.kind === "course"}<BookOpen
                     size={18}
                     strokeWidth={1.5}
                   />{:else}<UserRound size={18} strokeWidth={1.5} />{/if}</span
               >
-              <span class="suggestion-text"
-                ><strong>{item.heading}</strong><span>{item.detail}</span></span
+              <span
+                class="text-[13px] text-muted flex flex-col gap-[3px] min-w-0 suggestion-text"
+                ><strong class="text-[13px] font-semibold text-foreground"
+                  >{item.heading}</strong
+                ><span class="text-[13px] text-muted">{item.detail}</span></span
               >
             </button>
           </li>
         {/each}
       </ul>
-      {#if pending || !items.length}<p>
+      {#if pending || !items.length}<p
+          class="m-0 text-muted text-[11px] border-t border-t-border py-2.5 px-4.5"
+        >
           {pending ? "Searching…" : message}
-        </p>{:else}<p>↑ ↓ to choose · Enter to open</p>{/if}
+        </p>{:else}<p
+          class="m-0 text-muted text-[11px] border-t border-t-border py-2.5 px-4.5"
+        >
+          ↑ ↓ to choose · Enter to open
+        </p>{/if}
     </div>
   {/if}
 </div>
 
 <style>
   .search-input {
-    position: relative;
     flex: 1;
-    min-width: 0;
   }
   input {
-    width: 100%;
-    min-width: 0;
-    padding: 10px 0;
-    border: 0;
-    background: transparent;
-    color: var(--text);
     font: inherit;
   }
   input:focus-visible {
@@ -242,71 +250,11 @@
   .search-input:focus-within {
     box-shadow: 0 1px var(--accent);
   }
-  .suggestions {
-    position: absolute;
-    z-index: 50;
-    top: calc(100% + 12px);
-    left: 0;
-    right: 0;
-    min-width: min(320px, 75vw);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    background: var(--bg);
-    box-shadow: 0 12px 28px #00000012;
-    overflow: hidden;
-  }
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 6px;
-  }
   button {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    width: 100%;
-    padding: 12px;
-    text-align: left;
-    border: 0;
-    background: transparent;
-    color: var(--text);
-    border-radius: 3px;
     font: inherit;
   }
   button:hover,
   li[aria-selected="true"] button {
     background: var(--surface);
-  }
-  .suggestion-icon {
-    display: flex;
-    flex-shrink: 0;
-  }
-  .suggestion-text {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    min-width: 0;
-  }
-  .suggestion-text strong {
-    color: var(--text);
-  }
-  .suggestions {
-    max-height: min(420px, 60vh);
-    overflow-y: auto;
-  }
-  strong {
-    font-size: 13px;
-    font-weight: 600;
-  }
-  button span {
-    font-size: 13px;
-    color: var(--muted);
-  }
-  p {
-    margin: 0;
-    padding: 10px 18px;
-    color: var(--muted);
-    font-size: 11px;
-    border-top: 1px solid var(--border);
   }
 </style>

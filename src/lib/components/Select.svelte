@@ -1,25 +1,66 @@
 <script lang="ts">
   import { Select } from "bits-ui";
   import { Check, ChevronDown } from "@lucide/svelte";
-  let { value = $bindable(""), options, label, onChange }: {
+  let {
+    value = $bindable(""),
+    options,
+    label,
+    onChange,
+    variant = "default",
+    width = "auto",
+  }: {
     value?: string;
     options: { value: string; label: string }[];
     label: string;
     onChange?: (value: string) => void;
+    variant?: "default" | "compact" | "segmented";
+    width?: "auto" | "filter";
   } = $props();
+
+  const variants = {
+    default: "border border-border rounded-control bg-surface py-1",
+    compact:
+      "h-7.5 box-border border border-border rounded-control bg-surface py-0",
+    segmented:
+      "h-7 border-0 border-x border-border rounded-none bg-transparent py-0",
+  };
 </script>
 
-<Select.Root type="single" value={value || "__all"} onValueChange={(next) => { value = next === "__all" ? "" : next; onChange?.(value); }}>
-  <Select.Trigger class="course-select-trigger" aria-label={label}>
-    <span>{options.find((option) => option.value === value)?.label || label}</span><ChevronDown size={14} />
+<Select.Root
+  type="single"
+  value={value || "__all"}
+  onValueChange={(next) => {
+    value = next === "__all" ? "" : next;
+    onChange?.(value);
+  }}
+>
+  <Select.Trigger
+    class={`course-select-trigger inline-flex items-center justify-between gap-4 px-2.5 text-[12px] leading-[18px] text-foreground cursor-pointer focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 ${variants[variant]} ${width === "filter" ? "max-w-60 [@media(max-width:600px)]:max-w-full" : "max-w-full"}`}
+    aria-label={label}
+  >
+    <span class="truncate"
+      >{options.find((option) => option.value === value)?.label || label}</span
+    >
+    <ChevronDown size={14} class="shrink-0 text-muted" />
   </Select.Trigger>
   <Select.Portal>
-    <Select.Content class="course-select-content" sideOffset={5}>
+    <Select.Content
+      class="course-select-content z-100 min-w-(--bits-select-anchor-width) max-w-[min(360px,calc(100vw-24px))] max-h-[min(320px,var(--bits-select-content-available-height))] overflow-y-auto rounded-[6px] border border-border bg-surface p-1 text-foreground shadow-[0_8px_24px_#0002]"
+      sideOffset={5}
+    >
       <Select.Viewport>
         {#each options as option}
-          <Select.Item value={option.value || "__all"} label={option.label} class="course-select-item">
+          <Select.Item
+            value={option.value || "__all"}
+            label={option.label}
+            class="course-select-item flex cursor-pointer items-center justify-between gap-5 rounded-[3px] px-[9px] py-[5px] text-[12px] leading-[18px] outline-none data-highlighted:bg-border"
+          >
             {#snippet children({ selected })}
-              <span>{option.label}</span>{#if selected}<Check size={14} />{/if}
+              <span>{option.label}</span>
+              {#if selected}<Check
+                  size={14}
+                  class="shrink-0 text-accent"
+                />{/if}
             {/snippet}
           </Select.Item>
         {/each}
@@ -27,14 +68,3 @@
     </Select.Content>
   </Select.Portal>
 </Select.Root>
-
-<style>
-  :global(.course-select-trigger) { display: inline-flex; align-items: center; justify-content: space-between; gap: 16px; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 5px; padding: 4px 10px; font: inherit; font-size: 12px; line-height: 18px; max-width: 100%; cursor: pointer; }
-  :global(.course-select-trigger span) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  :global(.course-select-trigger svg) { flex-shrink: 0; color: var(--muted); }
-  :global(.course-select-trigger:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
-  :global(.course-select-content) { z-index: 100; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 4px; box-shadow: 0 8px 24px #0002; min-width: var(--bits-select-anchor-width); max-width: min(360px, calc(100vw - 24px)); max-height: min(320px, var(--bits-select-content-available-height)); overflow-y: auto; }
-  :global(.course-select-item) { display: flex; align-items: center; justify-content: space-between; gap: 20px; border-radius: 3px; padding: 5px 9px; font-size: 12px; line-height: 18px; cursor: pointer; outline: none; }
-  :global(.course-select-item[data-highlighted]) { background: var(--border); }
-  :global(.course-select-item svg) { flex-shrink: 0; color: var(--accent); }
-</style>

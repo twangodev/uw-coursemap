@@ -37,11 +37,15 @@
 </script>
 
 <section aria-label="Find courses" class="finder">
-  <div class="finder-heading">
-    <h2>{ranked ? "Find your fit" : "Find your next class"}</h2>
-    <span class="muted"><strong>{results.total}</strong> courses</span>
+  <div class="flex items-baseline justify-between gap-5 mb-6 finder-heading">
+    <h2 class="text-[27px] font-medium m-0">
+      {ranked ? "Find your fit" : "Find your next class"}
+    </h2>
+    <span class="text-[13px] muted"
+      ><strong>{results.total}</strong> courses</span
+    >
   </div>
-  <form action={path} class="finder-search">
+  <form action={path} class="flex items-center gap-3 finder-search">
     <SearchInput
       value={results.q}
       revision={status.revision}
@@ -52,13 +56,16 @@
         availability: results.availability,
       }}
       placeholder="A course, professor, or something you want to learn…"
-    />{#each Object.entries( { ...urlParams, term: results.term, availability: results.availability }, ).filter(([key]) => !["q", "page"].includes(key)) as [key, value]}<input
+    />{#each Object.entries( { ...urlParams, term: results.term, availability: results.availability } ).filter(([key]) => !["q", "page"].includes(key)) as [key, value]}<input
         type="hidden"
         name={key}
         {value}
-      />{/each}<button aria-label="Search"><Search size={19} strokeWidth={1.5} /></button>
+      />{/each}<button
+      class="grid place-items-center min-h-10.5 border-0 bg-transparent shrink-0 py-2 px-2.5"
+      aria-label="Search"><Search size={19} strokeWidth={1.5} /></button
+    >
   </form>
-  <div class="finder-filters">
+  <div class="flex flex-wrap gap-2.5 finder-filters my-5.5 mx-0">
     {#if !subject}<Select
         label="Department"
         value={urlParams.subject || ""}
@@ -115,20 +122,28 @@
       onChange={(v) => change("credits_max", v)}
     />
     {#if !ranked}<Select
-      label="Sort courses"
-      value={urlParams.sort || ""}
-      options={[
-        { value: "", label: "Course match" },
-        { value: "gpa", label: "Higher historical grades" },
-      ]}
-      onChange={(v) => change("sort", v)}
-    />{/if}
+        label="Sort courses"
+        value={urlParams.sort || ""}
+        options={[
+          { value: "", label: "Course match" },
+          { value: "gpa", label: "Higher historical grades" },
+        ]}
+        onChange={(v) => change("sort", v)}
+      />{/if}
   </div>
-  <p class="coverage">
-    Historical grades cover up to five years through the selected term. {ranked ? "Only courses with at least 100 letter grades are ranked." : "Grade sorting prioritizes courses with at least 100 letter grades."}
+  <p class="text-[12px] text-muted max-w-[75ch] mt-4 mb-2 coverage mx-0">
+    Historical grades cover up to five years through the selected term. {ranked
+      ? "Only courses with at least 100 letter grades are ranked."
+      : "Grade sorting prioritizes courses with at least 100 letter grades."}
   </p>
-  <CourseList courses={results.items} rankStart={ranked ? (results.page - 1) * 30 + 1 : undefined} />
-  <nav class="pagination" aria-label="Course results pages">
+  <CourseList
+    courses={results.items}
+    rankStart={ranked ? (results.page - 1) * 30 + 1 : undefined}
+  />
+  <nav
+    class="flex gap-6 mt-6 text-[13px] pagination"
+    aria-label="Course results pages"
+  >
     {#if results.page > 1}<a href={pageLink(results.page - 1)}>← Previous</a
       >{/if}<span>Page {results.page}</span
     >{#if results.page * 30 < results.total}<a href={pageLink(results.page + 1)}
@@ -138,27 +153,6 @@
 </section>
 
 <style>
-  .finder-heading {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 24px;
-  }
-  .finder-heading h2 {
-    font-size: 27px;
-    font-weight: 500;
-    margin: 0;
-  }
-  .finder-heading span {
-    font-size: 13px;
-  }
-  .finder-search {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .finder-search > button { display: grid; place-items: center; min-height: 42px; padding: 8px 10px; border: 0; background: transparent; flex-shrink: 0; }
   .finder-search :global(.search-input) {
     flex: 1;
     min-width: 0;
@@ -168,23 +162,5 @@
     background: transparent;
     color: var(--text);
     font: inherit;
-  }
-  .finder-filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 22px 0;
-  }
-  .coverage {
-    font-size: 12px;
-    color: var(--muted);
-    max-width: 75ch;
-    margin: 16px 0 8px;
-  }
-  .pagination {
-    display: flex;
-    gap: 24px;
-    margin-top: 24px;
-    font-size: 13px;
   }
 </style>

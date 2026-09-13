@@ -32,16 +32,18 @@
   );
 </script>
 
-<div class="map" class:preview>
+<div class="relative min-w-0 map" class:preview>
   <svg
+    class="w-full h-auto block"
     viewBox="0 0 900 505"
     preserveAspectRatio={preview ? "xMidYMid slice" : "xMidYMid meet"}
     aria-label="Scheduled enrollment visits by campus building"
   >
-    <image href={map} width="900" height="505" class="base" />
+    <image href={map} width="900" height="505" class="opacity-[0.55] base" />
     {#each outlines as b}
       {#if preview}
         <path
+          class="cursor-pointer"
           d={b.path}
           fill="var(--accent)"
           fill-opacity={0.12 + campusIntensity(b.count, peak) * 0.65}
@@ -50,6 +52,7 @@
         />
       {:else}
         <path
+          class="cursor-pointer"
           d={b.path}
           fill="var(--accent)"
           fill-opacity={0.12 + campusIntensity(b.count, peak) * 0.65}
@@ -71,25 +74,28 @@
       {/if}
     {/each}
   </svg>
-  {#if !preview}<p class="caption" aria-live="polite">
-      {#if chosen}<strong>{chosen.name}</strong> · {knownMeetings
+  {#if !preview}<p
+      class="min-h-[2.6em] mt-3 mb-0 text-[13px] text-muted caption mx-0"
+      aria-live="polite"
+    >
+      {#if chosen}<strong class="text-foreground font-medium"
+          >{chosen.name}</strong
+        >
+        · {knownMeetings
           ? `${chosen.count.toLocaleString()} scheduled enrollment visits`
           : "Enrollment unavailable"} · {meetings.toLocaleString()} meetings{:else}Select
         a building to explore its teaching activity.{/if}
     </p>
-  {/if}{#if preview}<span class="attribution">© OpenStreetMap contributors</span
+  {/if}{#if preview}<span class="text-[10px] text-muted attribution"
+      >© OpenStreetMap contributors</span
     >{:else}<a
-      class="attribution"
+      class="text-[10px] text-muted attribution"
       href="https://www.openstreetmap.org/copyright"
       >© OpenStreetMap contributors</a
     >{/if}
 </div>
 
 <style>
-  .map {
-    position: relative;
-    min-width: 0;
-  }
   .map.preview {
     flex: 1;
     display: flex;
@@ -107,40 +113,17 @@
     flex: 1;
     min-height: 0;
   }
-  svg {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  .base {
-    opacity: 0.55;
-  }
   :global(.dark) .base {
     filter: invert(1);
     opacity: 0.26;
   }
   path {
-    cursor: pointer;
     transition: fill-opacity 160ms;
   }
   path:focus-visible {
     outline: none;
     stroke: var(--text);
     stroke-width: 3;
-  }
-  .caption {
-    min-height: 2.6em;
-    margin: 12px 0 0;
-    font-size: 13px;
-    color: var(--muted);
-  }
-  .caption strong {
-    color: var(--text);
-    font-weight: 500;
-  }
-  .attribution {
-    font-size: 10px;
-    color: var(--muted);
   }
   @media (prefers-reduced-motion: reduce) {
     path {

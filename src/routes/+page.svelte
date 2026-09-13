@@ -14,7 +14,10 @@
   );
 </script>
 
-<section class="landing" aria-labelledby="landing-title">
+<section
+  class="relative isolate pt-7.5 pb-10 landing px-0"
+  aria-labelledby="landing-title"
+>
   <CampusMap
     maxConcurrentClasses={peak}
     day={activity?.day}
@@ -24,63 +27,94 @@
     coverage={data.campus}
     onactivity={(day, now) => (activity = { day, now })}
   />
-  <div class="landing-copy">
-    <h1 id="landing-title">Search UW–Madison courses</h1>
-    <p class="search-description">
+  <div class="relative z-2 w-[min(100%,_580px)] m-0 landing-copy">
+    <h1 class="text-[22px] font-medium tracking-[-0.035em]" id="landing-title">
+      Search UW–Madison courses
+    </h1>
+    <p class="text-[13px] text-muted mt-1.5 search-description">
       Compare grades, prerequisites, and professor reviews.
     </p>
-    <form action="/search" class="landing-search">
+    <form
+      action="/search"
+      class="flex items-center gap-3 pr-[7px] pl-4 border border-border rounded-[6px] mt-3 bg-canvas w-full landing-search py-[7px]"
+    >
       <SearchInput
         revision={data.status.revision}
         label="Search courses or topics"
         placeholder="A course, professor, or topic…"
       />
-      <button aria-label="Find courses"
-        ><Search size={19} strokeWidth={1.5} /></button
+      <button
+        class="inline-flex items-center justify-start gap-2 shrink-0 min-h-10.5 text-[14px] bg-transparent text-foreground border-0 py-2 px-2.5"
+        aria-label="Find courses"><Search size={19} strokeWidth={1.5} /></button
       >
     </form>
-    <div class="try-search">
-      <span>Try</span><a href="/courses/COMPSCI_300">CS 300</a><a
-        href="/search?q=climate">climate</a
-      ><a href="/search?q=film">film</a>
+    <div class="flex justify-start gap-4.5 mt-3.5 text-[13px] try-search">
+      <span class="text-muted">Try</span><a
+        class="underline [text-underline-offset:4px]"
+        href="/courses/COMPSCI_300">CS 300</a
+      ><a class="underline [text-underline-offset:4px]" href="/search?q=climate"
+        >climate</a
+      ><a class="underline [text-underline-offset:4px]" href="/search?q=film"
+        >film</a
+      >
     </div>
   </div>
-  <div class="map-caption">
+  <div
+    class="relative z-1 flex justify-start items-center flex-wrap gap-3 mt-6 text-muted text-[10px] map-caption"
+  >
     <span
+      class="inline-flex items-center gap-2"
       title="Heat shows concurrent scheduled class meetings at buildings with recorded coordinates, not live attendance. Missing locations and ambiguous building matches are omitted."
       >Scheduled classes by building</span
     >
     <div
-      class="heat-legend"
+      class="w-25 heat-legend my-0 mx-1.5"
       aria-label={`Square-root color scale: 0 to ${peak} concurrent classes per building. Reference fixed across the published schedule.`}
     >
-      <div class="heat-ramp"></div>
-      <div class="heat-ticks">
+      <div class="h-[5px] rounded-[3px] heat-ramp"></div>
+      <div class="relative h-3 mt-1 text-[9px] heat-ticks">
         {#each heatTicks as tick}<span
+            class="absolute"
             style:left={`${campusIntensity(tick, peak) * 100}%`}>{tick}</span
           >{/each}
       </div>
     </div>
-    <a class="map-credit" href="https://www.openstreetmap.org/copyright"
+    <a
+      class="block w-fit mr-0 ml-auto text-[9px] text-muted no-underline map-credit my-0"
+      href="https://www.openstreetmap.org/copyright"
       >© OpenStreetMap contributors</a
     >
   </div>
 </section>
-<div class="campus-strip">
+<div
+  class="flex justify-between gap-4 border-y border-y-border text-[14px] campus-strip py-[21px] px-0"
+>
   <span
     >{data.status.courses.toLocaleString()} courses. Plenty of possibilities.</span
-  ><a href="/search">Explore all courses <ArrowUpRight size={15} /></a>
-    <a href="/stats">Campus by the numbers <ArrowUpRight size={15} /></a>
+  ><a class="inline-flex items-center gap-[7px]" href="/search"
+    >Explore all courses <ArrowUpRight size={15} /></a
+  >
+  <a class="inline-flex items-center gap-[7px]" href="/stats"
+    >Campus by the numbers <ArrowUpRight size={15} /></a
+  >
 </div>
-<section class="discover" aria-labelledby="discover-title">
+<section
+  class="grid grid-cols-[1fr_2fr] gap-16 pt-10.5 pb-2.5 discover px-0"
+  aria-labelledby="discover-title"
+>
   <div class="discover-intro">
-    <h2 id="discover-title">Browse departments</h2>
-    <a href="/departments">All departments <ArrowUpRight size={14} /></a>
+    <h2 class="text-[25px]" id="discover-title">Browse departments</h2>
+    <a
+      class="inline-flex items-center gap-[7px] mt-6 text-[13px]"
+      href="/departments">All departments <ArrowUpRight size={14} /></a
+    >
   </div>
-  <div class="department-list">
+  <div class="grid grid-cols-[1fr_1fr] gap-x-9 department-list">
     {#each departments as d}<a
+        class="flex justify-between items-center gap-3 border-b border-b-border text-[14px] py-[17px] px-0"
         href={"/departments/" + encodeURIComponent(d.subject)}
-        ><span>{departmentName(d.subject)}</span><span class="department-count"
+        ><span>{departmentName(d.subject)}</span><span
+          class="inline-flex items-center gap-3 text-muted whitespace-nowrap department-count"
           >{d.count} courses <ArrowUpRight size={14} /></span
         ></a
       >{/each}
@@ -88,45 +122,7 @@
 </section>
 
 <style>
-  .landing {
-    position: relative;
-    isolation: isolate;
-    padding: 30px 0 40px;
-  }
-  h1 {
-    font-size: 22px;
-    font-weight: 500;
-    letter-spacing: -0.035em;
-  }
-  .search-description {
-    font-size: 13px;
-    color: var(--muted);
-    margin-top: 6px;
-  }
-  .map-caption {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 24px;
-    color: var(--muted);
-    font-size: 10px;
-  }
-  .map-caption > span {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .heat-legend {
-    width: 100px;
-    margin: 0 6px;
-  }
   .heat-ramp {
-    height: 5px;
-    border-radius: 3px;
     background: linear-gradient(
       to right,
       transparent,
@@ -134,123 +130,20 @@
       color-mix(in srgb, var(--accent) 38%, transparent)
     );
   }
-  .heat-ticks {
-    position: relative;
-    height: 12px;
-    margin-top: 4px;
-    font-size: 9px;
-  }
   .heat-ticks span {
-    position: absolute;
     transform: translateX(-50%);
-  }
-  .landing-copy {
-    position: relative;
-    z-index: 2;
-    width: min(100%, 580px);
-    margin: 0;
-  }
-  .map-credit {
-    display: block;
-    width: fit-content;
-    margin: 0 0 0 auto;
-    font-size: 9px;
-    color: var(--muted);
-    text-decoration: none;
-  }
-  .landing-search {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 7px 7px 7px 16px;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    margin-top: 12px;
-    background: var(--bg);
-    width: 100%;
   }
   .landing-search:focus-within {
     border-color: var(--accent);
   }
-  button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 8px;
-    flex-shrink: 0;
-    min-height: 42px;
-    padding: 8px 10px;
-    font-size: 14px;
-    background: transparent;
-    color: var(--text);
-    border: 0;
-  }
   button:hover {
     opacity: 0.85;
   }
-  .try-search {
-    display: flex;
-    justify-content: flex-start;
-    gap: 18px;
-    margin-top: 14px;
-    font-size: 13px;
-  }
-  .try-search span {
-    color: var(--muted);
-  }
   .try-search a {
-    text-decoration: underline;
     text-decoration-color: var(--border);
-    text-underline-offset: 4px;
-  }
-  .campus-strip {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 21px 0;
-    border-block: 1px solid var(--border);
-    font-size: 14px;
-  }
-  .campus-strip a,
-  .discover-intro a {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-  }
-  .discover {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 64px;
-    padding: 42px 0 10px;
-  }
-  .discover h2 {
-    font-size: 25px;
-  }
-  .discover-intro a {
-    margin-top: 24px;
-    font-size: 13px;
-  }
-  .department-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 36px;
-  }
-  .department-list a {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    padding: 17px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 14px;
   }
   .department-count {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--muted);
     font: 11px var(--font-sans);
-    white-space: nowrap;
   }
   @media (max-width: 760px) {
     .landing {

@@ -12,36 +12,23 @@
   );
 </script>
 
-<nav aria-label="Course collections" class="collections">
+<nav
+  aria-label="Course collections"
+  class="flex flex-wrap gap-y-3.5 gap-x-8 mt-3 mb-9 collections mx-0"
+>
   {#each Object.entries(courseCollections) as [slug, collection]}
     <a
+      class="inline-flex items-center gap-3.5 border-b border-b-border text-[15px] py-3 px-0"
       href={`${subject ? `/departments/${encodeURIComponent(subject)}` : "/courses"}/${slug}${query ? `?${query}` : ""}`}
       aria-current={active === slug ? "page" : undefined}
-      >{collection.title}<span aria-hidden="true">↗</span></a
+      >{collection.title}<span class="text-muted" aria-hidden="true">↗</span></a
     >
   {/each}
 </nav>
 
 <style>
-  .collections {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px 32px;
-    margin: 12px 0 36px;
-  }
-  a {
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-    padding: 12px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 15px;
-  }
   a[aria-current="page"] {
     color: var(--accent);
     border-color: var(--accent);
-  }
-  span {
-    color: var(--muted);
   }
 </style>

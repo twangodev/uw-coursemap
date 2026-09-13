@@ -44,7 +44,7 @@
             ? "Dataset updated. Reload this page."
             : "Reviews could not be loaded. Try again.",
         );
-      const next = await response.json() as ReviewPage;
+      const next = (await response.json()) as ReviewPage;
       if (!Array.isArray(next.items))
         throw new Error("Invalid review response. Try again.");
       if (!request.signal.aborted)
@@ -60,11 +60,18 @@
   }
 </script>
 
-<section class="student-reviews" aria-labelledby="reviews-heading">
-  <div class="review-heading">
+<section
+  class="border-t border-t-border student-reviews py-8 px-0"
+  aria-labelledby="reviews-heading"
+>
+  <div class="flex justify-between items-start gap-6 mb-7.5 review-heading">
     <div>
-      <h2 id="reviews-heading">What students say</h2>
-      <p>Original student reviews · all captured dates</p>
+      <h2 class="text-[28px] font-medium mt-0 mb-2 mx-0" id="reviews-heading">
+        What students say
+      </h2>
+      <p class="text-muted text-[12px]">
+        Original student reviews · all captured dates
+      </p>
     </div>
     <Select
       label="Reviews for course"
@@ -86,49 +93,63 @@
       >
     </p>{/if}
   {#if loading}<p class="muted" role="status">Loading reviews…</p>{/if}
-  <div class="review-list">
+  <div class="grid grid-cols-[1fr_1fr] gap-x-12 review-list">
     {#each result.items as review (`${review.source_instructor_id}:${review.source_review_id}`)}
       {@const course = initial.courses.find(
         (c) => c.course_uid === review.course_uid,
       )}
-      <article class="student-review">
-        <div class="review-meta">
+      <article
+        class="border-b border-b-border min-w-0 student-review py-6 px-0"
+      >
+        <div class="flex justify-between gap-5 text-[12px] review-meta">
           {#if course}<a href={courseUrl(course.course_id)}
-              >{initial.courses.find(
-                (c) => c.course_uid === review.course_uid,
-              )?.course_id ||
+              >{initial.courses.find((c) => c.course_uid === review.course_uid)
+                ?.course_id ||
                 review.course_label ||
                 "Course"}</a
             >{:else}<span
               >{review.course_label
                 ? `${review.course_label} · course not matched`
                 : "Course not matched"}</span
-            >{/if}<time
+            >{/if}<time class="text-muted"
             >{review.review_date?.slice(0, 10) || "Date unavailable"}</time
           >
         </div>
-        <div class="review-scores">
+        <div class="flex gap-6 text-[12px] text-muted review-scores my-4 mx-0">
           {#if review.quality_rating != null}<span
-              >Quality <strong class:positive={review.quality_rating >= 4}
+              >Quality <strong
+                class="text-foreground font-medium"
+                class:positive={review.quality_rating >= 4}
                 >{review.quality_rating}/5</strong
               ></span
             >{/if}{#if review.difficulty_rating != null}<span
-              >Difficulty <strong>{review.difficulty_rating}/5</strong></span
+              >Difficulty <strong class="text-foreground font-medium"
+                >{review.difficulty_rating}/5</strong
+              ></span
             >{/if}
         </div>
-        {#if review.comment && review.comment.length > 350}<details>
-            <summary
-              ><span class="excerpt">{review.comment.slice(0, 240)}…</span>
-              <span class="read-more">Read full review</span><span
-                class="read-less">Show less</span
+        {#if review.comment && review.comment.length > 350}<details class="m-0">
+            <summary class="text-[15px] leading-[1.75] cursor-pointer"
+              ><span class="text-foreground text-[15px] excerpt"
+                >{review.comment.slice(0, 240)}…</span
+              >
+              <span class="text-accent text-[12px] read-more"
+                >Read full review</span
+              ><span class="text-accent text-[12px] read-less">Show less</span
               ></summary
             >
-            <blockquote>{review.comment}</blockquote>
-          </details>{:else}<blockquote>
+            <blockquote
+              class="m-0 text-[15px] leading-[1.75] whitespace-pre-wrap wrap-anywhere"
+            >
+              {review.comment}
+            </blockquote>
+          </details>{:else}<blockquote
+            class="m-0 text-[15px] leading-[1.75] whitespace-pre-wrap wrap-anywhere"
+          >
             {review.comment || "This review contains ratings only."}
           </blockquote>{/if}
         {#if safeUrl(review.source_url)}<a
-            class="source"
+            class="inline-block mt-4.5 text-muted text-[11px] source"
             href={safeUrl(review.source_url)}
             target="_blank"
             rel="noreferrer">Rate My Professors ↗</a
@@ -141,96 +162,22 @@
         </p>{/if}{/each}
   </div>
   {#if result.items.length < result.total}<button
-      class="load-more"
+      class="mt-6 bg-surface border border-border rounded-control text-foreground load-more py-2 px-4"
       disabled={loading}
       onclick={() => load(selectedCourse, true)}>Read more reviews</button
     >{/if}
-  <p class="review-note">
+  <p class="text-muted text-[12px] mt-6 leading-[1.7] review-note">
     Personal experiences, not a representative survey. Profile matching and
     captured coverage are shown in the source details.
   </p>
 </section>
 
 <style>
-  .student-reviews {
-    padding: 32px 0;
-    border-top: 1px solid var(--border);
-  }
-  .review-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    gap: 24px;
-    margin-bottom: 30px;
-  }
-  .review-heading h2 {
-    font-size: 28px;
-    font-weight: 500;
-    margin: 0 0 8px;
-  }
-  .review-heading p,
-  .review-note {
-    color: var(--muted);
-    font-size: 12px;
-  }
-  .review-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 48px;
-  }
-  .student-review {
-    padding: 24px 0;
-    border-bottom: 1px solid var(--border);
-    min-width: 0;
-  }
-  .review-meta {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    font-size: 12px;
-  }
-  .review-meta time {
-    color: var(--muted);
-  }
-  .review-scores {
-    display: flex;
-    gap: 24px;
-    font-size: 12px;
-    margin: 16px 0;
-    color: var(--muted);
-  }
-  .review-scores strong {
-    color: var(--text);
-    font-weight: 500;
-  }
   .review-scores strong.positive {
     color: var(--positive);
   }
-  blockquote {
-    margin: 0;
-    font-size: 15px;
-    line-height: 1.75;
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
-  }
-  .source {
-    display: inline-block;
-    margin-top: 18px;
-    color: var(--muted);
-    font-size: 11px;
-  }
-  details {
-    margin: 0;
-  }
-  summary {
-    font-size: 15px;
-    line-height: 1.75;
-    cursor: pointer;
-  }
   summary span {
     display: block;
-    color: var(--accent);
-    font-size: 12px;
   }
   .read-less,
   details[open] summary .excerpt,
@@ -239,22 +186,6 @@
   }
   details[open] summary .read-less {
     display: block;
-  }
-  summary .excerpt {
-    color: var(--text);
-    font-size: 15px;
-  }
-  .load-more {
-    margin-top: 24px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    padding: 8px 16px;
-    border-radius: 5px;
-    color: var(--text);
-  }
-  .review-note {
-    margin-top: 24px;
-    line-height: 1.7;
   }
   @media (max-width: 700px) {
     .review-list {

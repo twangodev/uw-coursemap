@@ -38,7 +38,7 @@
   }
 </script>
 
-<div class="hero">
+<div class="pb-6 hero">
   <p class="mono muted">
     {data.instructor.current ? "Current instructor" : "Historical instructor"}
   </p>
@@ -52,12 +52,17 @@
   revision={data.status.revision}
 />
 <section class="section">
-  <div class="teaching-heading">
-    <h2>Classes with {data.instructor.name || "this instructor"}</h2>
+  <div class="flex items-center justify-between gap-6 mb-7 teaching-heading">
+    <h2 class="text-[27px] font-medium">
+      Classes with {data.instructor.name || "this instructor"}
+    </h2>
     <TermPicker
       label="Teaching term"
       value={data.term}
-      terms={[data.status.term, ...data.timeline.map((row: { term: string }) => row.term)]}
+      terms={[
+        data.status.term,
+        ...data.timeline.map((row: { term: string }) => row.term),
+      ]}
       onChange={(term) =>
         goto(`?term=${term}`, { noScroll: true, keepFocus: true })}
     />
@@ -106,20 +111,6 @@
 </details>
 
 <style>
-  .teaching-heading {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    margin-bottom: 28px;
-  }
-  .teaching-heading h2 {
-    font-size: 27px;
-    font-weight: 500;
-  }
-  .hero {
-    padding-bottom: 24px;
-  }
   @media (max-width: 700px) {
     .teaching-heading {
       align-items: start;

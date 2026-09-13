@@ -18,29 +18,49 @@
   let open = $state(false);
 </script>
 
-<div class="stats-card" class:compact style={`--span:${span}`}>
+<div
+  class="[grid-column:span_var(--span)] min-w-0 bg-[color-mix(in_srgb,_var(--surface)_55%,_var(--bg))] border border-border rounded-[12px] overflow-clip stats-card"
+  class:compact
+  style={`--span:${span}`}
+>
   <Dialog.Root bind:open>
-    <Dialog.Trigger class="stats-card-trigger" aria-label={title}>
-      <span class="card-heading"
+    <Dialog.Trigger
+      class="block w-full text-left bg-transparent border-0 text-foreground cursor-pointer p-7 stats-card-trigger"
+      aria-label={title}
+    >
+      <span
+        class="flex items-center justify-between gap-4 text-[16px] font-[450] tracking-[-0.025em] card-heading"
         ><span role="heading" aria-level="2">{title}</span><ArrowUpRight
           size={18}
           strokeWidth={1.4}
         /></span
       >
-      <div class="card-preview">{@render preview()}</div>
+      <div
+        class="h-60 pt-7 flex flex-col justify-center pointer-events-none card-preview"
+      >
+        {@render preview()}
+      </div>
     </Dialog.Trigger>
     <Dialog.Portal>
-      <Dialog.Overlay class="stats-dialog-overlay" />
-      <Dialog.Content class="stats-dialog">
-        <div class="dialog-heading">
-          <Dialog.Title class="stats-dialog-title">{title}</Dialog.Title
+      <Dialog.Overlay
+        class="fixed inset-0 z-70 bg-[#0008] stats-dialog-overlay"
+      />
+      <Dialog.Content
+        class="fixed z-80 top-1/2 left-1/2 w-[min(1160px,_calc(100vw_-_48px))] max-h-[calc(100dvh_-_48px)] overflow-auto bg-canvas text-foreground border border-border rounded-[12px] shadow-[0_24px_100px_#0005] stats-dialog"
+      >
+        <div
+          class="sticky top-0 z-2 flex items-center justify-between gap-6 bg-canvas border-b border-b-border dialog-heading py-5.5 px-7"
+        >
+          <Dialog.Title
+            class="m-0 text-[20px] font-[450] tracking-[-0.03em] stats-dialog-title"
+            >{title}</Dialog.Title
           ><Dialog.Close
-            class="stats-dialog-close"
+            class="grid place-items-center w-8 h-8 p-0 border-0 rounded-control bg-surface text-muted cursor-pointer stats-dialog-close"
             aria-label="Close statistics"
             ><X size={20} strokeWidth={1.5} /></Dialog.Close
           >
         </div>
-        <div class="card-body">{@render children()}</div>
+        <div class="p-7 card-body">{@render children()}</div>
       </Dialog.Content>
     </Dialog.Portal>
   </Dialog.Root>
@@ -48,41 +68,18 @@
 
 <style>
   .stats-card {
-    grid-column: span var(--span);
-    min-width: 0;
-    background: color-mix(in srgb, var(--surface) 55%, var(--bg));
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: clip;
     transition: border-color 180ms ease;
   }
   .stats-card:hover {
     border-color: color-mix(in srgb, var(--muted) 50%, var(--border));
   }
   :global(.stats-card-trigger) {
-    display: block;
-    width: 100%;
-    text-align: left;
-    background: none;
-    border: 0;
-    color: var(--text);
     font: inherit;
-    cursor: pointer;
-    padding: 28px;
   }
   :global(.stats-card-trigger:focus-visible) {
     outline: 2px solid var(--accent);
     outline-offset: -3px;
     border-radius: 12px;
-  }
-  .card-heading {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    font-size: 16px;
-    font-weight: 450;
-    letter-spacing: -0.025em;
   }
   .card-heading :global(svg) {
     color: var(--muted);
@@ -95,70 +92,13 @@
     transform: translate(2px, -2px);
     color: var(--accent);
   }
-  .card-preview {
-    height: 240px;
-    padding-top: 28px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    pointer-events: none;
-  }
   :global(.stats-dialog-overlay) {
-    position: fixed;
-    inset: 0;
-    z-index: 70;
-    background: #0008;
     backdrop-filter: blur(4px);
     animation: overlay-in 160ms ease-out;
   }
   :global(.stats-dialog) {
-    position: fixed;
-    z-index: 80;
-    top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
-    width: min(1160px, calc(100vw - 48px));
-    max-height: calc(100dvh - 48px);
-    overflow: auto;
-    background: var(--bg);
-    color: var(--text);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    box-shadow: 0 24px 100px #0005;
     animation: dialog-in 180ms ease-out;
-  }
-  .dialog-heading {
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    padding: 22px 28px;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-  }
-  :global(.stats-dialog-title) {
-    margin: 0;
-    font-size: 20px;
-    font-weight: 450;
-    letter-spacing: -0.03em;
-  }
-  :global(.stats-dialog-close) {
-    display: grid;
-    place-items: center;
-    width: 32px;
-    height: 32px;
-    padding: 0;
-    border: 0;
-    border-radius: 5px;
-    background: var(--surface);
-    color: var(--muted);
-    cursor: pointer;
-  }
-  .card-body {
-    padding: 28px;
   }
   @keyframes overlay-in {
     from {
@@ -212,5 +152,9 @@
       animation: none;
     }
   }
-  @media (max-width: 760px) { .compact .card-preview { height: 165px; } }
+  @media (max-width: 760px) {
+    .compact .card-preview {
+      height: 165px;
+    }
+  }
 </style>
